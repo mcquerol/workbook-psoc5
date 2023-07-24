@@ -1,0 +1,7 @@
+C:\Users\robom\OneDrive\University\Darmstadt\Advanced Microcontroller Systems and Embedded Operating systems\Embedded Operating Systems\Workbook\reaction_game_wb.cydsn\reaction_game_wb.cyprj|d8ab2e25-3521-4819-8a65-acb6e77c80c8
+C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\psoc\content\default\CyAnnotationLibrary\CyAnnotationLibrary.cylib\CyAnnotationLibrary.cyprj|562a0ed2-b309-4f07-b809-470ecb738432
+C:\Users\robom\Documents\PSoC Creator\4.4\Downloads ( 4.4).cylib\Downloads ( 4.4).cyprj|e2d7bc9f-e4fe-42b1-a96b-ce2ea89b7272
+C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\psoc\content\cycomponentlibraryupdates\CyComponentLibraryUpdates.cylib\CyComponentLibraryUpdates.cyprj|87db91c5-e5c0-422c-aecd-bab2384c7b8f
+C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\psoc\content\cycomponentlibrary\CyComponentLibrary.cylib\CyComponentLibrary.cyprj|e86044a5-d798-480f-9d0d-af3626891d7d
+C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\psoc\content\cyprimitives\CyPrimitives.cylib\CyPrimitives.cyprj|d6b1c6ee-4c9a-4216-a6f9-e4a33fce442a
+C:\Users\robom\OneDrive\University\Darmstadt\Advanced Microcontroller Systems and Embedded Operating systems\Embedded Operating Systems\Workbook\mp3_player_wb.cydsn\mp3_player_wb.cyprj|cdfb5093-6147-4214-af22-3689349fc84a

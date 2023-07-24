@@ -1,0 +1,441 @@
+ARM GAS  C:\Users\robom\AppData\Local\Temp\cca7YvLx.s 			page 1
+
+
+   1              		.syntax unified
+   2              		.cpu cortex-m3
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 1
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.thumb
+  14              		.syntax unified
+  15              		.file	"mp3.c"
+  16              		.text
+  17              	.Ltext0:
+  18              		.cfi_sections	.debug_frame
+  19              		.comm	currState,1,1
+  20              		.comm	btnFlag,1,1
+  21              	.Letext0:
+  22              		.file 1 "mp3.h"
+  23              		.section	.debug_info,"",%progbits
+  24              	.Ldebug_info0:
+  25 0000 FE000000 		.4byte	0xfe
+  26 0004 0400     		.2byte	0x4
+  27 0006 00000000 		.4byte	.Ldebug_abbrev0
+  28 000a 04       		.byte	0x4
+  29 000b 01       		.uleb128 0x1
+  30 000c EF000000 		.4byte	.LASF27
+  31 0010 0C       		.byte	0xc
+  32 0011 83020000 		.4byte	.LASF28
+  33 0015 14000000 		.4byte	.LASF29
+  34 0019 00000000 		.4byte	.Ldebug_line0
+  35 001d 02       		.uleb128 0x2
+  36 001e 04       		.byte	0x4
+  37 001f 07       		.byte	0x7
+  38 0020 07000000 		.4byte	.LASF0
+  39 0024 02       		.uleb128 0x2
+  40 0025 01       		.byte	0x1
+  41 0026 06       		.byte	0x6
+  42 0027 89020000 		.4byte	.LASF1
+  43 002b 02       		.uleb128 0x2
+  44 002c 01       		.byte	0x1
+  45 002d 08       		.byte	0x8
+  46 002e D5010000 		.4byte	.LASF2
+  47 0032 02       		.uleb128 0x2
+  48 0033 02       		.byte	0x2
+  49 0034 05       		.byte	0x5
+  50 0035 69020000 		.4byte	.LASF3
+  51 0039 02       		.uleb128 0x2
+  52 003a 02       		.byte	0x2
+  53 003b 07       		.byte	0x7
+  54 003c 26020000 		.4byte	.LASF4
+  55 0040 02       		.uleb128 0x2
+  56 0041 04       		.byte	0x4
+  57 0042 05       		.byte	0x5
+ARM GAS  C:\Users\robom\AppData\Local\Temp\cca7YvLx.s 			page 2
+
+
+  58 0043 F8010000 		.4byte	.LASF5
+  59 0047 02       		.uleb128 0x2
+  60 0048 04       		.byte	0x4
+  61 0049 07       		.byte	0x7
+  62 004a 7D010000 		.4byte	.LASF6
+  63 004e 02       		.uleb128 0x2
+  64 004f 04       		.byte	0x4
+  65 0050 04       		.byte	0x4
+  66 0051 63020000 		.4byte	.LASF7
+  67 0055 02       		.uleb128 0x2
+  68 0056 08       		.byte	0x8
+  69 0057 04       		.byte	0x4
+  70 0058 01020000 		.4byte	.LASF8
+  71 005c 02       		.uleb128 0x2
+  72 005d 08       		.byte	0x8
+  73 005e 05       		.byte	0x5
+  74 005f 08020000 		.4byte	.LASF9
+  75 0063 02       		.uleb128 0x2
+  76 0064 08       		.byte	0x8
+  77 0065 07       		.byte	0x7
+  78 0066 BE010000 		.4byte	.LASF10
+  79 006a 02       		.uleb128 0x2
+  80 006b 01       		.byte	0x1
+  81 006c 08       		.byte	0x8
+  82 006d F3010000 		.4byte	.LASF11
+  83 0071 03       		.uleb128 0x3
+  84 0072 B7010000 		.4byte	.LASF19
+  85 0076 01       		.byte	0x1
+  86 0077 2B000000 		.4byte	0x2b
+  87 007b 01       		.byte	0x1
+  88 007c 06       		.byte	0x6
+  89 007d AC000000 		.4byte	0xac
+  90 0081 04       		.uleb128 0x4
+  91 0082 8F010000 		.4byte	.LASF12
+  92 0086 00       		.byte	0
+  93 0087 04       		.uleb128 0x4
+  94 0088 16020000 		.4byte	.LASF13
+  95 008c 01       		.byte	0x1
+  96 008d 04       		.uleb128 0x4
+  97 008e E3010000 		.4byte	.LASF14
+  98 0092 02       		.byte	0x2
+  99 0093 04       		.uleb128 0x4
+ 100 0094 A7010000 		.4byte	.LASF15
+ 101 0098 03       		.byte	0x3
+ 102 0099 04       		.uleb128 0x4
+ 103 009a 52020000 		.4byte	.LASF16
+ 104 009e 04       		.byte	0x4
+ 105 009f 04       		.uleb128 0x4
+ 106 00a0 D9000000 		.4byte	.LASF17
+ 107 00a4 05       		.byte	0x5
+ 108 00a5 04       		.uleb128 0x4
+ 109 00a6 C3000000 		.4byte	.LASF18
+ 110 00aa 06       		.byte	0x6
+ 111 00ab 00       		.byte	0
+ 112 00ac 03       		.uleb128 0x3
+ 113 00ad 95020000 		.4byte	.LASF20
+ 114 00b1 01       		.byte	0x1
+ARM GAS  C:\Users\robom\AppData\Local\Temp\cca7YvLx.s 			page 3
+
+
+ 115 00b2 2B000000 		.4byte	0x2b
+ 116 00b6 01       		.byte	0x1
+ 117 00b7 11       		.byte	0x11
+ 118 00b8 C9000000 		.4byte	0xc9
+ 119 00bc 04       		.uleb128 0x4
+ 120 00bd 73020000 		.4byte	.LASF21
+ 121 00c1 00       		.byte	0
+ 122 00c2 04       		.uleb128 0x4
+ 123 00c3 39020000 		.4byte	.LASF22
+ 124 00c7 01       		.byte	0x1
+ 125 00c8 00       		.byte	0
+ 126 00c9 05       		.uleb128 0x5
+ 127 00ca 00000000 		.4byte	.LASF23
+ 128 00ce 01       		.byte	0x1
+ 129 00cf 17       		.byte	0x17
+ 130 00d0 71000000 		.4byte	0x71
+ 131 00d4 05       		.uleb128 0x5
+ 132 00d5 49020000 		.4byte	.LASF24
+ 133 00d9 01       		.byte	0x1
+ 134 00da 18       		.byte	0x18
+ 135 00db AC000000 		.4byte	0xac
+ 136 00df 06       		.uleb128 0x6
+ 137 00e0 9F010000 		.4byte	.LASF25
+ 138 00e4 01       		.byte	0x1
+ 139 00e5 1A       		.byte	0x1a
+ 140 00e6 C9000000 		.4byte	0xc9
+ 141 00ea 05       		.uleb128 0x5
+ 142 00eb 03       		.byte	0x3
+ 143 00ec 00000000 		.4byte	btnFlag
+ 144 00f0 06       		.uleb128 0x6
+ 145 00f1 B9000000 		.4byte	.LASF26
+ 146 00f5 01       		.byte	0x1
+ 147 00f6 1B       		.byte	0x1b
+ 148 00f7 D4000000 		.4byte	0xd4
+ 149 00fb 05       		.uleb128 0x5
+ 150 00fc 03       		.byte	0x3
+ 151 00fd 00000000 		.4byte	currState
+ 152 0101 00       		.byte	0
+ 153              		.section	.debug_abbrev,"",%progbits
+ 154              	.Ldebug_abbrev0:
+ 155 0000 01       		.uleb128 0x1
+ 156 0001 11       		.uleb128 0x11
+ 157 0002 01       		.byte	0x1
+ 158 0003 25       		.uleb128 0x25
+ 159 0004 0E       		.uleb128 0xe
+ 160 0005 13       		.uleb128 0x13
+ 161 0006 0B       		.uleb128 0xb
+ 162 0007 03       		.uleb128 0x3
+ 163 0008 0E       		.uleb128 0xe
+ 164 0009 1B       		.uleb128 0x1b
+ 165 000a 0E       		.uleb128 0xe
+ 166 000b 10       		.uleb128 0x10
+ 167 000c 17       		.uleb128 0x17
+ 168 000d 00       		.byte	0
+ 169 000e 00       		.byte	0
+ 170 000f 02       		.uleb128 0x2
+ 171 0010 24       		.uleb128 0x24
+ARM GAS  C:\Users\robom\AppData\Local\Temp\cca7YvLx.s 			page 4
+
+
+ 172 0011 00       		.byte	0
+ 173 0012 0B       		.uleb128 0xb
+ 174 0013 0B       		.uleb128 0xb
+ 175 0014 3E       		.uleb128 0x3e
+ 176 0015 0B       		.uleb128 0xb
+ 177 0016 03       		.uleb128 0x3
+ 178 0017 0E       		.uleb128 0xe
+ 179 0018 00       		.byte	0
+ 180 0019 00       		.byte	0
+ 181 001a 03       		.uleb128 0x3
+ 182 001b 04       		.uleb128 0x4
+ 183 001c 01       		.byte	0x1
+ 184 001d 03       		.uleb128 0x3
+ 185 001e 0E       		.uleb128 0xe
+ 186 001f 0B       		.uleb128 0xb
+ 187 0020 0B       		.uleb128 0xb
+ 188 0021 49       		.uleb128 0x49
+ 189 0022 13       		.uleb128 0x13
+ 190 0023 3A       		.uleb128 0x3a
+ 191 0024 0B       		.uleb128 0xb
+ 192 0025 3B       		.uleb128 0x3b
+ 193 0026 0B       		.uleb128 0xb
+ 194 0027 01       		.uleb128 0x1
+ 195 0028 13       		.uleb128 0x13
+ 196 0029 00       		.byte	0
+ 197 002a 00       		.byte	0
+ 198 002b 04       		.uleb128 0x4
+ 199 002c 28       		.uleb128 0x28
+ 200 002d 00       		.byte	0
+ 201 002e 03       		.uleb128 0x3
+ 202 002f 0E       		.uleb128 0xe
+ 203 0030 1C       		.uleb128 0x1c
+ 204 0031 0B       		.uleb128 0xb
+ 205 0032 00       		.byte	0
+ 206 0033 00       		.byte	0
+ 207 0034 05       		.uleb128 0x5
+ 208 0035 16       		.uleb128 0x16
+ 209 0036 00       		.byte	0
+ 210 0037 03       		.uleb128 0x3
+ 211 0038 0E       		.uleb128 0xe
+ 212 0039 3A       		.uleb128 0x3a
+ 213 003a 0B       		.uleb128 0xb
+ 214 003b 3B       		.uleb128 0x3b
+ 215 003c 0B       		.uleb128 0xb
+ 216 003d 49       		.uleb128 0x49
+ 217 003e 13       		.uleb128 0x13
+ 218 003f 00       		.byte	0
+ 219 0040 00       		.byte	0
+ 220 0041 06       		.uleb128 0x6
+ 221 0042 34       		.uleb128 0x34
+ 222 0043 00       		.byte	0
+ 223 0044 03       		.uleb128 0x3
+ 224 0045 0E       		.uleb128 0xe
+ 225 0046 3A       		.uleb128 0x3a
+ 226 0047 0B       		.uleb128 0xb
+ 227 0048 3B       		.uleb128 0x3b
+ 228 0049 0B       		.uleb128 0xb
+ARM GAS  C:\Users\robom\AppData\Local\Temp\cca7YvLx.s 			page 5
+
+
+ 229 004a 49       		.uleb128 0x49
+ 230 004b 13       		.uleb128 0x13
+ 231 004c 3F       		.uleb128 0x3f
+ 232 004d 19       		.uleb128 0x19
+ 233 004e 02       		.uleb128 0x2
+ 234 004f 18       		.uleb128 0x18
+ 235 0050 00       		.byte	0
+ 236 0051 00       		.byte	0
+ 237 0052 00       		.byte	0
+ 238              		.section	.debug_aranges,"",%progbits
+ 239 0000 14000000 		.4byte	0x14
+ 240 0004 0200     		.2byte	0x2
+ 241 0006 00000000 		.4byte	.Ldebug_info0
+ 242 000a 04       		.byte	0x4
+ 243 000b 00       		.byte	0
+ 244 000c 0000     		.2byte	0
+ 245 000e 0000     		.2byte	0
+ 246 0010 00000000 		.4byte	0
+ 247 0014 00000000 		.4byte	0
+ 248              		.section	.debug_line,"",%progbits
+ 249              	.Ldebug_line0:
+ 250 0000 22000000 		.section	.debug_str,"MS",%progbits,1
+ 250      02001C00 
+ 250      00000201 
+ 250      FB0E0D00 
+ 250      01010101 
+ 251              	.LASF23:
+ 252 0000 666C6167 		.ascii	"flag_t\000"
+ 252      5F7400
+ 253              	.LASF0:
+ 254 0007 756E7369 		.ascii	"unsigned int\000"
+ 254      676E6564 
+ 254      20696E74 
+ 254      00
+ 255              	.LASF29:
+ 256 0014 433A5C55 		.ascii	"C:\\Users\\robom\\OneDrive\\University\\Darmstadt\\"
+ 256      73657273 
+ 256      5C726F62 
+ 256      6F6D5C4F 
+ 256      6E654472 
+ 257 0041 41647661 		.ascii	"Advanced Microcontroller Systems and Embedded Opera"
+ 257      6E636564 
+ 257      204D6963 
+ 257      726F636F 
+ 257      6E74726F 
+ 258 0074 74696E67 		.ascii	"ting systems\\Embedded Operating Systems\\Workbook\\"
+ 258      20737973 
+ 258      74656D73 
+ 258      5C456D62 
+ 258      65646465 
+ 259 00a5 6D70335F 		.ascii	"mp3_player_wb.cydsn\000"
+ 259      706C6179 
+ 259      65725F77 
+ 259      622E6379 
+ 259      64736E00 
+ 260              	.LASF26:
+ 261 00b9 63757272 		.ascii	"currState\000"
+ARM GAS  C:\Users\robom\AppData\Local\Temp\cca7YvLx.s 			page 6
+
+
+ 261      53746174 
+ 261      6500
+ 262              	.LASF18:
+ 263 00c3 5F5F666C 		.ascii	"__flag_decreaseVolume\000"
+ 263      61675F64 
+ 263      65637265 
+ 263      61736556 
+ 263      6F6C756D 
+ 264              	.LASF17:
+ 265 00d9 5F5F666C 		.ascii	"__flag_increaseVolume\000"
+ 265      61675F69 
+ 265      6E637265 
+ 265      61736556 
+ 265      6F6C756D 
+ 266              	.LASF27:
+ 267 00ef 474E5520 		.ascii	"GNU C11 5.4.1 20160609 (release) [ARM/embedded-5-br"
+ 267      43313120 
+ 267      352E342E 
+ 267      31203230 
+ 267      31363036 
+ 268 0122 616E6368 		.ascii	"anch revision 237715] -mcpu=cortex-m3 -mthumb -g -O"
+ 268      20726576 
+ 268      6973696F 
+ 268      6E203233 
+ 268      37373135 
+ 269 0155 67202D66 		.ascii	"g -ffunction-sections -ffat-lto-objects\000"
+ 269      66756E63 
+ 269      74696F6E 
+ 269      2D736563 
+ 269      74696F6E 
+ 270              	.LASF6:
+ 271 017d 6C6F6E67 		.ascii	"long unsigned int\000"
+ 271      20756E73 
+ 271      69676E65 
+ 271      6420696E 
+ 271      7400
+ 272              	.LASF12:
+ 273 018f 5F5F666C 		.ascii	"__flag_nextSong\000"
+ 273      61675F6E 
+ 273      65787453 
+ 273      6F6E6700 
+ 274              	.LASF25:
+ 275 019f 62746E46 		.ascii	"btnFlag\000"
+ 275      6C616700 
+ 276              	.LASF15:
+ 277 01a7 5F5F666C 		.ascii	"__flag_playSong\000"
+ 277      61675F70 
+ 277      6C617953 
+ 277      6F6E6700 
+ 278              	.LASF19:
+ 279 01b7 65466C61 		.ascii	"eFlags\000"
+ 279      677300
+ 280              	.LASF10:
+ 281 01be 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 281      206C6F6E 
+ 281      6720756E 
+ 281      7369676E 
+ARM GAS  C:\Users\robom\AppData\Local\Temp\cca7YvLx.s 			page 7
+
+
+ 281      65642069 
+ 282              	.LASF2:
+ 283 01d5 756E7369 		.ascii	"unsigned char\000"
+ 283      676E6564 
+ 283      20636861 
+ 283      7200
+ 284              	.LASF14:
+ 285 01e3 5F5F666C 		.ascii	"__flag_skipSong\000"
+ 285      61675F73 
+ 285      6B697053 
+ 285      6F6E6700 
+ 286              	.LASF11:
+ 287 01f3 63686172 		.ascii	"char\000"
+ 287      00
+ 288              	.LASF5:
+ 289 01f8 6C6F6E67 		.ascii	"long int\000"
+ 289      20696E74 
+ 289      00
+ 290              	.LASF8:
+ 291 0201 646F7562 		.ascii	"double\000"
+ 291      6C6500
+ 292              	.LASF9:
+ 293 0208 6C6F6E67 		.ascii	"long long int\000"
+ 293      206C6F6E 
+ 293      6720696E 
+ 293      7400
+ 294              	.LASF13:
+ 295 0216 5F5F666C 		.ascii	"__flag_prevSong\000"
+ 295      61675F70 
+ 295      72657653 
+ 295      6F6E6700 
+ 296              	.LASF4:
+ 297 0226 73686F72 		.ascii	"short unsigned int\000"
+ 297      7420756E 
+ 297      7369676E 
+ 297      65642069 
+ 297      6E7400
+ 298              	.LASF22:
+ 299 0239 5F5F7374 		.ascii	"__state_STANDBY\000"
+ 299      6174655F 
+ 299      5354414E 
+ 299      44425900 
+ 300              	.LASF24:
+ 301 0249 73746174 		.ascii	"states_t\000"
+ 301      65735F74 
+ 301      00
+ 302              	.LASF16:
+ 303 0252 5F5F666C 		.ascii	"__flag_pauseSong\000"
+ 303      61675F70 
+ 303      61757365 
+ 303      536F6E67 
+ 303      00
+ 304              	.LASF7:
+ 305 0263 666C6F61 		.ascii	"float\000"
+ 305      7400
+ 306              	.LASF3:
+ 307 0269 73686F72 		.ascii	"short int\000"
+ARM GAS  C:\Users\robom\AppData\Local\Temp\cca7YvLx.s 			page 8
+
+
+ 307      7420696E 
+ 307      7400
+ 308              	.LASF21:
+ 309 0273 5F5F7374 		.ascii	"__state_PLAYING\000"
+ 309      6174655F 
+ 309      504C4159 
+ 309      494E4700 
+ 310              	.LASF28:
+ 311 0283 6D70332E 		.ascii	"mp3.c\000"
+ 311      6300
+ 312              	.LASF1:
+ 313 0289 7369676E 		.ascii	"signed char\000"
+ 313      65642063 
+ 313      68617200 
+ 314              	.LASF20:
+ 315 0295 65537461 		.ascii	"eStates\000"
+ 315      74657300 
+ 316              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 5.4.1 20160609 (release) [ARM/embedded-5-bran

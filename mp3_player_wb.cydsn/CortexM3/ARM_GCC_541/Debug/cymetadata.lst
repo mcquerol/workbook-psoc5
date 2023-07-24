@@ -1,0 +1,4084 @@
+ARM GAS  C:\Users\robom\AppData\Local\Temp\ccFKNG9r.s 			page 1
+
+
+   1              		.syntax unified
+   2              		.cpu cortex-m3
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 1
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.thumb
+  14              		.syntax unified
+  15              		.file	"cymetadata.c"
+  16              		.text
+  17              	.Ltext0:
+  18              		.cfi_sections	.debug_frame
+  19              		.global	cy_metadata
+  20              		.global	cy_meta_flashprotect
+  21              		.global	cy_meta_wonvl
+  22              		.global	cy_meta_custnvl
+  23              		.global	cy_meta_configecc
+  24              		.section	.cyconfigecc,"a",%progbits
+  25              		.align	2
+  26              		.type	cy_meta_configecc, %object
+  27              		.size	cy_meta_configecc, 3388
+  28              	cy_meta_configecc:
+  29 0000 01       		.byte	1
+  30 0001 45       		.byte	69
+  31 0002 00       		.byte	0
+  32 0003 40       		.byte	64
+  33 0004 02       		.byte	2
+  34 0005 4F       		.byte	79
+  35 0006 00       		.byte	0
+  36 0007 40       		.byte	64
+  37 0008 09       		.byte	9
+  38 0009 52       		.byte	82
+  39 000a 00       		.byte	0
+  40 000b 40       		.byte	64
+  41 000c 01       		.byte	1
+  42 000d 5B       		.byte	91
+  43 000e 00       		.byte	0
+  44 000f 40       		.byte	64
+  45 0010 03       		.byte	3
+  46 0011 64       		.byte	100
+  47 0012 00       		.byte	0
+  48 0013 40       		.byte	64
+  49 0014 02       		.byte	2
+  50 0015 65       		.byte	101
+  51 0016 00       		.byte	0
+  52 0017 40       		.byte	64
+  53 0018 30       		.byte	48
+  54 0019 00       		.byte	0
+  55 001a 01       		.byte	1
+  56 001b 40       		.byte	64
+  57 001c 35       		.byte	53
+ARM GAS  C:\Users\robom\AppData\Local\Temp\ccFKNG9r.s 			page 2
+
+
+  58 001d 01       		.byte	1
+  59 001e 01       		.byte	1
+  60 001f 40       		.byte	64
+  61 0020 25       		.byte	37
+  62 0021 02       		.byte	2
+  63 0022 01       		.byte	1
+  64 0023 40       		.byte	64
+  65 0024 4C       		.byte	76
+  66 0025 03       		.byte	3
+  67 0026 01       		.byte	1
+  68 0027 40       		.byte	64
+  69 0028 1F       		.byte	31
+  70 0029 04       		.byte	4
+  71 002a 01       		.byte	1
+  72 002b 40       		.byte	64
+  73 002c 3F       		.byte	63
+  74 002d 05       		.byte	5
+  75 002e 01       		.byte	1
+  76 002f 40       		.byte	64
+  77 0030 3B       		.byte	59
+  78 0031 06       		.byte	6
+  79 0032 01       		.byte	1
+  80 0033 40       		.byte	64
+  81 0034 40       		.byte	64
+  82 0035 07       		.byte	7
+  83 0036 01       		.byte	1
+  84 0037 40       		.byte	64
+  85 0038 42       		.byte	66
+  86 0039 08       		.byte	8
+  87 003a 01       		.byte	1
+  88 003b 40       		.byte	64
+  89 003c 46       		.byte	70
+  90 003d 09       		.byte	9
+  91 003e 01       		.byte	1
+  92 003f 40       		.byte	64
+  93 0040 31       		.byte	49
+  94 0041 0A       		.byte	10
+  95 0042 01       		.byte	1
+  96 0043 40       		.byte	64
+  97 0044 3D       		.byte	61
+  98 0045 0B       		.byte	11
+  99 0046 01       		.byte	1
+ 100 0047 40       		.byte	64
+ 101 0048 4E       		.byte	78
+ 102 0049 0C       		.byte	12
+ 103 004a 01       		.byte	1
+ 104 004b 40       		.byte	64
+ 105 004c 35       		.byte	53
+ 106 004d 0D       		.byte	13
+ 107 004e 01       		.byte	1
+ 108 004f 40       		.byte	64
+ 109 0050 44       		.byte	68
+ 110 0051 0E       		.byte	14
+ 111 0052 01       		.byte	1
+ 112 0053 40       		.byte	64
+ 113 0054 2B       		.byte	43
+ 114 0055 0F       		.byte	15
+ARM GAS  C:\Users\robom\AppData\Local\Temp\ccFKNG9r.s 			page 3
+
+
+ 115 0056 01       		.byte	1
+ 116 0057 40       		.byte	64
+ 117 0058 39       		.byte	57
+ 118 0059 14       		.byte	20
+ 119 005a 01       		.byte	1
+ 120 005b 40       		.byte	64
+ 121 005c 40       		.byte	64
+ 122 005d 15       		.byte	21
+ 123 005e 01       		.byte	1
+ 124 005f 40       		.byte	64
+ 125 0060 2F       		.byte	47
+ 126 0061 16       		.byte	22
+ 127 0062 01       		.byte	1
+ 128 0063 40       		.byte	64
+ 129 0064 3C       		.byte	60
+ 130 0065 17       		.byte	23
+ 131 0066 01       		.byte	1
+ 132 0067 40       		.byte	64
+ 133 0068 22       		.byte	34
+ 134 0069 18       		.byte	24
+ 135 006a 01       		.byte	1
+ 136 006b 40       		.byte	64
+ 137 006c 4F       		.byte	79
+ 138 006d 19       		.byte	25
+ 139 006e 01       		.byte	1
+ 140 006f 40       		.byte	64
+ 141 0070 08       		.byte	8
+ 142 0071 1A       		.byte	26
+ 143 0072 01       		.byte	1
+ 144 0073 40       		.byte	64
+ 145 0074 4E       		.byte	78
+ 146 0075 1B       		.byte	27
+ 147 0076 01       		.byte	1
+ 148 0077 40       		.byte	64
+ 149 0078 0D       		.byte	13
+ 150 0079 40       		.byte	64
+ 151 007a 01       		.byte	1
+ 152 007b 40       		.byte	64
+ 153 007c 16       		.byte	22
+ 154 007d 41       		.byte	65
+ 155 007e 01       		.byte	1
+ 156 007f 40       		.byte	64
+ 157 0080 0C       		.byte	12
+ 158 0081 42       		.byte	66
+ 159 0082 01       		.byte	1
+ 160 0083 40       		.byte	64
+ 161 0084 0A       		.byte	10
+ 162 0085 43       		.byte	67
+ 163 0086 01       		.byte	1
+ 164 0087 40       		.byte	64
+ 165 0088 05       		.byte	5
+ 166 0089 44       		.byte	68
+ 167 008a 01       		.byte	1
+ 168 008b 40       		.byte	64
+ 169 008c 07       		.byte	7
+ 170 008d 45       		.byte	69
+ 171 008e 01       		.byte	1
+ARM GAS  C:\Users\robom\AppData\Local\Temp\ccFKNG9r.s 			page 4
+
+
+ 172 008f 40       		.byte	64
+ 173 0090 09       		.byte	9
+ 174 0091 46       		.byte	70
+ 175 0092 01       		.byte	1
+ 176 0093 40       		.byte	64
+ 177 0094 09       		.byte	9
+ 178 0095 47       		.byte	71
+ 179 0096 01       		.byte	1
+ 180 0097 40       		.byte	64
+ 181 0098 05       		.byte	5
+ 182 0099 48       		.byte	72
+ 183 009a 01       		.byte	1
+ 184 009b 40       		.byte	64
+ 185 009c 04       		.byte	4
+ 186 009d 49       		.byte	73
+ 187 009e 01       		.byte	1
+ 188 009f 40       		.byte	64
+ 189 00a0 12       		.byte	18
+ 190 00a1 4C       		.byte	76
+ 191 00a2 01       		.byte	1
+ 192 00a3 40       		.byte	64
+ 193 00a4 10       		.byte	16
+ 194 00a5 4D       		.byte	77
+ 195 00a6 01       		.byte	1
+ 196 00a7 40       		.byte	64
+ 197 00a8 06       		.byte	6
+ 198 00a9 50       		.byte	80
+ 199 00aa 01       		.byte	1
+ 200 00ab 40       		.byte	64
+ 201 00ac 03       		.byte	3
+ 202 00ad 51       		.byte	81
+ 203 00ae 01       		.byte	1
+ 204 00af 40       		.byte	64
+ 205 00b0 7E       		.byte	126
+ 206 00b1 02       		.byte	2
+ 207 00b2 01       		.byte	1
+ 208 00b3 40       		.byte	64
+ 209 00b4 0A       		.byte	10
+ 210 00b5 4B       		.byte	75
+ 211 00b6 00       		.byte	0
+ 212 00b7 02       		.byte	2
+ 213 00b8 01       		.byte	1
+ 214 00b9 02       		.byte	2
+ 215 00ba 08       		.byte	8
+ 216 00bb A9       		.byte	-87
+ 217 00bc 09       		.byte	9
+ 218 00bd 33       		.byte	51
+ 219 00be 10       		.byte	16
+ 220 00bf 38       		.byte	56
+ 221 00c0 11       		.byte	17
+ 222 00c1 10       		.byte	16
+ 223 00c2 60       		.byte	96
+ 224 00c3 90       		.byte	-112
+ 225 00c4 61       		.byte	97
+ 226 00c5 A4       		.byte	-92
+ 227 00c6 7C       		.byte	124
+ 228 00c7 40       		.byte	64
+ARM GAS  C:\Users\robom\AppData\Local\Temp\ccFKNG9r.s 			page 5
+
+
+ 229 00c8 27       		.byte	39
+ 230 00c9 84       		.byte	-124
+ 231 00ca 83       		.byte	-125
+ 232 00cb 01       		.byte	1
+ 233 00cc 88       		.byte	-120
+ 234 00cd 0F       		.byte	15
+ 235 00ce 8B       		.byte	-117
+ 236 00cf 72       		.byte	114
+ 237 00d0 86       		.byte	-122
+ 238 00d1 0F       		.byte	15
+ 239 00d2 8B       		.byte	-117
+ 240 00d3 38       		.byte	56
+ 241 00d4 01       		.byte	1
+ 242 00d5 04       		.byte	4
+ 243 00d6 06       		.byte	6
+ 244 00d7 01       		.byte	1
+ 245 00d8 07       		.byte	7
+ 246 00d9 04       		.byte	4
+ 247 00da 09       		.byte	9
+ 248 00db 01       		.byte	1
+ 249 00dc 0F       		.byte	15
+ 250 00dd 01       		.byte	1
+ 251 00de 11       		.byte	17
+ 252 00df 10       		.byte	16
+ 253 00e0 13       		.byte	19
+ 254 00e1 20       		.byte	32
+ 255 00e2 15       		.byte	21
+ 256 00e3 20       		.byte	32
+ 257 00e4 17       		.byte	23
+ 258 00e5 10       		.byte	16
+ 259 00e6 19       		.byte	25
+ 260 00e7 08       		.byte	8
+ 261 00e8 1D       		.byte	29
+ 262 00e9 02       		.byte	2
+ 263 00ea 23       		.byte	35
+ 264 00eb 08       		.byte	8
+ 265 00ec 25       		.byte	37
+ 266 00ed 80       		.byte	-128
+ 267 00ee 27       		.byte	39
+ 268 00ef 40       		.byte	64
+ 269 00f0 29       		.byte	41
+ 270 00f1 40       		.byte	64
+ 271 00f2 2B       		.byte	43
+ 272 00f3 80       		.byte	-128
+ 273 00f4 2F       		.byte	47
+ 274 00f5 02       		.byte	2
+ 275 00f6 30       		.byte	48
+ 276 00f7 01       		.byte	1
+ 277 00f8 35       		.byte	53
+ 278 00f9 FF       		.byte	-1
+ 279 00fa 39       		.byte	57
+ 280 00fb 08       		.byte	8
+ 281 00fc 3F       		.byte	63
+ 282 00fd 14       		.byte	20
+ 283 00fe 58       		.byte	88
+ 284 00ff 04       		.byte	4
+ 285 0100 59       		.byte	89
+ARM GAS  C:\Users\robom\AppData\Local\Temp\ccFKNG9r.s 			page 6
+
+
+ 286 0101 04       		.byte	4
+ 287 0102 5C       		.byte	92
+ 288 0103 02       		.byte	2
+ 289 0104 5F       		.byte	95
+ 290 0105 01       		.byte	1
+ 291 0106 80       		.byte	-128
+ 292 0107 20       		.byte	32
+ 293 0108 86       		.byte	-122
+ 294 0109 01       		.byte	1
+ 295 010a 8A       		.byte	-118
+ 296 010b 04       		.byte	4
+ 297 010c 8C       		.byte	-116
+ 298 010d 04       		.byte	4
+ 299 010e 90       		.byte	-112
+ 300 010f 08       		.byte	8
+ 301 0110 94       		.byte	-108
+ 302 0111 10       		.byte	16
+ 303 0112 9A       		.byte	-102
+ 304 0113 20       		.byte	32
+ 305 0114 9E       		.byte	-98
+ 306 0115 08       		.byte	8
+ 307 0116 A2       		.byte	-94
+ 308 0117 10       		.byte	16
+ 309 0118 A6       		.byte	-90
+ 310 0119 40       		.byte	64
+ 311 011a A8       		.byte	-88
+ 312 011b 01       		.byte	1
+ 313 011c AE       		.byte	-82
+ 314 011d 02       		.byte	2
+ 315 011e B4       		.byte	-76
+ 316 011f 03       		.byte	3
+ 317 0120 B6       		.byte	-74
+ 318 0121 7C       		.byte	124
+ 319 0122 B8       		.byte	-72
+ 320 0123 80       		.byte	-128
+ 321 0124 BE       		.byte	-66
+ 322 0125 40       		.byte	64
+ 323 0126 D6       		.byte	-42
+ 324 0127 08       		.byte	8
+ 325 0128 D8       		.byte	-40
+ 326 0129 04       		.byte	4
+ 327 012a D9       		.byte	-39
+ 328 012b 04       		.byte	4
+ 329 012c DB       		.byte	-37
+ 330 012d 04       		.byte	4
+ 331 012e DC       		.byte	-36
+ 332 012f 29       		.byte	41
+ 333 0130 DD       		.byte	-35
+ 334 0131 90       		.byte	-112
+ 335 0132 DF       		.byte	-33
+ 336 0133 01       		.byte	1
+ 337 0134 01       		.byte	1
+ 338 0135 04       		.byte	4
+ 339 0136 03       		.byte	3
+ 340 0137 02       		.byte	2
+ 341 0138 04       		.byte	4
+ 342 0139 64       		.byte	100
+ARM GAS  C:\Users\robom\AppData\Local\Temp\ccFKNG9r.s 			page 7
+
+
+ 343 013a 05       		.byte	5
+ 344 013b 81       		.byte	-127
+ 345 013c 06       		.byte	6
+ 346 013d 40       		.byte	64
+ 347 013e 07       		.byte	7
+ 348 013f 02       		.byte	2
+ 349 0140 09       		.byte	9
+ 350 0141 80       		.byte	-128
+ 351 0142 0A       		.byte	10
+ 352 0143 40       		.byte	64
+ 353 0144 0B       		.byte	11
+ 354 0145 04       		.byte	4
+ 355 0146 0C       		.byte	12
+ 356 0147 81       		.byte	-127
+ 357 0148 0D       		.byte	13
+ 358 0149 04       		.byte	4
+ 359 014a 0E       		.byte	14
+ 360 014b 04       		.byte	4
+ 361 014c 12       		.byte	18
+ 362 014d 12       		.byte	18
+ 363 014e 13       		.byte	19
+ 364 014f 42       		.byte	66
+ 365 0150 14       		.byte	20
+ 366 0151 02       		.byte	2
+ 367 0152 15       		.byte	21
+ 368 0153 02       		.byte	2
+ 369 0154 17       		.byte	23
+ 370 0155 28       		.byte	40
+ 371 0156 19       		.byte	25
+ 372 0157 01       		.byte	1
+ 373 0158 1A       		.byte	26
+ 374 0159 40       		.byte	64
+ 375 015a 1C       		.byte	28
+ 376 015b 04       		.byte	4
+ 377 015c 1D       		.byte	29
+ 378 015d 80       		.byte	-128
+ 379 015e 1E       		.byte	30
+ 380 015f 09       		.byte	9
+ 381 0160 23       		.byte	35
+ 382 0161 18       		.byte	24
+ 383 0162 28       		.byte	40
+ 384 0163 01       		.byte	1
+ 385 0164 29       		.byte	41
+ 386 0165 01       		.byte	1
+ 387 0166 2A       		.byte	42
+ 388 0167 18       		.byte	24
+ 389 0168 2B       		.byte	43
+ 390 0169 0A       		.byte	10
+ 391 016a 2E       		.byte	46
+ 392 016b 40       		.byte	64
+ 393 016c 2F       		.byte	47
+ 394 016d 08       		.byte	8
+ 395 016e 30       		.byte	48
+ 396 016f A8       		.byte	-88
+ 397 0170 32       		.byte	50
+ 398 0171 02       		.byte	2
+ 399 0172 34       		.byte	52
+ARM GAS  C:\Users\robom\AppData\Local\Temp\ccFKNG9r.s 			page 8
+
+
+ 400 0173 01       		.byte	1
+ 401 0174 35       		.byte	53
+ 402 0175 80       		.byte	-128
+ 403 0176 38       		.byte	56
+ 404 0177 60       		.byte	96
+ 405 0178 39       		.byte	57
+ 406 0179 0A       		.byte	10
+ 407 017a 3B       		.byte	59
+ 408 017b 04       		.byte	4
+ 409 017c 3E       		.byte	62
+ 410 017d 01       		.byte	1
+ 411 017e 3F       		.byte	63
+ 412 017f 44       		.byte	68
+ 413 0180 5D       		.byte	93
+ 414 0181 40       		.byte	64
+ 415 0182 64       		.byte	100
+ 416 0183 02       		.byte	2
+ 417 0184 80       		.byte	-128
+ 418 0185 40       		.byte	64
+ 419 0186 86       		.byte	-122
+ 420 0187 10       		.byte	16
+ 421 0188 87       		.byte	-121
+ 422 0189 10       		.byte	16
+ 423 018a C0       		.byte	-64
+ 424 018b F5       		.byte	-11
+ 425 018c C2       		.byte	-62
+ 426 018d FB       		.byte	-5
+ 427 018e C4       		.byte	-60
+ 428 018f FD       		.byte	-3
+ 429 0190 CA       		.byte	-54
+ 430 0191 3F       		.byte	63
+ 431 0192 CC       		.byte	-52
+ 432 0193 9F       		.byte	-97
+ 433 0194 CE       		.byte	-50
+ 434 0195 DF       		.byte	-33
+ 435 0196 D6       		.byte	-42
+ 436 0197 10       		.byte	16
+ 437 0198 D8       		.byte	-40
+ 438 0199 10       		.byte	16
+ 439 019a E0       		.byte	-32
+ 440 019b 02       		.byte	2
+ 441 019c E4       		.byte	-28
+ 442 019d 04       		.byte	4
+ 443 019e 01       		.byte	1
+ 444 019f 04       		.byte	4
+ 445 01a0 0A       		.byte	10
+ 446 01a1 02       		.byte	2
+ 447 01a2 0C       		.byte	12
+ 448 01a3 05       		.byte	5
+ 449 01a4 0D       		.byte	13
+ 450 01a5 04       		.byte	4
+ 451 01a6 10       		.byte	16
+ 452 01a7 05       		.byte	5
+ 453 01a8 17       		.byte	23
+ 454 01a9 03       		.byte	3
+ 455 01aa 18       		.byte	24
+ 456 01ab 05       		.byte	5
+ARM GAS  C:\Users\robom\AppData\Local\Temp\ccFKNG9r.s 			page 9
+
+
+ 457 01ac 1D       		.byte	29
+ 458 01ad 02       		.byte	2
+ 459 01ae 1E       		.byte	30
+ 460 01af 05       		.byte	5
+ 461 01b0 20       		.byte	32
+ 462 01b1 05       		.byte	5
+ 463 01b2 24       		.byte	36
+ 464 01b3 04       		.byte	4
+ 465 01b4 26       		.byte	38
+ 466 01b5 01       		.byte	1
+ 467 01b6 29       		.byte	41
+ 468 01b7 04       		.byte	4
+ 469 01b8 2C       		.byte	44
+ 470 01b9 05       		.byte	5
+ 471 01ba 2D       		.byte	45
+ 472 01bb 04       		.byte	4
+ 473 01bc 30       		.byte	48
+ 474 01bd 02       		.byte	2
+ 475 01be 32       		.byte	50
+ 476 01bf 01       		.byte	1
+ 477 01c0 33       		.byte	51
+ 478 01c1 02       		.byte	2
+ 479 01c2 35       		.byte	53
+ 480 01c3 04       		.byte	4
+ 481 01c4 36       		.byte	54
+ 482 01c5 04       		.byte	4
+ 483 01c6 37       		.byte	55
+ 484 01c7 01       		.byte	1
+ 485 01c8 39       		.byte	57
+ 486 01c9 20       		.byte	32
+ 487 01ca 3F       		.byte	63
+ 488 01cb 10       		.byte	16
+ 489 01cc 58       		.byte	88
+ 490 01cd 04       		.byte	4
+ 491 01ce 59       		.byte	89
+ 492 01cf 0C       		.byte	12
+ 493 01d0 5C       		.byte	92
+ 494 01d1 22       		.byte	34
+ 495 01d2 5F       		.byte	95
+ 496 01d3 01       		.byte	1
+ 497 01d4 97       		.byte	-105
+ 498 01d5 01       		.byte	1
+ 499 01d6 B1       		.byte	-79
+ 500 01d7 01       		.byte	1
+ 501 01d8 D6       		.byte	-42
+ 502 01d9 02       		.byte	2
+ 503 01da D7       		.byte	-41
+ 504 01db 39       		.byte	57
+ 505 01dc D8       		.byte	-40
+ 506 01dd 04       		.byte	4
+ 507 01de D9       		.byte	-39
+ 508 01df 04       		.byte	4
+ 509 01e0 DB       		.byte	-37
+ 510 01e1 0C       		.byte	12
+ 511 01e2 DC       		.byte	-36
+ 512 01e3 22       		.byte	34
+ 513 01e4 DD       		.byte	-35
+ARM GAS  C:\Users\robom\AppData\Local\Temp\ccFKNG9r.s 			page 10
+
+
+ 514 01e5 20       		.byte	32
+ 515 01e6 DF       		.byte	-33
+ 516 01e7 01       		.byte	1
+ 517 01e8 02       		.byte	2
+ 518 01e9 10       		.byte	16
+ 519 01ea 03       		.byte	3
+ 520 01eb 02       		.byte	2
+ 521 01ec 04       		.byte	4
+ 522 01ed 60       		.byte	96
+ 523 01ee 08       		.byte	8
+ 524 01ef 40       		.byte	64
+ 525 01f0 09       		.byte	9
+ 526 01f1 80       		.byte	-128
+ 527 01f2 0B       		.byte	11
+ 528 01f3 40       		.byte	64
+ 529 01f4 0C       		.byte	12
+ 530 01f5 01       		.byte	1
+ 531 01f6 0D       		.byte	13
+ 532 01f7 80       		.byte	-128
+ 533 01f8 0F       		.byte	15
+ 534 01f9 04       		.byte	4
+ 535 01fa 12       		.byte	18
+ 536 01fb 43       		.byte	67
+ 537 01fc 13       		.byte	19
+ 538 01fd 04       		.byte	4
+ 539 01fe 16       		.byte	22
+ 540 01ff 51       		.byte	81
+ 541 0200 1C       		.byte	28
+ 542 0201 40       		.byte	64
+ 543 0202 1E       		.byte	30
+ 544 0203 02       		.byte	2
+ 545 0204 1F       		.byte	31
+ 546 0205 04       		.byte	4
+ 547 0206 22       		.byte	34
+ 548 0207 02       		.byte	2
+ 549 0208 25       		.byte	37
+ 550 0209 20       		.byte	32
+ 551 020a 26       		.byte	38
+ 552 020b 88       		.byte	-120
+ 553 020c 27       		.byte	39
+ 554 020d 20       		.byte	32
+ 555 020e 29       		.byte	41
+ 556 020f 01       		.byte	1
+ 557 0210 2A       		.byte	42
+ 558 0211 10       		.byte	16
+ 559 0212 2B       		.byte	43
+ 560 0213 02       		.byte	2
+ 561 0214 2E       		.byte	46
+ 562 0215 80       		.byte	-128
+ 563 0216 2F       		.byte	47
+ 564 0217 08       		.byte	8
+ 565 0218 30       		.byte	48
+ 566 0219 08       		.byte	8
+ 567 021a 31       		.byte	49
+ 568 021b 80       		.byte	-128
+ 569 021c 36       		.byte	54
+ 570 021d 84       		.byte	-124
+ARM GAS  C:\Users\robom\AppData\Local\Temp\ccFKNG9r.s 			page 11
+
+
+ 571 021e 38       		.byte	56
+ 572 021f 40       		.byte	64
+ 573 0220 3A       		.byte	58
+ 574 0221 01       		.byte	1
+ 575 0222 3B       		.byte	59
+ 576 0223 44       		.byte	68
+ 577 0224 3D       		.byte	61
+ 578 0225 80       		.byte	-128
+ 579 0226 3F       		.byte	63
+ 580 0227 02       		.byte	2
+ 581 0228 5A       		.byte	90
+ 582 0229 20       		.byte	32
+ 583 022a 61       		.byte	97
+ 584 022b 04       		.byte	4
+ 585 022c 68       		.byte	104
+ 586 022d 28       		.byte	40
+ 587 022e 69       		.byte	105
+ 588 022f 06       		.byte	6
+ 589 0230 6A       		.byte	106
+ 590 0231 84       		.byte	-124
+ 591 0232 6B       		.byte	107
+ 592 0233 40       		.byte	64
+ 593 0234 70       		.byte	112
+ 594 0235 90       		.byte	-112
+ 595 0236 72       		.byte	114
+ 596 0237 02       		.byte	2
+ 597 0238 79       		.byte	121
+ 598 0239 40       		.byte	64
+ 599 023a 7D       		.byte	125
+ 600 023b 40       		.byte	64
+ 601 023c 82       		.byte	-126
+ 602 023d 48       		.byte	72
+ 603 023e 87       		.byte	-121
+ 604 023f 04       		.byte	4
+ 605 0240 89       		.byte	-119
+ 606 0241 20       		.byte	32
+ 607 0242 8B       		.byte	-117
+ 608 0243 05       		.byte	5
+ 609 0244 8E       		.byte	-114
+ 610 0245 01       		.byte	1
+ 611 0246 94       		.byte	-108
+ 612 0247 60       		.byte	96
+ 613 0248 95       		.byte	-107
+ 614 0249 06       		.byte	6
+ 615 024a 96       		.byte	-106
+ 616 024b 04       		.byte	4
+ 617 024c 97       		.byte	-105
+ 618 024d 04       		.byte	4
+ 619 024e 98       		.byte	-104
+ 620 024f 01       		.byte	1
+ 621 0250 99       		.byte	-103
+ 622 0251 01       		.byte	1
+ 623 0252 9A       		.byte	-102
+ 624 0253 40       		.byte	64
+ 625 0254 9E       		.byte	-98
+ 626 0255 18       		.byte	24
+ 627 0256 9F       		.byte	-97
+ARM GAS  C:\Users\robom\AppData\Local\Temp\ccFKNG9r.s 			page 12
+
+
+ 628 0257 20       		.byte	32
+ 629 0258 A1       		.byte	-95
+ 630 0259 80       		.byte	-128
+ 631 025a A2       		.byte	-94
+ 632 025b 04       		.byte	4
+ 633 025c A4       		.byte	-92
+ 634 025d A8       		.byte	-88
+ 635 025e A6       		.byte	-90
+ 636 025f 02       		.byte	2
+ 637 0260 A7       		.byte	-89
+ 638 0261 02       		.byte	2
+ 639 0262 A9       		.byte	-87
+ 640 0263 40       		.byte	64
+ 641 0264 AF       		.byte	-81
+ 642 0265 20       		.byte	32
+ 643 0266 B2       		.byte	-78
+ 644 0267 02       		.byte	2
+ 645 0268 C0       		.byte	-64
+ 646 0269 C5       		.byte	-59
+ 647 026a C2       		.byte	-62
+ 648 026b D9       		.byte	-39
+ 649 026c C4       		.byte	-60
+ 650 026d BD       		.byte	-67
+ 651 026e CA       		.byte	-54
+ 652 026f 3D       		.byte	61
+ 653 0270 CC       		.byte	-52
+ 654 0271 5A       		.byte	90
+ 655 0272 CE       		.byte	-50
+ 656 0273 9B       		.byte	-101
+ 657 0274 D6       		.byte	-42
+ 658 0275 04       		.byte	4
+ 659 0276 D8       		.byte	-40
+ 660 0277 02       		.byte	2
+ 661 0278 DE       		.byte	-34
+ 662 0279 18       		.byte	24
+ 663 027a E0       		.byte	-32
+ 664 027b 80       		.byte	-128
+ 665 027c E2       		.byte	-30
+ 666 027d 10       		.byte	16
+ 667 027e E6       		.byte	-26
+ 668 027f 80       		.byte	-128
+ 669 0280 0E       		.byte	14
+ 670 0281 02       		.byte	2
+ 671 0282 1A       		.byte	26
+ 672 0283 02       		.byte	2
+ 673 0284 1F       		.byte	31
+ 674 0285 01       		.byte	1
+ 675 0286 20       		.byte	32
+ 676 0287 04       		.byte	4
+ 677 0288 27       		.byte	39
+ 678 0289 02       		.byte	2
+ 679 028a 28       		.byte	40
+ 680 028b 04       		.byte	4
+ 681 028c 2E       		.byte	46
+ 682 028d 01       		.byte	1
+ 683 028e 30       		.byte	48
+ 684 028f 02       		.byte	2
+ARM GAS  C:\Users\robom\AppData\Local\Temp\ccFKNG9r.s 			page 13
+
+
+ 685 0290 32       		.byte	50
+ 686 0291 04       		.byte	4
+ 687 0292 33       		.byte	51
+ 688 0293 02       		.byte	2
+ 689 0294 34       		.byte	52
+ 690 0295 01       		.byte	1
+ 691 0296 35       		.byte	53
+ 692 0297 01       		.byte	1
+ 693 0298 38       		.byte	56
+ 694 0299 08       		.byte	8
+ 695 029a 3E       		.byte	62
+ 696 029b 04       		.byte	4
+ 697 029c 52       		.byte	82
+ 698 029d 03       		.byte	3
+ 699 029e 53       		.byte	83
+ 700 029f 02       		.byte	2
+ 701 02a0 58       		.byte	88
+ 702 02a1 04       		.byte	4
+ 703 02a2 59       		.byte	89
+ 704 02a3 04       		.byte	4
+ 705 02a4 5B       		.byte	91
+ 706 02a5 04       		.byte	4
+ 707 02a6 5C       		.byte	92
+ 708 02a7 21       		.byte	33
+ 709 02a8 5D       		.byte	93
+ 710 02a9 20       		.byte	32
+ 711 02aa 5F       		.byte	95
+ 712 02ab 01       		.byte	1
+ 713 02ac AE       		.byte	-82
+ 714 02ad 01       		.byte	1
+ 715 02ae B0       		.byte	-80
+ 716 02af 01       		.byte	1
+ 717 02b0 D4       		.byte	-44
+ 718 02b1 01       		.byte	1
+ 719 02b2 D8       		.byte	-40
+ 720 02b3 04       		.byte	4
+ 721 02b4 D9       		.byte	-39
+ 722 02b5 04       		.byte	4
+ 723 02b6 DB       		.byte	-37
+ 724 02b7 0C       		.byte	12
+ 725 02b8 DC       		.byte	-36
+ 726 02b9 22       		.byte	34
+ 727 02ba DD       		.byte	-35
+ 728 02bb 20       		.byte	32
+ 729 02bc DF       		.byte	-33
+ 730 02bd 01       		.byte	1
+ 731 02be 00       		.byte	0
+ 732 02bf 80       		.byte	-128
+ 733 02c0 05       		.byte	5
+ 734 02c1 81       		.byte	-127
+ 735 02c2 06       		.byte	6
+ 736 02c3 01       		.byte	1
+ 737 02c4 07       		.byte	7
+ 738 02c5 90       		.byte	-112
+ 739 02c6 0A       		.byte	10
+ 740 02c7 08       		.byte	8
+ 741 02c8 0D       		.byte	13
+ARM GAS  C:\Users\robom\AppData\Local\Temp\ccFKNG9r.s 			page 14
+
+
+ 742 02c9 48       		.byte	72
+ 743 02ca 0F       		.byte	15
+ 744 02cb 04       		.byte	4
+ 745 02cc 10       		.byte	16
+ 746 02cd 08       		.byte	8
+ 747 02ce 13       		.byte	19
+ 748 02cf 42       		.byte	66
+ 749 02d0 14       		.byte	20
+ 750 02d1 40       		.byte	64
+ 751 02d2 16       		.byte	22
+ 752 02d3 02       		.byte	2
+ 753 02d4 18       		.byte	24
+ 754 02d5 80       		.byte	-128
+ 755 02d6 19       		.byte	25
+ 756 02d7 04       		.byte	4
+ 757 02d8 1A       		.byte	26
+ 758 02d9 08       		.byte	8
+ 759 02da 1F       		.byte	31
+ 760 02db 02       		.byte	2
+ 761 02dc 21       		.byte	33
+ 762 02dd 08       		.byte	8
+ 763 02de 22       		.byte	34
+ 764 02df 08       		.byte	8
+ 765 02e0 23       		.byte	35
+ 766 02e1 04       		.byte	4
+ 767 02e2 2A       		.byte	42
+ 768 02e3 09       		.byte	9
+ 769 02e4 2B       		.byte	43
+ 770 02e5 02       		.byte	2
+ 771 02e6 2C       		.byte	44
+ 772 02e7 40       		.byte	64
+ 773 02e8 2D       		.byte	45
+ 774 02e9 03       		.byte	3
+ 775 02ea 2F       		.byte	47
+ 776 02eb 02       		.byte	2
+ 777 02ec 31       		.byte	49
+ 778 02ed 09       		.byte	9
+ 779 02ee 33       		.byte	51
+ 780 02ef 40       		.byte	64
+ 781 02f0 35       		.byte	53
+ 782 02f1 81       		.byte	-127
+ 783 02f2 36       		.byte	54
+ 784 02f3 08       		.byte	8
+ 785 02f4 39       		.byte	57
+ 786 02f5 81       		.byte	-127
+ 787 02f6 3A       		.byte	58
+ 788 02f7 C0       		.byte	-64
+ 789 02f8 3B       		.byte	59
+ 790 02f9 04       		.byte	4
+ 791 02fa 3E       		.byte	62
+ 792 02fb 80       		.byte	-128
+ 793 02fc 3F       		.byte	63
+ 794 02fd 04       		.byte	4
+ 795 02fe 45       		.byte	69
+ 796 02ff 08       		.byte	8
+ 797 0300 46       		.byte	70
+ 798 0301 10       		.byte	16
+ARM GAS  C:\Users\robom\AppData\Local\Temp\ccFKNG9r.s 			page 15
+
+
+ 799 0302 5E       		.byte	94
+ 800 0303 40       		.byte	64
+ 801 0304 68       		.byte	104
+ 802 0305 08       		.byte	8
+ 803 0306 69       		.byte	105
+ 804 0307 40       		.byte	64
+ 805 0308 6A       		.byte	106
+ 806 0309 20       		.byte	32
+ 807 030a 7D       		.byte	125
+ 808 030b 40       		.byte	64
+ 809 030c 92       		.byte	-110
+ 810 030d 40       		.byte	64
+ 811 030e 95       		.byte	-107
+ 812 030f 40       		.byte	64
+ 813 0310 96       		.byte	-106
+ 814 0311 20       		.byte	32
+ 815 0312 97       		.byte	-105
+ 816 0313 04       		.byte	4
+ 817 0314 98       		.byte	-104
+ 818 0315 40       		.byte	64
+ 819 0316 9A       		.byte	-102
+ 820 0317 4B       		.byte	75
+ 821 0318 9B       		.byte	-101
+ 822 0319 40       		.byte	64
+ 823 031a 9D       		.byte	-99
+ 824 031b 04       		.byte	4
+ 825 031c 9E       		.byte	-98
+ 826 031d 10       		.byte	16
+ 827 031e A5       		.byte	-91
+ 828 031f 40       		.byte	64
+ 829 0320 A7       		.byte	-89
+ 830 0321 02       		.byte	2
+ 831 0322 AA       		.byte	-86
+ 832 0323 48       		.byte	72
+ 833 0324 AF       		.byte	-81
+ 834 0325 08       		.byte	8
+ 835 0326 B6       		.byte	-74
+ 836 0327 80       		.byte	-128
+ 837 0328 C0       		.byte	-64
+ 838 0329 B1       		.byte	-79
+ 839 032a C2       		.byte	-62
+ 840 032b E2       		.byte	-30
+ 841 032c C4       		.byte	-60
+ 842 032d 9B       		.byte	-101
+ 843 032e CA       		.byte	-54
+ 844 032f 9B       		.byte	-101
+ 845 0330 CC       		.byte	-52
+ 846 0331 DB       		.byte	-37
+ 847 0332 CE       		.byte	-50
+ 848 0333 5B       		.byte	91
+ 849 0334 D6       		.byte	-42
+ 850 0335 10       		.byte	16
+ 851 0336 DE       		.byte	-34
+ 852 0337 10       		.byte	16
+ 853 0338 E2       		.byte	-30
+ 854 0339 80       		.byte	-128
+ 855 033a EC       		.byte	-20
+ARM GAS  C:\Users\robom\AppData\Local\Temp\ccFKNG9r.s 			page 16
+
+
+ 856 033b 10       		.byte	16
+ 857 033c 14       		.byte	20
+ 858 033d 01       		.byte	1
+ 859 033e 1E       		.byte	30
+ 860 033f 01       		.byte	1
+ 861 0340 22       		.byte	34
+ 862 0341 01       		.byte	1
+ 863 0342 24       		.byte	36
+ 864 0343 01       		.byte	1
+ 865 0344 2A       		.byte	42
+ 866 0345 01       		.byte	1
+ 867 0346 30       		.byte	48
+ 868 0347 01       		.byte	1
+ 869 0348 3E       		.byte	62
+ 870 0349 01       		.byte	1
+ 871 034a 40       		.byte	64
+ 872 034b 60       		.byte	96
+ 873 034c 41       		.byte	65
+ 874 034d 05       		.byte	5
+ 875 034e 49       		.byte	73
+ 876 034f FF       		.byte	-1
+ 877 0350 4A       		.byte	74
+ 878 0351 FF       		.byte	-1
+ 879 0352 4B       		.byte	75
+ 880 0353 FF       		.byte	-1
+ 881 0354 4D       		.byte	77
+ 882 0355 A0       		.byte	-96
+ 883 0356 4F       		.byte	79
+ 884 0357 04       		.byte	4
+ 885 0358 50       		.byte	80
+ 886 0359 18       		.byte	24
+ 887 035a 58       		.byte	88
+ 888 035b 04       		.byte	4
+ 889 035c 59       		.byte	89
+ 890 035d 04       		.byte	4
+ 891 035e 5A       		.byte	90
+ 892 035f 04       		.byte	4
+ 893 0360 5C       		.byte	92
+ 894 0361 22       		.byte	34
+ 895 0362 5D       		.byte	93
+ 896 0363 01       		.byte	1
+ 897 0364 5F       		.byte	95
+ 898 0365 01       		.byte	1
+ 899 0366 60       		.byte	96
+ 900 0367 40       		.byte	64
+ 901 0368 62       		.byte	98
+ 902 0369 C0       		.byte	-64
+ 903 036a 64       		.byte	100
+ 904 036b 40       		.byte	64
+ 905 036c 65       		.byte	101
+ 906 036d 40       		.byte	64
+ 907 036e 66       		.byte	102
+ 908 036f C0       		.byte	-64
+ 909 0370 68       		.byte	104
+ 910 0371 C0       		.byte	-64
+ 911 0372 6A       		.byte	106
+ 912 0373 C0       		.byte	-64
+ARM GAS  C:\Users\robom\AppData\Local\Temp\ccFKNG9r.s 			page 17
+
+
+ 913 0374 6C       		.byte	108
+ 914 0375 C0       		.byte	-64
+ 915 0376 6E       		.byte	110
+ 916 0377 C0       		.byte	-64
+ 917 0378 C0       		.byte	-64
+ 918 0379 60       		.byte	96
+ 919 037a C1       		.byte	-63
+ 920 037b 05       		.byte	5
+ 921 037c C5       		.byte	-59
+ 922 037d 10       		.byte	16
+ 923 037e C7       		.byte	-57
+ 924 037f 20       		.byte	32
+ 925 0380 C8       		.byte	-56
+ 926 0381 22       		.byte	34
+ 927 0382 C9       		.byte	-55
+ 928 0383 FF       		.byte	-1
+ 929 0384 CA       		.byte	-54
+ 930 0385 FF       		.byte	-1
+ 931 0386 CB       		.byte	-53
+ 932 0387 FF       		.byte	-1
+ 933 0388 CD       		.byte	-51
+ 934 0389 AF       		.byte	-81
+ 935 038a CE       		.byte	-50
+ 936 038b 0F       		.byte	15
+ 937 038c CF       		.byte	-49
+ 938 038d 04       		.byte	4
+ 939 038e D0       		.byte	-48
+ 940 038f 18       		.byte	24
+ 941 0390 D2       		.byte	-46
+ 942 0391 80       		.byte	-128
+ 943 0392 D8       		.byte	-40
+ 944 0393 04       		.byte	4
+ 945 0394 D9       		.byte	-39
+ 946 0395 04       		.byte	4
+ 947 0396 DA       		.byte	-38
+ 948 0397 04       		.byte	4
+ 949 0398 DB       		.byte	-37
+ 950 0399 04       		.byte	4
+ 951 039a DC       		.byte	-36
+ 952 039b 22       		.byte	34
+ 953 039c DD       		.byte	-35
+ 954 039d 11       		.byte	17
+ 955 039e DF       		.byte	-33
+ 956 039f 01       		.byte	1
+ 957 03a0 E0       		.byte	-32
+ 958 03a1 40       		.byte	64
+ 959 03a2 E2       		.byte	-30
+ 960 03a3 C0       		.byte	-64
+ 961 03a4 E4       		.byte	-28
+ 962 03a5 40       		.byte	64
+ 963 03a6 E5       		.byte	-27
+ 964 03a7 40       		.byte	64
+ 965 03a8 E6       		.byte	-26
+ 966 03a9 C0       		.byte	-64
+ 967 03aa E8       		.byte	-24
+ 968 03ab C0       		.byte	-64
+ 969 03ac EA       		.byte	-22
+ARM GAS  C:\Users\robom\AppData\Local\Temp\ccFKNG9r.s 			page 18
+
+
+ 970 03ad C0       		.byte	-64
+ 971 03ae EC       		.byte	-20
+ 972 03af C0       		.byte	-64
+ 973 03b0 EE       		.byte	-18
+ 974 03b1 C0       		.byte	-64
+ 975 03b2 01       		.byte	1
+ 976 03b3 20       		.byte	32
+ 977 03b4 03       		.byte	3
+ 978 03b5 42       		.byte	66
+ 979 03b6 05       		.byte	5
+ 980 03b7 20       		.byte	32
+ 981 03b8 06       		.byte	6
+ 982 03b9 01       		.byte	1
+ 983 03ba 07       		.byte	7
+ 984 03bb D0       		.byte	-48
+ 985 03bc 08       		.byte	8
+ 986 03bd 01       		.byte	1
+ 987 03be 09       		.byte	9
+ 988 03bf 08       		.byte	8
+ 989 03c0 0C       		.byte	12
+ 990 03c1 01       		.byte	1
+ 991 03c2 0E       		.byte	14
+ 992 03c3 10       		.byte	16
+ 993 03c4 0F       		.byte	15
+ 994 03c5 06       		.byte	6
+ 995 03c6 12       		.byte	18
+ 996 03c7 01       		.byte	1
+ 997 03c8 13       		.byte	19
+ 998 03c9 04       		.byte	4
+ 999 03ca 15       		.byte	21
+ 1000 03cb 80       		.byte	-128
+ 1001 03cc 16       		.byte	22
+ 1002 03cd 24       		.byte	36
+ 1003 03ce 17       		.byte	23
+ 1004 03cf 01       		.byte	1
+ 1005 03d0 1E       		.byte	30
+ 1006 03d1 40       		.byte	64
+ 1007 03d2 28       		.byte	40
+ 1008 03d3 09       		.byte	9
+ 1009 03d4 29       		.byte	41
+ 1010 03d5 20       		.byte	32
+ 1011 03d6 2A       		.byte	42
+ 1012 03d7 81       		.byte	-127
+ 1013 03d8 2C       		.byte	44
+ 1014 03d9 20       		.byte	32
+ 1015 03da 2F       		.byte	47
+ 1016 03db 82       		.byte	-126
+ 1017 03dc 31       		.byte	49
+ 1018 03dd 08       		.byte	8
+ 1019 03de 33       		.byte	51
+ 1020 03df C2       		.byte	-62
+ 1021 03e0 35       		.byte	53
+ 1022 03e1 82       		.byte	-126
+ 1023 03e2 3B       		.byte	59
+ 1024 03e3 04       		.byte	4
+ 1025 03e4 3E       		.byte	62
+ 1026 03e5 80       		.byte	-128
+ARM GAS  C:\Users\robom\AppData\Local\Temp\ccFKNG9r.s 			page 19
+
+
+ 1027 03e6 3F       		.byte	63
+ 1028 03e7 04       		.byte	4
+ 1029 03e8 48       		.byte	72
+ 1030 03e9 4A       		.byte	74
+ 1031 03ea 4C       		.byte	76
+ 1032 03eb 08       		.byte	8
+ 1033 03ec 4E       		.byte	78
+ 1034 03ed 06       		.byte	6
+ 1035 03ee 50       		.byte	80
+ 1036 03ef 02       		.byte	2
+ 1037 03f0 52       		.byte	82
+ 1038 03f1 02       		.byte	2
+ 1039 03f2 73       		.byte	115
+ 1040 03f3 40       		.byte	64
+ 1041 03f4 82       		.byte	-126
+ 1042 03f5 01       		.byte	1
+ 1043 03f6 83       		.byte	-125
+ 1044 03f7 08       		.byte	8
+ 1045 03f8 8B       		.byte	-117
+ 1046 03f9 04       		.byte	4
+ 1047 03fa 8C       		.byte	-116
+ 1048 03fb 20       		.byte	32
+ 1049 03fc 8D       		.byte	-115
+ 1050 03fd 48       		.byte	72
+ 1051 03fe 92       		.byte	-110
+ 1052 03ff 08       		.byte	8
+ 1053 0400 93       		.byte	-109
+ 1054 0401 04       		.byte	4
+ 1055 0402 97       		.byte	-105
+ 1056 0403 40       		.byte	64
+ 1057 0404 98       		.byte	-104
+ 1058 0405 40       		.byte	64
+ 1059 0406 99       		.byte	-103
+ 1060 0407 82       		.byte	-126
+ 1061 0408 9A       		.byte	-102
+ 1062 0409 91       		.byte	-111
+ 1063 040a 9B       		.byte	-101
+ 1064 040b 10       		.byte	16
+ 1065 040c 9F       		.byte	-97
+ 1066 040d 80       		.byte	-128
+ 1067 040e A1       		.byte	-95
+ 1068 040f 08       		.byte	8
+ 1069 0410 A3       		.byte	-93
+ 1070 0411 02       		.byte	2
+ 1071 0412 A4       		.byte	-92
+ 1072 0413 40       		.byte	64
+ 1073 0414 A8       		.byte	-88
+ 1074 0415 40       		.byte	64
+ 1075 0416 AB       		.byte	-85
+ 1076 0417 02       		.byte	2
+ 1077 0418 B1       		.byte	-79
+ 1078 0419 40       		.byte	64
+ 1079 041a B7       		.byte	-73
+ 1080 041b 12       		.byte	18
+ 1081 041c C0       		.byte	-64
+ 1082 041d FB       		.byte	-5
+ 1083 041e C2       		.byte	-62
+ARM GAS  C:\Users\robom\AppData\Local\Temp\ccFKNG9r.s 			page 20
+
+
+ 1084 041f FC       		.byte	-4
+ 1085 0420 C4       		.byte	-60
+ 1086 0421 F5       		.byte	-11
+ 1087 0422 CA       		.byte	-54
+ 1088 0423 DD       		.byte	-35
+ 1089 0424 CC       		.byte	-52
+ 1090 0425 9B       		.byte	-101
+ 1091 0426 CE       		.byte	-50
+ 1092 0427 52       		.byte	82
+ 1093 0428 D2       		.byte	-46
+ 1094 0429 3C       		.byte	60
+ 1095 042a E2       		.byte	-30
+ 1096 042b 02       		.byte	2
+ 1097 042c E8       		.byte	-24
+ 1098 042d 01       		.byte	1
+ 1099 042e EC       		.byte	-20
+ 1100 042f 20       		.byte	32
+ 1101 0430 EE       		.byte	-18
+ 1102 0431 05       		.byte	5
+ 1103 0432 01       		.byte	1
+ 1104 0433 56       		.byte	86
+ 1105 0434 03       		.byte	3
+ 1106 0435 09       		.byte	9
+ 1107 0436 05       		.byte	5
+ 1108 0437 84       		.byte	-124
+ 1109 0438 09       		.byte	9
+ 1110 0439 07       		.byte	7
+ 1111 043a 0B       		.byte	11
+ 1112 043b 38       		.byte	56
+ 1113 043c 0D       		.byte	13
+ 1114 043d 04       		.byte	4
+ 1115 043e 0F       		.byte	15
+ 1116 043f 80       		.byte	-128
+ 1117 0440 12       		.byte	18
+ 1118 0441 01       		.byte	1
+ 1119 0442 15       		.byte	21
+ 1120 0443 0A       		.byte	10
+ 1121 0444 16       		.byte	22
+ 1122 0445 01       		.byte	1
+ 1123 0446 17       		.byte	23
+ 1124 0447 10       		.byte	16
+ 1125 0448 19       		.byte	25
+ 1126 0449 01       		.byte	1
+ 1127 044a 1D       		.byte	29
+ 1128 044b 04       		.byte	4
+ 1129 044c 1E       		.byte	30
+ 1130 044d 02       		.byte	2
+ 1131 044e 21       		.byte	33
+ 1132 044f 84       		.byte	-124
+ 1133 0450 25       		.byte	37
+ 1134 0451 60       		.byte	96
+ 1135 0452 29       		.byte	41
+ 1136 0453 80       		.byte	-128
+ 1137 0454 2B       		.byte	43
+ 1138 0455 04       		.byte	4
+ 1139 0456 2D       		.byte	45
+ 1140 0457 84       		.byte	-124
+ARM GAS  C:\Users\robom\AppData\Local\Temp\ccFKNG9r.s 			page 21
+
+
+ 1141 0458 30       		.byte	48
+ 1142 0459 01       		.byte	1
+ 1143 045a 31       		.byte	49
+ 1144 045b 08       		.byte	8
+ 1145 045c 32       		.byte	50
+ 1146 045d 02       		.byte	2
+ 1147 045e 33       		.byte	51
+ 1148 045f 7F       		.byte	127
+ 1149 0460 37       		.byte	55
+ 1150 0461 80       		.byte	-128
+ 1151 0462 39       		.byte	57
+ 1152 0463 08       		.byte	8
+ 1153 0464 3E       		.byte	62
+ 1154 0465 01       		.byte	1
+ 1155 0466 3F       		.byte	63
+ 1156 0467 41       		.byte	65
+ 1157 0468 40       		.byte	64
+ 1158 0469 61       		.byte	97
+ 1159 046a 41       		.byte	65
+ 1160 046b 02       		.byte	2
+ 1161 046c 42       		.byte	66
+ 1162 046d 40       		.byte	64
+ 1163 046e 45       		.byte	69
+ 1164 046f 0D       		.byte	13
+ 1165 0470 46       		.byte	70
+ 1166 0471 EC       		.byte	-20
+ 1167 0472 47       		.byte	71
+ 1168 0473 FB       		.byte	-5
+ 1169 0474 48       		.byte	72
+ 1170 0475 3D       		.byte	61
+ 1171 0476 49       		.byte	73
+ 1172 0477 FF       		.byte	-1
+ 1173 0478 4A       		.byte	74
+ 1174 0479 FF       		.byte	-1
+ 1175 047a 4B       		.byte	75
+ 1176 047b FF       		.byte	-1
+ 1177 047c 4C       		.byte	76
+ 1178 047d 22       		.byte	34
+ 1179 047e 4E       		.byte	78
+ 1180 047f F0       		.byte	-16
+ 1181 0480 4F       		.byte	79
+ 1182 0481 08       		.byte	8
+ 1183 0482 50       		.byte	80
+ 1184 0483 04       		.byte	4
+ 1185 0484 56       		.byte	86
+ 1186 0485 02       		.byte	2
+ 1187 0486 57       		.byte	87
+ 1188 0487 2C       		.byte	44
+ 1189 0488 58       		.byte	88
+ 1190 0489 04       		.byte	4
+ 1191 048a 59       		.byte	89
+ 1192 048b 04       		.byte	4
+ 1193 048c 5A       		.byte	90
+ 1194 048d 04       		.byte	4
+ 1195 048e 5B       		.byte	91
+ 1196 048f 04       		.byte	4
+ 1197 0490 5C       		.byte	92
+ARM GAS  C:\Users\robom\AppData\Local\Temp\ccFKNG9r.s 			page 22
+
+
+ 1198 0491 03       		.byte	3
+ 1199 0492 5F       		.byte	95
+ 1200 0493 01       		.byte	1
+ 1201 0494 62       		.byte	98
+ 1202 0495 C0       		.byte	-64
+ 1203 0496 64       		.byte	100
+ 1204 0497 40       		.byte	64
+ 1205 0498 65       		.byte	101
+ 1206 0499 01       		.byte	1
+ 1207 049a 66       		.byte	102
+ 1208 049b 10       		.byte	16
+ 1209 049c 67       		.byte	103
+ 1210 049d 11       		.byte	17
+ 1211 049e 68       		.byte	104
+ 1212 049f C0       		.byte	-64
+ 1213 04a0 69       		.byte	105
+ 1214 04a1 01       		.byte	1
+ 1215 04a2 6B       		.byte	107
+ 1216 04a3 11       		.byte	17
+ 1217 04a4 6C       		.byte	108
+ 1218 04a5 40       		.byte	64
+ 1219 04a6 6D       		.byte	109
+ 1220 04a7 01       		.byte	1
+ 1221 04a8 6E       		.byte	110
+ 1222 04a9 40       		.byte	64
+ 1223 04aa 6F       		.byte	111
+ 1224 04ab 01       		.byte	1
+ 1225 04ac D4       		.byte	-44
+ 1226 04ad 09       		.byte	9
+ 1227 04ae D9       		.byte	-39
+ 1228 04af 04       		.byte	4
+ 1229 04b0 DB       		.byte	-37
+ 1230 04b1 04       		.byte	4
+ 1231 04b2 DC       		.byte	-36
+ 1232 04b3 20       		.byte	32
+ 1233 04b4 DF       		.byte	-33
+ 1234 04b5 01       		.byte	1
+ 1235 04b6 0E       		.byte	14
+ 1236 04b7 40       		.byte	64
+ 1237 04b8 0F       		.byte	15
+ 1238 04b9 22       		.byte	34
+ 1239 04ba 1D       		.byte	29
+ 1240 04bb 04       		.byte	4
+ 1241 04bc 1F       		.byte	31
+ 1242 04bd 01       		.byte	1
+ 1243 04be 27       		.byte	39
+ 1244 04bf 62       		.byte	98
+ 1245 04c0 28       		.byte	40
+ 1246 04c1 02       		.byte	2
+ 1247 04c2 2A       		.byte	42
+ 1248 04c3 80       		.byte	-128
+ 1249 04c4 2D       		.byte	45
+ 1250 04c5 80       		.byte	-128
+ 1251 04c6 2E       		.byte	46
+ 1252 04c7 09       		.byte	9
+ 1253 04c8 2F       		.byte	47
+ 1254 04c9 08       		.byte	8
+ARM GAS  C:\Users\robom\AppData\Local\Temp\ccFKNG9r.s 			page 23
+
+
+ 1255 04ca 30       		.byte	48
+ 1256 04cb 90       		.byte	-112
+ 1257 04cc 31       		.byte	49
+ 1258 04cd 02       		.byte	2
+ 1259 04ce 32       		.byte	50
+ 1260 04cf 40       		.byte	64
+ 1261 04d0 36       		.byte	54
+ 1262 04d1 88       		.byte	-120
+ 1263 04d2 37       		.byte	55
+ 1264 04d3 20       		.byte	32
+ 1265 04d4 39       		.byte	57
+ 1266 04d5 61       		.byte	97
+ 1267 04d6 3C       		.byte	60
+ 1268 04d7 02       		.byte	2
+ 1269 04d8 3D       		.byte	61
+ 1270 04d9 A8       		.byte	-88
+ 1271 04da 3E       		.byte	62
+ 1272 04db 10       		.byte	16
+ 1273 04dc 45       		.byte	69
+ 1274 04dd 90       		.byte	-112
+ 1275 04de 47       		.byte	71
+ 1276 04df 02       		.byte	2
+ 1277 04e0 4E       		.byte	78
+ 1278 04e1 08       		.byte	8
+ 1279 04e2 4F       		.byte	79
+ 1280 04e3 08       		.byte	8
+ 1281 04e4 55       		.byte	85
+ 1282 04e5 20       		.byte	32
+ 1283 04e6 56       		.byte	86
+ 1284 04e7 08       		.byte	8
+ 1285 04e8 57       		.byte	87
+ 1286 04e9 C2       		.byte	-62
+ 1287 04ea 58       		.byte	88
+ 1288 04eb 04       		.byte	4
+ 1289 04ec 5A       		.byte	90
+ 1290 04ed 20       		.byte	32
+ 1291 04ee 5B       		.byte	91
+ 1292 04ef 42       		.byte	66
+ 1293 04f0 60       		.byte	96
+ 1294 04f1 01       		.byte	1
+ 1295 04f2 64       		.byte	100
+ 1296 04f3 40       		.byte	64
+ 1297 04f4 6D       		.byte	109
+ 1298 04f5 8C       		.byte	-116
+ 1299 04f6 6E       		.byte	110
+ 1300 04f7 03       		.byte	3
+ 1301 04f8 6F       		.byte	111
+ 1302 04f9 1D       		.byte	29
+ 1303 04fa 75       		.byte	117
+ 1304 04fb 80       		.byte	-128
+ 1305 04fc 8A       		.byte	-118
+ 1306 04fd 80       		.byte	-128
+ 1307 04fe 8D       		.byte	-115
+ 1308 04ff 02       		.byte	2
+ 1309 0500 90       		.byte	-112
+ 1310 0501 63       		.byte	99
+ 1311 0502 91       		.byte	-111
+ARM GAS  C:\Users\robom\AppData\Local\Temp\ccFKNG9r.s 			page 24
+
+
+ 1312 0503 23       		.byte	35
+ 1313 0504 93       		.byte	-109
+ 1314 0505 10       		.byte	16
+ 1315 0506 95       		.byte	-107
+ 1316 0507 44       		.byte	68
+ 1317 0508 97       		.byte	-105
+ 1318 0509 08       		.byte	8
+ 1319 050a 98       		.byte	-104
+ 1320 050b 58       		.byte	88
+ 1321 050c 9A       		.byte	-102
+ 1322 050d 32       		.byte	50
+ 1323 050e 9C       		.byte	-100
+ 1324 050f 02       		.byte	2
+ 1325 0510 9D       		.byte	-99
+ 1326 0511 84       		.byte	-124
+ 1327 0512 A0       		.byte	-96
+ 1328 0513 20       		.byte	32
+ 1329 0514 A1       		.byte	-95
+ 1330 0515 10       		.byte	16
+ 1331 0516 A2       		.byte	-94
+ 1332 0517 88       		.byte	-120
+ 1333 0518 A4       		.byte	-92
+ 1334 0519 81       		.byte	-127
+ 1335 051a A5       		.byte	-91
+ 1336 051b C8       		.byte	-56
+ 1337 051c A6       		.byte	-90
+ 1338 051d 01       		.byte	1
+ 1339 051e A7       		.byte	-89
+ 1340 051f 89       		.byte	-119
+ 1341 0520 B1       		.byte	-79
+ 1342 0521 01       		.byte	1
+ 1343 0522 B2       		.byte	-78
+ 1344 0523 08       		.byte	8
+ 1345 0524 B5       		.byte	-75
+ 1346 0525 04       		.byte	4
+ 1347 0526 B7       		.byte	-73
+ 1348 0527 40       		.byte	64
+ 1349 0528 C2       		.byte	-62
+ 1350 0529 B0       		.byte	-80
+ 1351 052a CA       		.byte	-54
+ 1352 052b F8       		.byte	-8
+ 1353 052c CC       		.byte	-52
+ 1354 052d 7D       		.byte	125
+ 1355 052e CE       		.byte	-50
+ 1356 052f FD       		.byte	-3
+ 1357 0530 D0       		.byte	-48
+ 1358 0531 B0       		.byte	-80
+ 1359 0532 D2       		.byte	-46
+ 1360 0533 20       		.byte	32
+ 1361 0534 D6       		.byte	-42
+ 1362 0535 0F       		.byte	15
+ 1363 0536 D8       		.byte	-40
+ 1364 0537 88       		.byte	-120
+ 1365 0538 E2       		.byte	-30
+ 1366 0539 02       		.byte	2
+ 1367 053a E4       		.byte	-28
+ 1368 053b 30       		.byte	48
+ARM GAS  C:\Users\robom\AppData\Local\Temp\ccFKNG9r.s 			page 25
+
+
+ 1369 053c E8       		.byte	-24
+ 1370 053d 01       		.byte	1
+ 1371 053e EC       		.byte	-20
+ 1372 053f 40       		.byte	64
+ 1373 0540 EE       		.byte	-18
+ 1374 0541 05       		.byte	5
+ 1375 0542 58       		.byte	88
+ 1376 0543 04       		.byte	4
+ 1377 0544 59       		.byte	89
+ 1378 0545 04       		.byte	4
+ 1379 0546 5C       		.byte	92
+ 1380 0547 22       		.byte	34
+ 1381 0548 5F       		.byte	95
+ 1382 0549 01       		.byte	1
+ 1383 054a 81       		.byte	-127
+ 1384 054b FC       		.byte	-4
+ 1385 054c 83       		.byte	-125
+ 1386 054d 03       		.byte	3
+ 1387 054e 86       		.byte	-122
+ 1388 054f 20       		.byte	32
+ 1389 0550 88       		.byte	-120
+ 1390 0551 26       		.byte	38
+ 1391 0552 8A       		.byte	-118
+ 1392 0553 11       		.byte	17
+ 1393 0554 8C       		.byte	-116
+ 1394 0555 26       		.byte	38
+ 1395 0556 8D       		.byte	-115
+ 1396 0557 98       		.byte	-104
+ 1397 0558 8E       		.byte	-114
+ 1398 0559 09       		.byte	9
+ 1399 055a 8F       		.byte	-113
+ 1400 055b 02       		.byte	2
+ 1401 055c 91       		.byte	-111
+ 1402 055d 9A       		.byte	-102
+ 1403 055e 95       		.byte	-107
+ 1404 055f 13       		.byte	19
+ 1405 0560 96       		.byte	-106
+ 1406 0561 19       		.byte	25
+ 1407 0562 97       		.byte	-105
+ 1408 0563 64       		.byte	100
+ 1409 0564 98       		.byte	-104
+ 1410 0565 39       		.byte	57
+ 1411 0566 99       		.byte	-103
+ 1412 0567 21       		.byte	33
+ 1413 0568 9A       		.byte	-102
+ 1414 0569 06       		.byte	6
+ 1415 056a 9B       		.byte	-101
+ 1416 056b D8       		.byte	-40
+ 1417 056c 9C       		.byte	-100
+ 1418 056d 20       		.byte	32
+ 1419 056e 9D       		.byte	-99
+ 1420 056f 38       		.byte	56
+ 1421 0570 9F       		.byte	-97
+ 1422 0571 C0       		.byte	-64
+ 1423 0572 A0       		.byte	-96
+ 1424 0573 02       		.byte	2
+ 1425 0574 A1       		.byte	-95
+ARM GAS  C:\Users\robom\AppData\Local\Temp\ccFKNG9r.s 			page 26
+
+
+ 1426 0575 02       		.byte	2
+ 1427 0576 A4       		.byte	-92
+ 1428 0577 06       		.byte	6
+ 1429 0578 A5       		.byte	-91
+ 1430 0579 98       		.byte	-104
+ 1431 057a A7       		.byte	-89
+ 1432 057b 02       		.byte	2
+ 1433 057c A8       		.byte	-88
+ 1434 057d 3F       		.byte	63
+ 1435 057e A9       		.byte	-87
+ 1436 057f 02       		.byte	2
+ 1437 0580 AB       		.byte	-85
+ 1438 0581 98       		.byte	-104
+ 1439 0582 AC       		.byte	-84
+ 1440 0583 04       		.byte	4
+ 1441 0584 AD       		.byte	-83
+ 1442 0585 9A       		.byte	-102
+ 1443 0586 B0       		.byte	-80
+ 1444 0587 07       		.byte	7
+ 1445 0588 B2       		.byte	-78
+ 1446 0589 3E       		.byte	62
+ 1447 058a B3       		.byte	-77
+ 1448 058b 0F       		.byte	15
+ 1449 058c B5       		.byte	-75
+ 1450 058d 13       		.byte	19
+ 1451 058e B7       		.byte	-73
+ 1452 058f E0       		.byte	-32
+ 1453 0590 BA       		.byte	-70
+ 1454 0591 2A       		.byte	42
+ 1455 0592 BB       		.byte	-69
+ 1456 0593 88       		.byte	-120
+ 1457 0594 D6       		.byte	-42
+ 1458 0595 02       		.byte	2
+ 1459 0596 D7       		.byte	-41
+ 1460 0597 12       		.byte	18
+ 1461 0598 D8       		.byte	-40
+ 1462 0599 04       		.byte	4
+ 1463 059a D9       		.byte	-39
+ 1464 059b 04       		.byte	4
+ 1465 059c DB       		.byte	-37
+ 1466 059d 04       		.byte	4
+ 1467 059e DC       		.byte	-36
+ 1468 059f 03       		.byte	3
+ 1469 05a0 DD       		.byte	-35
+ 1470 05a1 30       		.byte	48
+ 1471 05a2 DF       		.byte	-33
+ 1472 05a3 01       		.byte	1
+ 1473 05a4 01       		.byte	1
+ 1474 05a5 11       		.byte	17
+ 1475 05a6 03       		.byte	3
+ 1476 05a7 01       		.byte	1
+ 1477 05a8 04       		.byte	4
+ 1478 05a9 50       		.byte	80
+ 1479 05aa 05       		.byte	5
+ 1480 05ab 04       		.byte	4
+ 1481 05ac 08       		.byte	8
+ 1482 05ad 02       		.byte	2
+ARM GAS  C:\Users\robom\AppData\Local\Temp\ccFKNG9r.s 			page 27
+
+
+ 1483 05ae 0D       		.byte	13
+ 1484 05af 08       		.byte	8
+ 1485 05b0 0F       		.byte	15
+ 1486 05b1 06       		.byte	6
+ 1487 05b2 10       		.byte	16
+ 1488 05b3 90       		.byte	-112
+ 1489 05b4 11       		.byte	17
+ 1490 05b5 48       		.byte	72
+ 1491 05b6 14       		.byte	20
+ 1492 05b7 08       		.byte	8
+ 1493 05b8 15       		.byte	21
+ 1494 05b9 02       		.byte	2
+ 1495 05ba 16       		.byte	22
+ 1496 05bb 12       		.byte	18
+ 1497 05bc 1C       		.byte	28
+ 1498 05bd 50       		.byte	80
+ 1499 05be 1E       		.byte	30
+ 1500 05bf 10       		.byte	16
+ 1501 05c0 1F       		.byte	31
+ 1502 05c1 12       		.byte	18
+ 1503 05c2 24       		.byte	36
+ 1504 05c3 20       		.byte	32
+ 1505 05c4 25       		.byte	37
+ 1506 05c5 10       		.byte	16
+ 1507 05c6 26       		.byte	38
+ 1508 05c7 88       		.byte	-120
+ 1509 05c8 27       		.byte	39
+ 1510 05c9 18       		.byte	24
+ 1511 05ca 28       		.byte	40
+ 1512 05cb 02       		.byte	2
+ 1513 05cc 2B       		.byte	43
+ 1514 05cd 40       		.byte	64
+ 1515 05ce 2D       		.byte	45
+ 1516 05cf 84       		.byte	-124
+ 1517 05d0 2F       		.byte	47
+ 1518 05d1 88       		.byte	-120
+ 1519 05d2 30       		.byte	48
+ 1520 05d3 80       		.byte	-128
+ 1521 05d4 33       		.byte	51
+ 1522 05d5 01       		.byte	1
+ 1523 05d6 36       		.byte	54
+ 1524 05d7 81       		.byte	-127
+ 1525 05d8 37       		.byte	55
+ 1526 05d9 18       		.byte	24
+ 1527 05da 39       		.byte	57
+ 1528 05db 71       		.byte	113
+ 1529 05dc 3C       		.byte	60
+ 1530 05dd 02       		.byte	2
+ 1531 05de 3D       		.byte	61
+ 1532 05df 80       		.byte	-128
+ 1533 05e0 3E       		.byte	62
+ 1534 05e1 30       		.byte	48
+ 1535 05e2 4C       		.byte	76
+ 1536 05e3 04       		.byte	4
+ 1537 05e4 4F       		.byte	79
+ 1538 05e5 10       		.byte	16
+ 1539 05e6 5E       		.byte	94
+ARM GAS  C:\Users\robom\AppData\Local\Temp\ccFKNG9r.s 			page 28
+
+
+ 1540 05e7 08       		.byte	8
+ 1541 05e8 67       		.byte	103
+ 1542 05e9 0C       		.byte	12
+ 1543 05ea 6C       		.byte	108
+ 1544 05eb 25       		.byte	37
+ 1545 05ec 76       		.byte	118
+ 1546 05ed 1A       		.byte	26
+ 1547 05ee 7C       		.byte	124
+ 1548 05ef 08       		.byte	8
+ 1549 05f0 7F       		.byte	127
+ 1550 05f1 10       		.byte	16
+ 1551 05f2 90       		.byte	-112
+ 1552 05f3 01       		.byte	1
+ 1553 05f4 91       		.byte	-111
+ 1554 05f5 21       		.byte	33
+ 1555 05f6 95       		.byte	-107
+ 1556 05f7 40       		.byte	64
+ 1557 05f8 96       		.byte	-106
+ 1558 05f9 10       		.byte	16
+ 1559 05fa 97       		.byte	-105
+ 1560 05fb 28       		.byte	40
+ 1561 05fc 98       		.byte	-104
+ 1562 05fd 40       		.byte	64
+ 1563 05fe 9B       		.byte	-101
+ 1564 05ff 01       		.byte	1
+ 1565 0600 9C       		.byte	-100
+ 1566 0601 10       		.byte	16
+ 1567 0602 9F       		.byte	-97
+ 1568 0603 18       		.byte	24
+ 1569 0604 A2       		.byte	-94
+ 1570 0605 04       		.byte	4
+ 1571 0606 A4       		.byte	-92
+ 1572 0607 81       		.byte	-127
+ 1573 0608 A5       		.byte	-91
+ 1574 0609 80       		.byte	-128
+ 1575 060a A7       		.byte	-89
+ 1576 060b 42       		.byte	66
+ 1577 060c B5       		.byte	-75
+ 1578 060d 02       		.byte	2
+ 1579 060e C0       		.byte	-64
+ 1580 060f EB       		.byte	-21
+ 1581 0610 C2       		.byte	-62
+ 1582 0611 E8       		.byte	-24
+ 1583 0612 C4       		.byte	-60
+ 1584 0613 FD       		.byte	-3
+ 1585 0614 CA       		.byte	-54
+ 1586 0615 F9       		.byte	-7
+ 1587 0616 CC       		.byte	-52
+ 1588 0617 F9       		.byte	-7
+ 1589 0618 CE       		.byte	-50
+ 1590 0619 9D       		.byte	-99
+ 1591 061a D6       		.byte	-42
+ 1592 061b 40       		.byte	64
+ 1593 061c E2       		.byte	-30
+ 1594 061d 80       		.byte	-128
+ 1595 061e 01       		.byte	1
+ 1596 061f 09       		.byte	9
+ARM GAS  C:\Users\robom\AppData\Local\Temp\ccFKNG9r.s 			page 29
+
+
+ 1597 0620 03       		.byte	3
+ 1598 0621 06       		.byte	6
+ 1599 0622 09       		.byte	9
+ 1600 0623 10       		.byte	16
+ 1601 0624 0D       		.byte	13
+ 1602 0625 02       		.byte	2
+ 1603 0626 0F       		.byte	15
+ 1604 0627 0D       		.byte	13
+ 1605 0628 15       		.byte	21
+ 1606 0629 03       		.byte	3
+ 1607 062a 17       		.byte	23
+ 1608 062b 0C       		.byte	12
+ 1609 062c 19       		.byte	25
+ 1610 062d 05       		.byte	5
+ 1611 062e 1B       		.byte	27
+ 1612 062f 0A       		.byte	10
+ 1613 0630 1C       		.byte	28
+ 1614 0631 01       		.byte	1
+ 1615 0632 24       		.byte	36
+ 1616 0633 01       		.byte	1
+ 1617 0634 25       		.byte	37
+ 1618 0635 10       		.byte	16
+ 1619 0636 28       		.byte	40
+ 1620 0637 01       		.byte	1
+ 1621 0638 29       		.byte	41
+ 1622 0639 10       		.byte	16
+ 1623 063a 2D       		.byte	45
+ 1624 063b 10       		.byte	16
+ 1625 063c 33       		.byte	51
+ 1626 063d 10       		.byte	16
+ 1627 063e 36       		.byte	54
+ 1628 063f 01       		.byte	1
+ 1629 0640 37       		.byte	55
+ 1630 0641 0F       		.byte	15
+ 1631 0642 3B       		.byte	59
+ 1632 0643 80       		.byte	-128
+ 1633 0644 3E       		.byte	62
+ 1634 0645 40       		.byte	64
+ 1635 0646 3F       		.byte	63
+ 1636 0647 04       		.byte	4
+ 1637 0648 40       		.byte	64
+ 1638 0649 60       		.byte	96
+ 1639 064a 41       		.byte	65
+ 1640 064b 03       		.byte	3
+ 1641 064c 49       		.byte	73
+ 1642 064d FF       		.byte	-1
+ 1643 064e 4A       		.byte	74
+ 1644 064f FF       		.byte	-1
+ 1645 0650 4B       		.byte	75
+ 1646 0651 FF       		.byte	-1
+ 1647 0652 4D       		.byte	77
+ 1648 0653 A0       		.byte	-96
+ 1649 0654 4F       		.byte	79
+ 1650 0655 04       		.byte	4
+ 1651 0656 50       		.byte	80
+ 1652 0657 18       		.byte	24
+ 1653 0658 58       		.byte	88
+ARM GAS  C:\Users\robom\AppData\Local\Temp\ccFKNG9r.s 			page 30
+
+
+ 1654 0659 04       		.byte	4
+ 1655 065a 59       		.byte	89
+ 1656 065b 04       		.byte	4
+ 1657 065c 5A       		.byte	90
+ 1658 065d 04       		.byte	4
+ 1659 065e 5C       		.byte	92
+ 1660 065f 02       		.byte	2
+ 1661 0660 5D       		.byte	93
+ 1662 0661 01       		.byte	1
+ 1663 0662 5F       		.byte	95
+ 1664 0663 01       		.byte	1
+ 1665 0664 60       		.byte	96
+ 1666 0665 40       		.byte	64
+ 1667 0666 62       		.byte	98
+ 1668 0667 C0       		.byte	-64
+ 1669 0668 64       		.byte	100
+ 1670 0669 40       		.byte	64
+ 1671 066a 65       		.byte	101
+ 1672 066b 40       		.byte	64
+ 1673 066c 66       		.byte	102
+ 1674 066d C0       		.byte	-64
+ 1675 066e 68       		.byte	104
+ 1676 066f C0       		.byte	-64
+ 1677 0670 6A       		.byte	106
+ 1678 0671 C0       		.byte	-64
+ 1679 0672 6C       		.byte	108
+ 1680 0673 C0       		.byte	-64
+ 1681 0674 6E       		.byte	110
+ 1682 0675 C0       		.byte	-64
+ 1683 0676 92       		.byte	-110
+ 1684 0677 01       		.byte	1
+ 1685 0678 9A       		.byte	-102
+ 1686 0679 02       		.byte	2
+ 1687 067a A6       		.byte	-90
+ 1688 067b 02       		.byte	2
+ 1689 067c B0       		.byte	-80
+ 1690 067d 02       		.byte	2
+ 1691 067e B4       		.byte	-76
+ 1692 067f 01       		.byte	1
+ 1693 0680 C0       		.byte	-64
+ 1694 0681 20       		.byte	32
+ 1695 0682 C1       		.byte	-63
+ 1696 0683 03       		.byte	3
+ 1697 0684 C5       		.byte	-59
+ 1698 0685 01       		.byte	1
+ 1699 0686 C7       		.byte	-57
+ 1700 0687 02       		.byte	2
+ 1701 0688 C8       		.byte	-56
+ 1702 0689 11       		.byte	17
+ 1703 068a C9       		.byte	-55
+ 1704 068b FF       		.byte	-1
+ 1705 068c CA       		.byte	-54
+ 1706 068d FF       		.byte	-1
+ 1707 068e CB       		.byte	-53
+ 1708 068f FF       		.byte	-1
+ 1709 0690 CD       		.byte	-51
+ 1710 0691 AF       		.byte	-81
+ARM GAS  C:\Users\robom\AppData\Local\Temp\ccFKNG9r.s 			page 31
+
+
+ 1711 0692 CE       		.byte	-50
+ 1712 0693 0F       		.byte	15
+ 1713 0694 CF       		.byte	-49
+ 1714 0695 04       		.byte	4
+ 1715 0696 D0       		.byte	-48
+ 1716 0697 18       		.byte	24
+ 1717 0698 D2       		.byte	-46
+ 1718 0699 80       		.byte	-128
+ 1719 069a D8       		.byte	-40
+ 1720 069b 04       		.byte	4
+ 1721 069c D9       		.byte	-39
+ 1722 069d 04       		.byte	4
+ 1723 069e DA       		.byte	-38
+ 1724 069f 04       		.byte	4
+ 1725 06a0 DB       		.byte	-37
+ 1726 06a1 04       		.byte	4
+ 1727 06a2 DC       		.byte	-36
+ 1728 06a3 21       		.byte	33
+ 1729 06a4 DD       		.byte	-35
+ 1730 06a5 11       		.byte	17
+ 1731 06a6 DF       		.byte	-33
+ 1732 06a7 01       		.byte	1
+ 1733 06a8 E0       		.byte	-32
+ 1734 06a9 40       		.byte	64
+ 1735 06aa E2       		.byte	-30
+ 1736 06ab C0       		.byte	-64
+ 1737 06ac E4       		.byte	-28
+ 1738 06ad 40       		.byte	64
+ 1739 06ae E5       		.byte	-27
+ 1740 06af 40       		.byte	64
+ 1741 06b0 E6       		.byte	-26
+ 1742 06b1 C0       		.byte	-64
+ 1743 06b2 E8       		.byte	-24
+ 1744 06b3 C0       		.byte	-64
+ 1745 06b4 EA       		.byte	-22
+ 1746 06b5 C0       		.byte	-64
+ 1747 06b6 EC       		.byte	-20
+ 1748 06b7 C0       		.byte	-64
+ 1749 06b8 EE       		.byte	-18
+ 1750 06b9 C0       		.byte	-64
+ 1751 06ba 07       		.byte	7
+ 1752 06bb 41       		.byte	65
+ 1753 06bc 08       		.byte	8
+ 1754 06bd 40       		.byte	64
+ 1755 06be 09       		.byte	9
+ 1756 06bf 42       		.byte	66
+ 1757 06c0 0A       		.byte	10
+ 1758 06c1 04       		.byte	4
+ 1759 06c2 0C       		.byte	12
+ 1760 06c3 08       		.byte	8
+ 1761 06c4 0D       		.byte	13
+ 1762 06c5 90       		.byte	-112
+ 1763 06c6 0F       		.byte	15
+ 1764 06c7 80       		.byte	-128
+ 1765 06c8 10       		.byte	16
+ 1766 06c9 20       		.byte	32
+ 1767 06ca 15       		.byte	21
+ARM GAS  C:\Users\robom\AppData\Local\Temp\ccFKNG9r.s 			page 32
+
+
+ 1768 06cb 42       		.byte	66
+ 1769 06cc 17       		.byte	23
+ 1770 06cd 18       		.byte	24
+ 1771 06ce 19       		.byte	25
+ 1772 06cf 02       		.byte	2
+ 1773 06d0 1A       		.byte	26
+ 1774 06d1 04       		.byte	4
+ 1775 06d2 1B       		.byte	27
+ 1776 06d3 10       		.byte	16
+ 1777 06d4 1C       		.byte	28
+ 1778 06d5 01       		.byte	1
+ 1779 06d6 25       		.byte	37
+ 1780 06d7 40       		.byte	64
+ 1781 06d8 26       		.byte	38
+ 1782 06d9 04       		.byte	4
+ 1783 06da 2F       		.byte	47
+ 1784 06db 16       		.byte	22
+ 1785 06dc 30       		.byte	48
+ 1786 06dd 98       		.byte	-104
+ 1787 06de 33       		.byte	51
+ 1788 06df 41       		.byte	65
+ 1789 06e0 37       		.byte	55
+ 1790 06e1 18       		.byte	24
+ 1791 06e2 38       		.byte	56
+ 1792 06e3 02       		.byte	2
+ 1793 06e4 39       		.byte	57
+ 1794 06e5 63       		.byte	99
+ 1795 06e6 3C       		.byte	60
+ 1796 06e7 02       		.byte	2
+ 1797 06e8 3D       		.byte	61
+ 1798 06e9 80       		.byte	-128
+ 1799 06ea 3E       		.byte	62
+ 1800 06eb 10       		.byte	16
+ 1801 06ec 41       		.byte	65
+ 1802 06ed 08       		.byte	8
+ 1803 06ee 42       		.byte	66
+ 1804 06ef 04       		.byte	4
+ 1805 06f0 45       		.byte	69
+ 1806 06f1 08       		.byte	8
+ 1807 06f2 48       		.byte	72
+ 1808 06f3 20       		.byte	32
+ 1809 06f4 4F       		.byte	79
+ 1810 06f5 20       		.byte	32
+ 1811 06f6 51       		.byte	81
+ 1812 06f7 08       		.byte	8
+ 1813 06f8 71       		.byte	113
+ 1814 06f9 02       		.byte	2
+ 1815 06fa 88       		.byte	-120
+ 1816 06fb 08       		.byte	8
+ 1817 06fc 90       		.byte	-112
+ 1818 06fd 02       		.byte	2
+ 1819 06fe 91       		.byte	-111
+ 1820 06ff 20       		.byte	32
+ 1821 0700 95       		.byte	-107
+ 1822 0701 40       		.byte	64
+ 1823 0702 9B       		.byte	-101
+ 1824 0703 01       		.byte	1
+ARM GAS  C:\Users\robom\AppData\Local\Temp\ccFKNG9r.s 			page 33
+
+
+ 1825 0704 9F       		.byte	-97
+ 1826 0705 58       		.byte	88
+ 1827 0706 A4       		.byte	-92
+ 1828 0707 08       		.byte	8
+ 1829 0708 A5       		.byte	-91
+ 1830 0709 80       		.byte	-128
+ 1831 070a A7       		.byte	-89
+ 1832 070b 40       		.byte	64
+ 1833 070c B1       		.byte	-79
+ 1834 070d 10       		.byte	16
+ 1835 070e B2       		.byte	-78
+ 1836 070f 04       		.byte	4
+ 1837 0710 C0       		.byte	-64
+ 1838 0711 90       		.byte	-112
+ 1839 0712 C2       		.byte	-62
+ 1840 0713 FA       		.byte	-6
+ 1841 0714 C4       		.byte	-60
+ 1842 0715 F4       		.byte	-12
+ 1843 0716 CA       		.byte	-54
+ 1844 0717 70       		.byte	112
+ 1845 0718 CC       		.byte	-52
+ 1846 0719 6F       		.byte	111
+ 1847 071a CE       		.byte	-50
+ 1848 071b BD       		.byte	-67
+ 1849 071c D0       		.byte	-48
+ 1850 071d 46       		.byte	70
+ 1851 071e D2       		.byte	-46
+ 1852 071f 20       		.byte	32
+ 1853 0720 E4       		.byte	-28
+ 1854 0721 20       		.byte	32
+ 1855 0722 EC       		.byte	-20
+ 1856 0723 20       		.byte	32
+ 1857 0724 06       		.byte	6
+ 1858 0725 02       		.byte	2
+ 1859 0726 22       		.byte	34
+ 1860 0727 02       		.byte	2
+ 1861 0728 2E       		.byte	46
+ 1862 0729 01       		.byte	1
+ 1863 072a 32       		.byte	50
+ 1864 072b 02       		.byte	2
+ 1865 072c 34       		.byte	52
+ 1866 072d 01       		.byte	1
+ 1867 072e 40       		.byte	64
+ 1868 072f 20       		.byte	32
+ 1869 0730 41       		.byte	65
+ 1870 0731 03       		.byte	3
+ 1871 0732 49       		.byte	73
+ 1872 0733 FF       		.byte	-1
+ 1873 0734 4A       		.byte	74
+ 1874 0735 FF       		.byte	-1
+ 1875 0736 4B       		.byte	75
+ 1876 0737 FF       		.byte	-1
+ 1877 0738 4D       		.byte	77
+ 1878 0739 A0       		.byte	-96
+ 1879 073a 4F       		.byte	79
+ 1880 073b 04       		.byte	4
+ 1881 073c 50       		.byte	80
+ARM GAS  C:\Users\robom\AppData\Local\Temp\ccFKNG9r.s 			page 34
+
+
+ 1882 073d 18       		.byte	24
+ 1883 073e 52       		.byte	82
+ 1884 073f 80       		.byte	-128
+ 1885 0740 58       		.byte	88
+ 1886 0741 04       		.byte	4
+ 1887 0742 59       		.byte	89
+ 1888 0743 04       		.byte	4
+ 1889 0744 5A       		.byte	90
+ 1890 0745 04       		.byte	4
+ 1891 0746 5B       		.byte	91
+ 1892 0747 04       		.byte	4
+ 1893 0748 5C       		.byte	92
+ 1894 0749 21       		.byte	33
+ 1895 074a 5D       		.byte	93
+ 1896 074b 11       		.byte	17
+ 1897 074c 5F       		.byte	95
+ 1898 074d 01       		.byte	1
+ 1899 074e 60       		.byte	96
+ 1900 074f 40       		.byte	64
+ 1901 0750 62       		.byte	98
+ 1902 0751 C0       		.byte	-64
+ 1903 0752 64       		.byte	100
+ 1904 0753 40       		.byte	64
+ 1905 0754 65       		.byte	101
+ 1906 0755 40       		.byte	64
+ 1907 0756 66       		.byte	102
+ 1908 0757 C0       		.byte	-64
+ 1909 0758 68       		.byte	104
+ 1910 0759 C0       		.byte	-64
+ 1911 075a 6A       		.byte	106
+ 1912 075b C0       		.byte	-64
+ 1913 075c 6C       		.byte	108
+ 1914 075d C0       		.byte	-64
+ 1915 075e 6E       		.byte	110
+ 1916 075f C0       		.byte	-64
+ 1917 0760 84       		.byte	-124
+ 1918 0761 14       		.byte	20
+ 1919 0762 86       		.byte	-122
+ 1920 0763 2B       		.byte	43
+ 1921 0764 88       		.byte	-120
+ 1922 0765 38       		.byte	56
+ 1923 0766 96       		.byte	-106
+ 1924 0767 02       		.byte	2
+ 1925 0768 9C       		.byte	-100
+ 1926 0769 10       		.byte	16
+ 1927 076a 9E       		.byte	-98
+ 1928 076b 27       		.byte	39
+ 1929 076c A4       		.byte	-92
+ 1930 076d 0D       		.byte	13
+ 1931 076e A6       		.byte	-90
+ 1932 076f 10       		.byte	16
+ 1933 0770 B2       		.byte	-78
+ 1934 0771 03       		.byte	3
+ 1935 0772 B4       		.byte	-76
+ 1936 0773 3C       		.byte	60
+ 1937 0774 B8       		.byte	-72
+ 1938 0775 20       		.byte	32
+ARM GAS  C:\Users\robom\AppData\Local\Temp\ccFKNG9r.s 			page 35
+
+
+ 1939 0776 C0       		.byte	-64
+ 1940 0777 60       		.byte	96
+ 1941 0778 C1       		.byte	-63
+ 1942 0779 03       		.byte	3
+ 1943 077a C5       		.byte	-59
+ 1944 077b 10       		.byte	16
+ 1945 077c C6       		.byte	-58
+ 1946 077d 20       		.byte	32
+ 1947 077e C8       		.byte	-56
+ 1948 077f 0A       		.byte	10
+ 1949 0780 C9       		.byte	-55
+ 1950 0781 FF       		.byte	-1
+ 1951 0782 CA       		.byte	-54
+ 1952 0783 FF       		.byte	-1
+ 1953 0784 CB       		.byte	-53
+ 1954 0785 FF       		.byte	-1
+ 1955 0786 CD       		.byte	-51
+ 1956 0787 AF       		.byte	-81
+ 1957 0788 CE       		.byte	-50
+ 1958 0789 0F       		.byte	15
+ 1959 078a CF       		.byte	-49
+ 1960 078b 04       		.byte	4
+ 1961 078c D0       		.byte	-48
+ 1962 078d 18       		.byte	24
+ 1963 078e D8       		.byte	-40
+ 1964 078f 04       		.byte	4
+ 1965 0790 D9       		.byte	-39
+ 1966 0791 04       		.byte	4
+ 1967 0792 DA       		.byte	-38
+ 1968 0793 04       		.byte	4
+ 1969 0794 DC       		.byte	-36
+ 1970 0795 20       		.byte	32
+ 1971 0796 DD       		.byte	-35
+ 1972 0797 01       		.byte	1
+ 1973 0798 DF       		.byte	-33
+ 1974 0799 01       		.byte	1
+ 1975 079a E0       		.byte	-32
+ 1976 079b 40       		.byte	64
+ 1977 079c E2       		.byte	-30
+ 1978 079d C0       		.byte	-64
+ 1979 079e E4       		.byte	-28
+ 1980 079f 40       		.byte	64
+ 1981 07a0 E5       		.byte	-27
+ 1982 07a1 40       		.byte	64
+ 1983 07a2 E6       		.byte	-26
+ 1984 07a3 C0       		.byte	-64
+ 1985 07a4 E8       		.byte	-24
+ 1986 07a5 C0       		.byte	-64
+ 1987 07a6 EA       		.byte	-22
+ 1988 07a7 C0       		.byte	-64
+ 1989 07a8 EC       		.byte	-20
+ 1990 07a9 C0       		.byte	-64
+ 1991 07aa EE       		.byte	-18
+ 1992 07ab C0       		.byte	-64
+ 1993 07ac 00       		.byte	0
+ 1994 07ad 04       		.byte	4
+ 1995 07ae 05       		.byte	5
+ARM GAS  C:\Users\robom\AppData\Local\Temp\ccFKNG9r.s 			page 36
+
+
+ 1996 07af 10       		.byte	16
+ 1997 07b0 07       		.byte	7
+ 1998 07b1 10       		.byte	16
+ 1999 07b2 0D       		.byte	13
+ 2000 07b3 80       		.byte	-128
+ 2001 07b4 0E       		.byte	14
+ 2002 07b5 20       		.byte	32
+ 2003 07b6 10       		.byte	16
+ 2004 07b7 82       		.byte	-126
+ 2005 07b8 17       		.byte	23
+ 2006 07b9 08       		.byte	8
+ 2007 07ba 18       		.byte	24
+ 2008 07bb 14       		.byte	20
+ 2009 07bc 1B       		.byte	27
+ 2010 07bd 10       		.byte	16
+ 2011 07be 1D       		.byte	29
+ 2012 07bf 10       		.byte	16
+ 2013 07c0 1E       		.byte	30
+ 2014 07c1 20       		.byte	32
+ 2015 07c2 2B       		.byte	43
+ 2016 07c3 40       		.byte	64
+ 2017 07c4 2D       		.byte	45
+ 2018 07c5 40       		.byte	64
+ 2019 07c6 30       		.byte	48
+ 2020 07c7 08       		.byte	8
+ 2021 07c8 31       		.byte	49
+ 2022 07c9 02       		.byte	2
+ 2023 07ca 33       		.byte	51
+ 2024 07cb 44       		.byte	68
+ 2025 07cc 37       		.byte	55
+ 2026 07cd 45       		.byte	69
+ 2027 07ce 38       		.byte	56
+ 2028 07cf 02       		.byte	2
+ 2029 07d0 39       		.byte	57
+ 2030 07d1 60       		.byte	96
+ 2031 07d2 3E       		.byte	62
+ 2032 07d3 06       		.byte	6
+ 2033 07d4 3F       		.byte	63
+ 2034 07d5 80       		.byte	-128
+ 2035 07d6 40       		.byte	64
+ 2036 07d7 04       		.byte	4
+ 2037 07d8 42       		.byte	66
+ 2038 07d9 20       		.byte	32
+ 2039 07da 46       		.byte	70
+ 2040 07db 20       		.byte	32
+ 2041 07dc 4C       		.byte	76
+ 2042 07dd 80       		.byte	-128
+ 2043 07de 4F       		.byte	79
+ 2044 07df 20       		.byte	32
+ 2045 07e0 56       		.byte	86
+ 2046 07e1 20       		.byte	32
+ 2047 07e2 70       		.byte	112
+ 2048 07e3 02       		.byte	2
+ 2049 07e4 80       		.byte	-128
+ 2050 07e5 01       		.byte	1
+ 2051 07e6 82       		.byte	-126
+ 2052 07e7 02       		.byte	2
+ARM GAS  C:\Users\robom\AppData\Local\Temp\ccFKNG9r.s 			page 37
+
+
+ 2053 07e8 85       		.byte	-123
+ 2054 07e9 02       		.byte	2
+ 2055 07ea 86       		.byte	-122
+ 2056 07eb 10       		.byte	16
+ 2057 07ec 87       		.byte	-121
+ 2058 07ed 01       		.byte	1
+ 2059 07ee 8C       		.byte	-116
+ 2060 07ef 10       		.byte	16
+ 2061 07f0 C0       		.byte	-64
+ 2062 07f1 64       		.byte	100
+ 2063 07f2 C2       		.byte	-62
+ 2064 07f3 A0       		.byte	-96
+ 2065 07f4 C4       		.byte	-60
+ 2066 07f5 29       		.byte	41
+ 2067 07f6 CA       		.byte	-54
+ 2068 07f7 11       		.byte	17
+ 2069 07f8 CC       		.byte	-52
+ 2070 07f9 DB       		.byte	-37
+ 2071 07fa CE       		.byte	-50
+ 2072 07fb DD       		.byte	-35
+ 2073 07fc D0       		.byte	-48
+ 2074 07fd 46       		.byte	70
+ 2075 07fe D2       		.byte	-46
+ 2076 07ff 20       		.byte	32
+ 2077 0800 E4       		.byte	-28
+ 2078 0801 08       		.byte	8
+ 2079 0802 58       		.byte	88
+ 2080 0803 04       		.byte	4
+ 2081 0804 59       		.byte	89
+ 2082 0805 04       		.byte	4
+ 2083 0806 5C       		.byte	92
+ 2084 0807 22       		.byte	34
+ 2085 0808 5F       		.byte	95
+ 2086 0809 01       		.byte	1
+ 2087 080a 83       		.byte	-125
+ 2088 080b 08       		.byte	8
+ 2089 080c 84       		.byte	-124
+ 2090 080d 14       		.byte	20
+ 2091 080e 85       		.byte	-123
+ 2092 080f 10       		.byte	16
+ 2093 0810 89       		.byte	-119
+ 2094 0811 21       		.byte	33
+ 2095 0812 8A       		.byte	-118
+ 2096 0813 03       		.byte	3
+ 2097 0814 8B       		.byte	-117
+ 2098 0815 0E       		.byte	14
+ 2099 0816 8C       		.byte	-116
+ 2100 0817 DC       		.byte	-36
+ 2101 0818 8E       		.byte	-114
+ 2102 0819 22       		.byte	34
+ 2103 081a 91       		.byte	-111
+ 2104 081b 0C       		.byte	12
+ 2105 081c 93       		.byte	-109
+ 2106 081d 23       		.byte	35
+ 2107 081e 94       		.byte	-108
+ 2108 081f 0C       		.byte	12
+ 2109 0820 95       		.byte	-107
+ARM GAS  C:\Users\robom\AppData\Local\Temp\ccFKNG9r.s 			page 38
+
+
+ 2110 0821 21       		.byte	33
+ 2111 0822 96       		.byte	-106
+ 2112 0823 71       		.byte	113
+ 2113 0824 97       		.byte	-105
+ 2114 0825 06       		.byte	6
+ 2115 0826 9A       		.byte	-102
+ 2116 0827 20       		.byte	32
+ 2117 0828 9B       		.byte	-101
+ 2118 0829 0C       		.byte	12
+ 2119 082a 9C       		.byte	-100
+ 2120 082b 10       		.byte	16
+ 2121 082c 9E       		.byte	-98
+ 2122 082d 40       		.byte	64
+ 2123 082e A4       		.byte	-92
+ 2124 082f 10       		.byte	16
+ 2125 0830 A5       		.byte	-91
+ 2126 0831 40       		.byte	64
+ 2127 0832 A6       		.byte	-90
+ 2128 0833 AC       		.byte	-84
+ 2129 0834 A7       		.byte	-89
+ 2130 0835 03       		.byte	3
+ 2131 0836 A8       		.byte	-88
+ 2132 0837 09       		.byte	9
+ 2133 0838 AA       		.byte	-86
+ 2134 0839 D0       		.byte	-48
+ 2135 083a B2       		.byte	-78
+ 2136 083b E0       		.byte	-32
+ 2137 083c B3       		.byte	-77
+ 2138 083d 60       		.byte	96
+ 2139 083e B4       		.byte	-76
+ 2140 083f 1F       		.byte	31
+ 2141 0840 B5       		.byte	-75
+ 2142 0841 10       		.byte	16
+ 2143 0842 B7       		.byte	-73
+ 2144 0843 0F       		.byte	15
+ 2145 0844 B9       		.byte	-71
+ 2146 0845 08       		.byte	8
+ 2147 0846 BA       		.byte	-70
+ 2148 0847 08       		.byte	8
+ 2149 0848 BB       		.byte	-69
+ 2150 0849 80       		.byte	-128
+ 2151 084a BF       		.byte	-65
+ 2152 084b 10       		.byte	16
+ 2153 084c C0       		.byte	-64
+ 2154 084d 63       		.byte	99
+ 2155 084e C1       		.byte	-63
+ 2156 084f 02       		.byte	2
+ 2157 0850 C6       		.byte	-58
+ 2158 0851 BE       		.byte	-66
+ 2159 0852 C7       		.byte	-57
+ 2160 0853 C0       		.byte	-64
+ 2161 0854 C8       		.byte	-56
+ 2162 0855 2C       		.byte	44
+ 2163 0856 C9       		.byte	-55
+ 2164 0857 FF       		.byte	-1
+ 2165 0858 CA       		.byte	-54
+ 2166 0859 FF       		.byte	-1
+ARM GAS  C:\Users\robom\AppData\Local\Temp\ccFKNG9r.s 			page 39
+
+
+ 2167 085a CB       		.byte	-53
+ 2168 085b FF       		.byte	-1
+ 2169 085c CE       		.byte	-50
+ 2170 085d F0       		.byte	-16
+ 2171 085e CF       		.byte	-49
+ 2172 085f 44       		.byte	68
+ 2173 0860 D0       		.byte	-48
+ 2174 0861 0C       		.byte	12
+ 2175 0862 D8       		.byte	-40
+ 2176 0863 04       		.byte	4
+ 2177 0864 D9       		.byte	-39
+ 2178 0865 04       		.byte	4
+ 2179 0866 DA       		.byte	-38
+ 2180 0867 04       		.byte	4
+ 2181 0868 DC       		.byte	-36
+ 2182 0869 33       		.byte	51
+ 2183 086a DD       		.byte	-35
+ 2184 086b 03       		.byte	3
+ 2185 086c DF       		.byte	-33
+ 2186 086d 01       		.byte	1
+ 2187 086e E6       		.byte	-26
+ 2188 086f C0       		.byte	-64
+ 2189 0870 EA       		.byte	-22
+ 2190 0871 40       		.byte	64
+ 2191 0872 EB       		.byte	-21
+ 2192 0873 02       		.byte	2
+ 2193 0874 01       		.byte	1
+ 2194 0875 02       		.byte	2
+ 2195 0876 02       		.byte	2
+ 2196 0877 10       		.byte	16
+ 2197 0878 03       		.byte	3
+ 2198 0879 02       		.byte	2
+ 2199 087a 05       		.byte	5
+ 2200 087b 10       		.byte	16
+ 2201 087c 06       		.byte	6
+ 2202 087d 20       		.byte	32
+ 2203 087e 07       		.byte	7
+ 2204 087f 01       		.byte	1
+ 2205 0880 08       		.byte	8
+ 2206 0881 0E       		.byte	14
+ 2207 0882 0C       		.byte	12
+ 2208 0883 10       		.byte	16
+ 2209 0884 0E       		.byte	14
+ 2210 0885 10       		.byte	16
+ 2211 0886 0F       		.byte	15
+ 2212 0887 01       		.byte	1
+ 2213 0888 10       		.byte	16
+ 2214 0889 01       		.byte	1
+ 2215 088a 12       		.byte	18
+ 2216 088b 01       		.byte	1
+ 2217 088c 13       		.byte	19
+ 2218 088d 04       		.byte	4
+ 2219 088e 17       		.byte	23
+ 2220 088f 24       		.byte	36
+ 2221 0890 1C       		.byte	28
+ 2222 0891 04       		.byte	4
+ 2223 0892 1D       		.byte	29
+ARM GAS  C:\Users\robom\AppData\Local\Temp\ccFKNG9r.s 			page 40
+
+
+ 2224 0893 10       		.byte	16
+ 2225 0894 1E       		.byte	30
+ 2226 0895 10       		.byte	16
+ 2227 0896 27       		.byte	39
+ 2228 0897 29       		.byte	41
+ 2229 0898 29       		.byte	41
+ 2230 0899 04       		.byte	4
+ 2231 089a 2A       		.byte	42
+ 2232 089b 11       		.byte	17
+ 2233 089c 2B       		.byte	43
+ 2234 089d 02       		.byte	2
+ 2235 089e 2C       		.byte	44
+ 2236 089f 10       		.byte	16
+ 2237 08a0 30       		.byte	48
+ 2238 08a1 04       		.byte	4
+ 2239 08a2 36       		.byte	54
+ 2240 08a3 08       		.byte	8
+ 2241 08a4 37       		.byte	55
+ 2242 08a5 25       		.byte	37
+ 2243 08a6 38       		.byte	56
+ 2244 08a7 10       		.byte	16
+ 2245 08a8 3B       		.byte	59
+ 2246 08a9 04       		.byte	4
+ 2247 08aa 3C       		.byte	60
+ 2248 08ab 04       		.byte	4
+ 2249 08ac 3D       		.byte	61
+ 2250 08ad 20       		.byte	32
+ 2251 08ae 3E       		.byte	62
+ 2252 08af 10       		.byte	16
+ 2253 08b0 3F       		.byte	63
+ 2254 08b1 01       		.byte	1
+ 2255 08b2 44       		.byte	68
+ 2256 08b3 10       		.byte	16
+ 2257 08b4 45       		.byte	69
+ 2258 08b5 14       		.byte	20
+ 2259 08b6 4E       		.byte	78
+ 2260 08b7 08       		.byte	8
+ 2261 08b8 56       		.byte	86
+ 2262 08b9 60       		.byte	96
+ 2263 08ba 57       		.byte	87
+ 2264 08bb 01       		.byte	1
+ 2265 08bc 87       		.byte	-121
+ 2266 08bd 08       		.byte	8
+ 2267 08be 8C       		.byte	-116
+ 2268 08bf 0A       		.byte	10
+ 2269 08c0 8D       		.byte	-115
+ 2270 08c1 04       		.byte	4
+ 2271 08c2 90       		.byte	-112
+ 2272 08c3 10       		.byte	16
+ 2273 08c4 93       		.byte	-109
+ 2274 08c5 05       		.byte	5
+ 2275 08c6 96       		.byte	-106
+ 2276 08c7 10       		.byte	16
+ 2277 08c8 98       		.byte	-104
+ 2278 08c9 09       		.byte	9
+ 2279 08ca 99       		.byte	-103
+ 2280 08cb 02       		.byte	2
+ARM GAS  C:\Users\robom\AppData\Local\Temp\ccFKNG9r.s 			page 41
+
+
+ 2281 08cc 9A       		.byte	-102
+ 2282 08cd 10       		.byte	16
+ 2283 08ce 9C       		.byte	-100
+ 2284 08cf 02       		.byte	2
+ 2285 08d0 9E       		.byte	-98
+ 2286 08d1 40       		.byte	64
+ 2287 08d2 9F       		.byte	-97
+ 2288 08d3 21       		.byte	33
+ 2289 08d4 A1       		.byte	-95
+ 2290 08d5 04       		.byte	4
+ 2291 08d6 A2       		.byte	-94
+ 2292 08d7 08       		.byte	8
+ 2293 08d8 A3       		.byte	-93
+ 2294 08d9 02       		.byte	2
+ 2295 08da A7       		.byte	-89
+ 2296 08db 01       		.byte	1
+ 2297 08dc B1       		.byte	-79
+ 2298 08dd 10       		.byte	16
+ 2299 08de B3       		.byte	-77
+ 2300 08df 01       		.byte	1
+ 2301 08e0 C0       		.byte	-64
+ 2302 08e1 ED       		.byte	-19
+ 2303 08e2 C2       		.byte	-62
+ 2304 08e3 EC       		.byte	-20
+ 2305 08e4 C4       		.byte	-60
+ 2306 08e5 65       		.byte	101
+ 2307 08e6 CA       		.byte	-54
+ 2308 08e7 4F       		.byte	79
+ 2309 08e8 CC       		.byte	-52
+ 2310 08e9 E2       		.byte	-30
+ 2311 08ea CE       		.byte	-50
+ 2312 08eb E6       		.byte	-26
+ 2313 08ec D0       		.byte	-48
+ 2314 08ed 60       		.byte	96
+ 2315 08ee D2       		.byte	-46
+ 2316 08ef 20       		.byte	32
+ 2317 08f0 E0       		.byte	-32
+ 2318 08f1 08       		.byte	8
+ 2319 08f2 EC       		.byte	-20
+ 2320 08f3 20       		.byte	32
+ 2321 08f4 00       		.byte	0
+ 2322 08f5 04       		.byte	4
+ 2323 08f6 01       		.byte	1
+ 2324 08f7 03       		.byte	3
+ 2325 08f8 03       		.byte	3
+ 2326 08f9 04       		.byte	4
+ 2327 08fa 04       		.byte	4
+ 2328 08fb 03       		.byte	3
+ 2329 08fc 07       		.byte	7
+ 2330 08fd 05       		.byte	5
+ 2331 08fe 09       		.byte	9
+ 2332 08ff 03       		.byte	3
+ 2333 0900 0B       		.byte	11
+ 2334 0901 04       		.byte	4
+ 2335 0902 0C       		.byte	12
+ 2336 0903 02       		.byte	2
+ 2337 0904 11       		.byte	17
+ARM GAS  C:\Users\robom\AppData\Local\Temp\ccFKNG9r.s 			page 42
+
+
+ 2338 0905 0A       		.byte	10
+ 2339 0906 13       		.byte	19
+ 2340 0907 04       		.byte	4
+ 2341 0908 14       		.byte	20
+ 2342 0909 03       		.byte	3
+ 2343 090a 15       		.byte	21
+ 2344 090b 03       		.byte	3
+ 2345 090c 17       		.byte	23
+ 2346 090d 0C       		.byte	12
+ 2347 090e 1B       		.byte	27
+ 2348 090f 08       		.byte	8
+ 2349 0910 2A       		.byte	42
+ 2350 0911 01       		.byte	1
+ 2351 0912 30       		.byte	48
+ 2352 0913 03       		.byte	3
+ 2353 0914 33       		.byte	51
+ 2354 0915 0F       		.byte	15
+ 2355 0916 34       		.byte	52
+ 2356 0917 04       		.byte	4
+ 2357 0918 38       		.byte	56
+ 2358 0919 02       		.byte	2
+ 2359 091a 3B       		.byte	59
+ 2360 091b 08       		.byte	8
+ 2361 091c 3E       		.byte	62
+ 2362 091d 11       		.byte	17
+ 2363 091e 40       		.byte	64
+ 2364 091f 04       		.byte	4
+ 2365 0920 45       		.byte	69
+ 2366 0921 40       		.byte	64
+ 2367 0922 49       		.byte	73
+ 2368 0923 FF       		.byte	-1
+ 2369 0924 4A       		.byte	74
+ 2370 0925 07       		.byte	7
+ 2371 0926 4B       		.byte	75
+ 2372 0927 FF       		.byte	-1
+ 2373 0928 4C       		.byte	76
+ 2374 0929 40       		.byte	64
+ 2375 092a 4D       		.byte	77
+ 2376 092b 20       		.byte	32
+ 2377 092c 4E       		.byte	78
+ 2378 092d F0       		.byte	-16
+ 2379 092e 4F       		.byte	79
+ 2380 092f 05       		.byte	5
+ 2381 0930 50       		.byte	80
+ 2382 0931 08       		.byte	8
+ 2383 0932 54       		.byte	84
+ 2384 0933 01       		.byte	1
+ 2385 0934 58       		.byte	88
+ 2386 0935 04       		.byte	4
+ 2387 0936 59       		.byte	89
+ 2388 0937 04       		.byte	4
+ 2389 0938 5A       		.byte	90
+ 2390 0939 04       		.byte	4
+ 2391 093a 5B       		.byte	91
+ 2392 093b 04       		.byte	4
+ 2393 093c 5C       		.byte	92
+ 2394 093d 32       		.byte	50
+ARM GAS  C:\Users\robom\AppData\Local\Temp\ccFKNG9r.s 			page 43
+
+
+ 2395 093e 5D       		.byte	93
+ 2396 093f 33       		.byte	51
+ 2397 0940 5F       		.byte	95
+ 2398 0941 01       		.byte	1
+ 2399 0942 60       		.byte	96
+ 2400 0943 40       		.byte	64
+ 2401 0944 61       		.byte	97
+ 2402 0945 A8       		.byte	-88
+ 2403 0946 62       		.byte	98
+ 2404 0947 40       		.byte	64
+ 2405 0948 63       		.byte	99
+ 2406 0949 20       		.byte	32
+ 2407 094a D8       		.byte	-40
+ 2408 094b 04       		.byte	4
+ 2409 094c D9       		.byte	-39
+ 2410 094d 04       		.byte	4
+ 2411 094e DC       		.byte	-36
+ 2412 094f 22       		.byte	34
+ 2413 0950 DF       		.byte	-33
+ 2414 0951 01       		.byte	1
+ 2415 0952 02       		.byte	2
+ 2416 0953 10       		.byte	16
+ 2417 0954 03       		.byte	3
+ 2418 0955 42       		.byte	66
+ 2419 0956 04       		.byte	4
+ 2420 0957 11       		.byte	17
+ 2421 0958 06       		.byte	6
+ 2422 0959 60       		.byte	96
+ 2423 095a 07       		.byte	7
+ 2424 095b 19       		.byte	25
+ 2425 095c 08       		.byte	8
+ 2426 095d 09       		.byte	9
+ 2427 095e 0C       		.byte	12
+ 2428 095f 42       		.byte	66
+ 2429 0960 0E       		.byte	14
+ 2430 0961 10       		.byte	16
+ 2431 0962 0F       		.byte	15
+ 2432 0963 04       		.byte	4
+ 2433 0964 12       		.byte	18
+ 2434 0965 01       		.byte	1
+ 2435 0966 13       		.byte	19
+ 2436 0967 04       		.byte	4
+ 2437 0968 14       		.byte	20
+ 2438 0969 02       		.byte	2
+ 2439 096a 16       		.byte	22
+ 2440 096b 94       		.byte	-108
+ 2441 096c 17       		.byte	23
+ 2442 096d 40       		.byte	64
+ 2443 096e 1D       		.byte	29
+ 2444 096f 02       		.byte	2
+ 2445 0970 1E       		.byte	30
+ 2446 0971 08       		.byte	8
+ 2447 0972 26       		.byte	38
+ 2448 0973 08       		.byte	8
+ 2449 0974 27       		.byte	39
+ 2450 0975 10       		.byte	16
+ 2451 0976 28       		.byte	40
+ARM GAS  C:\Users\robom\AppData\Local\Temp\ccFKNG9r.s 			page 44
+
+
+ 2452 0977 09       		.byte	9
+ 2453 0978 29       		.byte	41
+ 2454 0979 02       		.byte	2
+ 2455 097a 2A       		.byte	42
+ 2456 097b 01       		.byte	1
+ 2457 097c 2C       		.byte	44
+ 2458 097d 02       		.byte	2
+ 2459 097e 2F       		.byte	47
+ 2460 097f 02       		.byte	2
+ 2461 0980 33       		.byte	51
+ 2462 0981 42       		.byte	66
+ 2463 0982 36       		.byte	54
+ 2464 0983 08       		.byte	8
+ 2465 0984 37       		.byte	55
+ 2466 0985 21       		.byte	33
+ 2467 0986 3A       		.byte	58
+ 2468 0987 10       		.byte	16
+ 2469 0988 3B       		.byte	59
+ 2470 0989 04       		.byte	4
+ 2471 098a 3D       		.byte	61
+ 2472 098b 08       		.byte	8
+ 2473 098c 3E       		.byte	62
+ 2474 098d 10       		.byte	16
+ 2475 098e 3F       		.byte	63
+ 2476 098f 02       		.byte	2
+ 2477 0990 45       		.byte	69
+ 2478 0991 02       		.byte	2
+ 2479 0992 4F       		.byte	79
+ 2480 0993 01       		.byte	1
+ 2481 0994 55       		.byte	85
+ 2482 0995 04       		.byte	4
+ 2483 0996 56       		.byte	86
+ 2484 0997 04       		.byte	4
+ 2485 0998 5C       		.byte	92
+ 2486 0999 01       		.byte	1
+ 2487 099a 5D       		.byte	93
+ 2488 099b 10       		.byte	16
+ 2489 099c 5E       		.byte	94
+ 2490 099d 48       		.byte	72
+ 2491 099e 8A       		.byte	-118
+ 2492 099f 80       		.byte	-128
+ 2493 09a0 92       		.byte	-110
+ 2494 09a1 40       		.byte	64
+ 2495 09a2 93       		.byte	-109
+ 2496 09a3 04       		.byte	4
+ 2497 09a4 96       		.byte	-106
+ 2498 09a5 10       		.byte	16
+ 2499 09a6 98       		.byte	-104
+ 2500 09a7 49       		.byte	73
+ 2501 09a8 9A       		.byte	-102
+ 2502 09a9 91       		.byte	-111
+ 2503 09aa 9B       		.byte	-101
+ 2504 09ab 08       		.byte	8
+ 2505 09ac 9E       		.byte	-98
+ 2506 09ad 24       		.byte	36
+ 2507 09ae 9F       		.byte	-97
+ 2508 09af 41       		.byte	65
+ARM GAS  C:\Users\robom\AppData\Local\Temp\ccFKNG9r.s 			page 45
+
+
+ 2509 09b0 A3       		.byte	-93
+ 2510 09b1 02       		.byte	2
+ 2511 09b2 A7       		.byte	-89
+ 2512 09b3 01       		.byte	1
+ 2513 09b4 AC       		.byte	-84
+ 2514 09b5 08       		.byte	8
+ 2515 09b6 AD       		.byte	-83
+ 2516 09b7 02       		.byte	2
+ 2517 09b8 C0       		.byte	-64
+ 2518 09b9 FD       		.byte	-3
+ 2519 09ba C2       		.byte	-62
+ 2520 09bb FC       		.byte	-4
+ 2521 09bc C4       		.byte	-60
+ 2522 09bd F5       		.byte	-11
+ 2523 09be CA       		.byte	-54
+ 2524 09bf 0D       		.byte	13
+ 2525 09c0 CC       		.byte	-52
+ 2526 09c1 E9       		.byte	-23
+ 2527 09c2 CE       		.byte	-50
+ 2528 09c3 E6       		.byte	-26
+ 2529 09c4 D0       		.byte	-48
+ 2530 09c5 80       		.byte	-128
+ 2531 09c6 D6       		.byte	-42
+ 2532 09c7 F0       		.byte	-16
+ 2533 09c8 EE       		.byte	-18
+ 2534 09c9 02       		.byte	2
+ 2535 09ca 00       		.byte	0
+ 2536 09cb 42       		.byte	66
+ 2537 09cc 02       		.byte	2
+ 2538 09cd 08       		.byte	8
+ 2539 09ce 04       		.byte	4
+ 2540 09cf 02       		.byte	2
+ 2541 09d0 06       		.byte	6
+ 2542 09d1 0D       		.byte	13
+ 2543 09d2 08       		.byte	8
+ 2544 09d3 62       		.byte	98
+ 2545 09d4 0A       		.byte	10
+ 2546 09d5 14       		.byte	20
+ 2547 09d6 0C       		.byte	12
+ 2548 09d7 8D       		.byte	-115
+ 2549 09d8 10       		.byte	16
+ 2550 09d9 40       		.byte	64
+ 2551 09da 14       		.byte	20
+ 2552 09db 11       		.byte	17
+ 2553 09dc 16       		.byte	22
+ 2554 09dd 22       		.byte	34
+ 2555 09de 1A       		.byte	26
+ 2556 09df 80       		.byte	-128
+ 2557 09e0 1C       		.byte	28
+ 2558 09e1 8D       		.byte	-115
+ 2559 09e2 20       		.byte	32
+ 2560 09e3 0D       		.byte	13
+ 2561 09e4 22       		.byte	34
+ 2562 09e5 80       		.byte	-128
+ 2563 09e6 24       		.byte	36
+ 2564 09e7 8D       		.byte	-115
+ 2565 09e8 28       		.byte	40
+ARM GAS  C:\Users\robom\AppData\Local\Temp\ccFKNG9r.s 			page 46
+
+
+ 2566 09e9 8D       		.byte	-115
+ 2567 09ea 32       		.byte	50
+ 2568 09eb 0F       		.byte	15
+ 2569 09ec 34       		.byte	52
+ 2570 09ed 80       		.byte	-128
+ 2571 09ee 36       		.byte	54
+ 2572 09ef 70       		.byte	112
+ 2573 09f0 3A       		.byte	58
+ 2574 09f1 88       		.byte	-120
+ 2575 09f2 3E       		.byte	62
+ 2576 09f3 10       		.byte	16
+ 2577 09f4 54       		.byte	84
+ 2578 09f5 40       		.byte	64
+ 2579 09f6 58       		.byte	88
+ 2580 09f7 04       		.byte	4
+ 2581 09f8 59       		.byte	89
+ 2582 09f9 04       		.byte	4
+ 2583 09fa 5B       		.byte	91
+ 2584 09fb 04       		.byte	4
+ 2585 09fc 5C       		.byte	92
+ 2586 09fd 20       		.byte	32
+ 2587 09fe 5F       		.byte	95
+ 2588 09ff 01       		.byte	1
+ 2589 0a00 D6       		.byte	-42
+ 2590 0a01 08       		.byte	8
+ 2591 0a02 D8       		.byte	-40
+ 2592 0a03 04       		.byte	4
+ 2593 0a04 D9       		.byte	-39
+ 2594 0a05 04       		.byte	4
+ 2595 0a06 DB       		.byte	-37
+ 2596 0a07 04       		.byte	4
+ 2597 0a08 DC       		.byte	-36
+ 2598 0a09 22       		.byte	34
+ 2599 0a0a DD       		.byte	-35
+ 2600 0a0b 90       		.byte	-112
+ 2601 0a0c DF       		.byte	-33
+ 2602 0a0d 01       		.byte	1
+ 2603 0a0e 01       		.byte	1
+ 2604 0a0f 01       		.byte	1
+ 2605 0a10 02       		.byte	2
+ 2606 0a11 02       		.byte	2
+ 2607 0a12 04       		.byte	4
+ 2608 0a13 21       		.byte	33
+ 2609 0a14 05       		.byte	5
+ 2610 0a15 84       		.byte	-124
+ 2611 0a16 08       		.byte	8
+ 2612 0a17 40       		.byte	64
+ 2613 0a18 09       		.byte	9
+ 2614 0a19 02       		.byte	2
+ 2615 0a1a 0A       		.byte	10
+ 2616 0a1b 04       		.byte	4
+ 2617 0a1c 0B       		.byte	11
+ 2618 0a1d 40       		.byte	64
+ 2619 0a1e 0E       		.byte	14
+ 2620 0a1f 11       		.byte	17
+ 2621 0a20 0F       		.byte	15
+ 2622 0a21 8C       		.byte	-116
+ARM GAS  C:\Users\robom\AppData\Local\Temp\ccFKNG9r.s 			page 47
+
+
+ 2623 0a22 10       		.byte	16
+ 2624 0a23 10       		.byte	16
+ 2625 0a24 11       		.byte	17
+ 2626 0a25 40       		.byte	64
+ 2627 0a26 17       		.byte	23
+ 2628 0a27 15       		.byte	21
+ 2629 0a28 1C       		.byte	28
+ 2630 0a29 03       		.byte	3
+ 2631 0a2a 1D       		.byte	29
+ 2632 0a2b 84       		.byte	-124
+ 2633 0a2c 1F       		.byte	31
+ 2634 0a2d 10       		.byte	16
+ 2635 0a2e 28       		.byte	40
+ 2636 0a2f 12       		.byte	18
+ 2637 0a30 2A       		.byte	42
+ 2638 0a31 08       		.byte	8
+ 2639 0a32 2D       		.byte	45
+ 2640 0a33 41       		.byte	65
+ 2641 0a34 2E       		.byte	46
+ 2642 0a35 04       		.byte	4
+ 2643 0a36 30       		.byte	48
+ 2644 0a37 40       		.byte	64
+ 2645 0a38 31       		.byte	49
+ 2646 0a39 02       		.byte	2
+ 2647 0a3a 32       		.byte	50
+ 2648 0a3b 40       		.byte	64
+ 2649 0a3c 34       		.byte	52
+ 2650 0a3d 42       		.byte	66
+ 2651 0a3e 36       		.byte	54
+ 2652 0a3f 02       		.byte	2
+ 2653 0a40 37       		.byte	55
+ 2654 0a41 80       		.byte	-128
+ 2655 0a42 39       		.byte	57
+ 2656 0a43 61       		.byte	97
+ 2657 0a44 3E       		.byte	62
+ 2658 0a45 08       		.byte	8
+ 2659 0a46 3F       		.byte	63
+ 2660 0a47 40       		.byte	64
+ 2661 0a48 41       		.byte	65
+ 2662 0a49 10       		.byte	16
+ 2663 0a4a 42       		.byte	66
+ 2664 0a4b 04       		.byte	4
+ 2665 0a4c 58       		.byte	88
+ 2666 0a4d 80       		.byte	-128
+ 2667 0a4e 62       		.byte	98
+ 2668 0a4f 40       		.byte	64
+ 2669 0a50 63       		.byte	99
+ 2670 0a51 02       		.byte	2
+ 2671 0a52 64       		.byte	100
+ 2672 0a53 05       		.byte	5
+ 2673 0a54 67       		.byte	103
+ 2674 0a55 20       		.byte	32
+ 2675 0a56 68       		.byte	104
+ 2676 0a57 92       		.byte	-110
+ 2677 0a58 69       		.byte	105
+ 2678 0a59 10       		.byte	16
+ 2679 0a5a 71       		.byte	113
+ARM GAS  C:\Users\robom\AppData\Local\Temp\ccFKNG9r.s 			page 48
+
+
+ 2680 0a5b 10       		.byte	16
+ 2681 0a5c 72       		.byte	114
+ 2682 0a5d 80       		.byte	-128
+ 2683 0a5e 73       		.byte	115
+ 2684 0a5f 22       		.byte	34
+ 2685 0a60 84       		.byte	-124
+ 2686 0a61 82       		.byte	-126
+ 2687 0a62 86       		.byte	-122
+ 2688 0a63 80       		.byte	-128
+ 2689 0a64 88       		.byte	-120
+ 2690 0a65 80       		.byte	-128
+ 2691 0a66 8B       		.byte	-117
+ 2692 0a67 80       		.byte	-128
+ 2693 0a68 90       		.byte	-112
+ 2694 0a69 62       		.byte	98
+ 2695 0a6a 91       		.byte	-111
+ 2696 0a6b 23       		.byte	35
+ 2697 0a6c 92       		.byte	-110
+ 2698 0a6d 11       		.byte	17
+ 2699 0a6e 93       		.byte	-109
+ 2700 0a6f 12       		.byte	18
+ 2701 0a70 95       		.byte	-107
+ 2702 0a71 40       		.byte	64
+ 2703 0a72 96       		.byte	-106
+ 2704 0a73 C0       		.byte	-64
+ 2705 0a74 97       		.byte	-105
+ 2706 0a75 08       		.byte	8
+ 2707 0a76 98       		.byte	-104
+ 2708 0a77 1A       		.byte	26
+ 2709 0a78 99       		.byte	-103
+ 2710 0a79 80       		.byte	-128
+ 2711 0a7a 9A       		.byte	-102
+ 2712 0a7b 32       		.byte	50
+ 2713 0a7c 9B       		.byte	-101
+ 2714 0a7d 15       		.byte	21
+ 2715 0a7e A0       		.byte	-96
+ 2716 0a7f 20       		.byte	32
+ 2717 0a80 A1       		.byte	-95
+ 2718 0a81 02       		.byte	2
+ 2719 0a82 A3       		.byte	-93
+ 2720 0a83 46       		.byte	70
+ 2721 0a84 A4       		.byte	-92
+ 2722 0a85 01       		.byte	1
+ 2723 0a86 A5       		.byte	-91
+ 2724 0a87 88       		.byte	-120
+ 2725 0a88 A7       		.byte	-89
+ 2726 0a89 11       		.byte	17
+ 2727 0a8a AA       		.byte	-86
+ 2728 0a8b 10       		.byte	16
+ 2729 0a8c AB       		.byte	-85
+ 2730 0a8d A0       		.byte	-96
+ 2731 0a8e B0       		.byte	-80
+ 2732 0a8f 04       		.byte	4
+ 2733 0a90 B1       		.byte	-79
+ 2734 0a91 20       		.byte	32
+ 2735 0a92 C0       		.byte	-64
+ 2736 0a93 F9       		.byte	-7
+ARM GAS  C:\Users\robom\AppData\Local\Temp\ccFKNG9r.s 			page 49
+
+
+ 2737 0a94 C2       		.byte	-62
+ 2738 0a95 FB       		.byte	-5
+ 2739 0a96 C4       		.byte	-60
+ 2740 0a97 75       		.byte	117
+ 2741 0a98 CA       		.byte	-54
+ 2742 0a99 DA       		.byte	-38
+ 2743 0a9a CC       		.byte	-52
+ 2744 0a9b 99       		.byte	-103
+ 2745 0a9c CE       		.byte	-50
+ 2746 0a9d 5D       		.byte	93
+ 2747 0a9e D6       		.byte	-42
+ 2748 0a9f 08       		.byte	8
+ 2749 0aa0 D8       		.byte	-40
+ 2750 0aa1 78       		.byte	120
+ 2751 0aa2 E0       		.byte	-32
+ 2752 0aa3 0A       		.byte	10
+ 2753 0aa4 E4       		.byte	-28
+ 2754 0aa5 20       		.byte	32
+ 2755 0aa6 E6       		.byte	-26
+ 2756 0aa7 02       		.byte	2
+ 2757 0aa8 E8       		.byte	-24
+ 2758 0aa9 01       		.byte	1
+ 2759 0aaa EE       		.byte	-18
+ 2760 0aab 02       		.byte	2
+ 2761 0aac 01       		.byte	1
+ 2762 0aad 01       		.byte	1
+ 2763 0aae 09       		.byte	9
+ 2764 0aaf 01       		.byte	1
+ 2765 0ab0 19       		.byte	25
+ 2766 0ab1 01       		.byte	1
+ 2767 0ab2 33       		.byte	51
+ 2768 0ab3 01       		.byte	1
+ 2769 0ab4 58       		.byte	88
+ 2770 0ab5 04       		.byte	4
+ 2771 0ab6 59       		.byte	89
+ 2772 0ab7 04       		.byte	4
+ 2773 0ab8 5C       		.byte	92
+ 2774 0ab9 32       		.byte	50
+ 2775 0aba 5F       		.byte	95
+ 2776 0abb 01       		.byte	1
+ 2777 0abc 01       		.byte	1
+ 2778 0abd 40       		.byte	64
+ 2779 0abe 04       		.byte	4
+ 2780 0abf 50       		.byte	80
+ 2781 0ac0 06       		.byte	6
+ 2782 0ac1 50       		.byte	80
+ 2783 0ac2 08       		.byte	8
+ 2784 0ac3 42       		.byte	66
+ 2785 0ac4 0A       		.byte	10
+ 2786 0ac5 04       		.byte	4
+ 2787 0ac6 0D       		.byte	13
+ 2788 0ac7 20       		.byte	32
+ 2789 0ac8 0E       		.byte	14
+ 2790 0ac9 22       		.byte	34
+ 2791 0aca 10       		.byte	16
+ 2792 0acb 10       		.byte	16
+ 2793 0acc 11       		.byte	17
+ARM GAS  C:\Users\robom\AppData\Local\Temp\ccFKNG9r.s 			page 50
+
+
+ 2794 0acd 01       		.byte	1
+ 2795 0ace 13       		.byte	19
+ 2796 0acf 42       		.byte	66
+ 2797 0ad0 14       		.byte	20
+ 2798 0ad1 08       		.byte	8
+ 2799 0ad2 15       		.byte	21
+ 2800 0ad3 02       		.byte	2
+ 2801 0ad4 16       		.byte	22
+ 2802 0ad5 22       		.byte	34
+ 2803 0ad6 1D       		.byte	29
+ 2804 0ad7 10       		.byte	16
+ 2805 0ad8 1E       		.byte	30
+ 2806 0ad9 60       		.byte	96
+ 2807 0ada 1F       		.byte	31
+ 2808 0adb 44       		.byte	68
+ 2809 0adc 20       		.byte	32
+ 2810 0add 10       		.byte	16
+ 2811 0ade 21       		.byte	33
+ 2812 0adf 08       		.byte	8
+ 2813 0ae0 25       		.byte	37
+ 2814 0ae1 20       		.byte	32
+ 2815 0ae2 26       		.byte	38
+ 2816 0ae3 05       		.byte	5
+ 2817 0ae4 27       		.byte	39
+ 2818 0ae5 05       		.byte	5
+ 2819 0ae6 2C       		.byte	44
+ 2820 0ae7 20       		.byte	32
+ 2821 0ae8 2F       		.byte	47
+ 2822 0ae9 40       		.byte	64
+ 2823 0aea 30       		.byte	48
+ 2824 0aeb 20       		.byte	32
+ 2825 0aec 36       		.byte	54
+ 2826 0aed 01       		.byte	1
+ 2827 0aee 37       		.byte	55
+ 2828 0aef 04       		.byte	4
+ 2829 0af0 38       		.byte	56
+ 2830 0af1 02       		.byte	2
+ 2831 0af2 3B       		.byte	59
+ 2832 0af3 10       		.byte	16
+ 2833 0af4 3F       		.byte	63
+ 2834 0af5 1A       		.byte	26
+ 2835 0af6 44       		.byte	68
+ 2836 0af7 08       		.byte	8
+ 2837 0af8 45       		.byte	69
+ 2838 0af9 08       		.byte	8
+ 2839 0afa 47       		.byte	71
+ 2840 0afb 01       		.byte	1
+ 2841 0afc 4D       		.byte	77
+ 2842 0afd 80       		.byte	-128
+ 2843 0afe 4E       		.byte	78
+ 2844 0aff 04       		.byte	4
+ 2845 0b00 57       		.byte	87
+ 2846 0b01 14       		.byte	20
+ 2847 0b02 59       		.byte	89
+ 2848 0b03 80       		.byte	-128
+ 2849 0b04 5A       		.byte	90
+ 2850 0b05 40       		.byte	64
+ARM GAS  C:\Users\robom\AppData\Local\Temp\ccFKNG9r.s 			page 51
+
+
+ 2851 0b06 5D       		.byte	93
+ 2852 0b07 02       		.byte	2
+ 2853 0b08 5E       		.byte	94
+ 2854 0b09 08       		.byte	8
+ 2855 0b0a 5F       		.byte	95
+ 2856 0b0b 04       		.byte	4
+ 2857 0b0c 67       		.byte	103
+ 2858 0b0d 06       		.byte	6
+ 2859 0b0e 7E       		.byte	126
+ 2860 0b0f 04       		.byte	4
+ 2861 0b10 7F       		.byte	127
+ 2862 0b11 04       		.byte	4
+ 2863 0b12 81       		.byte	-127
+ 2864 0b13 12       		.byte	18
+ 2865 0b14 8D       		.byte	-115
+ 2866 0b15 40       		.byte	64
+ 2867 0b16 8F       		.byte	-113
+ 2868 0b17 02       		.byte	2
+ 2869 0b18 90       		.byte	-112
+ 2870 0b19 42       		.byte	66
+ 2871 0b1a 91       		.byte	-111
+ 2872 0b1b 03       		.byte	3
+ 2873 0b1c 92       		.byte	-110
+ 2874 0b1d 04       		.byte	4
+ 2875 0b1e 93       		.byte	-109
+ 2876 0b1f 52       		.byte	82
+ 2877 0b20 95       		.byte	-107
+ 2878 0b21 40       		.byte	64
+ 2879 0b22 96       		.byte	-106
+ 2880 0b23 40       		.byte	64
+ 2881 0b24 97       		.byte	-105
+ 2882 0b25 08       		.byte	8
+ 2883 0b26 98       		.byte	-104
+ 2884 0b27 5A       		.byte	90
+ 2885 0b28 9A       		.byte	-102
+ 2886 0b29 72       		.byte	114
+ 2887 0b2a A0       		.byte	-96
+ 2888 0b2b 20       		.byte	32
+ 2889 0b2c A3       		.byte	-93
+ 2890 0b2d 01       		.byte	1
+ 2891 0b2e A5       		.byte	-91
+ 2892 0b2f 08       		.byte	8
+ 2893 0b30 A7       		.byte	-89
+ 2894 0b31 10       		.byte	16
+ 2895 0b32 A9       		.byte	-87
+ 2896 0b33 10       		.byte	16
+ 2897 0b34 AC       		.byte	-84
+ 2898 0b35 05       		.byte	5
+ 2899 0b36 AD       		.byte	-83
+ 2900 0b37 10       		.byte	16
+ 2901 0b38 AF       		.byte	-81
+ 2902 0b39 06       		.byte	6
+ 2903 0b3a B0       		.byte	-80
+ 2904 0b3b 10       		.byte	16
+ 2905 0b3c B7       		.byte	-73
+ 2906 0b3d 22       		.byte	34
+ 2907 0b3e C0       		.byte	-64
+ARM GAS  C:\Users\robom\AppData\Local\Temp\ccFKNG9r.s 			page 52
+
+
+ 2908 0b3f F1       		.byte	-15
+ 2909 0b40 C2       		.byte	-62
+ 2910 0b41 EB       		.byte	-21
+ 2911 0b42 C4       		.byte	-60
+ 2912 0b43 FD       		.byte	-3
+ 2913 0b44 CA       		.byte	-54
+ 2914 0b45 C0       		.byte	-64
+ 2915 0b46 CC       		.byte	-52
+ 2916 0b47 C4       		.byte	-60
+ 2917 0b48 CE       		.byte	-50
+ 2918 0b49 E5       		.byte	-27
+ 2919 0b4a D0       		.byte	-48
+ 2920 0b4b E0       		.byte	-32
+ 2921 0b4c D2       		.byte	-46
+ 2922 0b4d 30       		.byte	48
+ 2923 0b4e D6       		.byte	-42
+ 2924 0b4f 80       		.byte	-128
+ 2925 0b50 D8       		.byte	-40
+ 2926 0b51 30       		.byte	48
+ 2927 0b52 E0       		.byte	-32
+ 2928 0b53 48       		.byte	72
+ 2929 0b54 E2       		.byte	-30
+ 2930 0b55 10       		.byte	16
+ 2931 0b56 EC       		.byte	-20
+ 2932 0b57 2C       		.byte	44
+ 2933 0b58 12       		.byte	18
+ 2934 0b59 80       		.byte	-128
+ 2935 0b5a 16       		.byte	22
+ 2936 0b5b 20       		.byte	32
+ 2937 0b5c 30       		.byte	48
+ 2938 0b5d 20       		.byte	32
+ 2939 0b5e 32       		.byte	50
+ 2940 0b5f 02       		.byte	2
+ 2941 0b60 34       		.byte	52
+ 2942 0b61 08       		.byte	8
+ 2943 0b62 36       		.byte	54
+ 2944 0b63 40       		.byte	64
+ 2945 0b64 3B       		.byte	59
+ 2946 0b65 82       		.byte	-126
+ 2947 0b66 3E       		.byte	62
+ 2948 0b67 20       		.byte	32
+ 2949 0b68 86       		.byte	-122
+ 2950 0b69 01       		.byte	1
+ 2951 0b6a C4       		.byte	-60
+ 2952 0b6b 30       		.byte	48
+ 2953 0b6c CC       		.byte	-52
+ 2954 0b6d F0       		.byte	-16
+ 2955 0b6e CE       		.byte	-50
+ 2956 0b6f 70       		.byte	112
+ 2957 0b70 E2       		.byte	-30
+ 2958 0b71 10       		.byte	16
+ 2959 0b72 05       		.byte	5
+ 2960 0b73 40       		.byte	64
+ 2961 0b74 0B       		.byte	11
+ 2962 0b75 20       		.byte	32
+ 2963 0b76 0E       		.byte	14
+ 2964 0b77 10       		.byte	16
+ARM GAS  C:\Users\robom\AppData\Local\Temp\ccFKNG9r.s 			page 53
+
+
+ 2965 0b78 50       		.byte	80
+ 2966 0b79 04       		.byte	4
+ 2967 0b7a 57       		.byte	87
+ 2968 0b7b 01       		.byte	1
+ 2969 0b7c 87       		.byte	-121
+ 2970 0b7d 01       		.byte	1
+ 2971 0b7e 89       		.byte	-119
+ 2972 0b7f 40       		.byte	64
+ 2973 0b80 8B       		.byte	-117
+ 2974 0b81 40       		.byte	64
+ 2975 0b82 8C       		.byte	-116
+ 2976 0b83 04       		.byte	4
+ 2977 0b84 92       		.byte	-110
+ 2978 0b85 01       		.byte	1
+ 2979 0b86 97       		.byte	-105
+ 2980 0b87 82       		.byte	-126
+ 2981 0b88 9C       		.byte	-100
+ 2982 0b89 08       		.byte	8
+ 2983 0b8a A6       		.byte	-90
+ 2984 0b8b 42       		.byte	66
+ 2985 0b8c AA       		.byte	-86
+ 2986 0b8d 80       		.byte	-128
+ 2987 0b8e AC       		.byte	-84
+ 2988 0b8f 20       		.byte	32
+ 2989 0b90 C0       		.byte	-64
+ 2990 0b91 80       		.byte	-128
+ 2991 0b92 C2       		.byte	-62
+ 2992 0b93 30       		.byte	48
+ 2993 0b94 D4       		.byte	-44
+ 2994 0b95 20       		.byte	32
+ 2995 0b96 D6       		.byte	-42
+ 2996 0b97 20       		.byte	32
+ 2997 0b98 E6       		.byte	-26
+ 2998 0b99 10       		.byte	16
+ 2999 0b9a EA       		.byte	-22
+ 3000 0b9b 40       		.byte	64
+ 3001 0b9c EC       		.byte	-20
+ 3002 0b9d 20       		.byte	32
+ 3003 0b9e 53       		.byte	83
+ 3004 0b9f 08       		.byte	8
+ 3005 0ba0 5A       		.byte	90
+ 3006 0ba1 01       		.byte	1
+ 3007 0ba2 88       		.byte	-120
+ 3008 0ba3 08       		.byte	8
+ 3009 0ba4 92       		.byte	-110
+ 3010 0ba5 01       		.byte	1
+ 3011 0ba6 97       		.byte	-105
+ 3012 0ba7 02       		.byte	2
+ 3013 0ba8 9C       		.byte	-100
+ 3014 0ba9 08       		.byte	8
+ 3015 0baa A6       		.byte	-90
+ 3016 0bab 42       		.byte	66
+ 3017 0bac AF       		.byte	-81
+ 3018 0bad 10       		.byte	16
+ 3019 0bae B6       		.byte	-74
+ 3020 0baf 10       		.byte	16
+ 3021 0bb0 D4       		.byte	-44
+ARM GAS  C:\Users\robom\AppData\Local\Temp\ccFKNG9r.s 			page 54
+
+
+ 3022 0bb1 20       		.byte	32
+ 3023 0bb2 D6       		.byte	-42
+ 3024 0bb3 40       		.byte	64
+ 3025 0bb4 EC       		.byte	-20
+ 3026 0bb5 40       		.byte	64
+ 3027 0bb6 1B       		.byte	27
+ 3028 0bb7 08       		.byte	8
+ 3029 0bb8 86       		.byte	-122
+ 3030 0bb9 02       		.byte	2
+ 3031 0bba A4       		.byte	-92
+ 3032 0bbb 40       		.byte	64
+ 3033 0bbc A6       		.byte	-90
+ 3034 0bbd 42       		.byte	66
+ 3035 0bbe A7       		.byte	-89
+ 3036 0bbf 08       		.byte	8
+ 3037 0bc0 AB       		.byte	-85
+ 3038 0bc1 01       		.byte	1
+ 3039 0bc2 B0       		.byte	-80
+ 3040 0bc3 40       		.byte	64
+ 3041 0bc4 C6       		.byte	-58
+ 3042 0bc5 10       		.byte	16
+ 3043 0bc6 E2       		.byte	-30
+ 3044 0bc7 40       		.byte	64
+ 3045 0bc8 EE       		.byte	-18
+ 3046 0bc9 20       		.byte	32
+ 3047 0bca 75       		.byte	117
+ 3048 0bcb 02       		.byte	2
+ 3049 0bcc 85       		.byte	-123
+ 3050 0bcd 02       		.byte	2
+ 3051 0bce 8D       		.byte	-115
+ 3052 0bcf 20       		.byte	32
+ 3053 0bd0 DE       		.byte	-34
+ 3054 0bd1 04       		.byte	4
+ 3055 0bd2 E0       		.byte	-32
+ 3056 0bd3 08       		.byte	8
+ 3057 0bd4 57       		.byte	87
+ 3058 0bd5 04       		.byte	4
+ 3059 0bd6 5F       		.byte	95
+ 3060 0bd7 01       		.byte	1
+ 3061 0bd8 65       		.byte	101
+ 3062 0bd9 20       		.byte	32
+ 3063 0bda 99       		.byte	-103
+ 3064 0bdb 20       		.byte	32
+ 3065 0bdc D4       		.byte	-44
+ 3066 0bdd 02       		.byte	2
+ 3067 0bde D6       		.byte	-42
+ 3068 0bdf 01       		.byte	1
+ 3069 0be0 D8       		.byte	-40
+ 3070 0be1 01       		.byte	1
+ 3071 0be2 1B       		.byte	27
+ 3072 0be3 04       		.byte	4
+ 3073 0be4 25       		.byte	37
+ 3074 0be5 01       		.byte	1
+ 3075 0be6 8B       		.byte	-117
+ 3076 0be7 04       		.byte	4
+ 3077 0be8 97       		.byte	-105
+ 3078 0be9 01       		.byte	1
+ARM GAS  C:\Users\robom\AppData\Local\Temp\ccFKNG9r.s 			page 55
+
+
+ 3079 0bea B7       		.byte	-73
+ 3080 0beb 04       		.byte	4
+ 3081 0bec C6       		.byte	-58
+ 3082 0bed 08       		.byte	8
+ 3083 0bee C8       		.byte	-56
+ 3084 0bef 01       		.byte	1
+ 3085 0bf0 E2       		.byte	-30
+ 3086 0bf1 01       		.byte	1
+ 3087 0bf2 E8       		.byte	-24
+ 3088 0bf3 02       		.byte	2
+ 3089 0bf4 0B       		.byte	11
+ 3090 0bf5 48       		.byte	72
+ 3091 0bf6 0C       		.byte	12
+ 3092 0bf7 08       		.byte	8
+ 3093 0bf8 44       		.byte	68
+ 3094 0bf9 01       		.byte	1
+ 3095 0bfa 84       		.byte	-124
+ 3096 0bfb 08       		.byte	8
+ 3097 0bfc 97       		.byte	-105
+ 3098 0bfd 08       		.byte	8
+ 3099 0bfe A9       		.byte	-87
+ 3100 0bff 01       		.byte	1
+ 3101 0c00 AB       		.byte	-85
+ 3102 0c01 05       		.byte	5
+ 3103 0c02 C2       		.byte	-62
+ 3104 0c03 0E       		.byte	14
+ 3105 0c04 D0       		.byte	-48
+ 3106 0c05 04       		.byte	4
+ 3107 0c06 25       		.byte	37
+ 3108 0c07 02       		.byte	2
+ 3109 0c08 A4       		.byte	-92
+ 3110 0c09 40       		.byte	64
+ 3111 0c0a AE       		.byte	-82
+ 3112 0c0b 40       		.byte	64
+ 3113 0c0c C8       		.byte	-56
+ 3114 0c0d 80       		.byte	-128
+ 3115 0c0e EE       		.byte	-18
+ 3116 0c0f 40       		.byte	64
+ 3117 0c10 00       		.byte	0
+ 3118 0c11 80       		.byte	-128
+ 3119 0c12 A4       		.byte	-92
+ 3120 0c13 40       		.byte	64
+ 3121 0c14 B1       		.byte	-79
+ 3122 0c15 02       		.byte	2
+ 3123 0c16 C0       		.byte	-64
+ 3124 0c17 40       		.byte	64
+ 3125 0c18 51       		.byte	81
+ 3126 0c19 20       		.byte	32
+ 3127 0c1a 56       		.byte	86
+ 3128 0c1b 20       		.byte	32
+ 3129 0c1c 57       		.byte	87
+ 3130 0c1d 02       		.byte	2
+ 3131 0c1e 58       		.byte	88
+ 3132 0c1f 20       		.byte	32
+ 3133 0c20 5F       		.byte	95
+ 3134 0c21 04       		.byte	4
+ 3135 0c22 60       		.byte	96
+ARM GAS  C:\Users\robom\AppData\Local\Temp\ccFKNG9r.s 			page 56
+
+
+ 3136 0c23 11       		.byte	17
+ 3137 0c24 66       		.byte	102
+ 3138 0c25 02       		.byte	2
+ 3139 0c26 84       		.byte	-124
+ 3140 0c27 10       		.byte	16
+ 3141 0c28 87       		.byte	-121
+ 3142 0c29 06       		.byte	6
+ 3143 0c2a 8A       		.byte	-118
+ 3144 0c2b 20       		.byte	32
+ 3145 0c2c 9B       		.byte	-101
+ 3146 0c2d 80       		.byte	-128
+ 3147 0c2e 9C       		.byte	-100
+ 3148 0c2f 01       		.byte	1
+ 3149 0c30 AB       		.byte	-85
+ 3150 0c31 80       		.byte	-128
+ 3151 0c32 AF       		.byte	-81
+ 3152 0c33 40       		.byte	64
+ 3153 0c34 D4       		.byte	-44
+ 3154 0c35 07       		.byte	7
+ 3155 0c36 D6       		.byte	-42
+ 3156 0c37 07       		.byte	7
+ 3157 0c38 D8       		.byte	-40
+ 3158 0c39 03       		.byte	3
+ 3159 0c3a E4       		.byte	-28
+ 3160 0c3b 01       		.byte	1
+ 3161 0c3c 10       		.byte	16
+ 3162 0c3d 10       		.byte	16
+ 3163 0c3e 73       		.byte	115
+ 3164 0c3f 80       		.byte	-128
+ 3165 0c40 74       		.byte	116
+ 3166 0c41 02       		.byte	2
+ 3167 0c42 84       		.byte	-124
+ 3168 0c43 02       		.byte	2
+ 3169 0c44 9B       		.byte	-101
+ 3170 0c45 80       		.byte	-128
+ 3171 0c46 9C       		.byte	-100
+ 3172 0c47 10       		.byte	16
+ 3173 0c48 AA       		.byte	-86
+ 3174 0c49 02       		.byte	2
+ 3175 0c4a AC       		.byte	-84
+ 3176 0c4b 20       		.byte	32
+ 3177 0c4c B0       		.byte	-80
+ 3178 0c4d 01       		.byte	1
+ 3179 0c4e B1       		.byte	-79
+ 3180 0c4f 20       		.byte	32
+ 3181 0c50 B4       		.byte	-76
+ 3182 0c51 11       		.byte	17
+ 3183 0c52 C4       		.byte	-60
+ 3184 0c53 08       		.byte	8
+ 3185 0c54 DC       		.byte	-36
+ 3186 0c55 01       		.byte	1
+ 3187 0c56 DE       		.byte	-34
+ 3188 0c57 04       		.byte	4
+ 3189 0c58 E8       		.byte	-24
+ 3190 0c59 08       		.byte	8
+ 3191 0c5a EC       		.byte	-20
+ 3192 0c5b 0D       		.byte	13
+ARM GAS  C:\Users\robom\AppData\Local\Temp\ccFKNG9r.s 			page 57
+
+
+ 3193 0c5c 10       		.byte	16
+ 3194 0c5d 0D       		.byte	13
+ 3195 0c5e 11       		.byte	17
+ 3196 0c5f 01       		.byte	1
+ 3197 0c60 12       		.byte	18
+ 3198 0c61 14       		.byte	20
+ 3199 0c62 1A       		.byte	26
+ 3200 0c63 0C       		.byte	12
+ 3201 0c64 1C       		.byte	28
+ 3202 0c65 0D       		.byte	13
+ 3203 0c66 1D       		.byte	29
+ 3204 0c67 01       		.byte	1
+ 3205 0c68 00       		.byte	0
+ 3206 0c69 AB       		.byte	-85
+ 3207 0c6a 01       		.byte	1
+ 3208 0c6b 03       		.byte	3
+ 3209 0c6c 10       		.byte	16
+ 3210 0c6d 0A       		.byte	10
+ 3211 0c6e 00       		.byte	0
+ 3212 0c6f 00       		.byte	0
+ 3213 0c70 50       		.byte	80
+ 3214 0c71 14       		.byte	20
+ 3215 0c72 00       		.byte	0
+ 3216 0c73 49       		.byte	73
+ 3217 0c74 06       		.byte	6
+ 3218 0c75 00       		.byte	0
+ 3219 0c76 00       		.byte	0
+ 3220 0c77 80       		.byte	-128
+ 3221 0c78 00       		.byte	0
+ 3222 0c79 1F       		.byte	31
+ 3223 0c7a 79       		.byte	121
+ 3224 0c7b 00       		.byte	0
+ 3225 0c7c 66       		.byte	102
+ 3226 0c7d 00       		.byte	0
+ 3227 0c7e 99       		.byte	-103
+ 3228 0c7f 00       		.byte	0
+ 3229 0c80 00       		.byte	0
+ 3230 0c81 01       		.byte	1
+ 3231 0c82 00       		.byte	0
+ 3232 0c83 26       		.byte	38
+ 3233 0c84 F9       		.byte	-7
+ 3234 0c85 0A       		.byte	10
+ 3235 0c86 06       		.byte	6
+ 3236 0c87 51       		.byte	81
+ 3237 0c88 28       		.byte	40
+ 3238 0c89 00       		.byte	0
+ 3239 0c8a 00       		.byte	0
+ 3240 0c8b 00       		.byte	0
+ 3241 0c8c 78       		.byte	120
+ 3242 0c8d 00       		.byte	0
+ 3243 0c8e 00       		.byte	0
+ 3244 0c8f 00       		.byte	0
+ 3245 0c90 02       		.byte	2
+ 3246 0c91 00       		.byte	0
+ 3247 0c92 00       		.byte	0
+ 3248 0c93 80       		.byte	-128
+ 3249 0c94 07       		.byte	7
+ARM GAS  C:\Users\robom\AppData\Local\Temp\ccFKNG9r.s 			page 58
+
+
+ 3250 0c95 1F       		.byte	31
+ 3251 0c96 F8       		.byte	-8
+ 3252 0c97 00       		.byte	0
+ 3253 0c98 FF       		.byte	-1
+ 3254 0c99 00       		.byte	0
+ 3255 0c9a 00       		.byte	0
+ 3256 0c9b 00       		.byte	0
+ 3257 0c9c 04       		.byte	4
+ 3258 0c9d 00       		.byte	0
+ 3259 0c9e 00       		.byte	0
+ 3260 0c9f 00       		.byte	0
+ 3261 0ca0 07       		.byte	7
+ 3262 0ca1 07       		.byte	7
+ 3263 0ca2 66       		.byte	102
+ 3264 0ca3 80       		.byte	-128
+ 3265 0ca4 18       		.byte	24
+ 3266 0ca5 18       		.byte	24
+ 3267 0ca6 80       		.byte	-128
+ 3268 0ca7 60       		.byte	96
+ 3269 0ca8 80       		.byte	-128
+ 3270 0ca9 00       		.byte	0
+ 3271 0caa 08       		.byte	8
+ 3272 0cab 00       		.byte	0
+ 3273 0cac 00       		.byte	0
+ 3274 0cad 00       		.byte	0
+ 3275 0cae 00       		.byte	0
+ 3276 0caf 44       		.byte	68
+ 3277 0cb0 63       		.byte	99
+ 3278 0cb1 02       		.byte	2
+ 3279 0cb2 05       		.byte	5
+ 3280 0cb3 00       		.byte	0
+ 3281 0cb4 04       		.byte	4
+ 3282 0cb5 00       		.byte	0
+ 3283 0cb6 C0       		.byte	-64
+ 3284 0cb7 0E       		.byte	14
+ 3285 0cb8 18       		.byte	24
+ 3286 0cb9 FF       		.byte	-1
+ 3287 0cba FF       		.byte	-1
+ 3288 0cbb FF       		.byte	-1
+ 3289 0cbc 62       		.byte	98
+ 3290 0cbd A0       		.byte	-96
+ 3291 0cbe F0       		.byte	-16
+ 3292 0cbf 41       		.byte	65
+ 3293 0cc0 0C       		.byte	12
+ 3294 0cc1 00       		.byte	0
+ 3295 0cc2 00       		.byte	0
+ 3296 0cc3 00       		.byte	0
+ 3297 0cc4 18       		.byte	24
+ 3298 0cc5 00       		.byte	0
+ 3299 0cc6 00       		.byte	0
+ 3300 0cc7 00       		.byte	0
+ 3301 0cc8 04       		.byte	4
+ 3302 0cc9 04       		.byte	4
+ 3303 0cca 04       		.byte	4
+ 3304 0ccb 04       		.byte	4
+ 3305 0ccc 33       		.byte	51
+ 3306 0ccd 33       		.byte	51
+ARM GAS  C:\Users\robom\AppData\Local\Temp\ccFKNG9r.s 			page 59
+
+
+ 3307 0cce 00       		.byte	0
+ 3308 0ccf 01       		.byte	1
+ 3309 0cd0 00       		.byte	0
+ 3310 0cd1 00       		.byte	0
+ 3311 0cd2 00       		.byte	0
+ 3312 0cd3 00       		.byte	0
+ 3313 0cd4 00       		.byte	0
+ 3314 0cd5 00       		.byte	0
+ 3315 0cd6 40       		.byte	64
+ 3316 0cd7 02       		.byte	2
+ 3317 0cd8 00       		.byte	0
+ 3318 0cd9 10       		.byte	16
+ 3319 0cda 30       		.byte	48
+ 3320 0cdb 10       		.byte	16
+ 3321 0cdc 00       		.byte	0
+ 3322 0cdd 10       		.byte	16
+ 3323 0cde 10       		.byte	16
+ 3324 0cdf 12       		.byte	18
+ 3325 0ce0 00       		.byte	0
+ 3326 0ce1 00       		.byte	0
+ 3327 0ce2 00       		.byte	0
+ 3328 0ce3 00       		.byte	0
+ 3329 0ce4 00       		.byte	0
+ 3330 0ce5 00       		.byte	0
+ 3331 0ce6 00       		.byte	0
+ 3332 0ce7 00       		.byte	0
+ 3333 0ce8 00       		.byte	0
+ 3334 0ce9 00       		.byte	0
+ 3335 0cea 00       		.byte	0
+ 3336 0ceb 00       		.byte	0
+ 3337 0cec 00       		.byte	0
+ 3338 0ced 00       		.byte	0
+ 3339 0cee 00       		.byte	0
+ 3340 0cef 00       		.byte	0
+ 3341 0cf0 0F       		.byte	15
+ 3342 0cf1 01       		.byte	1
+ 3343 0cf2 14       		.byte	20
+ 3344 0cf3 00       		.byte	0
+ 3345 0cf4 00       		.byte	0
+ 3346 0cf5 00       		.byte	0
+ 3347 0cf6 00       		.byte	0
+ 3348 0cf7 00       		.byte	0
+ 3349 0cf8 04       		.byte	4
+ 3350 0cf9 01       		.byte	1
+ 3351 0cfa 06       		.byte	6
+ 3352 0cfb 00       		.byte	0
+ 3353 0cfc 0D       		.byte	13
+ 3354 0cfd 00       		.byte	0
+ 3355 0cfe 07       		.byte	7
+ 3356 0cff 00       		.byte	0
+ 3357 0d00 38       		.byte	56
+ 3358 0d01 C0       		.byte	-64
+ 3359 0d02 C0       		.byte	-64
+ 3360 0d03 00       		.byte	0
+ 3361 0d04 00       		.byte	0
+ 3362 0d05 03       		.byte	3
+ 3363 0d06 03       		.byte	3
+ARM GAS  C:\Users\robom\AppData\Local\Temp\ccFKNG9r.s 			page 60
+
+
+ 3364 0d07 00       		.byte	0
+ 3365 0d08 80       		.byte	-128
+ 3366 0d09 00       		.byte	0
+ 3367 0d0a 40       		.byte	64
+ 3368 0d0b BC       		.byte	-68
+ 3369 0d0c BC       		.byte	-68
+ 3370 0d0d 00       		.byte	0
+ 3371 0d0e B4       		.byte	-76
+ 3372 0d0f 00       		.byte	0
+ 3373 0d10 00       		.byte	0
+ 3374 0d11 00       		.byte	0
+ 3375 0d12 00       		.byte	0
+ 3376 0d13 00       		.byte	0
+ 3377 0d14 40       		.byte	64
+ 3378 0d15 00       		.byte	0
+ 3379 0d16 00       		.byte	0
+ 3380 0d17 00       		.byte	0
+ 3381 0d18 00       		.byte	0
+ 3382 0d19 00       		.byte	0
+ 3383 0d1a 00       		.byte	0
+ 3384 0d1b 00       		.byte	0
+ 3385 0d1c C0       		.byte	-64
+ 3386 0d1d 00       		.byte	0
+ 3387 0d1e 00       		.byte	0
+ 3388 0d1f 00       		.byte	0
+ 3389 0d20 00       		.byte	0
+ 3390 0d21 FF       		.byte	-1
+ 3391 0d22 FF       		.byte	-1
+ 3392 0d23 00       		.byte	0
+ 3393 0d24 FF       		.byte	-1
+ 3394 0d25 00       		.byte	0
+ 3395 0d26 00       		.byte	0
+ 3396 0d27 00       		.byte	0
+ 3397 0d28 00       		.byte	0
+ 3398 0d29 39       		.byte	57
+ 3399 0d2a 39       		.byte	57
+ 3400 0d2b 00       		.byte	0
+ 3401 0d2c 38       		.byte	56
+ 3402 0d2d 00       		.byte	0
+ 3403 0d2e 00       		.byte	0
+ 3404 0d2f 00       		.byte	0
+ 3405 0d30 04       		.byte	4
+ 3406 0d31 38       		.byte	56
+ 3407 0d32 38       		.byte	56
+ 3408 0d33 00       		.byte	0
+ 3409 0d34 08       		.byte	8
+ 3410 0d35 00       		.byte	0
+ 3411 0d36 00       		.byte	0
+ 3412 0d37 00       		.byte	0
+ 3413 0d38 00       		.byte	0
+ 3414 0d39 01       		.byte	1
+ 3415 0d3a 00       		.byte	0
+ 3416 0d3b 00       		.byte	0
+ 3417              		.section	.cywolatch,"a",%progbits
+ 3418              		.align	2
+ 3419              		.type	cy_meta_wonvl, %object
+ 3420              		.size	cy_meta_wonvl, 4
+ARM GAS  C:\Users\robom\AppData\Local\Temp\ccFKNG9r.s 			page 61
+
+
+ 3421              	cy_meta_wonvl:
+ 3422 0000 BC       		.byte	-68
+ 3423 0001 90       		.byte	-112
+ 3424 0002 AC       		.byte	-84
+ 3425 0003 AF       		.byte	-81
+ 3426              		.section	.cycustnvl,"a",%progbits
+ 3427              		.align	2
+ 3428              		.type	cy_meta_custnvl, %object
+ 3429              		.size	cy_meta_custnvl, 4
+ 3430              	cy_meta_custnvl:
+ 3431 0000 00       		.byte	0
+ 3432 0001 00       		.byte	0
+ 3433 0002 40       		.byte	64
+ 3434 0003 07       		.byte	7
+ 3435              		.section	.cymeta,"a",%progbits
+ 3436              		.align	2
+ 3437              		.type	cy_metadata, %object
+ 3438              		.size	cy_metadata, 12
+ 3439              	cy_metadata:
+ 3440 0000 00       		.byte	0
+ 3441 0001 01       		.byte	1
+ 3442 0002 2E       		.byte	46
+ 3443 0003 16       		.byte	22
+ 3444 0004 10       		.byte	16
+ 3445 0005 69       		.byte	105
+ 3446 0006 00       		.byte	0
+ 3447 0007 01       		.byte	1
+ 3448 0008 00       		.byte	0
+ 3449 0009 00       		.byte	0
+ 3450 000a 00       		.byte	0
+ 3451 000b 00       		.byte	0
+ 3452              		.section	.cyflashprotect,"a",%progbits
+ 3453              		.align	2
+ 3454              		.type	cy_meta_flashprotect, %object
+ 3455              		.size	cy_meta_flashprotect, 256
+ 3456              	cy_meta_flashprotect:
+ 3457 0000 00000000 		.space	256
+ 3457      00000000 
+ 3457      00000000 
+ 3457      00000000 
+ 3457      00000000 
+ 3458              		.text
+ 3459              	.Letext0:
+ 3460              		.file 1 "c:\\program files (x86)\\cypress\\psoc creator\\4.4\\psoc creator\\import\\gnu\\arm\\5.4.
+ 3461              		.file 2 "c:\\program files (x86)\\cypress\\psoc creator\\4.4\\psoc creator\\import\\gnu\\arm\\5.4.
+ 3462              		.file 3 "Generated_Source\\PSoC5\\cymetadata.c"
+ 3463              		.section	.debug_info,"",%progbits
+ 3464              	.Ldebug_info0:
+ 3465 0000 35010000 		.4byte	0x135
+ 3466 0004 0400     		.2byte	0x4
+ 3467 0006 00000000 		.4byte	.Ldebug_abbrev0
+ 3468 000a 04       		.byte	0x4
+ 3469 000b 01       		.uleb128 0x1
+ 3470 000c C9000000 		.4byte	.LASF17
+ 3471 0010 0C       		.byte	0xc
+ 3472 0011 23020000 		.4byte	.LASF18
+ 3473 0015 16000000 		.4byte	.LASF19
+ARM GAS  C:\Users\robom\AppData\Local\Temp\ccFKNG9r.s 			page 62
+
+
+ 3474 0019 00000000 		.4byte	.Ldebug_line0
+ 3475 001d 02       		.uleb128 0x2
+ 3476 001e 01       		.byte	0x1
+ 3477 001f 06       		.byte	0x6
+ 3478 0020 17020000 		.4byte	.LASF0
+ 3479 0024 03       		.uleb128 0x3
+ 3480 0025 00000000 		.4byte	.LASF9
+ 3481 0029 01       		.byte	0x1
+ 3482 002a 1D       		.byte	0x1d
+ 3483 002b 2F000000 		.4byte	0x2f
+ 3484 002f 02       		.uleb128 0x2
+ 3485 0030 01       		.byte	0x1
+ 3486 0031 08       		.byte	0x8
+ 3487 0032 BB000000 		.4byte	.LASF1
+ 3488 0036 02       		.uleb128 0x2
+ 3489 0037 02       		.byte	0x2
+ 3490 0038 05       		.byte	0x5
+ 3491 0039 04020000 		.4byte	.LASF2
+ 3492 003d 02       		.uleb128 0x2
+ 3493 003e 02       		.byte	0x2
+ 3494 003f 07       		.byte	0x7
+ 3495 0040 69010000 		.4byte	.LASF3
+ 3496 0044 02       		.uleb128 0x2
+ 3497 0045 04       		.byte	0x4
+ 3498 0046 05       		.byte	0x5
+ 3499 0047 0E020000 		.4byte	.LASF4
+ 3500 004b 02       		.uleb128 0x2
+ 3501 004c 04       		.byte	0x4
+ 3502 004d 07       		.byte	0x7
+ 3503 004e 57010000 		.4byte	.LASF5
+ 3504 0052 02       		.uleb128 0x2
+ 3505 0053 08       		.byte	0x8
+ 3506 0054 05       		.byte	0x5
+ 3507 0055 F6010000 		.4byte	.LASF6
+ 3508 0059 02       		.uleb128 0x2
+ 3509 005a 08       		.byte	0x8
+ 3510 005b 07       		.byte	0x7
+ 3511 005c AB010000 		.4byte	.LASF7
+ 3512 0060 04       		.uleb128 0x4
+ 3513 0061 04       		.byte	0x4
+ 3514 0062 05       		.byte	0x5
+ 3515 0063 696E7400 		.ascii	"int\000"
+ 3516 0067 02       		.uleb128 0x2
+ 3517 0068 04       		.byte	0x4
+ 3518 0069 07       		.byte	0x7
+ 3519 006a 9E010000 		.4byte	.LASF8
+ 3520 006e 03       		.uleb128 0x3
+ 3521 006f C2010000 		.4byte	.LASF10
+ 3522 0073 02       		.byte	0x2
+ 3523 0074 18       		.byte	0x18
+ 3524 0075 24000000 		.4byte	0x24
+ 3525 0079 05       		.uleb128 0x5
+ 3526 007a 91000000 		.4byte	0x91
+ 3527 007e 8A000000 		.4byte	0x8a
+ 3528 0082 06       		.uleb128 0x6
+ 3529 0083 8A000000 		.4byte	0x8a
+ 3530 0087 3B0D     		.2byte	0xd3b
+ARM GAS  C:\Users\robom\AppData\Local\Temp\ccFKNG9r.s 			page 63
+
+
+ 3531 0089 00       		.byte	0
+ 3532 008a 02       		.uleb128 0x2
+ 3533 008b 04       		.byte	0x4
+ 3534 008c 07       		.byte	0x7
+ 3535 008d ED010000 		.4byte	.LASF11
+ 3536 0091 07       		.uleb128 0x7
+ 3537 0092 6E000000 		.4byte	0x6e
+ 3538 0096 08       		.uleb128 0x8
+ 3539 0097 8C010000 		.4byte	.LASF12
+ 3540 009b 03       		.byte	0x3
+ 3541 009c 1F       		.byte	0x1f
+ 3542 009d A7000000 		.4byte	0xa7
+ 3543 00a1 05       		.uleb128 0x5
+ 3544 00a2 03       		.byte	0x3
+ 3545 00a3 00000000 		.4byte	cy_meta_configecc
+ 3546 00a7 07       		.uleb128 0x7
+ 3547 00a8 79000000 		.4byte	0x79
+ 3548 00ac 05       		.uleb128 0x5
+ 3549 00ad 91000000 		.4byte	0x91
+ 3550 00b1 BC000000 		.4byte	0xbc
+ 3551 00b5 09       		.uleb128 0x9
+ 3552 00b6 8A000000 		.4byte	0x8a
+ 3553 00ba 03       		.byte	0x3
+ 3554 00bb 00       		.byte	0
+ 3555 00bc 0A       		.uleb128 0xa
+ 3556 00bd 7C010000 		.4byte	.LASF13
+ 3557 00c1 03       		.byte	0x3
+ 3558 00c2 D401     		.2byte	0x1d4
+ 3559 00c4 CE000000 		.4byte	0xce
+ 3560 00c8 05       		.uleb128 0x5
+ 3561 00c9 03       		.byte	0x3
+ 3562 00ca 00000000 		.4byte	cy_meta_custnvl
+ 3563 00ce 07       		.uleb128 0x7
+ 3564 00cf AC000000 		.4byte	0xac
+ 3565 00d3 0A       		.uleb128 0xa
+ 3566 00d4 DF010000 		.4byte	.LASF14
+ 3567 00d8 03       		.byte	0x3
+ 3568 00d9 E201     		.2byte	0x1e2
+ 3569 00db E5000000 		.4byte	0xe5
+ 3570 00df 05       		.uleb128 0x5
+ 3571 00e0 03       		.byte	0x3
+ 3572 00e1 00000000 		.4byte	cy_meta_wonvl
+ 3573 00e5 07       		.uleb128 0x7
+ 3574 00e6 AC000000 		.4byte	0xac
+ 3575 00ea 05       		.uleb128 0x5
+ 3576 00eb 91000000 		.4byte	0x91
+ 3577 00ef FA000000 		.4byte	0xfa
+ 3578 00f3 09       		.uleb128 0x9
+ 3579 00f4 8A000000 		.4byte	0x8a
+ 3580 00f8 FF       		.byte	0xff
+ 3581 00f9 00       		.byte	0
+ 3582 00fa 0A       		.uleb128 0xa
+ 3583 00fb CA010000 		.4byte	.LASF15
+ 3584 00ff 03       		.byte	0x3
+ 3585 0100 F001     		.2byte	0x1f0
+ 3586 0102 0C010000 		.4byte	0x10c
+ 3587 0106 05       		.uleb128 0x5
+ARM GAS  C:\Users\robom\AppData\Local\Temp\ccFKNG9r.s 			page 64
+
+
+ 3588 0107 03       		.byte	0x3
+ 3589 0108 00000000 		.4byte	cy_meta_flashprotect
+ 3590 010c 07       		.uleb128 0x7
+ 3591 010d EA000000 		.4byte	0xea
+ 3592 0111 05       		.uleb128 0x5
+ 3593 0112 91000000 		.4byte	0x91
+ 3594 0116 21010000 		.4byte	0x121
+ 3595 011a 09       		.uleb128 0x9
+ 3596 011b 8A000000 		.4byte	0x8a
+ 3597 011f 0B       		.byte	0xb
+ 3598 0120 00       		.byte	0
+ 3599 0121 0A       		.uleb128 0xa
+ 3600 0122 0A000000 		.4byte	.LASF16
+ 3601 0126 03       		.byte	0x3
+ 3602 0127 1D02     		.2byte	0x21d
+ 3603 0129 33010000 		.4byte	0x133
+ 3604 012d 05       		.uleb128 0x5
+ 3605 012e 03       		.byte	0x3
+ 3606 012f 00000000 		.4byte	cy_metadata
+ 3607 0133 07       		.uleb128 0x7
+ 3608 0134 11010000 		.4byte	0x111
+ 3609 0138 00       		.byte	0
+ 3610              		.section	.debug_abbrev,"",%progbits
+ 3611              	.Ldebug_abbrev0:
+ 3612 0000 01       		.uleb128 0x1
+ 3613 0001 11       		.uleb128 0x11
+ 3614 0002 01       		.byte	0x1
+ 3615 0003 25       		.uleb128 0x25
+ 3616 0004 0E       		.uleb128 0xe
+ 3617 0005 13       		.uleb128 0x13
+ 3618 0006 0B       		.uleb128 0xb
+ 3619 0007 03       		.uleb128 0x3
+ 3620 0008 0E       		.uleb128 0xe
+ 3621 0009 1B       		.uleb128 0x1b
+ 3622 000a 0E       		.uleb128 0xe
+ 3623 000b 10       		.uleb128 0x10
+ 3624 000c 17       		.uleb128 0x17
+ 3625 000d 00       		.byte	0
+ 3626 000e 00       		.byte	0
+ 3627 000f 02       		.uleb128 0x2
+ 3628 0010 24       		.uleb128 0x24
+ 3629 0011 00       		.byte	0
+ 3630 0012 0B       		.uleb128 0xb
+ 3631 0013 0B       		.uleb128 0xb
+ 3632 0014 3E       		.uleb128 0x3e
+ 3633 0015 0B       		.uleb128 0xb
+ 3634 0016 03       		.uleb128 0x3
+ 3635 0017 0E       		.uleb128 0xe
+ 3636 0018 00       		.byte	0
+ 3637 0019 00       		.byte	0
+ 3638 001a 03       		.uleb128 0x3
+ 3639 001b 16       		.uleb128 0x16
+ 3640 001c 00       		.byte	0
+ 3641 001d 03       		.uleb128 0x3
+ 3642 001e 0E       		.uleb128 0xe
+ 3643 001f 3A       		.uleb128 0x3a
+ 3644 0020 0B       		.uleb128 0xb
+ARM GAS  C:\Users\robom\AppData\Local\Temp\ccFKNG9r.s 			page 65
+
+
+ 3645 0021 3B       		.uleb128 0x3b
+ 3646 0022 0B       		.uleb128 0xb
+ 3647 0023 49       		.uleb128 0x49
+ 3648 0024 13       		.uleb128 0x13
+ 3649 0025 00       		.byte	0
+ 3650 0026 00       		.byte	0
+ 3651 0027 04       		.uleb128 0x4
+ 3652 0028 24       		.uleb128 0x24
+ 3653 0029 00       		.byte	0
+ 3654 002a 0B       		.uleb128 0xb
+ 3655 002b 0B       		.uleb128 0xb
+ 3656 002c 3E       		.uleb128 0x3e
+ 3657 002d 0B       		.uleb128 0xb
+ 3658 002e 03       		.uleb128 0x3
+ 3659 002f 08       		.uleb128 0x8
+ 3660 0030 00       		.byte	0
+ 3661 0031 00       		.byte	0
+ 3662 0032 05       		.uleb128 0x5
+ 3663 0033 01       		.uleb128 0x1
+ 3664 0034 01       		.byte	0x1
+ 3665 0035 49       		.uleb128 0x49
+ 3666 0036 13       		.uleb128 0x13
+ 3667 0037 01       		.uleb128 0x1
+ 3668 0038 13       		.uleb128 0x13
+ 3669 0039 00       		.byte	0
+ 3670 003a 00       		.byte	0
+ 3671 003b 06       		.uleb128 0x6
+ 3672 003c 21       		.uleb128 0x21
+ 3673 003d 00       		.byte	0
+ 3674 003e 49       		.uleb128 0x49
+ 3675 003f 13       		.uleb128 0x13
+ 3676 0040 2F       		.uleb128 0x2f
+ 3677 0041 05       		.uleb128 0x5
+ 3678 0042 00       		.byte	0
+ 3679 0043 00       		.byte	0
+ 3680 0044 07       		.uleb128 0x7
+ 3681 0045 26       		.uleb128 0x26
+ 3682 0046 00       		.byte	0
+ 3683 0047 49       		.uleb128 0x49
+ 3684 0048 13       		.uleb128 0x13
+ 3685 0049 00       		.byte	0
+ 3686 004a 00       		.byte	0
+ 3687 004b 08       		.uleb128 0x8
+ 3688 004c 34       		.uleb128 0x34
+ 3689 004d 00       		.byte	0
+ 3690 004e 03       		.uleb128 0x3
+ 3691 004f 0E       		.uleb128 0xe
+ 3692 0050 3A       		.uleb128 0x3a
+ 3693 0051 0B       		.uleb128 0xb
+ 3694 0052 3B       		.uleb128 0x3b
+ 3695 0053 0B       		.uleb128 0xb
+ 3696 0054 49       		.uleb128 0x49
+ 3697 0055 13       		.uleb128 0x13
+ 3698 0056 3F       		.uleb128 0x3f
+ 3699 0057 19       		.uleb128 0x19
+ 3700 0058 02       		.uleb128 0x2
+ 3701 0059 18       		.uleb128 0x18
+ARM GAS  C:\Users\robom\AppData\Local\Temp\ccFKNG9r.s 			page 66
+
+
+ 3702 005a 00       		.byte	0
+ 3703 005b 00       		.byte	0
+ 3704 005c 09       		.uleb128 0x9
+ 3705 005d 21       		.uleb128 0x21
+ 3706 005e 00       		.byte	0
+ 3707 005f 49       		.uleb128 0x49
+ 3708 0060 13       		.uleb128 0x13
+ 3709 0061 2F       		.uleb128 0x2f
+ 3710 0062 0B       		.uleb128 0xb
+ 3711 0063 00       		.byte	0
+ 3712 0064 00       		.byte	0
+ 3713 0065 0A       		.uleb128 0xa
+ 3714 0066 34       		.uleb128 0x34
+ 3715 0067 00       		.byte	0
+ 3716 0068 03       		.uleb128 0x3
+ 3717 0069 0E       		.uleb128 0xe
+ 3718 006a 3A       		.uleb128 0x3a
+ 3719 006b 0B       		.uleb128 0xb
+ 3720 006c 3B       		.uleb128 0x3b
+ 3721 006d 05       		.uleb128 0x5
+ 3722 006e 49       		.uleb128 0x49
+ 3723 006f 13       		.uleb128 0x13
+ 3724 0070 3F       		.uleb128 0x3f
+ 3725 0071 19       		.uleb128 0x19
+ 3726 0072 02       		.uleb128 0x2
+ 3727 0073 18       		.uleb128 0x18
+ 3728 0074 00       		.byte	0
+ 3729 0075 00       		.byte	0
+ 3730 0076 00       		.byte	0
+ 3731              		.section	.debug_aranges,"",%progbits
+ 3732 0000 14000000 		.4byte	0x14
+ 3733 0004 0200     		.2byte	0x2
+ 3734 0006 00000000 		.4byte	.Ldebug_info0
+ 3735 000a 04       		.byte	0x4
+ 3736 000b 00       		.byte	0
+ 3737 000c 0000     		.2byte	0
+ 3738 000e 0000     		.2byte	0
+ 3739 0010 00000000 		.4byte	0
+ 3740 0014 00000000 		.4byte	0
+ 3741              		.section	.debug_line,"",%progbits
+ 3742              	.Ldebug_line0:
+ 3743 0000 3D010000 		.section	.debug_str,"MS",%progbits,1
+ 3743      02003701 
+ 3743      00000201 
+ 3743      FB0E0D00 
+ 3743      01010101 
+ 3744              	.LASF9:
+ 3745 0000 5F5F7569 		.ascii	"__uint8_t\000"
+ 3745      6E74385F 
+ 3745      7400
+ 3746              	.LASF16:
+ 3747 000a 63795F6D 		.ascii	"cy_metadata\000"
+ 3747      65746164 
+ 3747      61746100 
+ 3748              	.LASF19:
+ 3749 0016 433A5C55 		.ascii	"C:\\Users\\robom\\OneDrive\\University\\Darmstadt\\"
+ 3749      73657273 
+ARM GAS  C:\Users\robom\AppData\Local\Temp\ccFKNG9r.s 			page 67
+
+
+ 3749      5C726F62 
+ 3749      6F6D5C4F 
+ 3749      6E654472 
+ 3750 0043 41647661 		.ascii	"Advanced Microcontroller Systems and Embedded Opera"
+ 3750      6E636564 
+ 3750      204D6963 
+ 3750      726F636F 
+ 3750      6E74726F 
+ 3751 0076 74696E67 		.ascii	"ting systems\\Embedded Operating Systems\\Workbook\\"
+ 3751      20737973 
+ 3751      74656D73 
+ 3751      5C456D62 
+ 3751      65646465 
+ 3752 00a7 6D70335F 		.ascii	"mp3_player_wb.cydsn\000"
+ 3752      706C6179 
+ 3752      65725F77 
+ 3752      622E6379 
+ 3752      64736E00 
+ 3753              	.LASF1:
+ 3754 00bb 756E7369 		.ascii	"unsigned char\000"
+ 3754      676E6564 
+ 3754      20636861 
+ 3754      7200
+ 3755              	.LASF17:
+ 3756 00c9 474E5520 		.ascii	"GNU C11 5.4.1 20160609 (release) [ARM/embedded-5-br"
+ 3756      43313120 
+ 3756      352E342E 
+ 3756      31203230 
+ 3756      31363036 
+ 3757 00fc 616E6368 		.ascii	"anch revision 237715] -mcpu=cortex-m3 -mthumb -g -O"
+ 3757      20726576 
+ 3757      6973696F 
+ 3757      6E203233 
+ 3757      37373135 
+ 3758 012f 67202D66 		.ascii	"g -ffunction-sections -ffat-lto-objects\000"
+ 3758      66756E63 
+ 3758      74696F6E 
+ 3758      2D736563 
+ 3758      74696F6E 
+ 3759              	.LASF5:
+ 3760 0157 6C6F6E67 		.ascii	"long unsigned int\000"
+ 3760      20756E73 
+ 3760      69676E65 
+ 3760      6420696E 
+ 3760      7400
+ 3761              	.LASF3:
+ 3762 0169 73686F72 		.ascii	"short unsigned int\000"
+ 3762      7420756E 
+ 3762      7369676E 
+ 3762      65642069 
+ 3762      6E7400
+ 3763              	.LASF13:
+ 3764 017c 63795F6D 		.ascii	"cy_meta_custnvl\000"
+ 3764      6574615F 
+ 3764      63757374 
+ 3764      6E766C00 
+ 3765              	.LASF12:
+ARM GAS  C:\Users\robom\AppData\Local\Temp\ccFKNG9r.s 			page 68
+
+
+ 3766 018c 63795F6D 		.ascii	"cy_meta_configecc\000"
+ 3766      6574615F 
+ 3766      636F6E66 
+ 3766      69676563 
+ 3766      6300
+ 3767              	.LASF8:
+ 3768 019e 756E7369 		.ascii	"unsigned int\000"
+ 3768      676E6564 
+ 3768      20696E74 
+ 3768      00
+ 3769              	.LASF7:
+ 3770 01ab 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 3770      206C6F6E 
+ 3770      6720756E 
+ 3770      7369676E 
+ 3770      65642069 
+ 3771              	.LASF10:
+ 3772 01c2 75696E74 		.ascii	"uint8_t\000"
+ 3772      385F7400 
+ 3773              	.LASF15:
+ 3774 01ca 63795F6D 		.ascii	"cy_meta_flashprotect\000"
+ 3774      6574615F 
+ 3774      666C6173 
+ 3774      6870726F 
+ 3774      74656374 
+ 3775              	.LASF14:
+ 3776 01df 63795F6D 		.ascii	"cy_meta_wonvl\000"
+ 3776      6574615F 
+ 3776      776F6E76 
+ 3776      6C00
+ 3777              	.LASF11:
+ 3778 01ed 73697A65 		.ascii	"sizetype\000"
+ 3778      74797065 
+ 3778      00
+ 3779              	.LASF6:
+ 3780 01f6 6C6F6E67 		.ascii	"long long int\000"
+ 3780      206C6F6E 
+ 3780      6720696E 
+ 3780      7400
+ 3781              	.LASF2:
+ 3782 0204 73686F72 		.ascii	"short int\000"
+ 3782      7420696E 
+ 3782      7400
+ 3783              	.LASF4:
+ 3784 020e 6C6F6E67 		.ascii	"long int\000"
+ 3784      20696E74 
+ 3784      00
+ 3785              	.LASF0:
+ 3786 0217 7369676E 		.ascii	"signed char\000"
+ 3786      65642063 
+ 3786      68617200 
+ 3787              	.LASF18:
+ 3788 0223 47656E65 		.ascii	"Generated_Source\\PSoC5\\cymetadata.c\000"
+ 3788      72617465 
+ 3788      645F536F 
+ 3788      75726365 
+ 3788      5C50536F 
+ARM GAS  C:\Users\robom\AppData\Local\Temp\ccFKNG9r.s 			page 69
+
+
+ 3789              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 5.4.1 20160609 (release) [ARM/embedded-5-bran
