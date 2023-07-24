@@ -1,0 +1,15 @@
+--------------- Build Started: 07/24/2023 02:43:15 Project: JSONParser, Configuration: ARM GCC 5.4-2016-q2-update Debug ---------------
+cydsfit.exe -.appdatapath "C:\Users\Mateo C. Querol\AppData\Local\Cypress Semiconductor\PSoC Creator\4.4" -.fdsnotice -.fdswarpdepfile=warp_dependencies.txt -.fdselabdepfile=elab_dependencies.txt -.fdsbldfile=generated_files.txt -.fdsreffile=referenced_files.txt -p "C:\Users\Mateo C. Querol\OneDrive\University\Darmstadt\Advanced Microcontroller Systems and Embedded Operating systems\Embedded Operating Systems\Workbook\JSONParser.cydsn\JSONParser.cyprj" -d CY8C5888LTI-LP097 -s "C:\Users\Mateo C. Querol\OneDrive\University\Darmstadt\Advanced Microcontroller Systems and Embedded Operating systems\Embedded Operating Systems\Workbook\JSONParser.cydsn\Generated_Source\PSoC5" -- -yv2 -q10 -ygs -o2 -v3 -.fftcfgtype=LE
+Elaborating Design...
+ADD: sdb.M0033: error: The instance 'isr_uart_rx', of component cy_isr_v1_71, contains an error. Unable to locate and customize component 'cy_isr_v1_71' used in schematic 'C:\Users\Mateo C. Querol\OneDrive\University\Darmstadt\Advanced Microcontroller Systems and Embedded Operating systems\Embedded Operating Systems\Workbook\JSONParser.cydsn\TopDesign\TopDesign.cysch'.
+ *  (Component Update Tool)
+ * C:\Users\Mateo C. Querol\OneDrive\University\Darmstadt\Advanced Microcontroller Systems and Embedded Operating systems\Embedded Operating Systems\Workbook\JSONParser.cydsn\TopDesign\TopDesign.cysch (Instance:isr_uart_rx)
+ADD: sdb.M0065: information: Analog terminal "vdac_ref" on ADC_SAR_SEQ_v2_10 is unconnected.
+ * C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\ADC_SAR_SEQ_v2_10\PSoC5\ADC_SAR_SEQ_v2_10.cysch (Signal: vdac_ref)
+ * C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\ADC_SAR_SEQ_v2_10\PSoC5\ADC_SAR_SEQ_v2_10.cysch (Shape_798)
+ * C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\ADC_SAR_SEQ_v2_10\PSoC5\ADC_SAR_SEQ_v2_10.cysch (Shape_885)
+ADD: fit.M0032: warning: Clock Warning: (TFT_SPI_IntClock's accuracy range '72 MHz +/- 0.25%, (71.82 MHz - 72.18 MHz)' is not within the specified tolerance range '66 MHz +/- 5%, (62.7 MHz - 69.3 MHz)'.).
+ * C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\SPI_Master_v2_50\SPI_Master_v2_50.cysch (Instance:IntClock)
+ * C:\Users\Mateo C. Querol\OneDrive\University\Darmstadt\Advanced Microcontroller Systems and Embedded Operating systems\Embedded Operating Systems\Workbook\JSONParser.cydsn\JSONParser.cydwr (TFT_SPI_IntClock)
+Error: fit.M0050: The fitter aborted due to errors, please address all errors and rebuild. (App=cydsfit)
+--------------- Build Failed: 07/24/2023 02:43:22 ---------------

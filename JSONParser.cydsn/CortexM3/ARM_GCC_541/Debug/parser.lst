@@ -1,0 +1,70 @@
+ARM GAS  C:\Users\MATEOC~1.QUE\AppData\Local\Temp\ccyqFfmE.s 			page 1
+
+
+   1              		.syntax unified
+   2              		.cpu cortex-m3
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 1
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.thumb
+  14              		.syntax unified
+  15              		.file	"parser.c"
+  16              		.text
+  17              	.Ltext0:
+  18              		.cfi_sections	.debug_frame
+  19              	.Letext0:
+  20              		.section	.debug_line,"",%progbits
+  21              	.Ldebug_line0:
+  22              		.section	.debug_str,"MS",%progbits,1
+  23              	.LASF0:
+  24 0000 70617273 		.ascii	"parser.c\000"
+  24      65722E63 
+  24      00
+  25              	.LASF1:
+  26 0009 433A5C55 		.ascii	"C:\\Users\\Mateo C. Querol\\OneDrive\\University\\D"
+  26      73657273 
+  26      5C4D6174 
+  26      656F2043 
+  26      2E205175 
+  27 0037 61726D73 		.ascii	"armstadt\\Advanced Microcontroller Systems and Embe"
+  27      74616474 
+  27      5C416476 
+  27      616E6365 
+  27      64204D69 
+  28 0069 64646564 		.ascii	"dded Operating systems\\Embedded Operating Systems\\"
+  28      204F7065 
+  28      72617469 
+  28      6E672073 
+  28      79737465 
+  29 009b 576F726B 		.ascii	"Workbook\\JSONParser.cydsn\000"
+  29      626F6F6B 
+  29      5C4A534F 
+  29      4E506172 
+  29      7365722E 
+  30              	.LASF2:
+  31 00b5 474E5520 		.ascii	"GNU C11 5.4.1 20160609 (release) [ARM/embedded-5-br"
+  31      43313120 
+  31      352E342E 
+  31      31203230 
+  31      31363036 
+  32 00e8 616E6368 		.ascii	"anch revision 237715] -mcpu=cortex-m3 -mthumb -g -O"
+  32      20726576 
+  32      6973696F 
+  32      6E203233 
+ARM GAS  C:\Users\MATEOC~1.QUE\AppData\Local\Temp\ccyqFfmE.s 			page 2
+
+
+  32      37373135 
+  33 011b 67202D66 		.ascii	"g -ffunction-sections -ffat-lto-objects\000"
+  33      66756E63 
+  33      74696F6E 
+  33      2D736563 
+  33      74696F6E 
+  34              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 5.4.1 20160609 (release) [ARM/embedded-5-bran

@@ -1,0 +1,4124 @@
+ARM GAS  C:\Users\MATEOC~1.QUE\AppData\Local\Temp\cck0hUPu.s 			page 1
+
+
+   1              		.syntax unified
+   2              		.cpu cortex-m3
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 1
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.thumb
+  14              		.syntax unified
+  15              		.file	"cymetadata.c"
+  16              		.text
+  17              	.Ltext0:
+  18              		.cfi_sections	.debug_frame
+  19              		.global	cy_metadata
+  20              		.global	cy_meta_flashprotect
+  21              		.global	cy_meta_wonvl
+  22              		.global	cy_meta_custnvl
+  23              		.global	cy_meta_configecc
+  24              		.section	.cyconfigecc,"a",%progbits
+  25              		.align	2
+  26              		.type	cy_meta_configecc, %object
+  27              		.size	cy_meta_configecc, 3428
+  28              	cy_meta_configecc:
+  29 0000 01       		.byte	1
+  30 0001 45       		.byte	69
+  31 0002 00       		.byte	0
+  32 0003 40       		.byte	64
+  33 0004 02       		.byte	2
+  34 0005 4F       		.byte	79
+  35 0006 00       		.byte	0
+  36 0007 40       		.byte	64
+  37 0008 09       		.byte	9
+  38 0009 52       		.byte	82
+  39 000a 00       		.byte	0
+  40 000b 40       		.byte	64
+  41 000c 01       		.byte	1
+  42 000d 5B       		.byte	91
+  43 000e 00       		.byte	0
+  44 000f 40       		.byte	64
+  45 0010 03       		.byte	3
+  46 0011 64       		.byte	100
+  47 0012 00       		.byte	0
+  48 0013 40       		.byte	64
+  49 0014 02       		.byte	2
+  50 0015 65       		.byte	101
+  51 0016 00       		.byte	0
+  52 0017 40       		.byte	64
+  53 0018 1A       		.byte	26
+  54 0019 00       		.byte	0
+  55 001a 01       		.byte	1
+  56 001b 40       		.byte	64
+  57 001c 34       		.byte	52
+ARM GAS  C:\Users\MATEOC~1.QUE\AppData\Local\Temp\cck0hUPu.s 			page 2
+
+
+  58 001d 01       		.byte	1
+  59 001e 01       		.byte	1
+  60 001f 40       		.byte	64
+  61 0020 2E       		.byte	46
+  62 0021 02       		.byte	2
+  63 0022 01       		.byte	1
+  64 0023 40       		.byte	64
+  65 0024 43       		.byte	67
+  66 0025 03       		.byte	3
+  67 0026 01       		.byte	1
+  68 0027 40       		.byte	64
+  69 0028 29       		.byte	41
+  70 0029 04       		.byte	4
+  71 002a 01       		.byte	1
+  72 002b 40       		.byte	64
+  73 002c 47       		.byte	71
+  74 002d 05       		.byte	5
+  75 002e 01       		.byte	1
+  76 002f 40       		.byte	64
+  77 0030 1E       		.byte	30
+  78 0031 06       		.byte	6
+  79 0032 01       		.byte	1
+  80 0033 40       		.byte	64
+  81 0034 32       		.byte	50
+  82 0035 07       		.byte	7
+  83 0036 01       		.byte	1
+  84 0037 40       		.byte	64
+  85 0038 3B       		.byte	59
+  86 0039 08       		.byte	8
+  87 003a 01       		.byte	1
+  88 003b 40       		.byte	64
+  89 003c 47       		.byte	71
+  90 003d 09       		.byte	9
+  91 003e 01       		.byte	1
+  92 003f 40       		.byte	64
+  93 0040 5B       		.byte	91
+  94 0041 0A       		.byte	10
+  95 0042 01       		.byte	1
+  96 0043 40       		.byte	64
+  97 0044 43       		.byte	67
+  98 0045 0B       		.byte	11
+  99 0046 01       		.byte	1
+ 100 0047 40       		.byte	64
+ 101 0048 4B       		.byte	75
+ 102 0049 0C       		.byte	12
+ 103 004a 01       		.byte	1
+ 104 004b 40       		.byte	64
+ 105 004c 39       		.byte	57
+ 106 004d 0D       		.byte	13
+ 107 004e 01       		.byte	1
+ 108 004f 40       		.byte	64
+ 109 0050 39       		.byte	57
+ 110 0051 0E       		.byte	14
+ 111 0052 01       		.byte	1
+ 112 0053 40       		.byte	64
+ 113 0054 35       		.byte	53
+ 114 0055 0F       		.byte	15
+ARM GAS  C:\Users\MATEOC~1.QUE\AppData\Local\Temp\cck0hUPu.s 			page 3
+
+
+ 115 0056 01       		.byte	1
+ 116 0057 40       		.byte	64
+ 117 0058 30       		.byte	48
+ 118 0059 14       		.byte	20
+ 119 005a 01       		.byte	1
+ 120 005b 40       		.byte	64
+ 121 005c 43       		.byte	67
+ 122 005d 15       		.byte	21
+ 123 005e 01       		.byte	1
+ 124 005f 40       		.byte	64
+ 125 0060 31       		.byte	49
+ 126 0061 16       		.byte	22
+ 127 0062 01       		.byte	1
+ 128 0063 40       		.byte	64
+ 129 0064 41       		.byte	65
+ 130 0065 17       		.byte	23
+ 131 0066 01       		.byte	1
+ 132 0067 40       		.byte	64
+ 133 0068 3E       		.byte	62
+ 134 0069 18       		.byte	24
+ 135 006a 01       		.byte	1
+ 136 006b 40       		.byte	64
+ 137 006c 41       		.byte	65
+ 138 006d 19       		.byte	25
+ 139 006e 01       		.byte	1
+ 140 006f 40       		.byte	64
+ 141 0070 43       		.byte	67
+ 142 0071 1A       		.byte	26
+ 143 0072 01       		.byte	1
+ 144 0073 40       		.byte	64
+ 145 0074 4F       		.byte	79
+ 146 0075 1B       		.byte	27
+ 147 0076 01       		.byte	1
+ 148 0077 40       		.byte	64
+ 149 0078 0F       		.byte	15
+ 150 0079 40       		.byte	64
+ 151 007a 01       		.byte	1
+ 152 007b 40       		.byte	64
+ 153 007c 15       		.byte	21
+ 154 007d 41       		.byte	65
+ 155 007e 01       		.byte	1
+ 156 007f 40       		.byte	64
+ 157 0080 11       		.byte	17
+ 158 0081 42       		.byte	66
+ 159 0082 01       		.byte	1
+ 160 0083 40       		.byte	64
+ 161 0084 07       		.byte	7
+ 162 0085 43       		.byte	67
+ 163 0086 01       		.byte	1
+ 164 0087 40       		.byte	64
+ 165 0088 04       		.byte	4
+ 166 0089 44       		.byte	68
+ 167 008a 01       		.byte	1
+ 168 008b 40       		.byte	64
+ 169 008c 0C       		.byte	12
+ 170 008d 45       		.byte	69
+ 171 008e 01       		.byte	1
+ARM GAS  C:\Users\MATEOC~1.QUE\AppData\Local\Temp\cck0hUPu.s 			page 4
+
+
+ 172 008f 40       		.byte	64
+ 173 0090 07       		.byte	7
+ 174 0091 46       		.byte	70
+ 175 0092 01       		.byte	1
+ 176 0093 40       		.byte	64
+ 177 0094 0D       		.byte	13
+ 178 0095 47       		.byte	71
+ 179 0096 01       		.byte	1
+ 180 0097 40       		.byte	64
+ 181 0098 07       		.byte	7
+ 182 0099 48       		.byte	72
+ 183 009a 01       		.byte	1
+ 184 009b 40       		.byte	64
+ 185 009c 04       		.byte	4
+ 186 009d 49       		.byte	73
+ 187 009e 01       		.byte	1
+ 188 009f 40       		.byte	64
+ 189 00a0 17       		.byte	23
+ 190 00a1 4C       		.byte	76
+ 191 00a2 01       		.byte	1
+ 192 00a3 40       		.byte	64
+ 193 00a4 0F       		.byte	15
+ 194 00a5 4D       		.byte	77
+ 195 00a6 01       		.byte	1
+ 196 00a7 40       		.byte	64
+ 197 00a8 06       		.byte	6
+ 198 00a9 50       		.byte	80
+ 199 00aa 01       		.byte	1
+ 200 00ab 40       		.byte	64
+ 201 00ac 03       		.byte	3
+ 202 00ad 51       		.byte	81
+ 203 00ae 01       		.byte	1
+ 204 00af 40       		.byte	64
+ 205 00b0 7E       		.byte	126
+ 206 00b1 02       		.byte	2
+ 207 00b2 01       		.byte	1
+ 208 00b3 40       		.byte	64
+ 209 00b4 0A       		.byte	10
+ 210 00b5 4B       		.byte	75
+ 211 00b6 00       		.byte	0
+ 212 00b7 03       		.byte	3
+ 213 00b8 01       		.byte	1
+ 214 00b9 01       		.byte	1
+ 215 00ba 08       		.byte	8
+ 216 00bb 96       		.byte	-106
+ 217 00bc 09       		.byte	9
+ 218 00bd 33       		.byte	51
+ 219 00be 10       		.byte	16
+ 220 00bf 38       		.byte	56
+ 221 00c0 11       		.byte	17
+ 222 00c1 18       		.byte	24
+ 223 00c2 60       		.byte	96
+ 224 00c3 80       		.byte	-128
+ 225 00c4 61       		.byte	97
+ 226 00c5 A4       		.byte	-92
+ 227 00c6 7C       		.byte	124
+ 228 00c7 40       		.byte	64
+ARM GAS  C:\Users\MATEOC~1.QUE\AppData\Local\Temp\cck0hUPu.s 			page 5
+
+
+ 229 00c8 27       		.byte	39
+ 230 00c9 84       		.byte	-124
+ 231 00ca 83       		.byte	-125
+ 232 00cb 01       		.byte	1
+ 233 00cc 88       		.byte	-120
+ 234 00cd 0F       		.byte	15
+ 235 00ce 8C       		.byte	-116
+ 236 00cf 38       		.byte	56
+ 237 00d0 87       		.byte	-121
+ 238 00d1 0F       		.byte	15
+ 239 00d2 88       		.byte	-120
+ 240 00d3 72       		.byte	114
+ 241 00d4 00       		.byte	0
+ 242 00d5 01       		.byte	1
+ 243 00d6 06       		.byte	6
+ 244 00d7 08       		.byte	8
+ 245 00d8 08       		.byte	8
+ 246 00d9 04       		.byte	4
+ 247 00da 0E       		.byte	14
+ 248 00db 10       		.byte	16
+ 249 00dc 14       		.byte	20
+ 250 00dd 02       		.byte	2
+ 251 00de 1A       		.byte	26
+ 252 00df 01       		.byte	1
+ 253 00e0 1B       		.byte	27
+ 254 00e1 02       		.byte	2
+ 255 00e2 1E       		.byte	30
+ 256 00e3 02       		.byte	2
+ 257 00e4 1F       		.byte	31
+ 258 00e5 01       		.byte	1
+ 259 00e6 22       		.byte	34
+ 260 00e7 04       		.byte	4
+ 261 00e8 2B       		.byte	43
+ 262 00e9 04       		.byte	4
+ 263 00ea 2C       		.byte	44
+ 264 00eb 08       		.byte	8
+ 265 00ec 31       		.byte	49
+ 266 00ed 02       		.byte	2
+ 267 00ee 33       		.byte	51
+ 268 00ef 01       		.byte	1
+ 269 00f0 34       		.byte	52
+ 270 00f1 1F       		.byte	31
+ 271 00f2 37       		.byte	55
+ 272 00f3 04       		.byte	4
+ 273 00f4 38       		.byte	56
+ 274 00f5 20       		.byte	32
+ 275 00f6 3E       		.byte	62
+ 276 00f7 10       		.byte	16
+ 277 00f8 58       		.byte	88
+ 278 00f9 04       		.byte	4
+ 279 00fa 59       		.byte	89
+ 280 00fb 04       		.byte	4
+ 281 00fc 5C       		.byte	92
+ 282 00fd 22       		.byte	34
+ 283 00fe 5F       		.byte	95
+ 284 00ff 01       		.byte	1
+ 285 0100 D8       		.byte	-40
+ARM GAS  C:\Users\MATEOC~1.QUE\AppData\Local\Temp\cck0hUPu.s 			page 6
+
+
+ 286 0101 04       		.byte	4
+ 287 0102 D9       		.byte	-39
+ 288 0103 04       		.byte	4
+ 289 0104 DC       		.byte	-36
+ 290 0105 22       		.byte	34
+ 291 0106 DF       		.byte	-33
+ 292 0107 01       		.byte	1
+ 293 0108 00       		.byte	0
+ 294 0109 72       		.byte	114
+ 295 010a 01       		.byte	1
+ 296 010b 04       		.byte	4
+ 297 010c 02       		.byte	2
+ 298 010d 40       		.byte	64
+ 299 010e 03       		.byte	3
+ 300 010f 20       		.byte	32
+ 301 0110 04       		.byte	4
+ 302 0111 10       		.byte	16
+ 303 0112 07       		.byte	7
+ 304 0113 80       		.byte	-128
+ 305 0114 08       		.byte	8
+ 306 0115 41       		.byte	65
+ 307 0116 09       		.byte	9
+ 308 0117 08       		.byte	8
+ 309 0118 0A       		.byte	10
+ 310 0119 05       		.byte	5
+ 311 011a 0C       		.byte	12
+ 312 011b 01       		.byte	1
+ 313 011c 0D       		.byte	13
+ 314 011d 08       		.byte	8
+ 315 011e 0F       		.byte	15
+ 316 011f 80       		.byte	-128
+ 317 0120 10       		.byte	16
+ 318 0121 08       		.byte	8
+ 319 0122 11       		.byte	17
+ 320 0123 01       		.byte	1
+ 321 0124 13       		.byte	19
+ 322 0125 8C       		.byte	-116
+ 323 0126 16       		.byte	22
+ 324 0127 48       		.byte	72
+ 325 0128 17       		.byte	23
+ 326 0129 08       		.byte	8
+ 327 012a 18       		.byte	24
+ 328 012b 08       		.byte	8
+ 329 012c 1B       		.byte	27
+ 330 012d 10       		.byte	16
+ 331 012e 20       		.byte	32
+ 332 012f 02       		.byte	2
+ 333 0130 21       		.byte	33
+ 334 0131 09       		.byte	9
+ 335 0132 22       		.byte	34
+ 336 0133 48       		.byte	72
+ 337 0134 23       		.byte	35
+ 338 0135 80       		.byte	-128
+ 339 0136 29       		.byte	41
+ 340 0137 10       		.byte	16
+ 341 0138 2A       		.byte	42
+ 342 0139 08       		.byte	8
+ARM GAS  C:\Users\MATEOC~1.QUE\AppData\Local\Temp\cck0hUPu.s 			page 7
+
+
+ 343 013a 2B       		.byte	43
+ 344 013b D0       		.byte	-48
+ 345 013c 2C       		.byte	44
+ 346 013d 08       		.byte	8
+ 347 013e 2F       		.byte	47
+ 348 013f 80       		.byte	-128
+ 349 0140 30       		.byte	48
+ 350 0141 40       		.byte	64
+ 351 0142 31       		.byte	49
+ 352 0143 08       		.byte	8
+ 353 0144 33       		.byte	51
+ 354 0145 20       		.byte	32
+ 355 0146 36       		.byte	54
+ 356 0147 88       		.byte	-120
+ 357 0148 37       		.byte	55
+ 358 0149 80       		.byte	-128
+ 359 014a 38       		.byte	56
+ 360 014b 10       		.byte	16
+ 361 014c 39       		.byte	57
+ 362 014d 02       		.byte	2
+ 363 014e 3A       		.byte	58
+ 364 014f 40       		.byte	64
+ 365 0150 3B       		.byte	59
+ 366 0151 04       		.byte	4
+ 367 0152 3C       		.byte	60
+ 368 0153 2A       		.byte	42
+ 369 0154 4C       		.byte	76
+ 370 0155 0C       		.byte	12
+ 371 0156 85       		.byte	-123
+ 372 0157 08       		.byte	8
+ 373 0158 88       		.byte	-120
+ 374 0159 14       		.byte	20
+ 375 015a 8C       		.byte	-116
+ 376 015b 04       		.byte	4
+ 377 015c 8F       		.byte	-113
+ 378 015d 80       		.byte	-128
+ 379 015e C0       		.byte	-64
+ 380 015f 5F       		.byte	95
+ 381 0160 C2       		.byte	-62
+ 382 0161 3F       		.byte	63
+ 383 0162 C4       		.byte	-60
+ 384 0163 7F       		.byte	127
+ 385 0164 CA       		.byte	-54
+ 386 0165 A7       		.byte	-89
+ 387 0166 CC       		.byte	-52
+ 388 0167 5E       		.byte	94
+ 389 0168 CE       		.byte	-50
+ 390 0169 EF       		.byte	-17
+ 391 016a E0       		.byte	-32
+ 392 016b 02       		.byte	2
+ 393 016c E2       		.byte	-30
+ 394 016d 08       		.byte	8
+ 395 016e E6       		.byte	-26
+ 396 016f 04       		.byte	4
+ 397 0170 00       		.byte	0
+ 398 0171 01       		.byte	1
+ 399 0172 08       		.byte	8
+ARM GAS  C:\Users\MATEOC~1.QUE\AppData\Local\Temp\cck0hUPu.s 			page 8
+
+
+ 400 0173 01       		.byte	1
+ 401 0174 09       		.byte	9
+ 402 0175 01       		.byte	1
+ 403 0176 10       		.byte	16
+ 404 0177 01       		.byte	1
+ 405 0178 11       		.byte	17
+ 406 0179 01       		.byte	1
+ 407 017a 14       		.byte	20
+ 408 017b 01       		.byte	1
+ 409 017c 15       		.byte	21
+ 410 017d 01       		.byte	1
+ 411 017e 1A       		.byte	26
+ 412 017f 01       		.byte	1
+ 413 0180 1D       		.byte	29
+ 414 0181 01       		.byte	1
+ 415 0182 20       		.byte	32
+ 416 0183 01       		.byte	1
+ 417 0184 21       		.byte	33
+ 418 0185 01       		.byte	1
+ 419 0186 25       		.byte	37
+ 420 0187 01       		.byte	1
+ 421 0188 26       		.byte	38
+ 422 0189 01       		.byte	1
+ 423 018a 2B       		.byte	43
+ 424 018b 01       		.byte	1
+ 425 018c 33       		.byte	51
+ 426 018d 01       		.byte	1
+ 427 018e 34       		.byte	52
+ 428 018f 01       		.byte	1
+ 429 0190 58       		.byte	88
+ 430 0191 04       		.byte	4
+ 431 0192 59       		.byte	89
+ 432 0193 04       		.byte	4
+ 433 0194 5C       		.byte	92
+ 434 0195 22       		.byte	34
+ 435 0196 5F       		.byte	95
+ 436 0197 01       		.byte	1
+ 437 0198 80       		.byte	-128
+ 438 0199 10       		.byte	16
+ 439 019a 82       		.byte	-126
+ 440 019b 20       		.byte	32
+ 441 019c 84       		.byte	-124
+ 442 019d 40       		.byte	64
+ 443 019e 86       		.byte	-122
+ 444 019f 80       		.byte	-128
+ 445 01a0 8A       		.byte	-118
+ 446 01a1 04       		.byte	4
+ 447 01a2 8C       		.byte	-116
+ 448 01a3 04       		.byte	4
+ 449 01a4 92       		.byte	-110
+ 450 01a5 01       		.byte	1
+ 451 01a6 96       		.byte	-106
+ 452 01a7 02       		.byte	2
+ 453 01a8 98       		.byte	-104
+ 454 01a9 01       		.byte	1
+ 455 01aa 9C       		.byte	-100
+ 456 01ab 02       		.byte	2
+ARM GAS  C:\Users\MATEOC~1.QUE\AppData\Local\Temp\cck0hUPu.s 			page 9
+
+
+ 457 01ac A2       		.byte	-94
+ 458 01ad 08       		.byte	8
+ 459 01ae A4       		.byte	-92
+ 460 01af 08       		.byte	8
+ 461 01b0 A8       		.byte	-88
+ 462 01b1 20       		.byte	32
+ 463 01b2 AA       		.byte	-86
+ 464 01b3 10       		.byte	16
+ 465 01b4 AC       		.byte	-84
+ 466 01b5 80       		.byte	-128
+ 467 01b6 AE       		.byte	-82
+ 468 01b7 40       		.byte	64
+ 469 01b8 B0       		.byte	-80
+ 470 01b9 FF       		.byte	-1
+ 471 01ba BE       		.byte	-66
+ 472 01bb 01       		.byte	1
+ 473 01bc D6       		.byte	-42
+ 474 01bd 02       		.byte	2
+ 475 01be D7       		.byte	-41
+ 476 01bf 3D       		.byte	61
+ 477 01c0 D8       		.byte	-40
+ 478 01c1 04       		.byte	4
+ 479 01c2 D9       		.byte	-39
+ 480 01c3 04       		.byte	4
+ 481 01c4 DB       		.byte	-37
+ 482 01c5 0C       		.byte	12
+ 483 01c6 DC       		.byte	-36
+ 484 01c7 20       		.byte	32
+ 485 01c8 DD       		.byte	-35
+ 486 01c9 20       		.byte	32
+ 487 01ca DF       		.byte	-33
+ 488 01cb 01       		.byte	1
+ 489 01cc 00       		.byte	0
+ 490 01cd A8       		.byte	-88
+ 491 01ce 01       		.byte	1
+ 492 01cf 0A       		.byte	10
+ 493 01d0 02       		.byte	2
+ 494 01d1 01       		.byte	1
+ 495 01d2 03       		.byte	3
+ 496 01d3 84       		.byte	-124
+ 497 01d4 05       		.byte	5
+ 498 01d5 02       		.byte	2
+ 499 01d6 07       		.byte	7
+ 500 01d7 04       		.byte	4
+ 501 01d8 08       		.byte	8
+ 502 01d9 01       		.byte	1
+ 503 01da 09       		.byte	9
+ 504 01db 08       		.byte	8
+ 505 01dc 0A       		.byte	10
+ 506 01dd A5       		.byte	-91
+ 507 01de 0B       		.byte	11
+ 508 01df 20       		.byte	32
+ 509 01e0 0C       		.byte	12
+ 510 01e1 01       		.byte	1
+ 511 01e2 0D       		.byte	13
+ 512 01e3 08       		.byte	8
+ 513 01e4 0F       		.byte	15
+ARM GAS  C:\Users\MATEOC~1.QUE\AppData\Local\Temp\cck0hUPu.s 			page 10
+
+
+ 514 01e5 04       		.byte	4
+ 515 01e6 10       		.byte	16
+ 516 01e7 0A       		.byte	10
+ 517 01e8 11       		.byte	17
+ 518 01e9 04       		.byte	4
+ 519 01ea 12       		.byte	18
+ 520 01eb 80       		.byte	-128
+ 521 01ec 13       		.byte	19
+ 522 01ed 02       		.byte	2
+ 523 01ee 17       		.byte	23
+ 524 01ef 0A       		.byte	10
+ 525 01f0 18       		.byte	24
+ 526 01f1 40       		.byte	64
+ 527 01f2 1F       		.byte	31
+ 528 01f3 20       		.byte	32
+ 529 01f4 27       		.byte	39
+ 530 01f5 20       		.byte	32
+ 531 01f6 28       		.byte	40
+ 532 01f7 41       		.byte	65
+ 533 01f8 29       		.byte	41
+ 534 01f9 08       		.byte	8
+ 535 01fa 2F       		.byte	47
+ 536 01fb 94       		.byte	-108
+ 537 01fc 31       		.byte	49
+ 538 01fd 08       		.byte	8
+ 539 01fe 33       		.byte	51
+ 540 01ff 80       		.byte	-128
+ 541 0200 34       		.byte	52
+ 542 0201 41       		.byte	65
+ 543 0202 36       		.byte	54
+ 544 0203 80       		.byte	-128
+ 545 0204 37       		.byte	55
+ 546 0205 08       		.byte	8
+ 547 0206 38       		.byte	56
+ 548 0207 08       		.byte	8
+ 549 0208 3B       		.byte	59
+ 550 0209 1C       		.byte	28
+ 551 020a 3F       		.byte	63
+ 552 020b 10       		.byte	16
+ 553 020c 5A       		.byte	90
+ 554 020d 10       		.byte	16
+ 555 020e 61       		.byte	97
+ 556 020f 01       		.byte	1
+ 557 0210 68       		.byte	104
+ 558 0211 4A       		.byte	74
+ 559 0212 69       		.byte	105
+ 560 0213 05       		.byte	5
+ 561 0214 71       		.byte	113
+ 562 0215 10       		.byte	16
+ 563 0216 72       		.byte	114
+ 564 0217 05       		.byte	5
+ 565 0218 79       		.byte	121
+ 566 0219 40       		.byte	64
+ 567 021a 83       		.byte	-125
+ 568 021b 20       		.byte	32
+ 569 021c 84       		.byte	-124
+ 570 021d 08       		.byte	8
+ARM GAS  C:\Users\MATEOC~1.QUE\AppData\Local\Temp\cck0hUPu.s 			page 11
+
+
+ 571 021e 87       		.byte	-121
+ 572 021f 01       		.byte	1
+ 573 0220 8B       		.byte	-117
+ 574 0221 02       		.byte	2
+ 575 0222 8E       		.byte	-114
+ 576 0223 01       		.byte	1
+ 577 0224 90       		.byte	-112
+ 578 0225 08       		.byte	8
+ 579 0226 92       		.byte	-110
+ 580 0227 80       		.byte	-128
+ 581 0228 94       		.byte	-108
+ 582 0229 40       		.byte	64
+ 583 022a 95       		.byte	-107
+ 584 022b 05       		.byte	5
+ 585 022c 96       		.byte	-106
+ 586 022d 05       		.byte	5
+ 587 022e 9D       		.byte	-99
+ 588 022f 10       		.byte	16
+ 589 0230 9F       		.byte	-97
+ 590 0231 08       		.byte	8
+ 591 0232 A1       		.byte	-95
+ 592 0233 08       		.byte	8
+ 593 0234 A2       		.byte	-94
+ 594 0235 80       		.byte	-128
+ 595 0236 A4       		.byte	-92
+ 596 0237 14       		.byte	20
+ 597 0238 A7       		.byte	-89
+ 598 0239 80       		.byte	-128
+ 599 023a B3       		.byte	-77
+ 600 023b 80       		.byte	-128
+ 601 023c C0       		.byte	-64
+ 602 023d 5F       		.byte	95
+ 603 023e C2       		.byte	-62
+ 604 023f 7F       		.byte	127
+ 605 0240 C4       		.byte	-60
+ 606 0241 3F       		.byte	63
+ 607 0242 CA       		.byte	-54
+ 608 0243 EB       		.byte	-21
+ 609 0244 CC       		.byte	-52
+ 610 0245 DA       		.byte	-38
+ 611 0246 CE       		.byte	-50
+ 612 0247 26       		.byte	38
+ 613 0248 D6       		.byte	-42
+ 614 0249 04       		.byte	4
+ 615 024a D8       		.byte	-40
+ 616 024b 01       		.byte	1
+ 617 024c DE       		.byte	-34
+ 618 024d 08       		.byte	8
+ 619 024e E0       		.byte	-32
+ 620 024f 10       		.byte	16
+ 621 0250 E6       		.byte	-26
+ 622 0251 82       		.byte	-126
+ 623 0252 0E       		.byte	14
+ 624 0253 02       		.byte	2
+ 625 0254 13       		.byte	19
+ 626 0255 01       		.byte	1
+ 627 0256 20       		.byte	32
+ARM GAS  C:\Users\MATEOC~1.QUE\AppData\Local\Temp\cck0hUPu.s 			page 12
+
+
+ 628 0257 01       		.byte	1
+ 629 0258 23       		.byte	35
+ 630 0259 02       		.byte	2
+ 631 025a 28       		.byte	40
+ 632 025b 01       		.byte	1
+ 633 025c 30       		.byte	48
+ 634 025d 01       		.byte	1
+ 635 025e 33       		.byte	51
+ 636 025f 02       		.byte	2
+ 637 0260 35       		.byte	53
+ 638 0261 01       		.byte	1
+ 639 0262 36       		.byte	54
+ 640 0263 02       		.byte	2
+ 641 0264 38       		.byte	56
+ 642 0265 02       		.byte	2
+ 643 0266 3E       		.byte	62
+ 644 0267 01       		.byte	1
+ 645 0268 52       		.byte	82
+ 646 0269 03       		.byte	3
+ 647 026a 53       		.byte	83
+ 648 026b 02       		.byte	2
+ 649 026c 58       		.byte	88
+ 650 026d 04       		.byte	4
+ 651 026e 59       		.byte	89
+ 652 026f 04       		.byte	4
+ 653 0270 5B       		.byte	91
+ 654 0271 04       		.byte	4
+ 655 0272 5C       		.byte	92
+ 656 0273 22       		.byte	34
+ 657 0274 5D       		.byte	93
+ 658 0275 20       		.byte	32
+ 659 0276 5F       		.byte	95
+ 660 0277 01       		.byte	1
+ 661 0278 80       		.byte	-128
+ 662 0279 04       		.byte	4
+ 663 027a 84       		.byte	-124
+ 664 027b 04       		.byte	4
+ 665 027c 94       		.byte	-108
+ 666 027d 01       		.byte	1
+ 667 027e 9B       		.byte	-101
+ 668 027f 01       		.byte	1
+ 669 0280 9C       		.byte	-100
+ 670 0281 04       		.byte	4
+ 671 0282 A0       		.byte	-96
+ 672 0283 04       		.byte	4
+ 673 0284 A5       		.byte	-91
+ 674 0285 01       		.byte	1
+ 675 0286 AA       		.byte	-86
+ 676 0287 03       		.byte	3
+ 677 0288 AF       		.byte	-81
+ 678 0289 02       		.byte	2
+ 679 028a B0       		.byte	-80
+ 680 028b 04       		.byte	4
+ 681 028c B2       		.byte	-78
+ 682 028d 02       		.byte	2
+ 683 028e B3       		.byte	-77
+ 684 028f 03       		.byte	3
+ARM GAS  C:\Users\MATEOC~1.QUE\AppData\Local\Temp\cck0hUPu.s 			page 13
+
+
+ 685 0290 B4       		.byte	-76
+ 686 0291 01       		.byte	1
+ 687 0292 B8       		.byte	-72
+ 688 0293 02       		.byte	2
+ 689 0294 BE       		.byte	-66
+ 690 0295 01       		.byte	1
+ 691 0296 D4       		.byte	-44
+ 692 0297 01       		.byte	1
+ 693 0298 D8       		.byte	-40
+ 694 0299 0C       		.byte	12
+ 695 029a D9       		.byte	-39
+ 696 029b 04       		.byte	4
+ 697 029c DB       		.byte	-37
+ 698 029d 0C       		.byte	12
+ 699 029e DC       		.byte	-36
+ 700 029f 92       		.byte	-110
+ 701 02a0 DD       		.byte	-35
+ 702 02a1 20       		.byte	32
+ 703 02a2 DF       		.byte	-33
+ 704 02a3 01       		.byte	1
+ 705 02a4 00       		.byte	0
+ 706 02a5 08       		.byte	8
+ 707 02a6 03       		.byte	3
+ 708 02a7 81       		.byte	-127
+ 709 02a8 06       		.byte	6
+ 710 02a9 40       		.byte	64
+ 711 02aa 07       		.byte	7
+ 712 02ab 20       		.byte	32
+ 713 02ac 08       		.byte	8
+ 714 02ad 10       		.byte	16
+ 715 02ae 09       		.byte	9
+ 716 02af 08       		.byte	8
+ 717 02b0 0A       		.byte	10
+ 718 02b1 80       		.byte	-128
+ 719 02b2 0B       		.byte	11
+ 720 02b3 40       		.byte	64
+ 721 02b4 0E       		.byte	14
+ 722 02b5 22       		.byte	34
+ 723 02b6 10       		.byte	16
+ 724 02b7 01       		.byte	1
+ 725 02b8 11       		.byte	17
+ 726 02b9 10       		.byte	16
+ 727 02ba 12       		.byte	18
+ 728 02bb 80       		.byte	-128
+ 729 02bc 13       		.byte	19
+ 730 02bd 04       		.byte	4
+ 731 02be 15       		.byte	21
+ 732 02bf 02       		.byte	2
+ 733 02c0 17       		.byte	23
+ 734 02c1 10       		.byte	16
+ 735 02c2 19       		.byte	25
+ 736 02c3 01       		.byte	1
+ 737 02c4 1B       		.byte	27
+ 738 02c5 C0       		.byte	-64
+ 739 02c6 1E       		.byte	30
+ 740 02c7 20       		.byte	32
+ 741 02c8 1F       		.byte	31
+ARM GAS  C:\Users\MATEOC~1.QUE\AppData\Local\Temp\cck0hUPu.s 			page 14
+
+
+ 742 02c9 22       		.byte	34
+ 743 02ca 20       		.byte	32
+ 744 02cb 28       		.byte	40
+ 745 02cc 21       		.byte	33
+ 746 02cd 18       		.byte	24
+ 747 02ce 23       		.byte	35
+ 748 02cf 18       		.byte	24
+ 749 02d0 27       		.byte	39
+ 750 02d1 10       		.byte	16
+ 751 02d2 28       		.byte	40
+ 752 02d3 01       		.byte	1
+ 753 02d4 2A       		.byte	42
+ 754 02d5 81       		.byte	-127
+ 755 02d6 2F       		.byte	47
+ 756 02d7 21       		.byte	33
+ 757 02d8 30       		.byte	48
+ 758 02d9 12       		.byte	18
+ 759 02da 31       		.byte	49
+ 760 02db 08       		.byte	8
+ 761 02dc 32       		.byte	50
+ 762 02dd 10       		.byte	16
+ 763 02de 33       		.byte	51
+ 764 02df 80       		.byte	-128
+ 765 02e0 37       		.byte	55
+ 766 02e1 10       		.byte	16
+ 767 02e2 38       		.byte	56
+ 768 02e3 08       		.byte	8
+ 769 02e4 39       		.byte	57
+ 770 02e5 20       		.byte	32
+ 771 02e6 3B       		.byte	59
+ 772 02e7 40       		.byte	64
+ 773 02e8 46       		.byte	70
+ 774 02e9 80       		.byte	-128
+ 775 02ea 47       		.byte	71
+ 776 02eb 02       		.byte	2
+ 777 02ec 5C       		.byte	92
+ 778 02ed 40       		.byte	64
+ 779 02ee 69       		.byte	105
+ 780 02ef 50       		.byte	80
+ 781 02f0 6A       		.byte	106
+ 782 02f1 10       		.byte	16
+ 783 02f2 7D       		.byte	125
+ 784 02f3 40       		.byte	64
+ 785 02f4 80       		.byte	-128
+ 786 02f5 40       		.byte	64
+ 787 02f6 83       		.byte	-125
+ 788 02f7 20       		.byte	32
+ 789 02f8 90       		.byte	-112
+ 790 02f9 08       		.byte	8
+ 791 02fa 91       		.byte	-111
+ 792 02fb 02       		.byte	2
+ 793 02fc 92       		.byte	-110
+ 794 02fd A0       		.byte	-96
+ 795 02fe 93       		.byte	-109
+ 796 02ff 04       		.byte	4
+ 797 0300 95       		.byte	-107
+ 798 0301 40       		.byte	64
+ARM GAS  C:\Users\MATEOC~1.QUE\AppData\Local\Temp\cck0hUPu.s 			page 15
+
+
+ 799 0302 96       		.byte	-106
+ 800 0303 10       		.byte	16
+ 801 0304 97       		.byte	-105
+ 802 0305 10       		.byte	16
+ 803 0306 9A       		.byte	-102
+ 804 0307 41       		.byte	65
+ 805 0308 9B       		.byte	-101
+ 806 0309 03       		.byte	3
+ 807 030a 9D       		.byte	-99
+ 808 030b 01       		.byte	1
+ 809 030c 9F       		.byte	-97
+ 810 030d 08       		.byte	8
+ 811 030e A0       		.byte	-96
+ 812 030f 02       		.byte	2
+ 813 0310 A2       		.byte	-94
+ 814 0311 01       		.byte	1
+ 815 0312 A4       		.byte	-92
+ 816 0313 14       		.byte	20
+ 817 0314 A7       		.byte	-89
+ 818 0315 82       		.byte	-126
+ 819 0316 AB       		.byte	-85
+ 820 0317 20       		.byte	32
+ 821 0318 AE       		.byte	-82
+ 822 0319 40       		.byte	64
+ 823 031a B1       		.byte	-79
+ 824 031b 01       		.byte	1
+ 825 031c B6       		.byte	-74
+ 826 031d 40       		.byte	64
+ 827 031e C0       		.byte	-64
+ 828 031f 3D       		.byte	61
+ 829 0320 C2       		.byte	-62
+ 830 0321 AE       		.byte	-82
+ 831 0322 C4       		.byte	-60
+ 832 0323 5F       		.byte	95
+ 833 0324 CA       		.byte	-54
+ 834 0325 59       		.byte	89
+ 835 0326 CC       		.byte	-52
+ 836 0327 2F       		.byte	47
+ 837 0328 CE       		.byte	-50
+ 838 0329 0E       		.byte	14
+ 839 032a D6       		.byte	-42
+ 840 032b 10       		.byte	16
+ 841 032c DE       		.byte	-34
+ 842 032d 10       		.byte	16
+ 843 032e E2       		.byte	-30
+ 844 032f 08       		.byte	8
+ 845 0330 E8       		.byte	-24
+ 846 0331 20       		.byte	32
+ 847 0332 56       		.byte	86
+ 848 0333 08       		.byte	8
+ 849 0334 58       		.byte	88
+ 850 0335 04       		.byte	4
+ 851 0336 59       		.byte	89
+ 852 0337 04       		.byte	4
+ 853 0338 5B       		.byte	91
+ 854 0339 04       		.byte	4
+ 855 033a 5C       		.byte	92
+ARM GAS  C:\Users\MATEOC~1.QUE\AppData\Local\Temp\cck0hUPu.s 			page 16
+
+
+ 856 033b 22       		.byte	34
+ 857 033c 5D       		.byte	93
+ 858 033d 90       		.byte	-112
+ 859 033e 5F       		.byte	95
+ 860 033f 01       		.byte	1
+ 861 0340 8A       		.byte	-118
+ 862 0341 08       		.byte	8
+ 863 0342 8C       		.byte	-116
+ 864 0343 03       		.byte	3
+ 865 0344 8E       		.byte	-114
+ 866 0345 0C       		.byte	12
+ 867 0346 94       		.byte	-108
+ 868 0347 03       		.byte	3
+ 869 0348 96       		.byte	-106
+ 870 0349 04       		.byte	4
+ 871 034a 97       		.byte	-105
+ 872 034b 01       		.byte	1
+ 873 034c 9C       		.byte	-100
+ 874 034d 0A       		.byte	10
+ 875 034e 9D       		.byte	-99
+ 876 034f 01       		.byte	1
+ 877 0350 9E       		.byte	-98
+ 878 0351 04       		.byte	4
+ 879 0352 A0       		.byte	-96
+ 880 0353 03       		.byte	3
+ 881 0354 A2       		.byte	-94
+ 882 0355 04       		.byte	4
+ 883 0356 A3       		.byte	-93
+ 884 0357 01       		.byte	1
+ 885 0358 A7       		.byte	-89
+ 886 0359 01       		.byte	1
+ 887 035a AA       		.byte	-86
+ 888 035b 05       		.byte	5
+ 889 035c AD       		.byte	-83
+ 890 035d 01       		.byte	1
+ 891 035e B0       		.byte	-80
+ 892 035f 0F       		.byte	15
+ 893 0360 B7       		.byte	-73
+ 894 0361 01       		.byte	1
+ 895 0362 BA       		.byte	-70
+ 896 0363 02       		.byte	2
+ 897 0364 BF       		.byte	-65
+ 898 0365 40       		.byte	64
+ 899 0366 D8       		.byte	-40
+ 900 0367 04       		.byte	4
+ 901 0368 D9       		.byte	-39
+ 902 0369 04       		.byte	4
+ 903 036a DC       		.byte	-36
+ 904 036b 23       		.byte	35
+ 905 036c DF       		.byte	-33
+ 906 036d 01       		.byte	1
+ 907 036e 02       		.byte	2
+ 908 036f 08       		.byte	8
+ 909 0370 03       		.byte	3
+ 910 0371 02       		.byte	2
+ 911 0372 06       		.byte	6
+ 912 0373 28       		.byte	40
+ARM GAS  C:\Users\MATEOC~1.QUE\AppData\Local\Temp\cck0hUPu.s 			page 17
+
+
+ 913 0374 07       		.byte	7
+ 914 0375 03       		.byte	3
+ 915 0376 08       		.byte	8
+ 916 0377 04       		.byte	4
+ 917 0378 0A       		.byte	10
+ 918 0379 02       		.byte	2
+ 919 037a 0C       		.byte	12
+ 920 037b 10       		.byte	16
+ 921 037c 0F       		.byte	15
+ 922 037d C0       		.byte	-64
+ 923 037e 12       		.byte	18
+ 924 037f 84       		.byte	-124
+ 925 0380 14       		.byte	20
+ 926 0381 80       		.byte	-128
+ 927 0382 15       		.byte	21
+ 928 0383 21       		.byte	33
+ 929 0384 17       		.byte	23
+ 930 0385 10       		.byte	16
+ 931 0386 1B       		.byte	27
+ 932 0387 02       		.byte	2
+ 933 0388 22       		.byte	34
+ 934 0389 40       		.byte	64
+ 935 038a 29       		.byte	41
+ 936 038b 10       		.byte	16
+ 937 038c 2A       		.byte	42
+ 938 038d 04       		.byte	4
+ 939 038e 2B       		.byte	43
+ 940 038f 82       		.byte	-126
+ 941 0390 2E       		.byte	46
+ 942 0391 08       		.byte	8
+ 943 0392 30       		.byte	48
+ 944 0393 0C       		.byte	12
+ 945 0394 32       		.byte	50
+ 946 0395 80       		.byte	-128
+ 947 0396 33       		.byte	51
+ 948 0397 11       		.byte	17
+ 949 0398 34       		.byte	52
+ 950 0399 90       		.byte	-112
+ 951 039a 35       		.byte	53
+ 952 039b 10       		.byte	16
+ 953 039c 37       		.byte	55
+ 954 039d 0A       		.byte	10
+ 955 039e 38       		.byte	56
+ 956 039f 08       		.byte	8
+ 957 03a0 39       		.byte	57
+ 958 03a1 01       		.byte	1
+ 959 03a2 3A       		.byte	58
+ 960 03a3 08       		.byte	8
+ 961 03a4 3B       		.byte	59
+ 962 03a5 50       		.byte	80
+ 963 03a6 3E       		.byte	62
+ 964 03a7 20       		.byte	32
+ 965 03a8 3F       		.byte	63
+ 966 03a9 90       		.byte	-112
+ 967 03aa 5D       		.byte	93
+ 968 03ab 80       		.byte	-128
+ 969 03ac 67       		.byte	103
+ARM GAS  C:\Users\MATEOC~1.QUE\AppData\Local\Temp\cck0hUPu.s 			page 18
+
+
+ 970 03ad 02       		.byte	2
+ 971 03ae 90       		.byte	-112
+ 972 03af 08       		.byte	8
+ 973 03b0 91       		.byte	-111
+ 974 03b1 20       		.byte	32
+ 975 03b2 93       		.byte	-109
+ 976 03b3 10       		.byte	16
+ 977 03b4 97       		.byte	-105
+ 978 03b5 02       		.byte	2
+ 979 03b6 98       		.byte	-104
+ 980 03b7 10       		.byte	16
+ 981 03b8 9B       		.byte	-101
+ 982 03b9 0A       		.byte	10
+ 983 03ba 9F       		.byte	-97
+ 984 03bb 20       		.byte	32
+ 985 03bc A3       		.byte	-93
+ 986 03bd 40       		.byte	64
+ 987 03be B6       		.byte	-74
+ 988 03bf 80       		.byte	-128
+ 989 03c0 C0       		.byte	-64
+ 990 03c1 E3       		.byte	-29
+ 991 03c2 C2       		.byte	-62
+ 992 03c3 55       		.byte	85
+ 993 03c4 C4       		.byte	-60
+ 994 03c5 5A       		.byte	90
+ 995 03c6 CA       		.byte	-54
+ 996 03c7 4F       		.byte	79
+ 997 03c8 CC       		.byte	-52
+ 998 03c9 FF       		.byte	-1
+ 999 03ca CE       		.byte	-50
+ 1000 03cb 3F       		.byte	63
+ 1001 03cc D6       		.byte	-42
+ 1002 03cd 10       		.byte	16
+ 1003 03ce D8       		.byte	-40
+ 1004 03cf 10       		.byte	16
+ 1005 03d0 EE       		.byte	-18
+ 1006 03d1 04       		.byte	4
+ 1007 03d2 56       		.byte	86
+ 1008 03d3 02       		.byte	2
+ 1009 03d4 57       		.byte	87
+ 1010 03d5 24       		.byte	36
+ 1011 03d6 58       		.byte	88
+ 1012 03d7 04       		.byte	4
+ 1013 03d8 5B       		.byte	91
+ 1014 03d9 04       		.byte	4
+ 1015 03da 5C       		.byte	92
+ 1016 03db 02       		.byte	2
+ 1017 03dc 5F       		.byte	95
+ 1018 03dd 01       		.byte	1
+ 1019 03de 81       		.byte	-127
+ 1020 03df 84       		.byte	-124
+ 1021 03e0 85       		.byte	-123
+ 1022 03e1 07       		.byte	7
+ 1023 03e2 87       		.byte	-121
+ 1024 03e3 38       		.byte	56
+ 1025 03e4 89       		.byte	-119
+ 1026 03e5 0A       		.byte	10
+ARM GAS  C:\Users\MATEOC~1.QUE\AppData\Local\Temp\cck0hUPu.s 			page 19
+
+
+ 1027 03e6 8B       		.byte	-117
+ 1028 03e7 10       		.byte	16
+ 1029 03e8 8D       		.byte	-115
+ 1030 03e9 04       		.byte	4
+ 1031 03ea 8F       		.byte	-113
+ 1032 03eb 80       		.byte	-128
+ 1033 03ec 95       		.byte	-107
+ 1034 03ed 01       		.byte	1
+ 1035 03ee 99       		.byte	-103
+ 1036 03ef 84       		.byte	-124
+ 1037 03f0 9D       		.byte	-99
+ 1038 03f1 04       		.byte	4
+ 1039 03f2 A1       		.byte	-95
+ 1040 03f3 84       		.byte	-124
+ 1041 03f4 A5       		.byte	-91
+ 1042 03f5 60       		.byte	96
+ 1043 03f6 A9       		.byte	-87
+ 1044 03f7 80       		.byte	-128
+ 1045 03f8 AB       		.byte	-85
+ 1046 03f9 04       		.byte	4
+ 1047 03fa AD       		.byte	-83
+ 1048 03fb 56       		.byte	86
+ 1049 03fc AF       		.byte	-81
+ 1050 03fd 09       		.byte	9
+ 1051 03fe B1       		.byte	-79
+ 1052 03ff 08       		.byte	8
+ 1053 0400 B3       		.byte	-77
+ 1054 0401 7F       		.byte	127
+ 1055 0402 B5       		.byte	-75
+ 1056 0403 80       		.byte	-128
+ 1057 0404 B7       		.byte	-73
+ 1058 0405 80       		.byte	-128
+ 1059 0406 B9       		.byte	-71
+ 1060 0407 08       		.byte	8
+ 1061 0408 BF       		.byte	-65
+ 1062 0409 51       		.byte	81
+ 1063 040a C0       		.byte	-64
+ 1064 040b 34       		.byte	52
+ 1065 040c C1       		.byte	-63
+ 1066 040d 02       		.byte	2
+ 1067 040e C2       		.byte	-62
+ 1068 040f 60       		.byte	96
+ 1069 0410 C5       		.byte	-59
+ 1070 0411 DE       		.byte	-34
+ 1071 0412 C6       		.byte	-58
+ 1072 0413 F0       		.byte	-16
+ 1073 0414 C7       		.byte	-57
+ 1074 0415 CB       		.byte	-53
+ 1075 0416 C8       		.byte	-56
+ 1076 0417 3B       		.byte	59
+ 1077 0418 C9       		.byte	-55
+ 1078 0419 FF       		.byte	-1
+ 1079 041a CA       		.byte	-54
+ 1080 041b FF       		.byte	-1
+ 1081 041c CB       		.byte	-53
+ 1082 041d FF       		.byte	-1
+ 1083 041e CC       		.byte	-52
+ARM GAS  C:\Users\MATEOC~1.QUE\AppData\Local\Temp\cck0hUPu.s 			page 20
+
+
+ 1084 041f 22       		.byte	34
+ 1085 0420 CE       		.byte	-50
+ 1086 0421 F0       		.byte	-16
+ 1087 0422 CF       		.byte	-49
+ 1088 0423 08       		.byte	8
+ 1089 0424 D0       		.byte	-48
+ 1090 0425 04       		.byte	4
+ 1091 0426 D4       		.byte	-44
+ 1092 0427 09       		.byte	9
+ 1093 0428 D9       		.byte	-39
+ 1094 0429 04       		.byte	4
+ 1095 042a DA       		.byte	-38
+ 1096 042b 04       		.byte	4
+ 1097 042c DB       		.byte	-37
+ 1098 042d 04       		.byte	4
+ 1099 042e DF       		.byte	-33
+ 1100 042f 01       		.byte	1
+ 1101 0430 E2       		.byte	-30
+ 1102 0431 C0       		.byte	-64
+ 1103 0432 E4       		.byte	-28
+ 1104 0433 40       		.byte	64
+ 1105 0434 E5       		.byte	-27
+ 1106 0435 01       		.byte	1
+ 1107 0436 E6       		.byte	-26
+ 1108 0437 10       		.byte	16
+ 1109 0438 E7       		.byte	-25
+ 1110 0439 11       		.byte	17
+ 1111 043a E8       		.byte	-24
+ 1112 043b C0       		.byte	-64
+ 1113 043c E9       		.byte	-23
+ 1114 043d 01       		.byte	1
+ 1115 043e EB       		.byte	-21
+ 1116 043f 11       		.byte	17
+ 1117 0440 EC       		.byte	-20
+ 1118 0441 40       		.byte	64
+ 1119 0442 ED       		.byte	-19
+ 1120 0443 01       		.byte	1
+ 1121 0444 EE       		.byte	-18
+ 1122 0445 40       		.byte	64
+ 1123 0446 EF       		.byte	-17
+ 1124 0447 01       		.byte	1
+ 1125 0448 05       		.byte	5
+ 1126 0449 20       		.byte	32
+ 1127 044a 06       		.byte	6
+ 1128 044b 10       		.byte	16
+ 1129 044c 07       		.byte	7
+ 1130 044d 40       		.byte	64
+ 1131 044e 0C       		.byte	12
+ 1132 044f 01       		.byte	1
+ 1133 0450 0D       		.byte	13
+ 1134 0451 20       		.byte	32
+ 1135 0452 0E       		.byte	14
+ 1136 0453 04       		.byte	4
+ 1137 0454 14       		.byte	20
+ 1138 0455 12       		.byte	18
+ 1139 0456 20       		.byte	32
+ 1140 0457 08       		.byte	8
+ARM GAS  C:\Users\MATEOC~1.QUE\AppData\Local\Temp\cck0hUPu.s 			page 21
+
+
+ 1141 0458 22       		.byte	34
+ 1142 0459 0C       		.byte	12
+ 1143 045a 23       		.byte	35
+ 1144 045b 82       		.byte	-126
+ 1145 045c 2A       		.byte	42
+ 1146 045d 04       		.byte	4
+ 1147 045e 2B       		.byte	43
+ 1148 045f 8A       		.byte	-118
+ 1149 0460 30       		.byte	48
+ 1150 0461 20       		.byte	32
+ 1151 0462 31       		.byte	49
+ 1152 0463 80       		.byte	-128
+ 1153 0464 32       		.byte	50
+ 1154 0465 04       		.byte	4
+ 1155 0466 38       		.byte	56
+ 1156 0467 14       		.byte	20
+ 1157 0468 39       		.byte	57
+ 1158 0469 40       		.byte	64
+ 1159 046a 3A       		.byte	58
+ 1160 046b 02       		.byte	2
+ 1161 046c 40       		.byte	64
+ 1162 046d 14       		.byte	20
+ 1163 046e 43       		.byte	67
+ 1164 046f 02       		.byte	2
+ 1165 0470 48       		.byte	72
+ 1166 0471 04       		.byte	4
+ 1167 0472 49       		.byte	73
+ 1168 0473 06       		.byte	6
+ 1169 0474 50       		.byte	80
+ 1170 0475 03       		.byte	3
+ 1171 0476 52       		.byte	82
+ 1172 0477 24       		.byte	36
+ 1173 0478 53       		.byte	83
+ 1174 0479 01       		.byte	1
+ 1175 047a 58       		.byte	88
+ 1176 047b 20       		.byte	32
+ 1177 047c 59       		.byte	89
+ 1178 047d 04       		.byte	4
+ 1179 047e 5B       		.byte	91
+ 1180 047f 82       		.byte	-126
+ 1181 0480 63       		.byte	99
+ 1182 0481 02       		.byte	2
+ 1183 0482 67       		.byte	103
+ 1184 0483 04       		.byte	4
+ 1185 0484 68       		.byte	104
+ 1186 0485 50       		.byte	80
+ 1187 0486 6A       		.byte	106
+ 1188 0487 80       		.byte	-128
+ 1189 0488 6B       		.byte	107
+ 1190 0489 04       		.byte	4
+ 1191 048a 6C       		.byte	108
+ 1192 048b 20       		.byte	32
+ 1193 048c 6D       		.byte	109
+ 1194 048d 52       		.byte	82
+ 1195 048e 6F       		.byte	111
+ 1196 048f 88       		.byte	-120
+ 1197 0490 72       		.byte	114
+ARM GAS  C:\Users\MATEOC~1.QUE\AppData\Local\Temp\cck0hUPu.s 			page 22
+
+
+ 1198 0491 19       		.byte	25
+ 1199 0492 73       		.byte	115
+ 1200 0493 40       		.byte	64
+ 1201 0494 74       		.byte	116
+ 1202 0495 80       		.byte	-128
+ 1203 0496 76       		.byte	118
+ 1204 0497 02       		.byte	2
+ 1205 0498 7A       		.byte	122
+ 1206 0499 02       		.byte	2
+ 1207 049a 7B       		.byte	123
+ 1208 049b 01       		.byte	1
+ 1209 049c 82       		.byte	-126
+ 1210 049d 10       		.byte	16
+ 1211 049e 86       		.byte	-122
+ 1212 049f 08       		.byte	8
+ 1213 04a0 88       		.byte	-120
+ 1214 04a1 40       		.byte	64
+ 1215 04a2 93       		.byte	-109
+ 1216 04a3 04       		.byte	4
+ 1217 04a4 94       		.byte	-108
+ 1218 04a5 14       		.byte	20
+ 1219 04a6 95       		.byte	-107
+ 1220 04a7 54       		.byte	84
+ 1221 04a8 96       		.byte	-106
+ 1222 04a9 04       		.byte	4
+ 1223 04aa 97       		.byte	-105
+ 1224 04ab 02       		.byte	2
+ 1225 04ac 9B       		.byte	-101
+ 1226 04ad 40       		.byte	64
+ 1227 04ae 9C       		.byte	-100
+ 1228 04af 10       		.byte	16
+ 1229 04b0 9D       		.byte	-99
+ 1230 04b1 82       		.byte	-126
+ 1231 04b2 A2       		.byte	-94
+ 1232 04b3 02       		.byte	2
+ 1233 04b4 A3       		.byte	-93
+ 1234 04b5 02       		.byte	2
+ 1235 04b6 A4       		.byte	-92
+ 1236 04b7 A0       		.byte	-96
+ 1237 04b8 A5       		.byte	-91
+ 1238 04b9 41       		.byte	65
+ 1239 04ba A6       		.byte	-90
+ 1240 04bb 21       		.byte	33
+ 1241 04bc C0       		.byte	-64
+ 1242 04bd 70       		.byte	112
+ 1243 04be C2       		.byte	-62
+ 1244 04bf 50       		.byte	80
+ 1245 04c0 C4       		.byte	-60
+ 1246 04c1 A0       		.byte	-96
+ 1247 04c2 CA       		.byte	-54
+ 1248 04c3 0F       		.byte	15
+ 1249 04c4 CC       		.byte	-52
+ 1250 04c5 0E       		.byte	14
+ 1251 04c6 CE       		.byte	-50
+ 1252 04c7 0F       		.byte	15
+ 1253 04c8 D0       		.byte	-48
+ 1254 04c9 07       		.byte	7
+ARM GAS  C:\Users\MATEOC~1.QUE\AppData\Local\Temp\cck0hUPu.s 			page 23
+
+
+ 1255 04ca D2       		.byte	-46
+ 1256 04cb 04       		.byte	4
+ 1257 04cc D6       		.byte	-42
+ 1258 04cd 0F       		.byte	15
+ 1259 04ce D8       		.byte	-40
+ 1260 04cf 28       		.byte	40
+ 1261 04d0 E0       		.byte	-32
+ 1262 04d1 09       		.byte	9
+ 1263 04d2 EA       		.byte	-22
+ 1264 04d3 40       		.byte	64
+ 1265 04d4 EE       		.byte	-18
+ 1266 04d5 04       		.byte	4
+ 1267 04d6 02       		.byte	2
+ 1268 04d7 80       		.byte	-128
+ 1269 04d8 04       		.byte	4
+ 1270 04d9 11       		.byte	17
+ 1271 04da 05       		.byte	5
+ 1272 04db 07       		.byte	7
+ 1273 04dc 06       		.byte	6
+ 1274 04dd 22       		.byte	34
+ 1275 04de 07       		.byte	7
+ 1276 04df 18       		.byte	24
+ 1277 04e0 08       		.byte	8
+ 1278 04e1 62       		.byte	98
+ 1279 04e2 09       		.byte	9
+ 1280 04e3 0B       		.byte	11
+ 1281 04e4 0A       		.byte	10
+ 1282 04e5 14       		.byte	20
+ 1283 04e6 0B       		.byte	11
+ 1284 04e7 14       		.byte	20
+ 1285 04e8 0C       		.byte	12
+ 1286 04e9 42       		.byte	66
+ 1287 04ea 0E       		.byte	14
+ 1288 04eb 08       		.byte	8
+ 1289 04ec 10       		.byte	16
+ 1290 04ed 8D       		.byte	-115
+ 1291 04ee 14       		.byte	20
+ 1292 04ef 02       		.byte	2
+ 1293 04f0 16       		.byte	22
+ 1294 04f1 0D       		.byte	13
+ 1295 04f2 19       		.byte	25
+ 1296 04f3 04       		.byte	4
+ 1297 04f4 1B       		.byte	27
+ 1298 04f5 1A       		.byte	26
+ 1299 04f6 1C       		.byte	28
+ 1300 04f7 40       		.byte	64
+ 1301 04f8 20       		.byte	32
+ 1302 04f9 8D       		.byte	-115
+ 1303 04fa 24       		.byte	36
+ 1304 04fb 8D       		.byte	-115
+ 1305 04fc 28       		.byte	40
+ 1306 04fd 8D       		.byte	-115
+ 1307 04fe 2C       		.byte	44
+ 1308 04ff 0D       		.byte	13
+ 1309 0500 2D       		.byte	45
+ 1310 0501 13       		.byte	19
+ 1311 0502 2E       		.byte	46
+ARM GAS  C:\Users\MATEOC~1.QUE\AppData\Local\Temp\cck0hUPu.s 			page 24
+
+
+ 1312 0503 80       		.byte	-128
+ 1313 0504 2F       		.byte	47
+ 1314 0505 0C       		.byte	12
+ 1315 0506 30       		.byte	48
+ 1316 0507 70       		.byte	112
+ 1317 0508 31       		.byte	49
+ 1318 0509 01       		.byte	1
+ 1319 050a 32       		.byte	50
+ 1320 050b 0F       		.byte	15
+ 1321 050c 34       		.byte	52
+ 1322 050d 80       		.byte	-128
+ 1323 050e 35       		.byte	53
+ 1324 050f 1E       		.byte	30
+ 1325 0510 39       		.byte	57
+ 1326 0511 08       		.byte	8
+ 1327 0512 3A       		.byte	58
+ 1328 0513 0A       		.byte	10
+ 1329 0514 3B       		.byte	59
+ 1330 0515 20       		.byte	32
+ 1331 0516 3E       		.byte	62
+ 1332 0517 10       		.byte	16
+ 1333 0518 3F       		.byte	63
+ 1334 0519 05       		.byte	5
+ 1335 051a 40       		.byte	64
+ 1336 051b 50       		.byte	80
+ 1337 051c 41       		.byte	65
+ 1338 051d 02       		.byte	2
+ 1339 051e 49       		.byte	73
+ 1340 051f FF       		.byte	-1
+ 1341 0520 4A       		.byte	74
+ 1342 0521 FF       		.byte	-1
+ 1343 0522 4B       		.byte	75
+ 1344 0523 FF       		.byte	-1
+ 1345 0524 4D       		.byte	77
+ 1346 0525 A0       		.byte	-96
+ 1347 0526 4F       		.byte	79
+ 1348 0527 04       		.byte	4
+ 1349 0528 50       		.byte	80
+ 1350 0529 18       		.byte	24
+ 1351 052a 54       		.byte	84
+ 1352 052b 40       		.byte	64
+ 1353 052c 58       		.byte	88
+ 1354 052d 04       		.byte	4
+ 1355 052e 59       		.byte	89
+ 1356 052f 04       		.byte	4
+ 1357 0530 5A       		.byte	90
+ 1358 0531 04       		.byte	4
+ 1359 0532 5B       		.byte	91
+ 1360 0533 04       		.byte	4
+ 1361 0534 5D       		.byte	93
+ 1362 0535 01       		.byte	1
+ 1363 0536 5F       		.byte	95
+ 1364 0537 01       		.byte	1
+ 1365 0538 60       		.byte	96
+ 1366 0539 40       		.byte	64
+ 1367 053a 62       		.byte	98
+ 1368 053b C0       		.byte	-64
+ARM GAS  C:\Users\MATEOC~1.QUE\AppData\Local\Temp\cck0hUPu.s 			page 25
+
+
+ 1369 053c 64       		.byte	100
+ 1370 053d 40       		.byte	64
+ 1371 053e 65       		.byte	101
+ 1372 053f 40       		.byte	64
+ 1373 0540 66       		.byte	102
+ 1374 0541 C0       		.byte	-64
+ 1375 0542 68       		.byte	104
+ 1376 0543 C0       		.byte	-64
+ 1377 0544 6A       		.byte	106
+ 1378 0545 C0       		.byte	-64
+ 1379 0546 6C       		.byte	108
+ 1380 0547 C0       		.byte	-64
+ 1381 0548 6E       		.byte	110
+ 1382 0549 C0       		.byte	-64
+ 1383 054a 82       		.byte	-126
+ 1384 054b 01       		.byte	1
+ 1385 054c 92       		.byte	-110
+ 1386 054d 01       		.byte	1
+ 1387 054e AE       		.byte	-82
+ 1388 054f 02       		.byte	2
+ 1389 0550 B4       		.byte	-76
+ 1390 0551 01       		.byte	1
+ 1391 0552 B6       		.byte	-74
+ 1392 0553 02       		.byte	2
+ 1393 0554 C0       		.byte	-64
+ 1394 0555 50       		.byte	80
+ 1395 0556 C1       		.byte	-63
+ 1396 0557 03       		.byte	3
+ 1397 0558 C6       		.byte	-58
+ 1398 0559 21       		.byte	33
+ 1399 055a C8       		.byte	-56
+ 1400 055b 0C       		.byte	12
+ 1401 055c C9       		.byte	-55
+ 1402 055d FF       		.byte	-1
+ 1403 055e CA       		.byte	-54
+ 1404 055f FF       		.byte	-1
+ 1405 0560 CB       		.byte	-53
+ 1406 0561 FF       		.byte	-1
+ 1407 0562 CD       		.byte	-51
+ 1408 0563 AF       		.byte	-81
+ 1409 0564 CE       		.byte	-50
+ 1410 0565 0F       		.byte	15
+ 1411 0566 CF       		.byte	-49
+ 1412 0567 04       		.byte	4
+ 1413 0568 D0       		.byte	-48
+ 1414 0569 18       		.byte	24
+ 1415 056a D2       		.byte	-46
+ 1416 056b 80       		.byte	-128
+ 1417 056c D8       		.byte	-40
+ 1418 056d 04       		.byte	4
+ 1419 056e D9       		.byte	-39
+ 1420 056f 04       		.byte	4
+ 1421 0570 DA       		.byte	-38
+ 1422 0571 04       		.byte	4
+ 1423 0572 DB       		.byte	-37
+ 1424 0573 04       		.byte	4
+ 1425 0574 DC       		.byte	-36
+ARM GAS  C:\Users\MATEOC~1.QUE\AppData\Local\Temp\cck0hUPu.s 			page 26
+
+
+ 1426 0575 21       		.byte	33
+ 1427 0576 DD       		.byte	-35
+ 1428 0577 11       		.byte	17
+ 1429 0578 DF       		.byte	-33
+ 1430 0579 01       		.byte	1
+ 1431 057a E0       		.byte	-32
+ 1432 057b 40       		.byte	64
+ 1433 057c E2       		.byte	-30
+ 1434 057d C0       		.byte	-64
+ 1435 057e E4       		.byte	-28
+ 1436 057f 40       		.byte	64
+ 1437 0580 E5       		.byte	-27
+ 1438 0581 40       		.byte	64
+ 1439 0582 E6       		.byte	-26
+ 1440 0583 C0       		.byte	-64
+ 1441 0584 E8       		.byte	-24
+ 1442 0585 C0       		.byte	-64
+ 1443 0586 EA       		.byte	-22
+ 1444 0587 C0       		.byte	-64
+ 1445 0588 EC       		.byte	-20
+ 1446 0589 C0       		.byte	-64
+ 1447 058a EE       		.byte	-18
+ 1448 058b C0       		.byte	-64
+ 1449 058c 00       		.byte	0
+ 1450 058d 14       		.byte	20
+ 1451 058e 01       		.byte	1
+ 1452 058f 02       		.byte	2
+ 1453 0590 02       		.byte	2
+ 1454 0591 80       		.byte	-128
+ 1455 0592 03       		.byte	3
+ 1456 0593 02       		.byte	2
+ 1457 0594 06       		.byte	6
+ 1458 0595 40       		.byte	64
+ 1459 0596 09       		.byte	9
+ 1460 0597 01       		.byte	1
+ 1461 0598 0A       		.byte	10
+ 1462 0599 10       		.byte	16
+ 1463 059a 0B       		.byte	11
+ 1464 059b 02       		.byte	2
+ 1465 059c 0F       		.byte	15
+ 1466 059d 40       		.byte	64
+ 1467 059e 10       		.byte	16
+ 1468 059f A0       		.byte	-96
+ 1469 05a0 11       		.byte	17
+ 1470 05a1 50       		.byte	80
+ 1471 05a2 17       		.byte	23
+ 1472 05a3 80       		.byte	-128
+ 1473 05a4 1A       		.byte	26
+ 1474 05a5 10       		.byte	16
+ 1475 05a6 1B       		.byte	27
+ 1476 05a7 12       		.byte	18
+ 1477 05a8 1C       		.byte	28
+ 1478 05a9 08       		.byte	8
+ 1479 05aa 1F       		.byte	31
+ 1480 05ab 40       		.byte	64
+ 1481 05ac 20       		.byte	32
+ 1482 05ad 20       		.byte	32
+ARM GAS  C:\Users\MATEOC~1.QUE\AppData\Local\Temp\cck0hUPu.s 			page 27
+
+
+ 1483 05ae 22       		.byte	34
+ 1484 05af 12       		.byte	18
+ 1485 05b0 23       		.byte	35
+ 1486 05b1 04       		.byte	4
+ 1487 05b2 2B       		.byte	43
+ 1488 05b3 02       		.byte	2
+ 1489 05b4 2C       		.byte	44
+ 1490 05b5 10       		.byte	16
+ 1491 05b6 2D       		.byte	45
+ 1492 05b7 01       		.byte	1
+ 1493 05b8 32       		.byte	50
+ 1494 05b9 10       		.byte	16
+ 1495 05ba 34       		.byte	52
+ 1496 05bb 20       		.byte	32
+ 1497 05bc 35       		.byte	53
+ 1498 05bd 04       		.byte	4
+ 1499 05be 36       		.byte	54
+ 1500 05bf 40       		.byte	64
+ 1501 05c0 38       		.byte	56
+ 1502 05c1 14       		.byte	20
+ 1503 05c2 3C       		.byte	60
+ 1504 05c3 40       		.byte	64
+ 1505 05c4 3E       		.byte	62
+ 1506 05c5 04       		.byte	4
+ 1507 05c6 43       		.byte	67
+ 1508 05c7 20       		.byte	32
+ 1509 05c8 46       		.byte	70
+ 1510 05c9 10       		.byte	16
+ 1511 05ca 4B       		.byte	75
+ 1512 05cb C0       		.byte	-64
+ 1513 05cc 4F       		.byte	79
+ 1514 05cd 40       		.byte	64
+ 1515 05ce 56       		.byte	86
+ 1516 05cf 50       		.byte	80
+ 1517 05d0 57       		.byte	87
+ 1518 05d1 20       		.byte	32
+ 1519 05d2 62       		.byte	98
+ 1520 05d3 A0       		.byte	-96
+ 1521 05d4 63       		.byte	99
+ 1522 05d5 20       		.byte	32
+ 1523 05d6 77       		.byte	119
+ 1524 05d7 80       		.byte	-128
+ 1525 05d8 84       		.byte	-124
+ 1526 05d9 14       		.byte	20
+ 1527 05da 90       		.byte	-112
+ 1528 05db 40       		.byte	64
+ 1529 05dc 91       		.byte	-111
+ 1530 05dd 01       		.byte	1
+ 1531 05de 94       		.byte	-108
+ 1532 05df 14       		.byte	20
+ 1533 05e0 95       		.byte	-107
+ 1534 05e1 04       		.byte	4
+ 1535 05e2 98       		.byte	-104
+ 1536 05e3 20       		.byte	32
+ 1537 05e4 99       		.byte	-103
+ 1538 05e5 04       		.byte	4
+ 1539 05e6 9B       		.byte	-101
+ARM GAS  C:\Users\MATEOC~1.QUE\AppData\Local\Temp\cck0hUPu.s 			page 28
+
+
+ 1540 05e7 40       		.byte	64
+ 1541 05e8 9D       		.byte	-99
+ 1542 05e9 80       		.byte	-128
+ 1543 05ea A2       		.byte	-94
+ 1544 05eb 40       		.byte	64
+ 1545 05ec A5       		.byte	-91
+ 1546 05ed 40       		.byte	64
+ 1547 05ee A6       		.byte	-90
+ 1548 05ef 01       		.byte	1
+ 1549 05f0 A7       		.byte	-89
+ 1550 05f1 02       		.byte	2
+ 1551 05f2 B1       		.byte	-79
+ 1552 05f3 40       		.byte	64
+ 1553 05f4 B3       		.byte	-77
+ 1554 05f5 04       		.byte	4
+ 1555 05f6 B4       		.byte	-76
+ 1556 05f7 40       		.byte	64
+ 1557 05f8 B5       		.byte	-75
+ 1558 05f9 14       		.byte	20
+ 1559 05fa B7       		.byte	-73
+ 1560 05fb 40       		.byte	64
+ 1561 05fc C0       		.byte	-64
+ 1562 05fd 1F       		.byte	31
+ 1563 05fe C2       		.byte	-62
+ 1564 05ff 1D       		.byte	29
+ 1565 0600 C4       		.byte	-60
+ 1566 0601 8F       		.byte	-113
+ 1567 0602 CA       		.byte	-54
+ 1568 0603 C8       		.byte	-56
+ 1569 0604 CC       		.byte	-52
+ 1570 0605 74       		.byte	116
+ 1571 0606 CE       		.byte	-50
+ 1572 0607 56       		.byte	86
+ 1573 0608 D0       		.byte	-48
+ 1574 0609 44       		.byte	68
+ 1575 060a D2       		.byte	-46
+ 1576 060b 18       		.byte	24
+ 1577 060c D8       		.byte	-40
+ 1578 060d 0E       		.byte	14
+ 1579 060e E4       		.byte	-28
+ 1580 060f 02       		.byte	2
+ 1581 0610 E8       		.byte	-24
+ 1582 0611 10       		.byte	16
+ 1583 0612 0E       		.byte	14
+ 1584 0613 01       		.byte	1
+ 1585 0614 26       		.byte	38
+ 1586 0615 01       		.byte	1
+ 1587 0616 30       		.byte	48
+ 1588 0617 01       		.byte	1
+ 1589 0618 3E       		.byte	62
+ 1590 0619 01       		.byte	1
+ 1591 061a 40       		.byte	64
+ 1592 061b 60       		.byte	96
+ 1593 061c 41       		.byte	65
+ 1594 061d 02       		.byte	2
+ 1595 061e 49       		.byte	73
+ 1596 061f FF       		.byte	-1
+ARM GAS  C:\Users\MATEOC~1.QUE\AppData\Local\Temp\cck0hUPu.s 			page 29
+
+
+ 1597 0620 4A       		.byte	74
+ 1598 0621 FF       		.byte	-1
+ 1599 0622 4B       		.byte	75
+ 1600 0623 FF       		.byte	-1
+ 1601 0624 4D       		.byte	77
+ 1602 0625 A0       		.byte	-96
+ 1603 0626 4F       		.byte	79
+ 1604 0627 04       		.byte	4
+ 1605 0628 50       		.byte	80
+ 1606 0629 18       		.byte	24
+ 1607 062a 54       		.byte	84
+ 1608 062b 18       		.byte	24
+ 1609 062c 56       		.byte	86
+ 1610 062d 04       		.byte	4
+ 1611 062e 58       		.byte	88
+ 1612 062f 04       		.byte	4
+ 1613 0630 59       		.byte	89
+ 1614 0631 04       		.byte	4
+ 1615 0632 5A       		.byte	90
+ 1616 0633 04       		.byte	4
+ 1617 0634 5B       		.byte	91
+ 1618 0635 04       		.byte	4
+ 1619 0636 5C       		.byte	92
+ 1620 0637 22       		.byte	34
+ 1621 0638 5D       		.byte	93
+ 1622 0639 31       		.byte	49
+ 1623 063a 5F       		.byte	95
+ 1624 063b 01       		.byte	1
+ 1625 063c 60       		.byte	96
+ 1626 063d 40       		.byte	64
+ 1627 063e 62       		.byte	98
+ 1628 063f C0       		.byte	-64
+ 1629 0640 64       		.byte	100
+ 1630 0641 40       		.byte	64
+ 1631 0642 65       		.byte	101
+ 1632 0643 40       		.byte	64
+ 1633 0644 66       		.byte	102
+ 1634 0645 C0       		.byte	-64
+ 1635 0646 68       		.byte	104
+ 1636 0647 C0       		.byte	-64
+ 1637 0648 6A       		.byte	106
+ 1638 0649 C0       		.byte	-64
+ 1639 064a 6C       		.byte	108
+ 1640 064b C0       		.byte	-64
+ 1641 064c 6E       		.byte	110
+ 1642 064d C0       		.byte	-64
+ 1643 064e 85       		.byte	-123
+ 1644 064f 0D       		.byte	13
+ 1645 0650 87       		.byte	-121
+ 1646 0651 10       		.byte	16
+ 1647 0652 89       		.byte	-119
+ 1648 0653 14       		.byte	20
+ 1649 0654 8B       		.byte	-117
+ 1650 0655 2B       		.byte	43
+ 1651 0656 92       		.byte	-110
+ 1652 0657 01       		.byte	1
+ 1653 0658 9A       		.byte	-102
+ARM GAS  C:\Users\MATEOC~1.QUE\AppData\Local\Temp\cck0hUPu.s 			page 30
+
+
+ 1654 0659 02       		.byte	2
+ 1655 065a 9B       		.byte	-101
+ 1656 065b 02       		.byte	2
+ 1657 065c 9D       		.byte	-99
+ 1658 065d 38       		.byte	56
+ 1659 065e A6       		.byte	-90
+ 1660 065f 02       		.byte	2
+ 1661 0660 AD       		.byte	-83
+ 1662 0661 10       		.byte	16
+ 1663 0662 AF       		.byte	-81
+ 1664 0663 27       		.byte	39
+ 1665 0664 B0       		.byte	-80
+ 1666 0665 02       		.byte	2
+ 1667 0666 B4       		.byte	-76
+ 1668 0667 01       		.byte	1
+ 1669 0668 B5       		.byte	-75
+ 1670 0669 03       		.byte	3
+ 1671 066a B7       		.byte	-73
+ 1672 066b 3C       		.byte	60
+ 1673 066c B9       		.byte	-71
+ 1674 066d 80       		.byte	-128
+ 1675 066e C0       		.byte	-64
+ 1676 066f 20       		.byte	32
+ 1677 0670 C1       		.byte	-63
+ 1678 0671 06       		.byte	6
+ 1679 0672 C5       		.byte	-59
+ 1680 0673 01       		.byte	1
+ 1681 0674 C7       		.byte	-57
+ 1682 0675 02       		.byte	2
+ 1683 0676 C8       		.byte	-56
+ 1684 0677 11       		.byte	17
+ 1685 0678 C9       		.byte	-55
+ 1686 0679 FF       		.byte	-1
+ 1687 067a CA       		.byte	-54
+ 1688 067b FF       		.byte	-1
+ 1689 067c CB       		.byte	-53
+ 1690 067d FF       		.byte	-1
+ 1691 067e CD       		.byte	-51
+ 1692 067f AF       		.byte	-81
+ 1693 0680 CE       		.byte	-50
+ 1694 0681 0F       		.byte	15
+ 1695 0682 CF       		.byte	-49
+ 1696 0683 04       		.byte	4
+ 1697 0684 D0       		.byte	-48
+ 1698 0685 18       		.byte	24
+ 1699 0686 D2       		.byte	-46
+ 1700 0687 80       		.byte	-128
+ 1701 0688 D8       		.byte	-40
+ 1702 0689 04       		.byte	4
+ 1703 068a D9       		.byte	-39
+ 1704 068b 04       		.byte	4
+ 1705 068c DA       		.byte	-38
+ 1706 068d 04       		.byte	4
+ 1707 068e DB       		.byte	-37
+ 1708 068f 04       		.byte	4
+ 1709 0690 DC       		.byte	-36
+ 1710 0691 01       		.byte	1
+ARM GAS  C:\Users\MATEOC~1.QUE\AppData\Local\Temp\cck0hUPu.s 			page 31
+
+
+ 1711 0692 DD       		.byte	-35
+ 1712 0693 11       		.byte	17
+ 1713 0694 DF       		.byte	-33
+ 1714 0695 01       		.byte	1
+ 1715 0696 E0       		.byte	-32
+ 1716 0697 40       		.byte	64
+ 1717 0698 E2       		.byte	-30
+ 1718 0699 C0       		.byte	-64
+ 1719 069a E4       		.byte	-28
+ 1720 069b 40       		.byte	64
+ 1721 069c E5       		.byte	-27
+ 1722 069d 40       		.byte	64
+ 1723 069e E6       		.byte	-26
+ 1724 069f C0       		.byte	-64
+ 1725 06a0 E8       		.byte	-24
+ 1726 06a1 C0       		.byte	-64
+ 1727 06a2 EA       		.byte	-22
+ 1728 06a3 C0       		.byte	-64
+ 1729 06a4 EC       		.byte	-20
+ 1730 06a5 C0       		.byte	-64
+ 1731 06a6 EE       		.byte	-18
+ 1732 06a7 C0       		.byte	-64
+ 1733 06a8 05       		.byte	5
+ 1734 06a9 84       		.byte	-124
+ 1735 06aa 06       		.byte	6
+ 1736 06ab 08       		.byte	8
+ 1737 06ac 0A       		.byte	10
+ 1738 06ad 44       		.byte	68
+ 1739 06ae 0D       		.byte	13
+ 1740 06af 10       		.byte	16
+ 1741 06b0 0E       		.byte	14
+ 1742 06b1 A8       		.byte	-88
+ 1743 06b2 10       		.byte	16
+ 1744 06b3 20       		.byte	32
+ 1745 06b4 14       		.byte	20
+ 1746 06b5 02       		.byte	2
+ 1747 06b6 15       		.byte	21
+ 1748 06b7 45       		.byte	69
+ 1749 06b8 19       		.byte	25
+ 1750 06b9 02       		.byte	2
+ 1751 06ba 1A       		.byte	26
+ 1752 06bb 04       		.byte	4
+ 1753 06bc 1B       		.byte	27
+ 1754 06bd 10       		.byte	16
+ 1755 06be 1F       		.byte	31
+ 1756 06bf 01       		.byte	1
+ 1757 06c0 21       		.byte	33
+ 1758 06c1 A0       		.byte	-96
+ 1759 06c2 2B       		.byte	43
+ 1760 06c3 02       		.byte	2
+ 1761 06c4 2D       		.byte	45
+ 1762 06c5 01       		.byte	1
+ 1763 06c6 2F       		.byte	47
+ 1764 06c7 20       		.byte	32
+ 1765 06c8 31       		.byte	49
+ 1766 06c9 A0       		.byte	-96
+ 1767 06ca 35       		.byte	53
+ARM GAS  C:\Users\MATEOC~1.QUE\AppData\Local\Temp\cck0hUPu.s 			page 32
+
+
+ 1768 06cb 10       		.byte	16
+ 1769 06cc 36       		.byte	54
+ 1770 06cd 14       		.byte	20
+ 1771 06ce 37       		.byte	55
+ 1772 06cf 40       		.byte	64
+ 1773 06d0 38       		.byte	56
+ 1774 06d1 14       		.byte	20
+ 1775 06d2 3D       		.byte	61
+ 1776 06d3 40       		.byte	64
+ 1777 06d4 3E       		.byte	62
+ 1778 06d5 08       		.byte	8
+ 1779 06d6 42       		.byte	66
+ 1780 06d7 04       		.byte	4
+ 1781 06d8 46       		.byte	70
+ 1782 06d9 04       		.byte	4
+ 1783 06da 48       		.byte	72
+ 1784 06db 20       		.byte	32
+ 1785 06dc 4A       		.byte	74
+ 1786 06dd 08       		.byte	8
+ 1787 06de 4F       		.byte	79
+ 1788 06df 20       		.byte	32
+ 1789 06e0 52       		.byte	82
+ 1790 06e1 0C       		.byte	12
+ 1791 06e2 5E       		.byte	94
+ 1792 06e3 02       		.byte	2
+ 1793 06e4 67       		.byte	103
+ 1794 06e5 46       		.byte	70
+ 1795 06e6 72       		.byte	114
+ 1796 06e7 40       		.byte	64
+ 1797 06e8 81       		.byte	-127
+ 1798 06e9 20       		.byte	32
+ 1799 06ea 85       		.byte	-123
+ 1800 06eb 02       		.byte	2
+ 1801 06ec 87       		.byte	-121
+ 1802 06ed 40       		.byte	64
+ 1803 06ee 90       		.byte	-112
+ 1804 06ef 40       		.byte	64
+ 1805 06f0 91       		.byte	-111
+ 1806 06f1 21       		.byte	33
+ 1807 06f2 98       		.byte	-104
+ 1808 06f3 22       		.byte	34
+ 1809 06f4 9A       		.byte	-102
+ 1810 06f5 08       		.byte	8
+ 1811 06f6 9D       		.byte	-99
+ 1812 06f7 04       		.byte	4
+ 1813 06f8 A2       		.byte	-94
+ 1814 06f9 40       		.byte	64
+ 1815 06fa A3       		.byte	-93
+ 1816 06fb 20       		.byte	32
+ 1817 06fc B0       		.byte	-80
+ 1818 06fd 10       		.byte	16
+ 1819 06fe B3       		.byte	-77
+ 1820 06ff 01       		.byte	1
+ 1821 0700 C0       		.byte	-64
+ 1822 0701 E0       		.byte	-32
+ 1823 0702 C2       		.byte	-62
+ 1824 0703 7A       		.byte	122
+ARM GAS  C:\Users\MATEOC~1.QUE\AppData\Local\Temp\cck0hUPu.s 			page 33
+
+
+ 1825 0704 C4       		.byte	-60
+ 1826 0705 B4       		.byte	-76
+ 1827 0706 CA       		.byte	-54
+ 1828 0707 C8       		.byte	-56
+ 1829 0708 CC       		.byte	-52
+ 1830 0709 7C       		.byte	124
+ 1831 070a CE       		.byte	-50
+ 1832 070b 56       		.byte	86
+ 1833 070c D0       		.byte	-48
+ 1834 070d 24       		.byte	36
+ 1835 070e D2       		.byte	-46
+ 1836 070f 24       		.byte	36
+ 1837 0710 D6       		.byte	-42
+ 1838 0711 80       		.byte	-128
+ 1839 0712 D8       		.byte	-40
+ 1840 0713 B0       		.byte	-80
+ 1841 0714 E0       		.byte	-32
+ 1842 0715 04       		.byte	4
+ 1843 0716 E4       		.byte	-28
+ 1844 0717 08       		.byte	8
+ 1845 0718 EC       		.byte	-20
+ 1846 0719 20       		.byte	32
+ 1847 071a 40       		.byte	64
+ 1848 071b 20       		.byte	32
+ 1849 071c 41       		.byte	65
+ 1850 071d 01       		.byte	1
+ 1851 071e 49       		.byte	73
+ 1852 071f FF       		.byte	-1
+ 1853 0720 4A       		.byte	74
+ 1854 0721 FF       		.byte	-1
+ 1855 0722 4B       		.byte	75
+ 1856 0723 FF       		.byte	-1
+ 1857 0724 4D       		.byte	77
+ 1858 0725 A0       		.byte	-96
+ 1859 0726 4F       		.byte	79
+ 1860 0727 04       		.byte	4
+ 1861 0728 50       		.byte	80
+ 1862 0729 18       		.byte	24
+ 1863 072a 58       		.byte	88
+ 1864 072b 04       		.byte	4
+ 1865 072c 59       		.byte	89
+ 1866 072d 04       		.byte	4
+ 1867 072e 5A       		.byte	90
+ 1868 072f 04       		.byte	4
+ 1869 0730 5C       		.byte	92
+ 1870 0731 22       		.byte	34
+ 1871 0732 5D       		.byte	93
+ 1872 0733 01       		.byte	1
+ 1873 0734 5F       		.byte	95
+ 1874 0735 01       		.byte	1
+ 1875 0736 60       		.byte	96
+ 1876 0737 40       		.byte	64
+ 1877 0738 62       		.byte	98
+ 1878 0739 C0       		.byte	-64
+ 1879 073a 64       		.byte	100
+ 1880 073b 40       		.byte	64
+ 1881 073c 65       		.byte	101
+ARM GAS  C:\Users\MATEOC~1.QUE\AppData\Local\Temp\cck0hUPu.s 			page 34
+
+
+ 1882 073d 40       		.byte	64
+ 1883 073e 66       		.byte	102
+ 1884 073f C0       		.byte	-64
+ 1885 0740 68       		.byte	104
+ 1886 0741 C0       		.byte	-64
+ 1887 0742 6A       		.byte	106
+ 1888 0743 C0       		.byte	-64
+ 1889 0744 6C       		.byte	108
+ 1890 0745 C0       		.byte	-64
+ 1891 0746 6E       		.byte	110
+ 1892 0747 C0       		.byte	-64
+ 1893 0748 86       		.byte	-122
+ 1894 0749 02       		.byte	2
+ 1895 074a 9A       		.byte	-102
+ 1896 074b 02       		.byte	2
+ 1897 074c AE       		.byte	-82
+ 1898 074d 01       		.byte	1
+ 1899 074e B2       		.byte	-78
+ 1900 074f 02       		.byte	2
+ 1901 0750 B4       		.byte	-76
+ 1902 0751 01       		.byte	1
+ 1903 0752 C0       		.byte	-64
+ 1904 0753 20       		.byte	32
+ 1905 0754 C1       		.byte	-63
+ 1906 0755 05       		.byte	5
+ 1907 0756 C5       		.byte	-59
+ 1908 0757 01       		.byte	1
+ 1909 0758 C6       		.byte	-58
+ 1910 0759 02       		.byte	2
+ 1911 075a C8       		.byte	-56
+ 1912 075b 05       		.byte	5
+ 1913 075c C9       		.byte	-55
+ 1914 075d FF       		.byte	-1
+ 1915 075e CA       		.byte	-54
+ 1916 075f FF       		.byte	-1
+ 1917 0760 CB       		.byte	-53
+ 1918 0761 FF       		.byte	-1
+ 1919 0762 CD       		.byte	-51
+ 1920 0763 AF       		.byte	-81
+ 1921 0764 CE       		.byte	-50
+ 1922 0765 0F       		.byte	15
+ 1923 0766 CF       		.byte	-49
+ 1924 0767 04       		.byte	4
+ 1925 0768 D0       		.byte	-48
+ 1926 0769 18       		.byte	24
+ 1927 076a D2       		.byte	-46
+ 1928 076b 80       		.byte	-128
+ 1929 076c D8       		.byte	-40
+ 1930 076d 04       		.byte	4
+ 1931 076e D9       		.byte	-39
+ 1932 076f 04       		.byte	4
+ 1933 0770 DA       		.byte	-38
+ 1934 0771 04       		.byte	4
+ 1935 0772 DB       		.byte	-37
+ 1936 0773 04       		.byte	4
+ 1937 0774 DC       		.byte	-36
+ 1938 0775 21       		.byte	33
+ARM GAS  C:\Users\MATEOC~1.QUE\AppData\Local\Temp\cck0hUPu.s 			page 35
+
+
+ 1939 0776 DD       		.byte	-35
+ 1940 0777 11       		.byte	17
+ 1941 0778 DF       		.byte	-33
+ 1942 0779 01       		.byte	1
+ 1943 077a E0       		.byte	-32
+ 1944 077b 40       		.byte	64
+ 1945 077c E2       		.byte	-30
+ 1946 077d C0       		.byte	-64
+ 1947 077e E4       		.byte	-28
+ 1948 077f 40       		.byte	64
+ 1949 0780 E5       		.byte	-27
+ 1950 0781 40       		.byte	64
+ 1951 0782 E6       		.byte	-26
+ 1952 0783 C0       		.byte	-64
+ 1953 0784 E8       		.byte	-24
+ 1954 0785 C0       		.byte	-64
+ 1955 0786 EA       		.byte	-22
+ 1956 0787 C0       		.byte	-64
+ 1957 0788 EC       		.byte	-20
+ 1958 0789 C0       		.byte	-64
+ 1959 078a EE       		.byte	-18
+ 1960 078b C0       		.byte	-64
+ 1961 078c 00       		.byte	0
+ 1962 078d 40       		.byte	64
+ 1963 078e 01       		.byte	1
+ 1964 078f 01       		.byte	1
+ 1965 0790 03       		.byte	3
+ 1966 0791 01       		.byte	1
+ 1967 0792 04       		.byte	4
+ 1968 0793 04       		.byte	4
+ 1969 0794 08       		.byte	8
+ 1970 0795 20       		.byte	32
+ 1971 0796 09       		.byte	9
+ 1972 0797 80       		.byte	-128
+ 1973 0798 0A       		.byte	10
+ 1974 0799 0C       		.byte	12
+ 1975 079a 0F       		.byte	15
+ 1976 079b 08       		.byte	8
+ 1977 079c 10       		.byte	16
+ 1978 079d 10       		.byte	16
+ 1979 079e 12       		.byte	18
+ 1980 079f 80       		.byte	-128
+ 1981 07a0 13       		.byte	19
+ 1982 07a1 40       		.byte	64
+ 1983 07a2 17       		.byte	23
+ 1984 07a3 80       		.byte	-128
+ 1985 07a4 1C       		.byte	28
+ 1986 07a5 24       		.byte	36
+ 1987 07a6 1D       		.byte	29
+ 1988 07a7 20       		.byte	32
+ 1989 07a8 28       		.byte	40
+ 1990 07a9 10       		.byte	16
+ 1991 07aa 29       		.byte	41
+ 1992 07ab 06       		.byte	6
+ 1993 07ac 2D       		.byte	45
+ 1994 07ad 04       		.byte	4
+ 1995 07ae 2E       		.byte	46
+ARM GAS  C:\Users\MATEOC~1.QUE\AppData\Local\Temp\cck0hUPu.s 			page 36
+
+
+ 1996 07af 08       		.byte	8
+ 1997 07b0 31       		.byte	49
+ 1998 07b1 80       		.byte	-128
+ 1999 07b2 32       		.byte	50
+ 2000 07b3 04       		.byte	4
+ 2001 07b4 33       		.byte	51
+ 2002 07b5 01       		.byte	1
+ 2003 07b6 34       		.byte	52
+ 2004 07b7 22       		.byte	34
+ 2005 07b8 35       		.byte	53
+ 2006 07b9 04       		.byte	4
+ 2007 07ba 36       		.byte	54
+ 2008 07bb C0       		.byte	-64
+ 2009 07bc 39       		.byte	57
+ 2010 07bd 05       		.byte	5
+ 2011 07be 3C       		.byte	60
+ 2012 07bf 40       		.byte	64
+ 2013 07c0 3D       		.byte	61
+ 2014 07c1 01       		.byte	1
+ 2015 07c2 40       		.byte	64
+ 2016 07c3 04       		.byte	4
+ 2017 07c4 43       		.byte	67
+ 2018 07c5 80       		.byte	-128
+ 2019 07c6 45       		.byte	69
+ 2020 07c7 20       		.byte	32
+ 2021 07c8 4F       		.byte	79
+ 2022 07c9 88       		.byte	-120
+ 2023 07ca 57       		.byte	87
+ 2024 07cb C0       		.byte	-64
+ 2025 07cc 77       		.byte	119
+ 2026 07cd 80       		.byte	-128
+ 2027 07ce 85       		.byte	-123
+ 2028 07cf 10       		.byte	16
+ 2029 07d0 86       		.byte	-122
+ 2030 07d1 04       		.byte	4
+ 2031 07d2 89       		.byte	-119
+ 2032 07d3 05       		.byte	5
+ 2033 07d4 8B       		.byte	-117
+ 2034 07d5 40       		.byte	64
+ 2035 07d6 8C       		.byte	-116
+ 2036 07d7 02       		.byte	2
+ 2037 07d8 8D       		.byte	-115
+ 2038 07d9 82       		.byte	-126
+ 2039 07da 8E       		.byte	-114
+ 2040 07db 80       		.byte	-128
+ 2041 07dc 8F       		.byte	-113
+ 2042 07dd 20       		.byte	32
+ 2043 07de C0       		.byte	-64
+ 2044 07df 29       		.byte	41
+ 2045 07e0 C2       		.byte	-62
+ 2046 07e1 43       		.byte	67
+ 2047 07e2 C4       		.byte	-60
+ 2048 07e3 8D       		.byte	-115
+ 2049 07e4 CA       		.byte	-54
+ 2050 07e5 43       		.byte	67
+ 2051 07e6 CC       		.byte	-52
+ 2052 07e7 FB       		.byte	-5
+ARM GAS  C:\Users\MATEOC~1.QUE\AppData\Local\Temp\cck0hUPu.s 			page 37
+
+
+ 2053 07e8 CE       		.byte	-50
+ 2054 07e9 93       		.byte	-109
+ 2055 07ea D0       		.byte	-48
+ 2056 07eb 2C       		.byte	44
+ 2057 07ec D2       		.byte	-46
+ 2058 07ed 10       		.byte	16
+ 2059 07ee E0       		.byte	-32
+ 2060 07ef 70       		.byte	112
+ 2061 07f0 E2       		.byte	-30
+ 2062 07f1 08       		.byte	8
+ 2063 07f2 E4       		.byte	-28
+ 2064 07f3 80       		.byte	-128
+ 2065 07f4 E6       		.byte	-26
+ 2066 07f5 04       		.byte	4
+ 2067 07f6 05       		.byte	5
+ 2068 07f7 09       		.byte	9
+ 2069 07f8 07       		.byte	7
+ 2070 07f9 10       		.byte	16
+ 2071 07fa 09       		.byte	9
+ 2072 07fb 14       		.byte	20
+ 2073 07fc 0A       		.byte	10
+ 2074 07fd 02       		.byte	2
+ 2075 07fe 0C       		.byte	12
+ 2076 07ff 06       		.byte	6
+ 2077 0800 11       		.byte	17
+ 2078 0801 1C       		.byte	28
+ 2079 0802 13       		.byte	19
+ 2080 0803 22       		.byte	34
+ 2081 0804 14       		.byte	20
+ 2082 0805 01       		.byte	1
+ 2083 0806 15       		.byte	21
+ 2084 0807 40       		.byte	64
+ 2085 0808 1B       		.byte	27
+ 2086 0809 03       		.byte	3
+ 2087 080a 1C       		.byte	28
+ 2088 080b 04       		.byte	4
+ 2089 080c 1D       		.byte	29
+ 2090 080d 2C       		.byte	44
+ 2091 080e 1F       		.byte	31
+ 2092 080f 11       		.byte	17
+ 2093 0810 20       		.byte	32
+ 2094 0811 06       		.byte	6
+ 2095 0812 29       		.byte	41
+ 2096 0813 10       		.byte	16
+ 2097 0814 2D       		.byte	45
+ 2098 0815 30       		.byte	48
+ 2099 0816 2F       		.byte	47
+ 2100 0817 0C       		.byte	12
+ 2101 0818 30       		.byte	48
+ 2102 0819 06       		.byte	6
+ 2103 081a 33       		.byte	51
+ 2104 081b 60       		.byte	96
+ 2105 081c 35       		.byte	53
+ 2106 081d 1F       		.byte	31
+ 2107 081e 36       		.byte	54
+ 2108 081f 01       		.byte	1
+ 2109 0820 38       		.byte	56
+ARM GAS  C:\Users\MATEOC~1.QUE\AppData\Local\Temp\cck0hUPu.s 			page 38
+
+
+ 2110 0821 02       		.byte	2
+ 2111 0822 39       		.byte	57
+ 2112 0823 08       		.byte	8
+ 2113 0824 3E       		.byte	62
+ 2114 0825 41       		.byte	65
+ 2115 0826 40       		.byte	64
+ 2116 0827 04       		.byte	4
+ 2117 0828 47       		.byte	71
+ 2118 0829 04       		.byte	4
+ 2119 082a 49       		.byte	73
+ 2120 082b FF       		.byte	-1
+ 2121 082c 4A       		.byte	74
+ 2122 082d 07       		.byte	7
+ 2123 082e 4B       		.byte	75
+ 2124 082f FF       		.byte	-1
+ 2125 0830 4C       		.byte	76
+ 2126 0831 40       		.byte	64
+ 2127 0832 4D       		.byte	77
+ 2128 0833 20       		.byte	32
+ 2129 0834 4E       		.byte	78
+ 2130 0835 F0       		.byte	-16
+ 2131 0836 4F       		.byte	79
+ 2132 0837 05       		.byte	5
+ 2133 0838 50       		.byte	80
+ 2134 0839 08       		.byte	8
+ 2135 083a 58       		.byte	88
+ 2136 083b 04       		.byte	4
+ 2137 083c 59       		.byte	89
+ 2138 083d 04       		.byte	4
+ 2139 083e 5A       		.byte	90
+ 2140 083f 04       		.byte	4
+ 2141 0840 5C       		.byte	92
+ 2142 0841 32       		.byte	50
+ 2143 0842 5D       		.byte	93
+ 2144 0843 03       		.byte	3
+ 2145 0844 5F       		.byte	95
+ 2146 0845 01       		.byte	1
+ 2147 0846 60       		.byte	96
+ 2148 0847 40       		.byte	64
+ 2149 0848 61       		.byte	97
+ 2150 0849 A8       		.byte	-88
+ 2151 084a 62       		.byte	98
+ 2152 084b 40       		.byte	64
+ 2153 084c 63       		.byte	99
+ 2154 084d 20       		.byte	32
+ 2155 084e D8       		.byte	-40
+ 2156 084f 04       		.byte	4
+ 2157 0850 D9       		.byte	-39
+ 2158 0851 04       		.byte	4
+ 2159 0852 DC       		.byte	-36
+ 2160 0853 22       		.byte	34
+ 2161 0854 DF       		.byte	-33
+ 2162 0855 01       		.byte	1
+ 2163 0856 00       		.byte	0
+ 2164 0857 28       		.byte	40
+ 2165 0858 01       		.byte	1
+ 2166 0859 01       		.byte	1
+ARM GAS  C:\Users\MATEOC~1.QUE\AppData\Local\Temp\cck0hUPu.s 			page 39
+
+
+ 2167 085a 02       		.byte	2
+ 2168 085b 04       		.byte	4
+ 2169 085c 03       		.byte	3
+ 2170 085d 06       		.byte	6
+ 2171 085e 06       		.byte	6
+ 2172 085f 28       		.byte	40
+ 2173 0860 07       		.byte	7
+ 2174 0861 02       		.byte	2
+ 2175 0862 08       		.byte	8
+ 2176 0863 10       		.byte	16
+ 2177 0864 09       		.byte	9
+ 2178 0865 01       		.byte	1
+ 2179 0866 0A       		.byte	10
+ 2180 0867 22       		.byte	34
+ 2181 0868 0C       		.byte	12
+ 2182 0869 10       		.byte	16
+ 2183 086a 0F       		.byte	15
+ 2184 086b 80       		.byte	-128
+ 2185 086c 12       		.byte	18
+ 2186 086d 81       		.byte	-127
+ 2187 086e 13       		.byte	19
+ 2188 086f 18       		.byte	24
+ 2189 0870 14       		.byte	20
+ 2190 0871 80       		.byte	-128
+ 2191 0872 17       		.byte	23
+ 2192 0873 08       		.byte	8
+ 2193 0874 18       		.byte	24
+ 2194 0875 40       		.byte	64
+ 2195 0876 19       		.byte	25
+ 2196 0877 80       		.byte	-128
+ 2197 0878 21       		.byte	33
+ 2198 0879 04       		.byte	4
+ 2199 087a 22       		.byte	34
+ 2200 087b 18       		.byte	24
+ 2201 087c 2B       		.byte	43
+ 2202 087d 0A       		.byte	10
+ 2203 087e 2C       		.byte	44
+ 2204 087f 10       		.byte	16
+ 2205 0880 2E       		.byte	46
+ 2206 0881 20       		.byte	32
+ 2207 0882 32       		.byte	50
+ 2208 0883 91       		.byte	-111
+ 2209 0884 33       		.byte	51
+ 2210 0885 04       		.byte	4
+ 2211 0886 34       		.byte	52
+ 2212 0887 80       		.byte	-128
+ 2213 0888 37       		.byte	55
+ 2214 0889 0A       		.byte	10
+ 2215 088a 38       		.byte	56
+ 2216 088b 20       		.byte	32
+ 2217 088c 39       		.byte	57
+ 2218 088d 08       		.byte	8
+ 2219 088e 3C       		.byte	60
+ 2220 088f 88       		.byte	-120
+ 2221 0890 3E       		.byte	62
+ 2222 0891 08       		.byte	8
+ 2223 0892 3F       		.byte	63
+ARM GAS  C:\Users\MATEOC~1.QUE\AppData\Local\Temp\cck0hUPu.s 			page 40
+
+
+ 2224 0893 80       		.byte	-128
+ 2225 0894 40       		.byte	64
+ 2226 0895 40       		.byte	64
+ 2227 0896 48       		.byte	72
+ 2228 0897 10       		.byte	16
+ 2229 0898 51       		.byte	81
+ 2230 0899 08       		.byte	8
+ 2231 089a 53       		.byte	83
+ 2232 089b 08       		.byte	8
+ 2233 089c 79       		.byte	121
+ 2234 089d 01       		.byte	1
+ 2235 089e 7B       		.byte	123
+ 2236 089f 40       		.byte	64
+ 2237 08a0 80       		.byte	-128
+ 2238 08a1 80       		.byte	-128
+ 2239 08a2 81       		.byte	-127
+ 2240 08a3 81       		.byte	-127
+ 2241 08a4 84       		.byte	-124
+ 2242 08a5 40       		.byte	64
+ 2243 08a6 86       		.byte	-122
+ 2244 08a7 08       		.byte	8
+ 2245 08a8 88       		.byte	-120
+ 2246 08a9 10       		.byte	16
+ 2247 08aa 8B       		.byte	-117
+ 2248 08ab 10       		.byte	16
+ 2249 08ac 90       		.byte	-112
+ 2250 08ad 20       		.byte	32
+ 2251 08ae 92       		.byte	-110
+ 2252 08af 02       		.byte	2
+ 2253 08b0 93       		.byte	-109
+ 2254 08b1 10       		.byte	16
+ 2255 08b2 98       		.byte	-104
+ 2256 08b3 10       		.byte	16
+ 2257 08b4 9A       		.byte	-102
+ 2258 08b5 29       		.byte	41
+ 2259 08b6 9B       		.byte	-101
+ 2260 08b7 0A       		.byte	10
+ 2261 08b8 9C       		.byte	-100
+ 2262 08b9 80       		.byte	-128
+ 2263 08ba 9E       		.byte	-98
+ 2264 08bb 04       		.byte	4
+ 2265 08bc 9F       		.byte	-97
+ 2266 08bd 04       		.byte	4
+ 2267 08be A2       		.byte	-94
+ 2268 08bf 80       		.byte	-128
+ 2269 08c0 A3       		.byte	-93
+ 2270 08c1 42       		.byte	66
+ 2271 08c2 A5       		.byte	-91
+ 2272 08c3 08       		.byte	8
+ 2273 08c4 A6       		.byte	-90
+ 2274 08c5 08       		.byte	8
+ 2275 08c6 C0       		.byte	-64
+ 2276 08c7 EF       		.byte	-17
+ 2277 08c8 C2       		.byte	-62
+ 2278 08c9 5F       		.byte	95
+ 2279 08ca C4       		.byte	-60
+ 2280 08cb 3F       		.byte	63
+ARM GAS  C:\Users\MATEOC~1.QUE\AppData\Local\Temp\cck0hUPu.s 			page 41
+
+
+ 2281 08cc CA       		.byte	-54
+ 2282 08cd 6C       		.byte	108
+ 2283 08ce CC       		.byte	-52
+ 2284 08cf DF       		.byte	-33
+ 2285 08d0 CE       		.byte	-50
+ 2286 08d1 56       		.byte	86
+ 2287 08d2 D0       		.byte	-48
+ 2288 08d3 01       		.byte	1
+ 2289 08d4 E0       		.byte	-32
+ 2290 08d5 06       		.byte	6
+ 2291 08d6 E4       		.byte	-28
+ 2292 08d7 02       		.byte	2
+ 2293 08d8 E6       		.byte	-26
+ 2294 08d9 01       		.byte	1
+ 2295 08da EC       		.byte	-20
+ 2296 08db 20       		.byte	32
+ 2297 08dc 58       		.byte	88
+ 2298 08dd 04       		.byte	4
+ 2299 08de 59       		.byte	89
+ 2300 08df 04       		.byte	4
+ 2301 08e0 5C       		.byte	92
+ 2302 08e1 22       		.byte	34
+ 2303 08e2 5F       		.byte	95
+ 2304 08e3 01       		.byte	1
+ 2305 08e4 80       		.byte	-128
+ 2306 08e5 02       		.byte	2
+ 2307 08e6 82       		.byte	-126
+ 2308 08e7 0C       		.byte	12
+ 2309 08e8 83       		.byte	-125
+ 2310 08e9 05       		.byte	5
+ 2311 08ea 8A       		.byte	-118
+ 2312 08eb 18       		.byte	24
+ 2313 08ec 90       		.byte	-112
+ 2314 08ed 01       		.byte	1
+ 2315 08ee 96       		.byte	-106
+ 2316 08ef 10       		.byte	16
+ 2317 08f0 97       		.byte	-105
+ 2318 08f1 06       		.byte	6
+ 2319 08f2 9C       		.byte	-100
+ 2320 08f3 18       		.byte	24
+ 2321 08f4 9E       		.byte	-98
+ 2322 08f5 06       		.byte	6
+ 2323 08f6 9F       		.byte	-97
+ 2324 08f7 03       		.byte	3
+ 2325 08f8 A0       		.byte	-96
+ 2326 08f9 02       		.byte	2
+ 2327 08fa A1       		.byte	-95
+ 2328 08fb 06       		.byte	6
+ 2329 08fc A2       		.byte	-94
+ 2330 08fd 1C       		.byte	28
+ 2331 08fe A3       		.byte	-93
+ 2332 08ff 01       		.byte	1
+ 2333 0900 A7       		.byte	-89
+ 2334 0901 01       		.byte	1
+ 2335 0902 AA       		.byte	-86
+ 2336 0903 06       		.byte	6
+ 2337 0904 AB       		.byte	-85
+ARM GAS  C:\Users\MATEOC~1.QUE\AppData\Local\Temp\cck0hUPu.s 			page 42
+
+
+ 2338 0905 02       		.byte	2
+ 2339 0906 B2       		.byte	-78
+ 2340 0907 01       		.byte	1
+ 2341 0908 B6       		.byte	-74
+ 2342 0909 1E       		.byte	30
+ 2343 090a B7       		.byte	-73
+ 2344 090b 07       		.byte	7
+ 2345 090c BA       		.byte	-70
+ 2346 090d 80       		.byte	-128
+ 2347 090e BB       		.byte	-69
+ 2348 090f 80       		.byte	-128
+ 2349 0910 BE       		.byte	-66
+ 2350 0911 04       		.byte	4
+ 2351 0912 C0       		.byte	-64
+ 2352 0913 43       		.byte	67
+ 2353 0914 C1       		.byte	-63
+ 2354 0915 01       		.byte	1
+ 2355 0916 C6       		.byte	-58
+ 2356 0917 BE       		.byte	-66
+ 2357 0918 C7       		.byte	-57
+ 2358 0919 0C       		.byte	12
+ 2359 091a C8       		.byte	-56
+ 2360 091b 1C       		.byte	28
+ 2361 091c C9       		.byte	-55
+ 2362 091d FF       		.byte	-1
+ 2363 091e CA       		.byte	-54
+ 2364 091f FF       		.byte	-1
+ 2365 0920 CB       		.byte	-53
+ 2366 0921 FF       		.byte	-1
+ 2367 0922 CE       		.byte	-50
+ 2368 0923 F0       		.byte	-16
+ 2369 0924 CF       		.byte	-49
+ 2370 0925 44       		.byte	68
+ 2371 0926 D0       		.byte	-48
+ 2372 0927 0C       		.byte	12
+ 2373 0928 D4       		.byte	-44
+ 2374 0929 01       		.byte	1
+ 2375 092a D8       		.byte	-40
+ 2376 092b 04       		.byte	4
+ 2377 092c D9       		.byte	-39
+ 2378 092d 04       		.byte	4
+ 2379 092e DA       		.byte	-38
+ 2380 092f 04       		.byte	4
+ 2381 0930 DB       		.byte	-37
+ 2382 0931 04       		.byte	4
+ 2383 0932 DC       		.byte	-36
+ 2384 0933 33       		.byte	51
+ 2385 0934 DD       		.byte	-35
+ 2386 0935 33       		.byte	51
+ 2387 0936 DF       		.byte	-33
+ 2388 0937 01       		.byte	1
+ 2389 0938 E6       		.byte	-26
+ 2390 0939 C0       		.byte	-64
+ 2391 093a EA       		.byte	-22
+ 2392 093b 40       		.byte	64
+ 2393 093c EB       		.byte	-21
+ 2394 093d 02       		.byte	2
+ARM GAS  C:\Users\MATEOC~1.QUE\AppData\Local\Temp\cck0hUPu.s 			page 43
+
+
+ 2395 093e 01       		.byte	1
+ 2396 093f 01       		.byte	1
+ 2397 0940 02       		.byte	2
+ 2398 0941 08       		.byte	8
+ 2399 0942 06       		.byte	6
+ 2400 0943 29       		.byte	41
+ 2401 0944 07       		.byte	7
+ 2402 0945 02       		.byte	2
+ 2403 0946 08       		.byte	8
+ 2404 0947 09       		.byte	9
+ 2405 0948 09       		.byte	9
+ 2406 0949 08       		.byte	8
+ 2407 094a 0A       		.byte	10
+ 2408 094b 02       		.byte	2
+ 2409 094c 0B       		.byte	11
+ 2410 094d 80       		.byte	-128
+ 2411 094e 0C       		.byte	12
+ 2412 094f 10       		.byte	16
+ 2413 0950 0F       		.byte	15
+ 2414 0951 80       		.byte	-128
+ 2415 0952 12       		.byte	18
+ 2416 0953 84       		.byte	-124
+ 2417 0954 14       		.byte	20
+ 2418 0955 80       		.byte	-128
+ 2419 0956 17       		.byte	23
+ 2420 0957 08       		.byte	8
+ 2421 0958 19       		.byte	25
+ 2422 0959 04       		.byte	4
+ 2423 095a 1A       		.byte	26
+ 2424 095b 02       		.byte	2
+ 2425 095c 1B       		.byte	27
+ 2426 095d 80       		.byte	-128
+ 2427 095e 21       		.byte	33
+ 2428 095f 80       		.byte	-128
+ 2429 0960 22       		.byte	34
+ 2430 0961 80       		.byte	-128
+ 2431 0962 28       		.byte	40
+ 2432 0963 08       		.byte	8
+ 2433 0964 2A       		.byte	42
+ 2434 0965 04       		.byte	4
+ 2435 0966 2B       		.byte	43
+ 2436 0967 80       		.byte	-128
+ 2437 0968 2C       		.byte	44
+ 2438 0969 10       		.byte	16
+ 2439 096a 2E       		.byte	46
+ 2440 096b 20       		.byte	32
+ 2441 096c 31       		.byte	49
+ 2442 096d 80       		.byte	-128
+ 2443 096e 32       		.byte	50
+ 2444 096f 08       		.byte	8
+ 2445 0970 34       		.byte	52
+ 2446 0971 80       		.byte	-128
+ 2447 0972 37       		.byte	55
+ 2448 0973 0A       		.byte	10
+ 2449 0974 39       		.byte	57
+ 2450 0975 03       		.byte	3
+ 2451 0976 3E       		.byte	62
+ARM GAS  C:\Users\MATEOC~1.QUE\AppData\Local\Temp\cck0hUPu.s 			page 44
+
+
+ 2452 0977 08       		.byte	8
+ 2453 0978 3F       		.byte	63
+ 2454 0979 80       		.byte	-128
+ 2455 097a 41       		.byte	65
+ 2456 097b 81       		.byte	-127
+ 2457 097c 43       		.byte	67
+ 2458 097d 06       		.byte	6
+ 2459 097e 48       		.byte	72
+ 2460 097f 08       		.byte	8
+ 2461 0980 49       		.byte	73
+ 2462 0981 20       		.byte	32
+ 2463 0982 50       		.byte	80
+ 2464 0983 18       		.byte	24
+ 2465 0984 53       		.byte	83
+ 2466 0985 40       		.byte	64
+ 2467 0986 58       		.byte	88
+ 2468 0987 01       		.byte	1
+ 2469 0988 59       		.byte	89
+ 2470 0989 24       		.byte	36
+ 2471 098a 5A       		.byte	90
+ 2472 098b 80       		.byte	-128
+ 2473 098c 8B       		.byte	-117
+ 2474 098d 02       		.byte	2
+ 2475 098e 8F       		.byte	-113
+ 2476 098f 08       		.byte	8
+ 2477 0990 92       		.byte	-110
+ 2478 0991 80       		.byte	-128
+ 2479 0992 93       		.byte	-109
+ 2480 0993 10       		.byte	16
+ 2481 0994 96       		.byte	-106
+ 2482 0995 02       		.byte	2
+ 2483 0996 98       		.byte	-104
+ 2484 0997 10       		.byte	16
+ 2485 0998 9A       		.byte	-102
+ 2486 0999 28       		.byte	40
+ 2487 099a 9B       		.byte	-101
+ 2488 099b 0A       		.byte	10
+ 2489 099c 9C       		.byte	-100
+ 2490 099d 80       		.byte	-128
+ 2491 099e 9E       		.byte	-98
+ 2492 099f 04       		.byte	4
+ 2493 09a0 A3       		.byte	-93
+ 2494 09a1 42       		.byte	66
+ 2495 09a2 A4       		.byte	-92
+ 2496 09a3 08       		.byte	8
+ 2497 09a4 A6       		.byte	-90
+ 2498 09a5 88       		.byte	-120
+ 2499 09a6 A7       		.byte	-89
+ 2500 09a7 80       		.byte	-128
+ 2501 09a8 B1       		.byte	-79
+ 2502 09a9 80       		.byte	-128
+ 2503 09aa B7       		.byte	-73
+ 2504 09ab 20       		.byte	32
+ 2505 09ac C0       		.byte	-64
+ 2506 09ad EA       		.byte	-22
+ 2507 09ae C2       		.byte	-62
+ 2508 09af 5D       		.byte	93
+ARM GAS  C:\Users\MATEOC~1.QUE\AppData\Local\Temp\cck0hUPu.s 			page 45
+
+
+ 2509 09b0 C4       		.byte	-60
+ 2510 09b1 3A       		.byte	58
+ 2511 09b2 CA       		.byte	-54
+ 2512 09b3 67       		.byte	103
+ 2513 09b4 CC       		.byte	-52
+ 2514 09b5 DA       		.byte	-38
+ 2515 09b6 CE       		.byte	-50
+ 2516 09b7 51       		.byte	81
+ 2517 09b8 D0       		.byte	-48
+ 2518 09b9 0B       		.byte	11
+ 2519 09ba D6       		.byte	-42
+ 2520 09bb 0F       		.byte	15
+ 2521 09bc EC       		.byte	-20
+ 2522 09bd 90       		.byte	-112
+ 2523 09be EE       		.byte	-18
+ 2524 09bf 02       		.byte	2
+ 2525 09c0 03       		.byte	3
+ 2526 09c1 02       		.byte	2
+ 2527 09c2 04       		.byte	4
+ 2528 09c3 78       		.byte	120
+ 2529 09c4 05       		.byte	5
+ 2530 09c5 01       		.byte	1
+ 2531 09c6 06       		.byte	6
+ 2532 09c7 03       		.byte	3
+ 2533 09c8 08       		.byte	8
+ 2534 09c9 4F       		.byte	79
+ 2535 09ca 09       		.byte	9
+ 2536 09cb 01       		.byte	1
+ 2537 09cc 0A       		.byte	10
+ 2538 09cd 30       		.byte	48
+ 2539 09ce 0C       		.byte	12
+ 2540 09cf 20       		.byte	32
+ 2541 09d0 11       		.byte	17
+ 2542 09d1 01       		.byte	1
+ 2543 09d2 12       		.byte	18
+ 2544 09d3 08       		.byte	8
+ 2545 09d4 16       		.byte	22
+ 2546 09d5 06       		.byte	6
+ 2547 09d6 18       		.byte	24
+ 2548 09d7 78       		.byte	120
+ 2549 09d8 1A       		.byte	26
+ 2550 09d9 05       		.byte	5
+ 2551 09da 1C       		.byte	28
+ 2552 09db 08       		.byte	8
+ 2553 09dc 1E       		.byte	30
+ 2554 09dd 80       		.byte	-128
+ 2555 09de 20       		.byte	32
+ 2556 09df 7F       		.byte	127
+ 2557 09e0 24       		.byte	36
+ 2558 09e1 10       		.byte	16
+ 2559 09e2 27       		.byte	39
+ 2560 09e3 02       		.byte	2
+ 2561 09e4 28       		.byte	40
+ 2562 09e5 30       		.byte	48
+ 2563 09e6 30       		.byte	48
+ 2564 09e7 80       		.byte	-128
+ 2565 09e8 32       		.byte	50
+ARM GAS  C:\Users\MATEOC~1.QUE\AppData\Local\Temp\cck0hUPu.s 			page 46
+
+
+ 2566 09e9 40       		.byte	64
+ 2567 09ea 33       		.byte	51
+ 2568 09eb 01       		.byte	1
+ 2569 09ec 34       		.byte	52
+ 2570 09ed 3E       		.byte	62
+ 2571 09ee 36       		.byte	54
+ 2572 09ef 01       		.byte	1
+ 2573 09f0 37       		.byte	55
+ 2574 09f1 02       		.byte	2
+ 2575 09f2 38       		.byte	56
+ 2576 09f3 80       		.byte	-128
+ 2577 09f4 3A       		.byte	58
+ 2578 09f5 20       		.byte	32
+ 2579 09f6 3E       		.byte	62
+ 2580 09f7 04       		.byte	4
+ 2581 09f8 3F       		.byte	63
+ 2582 09f9 40       		.byte	64
+ 2583 09fa 56       		.byte	86
+ 2584 09fb 02       		.byte	2
+ 2585 09fc 57       		.byte	87
+ 2586 09fd 11       		.byte	17
+ 2587 09fe 58       		.byte	88
+ 2588 09ff 04       		.byte	4
+ 2589 0a00 59       		.byte	89
+ 2590 0a01 04       		.byte	4
+ 2591 0a02 5B       		.byte	91
+ 2592 0a03 04       		.byte	4
+ 2593 0a04 5C       		.byte	92
+ 2594 0a05 33       		.byte	51
+ 2595 0a06 5D       		.byte	93
+ 2596 0a07 30       		.byte	48
+ 2597 0a08 5F       		.byte	95
+ 2598 0a09 01       		.byte	1
+ 2599 0a0a 81       		.byte	-127
+ 2600 0a0b 9A       		.byte	-102
+ 2601 0a0c 85       		.byte	-123
+ 2602 0a0d 13       		.byte	19
+ 2603 0a0e 87       		.byte	-121
+ 2604 0a0f 64       		.byte	100
+ 2605 0a10 89       		.byte	-119
+ 2606 0a11 02       		.byte	2
+ 2607 0a12 8B       		.byte	-117
+ 2608 0a13 98       		.byte	-104
+ 2609 0a14 8D       		.byte	-115
+ 2610 0a15 98       		.byte	-104
+ 2611 0a16 8F       		.byte	-113
+ 2612 0a17 02       		.byte	2
+ 2613 0a18 91       		.byte	-111
+ 2614 0a19 02       		.byte	2
+ 2615 0a1a 95       		.byte	-107
+ 2616 0a1b 21       		.byte	33
+ 2617 0a1c 97       		.byte	-105
+ 2618 0a1d D8       		.byte	-40
+ 2619 0a1e 99       		.byte	-103
+ 2620 0a1f 98       		.byte	-104
+ 2621 0a20 9B       		.byte	-101
+ 2622 0a21 02       		.byte	2
+ARM GAS  C:\Users\MATEOC~1.QUE\AppData\Local\Temp\cck0hUPu.s 			page 47
+
+
+ 2623 0a22 9D       		.byte	-99
+ 2624 0a23 38       		.byte	56
+ 2625 0a24 9F       		.byte	-97
+ 2626 0a25 C0       		.byte	-64
+ 2627 0a26 A1       		.byte	-95
+ 2628 0a27 9A       		.byte	-102
+ 2629 0a28 AD       		.byte	-83
+ 2630 0a29 FC       		.byte	-4
+ 2631 0a2a AF       		.byte	-81
+ 2632 0a2b 03       		.byte	3
+ 2633 0a2c B3       		.byte	-77
+ 2634 0a2d 0F       		.byte	15
+ 2635 0a2e B5       		.byte	-75
+ 2636 0a2f 13       		.byte	19
+ 2637 0a30 B7       		.byte	-73
+ 2638 0a31 E0       		.byte	-32
+ 2639 0a32 BB       		.byte	-69
+ 2640 0a33 88       		.byte	-120
+ 2641 0a34 D8       		.byte	-40
+ 2642 0a35 04       		.byte	4
+ 2643 0a36 D9       		.byte	-39
+ 2644 0a37 04       		.byte	4
+ 2645 0a38 DC       		.byte	-36
+ 2646 0a39 02       		.byte	2
+ 2647 0a3a DF       		.byte	-33
+ 2648 0a3b 01       		.byte	1
+ 2649 0a3c 00       		.byte	0
+ 2650 0a3d 08       		.byte	8
+ 2651 0a3e 01       		.byte	1
+ 2652 0a3f 20       		.byte	32
+ 2653 0a40 02       		.byte	2
+ 2654 0a41 10       		.byte	16
+ 2655 0a42 03       		.byte	3
+ 2656 0a43 40       		.byte	64
+ 2657 0a44 05       		.byte	5
+ 2658 0a45 54       		.byte	84
+ 2659 0a46 08       		.byte	8
+ 2660 0a47 02       		.byte	2
+ 2661 0a48 09       		.byte	9
+ 2662 0a49 20       		.byte	32
+ 2663 0a4a 0D       		.byte	13
+ 2664 0a4b 08       		.byte	8
+ 2665 0a4c 0E       		.byte	14
+ 2666 0a4d 48       		.byte	72
+ 2667 0a4e 0F       		.byte	15
+ 2668 0a4f 01       		.byte	1
+ 2669 0a50 10       		.byte	16
+ 2670 0a51 11       		.byte	17
+ 2671 0a52 17       		.byte	23
+ 2672 0a53 2A       		.byte	42
+ 2673 0a54 1E       		.byte	30
+ 2674 0a55 69       		.byte	105
+ 2675 0a56 20       		.byte	32
+ 2676 0a57 14       		.byte	20
+ 2677 0a58 21       		.byte	33
+ 2678 0a59 80       		.byte	-128
+ 2679 0a5a 22       		.byte	34
+ARM GAS  C:\Users\MATEOC~1.QUE\AppData\Local\Temp\cck0hUPu.s 			page 48
+
+
+ 2680 0a5b 04       		.byte	4
+ 2681 0a5c 25       		.byte	37
+ 2682 0a5d 48       		.byte	72
+ 2683 0a5e 2B       		.byte	43
+ 2684 0a5f 82       		.byte	-126
+ 2685 0a60 2F       		.byte	47
+ 2686 0a61 20       		.byte	32
+ 2687 0a62 30       		.byte	48
+ 2688 0a63 22       		.byte	34
+ 2689 0a64 31       		.byte	49
+ 2690 0a65 80       		.byte	-128
+ 2691 0a66 32       		.byte	50
+ 2692 0a67 04       		.byte	4
+ 2693 0a68 37       		.byte	55
+ 2694 0a69 01       		.byte	1
+ 2695 0a6a 38       		.byte	56
+ 2696 0a6b 04       		.byte	4
+ 2697 0a6c 39       		.byte	57
+ 2698 0a6d 50       		.byte	80
+ 2699 0a6e 3A       		.byte	58
+ 2700 0a6f 02       		.byte	2
+ 2701 0a70 3E       		.byte	62
+ 2702 0a71 15       		.byte	21
+ 2703 0a72 5E       		.byte	94
+ 2704 0a73 20       		.byte	32
+ 2705 0a74 6E       		.byte	110
+ 2706 0a75 14       		.byte	20
+ 2707 0a76 6F       		.byte	111
+ 2708 0a77 01       		.byte	1
+ 2709 0a78 75       		.byte	117
+ 2710 0a79 40       		.byte	64
+ 2711 0a7a 77       		.byte	119
+ 2712 0a7b 28       		.byte	40
+ 2713 0a7c 88       		.byte	-120
+ 2714 0a7d 02       		.byte	2
+ 2715 0a7e 8B       		.byte	-117
+ 2716 0a7f 40       		.byte	64
+ 2717 0a80 8D       		.byte	-115
+ 2718 0a81 20       		.byte	32
+ 2719 0a82 91       		.byte	-111
+ 2720 0a83 50       		.byte	80
+ 2721 0a84 92       		.byte	-110
+ 2722 0a85 80       		.byte	-128
+ 2723 0a86 94       		.byte	-108
+ 2724 0a87 14       		.byte	20
+ 2725 0a88 95       		.byte	-107
+ 2726 0a89 04       		.byte	4
+ 2727 0a8a 9A       		.byte	-102
+ 2728 0a8b 02       		.byte	2
+ 2729 0a8c 9B       		.byte	-101
+ 2730 0a8d 40       		.byte	64
+ 2731 0a8e 9C       		.byte	-100
+ 2732 0a8f 13       		.byte	19
+ 2733 0a90 9D       		.byte	-99
+ 2734 0a91 A0       		.byte	-96
+ 2735 0a92 9E       		.byte	-98
+ 2736 0a93 10       		.byte	16
+ARM GAS  C:\Users\MATEOC~1.QUE\AppData\Local\Temp\cck0hUPu.s 			page 49
+
+
+ 2737 0a94 A0       		.byte	-96
+ 2738 0a95 32       		.byte	50
+ 2739 0a96 A3       		.byte	-93
+ 2740 0a97 82       		.byte	-126
+ 2741 0a98 A5       		.byte	-91
+ 2742 0a99 E0       		.byte	-32
+ 2743 0a9a A6       		.byte	-90
+ 2744 0a9b 01       		.byte	1
+ 2745 0a9c A8       		.byte	-88
+ 2746 0a9d 21       		.byte	33
+ 2747 0a9e AA       		.byte	-86
+ 2748 0a9f 08       		.byte	8
+ 2749 0aa0 AE       		.byte	-82
+ 2750 0aa1 01       		.byte	1
+ 2751 0aa2 B3       		.byte	-77
+ 2752 0aa3 40       		.byte	64
+ 2753 0aa4 B7       		.byte	-73
+ 2754 0aa5 04       		.byte	4
+ 2755 0aa6 C0       		.byte	-64
+ 2756 0aa7 EE       		.byte	-18
+ 2757 0aa8 C2       		.byte	-62
+ 2758 0aa9 FA       		.byte	-6
+ 2759 0aaa C4       		.byte	-60
+ 2760 0aab 75       		.byte	117
+ 2761 0aac CA       		.byte	-54
+ 2762 0aad 49       		.byte	73
+ 2763 0aae CC       		.byte	-52
+ 2764 0aaf 8F       		.byte	-113
+ 2765 0ab0 CE       		.byte	-50
+ 2766 0ab1 EF       		.byte	-17
+ 2767 0ab2 D6       		.byte	-42
+ 2768 0ab3 20       		.byte	32
+ 2769 0ab4 E0       		.byte	-32
+ 2770 0ab5 20       		.byte	32
+ 2771 0ab6 E4       		.byte	-28
+ 2772 0ab7 40       		.byte	64
+ 2773 0ab8 E8       		.byte	-24
+ 2774 0ab9 08       		.byte	8
+ 2775 0aba EC       		.byte	-20
+ 2776 0abb 01       		.byte	1
+ 2777 0abc EE       		.byte	-18
+ 2778 0abd 02       		.byte	2
+ 2779 0abe 58       		.byte	88
+ 2780 0abf 04       		.byte	4
+ 2781 0ac0 59       		.byte	89
+ 2782 0ac1 04       		.byte	4
+ 2783 0ac2 5C       		.byte	92
+ 2784 0ac3 22       		.byte	34
+ 2785 0ac4 5F       		.byte	95
+ 2786 0ac5 01       		.byte	1
+ 2787 0ac6 80       		.byte	-128
+ 2788 0ac7 78       		.byte	120
+ 2789 0ac8 81       		.byte	-127
+ 2790 0ac9 14       		.byte	20
+ 2791 0aca 83       		.byte	-125
+ 2792 0acb 49       		.byte	73
+ 2793 0acc 84       		.byte	-124
+ARM GAS  C:\Users\MATEOC~1.QUE\AppData\Local\Temp\cck0hUPu.s 			page 50
+
+
+ 2794 0acd 66       		.byte	102
+ 2795 0ace 85       		.byte	-123
+ 2796 0acf 1F       		.byte	31
+ 2797 0ad0 86       		.byte	-122
+ 2798 0ad1 99       		.byte	-103
+ 2799 0ad2 88       		.byte	-120
+ 2800 0ad3 28       		.byte	40
+ 2801 0ad4 89       		.byte	-119
+ 2802 0ad5 1F       		.byte	31
+ 2803 0ad6 8C       		.byte	-116
+ 2804 0ad7 04       		.byte	4
+ 2805 0ad8 90       		.byte	-112
+ 2806 0ad9 F9       		.byte	-7
+ 2807 0ada 91       		.byte	-111
+ 2808 0adb 01       		.byte	1
+ 2809 0adc 92       		.byte	-110
+ 2810 0add 06       		.byte	6
+ 2811 0ade 93       		.byte	-109
+ 2812 0adf 26       		.byte	38
+ 2813 0ae0 95       		.byte	-107
+ 2814 0ae1 0A       		.byte	10
+ 2815 0ae2 96       		.byte	-106
+ 2816 0ae3 F9       		.byte	-7
+ 2817 0ae4 97       		.byte	-105
+ 2818 0ae5 51       		.byte	81
+ 2819 0ae6 98       		.byte	-104
+ 2820 0ae7 07       		.byte	7
+ 2821 0ae8 9A       		.byte	-102
+ 2822 0ae9 F8       		.byte	-8
+ 2823 0aea 9C       		.byte	-100
+ 2824 0aeb 50       		.byte	80
+ 2825 0aec A0       		.byte	-96
+ 2826 0aed FF       		.byte	-1
+ 2827 0aee A4       		.byte	-92
+ 2828 0aef 02       		.byte	2
+ 2829 0af0 A8       		.byte	-88
+ 2830 0af1 06       		.byte	6
+ 2831 0af2 B0       		.byte	-80
+ 2832 0af3 07       		.byte	7
+ 2833 0af4 B1       		.byte	-79
+ 2834 0af5 07       		.byte	7
+ 2835 0af6 B2       		.byte	-78
+ 2836 0af7 86       		.byte	-122
+ 2837 0af8 B3       		.byte	-77
+ 2838 0af9 60       		.byte	96
+ 2839 0afa B4       		.byte	-76
+ 2840 0afb 66       		.byte	102
+ 2841 0afc B5       		.byte	-75
+ 2842 0afd 18       		.byte	24
+ 2843 0afe B6       		.byte	-74
+ 2844 0aff 18       		.byte	24
+ 2845 0b00 BA       		.byte	-70
+ 2846 0b01 28       		.byte	40
+ 2847 0b02 BB       		.byte	-69
+ 2848 0b03 80       		.byte	-128
+ 2849 0b04 BF       		.byte	-65
+ 2850 0b05 04       		.byte	4
+ARM GAS  C:\Users\MATEOC~1.QUE\AppData\Local\Temp\cck0hUPu.s 			page 51
+
+
+ 2851 0b06 C0       		.byte	-64
+ 2852 0b07 63       		.byte	99
+ 2853 0b08 C1       		.byte	-63
+ 2854 0b09 04       		.byte	4
+ 2855 0b0a C2       		.byte	-62
+ 2856 0b0b 05       		.byte	5
+ 2857 0b0c C4       		.byte	-60
+ 2858 0b0d 02       		.byte	2
+ 2859 0b0e C5       		.byte	-59
+ 2860 0b0f 0C       		.byte	12
+ 2861 0b10 C6       		.byte	-58
+ 2862 0b11 E0       		.byte	-32
+ 2863 0b12 C8       		.byte	-56
+ 2864 0b13 09       		.byte	9
+ 2865 0b14 C9       		.byte	-55
+ 2866 0b15 FF       		.byte	-1
+ 2867 0b16 CA       		.byte	-54
+ 2868 0b17 FF       		.byte	-1
+ 2869 0b18 CB       		.byte	-53
+ 2870 0b19 FF       		.byte	-1
+ 2871 0b1a CC       		.byte	-52
+ 2872 0b1b 62       		.byte	98
+ 2873 0b1c CD       		.byte	-51
+ 2874 0b1d A0       		.byte	-96
+ 2875 0b1e CE       		.byte	-50
+ 2876 0b1f F0       		.byte	-16
+ 2877 0b20 CF       		.byte	-49
+ 2878 0b21 41       		.byte	65
+ 2879 0b22 D0       		.byte	-48
+ 2880 0b23 0C       		.byte	12
+ 2881 0b24 D6       		.byte	-42
+ 2882 0b25 08       		.byte	8
+ 2883 0b26 D8       		.byte	-40
+ 2884 0b27 04       		.byte	4
+ 2885 0b28 D9       		.byte	-39
+ 2886 0b29 04       		.byte	4
+ 2887 0b2a DA       		.byte	-38
+ 2888 0b2b 04       		.byte	4
+ 2889 0b2c DB       		.byte	-37
+ 2890 0b2d 04       		.byte	4
+ 2891 0b2e DC       		.byte	-36
+ 2892 0b2f 33       		.byte	51
+ 2893 0b30 DD       		.byte	-35
+ 2894 0b31 93       		.byte	-109
+ 2895 0b32 DF       		.byte	-33
+ 2896 0b33 01       		.byte	1
+ 2897 0b34 E6       		.byte	-26
+ 2898 0b35 40       		.byte	64
+ 2899 0b36 E7       		.byte	-25
+ 2900 0b37 02       		.byte	2
+ 2901 0b38 E9       		.byte	-23
+ 2902 0b39 10       		.byte	16
+ 2903 0b3a EA       		.byte	-22
+ 2904 0b3b 30       		.byte	48
+ 2905 0b3c EB       		.byte	-21
+ 2906 0b3d 10       		.byte	16
+ 2907 0b3e ED       		.byte	-19
+ARM GAS  C:\Users\MATEOC~1.QUE\AppData\Local\Temp\cck0hUPu.s 			page 52
+
+
+ 2908 0b3f 10       		.byte	16
+ 2909 0b40 EE       		.byte	-18
+ 2910 0b41 10       		.byte	16
+ 2911 0b42 EF       		.byte	-17
+ 2912 0b43 12       		.byte	18
+ 2913 0b44 00       		.byte	0
+ 2914 0b45 28       		.byte	40
+ 2915 0b46 01       		.byte	1
+ 2916 0b47 20       		.byte	32
+ 2917 0b48 03       		.byte	3
+ 2918 0b49 40       		.byte	64
+ 2919 0b4a 05       		.byte	5
+ 2920 0b4b 45       		.byte	69
+ 2921 0b4c 07       		.byte	7
+ 2922 0b4d 04       		.byte	4
+ 2923 0b4e 08       		.byte	8
+ 2924 0b4f 20       		.byte	32
+ 2925 0b50 09       		.byte	9
+ 2926 0b51 60       		.byte	96
+ 2927 0b52 0D       		.byte	13
+ 2928 0b53 08       		.byte	8
+ 2929 0b54 0E       		.byte	14
+ 2930 0b55 08       		.byte	8
+ 2931 0b56 0F       		.byte	15
+ 2932 0b57 81       		.byte	-127
+ 2933 0b58 10       		.byte	16
+ 2934 0b59 10       		.byte	16
+ 2935 0b5a 13       		.byte	19
+ 2936 0b5b 40       		.byte	64
+ 2937 0b5c 17       		.byte	23
+ 2938 0b5d 2A       		.byte	42
+ 2939 0b5e 1D       		.byte	29
+ 2940 0b5f 14       		.byte	20
+ 2941 0b60 1E       		.byte	30
+ 2942 0b61 02       		.byte	2
+ 2943 0b62 1F       		.byte	31
+ 2944 0b63 01       		.byte	1
+ 2945 0b64 26       		.byte	38
+ 2946 0b65 02       		.byte	2
+ 2947 0b66 27       		.byte	39
+ 2948 0b67 16       		.byte	22
+ 2949 0b68 28       		.byte	40
+ 2950 0b69 20       		.byte	32
+ 2951 0b6a 2D       		.byte	45
+ 2952 0b6b 80       		.byte	-128
+ 2953 0b6c 2F       		.byte	47
+ 2954 0b6d 01       		.byte	1
+ 2955 0b6e 30       		.byte	48
+ 2956 0b6f 11       		.byte	17
+ 2957 0b70 33       		.byte	51
+ 2958 0b71 40       		.byte	64
+ 2959 0b72 35       		.byte	53
+ 2960 0b73 01       		.byte	1
+ 2961 0b74 36       		.byte	54
+ 2962 0b75 02       		.byte	2
+ 2963 0b76 37       		.byte	55
+ 2964 0b77 04       		.byte	4
+ARM GAS  C:\Users\MATEOC~1.QUE\AppData\Local\Temp\cck0hUPu.s 			page 53
+
+
+ 2965 0b78 39       		.byte	57
+ 2966 0b79 08       		.byte	8
+ 2967 0b7a 3B       		.byte	59
+ 2968 0b7b 60       		.byte	96
+ 2969 0b7c 3E       		.byte	62
+ 2970 0b7d 14       		.byte	20
+ 2971 0b7e 3F       		.byte	63
+ 2972 0b7f 01       		.byte	1
+ 2973 0b80 45       		.byte	69
+ 2974 0b81 08       		.byte	8
+ 2975 0b82 47       		.byte	71
+ 2976 0b83 12       		.byte	18
+ 2977 0b84 49       		.byte	73
+ 2978 0b85 10       		.byte	16
+ 2979 0b86 4B       		.byte	75
+ 2980 0b87 10       		.byte	16
+ 2981 0b88 4D       		.byte	77
+ 2982 0b89 84       		.byte	-124
+ 2983 0b8a 4F       		.byte	79
+ 2984 0b8b 10       		.byte	16
+ 2985 0b8c 57       		.byte	87
+ 2986 0b8d 20       		.byte	32
+ 2987 0b8e 5C       		.byte	92
+ 2988 0b8f 80       		.byte	-128
+ 2989 0b90 67       		.byte	103
+ 2990 0b91 01       		.byte	1
+ 2991 0b92 7A       		.byte	122
+ 2992 0b93 80       		.byte	-128
+ 2993 0b94 7B       		.byte	123
+ 2994 0b95 40       		.byte	64
+ 2995 0b96 81       		.byte	-127
+ 2996 0b97 10       		.byte	16
+ 2997 0b98 82       		.byte	-126
+ 2998 0b99 80       		.byte	-128
+ 2999 0b9a 83       		.byte	-125
+ 3000 0b9b 40       		.byte	64
+ 3001 0b9c 84       		.byte	-124
+ 3002 0b9d 11       		.byte	17
+ 3003 0b9e 85       		.byte	-123
+ 3004 0b9f 40       		.byte	64
+ 3005 0ba0 88       		.byte	-120
+ 3006 0ba1 14       		.byte	20
+ 3007 0ba2 89       		.byte	-119
+ 3008 0ba3 04       		.byte	4
+ 3009 0ba4 8B       		.byte	-117
+ 3010 0ba5 10       		.byte	16
+ 3011 0ba6 8C       		.byte	-116
+ 3012 0ba7 80       		.byte	-128
+ 3013 0ba8 92       		.byte	-110
+ 3014 0ba9 14       		.byte	20
+ 3015 0baa 93       		.byte	-109
+ 3016 0bab 40       		.byte	64
+ 3017 0bac 95       		.byte	-107
+ 3018 0bad 04       		.byte	4
+ 3019 0bae 97       		.byte	-105
+ 3020 0baf 01       		.byte	1
+ 3021 0bb0 99       		.byte	-103
+ARM GAS  C:\Users\MATEOC~1.QUE\AppData\Local\Temp\cck0hUPu.s 			page 54
+
+
+ 3022 0bb1 40       		.byte	64
+ 3023 0bb2 9B       		.byte	-101
+ 3024 0bb3 68       		.byte	104
+ 3025 0bb4 9C       		.byte	-100
+ 3026 0bb5 11       		.byte	17
+ 3027 0bb6 9D       		.byte	-99
+ 3028 0bb7 B4       		.byte	-76
+ 3029 0bb8 9F       		.byte	-97
+ 3030 0bb9 02       		.byte	2
+ 3031 0bba A1       		.byte	-95
+ 3032 0bbb 28       		.byte	40
+ 3033 0bbc A2       		.byte	-94
+ 3034 0bbd 04       		.byte	4
+ 3035 0bbe A4       		.byte	-92
+ 3036 0bbf 04       		.byte	4
+ 3037 0bc0 A6       		.byte	-90
+ 3038 0bc1 01       		.byte	1
+ 3039 0bc2 A7       		.byte	-89
+ 3040 0bc3 20       		.byte	32
+ 3041 0bc4 B0       		.byte	-80
+ 3042 0bc5 10       		.byte	16
+ 3043 0bc6 B6       		.byte	-74
+ 3044 0bc7 40       		.byte	64
+ 3045 0bc8 C0       		.byte	-64
+ 3046 0bc9 FE       		.byte	-2
+ 3047 0bca C2       		.byte	-62
+ 3048 0bcb F3       		.byte	-13
+ 3049 0bcc C4       		.byte	-60
+ 3050 0bcd 75       		.byte	117
+ 3051 0bce CA       		.byte	-54
+ 3052 0bcf 02       		.byte	2
+ 3053 0bd0 CC       		.byte	-52
+ 3054 0bd1 CD       		.byte	-51
+ 3055 0bd2 CE       		.byte	-50
+ 3056 0bd3 EE       		.byte	-18
+ 3057 0bd4 D0       		.byte	-48
+ 3058 0bd5 E0       		.byte	-32
+ 3059 0bd6 D2       		.byte	-46
+ 3060 0bd7 30       		.byte	48
+ 3061 0bd8 D6       		.byte	-42
+ 3062 0bd9 10       		.byte	16
+ 3063 0bda D8       		.byte	-40
+ 3064 0bdb 10       		.byte	16
+ 3065 0bdc E0       		.byte	-32
+ 3066 0bdd 24       		.byte	36
+ 3067 0bde E4       		.byte	-28
+ 3068 0bdf 80       		.byte	-128
+ 3069 0be0 EC       		.byte	-20
+ 3070 0be1 20       		.byte	32
+ 3071 0be2 11       		.byte	17
+ 3072 0be3 01       		.byte	1
+ 3073 0be4 16       		.byte	22
+ 3074 0be5 80       		.byte	-128
+ 3075 0be6 30       		.byte	48
+ 3076 0be7 02       		.byte	2
+ 3077 0be8 32       		.byte	50
+ 3078 0be9 10       		.byte	16
+ARM GAS  C:\Users\MATEOC~1.QUE\AppData\Local\Temp\cck0hUPu.s 			page 55
+
+
+ 3079 0bea 35       		.byte	53
+ 3080 0beb 08       		.byte	8
+ 3081 0bec 36       		.byte	54
+ 3082 0bed 40       		.byte	64
+ 3083 0bee 3B       		.byte	59
+ 3084 0bef 82       		.byte	-126
+ 3085 0bf0 3E       		.byte	62
+ 3086 0bf1 80       		.byte	-128
+ 3087 0bf2 81       		.byte	-127
+ 3088 0bf3 08       		.byte	8
+ 3089 0bf4 84       		.byte	-124
+ 3090 0bf5 02       		.byte	2
+ 3091 0bf6 C4       		.byte	-60
+ 3092 0bf7 30       		.byte	48
+ 3093 0bf8 CC       		.byte	-52
+ 3094 0bf9 F0       		.byte	-16
+ 3095 0bfa CE       		.byte	-50
+ 3096 0bfb 70       		.byte	112
+ 3097 0bfc E2       		.byte	-30
+ 3098 0bfd 10       		.byte	16
+ 3099 0bfe E6       		.byte	-26
+ 3100 0bff 20       		.byte	32
+ 3101 0c00 05       		.byte	5
+ 3102 0c01 20       		.byte	32
+ 3103 0c02 0B       		.byte	11
+ 3104 0c03 40       		.byte	64
+ 3105 0c04 0D       		.byte	13
+ 3106 0c05 04       		.byte	4
+ 3107 0c06 32       		.byte	50
+ 3108 0c07 20       		.byte	32
+ 3109 0c08 57       		.byte	87
+ 3110 0c09 80       		.byte	-128
+ 3111 0c0a 5F       		.byte	95
+ 3112 0c0b 80       		.byte	-128
+ 3113 0c0c 83       		.byte	-125
+ 3114 0c0d 80       		.byte	-128
+ 3115 0c0e 86       		.byte	-122
+ 3116 0c0f 20       		.byte	32
+ 3117 0c10 8B       		.byte	-117
+ 3118 0c11 40       		.byte	64
+ 3119 0c12 8D       		.byte	-115
+ 3120 0c13 20       		.byte	32
+ 3121 0c14 91       		.byte	-111
+ 3122 0c15 01       		.byte	1
+ 3123 0c16 96       		.byte	-106
+ 3124 0c17 20       		.byte	32
+ 3125 0c18 97       		.byte	-105
+ 3126 0c19 82       		.byte	-126
+ 3127 0c1a A6       		.byte	-90
+ 3128 0c1b 40       		.byte	64
+ 3129 0c1c C0       		.byte	-64
+ 3130 0c1d 80       		.byte	-128
+ 3131 0c1e C2       		.byte	-62
+ 3132 0c1f 30       		.byte	48
+ 3133 0c20 CC       		.byte	-52
+ 3134 0c21 10       		.byte	16
+ 3135 0c22 D4       		.byte	-44
+ARM GAS  C:\Users\MATEOC~1.QUE\AppData\Local\Temp\cck0hUPu.s 			page 56
+
+
+ 3136 0c23 40       		.byte	64
+ 3137 0c24 D6       		.byte	-42
+ 3138 0c25 20       		.byte	32
+ 3139 0c26 E2       		.byte	-30
+ 3140 0c27 80       		.byte	-128
+ 3141 0c28 E6       		.byte	-26
+ 3142 0c29 40       		.byte	64
+ 3143 0c2a 53       		.byte	83
+ 3144 0c2b 08       		.byte	8
+ 3145 0c2c 5A       		.byte	90
+ 3146 0c2d 01       		.byte	1
+ 3147 0c2e 82       		.byte	-126
+ 3148 0c2f 10       		.byte	16
+ 3149 0c30 86       		.byte	-122
+ 3150 0c31 01       		.byte	1
+ 3151 0c32 91       		.byte	-111
+ 3152 0c33 01       		.byte	1
+ 3153 0c34 96       		.byte	-106
+ 3154 0c35 20       		.byte	32
+ 3155 0c36 97       		.byte	-105
+ 3156 0c37 02       		.byte	2
+ 3157 0c38 A6       		.byte	-90
+ 3158 0c39 40       		.byte	64
+ 3159 0c3a AB       		.byte	-85
+ 3160 0c3b 80       		.byte	-128
+ 3161 0c3c AD       		.byte	-83
+ 3162 0c3d 04       		.byte	4
+ 3163 0c3e B3       		.byte	-77
+ 3164 0c3f 40       		.byte	64
+ 3165 0c40 D4       		.byte	-44
+ 3166 0c41 20       		.byte	32
+ 3167 0c42 D6       		.byte	-42
+ 3168 0c43 40       		.byte	64
+ 3169 0c44 E2       		.byte	-30
+ 3170 0c45 10       		.byte	16
+ 3171 0c46 E6       		.byte	-26
+ 3172 0c47 20       		.byte	32
+ 3173 0c48 E8       		.byte	-24
+ 3174 0c49 10       		.byte	16
+ 3175 0c4a EE       		.byte	-18
+ 3176 0c4b 20       		.byte	32
+ 3177 0c4c 1B       		.byte	27
+ 3178 0c4d 08       		.byte	8
+ 3179 0c4e 91       		.byte	-111
+ 3180 0c4f 01       		.byte	1
+ 3181 0c50 A6       		.byte	-90
+ 3182 0c51 40       		.byte	64
+ 3183 0c52 A7       		.byte	-89
+ 3184 0c53 08       		.byte	8
+ 3185 0c54 AB       		.byte	-85
+ 3186 0c55 01       		.byte	1
+ 3187 0c56 C6       		.byte	-58
+ 3188 0c57 10       		.byte	16
+ 3189 0c58 EE       		.byte	-18
+ 3190 0c59 20       		.byte	32
+ 3191 0c5a 72       		.byte	114
+ 3192 0c5b 20       		.byte	32
+ARM GAS  C:\Users\MATEOC~1.QUE\AppData\Local\Temp\cck0hUPu.s 			page 57
+
+
+ 3193 0c5c 83       		.byte	-125
+ 3194 0c5d 01       		.byte	1
+ 3195 0c5e 87       		.byte	-121
+ 3196 0c5f 10       		.byte	16
+ 3197 0c60 DC       		.byte	-36
+ 3198 0c61 01       		.byte	1
+ 3199 0c62 56       		.byte	86
+ 3200 0c63 02       		.byte	2
+ 3201 0c64 5C       		.byte	92
+ 3202 0c65 02       		.byte	2
+ 3203 0c66 64       		.byte	100
+ 3204 0c67 04       		.byte	4
+ 3205 0c68 82       		.byte	-126
+ 3206 0c69 20       		.byte	32
+ 3207 0c6a 86       		.byte	-122
+ 3208 0c6b 02       		.byte	2
+ 3209 0c6c 97       		.byte	-105
+ 3210 0c6d 12       		.byte	18
+ 3211 0c6e 98       		.byte	-104
+ 3212 0c6f 04       		.byte	4
+ 3213 0c70 9E       		.byte	-98
+ 3214 0c71 20       		.byte	32
+ 3215 0c72 B0       		.byte	-80
+ 3216 0c73 04       		.byte	4
+ 3217 0c74 D6       		.byte	-42
+ 3218 0c75 05       		.byte	5
+ 3219 0c76 D8       		.byte	-40
+ 3220 0c77 01       		.byte	1
+ 3221 0c78 EC       		.byte	-20
+ 3222 0c79 01       		.byte	1
+ 3223 0c7a 1B       		.byte	27
+ 3224 0c7b 04       		.byte	4
+ 3225 0c7c 24       		.byte	36
+ 3226 0c7d 40       		.byte	64
+ 3227 0c7e 84       		.byte	-124
+ 3228 0c7f 02       		.byte	2
+ 3229 0c80 97       		.byte	-105
+ 3230 0c81 12       		.byte	18
+ 3231 0c82 9C       		.byte	-100
+ 3232 0c83 02       		.byte	2
+ 3233 0c84 C6       		.byte	-58
+ 3234 0c85 08       		.byte	8
+ 3235 0c86 C8       		.byte	-56
+ 3236 0c87 01       		.byte	1
+ 3237 0c88 0B       		.byte	11
+ 3238 0c89 42       		.byte	66
+ 3239 0c8a 0F       		.byte	15
+ 3240 0c8b 10       		.byte	16
+ 3241 0c8c 44       		.byte	68
+ 3242 0c8d 01       		.byte	1
+ 3243 0c8e 83       		.byte	-125
+ 3244 0c8f 01       		.byte	1
+ 3245 0c90 86       		.byte	-122
+ 3246 0c91 20       		.byte	32
+ 3247 0c92 8A       		.byte	-118
+ 3248 0c93 10       		.byte	16
+ 3249 0c94 97       		.byte	-105
+ARM GAS  C:\Users\MATEOC~1.QUE\AppData\Local\Temp\cck0hUPu.s 			page 58
+
+
+ 3250 0c95 12       		.byte	18
+ 3251 0c96 AB       		.byte	-85
+ 3252 0c97 04       		.byte	4
+ 3253 0c98 B4       		.byte	-76
+ 3254 0c99 40       		.byte	64
+ 3255 0c9a C2       		.byte	-62
+ 3256 0c9b 0E       		.byte	14
+ 3257 0c9c D0       		.byte	-48
+ 3258 0c9d 04       		.byte	4
+ 3259 0c9e E4       		.byte	-28
+ 3260 0c9f 04       		.byte	4
+ 3261 0ca0 EA       		.byte	-22
+ 3262 0ca1 02       		.byte	2
+ 3263 0ca2 25       		.byte	37
+ 3264 0ca3 02       		.byte	2
+ 3265 0ca4 9F       		.byte	-97
+ 3266 0ca5 04       		.byte	4
+ 3267 0ca6 AE       		.byte	-82
+ 3268 0ca7 40       		.byte	64
+ 3269 0ca8 B1       		.byte	-79
+ 3270 0ca9 01       		.byte	1
+ 3271 0caa B7       		.byte	-73
+ 3272 0cab 04       		.byte	4
+ 3273 0cac C8       		.byte	-56
+ 3274 0cad 80       		.byte	-128
+ 3275 0cae EE       		.byte	-18
+ 3276 0caf 40       		.byte	64
+ 3277 0cb0 03       		.byte	3
+ 3278 0cb1 04       		.byte	4
+ 3279 0cb2 9F       		.byte	-97
+ 3280 0cb3 04       		.byte	4
+ 3281 0cb4 B1       		.byte	-79
+ 3282 0cb5 02       		.byte	2
+ 3283 0cb6 C0       		.byte	-64
+ 3284 0cb7 40       		.byte	64
+ 3285 0cb8 52       		.byte	82
+ 3286 0cb9 10       		.byte	16
+ 3287 0cba 56       		.byte	86
+ 3288 0cbb 40       		.byte	64
+ 3289 0cbc 5B       		.byte	91
+ 3290 0cbd 40       		.byte	64
+ 3291 0cbe 5F       		.byte	95
+ 3292 0cbf 22       		.byte	34
+ 3293 0cc0 60       		.byte	96
+ 3294 0cc1 10       		.byte	16
+ 3295 0cc2 63       		.byte	99
+ 3296 0cc3 01       		.byte	1
+ 3297 0cc4 64       		.byte	100
+ 3298 0cc5 04       		.byte	4
+ 3299 0cc6 90       		.byte	-112
+ 3300 0cc7 10       		.byte	16
+ 3301 0cc8 93       		.byte	-109
+ 3302 0cc9 01       		.byte	1
+ 3303 0cca 98       		.byte	-104
+ 3304 0ccb 04       		.byte	4
+ 3305 0ccc 9A       		.byte	-102
+ 3306 0ccd 30       		.byte	48
+ARM GAS  C:\Users\MATEOC~1.QUE\AppData\Local\Temp\cck0hUPu.s 			page 59
+
+
+ 3307 0cce 9B       		.byte	-101
+ 3308 0ccf 22       		.byte	34
+ 3309 0cd0 9C       		.byte	-100
+ 3310 0cd1 01       		.byte	1
+ 3311 0cd2 A8       		.byte	-88
+ 3312 0cd3 10       		.byte	16
+ 3313 0cd4 AC       		.byte	-84
+ 3314 0cd5 04       		.byte	4
+ 3315 0cd6 AF       		.byte	-81
+ 3316 0cd7 40       		.byte	64
+ 3317 0cd8 B3       		.byte	-77
+ 3318 0cd9 02       		.byte	2
+ 3319 0cda B7       		.byte	-73
+ 3320 0cdb 20       		.byte	32
+ 3321 0cdc D4       		.byte	-44
+ 3322 0cdd 07       		.byte	7
+ 3323 0cde D6       		.byte	-42
+ 3324 0cdf 07       		.byte	7
+ 3325 0ce0 D8       		.byte	-40
+ 3326 0ce1 03       		.byte	3
+ 3327 0ce2 E8       		.byte	-24
+ 3328 0ce3 04       		.byte	4
+ 3329 0ce4 EC       		.byte	-20
+ 3330 0ce5 08       		.byte	8
+ 3331 0ce6 12       		.byte	18
+ 3332 0ce7 20       		.byte	32
+ 3333 0ce8 72       		.byte	114
+ 3334 0ce9 20       		.byte	32
+ 3335 0cea 74       		.byte	116
+ 3336 0ceb 02       		.byte	2
+ 3337 0cec 80       		.byte	-128
+ 3338 0ced 02       		.byte	2
+ 3339 0cee 8E       		.byte	-114
+ 3340 0cef 20       		.byte	32
+ 3341 0cf0 9A       		.byte	-102
+ 3342 0cf1 20       		.byte	32
+ 3343 0cf2 B0       		.byte	-80
+ 3344 0cf3 01       		.byte	1
+ 3345 0cf4 B2       		.byte	-78
+ 3346 0cf5 40       		.byte	64
+ 3347 0cf6 B7       		.byte	-73
+ 3348 0cf7 40       		.byte	64
+ 3349 0cf8 C4       		.byte	-60
+ 3350 0cf9 08       		.byte	8
+ 3351 0cfa DC       		.byte	-36
+ 3352 0cfb 01       		.byte	1
+ 3353 0cfc DE       		.byte	-34
+ 3354 0cfd 04       		.byte	4
+ 3355 0cfe E2       		.byte	-30
+ 3356 0cff 08       		.byte	8
+ 3357 0d00 E8       		.byte	-24
+ 3358 0d01 08       		.byte	8
+ 3359 0d02 EC       		.byte	-20
+ 3360 0d03 05       		.byte	5
+ 3361 0d04 10       		.byte	16
+ 3362 0d05 0D       		.byte	13
+ 3363 0d06 11       		.byte	17
+ARM GAS  C:\Users\MATEOC~1.QUE\AppData\Local\Temp\cck0hUPu.s 			page 60
+
+
+ 3364 0d07 01       		.byte	1
+ 3365 0d08 12       		.byte	18
+ 3366 0d09 14       		.byte	20
+ 3367 0d0a 1A       		.byte	26
+ 3368 0d0b 0C       		.byte	12
+ 3369 0d0c 1C       		.byte	28
+ 3370 0d0d 0D       		.byte	13
+ 3371 0d0e 1D       		.byte	29
+ 3372 0d0f 01       		.byte	1
+ 3373 0d10 00       		.byte	0
+ 3374 0d11 AB       		.byte	-85
+ 3375 0d12 01       		.byte	1
+ 3376 0d13 0F       		.byte	15
+ 3377 0d14 10       		.byte	16
+ 3378 0d15 0A       		.byte	10
+ 3379 0d16 00       		.byte	0
+ 3380 0d17 00       		.byte	0
+ 3381 0d18 0F       		.byte	15
+ 3382 0d19 01       		.byte	1
+ 3383 0d1a 14       		.byte	20
+ 3384 0d1b 00       		.byte	0
+ 3385 0d1c 00       		.byte	0
+ 3386 0d1d 00       		.byte	0
+ 3387 0d1e 00       		.byte	0
+ 3388 0d1f 00       		.byte	0
+ 3389 0d20 04       		.byte	4
+ 3390 0d21 00       		.byte	0
+ 3391 0d22 0C       		.byte	12
+ 3392 0d23 01       		.byte	1
+ 3393 0d24 07       		.byte	7
+ 3394 0d25 00       		.byte	0
+ 3395 0d26 0F       		.byte	15
+ 3396 0d27 00       		.byte	0
+ 3397 0d28 38       		.byte	56
+ 3398 0d29 C0       		.byte	-64
+ 3399 0d2a C0       		.byte	-64
+ 3400 0d2b 00       		.byte	0
+ 3401 0d2c 00       		.byte	0
+ 3402 0d2d 03       		.byte	3
+ 3403 0d2e 03       		.byte	3
+ 3404 0d2f 00       		.byte	0
+ 3405 0d30 80       		.byte	-128
+ 3406 0d31 00       		.byte	0
+ 3407 0d32 40       		.byte	64
+ 3408 0d33 BC       		.byte	-68
+ 3409 0d34 BC       		.byte	-68
+ 3410 0d35 00       		.byte	0
+ 3411 0d36 B4       		.byte	-76
+ 3412 0d37 00       		.byte	0
+ 3413 0d38 00       		.byte	0
+ 3414 0d39 00       		.byte	0
+ 3415 0d3a 00       		.byte	0
+ 3416 0d3b 00       		.byte	0
+ 3417 0d3c 40       		.byte	64
+ 3418 0d3d 00       		.byte	0
+ 3419 0d3e 00       		.byte	0
+ 3420 0d3f 00       		.byte	0
+ARM GAS  C:\Users\MATEOC~1.QUE\AppData\Local\Temp\cck0hUPu.s 			page 61
+
+
+ 3421 0d40 00       		.byte	0
+ 3422 0d41 00       		.byte	0
+ 3423 0d42 00       		.byte	0
+ 3424 0d43 00       		.byte	0
+ 3425 0d44 C0       		.byte	-64
+ 3426 0d45 00       		.byte	0
+ 3427 0d46 00       		.byte	0
+ 3428 0d47 00       		.byte	0
+ 3429 0d48 00       		.byte	0
+ 3430 0d49 FF       		.byte	-1
+ 3431 0d4a FF       		.byte	-1
+ 3432 0d4b 00       		.byte	0
+ 3433 0d4c FF       		.byte	-1
+ 3434 0d4d 00       		.byte	0
+ 3435 0d4e 00       		.byte	0
+ 3436 0d4f 00       		.byte	0
+ 3437 0d50 00       		.byte	0
+ 3438 0d51 39       		.byte	57
+ 3439 0d52 39       		.byte	57
+ 3440 0d53 00       		.byte	0
+ 3441 0d54 38       		.byte	56
+ 3442 0d55 00       		.byte	0
+ 3443 0d56 00       		.byte	0
+ 3444 0d57 00       		.byte	0
+ 3445 0d58 04       		.byte	4
+ 3446 0d59 38       		.byte	56
+ 3447 0d5a 38       		.byte	56
+ 3448 0d5b 00       		.byte	0
+ 3449 0d5c 08       		.byte	8
+ 3450 0d5d 00       		.byte	0
+ 3451 0d5e 00       		.byte	0
+ 3452 0d5f 00       		.byte	0
+ 3453 0d60 00       		.byte	0
+ 3454 0d61 01       		.byte	1
+ 3455 0d62 00       		.byte	0
+ 3456 0d63 00       		.byte	0
+ 3457              		.section	.cywolatch,"a",%progbits
+ 3458              		.align	2
+ 3459              		.type	cy_meta_wonvl, %object
+ 3460              		.size	cy_meta_wonvl, 4
+ 3461              	cy_meta_wonvl:
+ 3462 0000 BC       		.byte	-68
+ 3463 0001 90       		.byte	-112
+ 3464 0002 AC       		.byte	-84
+ 3465 0003 AF       		.byte	-81
+ 3466              		.section	.cycustnvl,"a",%progbits
+ 3467              		.align	2
+ 3468              		.type	cy_meta_custnvl, %object
+ 3469              		.size	cy_meta_custnvl, 4
+ 3470              	cy_meta_custnvl:
+ 3471 0000 00       		.byte	0
+ 3472 0001 00       		.byte	0
+ 3473 0002 40       		.byte	64
+ 3474 0003 07       		.byte	7
+ 3475              		.section	.cymeta,"a",%progbits
+ 3476              		.align	2
+ 3477              		.type	cy_metadata, %object
+ARM GAS  C:\Users\MATEOC~1.QUE\AppData\Local\Temp\cck0hUPu.s 			page 62
+
+
+ 3478              		.size	cy_metadata, 12
+ 3479              	cy_metadata:
+ 3480 0000 00       		.byte	0
+ 3481 0001 01       		.byte	1
+ 3482 0002 2E       		.byte	46
+ 3483 0003 16       		.byte	22
+ 3484 0004 10       		.byte	16
+ 3485 0005 69       		.byte	105
+ 3486 0006 00       		.byte	0
+ 3487 0007 01       		.byte	1
+ 3488 0008 00       		.byte	0
+ 3489 0009 00       		.byte	0
+ 3490 000a 00       		.byte	0
+ 3491 000b 00       		.byte	0
+ 3492              		.section	.cyflashprotect,"a",%progbits
+ 3493              		.align	2
+ 3494              		.type	cy_meta_flashprotect, %object
+ 3495              		.size	cy_meta_flashprotect, 256
+ 3496              	cy_meta_flashprotect:
+ 3497 0000 00000000 		.space	256
+ 3497      00000000 
+ 3497      00000000 
+ 3497      00000000 
+ 3497      00000000 
+ 3498              		.text
+ 3499              	.Letext0:
+ 3500              		.file 1 "c:\\program files (x86)\\cypress\\psoc creator\\4.4\\psoc creator\\import\\gnu\\arm\\5.4.
+ 3501              		.file 2 "c:\\program files (x86)\\cypress\\psoc creator\\4.4\\psoc creator\\import\\gnu\\arm\\5.4.
+ 3502              		.file 3 "Generated_Source\\PSoC5\\cymetadata.c"
+ 3503              		.section	.debug_info,"",%progbits
+ 3504              	.Ldebug_info0:
+ 3505 0000 35010000 		.4byte	0x135
+ 3506 0004 0400     		.2byte	0x4
+ 3507 0006 00000000 		.4byte	.Ldebug_abbrev0
+ 3508 000a 04       		.byte	0x4
+ 3509 000b 01       		.uleb128 0x1
+ 3510 000c 24000000 		.4byte	.LASF17
+ 3511 0010 0C       		.byte	0xc
+ 3512 0011 2A020000 		.4byte	.LASF18
+ 3513 0015 69010000 		.4byte	.LASF19
+ 3514 0019 00000000 		.4byte	.Ldebug_line0
+ 3515 001d 02       		.uleb128 0x2
+ 3516 001e 01       		.byte	0x1
+ 3517 001f 06       		.byte	0x6
+ 3518 0020 1E020000 		.4byte	.LASF0
+ 3519 0024 03       		.uleb128 0x3
+ 3520 0025 00000000 		.4byte	.LASF9
+ 3521 0029 01       		.byte	0x1
+ 3522 002a 1D       		.byte	0x1d
+ 3523 002b 2F000000 		.4byte	0x2f
+ 3524 002f 02       		.uleb128 0x2
+ 3525 0030 01       		.byte	0x1
+ 3526 0031 08       		.byte	0x8
+ 3527 0032 16000000 		.4byte	.LASF1
+ 3528 0036 02       		.uleb128 0x2
+ 3529 0037 02       		.byte	0x2
+ 3530 0038 05       		.byte	0x5
+ARM GAS  C:\Users\MATEOC~1.QUE\AppData\Local\Temp\cck0hUPu.s 			page 63
+
+
+ 3531 0039 5F010000 		.4byte	.LASF2
+ 3532 003d 02       		.uleb128 0x2
+ 3533 003e 02       		.byte	0x2
+ 3534 003f 07       		.byte	0x7
+ 3535 0040 C4000000 		.4byte	.LASF3
+ 3536 0044 02       		.uleb128 0x2
+ 3537 0045 04       		.byte	0x4
+ 3538 0046 05       		.byte	0x5
+ 3539 0047 15020000 		.4byte	.LASF4
+ 3540 004b 02       		.uleb128 0x2
+ 3541 004c 04       		.byte	0x4
+ 3542 004d 07       		.byte	0x7
+ 3543 004e B2000000 		.4byte	.LASF5
+ 3544 0052 02       		.uleb128 0x2
+ 3545 0053 08       		.byte	0x8
+ 3546 0054 05       		.byte	0x5
+ 3547 0055 51010000 		.4byte	.LASF6
+ 3548 0059 02       		.uleb128 0x2
+ 3549 005a 08       		.byte	0x8
+ 3550 005b 07       		.byte	0x7
+ 3551 005c 06010000 		.4byte	.LASF7
+ 3552 0060 04       		.uleb128 0x4
+ 3553 0061 04       		.byte	0x4
+ 3554 0062 05       		.byte	0x5
+ 3555 0063 696E7400 		.ascii	"int\000"
+ 3556 0067 02       		.uleb128 0x2
+ 3557 0068 04       		.byte	0x4
+ 3558 0069 07       		.byte	0x7
+ 3559 006a F9000000 		.4byte	.LASF8
+ 3560 006e 03       		.uleb128 0x3
+ 3561 006f 1D010000 		.4byte	.LASF10
+ 3562 0073 02       		.byte	0x2
+ 3563 0074 18       		.byte	0x18
+ 3564 0075 24000000 		.4byte	0x24
+ 3565 0079 05       		.uleb128 0x5
+ 3566 007a 91000000 		.4byte	0x91
+ 3567 007e 8A000000 		.4byte	0x8a
+ 3568 0082 06       		.uleb128 0x6
+ 3569 0083 8A000000 		.4byte	0x8a
+ 3570 0087 630D     		.2byte	0xd63
+ 3571 0089 00       		.byte	0
+ 3572 008a 02       		.uleb128 0x2
+ 3573 008b 04       		.byte	0x4
+ 3574 008c 07       		.byte	0x7
+ 3575 008d 48010000 		.4byte	.LASF11
+ 3576 0091 07       		.uleb128 0x7
+ 3577 0092 6E000000 		.4byte	0x6e
+ 3578 0096 08       		.uleb128 0x8
+ 3579 0097 E7000000 		.4byte	.LASF12
+ 3580 009b 03       		.byte	0x3
+ 3581 009c 1F       		.byte	0x1f
+ 3582 009d A7000000 		.4byte	0xa7
+ 3583 00a1 05       		.uleb128 0x5
+ 3584 00a2 03       		.byte	0x3
+ 3585 00a3 00000000 		.4byte	cy_meta_configecc
+ 3586 00a7 07       		.uleb128 0x7
+ 3587 00a8 79000000 		.4byte	0x79
+ARM GAS  C:\Users\MATEOC~1.QUE\AppData\Local\Temp\cck0hUPu.s 			page 64
+
+
+ 3588 00ac 05       		.uleb128 0x5
+ 3589 00ad 91000000 		.4byte	0x91
+ 3590 00b1 BC000000 		.4byte	0xbc
+ 3591 00b5 09       		.uleb128 0x9
+ 3592 00b6 8A000000 		.4byte	0x8a
+ 3593 00ba 03       		.byte	0x3
+ 3594 00bb 00       		.byte	0
+ 3595 00bc 0A       		.uleb128 0xa
+ 3596 00bd D7000000 		.4byte	.LASF13
+ 3597 00c1 03       		.byte	0x3
+ 3598 00c2 D901     		.2byte	0x1d9
+ 3599 00c4 CE000000 		.4byte	0xce
+ 3600 00c8 05       		.uleb128 0x5
+ 3601 00c9 03       		.byte	0x3
+ 3602 00ca 00000000 		.4byte	cy_meta_custnvl
+ 3603 00ce 07       		.uleb128 0x7
+ 3604 00cf AC000000 		.4byte	0xac
+ 3605 00d3 0A       		.uleb128 0xa
+ 3606 00d4 3A010000 		.4byte	.LASF14
+ 3607 00d8 03       		.byte	0x3
+ 3608 00d9 E701     		.2byte	0x1e7
+ 3609 00db E5000000 		.4byte	0xe5
+ 3610 00df 05       		.uleb128 0x5
+ 3611 00e0 03       		.byte	0x3
+ 3612 00e1 00000000 		.4byte	cy_meta_wonvl
+ 3613 00e5 07       		.uleb128 0x7
+ 3614 00e6 AC000000 		.4byte	0xac
+ 3615 00ea 05       		.uleb128 0x5
+ 3616 00eb 91000000 		.4byte	0x91
+ 3617 00ef FA000000 		.4byte	0xfa
+ 3618 00f3 09       		.uleb128 0x9
+ 3619 00f4 8A000000 		.4byte	0x8a
+ 3620 00f8 FF       		.byte	0xff
+ 3621 00f9 00       		.byte	0
+ 3622 00fa 0A       		.uleb128 0xa
+ 3623 00fb 25010000 		.4byte	.LASF15
+ 3624 00ff 03       		.byte	0x3
+ 3625 0100 F501     		.2byte	0x1f5
+ 3626 0102 0C010000 		.4byte	0x10c
+ 3627 0106 05       		.uleb128 0x5
+ 3628 0107 03       		.byte	0x3
+ 3629 0108 00000000 		.4byte	cy_meta_flashprotect
+ 3630 010c 07       		.uleb128 0x7
+ 3631 010d EA000000 		.4byte	0xea
+ 3632 0111 05       		.uleb128 0x5
+ 3633 0112 91000000 		.4byte	0x91
+ 3634 0116 21010000 		.4byte	0x121
+ 3635 011a 09       		.uleb128 0x9
+ 3636 011b 8A000000 		.4byte	0x8a
+ 3637 011f 0B       		.byte	0xb
+ 3638 0120 00       		.byte	0
+ 3639 0121 0A       		.uleb128 0xa
+ 3640 0122 0A000000 		.4byte	.LASF16
+ 3641 0126 03       		.byte	0x3
+ 3642 0127 2202     		.2byte	0x222
+ 3643 0129 33010000 		.4byte	0x133
+ 3644 012d 05       		.uleb128 0x5
+ARM GAS  C:\Users\MATEOC~1.QUE\AppData\Local\Temp\cck0hUPu.s 			page 65
+
+
+ 3645 012e 03       		.byte	0x3
+ 3646 012f 00000000 		.4byte	cy_metadata
+ 3647 0133 07       		.uleb128 0x7
+ 3648 0134 11010000 		.4byte	0x111
+ 3649 0138 00       		.byte	0
+ 3650              		.section	.debug_abbrev,"",%progbits
+ 3651              	.Ldebug_abbrev0:
+ 3652 0000 01       		.uleb128 0x1
+ 3653 0001 11       		.uleb128 0x11
+ 3654 0002 01       		.byte	0x1
+ 3655 0003 25       		.uleb128 0x25
+ 3656 0004 0E       		.uleb128 0xe
+ 3657 0005 13       		.uleb128 0x13
+ 3658 0006 0B       		.uleb128 0xb
+ 3659 0007 03       		.uleb128 0x3
+ 3660 0008 0E       		.uleb128 0xe
+ 3661 0009 1B       		.uleb128 0x1b
+ 3662 000a 0E       		.uleb128 0xe
+ 3663 000b 10       		.uleb128 0x10
+ 3664 000c 17       		.uleb128 0x17
+ 3665 000d 00       		.byte	0
+ 3666 000e 00       		.byte	0
+ 3667 000f 02       		.uleb128 0x2
+ 3668 0010 24       		.uleb128 0x24
+ 3669 0011 00       		.byte	0
+ 3670 0012 0B       		.uleb128 0xb
+ 3671 0013 0B       		.uleb128 0xb
+ 3672 0014 3E       		.uleb128 0x3e
+ 3673 0015 0B       		.uleb128 0xb
+ 3674 0016 03       		.uleb128 0x3
+ 3675 0017 0E       		.uleb128 0xe
+ 3676 0018 00       		.byte	0
+ 3677 0019 00       		.byte	0
+ 3678 001a 03       		.uleb128 0x3
+ 3679 001b 16       		.uleb128 0x16
+ 3680 001c 00       		.byte	0
+ 3681 001d 03       		.uleb128 0x3
+ 3682 001e 0E       		.uleb128 0xe
+ 3683 001f 3A       		.uleb128 0x3a
+ 3684 0020 0B       		.uleb128 0xb
+ 3685 0021 3B       		.uleb128 0x3b
+ 3686 0022 0B       		.uleb128 0xb
+ 3687 0023 49       		.uleb128 0x49
+ 3688 0024 13       		.uleb128 0x13
+ 3689 0025 00       		.byte	0
+ 3690 0026 00       		.byte	0
+ 3691 0027 04       		.uleb128 0x4
+ 3692 0028 24       		.uleb128 0x24
+ 3693 0029 00       		.byte	0
+ 3694 002a 0B       		.uleb128 0xb
+ 3695 002b 0B       		.uleb128 0xb
+ 3696 002c 3E       		.uleb128 0x3e
+ 3697 002d 0B       		.uleb128 0xb
+ 3698 002e 03       		.uleb128 0x3
+ 3699 002f 08       		.uleb128 0x8
+ 3700 0030 00       		.byte	0
+ 3701 0031 00       		.byte	0
+ARM GAS  C:\Users\MATEOC~1.QUE\AppData\Local\Temp\cck0hUPu.s 			page 66
+
+
+ 3702 0032 05       		.uleb128 0x5
+ 3703 0033 01       		.uleb128 0x1
+ 3704 0034 01       		.byte	0x1
+ 3705 0035 49       		.uleb128 0x49
+ 3706 0036 13       		.uleb128 0x13
+ 3707 0037 01       		.uleb128 0x1
+ 3708 0038 13       		.uleb128 0x13
+ 3709 0039 00       		.byte	0
+ 3710 003a 00       		.byte	0
+ 3711 003b 06       		.uleb128 0x6
+ 3712 003c 21       		.uleb128 0x21
+ 3713 003d 00       		.byte	0
+ 3714 003e 49       		.uleb128 0x49
+ 3715 003f 13       		.uleb128 0x13
+ 3716 0040 2F       		.uleb128 0x2f
+ 3717 0041 05       		.uleb128 0x5
+ 3718 0042 00       		.byte	0
+ 3719 0043 00       		.byte	0
+ 3720 0044 07       		.uleb128 0x7
+ 3721 0045 26       		.uleb128 0x26
+ 3722 0046 00       		.byte	0
+ 3723 0047 49       		.uleb128 0x49
+ 3724 0048 13       		.uleb128 0x13
+ 3725 0049 00       		.byte	0
+ 3726 004a 00       		.byte	0
+ 3727 004b 08       		.uleb128 0x8
+ 3728 004c 34       		.uleb128 0x34
+ 3729 004d 00       		.byte	0
+ 3730 004e 03       		.uleb128 0x3
+ 3731 004f 0E       		.uleb128 0xe
+ 3732 0050 3A       		.uleb128 0x3a
+ 3733 0051 0B       		.uleb128 0xb
+ 3734 0052 3B       		.uleb128 0x3b
+ 3735 0053 0B       		.uleb128 0xb
+ 3736 0054 49       		.uleb128 0x49
+ 3737 0055 13       		.uleb128 0x13
+ 3738 0056 3F       		.uleb128 0x3f
+ 3739 0057 19       		.uleb128 0x19
+ 3740 0058 02       		.uleb128 0x2
+ 3741 0059 18       		.uleb128 0x18
+ 3742 005a 00       		.byte	0
+ 3743 005b 00       		.byte	0
+ 3744 005c 09       		.uleb128 0x9
+ 3745 005d 21       		.uleb128 0x21
+ 3746 005e 00       		.byte	0
+ 3747 005f 49       		.uleb128 0x49
+ 3748 0060 13       		.uleb128 0x13
+ 3749 0061 2F       		.uleb128 0x2f
+ 3750 0062 0B       		.uleb128 0xb
+ 3751 0063 00       		.byte	0
+ 3752 0064 00       		.byte	0
+ 3753 0065 0A       		.uleb128 0xa
+ 3754 0066 34       		.uleb128 0x34
+ 3755 0067 00       		.byte	0
+ 3756 0068 03       		.uleb128 0x3
+ 3757 0069 0E       		.uleb128 0xe
+ 3758 006a 3A       		.uleb128 0x3a
+ARM GAS  C:\Users\MATEOC~1.QUE\AppData\Local\Temp\cck0hUPu.s 			page 67
+
+
+ 3759 006b 0B       		.uleb128 0xb
+ 3760 006c 3B       		.uleb128 0x3b
+ 3761 006d 05       		.uleb128 0x5
+ 3762 006e 49       		.uleb128 0x49
+ 3763 006f 13       		.uleb128 0x13
+ 3764 0070 3F       		.uleb128 0x3f
+ 3765 0071 19       		.uleb128 0x19
+ 3766 0072 02       		.uleb128 0x2
+ 3767 0073 18       		.uleb128 0x18
+ 3768 0074 00       		.byte	0
+ 3769 0075 00       		.byte	0
+ 3770 0076 00       		.byte	0
+ 3771              		.section	.debug_aranges,"",%progbits
+ 3772 0000 14000000 		.4byte	0x14
+ 3773 0004 0200     		.2byte	0x2
+ 3774 0006 00000000 		.4byte	.Ldebug_info0
+ 3775 000a 04       		.byte	0x4
+ 3776 000b 00       		.byte	0
+ 3777 000c 0000     		.2byte	0
+ 3778 000e 0000     		.2byte	0
+ 3779 0010 00000000 		.4byte	0
+ 3780 0014 00000000 		.4byte	0
+ 3781              		.section	.debug_line,"",%progbits
+ 3782              	.Ldebug_line0:
+ 3783 0000 3D010000 		.section	.debug_str,"MS",%progbits,1
+ 3783      02003701 
+ 3783      00000201 
+ 3783      FB0E0D00 
+ 3783      01010101 
+ 3784              	.LASF9:
+ 3785 0000 5F5F7569 		.ascii	"__uint8_t\000"
+ 3785      6E74385F 
+ 3785      7400
+ 3786              	.LASF16:
+ 3787 000a 63795F6D 		.ascii	"cy_metadata\000"
+ 3787      65746164 
+ 3787      61746100 
+ 3788              	.LASF1:
+ 3789 0016 756E7369 		.ascii	"unsigned char\000"
+ 3789      676E6564 
+ 3789      20636861 
+ 3789      7200
+ 3790              	.LASF17:
+ 3791 0024 474E5520 		.ascii	"GNU C11 5.4.1 20160609 (release) [ARM/embedded-5-br"
+ 3791      43313120 
+ 3791      352E342E 
+ 3791      31203230 
+ 3791      31363036 
+ 3792 0057 616E6368 		.ascii	"anch revision 237715] -mcpu=cortex-m3 -mthumb -g -O"
+ 3792      20726576 
+ 3792      6973696F 
+ 3792      6E203233 
+ 3792      37373135 
+ 3793 008a 67202D66 		.ascii	"g -ffunction-sections -ffat-lto-objects\000"
+ 3793      66756E63 
+ 3793      74696F6E 
+ 3793      2D736563 
+ARM GAS  C:\Users\MATEOC~1.QUE\AppData\Local\Temp\cck0hUPu.s 			page 68
+
+
+ 3793      74696F6E 
+ 3794              	.LASF5:
+ 3795 00b2 6C6F6E67 		.ascii	"long unsigned int\000"
+ 3795      20756E73 
+ 3795      69676E65 
+ 3795      6420696E 
+ 3795      7400
+ 3796              	.LASF3:
+ 3797 00c4 73686F72 		.ascii	"short unsigned int\000"
+ 3797      7420756E 
+ 3797      7369676E 
+ 3797      65642069 
+ 3797      6E7400
+ 3798              	.LASF13:
+ 3799 00d7 63795F6D 		.ascii	"cy_meta_custnvl\000"
+ 3799      6574615F 
+ 3799      63757374 
+ 3799      6E766C00 
+ 3800              	.LASF12:
+ 3801 00e7 63795F6D 		.ascii	"cy_meta_configecc\000"
+ 3801      6574615F 
+ 3801      636F6E66 
+ 3801      69676563 
+ 3801      6300
+ 3802              	.LASF8:
+ 3803 00f9 756E7369 		.ascii	"unsigned int\000"
+ 3803      676E6564 
+ 3803      20696E74 
+ 3803      00
+ 3804              	.LASF7:
+ 3805 0106 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 3805      206C6F6E 
+ 3805      6720756E 
+ 3805      7369676E 
+ 3805      65642069 
+ 3806              	.LASF10:
+ 3807 011d 75696E74 		.ascii	"uint8_t\000"
+ 3807      385F7400 
+ 3808              	.LASF15:
+ 3809 0125 63795F6D 		.ascii	"cy_meta_flashprotect\000"
+ 3809      6574615F 
+ 3809      666C6173 
+ 3809      6870726F 
+ 3809      74656374 
+ 3810              	.LASF14:
+ 3811 013a 63795F6D 		.ascii	"cy_meta_wonvl\000"
+ 3811      6574615F 
+ 3811      776F6E76 
+ 3811      6C00
+ 3812              	.LASF11:
+ 3813 0148 73697A65 		.ascii	"sizetype\000"
+ 3813      74797065 
+ 3813      00
+ 3814              	.LASF6:
+ 3815 0151 6C6F6E67 		.ascii	"long long int\000"
+ 3815      206C6F6E 
+ 3815      6720696E 
+ARM GAS  C:\Users\MATEOC~1.QUE\AppData\Local\Temp\cck0hUPu.s 			page 69
+
+
+ 3815      7400
+ 3816              	.LASF2:
+ 3817 015f 73686F72 		.ascii	"short int\000"
+ 3817      7420696E 
+ 3817      7400
+ 3818              	.LASF19:
+ 3819 0169 433A5C55 		.ascii	"C:\\Users\\Mateo C. Querol\\OneDrive\\University\\D"
+ 3819      73657273 
+ 3819      5C4D6174 
+ 3819      656F2043 
+ 3819      2E205175 
+ 3820 0197 61726D73 		.ascii	"armstadt\\Advanced Microcontroller Systems and Embe"
+ 3820      74616474 
+ 3820      5C416476 
+ 3820      616E6365 
+ 3820      64204D69 
+ 3821 01c9 64646564 		.ascii	"dded Operating systems\\Embedded Operating Systems\\"
+ 3821      204F7065 
+ 3821      72617469 
+ 3821      6E672073 
+ 3821      79737465 
+ 3822 01fb 576F726B 		.ascii	"Workbook\\JSONParser.cydsn\000"
+ 3822      626F6F6B 
+ 3822      5C4A534F 
+ 3822      4E506172 
+ 3822      7365722E 
+ 3823              	.LASF4:
+ 3824 0215 6C6F6E67 		.ascii	"long int\000"
+ 3824      20696E74 
+ 3824      00
+ 3825              	.LASF0:
+ 3826 021e 7369676E 		.ascii	"signed char\000"
+ 3826      65642063 
+ 3826      68617200 
+ 3827              	.LASF18:
+ 3828 022a 47656E65 		.ascii	"Generated_Source\\PSoC5\\cymetadata.c\000"
+ 3828      72617465 
+ 3828      645F536F 
+ 3828      75726365 
+ 3828      5C50536F 
+ 3829              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 5.4.1 20160609 (release) [ARM/embedded-5-bran

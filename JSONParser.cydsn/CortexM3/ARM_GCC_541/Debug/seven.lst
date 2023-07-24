@@ -1,0 +1,2196 @@
+ARM GAS  C:\Users\MATEOC~1.QUE\AppData\Local\Temp\cc42DtmB.s 			page 1
+
+
+   1              		.syntax unified
+   2              		.cpu cortex-m3
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 1
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.thumb
+  14              		.syntax unified
+  15              		.file	"seven.c"
+  16              		.text
+  17              	.Ltext0:
+  18              		.cfi_sections	.debug_frame
+  19              		.section	.text.SEVEN_Set,"ax",%progbits
+  20              		.align	2
+  21              		.global	SEVEN_Set
+  22              		.thumb
+  23              		.thumb_func
+  24              		.type	SEVEN_Set, %function
+  25              	SEVEN_Set:
+  26              	.LFB111:
+  27              		.file 1 "source\\bsw\\LabBoard\\seven.c"
+   1:source\bsw\LabBoard/seven.c **** /**
+   2:source\bsw\LabBoard/seven.c **** * \file seven.c
+   3:source\bsw\LabBoard/seven.c **** * \author P. Fromm
+   4:source\bsw\LabBoard/seven.c **** * \date 28.8.17
+   5:source\bsw\LabBoard/seven.c **** *
+   6:source\bsw\LabBoard/seven.c **** * \brief Driver for 7 segment displays
+   7:source\bsw\LabBoard/seven.c **** *
+   8:source\bsw\LabBoard/seven.c **** * \copyright Copyright ©2016
+   9:source\bsw\LabBoard/seven.c **** * Department of electrical engineering and information technology, Hochschule Darmstadt - Universit
+  10:source\bsw\LabBoard/seven.c **** * Permission to use, copy, modify, and distribute this software and its documentation for education
+  11:source\bsw\LabBoard/seven.c **** * (unless permitted by h_da) and official h_da projects, is hereby granted for enrolled students of
+  12:source\bsw\LabBoard/seven.c **** * this paragraph and the following paragraph appear in all copies, modifications, and distributions
+  13:source\bsw\LabBoard/seven.c **** * Contact Prof.Dr.-Ing. Peter Fromm, peter.fromm@h-da.de, Birkenweg 8 64295 Darmstadt - GERMANY for
+  14:source\bsw\LabBoard/seven.c **** *
+  15:source\bsw\LabBoard/seven.c **** * \warning This software is a PROTOTYPE version and is not designed or intended for use in producti
+  16:source\bsw\LabBoard/seven.c **** * The user represents and warrants that it will NOT use or redistribute the Software for such purpo
+  17:source\bsw\LabBoard/seven.c **** * This prototype is for research purposes only. This software is provided "AS IS," without a warran
+  18:source\bsw\LabBoard/seven.c **** */
+  19:source\bsw\LabBoard/seven.c **** 
+  20:source\bsw\LabBoard/seven.c **** /*****************************************************************************/
+  21:source\bsw\LabBoard/seven.c **** /* Include files                                                             */
+  22:source\bsw\LabBoard/seven.c **** /*****************************************************************************/
+  23:source\bsw\LabBoard/seven.c **** #include "project.h"
+  24:source\bsw\LabBoard/seven.c **** #include "seven.h"
+  25:source\bsw\LabBoard/seven.c **** 
+  26:source\bsw\LabBoard/seven.c **** 
+  27:source\bsw\LabBoard/seven.c **** 
+  28:source\bsw\LabBoard/seven.c **** 
+  29:source\bsw\LabBoard/seven.c **** /*****************************************************************************/
+  30:source\bsw\LabBoard/seven.c **** /* Local pre-processor symbols/macros ('#define')                            */
+ARM GAS  C:\Users\MATEOC~1.QUE\AppData\Local\Temp\cc42DtmB.s 			page 2
+
+
+  31:source\bsw\LabBoard/seven.c **** /*****************************************************************************/
+  32:source\bsw\LabBoard/seven.c **** 
+  33:source\bsw\LabBoard/seven.c **** #define SEVEN__A  0b10000000
+  34:source\bsw\LabBoard/seven.c **** #define SEVEN__B  0b01000000
+  35:source\bsw\LabBoard/seven.c **** #define SEVEN__C  0b00100000
+  36:source\bsw\LabBoard/seven.c **** #define SEVEN__D  0b00010000
+  37:source\bsw\LabBoard/seven.c **** #define SEVEN__E  0b00001000
+  38:source\bsw\LabBoard/seven.c **** #define SEVEN__F  0b00000100
+  39:source\bsw\LabBoard/seven.c **** #define SEVEN__G  0b00000010
+  40:source\bsw\LabBoard/seven.c **** #define SEVEN__DP 0b00000001
+  41:source\bsw\LabBoard/seven.c **** 
+  42:source\bsw\LabBoard/seven.c **** 
+  43:source\bsw\LabBoard/seven.c **** /*****************************************************************************/
+  44:source\bsw\LabBoard/seven.c **** /* Global variable definitions (declared in header file with 'extern')       */
+  45:source\bsw\LabBoard/seven.c **** /*****************************************************************************/
+  46:source\bsw\LabBoard/seven.c **** 
+  47:source\bsw\LabBoard/seven.c **** /*****************************************************************************/
+  48:source\bsw\LabBoard/seven.c **** /* Local type definitions ('typedef')                                        */
+  49:source\bsw\LabBoard/seven.c **** /*****************************************************************************/
+  50:source\bsw\LabBoard/seven.c **** 
+  51:source\bsw\LabBoard/seven.c **** /*****************************************************************************/
+  52:source\bsw\LabBoard/seven.c **** /* Local variable definitions ('static')                                     */
+  53:source\bsw\LabBoard/seven.c **** /*****************************************************************************/
+  54:source\bsw\LabBoard/seven.c **** 
+  55:source\bsw\LabBoard/seven.c **** //    ABCDEFG
+  56:source\bsw\LabBoard/seven.c **** const static uint8_t SEVEN__BitPattern[] = 
+  57:source\bsw\LabBoard/seven.c **** {
+  58:source\bsw\LabBoard/seven.c ****     0b11111100,     //0
+  59:source\bsw\LabBoard/seven.c ****     0b01100000,     //1
+  60:source\bsw\LabBoard/seven.c ****     0b11011010,     //2
+  61:source\bsw\LabBoard/seven.c ****     0b11110010,     //3
+  62:source\bsw\LabBoard/seven.c ****     0b01100110,     //4
+  63:source\bsw\LabBoard/seven.c ****     0b10110110,     //5
+  64:source\bsw\LabBoard/seven.c ****     0b10111110,     //6
+  65:source\bsw\LabBoard/seven.c ****     0b11100000,     //7
+  66:source\bsw\LabBoard/seven.c ****     0b11111110,     //8
+  67:source\bsw\LabBoard/seven.c ****     0b11110110,     //9
+  68:source\bsw\LabBoard/seven.c ****     0b11101110,     //a
+  69:source\bsw\LabBoard/seven.c ****     0b00111110,     //b
+  70:source\bsw\LabBoard/seven.c ****     0b10011100,     //c
+  71:source\bsw\LabBoard/seven.c ****     0b01111010,     //d
+  72:source\bsw\LabBoard/seven.c ****     0b10011110,     //e
+  73:source\bsw\LabBoard/seven.c ****     0b10001110,     //f
+  74:source\bsw\LabBoard/seven.c ****     0b00000001      //decimal point
+  75:source\bsw\LabBoard/seven.c **** };
+  76:source\bsw\LabBoard/seven.c ****     
+  77:source\bsw\LabBoard/seven.c **** //We need to store the last latch value per display
+  78:source\bsw\LabBoard/seven.c **** //-1 means empty
+  79:source\bsw\LabBoard/seven.c **** static sint8_t SEVEN__latch_value[2] = {-1,-1};
+  80:source\bsw\LabBoard/seven.c **** static uint8_t SEVEN__latch_pattern[2] = {0,0};
+  81:source\bsw\LabBoard/seven.c **** 
+  82:source\bsw\LabBoard/seven.c **** /*****************************************************************************/
+  83:source\bsw\LabBoard/seven.c **** /* Local function prototypes ('static')                                      */
+  84:source\bsw\LabBoard/seven.c **** /*****************************************************************************/
+  85:source\bsw\LabBoard/seven.c **** 
+  86:source\bsw\LabBoard/seven.c **** 
+  87:source\bsw\LabBoard/seven.c **** /*****************************************************************************/
+ARM GAS  C:\Users\MATEOC~1.QUE\AppData\Local\Temp\cc42DtmB.s 			page 3
+
+
+  88:source\bsw\LabBoard/seven.c **** /* Function implementation - global ('extern') and local ('static')          */
+  89:source\bsw\LabBoard/seven.c **** /*****************************************************************************/
+  90:source\bsw\LabBoard/seven.c **** 
+  91:source\bsw\LabBoard/seven.c **** 
+  92:source\bsw\LabBoard/seven.c **** 
+  93:source\bsw\LabBoard/seven.c **** /**
+  94:source\bsw\LabBoard/seven.c ****  * Initilasation of the seven segment display
+  95:source\bsw\LabBoard/seven.c ****  * @return RC_SUCCESS if function was executed correctly, other value in case of error
+  96:source\bsw\LabBoard/seven.c ****  */
+  97:source\bsw\LabBoard/seven.c **** RC_t SEVEN_Init()
+  98:source\bsw\LabBoard/seven.c **** {
+  99:source\bsw\LabBoard/seven.c ****     
+ 100:source\bsw\LabBoard/seven.c ****     SEVEN_Clear(SEVEN_0);
+ 101:source\bsw\LabBoard/seven.c ****     SEVEN_Clear(SEVEN_1);
+ 102:source\bsw\LabBoard/seven.c ****     
+ 103:source\bsw\LabBoard/seven.c ****     return RC_SUCCESS;
+ 104:source\bsw\LabBoard/seven.c **** }
+ 105:source\bsw\LabBoard/seven.c **** 
+ 106:source\bsw\LabBoard/seven.c **** 
+ 107:source\bsw\LabBoard/seven.c **** /**
+ 108:source\bsw\LabBoard/seven.c ****  * Sets value for one display
+ 109:source\bsw\LabBoard/seven.c ****  * @param SEVEN_id_t sevenId - identifier for the segment to be set
+ 110:source\bsw\LabBoard/seven.c ****  * @param uint8_t value - value to be set, valid range 0...15
+ 111:source\bsw\LabBoard/seven.c ****  * @return RC_SUCCESS if function was executed correctly, other value in case of error
+ 112:source\bsw\LabBoard/seven.c ****  */
+ 113:source\bsw\LabBoard/seven.c **** RC_t SEVEN_Set(SEVEN_id_t sevenId, uint8_t value)
+ 114:source\bsw\LabBoard/seven.c **** {
+  28              		.loc 1 114 0
+  29              		.cfi_startproc
+  30              		@ args = 0, pretend = 0, frame = 0
+  31              		@ frame_needed = 0, uses_anonymous_args = 0
+  32              	.LVL0:
+ 115:source\bsw\LabBoard/seven.c ****     if (value > 0x0F)
+  33              		.loc 1 115 0
+  34 0000 0F29     		cmp	r1, #15
+  35 0002 0ED8     		bhi	.L3
+ 114:source\bsw\LabBoard/seven.c ****     if (value > 0x0F)
+  36              		.loc 1 114 0
+  37 0004 38B5     		push	{r3, r4, r5, lr}
+  38              		.cfi_def_cfa_offset 16
+  39              		.cfi_offset 3, -16
+  40              		.cfi_offset 4, -12
+  41              		.cfi_offset 5, -8
+  42              		.cfi_offset 14, -4
+  43 0006 0C46     		mov	r4, r1
+  44 0008 0546     		mov	r5, r0
+ 116:source\bsw\LabBoard/seven.c ****     {
+ 117:source\bsw\LabBoard/seven.c ****         return RC_ERROR_BAD_PARAM;
+ 118:source\bsw\LabBoard/seven.c ****     }
+ 119:source\bsw\LabBoard/seven.c ****     
+ 120:source\bsw\LabBoard/seven.c ****     //Set the selection bit for the display
+ 121:source\bsw\LabBoard/seven.c ****     SEVEN_SELECT_Write((uint8_t)sevenId);
+  45              		.loc 1 121 0
+  46 000a FFF7FEFF 		bl	SEVEN_SELECT_Write
+  47              	.LVL1:
+ 122:source\bsw\LabBoard/seven.c ****     
+ 123:source\bsw\LabBoard/seven.c ****     //Set the bitpattern
+ARM GAS  C:\Users\MATEOC~1.QUE\AppData\Local\Temp\cc42DtmB.s 			page 4
+
+
+ 124:source\bsw\LabBoard/seven.c ****     //As we do not have a single port, we have to do it bit by bit
+ 125:source\bsw\LabBoard/seven.c ****     
+ 126:source\bsw\LabBoard/seven.c ****     uint8_t pattern = SEVEN__BitPattern[value];
+  48              		.loc 1 126 0
+  49 000e 064B     		ldr	r3, .L6
+  50 0010 185D     		ldrb	r0, [r3, r4]	@ zero_extendqisi2
+  51              	.LVL2:
+ 127:source\bsw\LabBoard/seven.c ****     
+ 128:source\bsw\LabBoard/seven.c ****     //Store the current pattern in the software latch (needed for the DP function)
+ 129:source\bsw\LabBoard/seven.c ****     SEVEN__latch_value[(uint8_t)sevenId] = value;
+  52              		.loc 1 129 0
+  53 0012 064B     		ldr	r3, .L6+4
+  54 0014 5C55     		strb	r4, [r3, r5]
+ 130:source\bsw\LabBoard/seven.c ****     SEVEN__latch_pattern[(uint8_t)sevenId] = pattern;
+  55              		.loc 1 130 0
+  56 0016 064B     		ldr	r3, .L6+8
+  57 0018 5855     		strb	r0, [r3, r5]
+ 131:source\bsw\LabBoard/seven.c ****     
+ 132:source\bsw\LabBoard/seven.c ****     SEVEN_reg_Write(pattern);
+  58              		.loc 1 132 0
+  59 001a FFF7FEFF 		bl	SEVEN_reg_Write
+  60              	.LVL3:
+ 133:source\bsw\LabBoard/seven.c ****     return RC_SUCCESS;
+  61              		.loc 1 133 0
+  62 001e 0020     		movs	r0, #0
+  63 0020 38BD     		pop	{r3, r4, r5, pc}
+  64              	.LVL4:
+  65              	.L3:
+  66              		.cfi_def_cfa_offset 0
+  67              		.cfi_restore 3
+  68              		.cfi_restore 4
+  69              		.cfi_restore 5
+  70              		.cfi_restore 14
+ 117:source\bsw\LabBoard/seven.c ****     }
+  71              		.loc 1 117 0
+  72 0022 6FF01300 		mvn	r0, #19
+  73              	.LVL5:
+  74 0026 7047     		bx	lr
+  75              	.L7:
+  76              		.align	2
+  77              	.L6:
+  78 0028 00000000 		.word	.LANCHOR0
+  79 002c 00000000 		.word	.LANCHOR1
+  80 0030 00000000 		.word	.LANCHOR2
+  81              		.cfi_endproc
+  82              	.LFE111:
+  83              		.size	SEVEN_Set, .-SEVEN_Set
+  84              		.section	.text.SEVEN_Get,"ax",%progbits
+  85              		.align	2
+  86              		.global	SEVEN_Get
+  87              		.thumb
+  88              		.thumb_func
+  89              		.type	SEVEN_Get, %function
+  90              	SEVEN_Get:
+  91              	.LFB112:
+ 134:source\bsw\LabBoard/seven.c ****     
+ 135:source\bsw\LabBoard/seven.c **** }
+ARM GAS  C:\Users\MATEOC~1.QUE\AppData\Local\Temp\cc42DtmB.s 			page 5
+
+
+ 136:source\bsw\LabBoard/seven.c **** 
+ 137:source\bsw\LabBoard/seven.c **** /**
+ 138:source\bsw\LabBoard/seven.c ****  * Get value for one display
+ 139:source\bsw\LabBoard/seven.c ****  * @param SEVEN_id_t sevenId - identifier for the segment to be set
+ 140:source\bsw\LabBoard/seven.c ****  * @param uint8_t value - current value, valid range 0...15
+ 141:source\bsw\LabBoard/seven.c ****  * @return RC_SUCCESS if function was executed correctly, other value in case of error
+ 142:source\bsw\LabBoard/seven.c ****  */
+ 143:source\bsw\LabBoard/seven.c **** RC_t SEVEN_Get(SEVEN_id_t sevenId, sint8_t* value)
+ 144:source\bsw\LabBoard/seven.c **** {
+  92              		.loc 1 144 0
+  93              		.cfi_startproc
+  94              		@ args = 0, pretend = 0, frame = 0
+  95              		@ frame_needed = 0, uses_anonymous_args = 0
+  96              		@ link register save eliminated.
+  97              	.LVL6:
+ 145:source\bsw\LabBoard/seven.c ****     *value = SEVEN__latch_value[(uint8_t)sevenId];
+  98              		.loc 1 145 0
+  99 0000 024B     		ldr	r3, .L9
+ 100 0002 1B56     		ldrsb	r3, [r3, r0]
+ 101 0004 0B70     		strb	r3, [r1]
+ 146:source\bsw\LabBoard/seven.c ****     return RC_SUCCESS;
+ 147:source\bsw\LabBoard/seven.c **** }
+ 102              		.loc 1 147 0
+ 103 0006 0020     		movs	r0, #0
+ 104              	.LVL7:
+ 105 0008 7047     		bx	lr
+ 106              	.L10:
+ 107 000a 00BF     		.align	2
+ 108              	.L9:
+ 109 000c 00000000 		.word	.LANCHOR1
+ 110              		.cfi_endproc
+ 111              	.LFE112:
+ 112              		.size	SEVEN_Get, .-SEVEN_Get
+ 113              		.section	.text.SEVEN_SetHex,"ax",%progbits
+ 114              		.align	2
+ 115              		.global	SEVEN_SetHex
+ 116              		.thumb
+ 117              		.thumb_func
+ 118              		.type	SEVEN_SetHex, %function
+ 119              	SEVEN_SetHex:
+ 120              	.LFB113:
+ 148:source\bsw\LabBoard/seven.c **** 
+ 149:source\bsw\LabBoard/seven.c **** 
+ 150:source\bsw\LabBoard/seven.c **** /**
+ 151:source\bsw\LabBoard/seven.c ****  * Sets both displays
+ 152:source\bsw\LabBoard/seven.c ****  * @param uint8_t value - value to be set, valid range 0...255
+ 153:source\bsw\LabBoard/seven.c ****  * @return RC_SUCCESS if function was executed correctly, other value in case of error
+ 154:source\bsw\LabBoard/seven.c ****  */
+ 155:source\bsw\LabBoard/seven.c **** RC_t SEVEN_SetHex(uint8_t value)
+ 156:source\bsw\LabBoard/seven.c **** {
+ 121              		.loc 1 156 0
+ 122              		.cfi_startproc
+ 123              		@ args = 0, pretend = 0, frame = 0
+ 124              		@ frame_needed = 0, uses_anonymous_args = 0
+ 125              	.LVL8:
+ 126 0000 10B5     		push	{r4, lr}
+ 127              		.cfi_def_cfa_offset 8
+ARM GAS  C:\Users\MATEOC~1.QUE\AppData\Local\Temp\cc42DtmB.s 			page 6
+
+
+ 128              		.cfi_offset 4, -8
+ 129              		.cfi_offset 14, -4
+ 130 0002 0446     		mov	r4, r0
+ 157:source\bsw\LabBoard/seven.c ****     SEVEN_Set(SEVEN_1, value / 16);
+ 131              		.loc 1 157 0
+ 132 0004 0109     		lsrs	r1, r0, #4
+ 133 0006 0120     		movs	r0, #1
+ 134              	.LVL9:
+ 135 0008 FFF7FEFF 		bl	SEVEN_Set
+ 136              	.LVL10:
+ 158:source\bsw\LabBoard/seven.c ****     SEVEN_Set(SEVEN_0, value % 16);
+ 137              		.loc 1 158 0
+ 138 000c 04F00F01 		and	r1, r4, #15
+ 139 0010 0020     		movs	r0, #0
+ 140 0012 FFF7FEFF 		bl	SEVEN_Set
+ 141              	.LVL11:
+ 159:source\bsw\LabBoard/seven.c ****     
+ 160:source\bsw\LabBoard/seven.c ****     return RC_SUCCESS;
+ 161:source\bsw\LabBoard/seven.c **** }
+ 142              		.loc 1 161 0
+ 143 0016 0020     		movs	r0, #0
+ 144 0018 10BD     		pop	{r4, pc}
+ 145              		.cfi_endproc
+ 146              	.LFE113:
+ 147              		.size	SEVEN_SetHex, .-SEVEN_SetHex
+ 148 001a 00BF     		.section	.text.SEVEN_SetDP,"ax",%progbits
+ 149              		.align	2
+ 150              		.global	SEVEN_SetDP
+ 151              		.thumb
+ 152              		.thumb_func
+ 153              		.type	SEVEN_SetDP, %function
+ 154              	SEVEN_SetDP:
+ 155              	.LFB114:
+ 162:source\bsw\LabBoard/seven.c **** 
+ 163:source\bsw\LabBoard/seven.c **** /**
+ 164:source\bsw\LabBoard/seven.c ****  * Sets decimal point for one display
+ 165:source\bsw\LabBoard/seven.c ****  * @param SEVEN_id_t sevenId - identifier for the segment to be set
+ 166:source\bsw\LabBoard/seven.c ****  * @param uint8_t value - value to be set, valid range 0 (OFF)...1(ON)
+ 167:source\bsw\LabBoard/seven.c ****  * @return RC_SUCCESS if function was executed correctly, other value in case of error
+ 168:source\bsw\LabBoard/seven.c ****  */
+ 169:source\bsw\LabBoard/seven.c **** RC_t SEVEN_SetDP(SEVEN_id_t sevenId, uint8_t value)
+ 170:source\bsw\LabBoard/seven.c **** {
+ 156              		.loc 1 170 0
+ 157              		.cfi_startproc
+ 158              		@ args = 0, pretend = 0, frame = 0
+ 159              		@ frame_needed = 0, uses_anonymous_args = 0
+ 160              	.LVL12:
+ 171:source\bsw\LabBoard/seven.c ****     
+ 172:source\bsw\LabBoard/seven.c ****     if (value > 1)
+ 161              		.loc 1 172 0
+ 162 0000 0129     		cmp	r1, #1
+ 163 0002 14D8     		bhi	.L16
+ 170:source\bsw\LabBoard/seven.c ****     
+ 164              		.loc 1 170 0
+ 165 0004 38B5     		push	{r3, r4, r5, lr}
+ 166              		.cfi_def_cfa_offset 16
+ 167              		.cfi_offset 3, -16
+ARM GAS  C:\Users\MATEOC~1.QUE\AppData\Local\Temp\cc42DtmB.s 			page 7
+
+
+ 168              		.cfi_offset 4, -12
+ 169              		.cfi_offset 5, -8
+ 170              		.cfi_offset 14, -4
+ 171              	.LVL13:
+ 173:source\bsw\LabBoard/seven.c ****     {
+ 174:source\bsw\LabBoard/seven.c ****         return RC_ERROR_BAD_PARAM;
+ 175:source\bsw\LabBoard/seven.c ****     }
+ 176:source\bsw\LabBoard/seven.c ****     
+ 177:source\bsw\LabBoard/seven.c ****     //Restore the last display pattern
+ 178:source\bsw\LabBoard/seven.c ****     uint8_t pattern = 0;
+ 179:source\bsw\LabBoard/seven.c ****     if (SEVEN__latch_value[(uint8_t)sevenId] != -1)
+ 172              		.loc 1 179 0
+ 173 0006 0B4B     		ldr	r3, .L20
+ 174 0008 1B56     		ldrsb	r3, [r3, r0]
+ 175 000a B3F1FF3F 		cmp	r3, #-1
+ 176 000e 02D0     		beq	.L17
+ 180:source\bsw\LabBoard/seven.c ****     {
+ 181:source\bsw\LabBoard/seven.c ****         pattern = SEVEN__latch_pattern[(uint8_t)sevenId];
+ 177              		.loc 1 181 0
+ 178 0010 094B     		ldr	r3, .L20+4
+ 179 0012 1D5C     		ldrb	r5, [r3, r0]	@ zero_extendqisi2
+ 180              	.LVL14:
+ 181 0014 00E0     		b	.L15
+ 182              	.LVL15:
+ 183              	.L17:
+ 178:source\bsw\LabBoard/seven.c ****     if (SEVEN__latch_value[(uint8_t)sevenId] != -1)
+ 184              		.loc 1 178 0
+ 185 0016 0025     		movs	r5, #0
+ 186              	.LVL16:
+ 187              	.L15:
+ 188 0018 0C46     		mov	r4, r1
+ 189              	.LVL17:
+ 182:source\bsw\LabBoard/seven.c ****     }
+ 183:source\bsw\LabBoard/seven.c ****     
+ 184:source\bsw\LabBoard/seven.c ****     //Set the selection bit for the display
+ 185:source\bsw\LabBoard/seven.c ****     SEVEN_SELECT_Write((uint8_t)sevenId);
+ 190              		.loc 1 185 0
+ 191 001a FFF7FEFF 		bl	SEVEN_SELECT_Write
+ 192              	.LVL18:
+ 186:source\bsw\LabBoard/seven.c ****     
+ 187:source\bsw\LabBoard/seven.c ****     //Set the port to the pattern currently active
+ 188:source\bsw\LabBoard/seven.c ****     SEVEN_reg_Write(pattern);
+ 193              		.loc 1 188 0
+ 194 001e 2846     		mov	r0, r5
+ 195 0020 FFF7FEFF 		bl	SEVEN_reg_Write
+ 196              	.LVL19:
+ 189:source\bsw\LabBoard/seven.c ****     
+ 190:source\bsw\LabBoard/seven.c ****     //Set the decimal point
+ 191:source\bsw\LabBoard/seven.c ****     SEVEN_DP_Write(value);
+ 197              		.loc 1 191 0
+ 198 0024 2046     		mov	r0, r4
+ 199 0026 FFF7FEFF 		bl	SEVEN_DP_Write
+ 200              	.LVL20:
+ 192:source\bsw\LabBoard/seven.c **** 
+ 193:source\bsw\LabBoard/seven.c ****     return RC_SUCCESS;
+ 201              		.loc 1 193 0
+ 202 002a 0020     		movs	r0, #0
+ARM GAS  C:\Users\MATEOC~1.QUE\AppData\Local\Temp\cc42DtmB.s 			page 8
+
+
+ 203 002c 38BD     		pop	{r3, r4, r5, pc}
+ 204              	.LVL21:
+ 205              	.L16:
+ 206              		.cfi_def_cfa_offset 0
+ 207              		.cfi_restore 3
+ 208              		.cfi_restore 4
+ 209              		.cfi_restore 5
+ 210              		.cfi_restore 14
+ 174:source\bsw\LabBoard/seven.c ****     }
+ 211              		.loc 1 174 0
+ 212 002e 6FF01300 		mvn	r0, #19
+ 213              	.LVL22:
+ 214 0032 7047     		bx	lr
+ 215              	.L21:
+ 216              		.align	2
+ 217              	.L20:
+ 218 0034 00000000 		.word	.LANCHOR1
+ 219 0038 00000000 		.word	.LANCHOR2
+ 220              		.cfi_endproc
+ 221              	.LFE114:
+ 222              		.size	SEVEN_SetDP, .-SEVEN_SetDP
+ 223              		.section	.text.SEVEN_Clear,"ax",%progbits
+ 224              		.align	2
+ 225              		.global	SEVEN_Clear
+ 226              		.thumb
+ 227              		.thumb_func
+ 228              		.type	SEVEN_Clear, %function
+ 229              	SEVEN_Clear:
+ 230              	.LFB115:
+ 194:source\bsw\LabBoard/seven.c **** }
+ 195:source\bsw\LabBoard/seven.c **** 
+ 196:source\bsw\LabBoard/seven.c **** /**
+ 197:source\bsw\LabBoard/seven.c ****  * Clears one display
+ 198:source\bsw\LabBoard/seven.c ****  * @param SEVEN_id_t sevenId - identifier for the segment to be set
+ 199:source\bsw\LabBoard/seven.c ****  * @return RC_SUCCESS if function was executed correctly, other value in case of error
+ 200:source\bsw\LabBoard/seven.c ****  */
+ 201:source\bsw\LabBoard/seven.c **** RC_t SEVEN_Clear(SEVEN_id_t sevenId)
+ 202:source\bsw\LabBoard/seven.c **** {
+ 231              		.loc 1 202 0
+ 232              		.cfi_startproc
+ 233              		@ args = 0, pretend = 0, frame = 0
+ 234              		@ frame_needed = 0, uses_anonymous_args = 0
+ 235              	.LVL23:
+ 236 0000 08B5     		push	{r3, lr}
+ 237              		.cfi_def_cfa_offset 8
+ 238              		.cfi_offset 3, -8
+ 239              		.cfi_offset 14, -4
+ 203:source\bsw\LabBoard/seven.c ****     //Set software latch to cleared
+ 204:source\bsw\LabBoard/seven.c ****     SEVEN__latch_value[(uint8_t)sevenId] = -1;
+ 240              		.loc 1 204 0
+ 241 0002 FF22     		movs	r2, #255
+ 242 0004 044B     		ldr	r3, .L24
+ 243 0006 1A54     		strb	r2, [r3, r0]
+ 205:source\bsw\LabBoard/seven.c ****     
+ 206:source\bsw\LabBoard/seven.c ****     //Set the selection bit for the display
+ 207:source\bsw\LabBoard/seven.c ****     SEVEN_SELECT_Write((uint8_t)sevenId);
+ 244              		.loc 1 207 0
+ARM GAS  C:\Users\MATEOC~1.QUE\AppData\Local\Temp\cc42DtmB.s 			page 9
+
+
+ 245 0008 FFF7FEFF 		bl	SEVEN_SELECT_Write
+ 246              	.LVL24:
+ 208:source\bsw\LabBoard/seven.c ****     
+ 209:source\bsw\LabBoard/seven.c ****     //Clear every bit
+ 210:source\bsw\LabBoard/seven.c ****     SEVEN_reg_Write(0);
+ 247              		.loc 1 210 0
+ 248 000c 0020     		movs	r0, #0
+ 249 000e FFF7FEFF 		bl	SEVEN_reg_Write
+ 250              	.LVL25:
+ 211:source\bsw\LabBoard/seven.c ****     
+ 212:source\bsw\LabBoard/seven.c ****     return RC_SUCCESS;
+ 213:source\bsw\LabBoard/seven.c **** }...
+ 251              		.loc 1 213 0
+ 252 0012 0020     		movs	r0, #0
+ 253 0014 08BD     		pop	{r3, pc}
+ 254              	.L25:
+ 255 0016 00BF     		.align	2
+ 256              	.L24:
+ 257 0018 00000000 		.word	.LANCHOR1
+ 258              		.cfi_endproc
+ 259              	.LFE115:
+ 260              		.size	SEVEN_Clear, .-SEVEN_Clear
+ 261              		.section	.text.SEVEN_Init,"ax",%progbits
+ 262              		.align	2
+ 263              		.global	SEVEN_Init
+ 264              		.thumb
+ 265              		.thumb_func
+ 266              		.type	SEVEN_Init, %function
+ 267              	SEVEN_Init:
+ 268              	.LFB110:
+  98:source\bsw\LabBoard/seven.c **** {
+ 269              		.loc 1 98 0
+ 270              		.cfi_startproc
+ 271              		@ args = 0, pretend = 0, frame = 0
+ 272              		@ frame_needed = 0, uses_anonymous_args = 0
+ 273 0000 08B5     		push	{r3, lr}
+ 274              		.cfi_def_cfa_offset 8
+ 275              		.cfi_offset 3, -8
+ 276              		.cfi_offset 14, -4
+ 100:source\bsw\LabBoard/seven.c ****     SEVEN_Clear(SEVEN_0);
+ 277              		.loc 1 100 0
+ 278 0002 0020     		movs	r0, #0
+ 279 0004 FFF7FEFF 		bl	SEVEN_Clear
+ 280              	.LVL26:
+ 101:source\bsw\LabBoard/seven.c ****     SEVEN_Clear(SEVEN_1);
+ 281              		.loc 1 101 0
+ 282 0008 0120     		movs	r0, #1
+ 283 000a FFF7FEFF 		bl	SEVEN_Clear
+ 284              	.LVL27:
+ 104:source\bsw\LabBoard/seven.c **** }
+ 285              		.loc 1 104 0
+ 286 000e 0020     		movs	r0, #0
+ 287 0010 08BD     		pop	{r3, pc}
+ 288              		.cfi_endproc
+ 289              	.LFE110:
+ 290              		.size	SEVEN_Init, .-SEVEN_Init
+ 291 0012 00BF     		.section	.rodata
+ARM GAS  C:\Users\MATEOC~1.QUE\AppData\Local\Temp\cc42DtmB.s 			page 10
+
+
+ 292              		.align	2
+ 293              		.set	.LANCHOR0,. + 0
+ 294              		.type	SEVEN__BitPattern, %object
+ 295              		.size	SEVEN__BitPattern, 17
+ 296              	SEVEN__BitPattern:
+ 297 0000 FC       		.byte	-4
+ 298 0001 60       		.byte	96
+ 299 0002 DA       		.byte	-38
+ 300 0003 F2       		.byte	-14
+ 301 0004 66       		.byte	102
+ 302 0005 B6       		.byte	-74
+ 303 0006 BE       		.byte	-66
+ 304 0007 E0       		.byte	-32
+ 305 0008 FE       		.byte	-2
+ 306 0009 F6       		.byte	-10
+ 307 000a EE       		.byte	-18
+ 308 000b 3E       		.byte	62
+ 309 000c 9C       		.byte	-100
+ 310 000d 7A       		.byte	122
+ 311 000e 9E       		.byte	-98
+ 312 000f 8E       		.byte	-114
+ 313 0010 01       		.byte	1
+ 314              		.data
+ 315              		.align	2
+ 316              		.set	.LANCHOR1,. + 0
+ 317              		.type	SEVEN__latch_value, %object
+ 318              		.size	SEVEN__latch_value, 2
+ 319              	SEVEN__latch_value:
+ 320 0000 FF       		.byte	-1
+ 321 0001 FF       		.byte	-1
+ 322              		.bss
+ 323              		.align	2
+ 324              		.set	.LANCHOR2,. + 0
+ 325              		.type	SEVEN__latch_pattern, %object
+ 326              		.size	SEVEN__latch_pattern, 2
+ 327              	SEVEN__latch_pattern:
+ 328 0000 0000     		.space	2
+ 329              		.text
+ 330              	.Letext0:
+ 331              		.file 2 "c:\\program files (x86)\\cypress\\psoc creator\\4.4\\psoc creator\\import\\gnu\\arm\\5.4.
+ 332              		.file 3 "c:\\program files (x86)\\cypress\\psoc creator\\4.4\\psoc creator\\import\\gnu\\arm\\5.4.
+ 333              		.file 4 "Generated_Source\\PSoC5/ErikaOS_1_common_ee_types.inc"
+ 334              		.file 5 "Generated_Source\\PSoC5/ErikaOS_1_cortex_mx_ee_cpu.inc"
+ 335              		.file 6 ".\\source\\bsw/global.h"
+ 336              		.file 7 "source\\bsw\\LabBoard\\seven.h"
+ 337              		.file 8 "Generated_Source\\PSoC5/ErikaOS_1_ee_oo_intfunc.inc"
+ 338              		.file 9 "Generated_Source\\PSoC5/ErikaOS_1_cortex_mx_ee_context.inc"
+ 339              		.file 10 "Generated_Source\\PSoC5/ErikaOS_1_common_ee_primitives.inc"
+ 340              		.file 11 "Generated_Source\\PSoC5/core_cm3.h"
+ 341              		.file 12 "Generated_Source\\PSoC5/SEVEN_SELECT.h"
+ 342              		.file 13 "Generated_Source\\PSoC5/SEVEN_reg.h"
+ 343              		.file 14 "Generated_Source\\PSoC5/SEVEN_DP.h"
+ 344              		.section	.debug_info,"",%progbits
+ 345              	.Ldebug_info0:
+ 346 0000 A2040000 		.4byte	0x4a2
+ 347 0004 0400     		.2byte	0x4
+ 348 0006 00000000 		.4byte	.Ldebug_abbrev0
+ARM GAS  C:\Users\MATEOC~1.QUE\AppData\Local\Temp\cc42DtmB.s 			page 11
+
+
+ 349 000a 04       		.byte	0x4
+ 350 000b 01       		.uleb128 0x1
+ 351 000c 8D030000 		.4byte	.LASF74
+ 352 0010 0C       		.byte	0xc
+ 353 0011 BF020000 		.4byte	.LASF75
+ 354 0015 AD000000 		.4byte	.LASF76
+ 355 0019 00000000 		.4byte	.Ldebug_ranges0+0
+ 356 001d 00000000 		.4byte	0
+ 357 0021 00000000 		.4byte	.Ldebug_line0
+ 358 0025 02       		.uleb128 0x2
+ 359 0026 01       		.byte	0x1
+ 360 0027 06       		.byte	0x6
+ 361 0028 BD010000 		.4byte	.LASF0
+ 362 002c 03       		.uleb128 0x3
+ 363 002d 73020000 		.4byte	.LASF4
+ 364 0031 02       		.byte	0x2
+ 365 0032 1D       		.byte	0x1d
+ 366 0033 37000000 		.4byte	0x37
+ 367 0037 02       		.uleb128 0x2
+ 368 0038 01       		.byte	0x1
+ 369 0039 08       		.byte	0x8
+ 370 003a F3020000 		.4byte	.LASF1
+ 371 003e 02       		.uleb128 0x2
+ 372 003f 02       		.byte	0x2
+ 373 0040 05       		.byte	0x5
+ 374 0041 45000000 		.4byte	.LASF2
+ 375 0045 02       		.uleb128 0x2
+ 376 0046 02       		.byte	0x2
+ 377 0047 07       		.byte	0x7
+ 378 0048 7A030000 		.4byte	.LASF3
+ 379 004c 03       		.uleb128 0x3
+ 380 004d EA040000 		.4byte	.LASF5
+ 381 0051 02       		.byte	0x2
+ 382 0052 3F       		.byte	0x3f
+ 383 0053 57000000 		.4byte	0x57
+ 384 0057 02       		.uleb128 0x2
+ 385 0058 04       		.byte	0x4
+ 386 0059 05       		.byte	0x5
+ 387 005a 4A020000 		.4byte	.LASF6
+ 388 005e 02       		.uleb128 0x2
+ 389 005f 04       		.byte	0x4
+ 390 0060 07       		.byte	0x7
+ 391 0061 9D040000 		.4byte	.LASF7
+ 392 0065 02       		.uleb128 0x2
+ 393 0066 08       		.byte	0x8
+ 394 0067 05       		.byte	0x5
+ 395 0068 E8010000 		.4byte	.LASF8
+ 396 006c 02       		.uleb128 0x2
+ 397 006d 08       		.byte	0x8
+ 398 006e 07       		.byte	0x7
+ 399 006f 09030000 		.4byte	.LASF9
+ 400 0073 04       		.uleb128 0x4
+ 401 0074 04       		.byte	0x4
+ 402 0075 05       		.byte	0x5
+ 403 0076 696E7400 		.ascii	"int\000"
+ 404 007a 02       		.uleb128 0x2
+ 405 007b 04       		.byte	0x4
+ARM GAS  C:\Users\MATEOC~1.QUE\AppData\Local\Temp\cc42DtmB.s 			page 12
+
+
+ 406 007c 07       		.byte	0x7
+ 407 007d 20030000 		.4byte	.LASF10
+ 408 0081 03       		.uleb128 0x3
+ 409 0082 70010000 		.4byte	.LASF11
+ 410 0086 03       		.byte	0x3
+ 411 0087 18       		.byte	0x18
+ 412 0088 2C000000 		.4byte	0x2c
+ 413 008c 03       		.uleb128 0x3
+ 414 008d 51040000 		.4byte	.LASF12
+ 415 0091 03       		.byte	0x3
+ 416 0092 2C       		.byte	0x2c
+ 417 0093 4C000000 		.4byte	0x4c
+ 418 0097 02       		.uleb128 0x2
+ 419 0098 04       		.byte	0x4
+ 420 0099 04       		.byte	0x4
+ 421 009a C9010000 		.4byte	.LASF13
+ 422 009e 02       		.uleb128 0x2
+ 423 009f 08       		.byte	0x8
+ 424 00a0 04       		.byte	0x4
+ 425 00a1 AF040000 		.4byte	.LASF14
+ 426 00a5 02       		.uleb128 0x2
+ 427 00a6 01       		.byte	0x1
+ 428 00a7 08       		.byte	0x8
+ 429 00a8 2B040000 		.4byte	.LASF15
+ 430 00ac 02       		.uleb128 0x2
+ 431 00ad 08       		.byte	0x8
+ 432 00ae 04       		.byte	0x4
+ 433 00af E7020000 		.4byte	.LASF16
+ 434 00b3 02       		.uleb128 0x2
+ 435 00b4 04       		.byte	0x4
+ 436 00b5 07       		.byte	0x7
+ 437 00b6 75000000 		.4byte	.LASF17
+ 438 00ba 03       		.uleb128 0x3
+ 439 00bb 71030000 		.4byte	.LASF18
+ 440 00bf 04       		.byte	0x4
+ 441 00c0 53       		.byte	0x53
+ 442 00c1 73000000 		.4byte	0x73
+ 443 00c5 03       		.uleb128 0x3
+ 444 00c6 59010000 		.4byte	.LASF19
+ 445 00ca 04       		.byte	0x4
+ 446 00cb 54       		.byte	0x54
+ 447 00cc 7A000000 		.4byte	0x7a
+ 448 00d0 03       		.uleb128 0x3
+ 449 00d1 D3040000 		.4byte	.LASF20
+ 450 00d5 05       		.byte	0x5
+ 451 00d6 4D       		.byte	0x4d
+ 452 00d7 C5000000 		.4byte	0xc5
+ 453 00db 03       		.uleb128 0x3
+ 454 00dc 94000000 		.4byte	.LASF21
+ 455 00e0 05       		.byte	0x5
+ 456 00e1 4F       		.byte	0x4f
+ 457 00e2 C5000000 		.4byte	0xc5
+ 458 00e6 03       		.uleb128 0x3
+ 459 00e7 63010000 		.4byte	.LASF22
+ 460 00eb 05       		.byte	0x5
+ 461 00ec 78       		.byte	0x78
+ 462 00ed BA000000 		.4byte	0xba
+ARM GAS  C:\Users\MATEOC~1.QUE\AppData\Local\Temp\cc42DtmB.s 			page 13
+
+
+ 463 00f1 03       		.uleb128 0x3
+ 464 00f2 6B050000 		.4byte	.LASF23
+ 465 00f6 06       		.byte	0x6
+ 466 00f7 90       		.byte	0x90
+ 467 00f8 25000000 		.4byte	0x25
+ 468 00fc 05       		.uleb128 0x5
+ 469 00fd 01       		.byte	0x1
+ 470 00fe 25000000 		.4byte	0x25
+ 471 0102 06       		.byte	0x6
+ 472 0103 CF       		.byte	0xcf
+ 473 0104 A5010000 		.4byte	0x1a5
+ 474 0108 06       		.uleb128 0x6
+ 475 0109 26000000 		.4byte	.LASF24
+ 476 010d 00       		.byte	0
+ 477 010e 07       		.uleb128 0x7
+ 478 010f 35050000 		.4byte	.LASF25
+ 479 0113 7F       		.sleb128 -1
+ 480 0114 07       		.uleb128 0x7
+ 481 0115 4D030000 		.4byte	.LASF26
+ 482 0119 7E       		.sleb128 -2
+ 483 011a 07       		.uleb128 0x7
+ 484 011b 86000000 		.4byte	.LASF27
+ 485 011f 7D       		.sleb128 -3
+ 486 0120 07       		.uleb128 0x7
+ 487 0121 3E050000 		.4byte	.LASF28
+ 488 0125 7C       		.sleb128 -4
+ 489 0126 07       		.uleb128 0x7
+ 490 0127 DB040000 		.4byte	.LASF29
+ 491 012b 7B       		.sleb128 -5
+ 492 012c 07       		.uleb128 0x7
+ 493 012d 4F000000 		.4byte	.LASF30
+ 494 0131 7A       		.sleb128 -6
+ 495 0132 07       		.uleb128 0x7
+ 496 0133 53020000 		.4byte	.LASF31
+ 497 0137 79       		.sleb128 -7
+ 498 0138 07       		.uleb128 0x7
+ 499 0139 3C040000 		.4byte	.LASF32
+ 500 013d 78       		.sleb128 -8
+ 501 013e 07       		.uleb128 0x7
+ 502 013f 5B030000 		.4byte	.LASF33
+ 503 0143 77       		.sleb128 -9
+ 504 0144 07       		.uleb128 0x7
+ 505 0145 65020000 		.4byte	.LASF34
+ 506 0149 76       		.sleb128 -10
+ 507 014a 07       		.uleb128 0x7
+ 508 014b 73050000 		.4byte	.LASF35
+ 509 014f 75       		.sleb128 -11
+ 510 0150 07       		.uleb128 0x7
+ 511 0151 2D030000 		.4byte	.LASF36
+ 512 0155 74       		.sleb128 -12
+ 513 0156 07       		.uleb128 0x7
+ 514 0157 C1040000 		.4byte	.LASF37
+ 515 015b 73       		.sleb128 -13
+ 516 015c 07       		.uleb128 0x7
+ 517 015d 13000000 		.4byte	.LASF38
+ 518 0161 72       		.sleb128 -14
+ 519 0162 07       		.uleb128 0x7
+ARM GAS  C:\Users\MATEOC~1.QUE\AppData\Local\Temp\cc42DtmB.s 			page 14
+
+
+ 520 0163 31000000 		.4byte	.LASF39
+ 521 0167 71       		.sleb128 -15
+ 522 0168 07       		.uleb128 0x7
+ 523 0169 9C000000 		.4byte	.LASF40
+ 524 016d 70       		.sleb128 -16
+ 525 016e 07       		.uleb128 0x7
+ 526 016f 63040000 		.4byte	.LASF41
+ 527 0173 6F       		.sleb128 -17
+ 528 0174 07       		.uleb128 0x7
+ 529 0175 60000000 		.4byte	.LASF42
+ 530 0179 6E       		.sleb128 -18
+ 531 017a 07       		.uleb128 0x7
+ 532 017b 1C020000 		.4byte	.LASF43
+ 533 017f 6D       		.sleb128 -19
+ 534 0180 07       		.uleb128 0x7
+ 535 0181 77040000 		.4byte	.LASF44
+ 536 0185 6C       		.sleb128 -20
+ 537 0186 07       		.uleb128 0x7
+ 538 0187 A5020000 		.4byte	.LASF45
+ 539 018b 6B       		.sleb128 -21
+ 540 018c 07       		.uleb128 0x7
+ 541 018d 03050000 		.4byte	.LASF46
+ 542 0191 6A       		.sleb128 -22
+ 543 0192 07       		.uleb128 0x7
+ 544 0193 78010000 		.4byte	.LASF47
+ 545 0197 69       		.sleb128 -23
+ 546 0198 07       		.uleb128 0x7
+ 547 0199 2F020000 		.4byte	.LASF48
+ 548 019d 68       		.sleb128 -24
+ 549 019e 07       		.uleb128 0x7
+ 550 019f CF010000 		.4byte	.LASF49
+ 551 01a3 67       		.sleb128 -25
+ 552 01a4 00       		.byte	0
+ 553 01a5 03       		.uleb128 0x3
+ 554 01a6 66050000 		.4byte	.LASF50
+ 555 01aa 06       		.byte	0x6
+ 556 01ab EA       		.byte	0xea
+ 557 01ac FC000000 		.4byte	0xfc
+ 558 01b0 05       		.uleb128 0x5
+ 559 01b1 01       		.byte	0x1
+ 560 01b2 37000000 		.4byte	0x37
+ 561 01b6 07       		.byte	0x7
+ 562 01b7 5F       		.byte	0x5f
+ 563 01b8 C9010000 		.4byte	0x1c9
+ 564 01bc 06       		.uleb128 0x6
+ 565 01bd 7E000000 		.4byte	.LASF51
+ 566 01c1 00       		.byte	0
+ 567 01c2 06       		.uleb128 0x6
+ 568 01c3 01030000 		.4byte	.LASF52
+ 569 01c7 01       		.byte	0x1
+ 570 01c8 00       		.byte	0
+ 571 01c9 03       		.uleb128 0x3
+ 572 01ca B6040000 		.4byte	.LASF53
+ 573 01ce 07       		.byte	0x7
+ 574 01cf 62       		.byte	0x62
+ 575 01d0 B0010000 		.4byte	0x1b0
+ 576 01d4 08       		.uleb128 0x8
+ARM GAS  C:\Users\MATEOC~1.QUE\AppData\Local\Temp\cc42DtmB.s 			page 15
+
+
+ 577 01d5 40020000 		.4byte	.LASF56
+ 578 01d9 01       		.byte	0x1
+ 579 01da 71       		.byte	0x71
+ 580 01db A5010000 		.4byte	0x1a5
+ 581 01df 00000000 		.4byte	.LFB111
+ 582 01e3 34000000 		.4byte	.LFE111-.LFB111
+ 583 01e7 01       		.uleb128 0x1
+ 584 01e8 9C       		.byte	0x9c
+ 585 01e9 47020000 		.4byte	0x247
+ 586 01ed 09       		.uleb128 0x9
+ 587 01ee B7020000 		.4byte	.LASF54
+ 588 01f2 01       		.byte	0x1
+ 589 01f3 71       		.byte	0x71
+ 590 01f4 C9010000 		.4byte	0x1c9
+ 591 01f8 00000000 		.4byte	.LLST0
+ 592 01fc 09       		.uleb128 0x9
+ 593 01fd 6A010000 		.4byte	.LASF55
+ 594 0201 01       		.byte	0x1
+ 595 0202 71       		.byte	0x71
+ 596 0203 81000000 		.4byte	0x81
+ 597 0207 3A000000 		.4byte	.LLST1
+ 598 020b 0A       		.uleb128 0xa
+ 599 020c 0B000000 		.4byte	.LASF60
+ 600 0210 01       		.byte	0x1
+ 601 0211 7E       		.byte	0x7e
+ 602 0212 81000000 		.4byte	0x81
+ 603 0216 66000000 		.4byte	.LLST2
+ 604 021a 0B       		.uleb128 0xb
+ 605 021b 0E000000 		.4byte	.LVL1
+ 606 021f 84040000 		.4byte	0x484
+ 607 0223 2E020000 		.4byte	0x22e
+ 608 0227 0C       		.uleb128 0xc
+ 609 0228 01       		.uleb128 0x1
+ 610 0229 50       		.byte	0x50
+ 611 022a 02       		.uleb128 0x2
+ 612 022b 75       		.byte	0x75
+ 613 022c 00       		.sleb128 0
+ 614 022d 00       		.byte	0
+ 615 022e 0D       		.uleb128 0xd
+ 616 022f 1E000000 		.4byte	.LVL3
+ 617 0233 8F040000 		.4byte	0x48f
+ 618 0237 0C       		.uleb128 0xc
+ 619 0238 01       		.uleb128 0x1
+ 620 0239 50       		.byte	0x50
+ 621 023a 0A       		.uleb128 0xa
+ 622 023b 74       		.byte	0x74
+ 623 023c 00       		.sleb128 0
+ 624 023d 03       		.byte	0x3
+ 625 023e 00000000 		.4byte	.LANCHOR0
+ 626 0242 22       		.byte	0x22
+ 627 0243 94       		.byte	0x94
+ 628 0244 01       		.byte	0x1
+ 629 0245 00       		.byte	0
+ 630 0246 00       		.byte	0
+ 631 0247 08       		.uleb128 0x8
+ 632 0248 59040000 		.4byte	.LASF57
+ 633 024c 01       		.byte	0x1
+ARM GAS  C:\Users\MATEOC~1.QUE\AppData\Local\Temp\cc42DtmB.s 			page 16
+
+
+ 634 024d 8F       		.byte	0x8f
+ 635 024e A5010000 		.4byte	0x1a5
+ 636 0252 00000000 		.4byte	.LFB112
+ 637 0256 10000000 		.4byte	.LFE112-.LFB112
+ 638 025a 01       		.uleb128 0x1
+ 639 025b 9C       		.byte	0x9c
+ 640 025c 7D020000 		.4byte	0x27d
+ 641 0260 09       		.uleb128 0x9
+ 642 0261 B7020000 		.4byte	.LASF54
+ 643 0265 01       		.byte	0x1
+ 644 0266 8F       		.byte	0x8f
+ 645 0267 C9010000 		.4byte	0x1c9
+ 646 026b 8B000000 		.4byte	.LLST3
+ 647 026f 0E       		.uleb128 0xe
+ 648 0270 6A010000 		.4byte	.LASF55
+ 649 0274 01       		.byte	0x1
+ 650 0275 8F       		.byte	0x8f
+ 651 0276 7D020000 		.4byte	0x27d
+ 652 027a 01       		.uleb128 0x1
+ 653 027b 51       		.byte	0x51
+ 654 027c 00       		.byte	0
+ 655 027d 0F       		.uleb128 0xf
+ 656 027e 04       		.byte	0x4
+ 657 027f F1000000 		.4byte	0xf1
+ 658 0283 08       		.uleb128 0x8
+ 659 0284 0F020000 		.4byte	.LASF58
+ 660 0288 01       		.byte	0x1
+ 661 0289 9B       		.byte	0x9b
+ 662 028a A5010000 		.4byte	0x1a5
+ 663 028e 00000000 		.4byte	.LFB113
+ 664 0292 1A000000 		.4byte	.LFE113-.LFB113
+ 665 0296 01       		.uleb128 0x1
+ 666 0297 9C       		.byte	0x9c
+ 667 0298 DE020000 		.4byte	0x2de
+ 668 029c 09       		.uleb128 0x9
+ 669 029d 6A010000 		.4byte	.LASF55
+ 670 02a1 01       		.byte	0x1
+ 671 02a2 9B       		.byte	0x9b
+ 672 02a3 81000000 		.4byte	0x81
+ 673 02a7 AC000000 		.4byte	.LLST4
+ 674 02ab 0B       		.uleb128 0xb
+ 675 02ac 0C000000 		.4byte	.LVL10
+ 676 02b0 D4010000 		.4byte	0x1d4
+ 677 02b4 C6020000 		.4byte	0x2c6
+ 678 02b8 0C       		.uleb128 0xc
+ 679 02b9 01       		.uleb128 0x1
+ 680 02ba 50       		.byte	0x50
+ 681 02bb 01       		.uleb128 0x1
+ 682 02bc 31       		.byte	0x31
+ 683 02bd 0C       		.uleb128 0xc
+ 684 02be 01       		.uleb128 0x1
+ 685 02bf 51       		.byte	0x51
+ 686 02c0 04       		.uleb128 0x4
+ 687 02c1 74       		.byte	0x74
+ 688 02c2 00       		.sleb128 0
+ 689 02c3 34       		.byte	0x34
+ 690 02c4 25       		.byte	0x25
+ARM GAS  C:\Users\MATEOC~1.QUE\AppData\Local\Temp\cc42DtmB.s 			page 17
+
+
+ 691 02c5 00       		.byte	0
+ 692 02c6 0D       		.uleb128 0xd
+ 693 02c7 16000000 		.4byte	.LVL11
+ 694 02cb D4010000 		.4byte	0x1d4
+ 695 02cf 0C       		.uleb128 0xc
+ 696 02d0 01       		.uleb128 0x1
+ 697 02d1 50       		.byte	0x50
+ 698 02d2 01       		.uleb128 0x1
+ 699 02d3 30       		.byte	0x30
+ 700 02d4 0C       		.uleb128 0xc
+ 701 02d5 01       		.uleb128 0x1
+ 702 02d6 51       		.byte	0x51
+ 703 02d7 04       		.uleb128 0x4
+ 704 02d8 74       		.byte	0x74
+ 705 02d9 00       		.sleb128 0
+ 706 02da 3F       		.byte	0x3f
+ 707 02db 1A       		.byte	0x1a
+ 708 02dc 00       		.byte	0
+ 709 02dd 00       		.byte	0
+ 710 02de 08       		.uleb128 0x8
+ 711 02df 30040000 		.4byte	.LASF59
+ 712 02e3 01       		.byte	0x1
+ 713 02e4 A9       		.byte	0xa9
+ 714 02e5 A5010000 		.4byte	0x1a5
+ 715 02e9 00000000 		.4byte	.LFB114
+ 716 02ed 3C000000 		.4byte	.LFE114-.LFB114
+ 717 02f1 01       		.uleb128 0x1
+ 718 02f2 9C       		.byte	0x9c
+ 719 02f3 52030000 		.4byte	0x352
+ 720 02f7 09       		.uleb128 0x9
+ 721 02f8 B7020000 		.4byte	.LASF54
+ 722 02fc 01       		.byte	0x1
+ 723 02fd A9       		.byte	0xa9
+ 724 02fe C9010000 		.4byte	0x1c9
+ 725 0302 CD000000 		.4byte	.LLST5
+ 726 0306 09       		.uleb128 0x9
+ 727 0307 6A010000 		.4byte	.LASF55
+ 728 030b 01       		.byte	0x1
+ 729 030c A9       		.byte	0xa9
+ 730 030d 81000000 		.4byte	0x81
+ 731 0311 07010000 		.4byte	.LLST6
+ 732 0315 0A       		.uleb128 0xa
+ 733 0316 0B000000 		.4byte	.LASF60
+ 734 031a 01       		.byte	0x1
+ 735 031b B2       		.byte	0xb2
+ 736 031c 81000000 		.4byte	0x81
+ 737 0320 33010000 		.4byte	.LLST7
+ 738 0324 10       		.uleb128 0x10
+ 739 0325 1E000000 		.4byte	.LVL18
+ 740 0329 84040000 		.4byte	0x484
+ 741 032d 0B       		.uleb128 0xb
+ 742 032e 24000000 		.4byte	.LVL19
+ 743 0332 8F040000 		.4byte	0x48f
+ 744 0336 41030000 		.4byte	0x341
+ 745 033a 0C       		.uleb128 0xc
+ 746 033b 01       		.uleb128 0x1
+ 747 033c 50       		.byte	0x50
+ARM GAS  C:\Users\MATEOC~1.QUE\AppData\Local\Temp\cc42DtmB.s 			page 18
+
+
+ 748 033d 02       		.uleb128 0x2
+ 749 033e 75       		.byte	0x75
+ 750 033f 00       		.sleb128 0
+ 751 0340 00       		.byte	0
+ 752 0341 0D       		.uleb128 0xd
+ 753 0342 2A000000 		.4byte	.LVL20
+ 754 0346 9A040000 		.4byte	0x49a
+ 755 034a 0C       		.uleb128 0xc
+ 756 034b 01       		.uleb128 0x1
+ 757 034c 50       		.byte	0x50
+ 758 034d 02       		.uleb128 0x2
+ 759 034e 74       		.byte	0x74
+ 760 034f 00       		.sleb128 0
+ 761 0350 00       		.byte	0
+ 762 0351 00       		.byte	0
+ 763 0352 08       		.uleb128 0x8
+ 764 0353 DB020000 		.4byte	.LASF61
+ 765 0357 01       		.byte	0x1
+ 766 0358 C9       		.byte	0xc9
+ 767 0359 A5010000 		.4byte	0x1a5
+ 768 035d 00000000 		.4byte	.LFB115
+ 769 0361 1C000000 		.4byte	.LFE115-.LFB115
+ 770 0365 01       		.uleb128 0x1
+ 771 0366 9C       		.byte	0x9c
+ 772 0367 93030000 		.4byte	0x393
+ 773 036b 09       		.uleb128 0x9
+ 774 036c B7020000 		.4byte	.LASF54
+ 775 0370 01       		.byte	0x1
+ 776 0371 C9       		.byte	0xc9
+ 777 0372 C9010000 		.4byte	0x1c9
+ 778 0376 69010000 		.4byte	.LLST8
+ 779 037a 10       		.uleb128 0x10
+ 780 037b 0C000000 		.4byte	.LVL24
+ 781 037f 84040000 		.4byte	0x484
+ 782 0383 0D       		.uleb128 0xd
+ 783 0384 12000000 		.4byte	.LVL25
+ 784 0388 8F040000 		.4byte	0x48f
+ 785 038c 0C       		.uleb128 0xc
+ 786 038d 01       		.uleb128 0x1
+ 787 038e 50       		.byte	0x50
+ 788 038f 01       		.uleb128 0x1
+ 789 0390 30       		.byte	0x30
+ 790 0391 00       		.byte	0
+ 791 0392 00       		.byte	0
+ 792 0393 11       		.uleb128 0x11
+ 793 0394 00000000 		.4byte	.LASF77
+ 794 0398 01       		.byte	0x1
+ 795 0399 61       		.byte	0x61
+ 796 039a A5010000 		.4byte	0x1a5
+ 797 039e 00000000 		.4byte	.LFB110
+ 798 03a2 12000000 		.4byte	.LFE110-.LFB110
+ 799 03a6 01       		.uleb128 0x1
+ 800 03a7 9C       		.byte	0x9c
+ 801 03a8 CF030000 		.4byte	0x3cf
+ 802 03ac 0B       		.uleb128 0xb
+ 803 03ad 08000000 		.4byte	.LVL26
+ 804 03b1 52030000 		.4byte	0x352
+ARM GAS  C:\Users\MATEOC~1.QUE\AppData\Local\Temp\cc42DtmB.s 			page 19
+
+
+ 805 03b5 BF030000 		.4byte	0x3bf
+ 806 03b9 0C       		.uleb128 0xc
+ 807 03ba 01       		.uleb128 0x1
+ 808 03bb 50       		.byte	0x50
+ 809 03bc 01       		.uleb128 0x1
+ 810 03bd 30       		.byte	0x30
+ 811 03be 00       		.byte	0
+ 812 03bf 0D       		.uleb128 0xd
+ 813 03c0 0E000000 		.4byte	.LVL27
+ 814 03c4 52030000 		.4byte	0x352
+ 815 03c8 0C       		.uleb128 0xc
+ 816 03c9 01       		.uleb128 0x1
+ 817 03ca 50       		.byte	0x50
+ 818 03cb 01       		.uleb128 0x1
+ 819 03cc 31       		.byte	0x31
+ 820 03cd 00       		.byte	0
+ 821 03ce 00       		.byte	0
+ 822 03cf 12       		.uleb128 0x12
+ 823 03d0 DF030000 		.4byte	0x3df
+ 824 03d4 DF030000 		.4byte	0x3df
+ 825 03d8 13       		.uleb128 0x13
+ 826 03d9 B3000000 		.4byte	0xb3
+ 827 03dd 10       		.byte	0x10
+ 828 03de 00       		.byte	0
+ 829 03df 14       		.uleb128 0x14
+ 830 03e0 81000000 		.4byte	0x81
+ 831 03e4 15       		.uleb128 0x15
+ 832 03e5 3B030000 		.4byte	.LASF62
+ 833 03e9 01       		.byte	0x1
+ 834 03ea 38       		.byte	0x38
+ 835 03eb F5030000 		.4byte	0x3f5
+ 836 03ef 05       		.uleb128 0x5
+ 837 03f0 03       		.byte	0x3
+ 838 03f1 00000000 		.4byte	SEVEN__BitPattern
+ 839 03f5 14       		.uleb128 0x14
+ 840 03f6 CF030000 		.4byte	0x3cf
+ 841 03fa 12       		.uleb128 0x12
+ 842 03fb F1000000 		.4byte	0xf1
+ 843 03ff 0A040000 		.4byte	0x40a
+ 844 0403 13       		.uleb128 0x13
+ 845 0404 B3000000 		.4byte	0xb3
+ 846 0408 01       		.byte	0x1
+ 847 0409 00       		.byte	0
+ 848 040a 15       		.uleb128 0x15
+ 849 040b 7D020000 		.4byte	.LASF63
+ 850 040f 01       		.byte	0x1
+ 851 0410 4F       		.byte	0x4f
+ 852 0411 FA030000 		.4byte	0x3fa
+ 853 0415 05       		.uleb128 0x5
+ 854 0416 03       		.byte	0x3
+ 855 0417 00000000 		.4byte	SEVEN__latch_value
+ 856 041b 12       		.uleb128 0x12
+ 857 041c 81000000 		.4byte	0x81
+ 858 0420 2B040000 		.4byte	0x42b
+ 859 0424 13       		.uleb128 0x13
+ 860 0425 B3000000 		.4byte	0xb3
+ 861 0429 01       		.byte	0x1
+ARM GAS  C:\Users\MATEOC~1.QUE\AppData\Local\Temp\cc42DtmB.s 			page 20
+
+
+ 862 042a 00       		.byte	0
+ 863 042b 15       		.uleb128 0x15
+ 864 042c 90020000 		.4byte	.LASF64
+ 865 0430 01       		.byte	0x1
+ 866 0431 50       		.byte	0x50
+ 867 0432 1B040000 		.4byte	0x41b
+ 868 0436 05       		.uleb128 0x5
+ 869 0437 03       		.byte	0x3
+ 870 0438 00000000 		.4byte	SEVEN__latch_pattern
+ 871 043c 16       		.uleb128 0x16
+ 872 043d 4E050000 		.4byte	.LASF65
+ 873 0441 08       		.byte	0x8
+ 874 0442 40       		.byte	0x40
+ 875 0443 D0000000 		.4byte	0xd0
+ 876 0447 16       		.uleb128 0x16
+ 877 0448 F6010000 		.4byte	.LASF66
+ 878 044c 08       		.byte	0x8
+ 879 044d 47       		.byte	0x47
+ 880 044e DB000000 		.4byte	0xdb
+ 881 0452 16       		.uleb128 0x16
+ 882 0453 8A040000 		.4byte	.LASF67
+ 883 0457 08       		.byte	0x8
+ 884 0458 4A       		.byte	0x4a
+ 885 0459 D0000000 		.4byte	0xd0
+ 886 045d 16       		.uleb128 0x16
+ 887 045e A4010000 		.4byte	.LASF68
+ 888 0462 09       		.byte	0x9
+ 889 0463 48       		.byte	0x48
+ 890 0464 E6000000 		.4byte	0xe6
+ 891 0468 16       		.uleb128 0x16
+ 892 0469 8F010000 		.4byte	.LASF69
+ 893 046d 0A       		.byte	0xa
+ 894 046e 44       		.byte	0x44
+ 895 046f D0000000 		.4byte	0xd0
+ 896 0473 17       		.uleb128 0x17
+ 897 0474 28050000 		.4byte	.LASF70
+ 898 0478 0B       		.byte	0xb
+ 899 0479 1207     		.2byte	0x712
+ 900 047b 7F040000 		.4byte	0x47f
+ 901 047f 18       		.uleb128 0x18
+ 902 0480 8C000000 		.4byte	0x8c
+ 903 0484 19       		.uleb128 0x19
+ 904 0485 15050000 		.4byte	.LASF71
+ 905 0489 15050000 		.4byte	.LASF71
+ 906 048d 0C       		.byte	0xc
+ 907 048e 26       		.byte	0x26
+ 908 048f 19       		.uleb128 0x19
+ 909 0490 1B040000 		.4byte	.LASF72
+ 910 0494 1B040000 		.4byte	.LASF72
+ 911 0498 0D       		.byte	0xd
+ 912 0499 2F       		.byte	0x2f
+ 913 049a 19       		.uleb128 0x19
+ 914 049b F4040000 		.4byte	.LASF73
+ 915 049f F4040000 		.4byte	.LASF73
+ 916 04a3 0E       		.byte	0xe
+ 917 04a4 26       		.byte	0x26
+ 918 04a5 00       		.byte	0
+ARM GAS  C:\Users\MATEOC~1.QUE\AppData\Local\Temp\cc42DtmB.s 			page 21
+
+
+ 919              		.section	.debug_abbrev,"",%progbits
+ 920              	.Ldebug_abbrev0:
+ 921 0000 01       		.uleb128 0x1
+ 922 0001 11       		.uleb128 0x11
+ 923 0002 01       		.byte	0x1
+ 924 0003 25       		.uleb128 0x25
+ 925 0004 0E       		.uleb128 0xe
+ 926 0005 13       		.uleb128 0x13
+ 927 0006 0B       		.uleb128 0xb
+ 928 0007 03       		.uleb128 0x3
+ 929 0008 0E       		.uleb128 0xe
+ 930 0009 1B       		.uleb128 0x1b
+ 931 000a 0E       		.uleb128 0xe
+ 932 000b 55       		.uleb128 0x55
+ 933 000c 17       		.uleb128 0x17
+ 934 000d 11       		.uleb128 0x11
+ 935 000e 01       		.uleb128 0x1
+ 936 000f 10       		.uleb128 0x10
+ 937 0010 17       		.uleb128 0x17
+ 938 0011 00       		.byte	0
+ 939 0012 00       		.byte	0
+ 940 0013 02       		.uleb128 0x2
+ 941 0014 24       		.uleb128 0x24
+ 942 0015 00       		.byte	0
+ 943 0016 0B       		.uleb128 0xb
+ 944 0017 0B       		.uleb128 0xb
+ 945 0018 3E       		.uleb128 0x3e
+ 946 0019 0B       		.uleb128 0xb
+ 947 001a 03       		.uleb128 0x3
+ 948 001b 0E       		.uleb128 0xe
+ 949 001c 00       		.byte	0
+ 950 001d 00       		.byte	0
+ 951 001e 03       		.uleb128 0x3
+ 952 001f 16       		.uleb128 0x16
+ 953 0020 00       		.byte	0
+ 954 0021 03       		.uleb128 0x3
+ 955 0022 0E       		.uleb128 0xe
+ 956 0023 3A       		.uleb128 0x3a
+ 957 0024 0B       		.uleb128 0xb
+ 958 0025 3B       		.uleb128 0x3b
+ 959 0026 0B       		.uleb128 0xb
+ 960 0027 49       		.uleb128 0x49
+ 961 0028 13       		.uleb128 0x13
+ 962 0029 00       		.byte	0
+ 963 002a 00       		.byte	0
+ 964 002b 04       		.uleb128 0x4
+ 965 002c 24       		.uleb128 0x24
+ 966 002d 00       		.byte	0
+ 967 002e 0B       		.uleb128 0xb
+ 968 002f 0B       		.uleb128 0xb
+ 969 0030 3E       		.uleb128 0x3e
+ 970 0031 0B       		.uleb128 0xb
+ 971 0032 03       		.uleb128 0x3
+ 972 0033 08       		.uleb128 0x8
+ 973 0034 00       		.byte	0
+ 974 0035 00       		.byte	0
+ 975 0036 05       		.uleb128 0x5
+ARM GAS  C:\Users\MATEOC~1.QUE\AppData\Local\Temp\cc42DtmB.s 			page 22
+
+
+ 976 0037 04       		.uleb128 0x4
+ 977 0038 01       		.byte	0x1
+ 978 0039 0B       		.uleb128 0xb
+ 979 003a 0B       		.uleb128 0xb
+ 980 003b 49       		.uleb128 0x49
+ 981 003c 13       		.uleb128 0x13
+ 982 003d 3A       		.uleb128 0x3a
+ 983 003e 0B       		.uleb128 0xb
+ 984 003f 3B       		.uleb128 0x3b
+ 985 0040 0B       		.uleb128 0xb
+ 986 0041 01       		.uleb128 0x1
+ 987 0042 13       		.uleb128 0x13
+ 988 0043 00       		.byte	0
+ 989 0044 00       		.byte	0
+ 990 0045 06       		.uleb128 0x6
+ 991 0046 28       		.uleb128 0x28
+ 992 0047 00       		.byte	0
+ 993 0048 03       		.uleb128 0x3
+ 994 0049 0E       		.uleb128 0xe
+ 995 004a 1C       		.uleb128 0x1c
+ 996 004b 0B       		.uleb128 0xb
+ 997 004c 00       		.byte	0
+ 998 004d 00       		.byte	0
+ 999 004e 07       		.uleb128 0x7
+ 1000 004f 28       		.uleb128 0x28
+ 1001 0050 00       		.byte	0
+ 1002 0051 03       		.uleb128 0x3
+ 1003 0052 0E       		.uleb128 0xe
+ 1004 0053 1C       		.uleb128 0x1c
+ 1005 0054 0D       		.uleb128 0xd
+ 1006 0055 00       		.byte	0
+ 1007 0056 00       		.byte	0
+ 1008 0057 08       		.uleb128 0x8
+ 1009 0058 2E       		.uleb128 0x2e
+ 1010 0059 01       		.byte	0x1
+ 1011 005a 3F       		.uleb128 0x3f
+ 1012 005b 19       		.uleb128 0x19
+ 1013 005c 03       		.uleb128 0x3
+ 1014 005d 0E       		.uleb128 0xe
+ 1015 005e 3A       		.uleb128 0x3a
+ 1016 005f 0B       		.uleb128 0xb
+ 1017 0060 3B       		.uleb128 0x3b
+ 1018 0061 0B       		.uleb128 0xb
+ 1019 0062 27       		.uleb128 0x27
+ 1020 0063 19       		.uleb128 0x19
+ 1021 0064 49       		.uleb128 0x49
+ 1022 0065 13       		.uleb128 0x13
+ 1023 0066 11       		.uleb128 0x11
+ 1024 0067 01       		.uleb128 0x1
+ 1025 0068 12       		.uleb128 0x12
+ 1026 0069 06       		.uleb128 0x6
+ 1027 006a 40       		.uleb128 0x40
+ 1028 006b 18       		.uleb128 0x18
+ 1029 006c 9742     		.uleb128 0x2117
+ 1030 006e 19       		.uleb128 0x19
+ 1031 006f 01       		.uleb128 0x1
+ 1032 0070 13       		.uleb128 0x13
+ARM GAS  C:\Users\MATEOC~1.QUE\AppData\Local\Temp\cc42DtmB.s 			page 23
+
+
+ 1033 0071 00       		.byte	0
+ 1034 0072 00       		.byte	0
+ 1035 0073 09       		.uleb128 0x9
+ 1036 0074 05       		.uleb128 0x5
+ 1037 0075 00       		.byte	0
+ 1038 0076 03       		.uleb128 0x3
+ 1039 0077 0E       		.uleb128 0xe
+ 1040 0078 3A       		.uleb128 0x3a
+ 1041 0079 0B       		.uleb128 0xb
+ 1042 007a 3B       		.uleb128 0x3b
+ 1043 007b 0B       		.uleb128 0xb
+ 1044 007c 49       		.uleb128 0x49
+ 1045 007d 13       		.uleb128 0x13
+ 1046 007e 02       		.uleb128 0x2
+ 1047 007f 17       		.uleb128 0x17
+ 1048 0080 00       		.byte	0
+ 1049 0081 00       		.byte	0
+ 1050 0082 0A       		.uleb128 0xa
+ 1051 0083 34       		.uleb128 0x34
+ 1052 0084 00       		.byte	0
+ 1053 0085 03       		.uleb128 0x3
+ 1054 0086 0E       		.uleb128 0xe
+ 1055 0087 3A       		.uleb128 0x3a
+ 1056 0088 0B       		.uleb128 0xb
+ 1057 0089 3B       		.uleb128 0x3b
+ 1058 008a 0B       		.uleb128 0xb
+ 1059 008b 49       		.uleb128 0x49
+ 1060 008c 13       		.uleb128 0x13
+ 1061 008d 02       		.uleb128 0x2
+ 1062 008e 17       		.uleb128 0x17
+ 1063 008f 00       		.byte	0
+ 1064 0090 00       		.byte	0
+ 1065 0091 0B       		.uleb128 0xb
+ 1066 0092 898201   		.uleb128 0x4109
+ 1067 0095 01       		.byte	0x1
+ 1068 0096 11       		.uleb128 0x11
+ 1069 0097 01       		.uleb128 0x1
+ 1070 0098 31       		.uleb128 0x31
+ 1071 0099 13       		.uleb128 0x13
+ 1072 009a 01       		.uleb128 0x1
+ 1073 009b 13       		.uleb128 0x13
+ 1074 009c 00       		.byte	0
+ 1075 009d 00       		.byte	0
+ 1076 009e 0C       		.uleb128 0xc
+ 1077 009f 8A8201   		.uleb128 0x410a
+ 1078 00a2 00       		.byte	0
+ 1079 00a3 02       		.uleb128 0x2
+ 1080 00a4 18       		.uleb128 0x18
+ 1081 00a5 9142     		.uleb128 0x2111
+ 1082 00a7 18       		.uleb128 0x18
+ 1083 00a8 00       		.byte	0
+ 1084 00a9 00       		.byte	0
+ 1085 00aa 0D       		.uleb128 0xd
+ 1086 00ab 898201   		.uleb128 0x4109
+ 1087 00ae 01       		.byte	0x1
+ 1088 00af 11       		.uleb128 0x11
+ 1089 00b0 01       		.uleb128 0x1
+ARM GAS  C:\Users\MATEOC~1.QUE\AppData\Local\Temp\cc42DtmB.s 			page 24
+
+
+ 1090 00b1 31       		.uleb128 0x31
+ 1091 00b2 13       		.uleb128 0x13
+ 1092 00b3 00       		.byte	0
+ 1093 00b4 00       		.byte	0
+ 1094 00b5 0E       		.uleb128 0xe
+ 1095 00b6 05       		.uleb128 0x5
+ 1096 00b7 00       		.byte	0
+ 1097 00b8 03       		.uleb128 0x3
+ 1098 00b9 0E       		.uleb128 0xe
+ 1099 00ba 3A       		.uleb128 0x3a
+ 1100 00bb 0B       		.uleb128 0xb
+ 1101 00bc 3B       		.uleb128 0x3b
+ 1102 00bd 0B       		.uleb128 0xb
+ 1103 00be 49       		.uleb128 0x49
+ 1104 00bf 13       		.uleb128 0x13
+ 1105 00c0 02       		.uleb128 0x2
+ 1106 00c1 18       		.uleb128 0x18
+ 1107 00c2 00       		.byte	0
+ 1108 00c3 00       		.byte	0
+ 1109 00c4 0F       		.uleb128 0xf
+ 1110 00c5 0F       		.uleb128 0xf
+ 1111 00c6 00       		.byte	0
+ 1112 00c7 0B       		.uleb128 0xb
+ 1113 00c8 0B       		.uleb128 0xb
+ 1114 00c9 49       		.uleb128 0x49
+ 1115 00ca 13       		.uleb128 0x13
+ 1116 00cb 00       		.byte	0
+ 1117 00cc 00       		.byte	0
+ 1118 00cd 10       		.uleb128 0x10
+ 1119 00ce 898201   		.uleb128 0x4109
+ 1120 00d1 00       		.byte	0
+ 1121 00d2 11       		.uleb128 0x11
+ 1122 00d3 01       		.uleb128 0x1
+ 1123 00d4 31       		.uleb128 0x31
+ 1124 00d5 13       		.uleb128 0x13
+ 1125 00d6 00       		.byte	0
+ 1126 00d7 00       		.byte	0
+ 1127 00d8 11       		.uleb128 0x11
+ 1128 00d9 2E       		.uleb128 0x2e
+ 1129 00da 01       		.byte	0x1
+ 1130 00db 3F       		.uleb128 0x3f
+ 1131 00dc 19       		.uleb128 0x19
+ 1132 00dd 03       		.uleb128 0x3
+ 1133 00de 0E       		.uleb128 0xe
+ 1134 00df 3A       		.uleb128 0x3a
+ 1135 00e0 0B       		.uleb128 0xb
+ 1136 00e1 3B       		.uleb128 0x3b
+ 1137 00e2 0B       		.uleb128 0xb
+ 1138 00e3 49       		.uleb128 0x49
+ 1139 00e4 13       		.uleb128 0x13
+ 1140 00e5 11       		.uleb128 0x11
+ 1141 00e6 01       		.uleb128 0x1
+ 1142 00e7 12       		.uleb128 0x12
+ 1143 00e8 06       		.uleb128 0x6
+ 1144 00e9 40       		.uleb128 0x40
+ 1145 00ea 18       		.uleb128 0x18
+ 1146 00eb 9742     		.uleb128 0x2117
+ARM GAS  C:\Users\MATEOC~1.QUE\AppData\Local\Temp\cc42DtmB.s 			page 25
+
+
+ 1147 00ed 19       		.uleb128 0x19
+ 1148 00ee 01       		.uleb128 0x1
+ 1149 00ef 13       		.uleb128 0x13
+ 1150 00f0 00       		.byte	0
+ 1151 00f1 00       		.byte	0
+ 1152 00f2 12       		.uleb128 0x12
+ 1153 00f3 01       		.uleb128 0x1
+ 1154 00f4 01       		.byte	0x1
+ 1155 00f5 49       		.uleb128 0x49
+ 1156 00f6 13       		.uleb128 0x13
+ 1157 00f7 01       		.uleb128 0x1
+ 1158 00f8 13       		.uleb128 0x13
+ 1159 00f9 00       		.byte	0
+ 1160 00fa 00       		.byte	0
+ 1161 00fb 13       		.uleb128 0x13
+ 1162 00fc 21       		.uleb128 0x21
+ 1163 00fd 00       		.byte	0
+ 1164 00fe 49       		.uleb128 0x49
+ 1165 00ff 13       		.uleb128 0x13
+ 1166 0100 2F       		.uleb128 0x2f
+ 1167 0101 0B       		.uleb128 0xb
+ 1168 0102 00       		.byte	0
+ 1169 0103 00       		.byte	0
+ 1170 0104 14       		.uleb128 0x14
+ 1171 0105 26       		.uleb128 0x26
+ 1172 0106 00       		.byte	0
+ 1173 0107 49       		.uleb128 0x49
+ 1174 0108 13       		.uleb128 0x13
+ 1175 0109 00       		.byte	0
+ 1176 010a 00       		.byte	0
+ 1177 010b 15       		.uleb128 0x15
+ 1178 010c 34       		.uleb128 0x34
+ 1179 010d 00       		.byte	0
+ 1180 010e 03       		.uleb128 0x3
+ 1181 010f 0E       		.uleb128 0xe
+ 1182 0110 3A       		.uleb128 0x3a
+ 1183 0111 0B       		.uleb128 0xb
+ 1184 0112 3B       		.uleb128 0x3b
+ 1185 0113 0B       		.uleb128 0xb
+ 1186 0114 49       		.uleb128 0x49
+ 1187 0115 13       		.uleb128 0x13
+ 1188 0116 02       		.uleb128 0x2
+ 1189 0117 18       		.uleb128 0x18
+ 1190 0118 00       		.byte	0
+ 1191 0119 00       		.byte	0
+ 1192 011a 16       		.uleb128 0x16
+ 1193 011b 34       		.uleb128 0x34
+ 1194 011c 00       		.byte	0
+ 1195 011d 03       		.uleb128 0x3
+ 1196 011e 0E       		.uleb128 0xe
+ 1197 011f 3A       		.uleb128 0x3a
+ 1198 0120 0B       		.uleb128 0xb
+ 1199 0121 3B       		.uleb128 0x3b
+ 1200 0122 0B       		.uleb128 0xb
+ 1201 0123 49       		.uleb128 0x49
+ 1202 0124 13       		.uleb128 0x13
+ 1203 0125 3F       		.uleb128 0x3f
+ARM GAS  C:\Users\MATEOC~1.QUE\AppData\Local\Temp\cc42DtmB.s 			page 26
+
+
+ 1204 0126 19       		.uleb128 0x19
+ 1205 0127 3C       		.uleb128 0x3c
+ 1206 0128 19       		.uleb128 0x19
+ 1207 0129 00       		.byte	0
+ 1208 012a 00       		.byte	0
+ 1209 012b 17       		.uleb128 0x17
+ 1210 012c 34       		.uleb128 0x34
+ 1211 012d 00       		.byte	0
+ 1212 012e 03       		.uleb128 0x3
+ 1213 012f 0E       		.uleb128 0xe
+ 1214 0130 3A       		.uleb128 0x3a
+ 1215 0131 0B       		.uleb128 0xb
+ 1216 0132 3B       		.uleb128 0x3b
+ 1217 0133 05       		.uleb128 0x5
+ 1218 0134 49       		.uleb128 0x49
+ 1219 0135 13       		.uleb128 0x13
+ 1220 0136 3F       		.uleb128 0x3f
+ 1221 0137 19       		.uleb128 0x19
+ 1222 0138 3C       		.uleb128 0x3c
+ 1223 0139 19       		.uleb128 0x19
+ 1224 013a 00       		.byte	0
+ 1225 013b 00       		.byte	0
+ 1226 013c 18       		.uleb128 0x18
+ 1227 013d 35       		.uleb128 0x35
+ 1228 013e 00       		.byte	0
+ 1229 013f 49       		.uleb128 0x49
+ 1230 0140 13       		.uleb128 0x13
+ 1231 0141 00       		.byte	0
+ 1232 0142 00       		.byte	0
+ 1233 0143 19       		.uleb128 0x19
+ 1234 0144 2E       		.uleb128 0x2e
+ 1235 0145 00       		.byte	0
+ 1236 0146 3F       		.uleb128 0x3f
+ 1237 0147 19       		.uleb128 0x19
+ 1238 0148 3C       		.uleb128 0x3c
+ 1239 0149 19       		.uleb128 0x19
+ 1240 014a 6E       		.uleb128 0x6e
+ 1241 014b 0E       		.uleb128 0xe
+ 1242 014c 03       		.uleb128 0x3
+ 1243 014d 0E       		.uleb128 0xe
+ 1244 014e 3A       		.uleb128 0x3a
+ 1245 014f 0B       		.uleb128 0xb
+ 1246 0150 3B       		.uleb128 0x3b
+ 1247 0151 0B       		.uleb128 0xb
+ 1248 0152 00       		.byte	0
+ 1249 0153 00       		.byte	0
+ 1250 0154 00       		.byte	0
+ 1251              		.section	.debug_loc,"",%progbits
+ 1252              	.Ldebug_loc0:
+ 1253              	.LLST0:
+ 1254 0000 00000000 		.4byte	.LVL0
+ 1255 0004 0D000000 		.4byte	.LVL1-1
+ 1256 0008 0100     		.2byte	0x1
+ 1257 000a 50       		.byte	0x50
+ 1258 000b 0D000000 		.4byte	.LVL1-1
+ 1259 000f 22000000 		.4byte	.LVL4
+ 1260 0013 0400     		.2byte	0x4
+ARM GAS  C:\Users\MATEOC~1.QUE\AppData\Local\Temp\cc42DtmB.s 			page 27
+
+
+ 1261 0015 F3       		.byte	0xf3
+ 1262 0016 01       		.uleb128 0x1
+ 1263 0017 50       		.byte	0x50
+ 1264 0018 9F       		.byte	0x9f
+ 1265 0019 22000000 		.4byte	.LVL4
+ 1266 001d 26000000 		.4byte	.LVL5
+ 1267 0021 0100     		.2byte	0x1
+ 1268 0023 50       		.byte	0x50
+ 1269 0024 26000000 		.4byte	.LVL5
+ 1270 0028 34000000 		.4byte	.LFE111
+ 1271 002c 0400     		.2byte	0x4
+ 1272 002e F3       		.byte	0xf3
+ 1273 002f 01       		.uleb128 0x1
+ 1274 0030 50       		.byte	0x50
+ 1275 0031 9F       		.byte	0x9f
+ 1276 0032 00000000 		.4byte	0
+ 1277 0036 00000000 		.4byte	0
+ 1278              	.LLST1:
+ 1279 003a 00000000 		.4byte	.LVL0
+ 1280 003e 0D000000 		.4byte	.LVL1-1
+ 1281 0042 0100     		.2byte	0x1
+ 1282 0044 51       		.byte	0x51
+ 1283 0045 0D000000 		.4byte	.LVL1-1
+ 1284 0049 22000000 		.4byte	.LVL4
+ 1285 004d 0400     		.2byte	0x4
+ 1286 004f F3       		.byte	0xf3
+ 1287 0050 01       		.uleb128 0x1
+ 1288 0051 51       		.byte	0x51
+ 1289 0052 9F       		.byte	0x9f
+ 1290 0053 22000000 		.4byte	.LVL4
+ 1291 0057 34000000 		.4byte	.LFE111
+ 1292 005b 0100     		.2byte	0x1
+ 1293 005d 51       		.byte	0x51
+ 1294 005e 00000000 		.4byte	0
+ 1295 0062 00000000 		.4byte	0
+ 1296              	.LLST2:
+ 1297 0066 12000000 		.4byte	.LVL2
+ 1298 006a 1D000000 		.4byte	.LVL3-1
+ 1299 006e 0100     		.2byte	0x1
+ 1300 0070 50       		.byte	0x50
+ 1301 0071 1D000000 		.4byte	.LVL3-1
+ 1302 0075 22000000 		.4byte	.LVL4
+ 1303 0079 0800     		.2byte	0x8
+ 1304 007b 74       		.byte	0x74
+ 1305 007c 00       		.sleb128 0
+ 1306 007d 03       		.byte	0x3
+ 1307 007e 00000000 		.4byte	.LANCHOR0
+ 1308 0082 22       		.byte	0x22
+ 1309 0083 00000000 		.4byte	0
+ 1310 0087 00000000 		.4byte	0
+ 1311              	.LLST3:
+ 1312 008b 00000000 		.4byte	.LVL6
+ 1313 008f 08000000 		.4byte	.LVL7
+ 1314 0093 0100     		.2byte	0x1
+ 1315 0095 50       		.byte	0x50
+ 1316 0096 08000000 		.4byte	.LVL7
+ 1317 009a 10000000 		.4byte	.LFE112
+ARM GAS  C:\Users\MATEOC~1.QUE\AppData\Local\Temp\cc42DtmB.s 			page 28
+
+
+ 1318 009e 0400     		.2byte	0x4
+ 1319 00a0 F3       		.byte	0xf3
+ 1320 00a1 01       		.uleb128 0x1
+ 1321 00a2 50       		.byte	0x50
+ 1322 00a3 9F       		.byte	0x9f
+ 1323 00a4 00000000 		.4byte	0
+ 1324 00a8 00000000 		.4byte	0
+ 1325              	.LLST4:
+ 1326 00ac 00000000 		.4byte	.LVL8
+ 1327 00b0 08000000 		.4byte	.LVL9
+ 1328 00b4 0100     		.2byte	0x1
+ 1329 00b6 50       		.byte	0x50
+ 1330 00b7 08000000 		.4byte	.LVL9
+ 1331 00bb 1A000000 		.4byte	.LFE113
+ 1332 00bf 0400     		.2byte	0x4
+ 1333 00c1 F3       		.byte	0xf3
+ 1334 00c2 01       		.uleb128 0x1
+ 1335 00c3 50       		.byte	0x50
+ 1336 00c4 9F       		.byte	0x9f
+ 1337 00c5 00000000 		.4byte	0
+ 1338 00c9 00000000 		.4byte	0
+ 1339              	.LLST5:
+ 1340 00cd 00000000 		.4byte	.LVL12
+ 1341 00d1 1D000000 		.4byte	.LVL18-1
+ 1342 00d5 0100     		.2byte	0x1
+ 1343 00d7 50       		.byte	0x50
+ 1344 00d8 1D000000 		.4byte	.LVL18-1
+ 1345 00dc 2E000000 		.4byte	.LVL21
+ 1346 00e0 0400     		.2byte	0x4
+ 1347 00e2 F3       		.byte	0xf3
+ 1348 00e3 01       		.uleb128 0x1
+ 1349 00e4 50       		.byte	0x50
+ 1350 00e5 9F       		.byte	0x9f
+ 1351 00e6 2E000000 		.4byte	.LVL21
+ 1352 00ea 32000000 		.4byte	.LVL22
+ 1353 00ee 0100     		.2byte	0x1
+ 1354 00f0 50       		.byte	0x50
+ 1355 00f1 32000000 		.4byte	.LVL22
+ 1356 00f5 3C000000 		.4byte	.LFE114
+ 1357 00f9 0400     		.2byte	0x4
+ 1358 00fb F3       		.byte	0xf3
+ 1359 00fc 01       		.uleb128 0x1
+ 1360 00fd 50       		.byte	0x50
+ 1361 00fe 9F       		.byte	0x9f
+ 1362 00ff 00000000 		.4byte	0
+ 1363 0103 00000000 		.4byte	0
+ 1364              	.LLST6:
+ 1365 0107 00000000 		.4byte	.LVL12
+ 1366 010b 1D000000 		.4byte	.LVL18-1
+ 1367 010f 0100     		.2byte	0x1
+ 1368 0111 51       		.byte	0x51
+ 1369 0112 1D000000 		.4byte	.LVL18-1
+ 1370 0116 2E000000 		.4byte	.LVL21
+ 1371 011a 0400     		.2byte	0x4
+ 1372 011c F3       		.byte	0xf3
+ 1373 011d 01       		.uleb128 0x1
+ 1374 011e 51       		.byte	0x51
+ARM GAS  C:\Users\MATEOC~1.QUE\AppData\Local\Temp\cc42DtmB.s 			page 29
+
+
+ 1375 011f 9F       		.byte	0x9f
+ 1376 0120 2E000000 		.4byte	.LVL21
+ 1377 0124 3C000000 		.4byte	.LFE114
+ 1378 0128 0100     		.2byte	0x1
+ 1379 012a 51       		.byte	0x51
+ 1380 012b 00000000 		.4byte	0
+ 1381 012f 00000000 		.4byte	0
+ 1382              	.LLST7:
+ 1383 0133 06000000 		.4byte	.LVL13
+ 1384 0137 14000000 		.4byte	.LVL14
+ 1385 013b 0200     		.2byte	0x2
+ 1386 013d 30       		.byte	0x30
+ 1387 013e 9F       		.byte	0x9f
+ 1388 013f 14000000 		.4byte	.LVL14
+ 1389 0143 16000000 		.4byte	.LVL15
+ 1390 0147 0100     		.2byte	0x1
+ 1391 0149 55       		.byte	0x55
+ 1392 014a 16000000 		.4byte	.LVL15
+ 1393 014e 18000000 		.4byte	.LVL16
+ 1394 0152 0200     		.2byte	0x2
+ 1395 0154 30       		.byte	0x30
+ 1396 0155 9F       		.byte	0x9f
+ 1397 0156 1A000000 		.4byte	.LVL17
+ 1398 015a 2E000000 		.4byte	.LVL21
+ 1399 015e 0100     		.2byte	0x1
+ 1400 0160 55       		.byte	0x55
+ 1401 0161 00000000 		.4byte	0
+ 1402 0165 00000000 		.4byte	0
+ 1403              	.LLST8:
+ 1404 0169 00000000 		.4byte	.LVL23
+ 1405 016d 0B000000 		.4byte	.LVL24-1
+ 1406 0171 0100     		.2byte	0x1
+ 1407 0173 50       		.byte	0x50
+ 1408 0174 0B000000 		.4byte	.LVL24-1
+ 1409 0178 1C000000 		.4byte	.LFE115
+ 1410 017c 0400     		.2byte	0x4
+ 1411 017e F3       		.byte	0xf3
+ 1412 017f 01       		.uleb128 0x1
+ 1413 0180 50       		.byte	0x50
+ 1414 0181 9F       		.byte	0x9f
+ 1415 0182 00000000 		.4byte	0
+ 1416 0186 00000000 		.4byte	0
+ 1417              		.section	.debug_aranges,"",%progbits
+ 1418 0000 44000000 		.4byte	0x44
+ 1419 0004 0200     		.2byte	0x2
+ 1420 0006 00000000 		.4byte	.Ldebug_info0
+ 1421 000a 04       		.byte	0x4
+ 1422 000b 00       		.byte	0
+ 1423 000c 0000     		.2byte	0
+ 1424 000e 0000     		.2byte	0
+ 1425 0010 00000000 		.4byte	.LFB111
+ 1426 0014 34000000 		.4byte	.LFE111-.LFB111
+ 1427 0018 00000000 		.4byte	.LFB112
+ 1428 001c 10000000 		.4byte	.LFE112-.LFB112
+ 1429 0020 00000000 		.4byte	.LFB113
+ 1430 0024 1A000000 		.4byte	.LFE113-.LFB113
+ 1431 0028 00000000 		.4byte	.LFB114
+ARM GAS  C:\Users\MATEOC~1.QUE\AppData\Local\Temp\cc42DtmB.s 			page 30
+
+
+ 1432 002c 3C000000 		.4byte	.LFE114-.LFB114
+ 1433 0030 00000000 		.4byte	.LFB115
+ 1434 0034 1C000000 		.4byte	.LFE115-.LFB115
+ 1435 0038 00000000 		.4byte	.LFB110
+ 1436 003c 12000000 		.4byte	.LFE110-.LFB110
+ 1437 0040 00000000 		.4byte	0
+ 1438 0044 00000000 		.4byte	0
+ 1439              		.section	.debug_ranges,"",%progbits
+ 1440              	.Ldebug_ranges0:
+ 1441 0000 00000000 		.4byte	.LFB111
+ 1442 0004 34000000 		.4byte	.LFE111
+ 1443 0008 00000000 		.4byte	.LFB112
+ 1444 000c 10000000 		.4byte	.LFE112
+ 1445 0010 00000000 		.4byte	.LFB113
+ 1446 0014 1A000000 		.4byte	.LFE113
+ 1447 0018 00000000 		.4byte	.LFB114
+ 1448 001c 3C000000 		.4byte	.LFE114
+ 1449 0020 00000000 		.4byte	.LFB115
+ 1450 0024 1C000000 		.4byte	.LFE115
+ 1451 0028 00000000 		.4byte	.LFB110
+ 1452 002c 12000000 		.4byte	.LFE110
+ 1453 0030 00000000 		.4byte	0
+ 1454 0034 00000000 		.4byte	0
+ 1455              		.section	.debug_line,"",%progbits
+ 1456              	.Ldebug_line0:
+ 1457 0000 E0020000 		.section	.debug_str,"MS",%progbits,1
+ 1457      02005502 
+ 1457      00000201 
+ 1457      FB0E0D00 
+ 1457      01010101 
+ 1458              	.LASF77:
+ 1459 0000 53455645 		.ascii	"SEVEN_Init\000"
+ 1459      4E5F496E 
+ 1459      697400
+ 1460              	.LASF60:
+ 1461 000b 70617474 		.ascii	"pattern\000"
+ 1461      65726E00 
+ 1462              	.LASF38:
+ 1463 0013 52435F45 		.ascii	"RC_ERROR_READ_ONLY\000"
+ 1463      52524F52 
+ 1463      5F524541 
+ 1463      445F4F4E 
+ 1463      4C5900
+ 1464              	.LASF24:
+ 1465 0026 52435F53 		.ascii	"RC_SUCCESS\000"
+ 1465      55434345 
+ 1465      535300
+ 1466              	.LASF39:
+ 1467 0031 52435F45 		.ascii	"RC_ERROR_WRITE_ONLY\000"
+ 1467      52524F52 
+ 1467      5F575249 
+ 1467      54455F4F 
+ 1467      4E4C5900 
+ 1468              	.LASF2:
+ 1469 0045 73686F72 		.ascii	"short int\000"
+ 1469      7420696E 
+ 1469      7400
+ARM GAS  C:\Users\MATEOC~1.QUE\AppData\Local\Temp\cc42DtmB.s 			page 31
+
+
+ 1470              	.LASF30:
+ 1471 004f 52435F45 		.ascii	"RC_ERROR_OVERRUN\000"
+ 1471      52524F52 
+ 1471      5F4F5645 
+ 1471      5252554E 
+ 1471      00
+ 1472              	.LASF42:
+ 1473 0060 52435F45 		.ascii	"RC_ERROR_WRITE_FAILS\000"
+ 1473      52524F52 
+ 1473      5F575249 
+ 1473      54455F46 
+ 1473      41494C53 
+ 1474              	.LASF17:
+ 1475 0075 73697A65 		.ascii	"sizetype\000"
+ 1475      74797065 
+ 1475      00
+ 1476              	.LASF51:
+ 1477 007e 53455645 		.ascii	"SEVEN_0\000"
+ 1477      4E5F3000 
+ 1478              	.LASF27:
+ 1479 0086 52435F45 		.ascii	"RC_ERROR_ZERO\000"
+ 1479      52524F52 
+ 1479      5F5A4552 
+ 1479      4F00
+ 1480              	.LASF21:
+ 1481 0094 45455F46 		.ascii	"EE_FREG\000"
+ 1481      52454700 
+ 1482              	.LASF40:
+ 1483 009c 52435F45 		.ascii	"RC_ERROR_INVALID\000"
+ 1483      52524F52 
+ 1483      5F494E56 
+ 1483      414C4944 
+ 1483      00
+ 1484              	.LASF76:
+ 1485 00ad 433A5C55 		.ascii	"C:\\Users\\Mateo C. Querol\\OneDrive\\University\\D"
+ 1485      73657273 
+ 1485      5C4D6174 
+ 1485      656F2043 
+ 1485      2E205175 
+ 1486 00db 61726D73 		.ascii	"armstadt\\Advanced Microcontroller Systems and Embe"
+ 1486      74616474 
+ 1486      5C416476 
+ 1486      616E6365 
+ 1486      64204D69 
+ 1487 010d 64646564 		.ascii	"dded Operating systems\\Embedded Operating Systems\\"
+ 1487      204F7065 
+ 1487      72617469 
+ 1487      6E672073 
+ 1487      79737465 
+ 1488 013f 576F726B 		.ascii	"Workbook\\JSONParser.cydsn\000"
+ 1488      626F6F6B 
+ 1488      5C4A534F 
+ 1488      4E506172 
+ 1488      7365722E 
+ 1489              	.LASF19:
+ 1490 0159 45455F55 		.ascii	"EE_UINT32\000"
+ 1490      494E5433 
+ARM GAS  C:\Users\MATEOC~1.QUE\AppData\Local\Temp\cc42DtmB.s 			page 32
+
+
+ 1490      3200
+ 1491              	.LASF22:
+ 1492 0163 45455F54 		.ascii	"EE_TID\000"
+ 1492      494400
+ 1493              	.LASF55:
+ 1494 016a 76616C75 		.ascii	"value\000"
+ 1494      6500
+ 1495              	.LASF11:
+ 1496 0170 75696E74 		.ascii	"uint8_t\000"
+ 1496      385F7400 
+ 1497              	.LASF47:
+ 1498 0178 52435F45 		.ascii	"RC_ERROR_INVALID_STATE\000"
+ 1498      52524F52 
+ 1498      5F494E56 
+ 1498      414C4944 
+ 1498      5F535441 
+ 1499              	.LASF69:
+ 1500 018f 45455F49 		.ascii	"EE_IRQ_nesting_level\000"
+ 1500      52515F6E 
+ 1500      65737469 
+ 1500      6E675F6C 
+ 1500      6576656C 
+ 1501              	.LASF68:
+ 1502 01a4 45455F73 		.ascii	"EE_std_endcycle_next_tid\000"
+ 1502      74645F65 
+ 1502      6E646379 
+ 1502      636C655F 
+ 1502      6E657874 
+ 1503              	.LASF0:
+ 1504 01bd 7369676E 		.ascii	"signed char\000"
+ 1504      65642063 
+ 1504      68617200 
+ 1505              	.LASF13:
+ 1506 01c9 666C6F61 		.ascii	"float\000"
+ 1506      7400
+ 1507              	.LASF49:
+ 1508 01cf 52435F45 		.ascii	"RC_ERROR_NOT_IMPLEMENTED\000"
+ 1508      52524F52 
+ 1508      5F4E4F54 
+ 1508      5F494D50 
+ 1508      4C454D45 
+ 1509              	.LASF8:
+ 1510 01e8 6C6F6E67 		.ascii	"long long int\000"
+ 1510      206C6F6E 
+ 1510      6720696E 
+ 1510      7400
+ 1511              	.LASF66:
+ 1512 01f6 45455F6F 		.ascii	"EE_oo_IRQ_suspend_status\000"
+ 1512      6F5F4952 
+ 1512      515F7375 
+ 1512      7370656E 
+ 1512      645F7374 
+ 1513              	.LASF58:
+ 1514 020f 53455645 		.ascii	"SEVEN_SetHex\000"
+ 1514      4E5F5365 
+ 1514      74486578 
+ 1514      00
+ARM GAS  C:\Users\MATEOC~1.QUE\AppData\Local\Temp\cc42DtmB.s 			page 33
+
+
+ 1515              	.LASF43:
+ 1516 021c 52435F45 		.ascii	"RC_ERROR_NOT_MATCH\000"
+ 1516      52524F52 
+ 1516      5F4E4F54 
+ 1516      5F4D4154 
+ 1516      434800
+ 1517              	.LASF48:
+ 1518 022f 52435F45 		.ascii	"RC_ERROR_UNKNOWN\000"
+ 1518      52524F52 
+ 1518      5F554E4B 
+ 1518      4E4F574E 
+ 1518      00
+ 1519              	.LASF56:
+ 1520 0240 53455645 		.ascii	"SEVEN_Set\000"
+ 1520      4E5F5365 
+ 1520      7400
+ 1521              	.LASF6:
+ 1522 024a 6C6F6E67 		.ascii	"long int\000"
+ 1522      20696E74 
+ 1522      00
+ 1523              	.LASF31:
+ 1524 0253 52435F45 		.ascii	"RC_ERROR_UNDERRUN\000"
+ 1524      52524F52 
+ 1524      5F554E44 
+ 1524      45525255 
+ 1524      4E00
+ 1525              	.LASF34:
+ 1526 0265 52435F45 		.ascii	"RC_ERROR_BUSY\000"
+ 1526      52524F52 
+ 1526      5F425553 
+ 1526      5900
+ 1527              	.LASF4:
+ 1528 0273 5F5F7569 		.ascii	"__uint8_t\000"
+ 1528      6E74385F 
+ 1528      7400
+ 1529              	.LASF63:
+ 1530 027d 53455645 		.ascii	"SEVEN__latch_value\000"
+ 1530      4E5F5F6C 
+ 1530      61746368 
+ 1530      5F76616C 
+ 1530      756500
+ 1531              	.LASF64:
+ 1532 0290 53455645 		.ascii	"SEVEN__latch_pattern\000"
+ 1532      4E5F5F6C 
+ 1532      61746368 
+ 1532      5F706174 
+ 1532      7465726E 
+ 1533              	.LASF45:
+ 1534 02a5 52435F45 		.ascii	"RC_ERROR_BAD_DATA\000"
+ 1534      52524F52 
+ 1534      5F424144 
+ 1534      5F444154 
+ 1534      4100
+ 1535              	.LASF54:
+ 1536 02b7 73657665 		.ascii	"sevenId\000"
+ 1536      6E496400 
+ 1537              	.LASF75:
+ARM GAS  C:\Users\MATEOC~1.QUE\AppData\Local\Temp\cc42DtmB.s 			page 34
+
+
+ 1538 02bf 736F7572 		.ascii	"source\\bsw\\LabBoard\\seven.c\000"
+ 1538      63655C62 
+ 1538      73775C4C 
+ 1538      6162426F 
+ 1538      6172645C 
+ 1539              	.LASF61:
+ 1540 02db 53455645 		.ascii	"SEVEN_Clear\000"
+ 1540      4E5F436C 
+ 1540      65617200 
+ 1541              	.LASF16:
+ 1542 02e7 6C6F6E67 		.ascii	"long double\000"
+ 1542      20646F75 
+ 1542      626C6500 
+ 1543              	.LASF1:
+ 1544 02f3 756E7369 		.ascii	"unsigned char\000"
+ 1544      676E6564 
+ 1544      20636861 
+ 1544      7200
+ 1545              	.LASF52:
+ 1546 0301 53455645 		.ascii	"SEVEN_1\000"
+ 1546      4E5F3100 
+ 1547              	.LASF9:
+ 1548 0309 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 1548      206C6F6E 
+ 1548      6720756E 
+ 1548      7369676E 
+ 1548      65642069 
+ 1549              	.LASF10:
+ 1550 0320 756E7369 		.ascii	"unsigned int\000"
+ 1550      676E6564 
+ 1550      20696E74 
+ 1550      00
+ 1551              	.LASF36:
+ 1552 032d 52435F45 		.ascii	"RC_ERROR_OPEN\000"
+ 1552      52524F52 
+ 1552      5F4F5045 
+ 1552      4E00
+ 1553              	.LASF62:
+ 1554 033b 53455645 		.ascii	"SEVEN__BitPattern\000"
+ 1554      4E5F5F42 
+ 1554      69745061 
+ 1554      74746572 
+ 1554      6E00
+ 1555              	.LASF26:
+ 1556 034d 52435F45 		.ascii	"RC_ERROR_NULL\000"
+ 1556      52524F52 
+ 1556      5F4E554C 
+ 1556      4C00
+ 1557              	.LASF33:
+ 1558 035b 52435F45 		.ascii	"RC_ERROR_BUFFER_EMTPY\000"
+ 1558      52524F52 
+ 1558      5F425546 
+ 1558      4645525F 
+ 1558      454D5450 
+ 1559              	.LASF18:
+ 1560 0371 45455F49 		.ascii	"EE_INT32\000"
+ 1560      4E543332 
+ARM GAS  C:\Users\MATEOC~1.QUE\AppData\Local\Temp\cc42DtmB.s 			page 35
+
+
+ 1560      00
+ 1561              	.LASF3:
+ 1562 037a 73686F72 		.ascii	"short unsigned int\000"
+ 1562      7420756E 
+ 1562      7369676E 
+ 1562      65642069 
+ 1562      6E7400
+ 1563              	.LASF74:
+ 1564 038d 474E5520 		.ascii	"GNU C11 5.4.1 20160609 (release) [ARM/embedded-5-br"
+ 1564      43313120 
+ 1564      352E342E 
+ 1564      31203230 
+ 1564      31363036 
+ 1565 03c0 616E6368 		.ascii	"anch revision 237715] -mcpu=cortex-m3 -mthumb -g -O"
+ 1565      20726576 
+ 1565      6973696F 
+ 1565      6E203233 
+ 1565      37373135 
+ 1566 03f3 67202D66 		.ascii	"g -ffunction-sections -ffat-lto-objects\000"
+ 1566      66756E63 
+ 1566      74696F6E 
+ 1566      2D736563 
+ 1566      74696F6E 
+ 1567              	.LASF72:
+ 1568 041b 53455645 		.ascii	"SEVEN_reg_Write\000"
+ 1568      4E5F7265 
+ 1568      675F5772 
+ 1568      69746500 
+ 1569              	.LASF15:
+ 1570 042b 63686172 		.ascii	"char\000"
+ 1570      00
+ 1571              	.LASF59:
+ 1572 0430 53455645 		.ascii	"SEVEN_SetDP\000"
+ 1572      4E5F5365 
+ 1572      74445000 
+ 1573              	.LASF32:
+ 1574 043c 52435F45 		.ascii	"RC_ERROR_BUFFER_FULL\000"
+ 1574      52524F52 
+ 1574      5F425546 
+ 1574      4645525F 
+ 1574      46554C4C 
+ 1575              	.LASF12:
+ 1576 0451 696E7433 		.ascii	"int32_t\000"
+ 1576      325F7400 
+ 1577              	.LASF57:
+ 1578 0459 53455645 		.ascii	"SEVEN_Get\000"
+ 1578      4E5F4765 
+ 1578      7400
+ 1579              	.LASF41:
+ 1580 0463 52435F45 		.ascii	"RC_ERROR_READ_FAILS\000"
+ 1580      52524F52 
+ 1580      5F524541 
+ 1580      445F4641 
+ 1580      494C5300 
+ 1581              	.LASF44:
+ 1582 0477 52435F45 		.ascii	"RC_ERROR_BAD_PARAM\000"
+ 1582      52524F52 
+ARM GAS  C:\Users\MATEOC~1.QUE\AppData\Local\Temp\cc42DtmB.s 			page 36
+
+
+ 1582      5F424144 
+ 1582      5F504152 
+ 1582      414D00
+ 1583              	.LASF67:
+ 1584 048a 45455F41 		.ascii	"EE_ApplicationMode\000"
+ 1584      70706C69 
+ 1584      63617469 
+ 1584      6F6E4D6F 
+ 1584      646500
+ 1585              	.LASF7:
+ 1586 049d 6C6F6E67 		.ascii	"long unsigned int\000"
+ 1586      20756E73 
+ 1586      69676E65 
+ 1586      6420696E 
+ 1586      7400
+ 1587              	.LASF14:
+ 1588 04af 646F7562 		.ascii	"double\000"
+ 1588      6C6500
+ 1589              	.LASF53:
+ 1590 04b6 53455645 		.ascii	"SEVEN_id_t\000"
+ 1590      4E5F6964 
+ 1590      5F7400
+ 1591              	.LASF37:
+ 1592 04c1 52435F45 		.ascii	"RC_ERROR_CHECKSUM\000"
+ 1592      52524F52 
+ 1592      5F434845 
+ 1592      434B5355 
+ 1592      4D00
+ 1593              	.LASF20:
+ 1594 04d3 45455F55 		.ascii	"EE_UREG\000"
+ 1594      52454700 
+ 1595              	.LASF29:
+ 1596 04db 52435F45 		.ascii	"RC_ERROR_RANGE\000"
+ 1596      52524F52 
+ 1596      5F52414E 
+ 1596      474500
+ 1597              	.LASF5:
+ 1598 04ea 5F5F696E 		.ascii	"__int32_t\000"
+ 1598      7433325F 
+ 1598      7400
+ 1599              	.LASF73:
+ 1600 04f4 53455645 		.ascii	"SEVEN_DP_Write\000"
+ 1600      4E5F4450 
+ 1600      5F577269 
+ 1600      746500
+ 1601              	.LASF46:
+ 1602 0503 52435F45 		.ascii	"RC_ERROR_CANCELED\000"
+ 1602      52524F52 
+ 1602      5F43414E 
+ 1602      43454C45 
+ 1602      4400
+ 1603              	.LASF71:
+ 1604 0515 53455645 		.ascii	"SEVEN_SELECT_Write\000"
+ 1604      4E5F5345 
+ 1604      4C454354 
+ 1604      5F577269 
+ 1604      746500
+ARM GAS  C:\Users\MATEOC~1.QUE\AppData\Local\Temp\cc42DtmB.s 			page 37
+
+
+ 1605              	.LASF70:
+ 1606 0528 49544D5F 		.ascii	"ITM_RxBuffer\000"
+ 1606      52784275 
+ 1606      66666572 
+ 1606      00
+ 1607              	.LASF25:
+ 1608 0535 52435F45 		.ascii	"RC_ERROR\000"
+ 1608      52524F52 
+ 1608      00
+ 1609              	.LASF28:
+ 1610 053e 52435F45 		.ascii	"RC_ERROR_MEMORY\000"
+ 1610      52524F52 
+ 1610      5F4D454D 
+ 1610      4F525900 
+ 1611              	.LASF65:
+ 1612 054e 45455F6F 		.ascii	"EE_oo_IRQ_disable_count\000"
+ 1612      6F5F4952 
+ 1612      515F6469 
+ 1612      7361626C 
+ 1612      655F636F 
+ 1613              	.LASF50:
+ 1614 0566 52435F74 		.ascii	"RC_t\000"
+ 1614      00
+ 1615              	.LASF23:
+ 1616 056b 73696E74 		.ascii	"sint8_t\000"
+ 1616      385F7400 
+ 1617              	.LASF35:
+ 1618 0573 52435F45 		.ascii	"RC_ERROR_TIME_OUT\000"
+ 1618      52524F52 
+ 1618      5F54494D 
+ 1618      455F4F55 
+ 1618      5400
+ 1619              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 5.4.1 20160609 (release) [ARM/embedded-5-bran

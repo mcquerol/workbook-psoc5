@@ -1,0 +1,9 @@
+C:\Users\Mateo C. Querol\OneDrive\University\Darmstadt\Advanced Microcontroller Systems and Embedded Operating systems\Embedded Operating Systems\Workbook\reaction_game_wb.cydsn\reaction_game_wb.cyprj|3b47240a-ff04-4814-9b54-db0f29b01dff
+C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\psoc\content\default\CyAnnotationLibrary\CyAnnotationLibrary.cylib\CyAnnotationLibrary.cyprj|4797dbd3-b3af-4d82-a572-c4d5364db85a
+C:\Users\Mateo C. Querol\Documents\PSoC Creator\4.4\Downloads ( 4.4).cylib\Downloads ( 4.4).cyprj|23dfd19b-498c-4572-8557-7af4f1f38fbe
+C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\psoc\content\cycomponentlibraryupdates\CyComponentLibraryUpdates.cylib\CyComponentLibraryUpdates.cyprj|e0707384-b483-40da-8c26-a8cb2f3cd931
+C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\psoc\content\cycomponentlibrary\CyComponentLibrary.cylib\CyComponentLibrary.cyprj|ebce5434-48e3-43a4-865a-39a5fe86ace5
+C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\psoc\content\cyprimitives\CyPrimitives.cylib\CyPrimitives.cyprj|730cde19-54e5-4f13-bdf9-a4e3b4c68492
+C:\Users\Mateo C. Querol\OneDrive\University\Darmstadt\Advanced Microcontroller Systems and Embedded Operating systems\Embedded Operating Systems\Workbook\mp3_player_wb.cydsn\mp3_player_wb.cyprj|055ff72a-0957-4759-9e25-2ae9573f2ac2
+C:\Users\Mateo C. Querol\OneDrive\University\Darmstadt\Advanced Microcontroller Systems and Embedded Operating systems\Embedded Operating Systems\Workbook\Ringbuffer_testing.cydsn\Ringbuffer_testing.cyprj|5b4e084c-4d17-4dd5-98bf-a027d2ed811f
+C:\Users\Mateo C. Querol\OneDrive\University\Darmstadt\Advanced Microcontroller Systems and Embedded Operating systems\Embedded Operating Systems\Workbook\JSONParser.cydsn\JSONParser.cyprj|7b70e420-7952-42ef-acf6-37f44888dfba

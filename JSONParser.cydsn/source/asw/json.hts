@@ -1,0 +1,20 @@
+<HtermSequenceFile>
+    <ItemList>
+        <SequenceItem name="Simple">
+            <description></description>
+            <sequence value='a[{ &quot;name&quot; : &quot;Jack&quot;, &quot;age&quot; : 27 }] h[0]' />
+        </SequenceItem>
+        <SequenceItem name="Nested">
+            <description></description>
+            <sequence value='a[{ &quot;person&quot; : { &quot;name&quot; : &quot;Jack&quot;, &quot;age&quot; : 27 } }] h[0]' />
+        </SequenceItem>
+        <SequenceItem name="Array">
+            <description></description>
+            <sequence value='a[{ &quot;array&quot; : [1, 2, 3\], &quot;coordinate&quot; : [1, 2\] }] h[0]' />
+        </SequenceItem>
+        <SequenceItem name="Draw">
+            <description></description>
+            <sequence value='a[{ &quot;c&quot; : &quot;red&quot; &quot;d&quot; : [10, 10, 10, 100\], &quot;d&quot; : [10, 100, 100, 100\], &quot;d&quot; : [100, 100, 100, 10\], &quot;d&quot; : [100, 10, 10, 10 \] }] h[0]' />
+        </SequenceItem>
+    </ItemList>
+</HtermSequenceFile>

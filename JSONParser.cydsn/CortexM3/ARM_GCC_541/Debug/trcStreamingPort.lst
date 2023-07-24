@@ -1,0 +1,1412 @@
+ARM GAS  C:\Users\MATEOC~1.QUE\AppData\Local\Temp\cc339K1d.s 			page 1
+
+
+   1              		.syntax unified
+   2              		.cpu cortex-m3
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 1
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.thumb
+  14              		.syntax unified
+  15              		.file	"trcStreamingPort.c"
+  16              		.text
+  17              	.Ltext0:
+  18              		.cfi_sections	.debug_frame
+  19              		.section	.text.trcUART_init,"ax",%progbits
+  20              		.align	2
+  21              		.global	trcUART_init
+  22              		.thumb
+  23              		.thumb_func
+  24              		.type	trcUART_init, %function
+  25              	trcUART_init:
+  26              	.LFB110:
+  27              		.file 1 "source\\bsw\\TraceRecorder\\streamport\\trcStreamingPort.c"
+   1:source\bsw\TraceRecorder\streamport/trcStreamingPort.c **** /**
+   2:source\bsw\TraceRecorder\streamport/trcStreamingPort.c ****  * \file 	trcStreamingPort.c
+   3:source\bsw\TraceRecorder\streamport/trcStreamingPort.c ****  * \author	Sandeep Raju 				Hochschule Darmstadt - sandeep.raju@stud.h-da.de
+   4:source\bsw\TraceRecorder\streamport/trcStreamingPort.c ****  * \author	Sameera Chilmattur 			Hochschule Darmstadt - sameera.b.r.chilmattur@stud.h-da.de
+   5:source\bsw\TraceRecorder\streamport/trcStreamingPort.c ****  * \author	Thomas Barth 				Hochschule Darmstadt - thomas.barth@h-da.de
+   6:source\bsw\TraceRecorder\streamport/trcStreamingPort.c ****  * \date 	03.05.2019
+   7:source\bsw\TraceRecorder\streamport/trcStreamingPort.c ****  *
+   8:source\bsw\TraceRecorder\streamport/trcStreamingPort.c ****  * \brief 	Streaming Port implementation for percepio tracealyzer
+   9:source\bsw\TraceRecorder\streamport/trcStreamingPort.c ****  *
+  10:source\bsw\TraceRecorder\streamport/trcStreamingPort.c ****  *
+  11:source\bsw\TraceRecorder\streamport/trcStreamingPort.c ****  * ----- Changelog -----
+  12:source\bsw\TraceRecorder\streamport/trcStreamingPort.c ****  * 
+  13:source\bsw\TraceRecorder\streamport/trcStreamingPort.c ****  *
+  14:source\bsw\TraceRecorder\streamport/trcStreamingPort.c ****  * \copyright Copyright 2019
+  15:source\bsw\TraceRecorder\streamport/trcStreamingPort.c ****  * Department of electrical engineering and information technology, Hochschule Darmstadt - Universi
+  16:source\bsw\TraceRecorder\streamport/trcStreamingPort.c ****  * Permission to use, copy, modify, and distribute this software and its documentation for educatio
+  17:source\bsw\TraceRecorder\streamport/trcStreamingPort.c ****  * (unless permitted by h_da) and official h_da projects, is hereby granted for enrolled students o
+  18:source\bsw\TraceRecorder\streamport/trcStreamingPort.c ****  * this paragraph and the following paragraph appear in all copies, modifications, and distribution
+  19:source\bsw\TraceRecorder\streamport/trcStreamingPort.c ****  * Contact Prof.Dr.-Ing. Peter Fromm, peter.fromm@h-da.de, Birkenweg 8 64295 Darmstadt - GERMANY fo
+  20:source\bsw\TraceRecorder\streamport/trcStreamingPort.c ****  *
+  21:source\bsw\TraceRecorder\streamport/trcStreamingPort.c ****  * \warning This software is a PROTOTYPE version and is not designed or intended for use in product
+  22:source\bsw\TraceRecorder\streamport/trcStreamingPort.c ****  * The user represents and warrants that it will NOT use or redistribute the Software for such purp
+  23:source\bsw\TraceRecorder\streamport/trcStreamingPort.c ****  * This prototype is for research purposes only. This software is provided "AS IS," without a warra
+  24:source\bsw\TraceRecorder\streamport/trcStreamingPort.c ****  */
+  25:source\bsw\TraceRecorder\streamport/trcStreamingPort.c **** 
+  26:source\bsw\TraceRecorder\streamport/trcStreamingPort.c **** /*=======================[ includes ]==============================================================
+  27:source\bsw\TraceRecorder\streamport/trcStreamingPort.c **** #include "trcRecorder.h"
+  28:source\bsw\TraceRecorder\streamport/trcStreamingPort.c **** #include "trcStreamingPort.h"
+  29:source\bsw\TraceRecorder\streamport/trcStreamingPort.c **** 
+  30:source\bsw\TraceRecorder\streamport/trcStreamingPort.c **** /*=======================[ enable ]================================================================
+ARM GAS  C:\Users\MATEOC~1.QUE\AppData\Local\Temp\cc339K1d.s 			page 2
+
+
+  31:source\bsw\TraceRecorder\streamport/trcStreamingPort.c **** #if (TRC_USE_TRACEALYZER_RECORDER == 1)
+  32:source\bsw\TraceRecorder\streamport/trcStreamingPort.c **** #if(TRC_CFG_RECORDER_MODE == TRC_RECORDER_MODE_STREAMING)
+  33:source\bsw\TraceRecorder\streamport/trcStreamingPort.c **** 
+  34:source\bsw\TraceRecorder\streamport/trcStreamingPort.c **** /*=======================[ implementation ]========================================================
+  35:source\bsw\TraceRecorder\streamport/trcStreamingPort.c ****     
+  36:source\bsw\TraceRecorder\streamport/trcStreamingPort.c **** void trcUART_init(void){
+  28              		.loc 1 36 0
+  29              		.cfi_startproc
+  30              		@ args = 0, pretend = 0, frame = 0
+  31              		@ frame_needed = 0, uses_anonymous_args = 0
+  32 0000 08B5     		push	{r3, lr}
+  33              		.cfi_def_cfa_offset 8
+  34              		.cfi_offset 3, -8
+  35              		.cfi_offset 14, -4
+  37:source\bsw\TraceRecorder\streamport/trcStreamingPort.c **** 
+  38:source\bsw\TraceRecorder\streamport/trcStreamingPort.c **** #if (TRACEPORT==PORT_UART)
+  39:source\bsw\TraceRecorder\streamport/trcStreamingPort.c ****     UART_LOG_Start();
+  40:source\bsw\TraceRecorder\streamport/trcStreamingPort.c **** #endif
+  41:source\bsw\TraceRecorder\streamport/trcStreamingPort.c **** 
+  42:source\bsw\TraceRecorder\streamport/trcStreamingPort.c **** #if (TRACEPORT==PORT_USB)
+  43:source\bsw\TraceRecorder\streamport/trcStreamingPort.c ****     //start USB
+  44:source\bsw\TraceRecorder\streamport/trcStreamingPort.c ****     USBUART_Start(0, USBUART_5V_OPERATION);
+  36              		.loc 1 44 0
+  37 0002 0121     		movs	r1, #1
+  38 0004 0020     		movs	r0, #0
+  39 0006 FFF7FEFF 		bl	USBUART_Start
+  40              	.LVL0:
+  45:source\bsw\TraceRecorder\streamport/trcStreamingPort.c ****     
+  46:source\bsw\TraceRecorder\streamport/trcStreamingPort.c ****     //check if USB is connected
+  47:source\bsw\TraceRecorder\streamport/trcStreamingPort.c ****     if(0!=USBUART_GetConfiguration()){
+  41              		.loc 1 47 0
+  42 000a FFF7FEFF 		bl	USBUART_GetConfiguration
+  43              	.LVL1:
+  44 000e 08B1     		cbz	r0, .L1
+  48:source\bsw\TraceRecorder\streamport/trcStreamingPort.c ****         
+  49:source\bsw\TraceRecorder\streamport/trcStreamingPort.c ****         //Init CDC (communications device class)
+  50:source\bsw\TraceRecorder\streamport/trcStreamingPort.c ****         USBUART_CDC_Init();
+  45              		.loc 1 50 0
+  46 0010 FFF7FEFF 		bl	USBUART_CDC_Init
+  47              	.LVL2:
+  48              	.L1:
+  49 0014 08BD     		pop	{r3, pc}
+  50              		.cfi_endproc
+  51              	.LFE110:
+  52              		.size	trcUART_init, .-trcUART_init
+  53 0016 00BF     		.section	.text.trcUARTReceive,"ax",%progbits
+  54              		.align	2
+  55              		.global	trcUARTReceive
+  56              		.thumb
+  57              		.thumb_func
+  58              		.type	trcUARTReceive, %function
+  59              	trcUARTReceive:
+  60              	.LFB111:
+  51:source\bsw\TraceRecorder\streamport/trcStreamingPort.c ****     };
+  52:source\bsw\TraceRecorder\streamport/trcStreamingPort.c ****     
+  53:source\bsw\TraceRecorder\streamport/trcStreamingPort.c **** #endif
+  54:source\bsw\TraceRecorder\streamport/trcStreamingPort.c **** }
+ARM GAS  C:\Users\MATEOC~1.QUE\AppData\Local\Temp\cc339K1d.s 			page 3
+
+
+  55:source\bsw\TraceRecorder\streamport/trcStreamingPort.c **** 
+  56:source\bsw\TraceRecorder\streamport/trcStreamingPort.c **** int32_t trcUARTReceive(uint8_t* p_data, uint32_t size, int32_t* p_NumBytes){
+  61              		.loc 1 56 0
+  62              		.cfi_startproc
+  63              		@ args = 0, pretend = 0, frame = 0
+  64              		@ frame_needed = 0, uses_anonymous_args = 0
+  65              	.LVL3:
+  66 0000 38B5     		push	{r3, r4, r5, lr}
+  67              		.cfi_def_cfa_offset 16
+  68              		.cfi_offset 3, -16
+  69              		.cfi_offset 4, -12
+  70              		.cfi_offset 5, -8
+  71              		.cfi_offset 14, -4
+  72 0002 0546     		mov	r5, r0
+  73 0004 1446     		mov	r4, r2
+  57:source\bsw\TraceRecorder\streamport/trcStreamingPort.c ****     
+  58:source\bsw\TraceRecorder\streamport/trcStreamingPort.c **** #if (TRACEPORT==PORT_UART)
+  59:source\bsw\TraceRecorder\streamport/trcStreamingPort.c ****     //byte iterator
+  60:source\bsw\TraceRecorder\streamport/trcStreamingPort.c **** 	uint32_t i;
+  61:source\bsw\TraceRecorder\streamport/trcStreamingPort.c ****     
+  62:source\bsw\TraceRecorder\streamport/trcStreamingPort.c ****     //read number of bytes waiting in the RX FIFO
+  63:source\bsw\TraceRecorder\streamport/trcStreamingPort.c ****     uint32_t bytesInBuffer=UART_LOG_GetRxBufferSize();
+  64:source\bsw\TraceRecorder\streamport/trcStreamingPort.c ****    
+  65:source\bsw\TraceRecorder\streamport/trcStreamingPort.c ****     //check if there is any data
+  66:source\bsw\TraceRecorder\streamport/trcStreamingPort.c **** 	if(bytesInBuffer>0)	{
+  67:source\bsw\TraceRecorder\streamport/trcStreamingPort.c ****         
+  68:source\bsw\TraceRecorder\streamport/trcStreamingPort.c ****         //check if the number of bytes received exceeds the storage provided by the trace lib
+  69:source\bsw\TraceRecorder\streamport/trcStreamingPort.c **** 		if (bytesInBuffer <= size){
+  70:source\bsw\TraceRecorder\streamport/trcStreamingPort.c ****             
+  71:source\bsw\TraceRecorder\streamport/trcStreamingPort.c ****             //copy bytes from RX FIFO to tracealyzer container
+  72:source\bsw\TraceRecorder\streamport/trcStreamingPort.c ****             for(i=0;i<bytesInBuffer;i++)
+  73:source\bsw\TraceRecorder\streamport/trcStreamingPort.c ****                 p_data[i]=UART_LOG_GetByte();
+  74:source\bsw\TraceRecorder\streamport/trcStreamingPort.c **** 
+  75:source\bsw\TraceRecorder\streamport/trcStreamingPort.c ****             //update number of bytes received
+  76:source\bsw\TraceRecorder\streamport/trcStreamingPort.c **** 			*p_NumBytes=bytesInBuffer;
+  77:source\bsw\TraceRecorder\streamport/trcStreamingPort.c **** 		}
+  78:source\bsw\TraceRecorder\streamport/trcStreamingPort.c ****         //number of bytes exceeds memory provided by the trace lib
+  79:source\bsw\TraceRecorder\streamport/trcStreamingPort.c **** 		else{
+  80:source\bsw\TraceRecorder\streamport/trcStreamingPort.c **** 		            
+  81:source\bsw\TraceRecorder\streamport/trcStreamingPort.c ****             //copy bytes from RX FIFO to tracealyzer container
+  82:source\bsw\TraceRecorder\streamport/trcStreamingPort.c ****             for(i=0;i<size;i++)
+  83:source\bsw\TraceRecorder\streamport/trcStreamingPort.c ****                 p_data[i]=UART_LOG_GetByte();
+  84:source\bsw\TraceRecorder\streamport/trcStreamingPort.c ****                 
+  85:source\bsw\TraceRecorder\streamport/trcStreamingPort.c ****             //update number of bytes received
+  86:source\bsw\TraceRecorder\streamport/trcStreamingPort.c ****             *p_NumBytes=size;
+  87:source\bsw\TraceRecorder\streamport/trcStreamingPort.c **** 		}
+  88:source\bsw\TraceRecorder\streamport/trcStreamingPort.c **** 	}
+  89:source\bsw\TraceRecorder\streamport/trcStreamingPort.c **** 	else{
+  90:source\bsw\TraceRecorder\streamport/trcStreamingPort.c **** 		//update number of bytes received
+  91:source\bsw\TraceRecorder\streamport/trcStreamingPort.c ****         *p_NumBytes=0;
+  92:source\bsw\TraceRecorder\streamport/trcStreamingPort.c **** 	}
+  93:source\bsw\TraceRecorder\streamport/trcStreamingPort.c **** #endif   
+  94:source\bsw\TraceRecorder\streamport/trcStreamingPort.c ****     
+  95:source\bsw\TraceRecorder\streamport/trcStreamingPort.c **** #if (TRACEPORT==PORT_USB)
+  96:source\bsw\TraceRecorder\streamport/trcStreamingPort.c ****     //check if the USB state changed
+  97:source\bsw\TraceRecorder\streamport/trcStreamingPort.c ****     if (0u != USBUART_IsConfigurationChanged()){
+  74              		.loc 1 97 0
+ARM GAS  C:\Users\MATEOC~1.QUE\AppData\Local\Temp\cc339K1d.s 			page 4
+
+
+  75 0006 FFF7FEFF 		bl	USBUART_IsConfigurationChanged
+  76              	.LVL4:
+  77 000a 20B1     		cbz	r0, .L5
+  98:source\bsw\TraceRecorder\streamport/trcStreamingPort.c ****         
+  99:source\bsw\TraceRecorder\streamport/trcStreamingPort.c ****         // Initialize IN endpoints when device is configured.
+ 100:source\bsw\TraceRecorder\streamport/trcStreamingPort.c ****         if (0u != USBUART_GetConfiguration()){
+  78              		.loc 1 100 0
+  79 000c FFF7FEFF 		bl	USBUART_GetConfiguration
+  80              	.LVL5:
+  81 0010 08B1     		cbz	r0, .L5
+ 101:source\bsw\TraceRecorder\streamport/trcStreamingPort.c ****             //Enumeration is done, enable OUT endpoint to receive data from host.
+ 102:source\bsw\TraceRecorder\streamport/trcStreamingPort.c ****             USBUART_CDC_Init();
+  82              		.loc 1 102 0
+  83 0012 FFF7FEFF 		bl	USBUART_CDC_Init
+  84              	.LVL6:
+  85              	.L5:
+ 103:source\bsw\TraceRecorder\streamport/trcStreamingPort.c ****         }
+ 104:source\bsw\TraceRecorder\streamport/trcStreamingPort.c ****     }
+ 105:source\bsw\TraceRecorder\streamport/trcStreamingPort.c ****     
+ 106:source\bsw\TraceRecorder\streamport/trcStreamingPort.c ****     //check if USB is connected
+ 107:source\bsw\TraceRecorder\streamport/trcStreamingPort.c ****     if(0!=USBUART_GetConfiguration()){
+  86              		.loc 1 107 0
+  87 0016 FFF7FEFF 		bl	USBUART_GetConfiguration
+  88              	.LVL7:
+  89 001a 50B1     		cbz	r0, .L6
+ 108:source\bsw\TraceRecorder\streamport/trcStreamingPort.c ****                 
+ 109:source\bsw\TraceRecorder\streamport/trcStreamingPort.c ****         //check if there is data waiting for us
+ 110:source\bsw\TraceRecorder\streamport/trcStreamingPort.c ****         if (0u != USBUART_DataIsReady()){
+  90              		.loc 1 110 0
+  91 001c FFF7FEFF 		bl	USBUART_DataIsReady
+  92              	.LVL8:
+  93 0020 20B1     		cbz	r0, .L7
+ 111:source\bsw\TraceRecorder\streamport/trcStreamingPort.c ****             
+ 112:source\bsw\TraceRecorder\streamport/trcStreamingPort.c ****             //read bytes from the RX buffer. Partial read is not supported (size argument is ignore
+ 113:source\bsw\TraceRecorder\streamport/trcStreamingPort.c ****             (void)size;
+ 114:source\bsw\TraceRecorder\streamport/trcStreamingPort.c ****             *p_NumBytes=USBUART_GetAll(p_data);
+  94              		.loc 1 114 0
+  95 0022 2846     		mov	r0, r5
+  96 0024 FFF7FEFF 		bl	USBUART_GetAll
+  97              	.LVL9:
+  98 0028 2060     		str	r0, [r4]
+  99 002a 04E0     		b	.L8
+ 100              	.L7:
+ 115:source\bsw\TraceRecorder\streamport/trcStreamingPort.c ****             
+ 116:source\bsw\TraceRecorder\streamport/trcStreamingPort.c ****         }else{  //no data
+ 117:source\bsw\TraceRecorder\streamport/trcStreamingPort.c ****             *p_NumBytes=0;
+ 101              		.loc 1 117 0
+ 102 002c 0023     		movs	r3, #0
+ 103 002e 2360     		str	r3, [r4]
+ 104 0030 01E0     		b	.L8
+ 105              	.L6:
+ 118:source\bsw\TraceRecorder\streamport/trcStreamingPort.c ****         }
+ 119:source\bsw\TraceRecorder\streamport/trcStreamingPort.c ****     }else{  //USB disconnected
+ 120:source\bsw\TraceRecorder\streamport/trcStreamingPort.c ****         *p_NumBytes=0;
+ 106              		.loc 1 120 0
+ 107 0032 0023     		movs	r3, #0
+ 108 0034 2360     		str	r3, [r4]
+ARM GAS  C:\Users\MATEOC~1.QUE\AppData\Local\Temp\cc339K1d.s 			page 5
+
+
+ 109              	.L8:
+ 121:source\bsw\TraceRecorder\streamport/trcStreamingPort.c ****     }
+ 122:source\bsw\TraceRecorder\streamport/trcStreamingPort.c **** 
+ 123:source\bsw\TraceRecorder\streamport/trcStreamingPort.c **** #endif
+ 124:source\bsw\TraceRecorder\streamport/trcStreamingPort.c ****     
+ 125:source\bsw\TraceRecorder\streamport/trcStreamingPort.c **** 	return 0;
+ 126:source\bsw\TraceRecorder\streamport/trcStreamingPort.c **** }
+ 110              		.loc 1 126 0
+ 111 0036 0020     		movs	r0, #0
+ 112 0038 38BD     		pop	{r3, r4, r5, pc}
+ 113              		.cfi_endproc
+ 114              	.LFE111:
+ 115              		.size	trcUARTReceive, .-trcUARTReceive
+ 116 003a 00BF     		.section	.text.trcUARTTransmit,"ax",%progbits
+ 117              		.align	2
+ 118              		.global	trcUARTTransmit
+ 119              		.thumb
+ 120              		.thumb_func
+ 121              		.type	trcUARTTransmit, %function
+ 122              	trcUARTTransmit:
+ 123              	.LFB112:
+ 127:source\bsw\TraceRecorder\streamport/trcStreamingPort.c **** 
+ 128:source\bsw\TraceRecorder\streamport/trcStreamingPort.c **** int32_t trcUARTTransmit(uint8_t* p_data, uint32_t size, int32_t* p_NumBytes){
+ 124              		.loc 1 128 0
+ 125              		.cfi_startproc
+ 126              		@ args = 0, pretend = 0, frame = 0
+ 127              		@ frame_needed = 0, uses_anonymous_args = 0
+ 128              	.LVL10:
+ 129 0000 70B5     		push	{r4, r5, r6, lr}
+ 130              		.cfi_def_cfa_offset 16
+ 131              		.cfi_offset 4, -16
+ 132              		.cfi_offset 5, -12
+ 133              		.cfi_offset 6, -8
+ 134              		.cfi_offset 14, -4
+ 135 0002 0646     		mov	r6, r0
+ 136 0004 0D46     		mov	r5, r1
+ 137 0006 1446     		mov	r4, r2
+ 129:source\bsw\TraceRecorder\streamport/trcStreamingPort.c ****     
+ 130:source\bsw\TraceRecorder\streamport/trcStreamingPort.c **** #if (TRACEPORT==PORT_UART)
+ 131:source\bsw\TraceRecorder\streamport/trcStreamingPort.c ****     //send bytes
+ 132:source\bsw\TraceRecorder\streamport/trcStreamingPort.c **** 	UART_LOG_PutArray(p_data, size);
+ 133:source\bsw\TraceRecorder\streamport/trcStreamingPort.c ****     
+ 134:source\bsw\TraceRecorder\streamport/trcStreamingPort.c ****     //update number of sent bytes
+ 135:source\bsw\TraceRecorder\streamport/trcStreamingPort.c **** 	*p_NumBytes=size;
+ 136:source\bsw\TraceRecorder\streamport/trcStreamingPort.c **** #endif
+ 137:source\bsw\TraceRecorder\streamport/trcStreamingPort.c ****     
+ 138:source\bsw\TraceRecorder\streamport/trcStreamingPort.c **** #if (TRACEPORT==PORT_USB)
+ 139:source\bsw\TraceRecorder\streamport/trcStreamingPort.c ****     //check if the USB state changed
+ 140:source\bsw\TraceRecorder\streamport/trcStreamingPort.c ****     if (0u != USBUART_IsConfigurationChanged()){
+ 138              		.loc 1 140 0
+ 139 0008 FFF7FEFF 		bl	USBUART_IsConfigurationChanged
+ 140              	.LVL11:
+ 141 000c 20B1     		cbz	r0, .L11
+ 141:source\bsw\TraceRecorder\streamport/trcStreamingPort.c ****         
+ 142:source\bsw\TraceRecorder\streamport/trcStreamingPort.c ****         // Initialize IN endpoints when device is configured.
+ 143:source\bsw\TraceRecorder\streamport/trcStreamingPort.c ****         if (0u != USBUART_GetConfiguration()){
+ 142              		.loc 1 143 0
+ARM GAS  C:\Users\MATEOC~1.QUE\AppData\Local\Temp\cc339K1d.s 			page 6
+
+
+ 143 000e FFF7FEFF 		bl	USBUART_GetConfiguration
+ 144              	.LVL12:
+ 145 0012 08B1     		cbz	r0, .L11
+ 144:source\bsw\TraceRecorder\streamport/trcStreamingPort.c ****             //Enumeration is done, enable OUT endpoint to receive data from host.
+ 145:source\bsw\TraceRecorder\streamport/trcStreamingPort.c ****             USBUART_CDC_Init();
+ 146              		.loc 1 145 0
+ 147 0014 FFF7FEFF 		bl	USBUART_CDC_Init
+ 148              	.LVL13:
+ 149              	.L11:
+ 146:source\bsw\TraceRecorder\streamport/trcStreamingPort.c ****         }
+ 147:source\bsw\TraceRecorder\streamport/trcStreamingPort.c ****     }
+ 148:source\bsw\TraceRecorder\streamport/trcStreamingPort.c ****     
+ 149:source\bsw\TraceRecorder\streamport/trcStreamingPort.c ****     //check if USB is connected
+ 150:source\bsw\TraceRecorder\streamport/trcStreamingPort.c ****     if(0!=USBUART_GetConfiguration()){
+ 150              		.loc 1 150 0
+ 151 0018 FFF7FEFF 		bl	USBUART_GetConfiguration
+ 152              	.LVL14:
+ 153 001c 80B1     		cbz	r0, .L12
+ 151:source\bsw\TraceRecorder\streamport/trcStreamingPort.c ****         
+ 152:source\bsw\TraceRecorder\streamport/trcStreamingPort.c ****         //Init CDC (communications device class)
+ 153:source\bsw\TraceRecorder\streamport/trcStreamingPort.c ****         USBUART_CDC_Init();
+ 154              		.loc 1 153 0
+ 155 001e FFF7FEFF 		bl	USBUART_CDC_Init
+ 156              	.LVL15:
+ 154:source\bsw\TraceRecorder\streamport/trcStreamingPort.c ****         
+ 155:source\bsw\TraceRecorder\streamport/trcStreamingPort.c ****         //check if previous transfers have finished
+ 156:source\bsw\TraceRecorder\streamport/trcStreamingPort.c ****         if(USBUART_CDCIsReady()!=0){
+ 157              		.loc 1 156 0
+ 158 0022 FFF7FEFF 		bl	USBUART_CDCIsReady
+ 159              	.LVL16:
+ 160 0026 40B1     		cbz	r0, .L13
+ 157:source\bsw\TraceRecorder\streamport/trcStreamingPort.c ****             //truncate numer of bytes to be send to 64(limit by USB)
+ 158:source\bsw\TraceRecorder\streamport/trcStreamingPort.c ****             if(size>64)
+ 161              		.loc 1 158 0
+ 162 0028 402D     		cmp	r5, #64
+ 163 002a 00D9     		bls	.L14
+ 159:source\bsw\TraceRecorder\streamport/trcStreamingPort.c ****                 size=64;
+ 164              		.loc 1 159 0
+ 165 002c 4025     		movs	r5, #64
+ 166              	.LVL17:
+ 167              	.L14:
+ 160:source\bsw\TraceRecorder\streamport/trcStreamingPort.c ****             
+ 161:source\bsw\TraceRecorder\streamport/trcStreamingPort.c ****             //send data
+ 162:source\bsw\TraceRecorder\streamport/trcStreamingPort.c ****         	USBUART_PutData(p_data, size);
+ 168              		.loc 1 162 0
+ 169 002e A9B2     		uxth	r1, r5
+ 170 0030 3046     		mov	r0, r6
+ 171 0032 FFF7FEFF 		bl	USBUART_PutData
+ 172              	.LVL18:
+ 163:source\bsw\TraceRecorder\streamport/trcStreamingPort.c ****             
+ 164:source\bsw\TraceRecorder\streamport/trcStreamingPort.c ****             //update number of sent bytes
+ 165:source\bsw\TraceRecorder\streamport/trcStreamingPort.c ****         	*p_NumBytes=size;
+ 173              		.loc 1 165 0
+ 174 0036 2560     		str	r5, [r4]
+ 175 0038 04E0     		b	.L15
+ 176              	.L13:
+ 166:source\bsw\TraceRecorder\streamport/trcStreamingPort.c ****         }else{ //previous transfer has not been finished yet
+ARM GAS  C:\Users\MATEOC~1.QUE\AppData\Local\Temp\cc339K1d.s 			page 7
+
+
+ 167:source\bsw\TraceRecorder\streamport/trcStreamingPort.c ****         
+ 168:source\bsw\TraceRecorder\streamport/trcStreamingPort.c ****             //update number of sent bytes
+ 169:source\bsw\TraceRecorder\streamport/trcStreamingPort.c ****         	*p_NumBytes=0;
+ 177              		.loc 1 169 0
+ 178 003a 0023     		movs	r3, #0
+ 179 003c 2360     		str	r3, [r4]
+ 180 003e 01E0     		b	.L15
+ 181              	.L12:
+ 170:source\bsw\TraceRecorder\streamport/trcStreamingPort.c ****         }
+ 171:source\bsw\TraceRecorder\streamport/trcStreamingPort.c ****     }
+ 172:source\bsw\TraceRecorder\streamport/trcStreamingPort.c ****     else{  //USB disconnected
+ 173:source\bsw\TraceRecorder\streamport/trcStreamingPort.c ****         *p_NumBytes=0;
+ 182              		.loc 1 173 0
+ 183 0040 0023     		movs	r3, #0
+ 184 0042 2360     		str	r3, [r4]
+ 185              	.L15:
+ 174:source\bsw\TraceRecorder\streamport/trcStreamingPort.c ****     }
+ 175:source\bsw\TraceRecorder\streamport/trcStreamingPort.c **** #endif
+ 176:source\bsw\TraceRecorder\streamport/trcStreamingPort.c ****     
+ 177:source\bsw\TraceRecorder\streamport/trcStreamingPort.c ****     //return value is not evaluated
+ 178:source\bsw\TraceRecorder\streamport/trcStreamingPort.c **** 	return 0;
+ 179:source\bsw\TraceRecorder\streamport/trcStreamingPort.c **** }
+ 186              		.loc 1 179 0
+ 187 0044 0020     		movs	r0, #0
+ 188 0046 70BD     		pop	{r4, r5, r6, pc}
+ 189              		.cfi_endproc
+ 190              	.LFE112:
+ 191              		.size	trcUARTTransmit, .-trcUARTTransmit
+ 192              		.text
+ 193              	.Letext0:
+ 194              		.file 2 "c:\\program files (x86)\\cypress\\psoc creator\\4.4\\psoc creator\\import\\gnu\\arm\\5.4.
+ 195              		.file 3 "c:\\program files (x86)\\cypress\\psoc creator\\4.4\\psoc creator\\import\\gnu\\arm\\5.4.
+ 196              		.file 4 "Generated_Source\\PSoC5/ErikaOS_1_common_ee_types.inc"
+ 197              		.file 5 "Generated_Source\\PSoC5/ErikaOS_1_cortex_mx_ee_cpu.inc"
+ 198              		.file 6 "Generated_Source\\PSoC5/ErikaOS_1_ee_oo_intfunc.inc"
+ 199              		.file 7 "Generated_Source\\PSoC5/ErikaOS_1_cortex_mx_ee_context.inc"
+ 200              		.file 8 "Generated_Source\\PSoC5/ErikaOS_1_common_ee_primitives.inc"
+ 201              		.file 9 "Generated_Source\\PSoC5/core_cm3.h"
+ 202              		.file 10 "Generated_Source\\PSoC5/USBUART.h"
+ 203              		.file 11 "Generated_Source\\PSoC5/USBUART_cdc.h"
+ 204              		.section	.debug_info,"",%progbits
+ 205              	.Ldebug_info0:
+ 206 0000 0A030000 		.4byte	0x30a
+ 207 0004 0400     		.2byte	0x4
+ 208 0006 00000000 		.4byte	.Ldebug_abbrev0
+ 209 000a 04       		.byte	0x4
+ 210 000b 01       		.uleb128 0x1
+ 211 000c DE000000 		.4byte	.LASF44
+ 212 0010 0C       		.byte	0xc
+ 213 0011 A2000000 		.4byte	.LASF45
+ 214 0015 FC020000 		.4byte	.LASF46
+ 215 0019 00000000 		.4byte	.Ldebug_ranges0+0
+ 216 001d 00000000 		.4byte	0
+ 217 0021 00000000 		.4byte	.Ldebug_line0
+ 218 0025 02       		.uleb128 0x2
+ 219 0026 01       		.byte	0x1
+ 220 0027 06       		.byte	0x6
+ARM GAS  C:\Users\MATEOC~1.QUE\AppData\Local\Temp\cc339K1d.s 			page 8
+
+
+ 221 0028 C6030000 		.4byte	.LASF0
+ 222 002c 03       		.uleb128 0x3
+ 223 002d 00000000 		.4byte	.LASF4
+ 224 0031 02       		.byte	0x2
+ 225 0032 1D       		.byte	0x1d
+ 226 0033 37000000 		.4byte	0x37
+ 227 0037 02       		.uleb128 0x2
+ 228 0038 01       		.byte	0x1
+ 229 0039 08       		.byte	0x8
+ 230 003a B2010000 		.4byte	.LASF1
+ 231 003e 02       		.uleb128 0x2
+ 232 003f 02       		.byte	0x2
+ 233 0040 05       		.byte	0x5
+ 234 0041 DA020000 		.4byte	.LASF2
+ 235 0045 02       		.uleb128 0x2
+ 236 0046 02       		.byte	0x2
+ 237 0047 07       		.byte	0x7
+ 238 0048 89010000 		.4byte	.LASF3
+ 239 004c 03       		.uleb128 0x3
+ 240 004d 27000000 		.4byte	.LASF5
+ 241 0051 02       		.byte	0x2
+ 242 0052 3F       		.byte	0x3f
+ 243 0053 57000000 		.4byte	0x57
+ 244 0057 02       		.uleb128 0x2
+ 245 0058 04       		.byte	0x4
+ 246 0059 05       		.byte	0x5
+ 247 005a B1030000 		.4byte	.LASF6
+ 248 005e 03       		.uleb128 0x3
+ 249 005f 6C010000 		.4byte	.LASF7
+ 250 0063 02       		.byte	0x2
+ 251 0064 41       		.byte	0x41
+ 252 0065 69000000 		.4byte	0x69
+ 253 0069 02       		.uleb128 0x2
+ 254 006a 04       		.byte	0x4
+ 255 006b 07       		.byte	0x7
+ 256 006c 77010000 		.4byte	.LASF8
+ 257 0070 02       		.uleb128 0x2
+ 258 0071 08       		.byte	0x8
+ 259 0072 05       		.byte	0x5
+ 260 0073 91020000 		.4byte	.LASF9
+ 261 0077 02       		.uleb128 0x2
+ 262 0078 08       		.byte	0x8
+ 263 0079 07       		.byte	0x7
+ 264 007a 2B020000 		.4byte	.LASF10
+ 265 007e 04       		.uleb128 0x4
+ 266 007f 04       		.byte	0x4
+ 267 0080 05       		.byte	0x5
+ 268 0081 696E7400 		.ascii	"int\000"
+ 269 0085 02       		.uleb128 0x2
+ 270 0086 04       		.byte	0x4
+ 271 0087 07       		.byte	0x7
+ 272 0088 FB010000 		.4byte	.LASF11
+ 273 008c 03       		.uleb128 0x3
+ 274 008d 42020000 		.4byte	.LASF12
+ 275 0091 03       		.byte	0x3
+ 276 0092 18       		.byte	0x18
+ 277 0093 2C000000 		.4byte	0x2c
+ARM GAS  C:\Users\MATEOC~1.QUE\AppData\Local\Temp\cc339K1d.s 			page 9
+
+
+ 278 0097 03       		.uleb128 0x3
+ 279 0098 71020000 		.4byte	.LASF13
+ 280 009c 03       		.byte	0x3
+ 281 009d 2C       		.byte	0x2c
+ 282 009e 4C000000 		.4byte	0x4c
+ 283 00a2 03       		.uleb128 0x3
+ 284 00a3 A8030000 		.4byte	.LASF14
+ 285 00a7 03       		.byte	0x3
+ 286 00a8 30       		.byte	0x30
+ 287 00a9 5E000000 		.4byte	0x5e
+ 288 00ad 02       		.uleb128 0x2
+ 289 00ae 08       		.byte	0x8
+ 290 00af 04       		.byte	0x4
+ 291 00b0 BA030000 		.4byte	.LASF15
+ 292 00b4 02       		.uleb128 0x2
+ 293 00b5 04       		.byte	0x4
+ 294 00b6 04       		.byte	0x4
+ 295 00b7 83000000 		.4byte	.LASF16
+ 296 00bb 02       		.uleb128 0x2
+ 297 00bc 08       		.byte	0x8
+ 298 00bd 04       		.byte	0x4
+ 299 00be C0010000 		.4byte	.LASF17
+ 300 00c2 02       		.uleb128 0x2
+ 301 00c3 01       		.byte	0x1
+ 302 00c4 08       		.byte	0x8
+ 303 00c5 9F020000 		.4byte	.LASF18
+ 304 00c9 02       		.uleb128 0x2
+ 305 00ca 04       		.byte	0x4
+ 306 00cb 07       		.byte	0x7
+ 307 00cc 79020000 		.4byte	.LASF19
+ 308 00d0 03       		.uleb128 0x3
+ 309 00d1 9C010000 		.4byte	.LASF20
+ 310 00d5 04       		.byte	0x4
+ 311 00d6 53       		.byte	0x53
+ 312 00d7 7E000000 		.4byte	0x7e
+ 313 00db 03       		.uleb128 0x3
+ 314 00dc 10020000 		.4byte	.LASF21
+ 315 00e0 04       		.byte	0x4
+ 316 00e1 54       		.byte	0x54
+ 317 00e2 85000000 		.4byte	0x85
+ 318 00e6 03       		.uleb128 0x3
+ 319 00e7 A4020000 		.4byte	.LASF22
+ 320 00eb 05       		.byte	0x5
+ 321 00ec 4D       		.byte	0x4d
+ 322 00ed DB000000 		.4byte	0xdb
+ 323 00f1 03       		.uleb128 0x3
+ 324 00f2 08020000 		.4byte	.LASF23
+ 325 00f6 05       		.byte	0x5
+ 326 00f7 4F       		.byte	0x4f
+ 327 00f8 DB000000 		.4byte	0xdb
+ 328 00fc 03       		.uleb128 0x3
+ 329 00fd 69000000 		.4byte	.LASF24
+ 330 0101 05       		.byte	0x5
+ 331 0102 78       		.byte	0x78
+ 332 0103 D0000000 		.4byte	0xd0
+ 333 0107 05       		.uleb128 0x5
+ 334 0108 0A000000 		.4byte	.LASF47
+ARM GAS  C:\Users\MATEOC~1.QUE\AppData\Local\Temp\cc339K1d.s 			page 10
+
+
+ 335 010c 01       		.byte	0x1
+ 336 010d 24       		.byte	0x24
+ 337 010e 00000000 		.4byte	.LFB110
+ 338 0112 16000000 		.4byte	.LFE110-.LFB110
+ 339 0116 01       		.uleb128 0x1
+ 340 0117 9C       		.byte	0x9c
+ 341 0118 47010000 		.4byte	0x147
+ 342 011c 06       		.uleb128 0x6
+ 343 011d 0A000000 		.4byte	.LVL0
+ 344 0121 B2020000 		.4byte	0x2b2
+ 345 0125 34010000 		.4byte	0x134
+ 346 0129 07       		.uleb128 0x7
+ 347 012a 01       		.uleb128 0x1
+ 348 012b 50       		.byte	0x50
+ 349 012c 01       		.uleb128 0x1
+ 350 012d 30       		.byte	0x30
+ 351 012e 07       		.uleb128 0x7
+ 352 012f 01       		.uleb128 0x1
+ 353 0130 51       		.byte	0x51
+ 354 0131 01       		.uleb128 0x1
+ 355 0132 31       		.byte	0x31
+ 356 0133 00       		.byte	0
+ 357 0134 08       		.uleb128 0x8
+ 358 0135 0E000000 		.4byte	.LVL1
+ 359 0139 BE020000 		.4byte	0x2be
+ 360 013d 08       		.uleb128 0x8
+ 361 013e 14000000 		.4byte	.LVL2
+ 362 0142 CA020000 		.4byte	0x2ca
+ 363 0146 00       		.byte	0
+ 364 0147 09       		.uleb128 0x9
+ 365 0148 82020000 		.4byte	.LASF28
+ 366 014c 01       		.byte	0x1
+ 367 014d 38       		.byte	0x38
+ 368 014e 97000000 		.4byte	0x97
+ 369 0152 00000000 		.4byte	.LFB111
+ 370 0156 3A000000 		.4byte	.LFE111-.LFB111
+ 371 015a 01       		.uleb128 0x1
+ 372 015b 9C       		.byte	0x9c
+ 373 015c CB010000 		.4byte	0x1cb
+ 374 0160 0A       		.uleb128 0xa
+ 375 0161 E6010000 		.4byte	.LASF25
+ 376 0165 01       		.byte	0x1
+ 377 0166 38       		.byte	0x38
+ 378 0167 CB010000 		.4byte	0x1cb
+ 379 016b 00000000 		.4byte	.LLST0
+ 380 016f 0A       		.uleb128 0xa
+ 381 0170 D9000000 		.4byte	.LASF26
+ 382 0174 01       		.byte	0x1
+ 383 0175 38       		.byte	0x38
+ 384 0176 A2000000 		.4byte	0xa2
+ 385 017a 1E000000 		.4byte	.LLST1
+ 386 017e 0A       		.uleb128 0xa
+ 387 017f D2030000 		.4byte	.LASF27
+ 388 0183 01       		.byte	0x1
+ 389 0184 38       		.byte	0x38
+ 390 0185 D1010000 		.4byte	0x1d1
+ 391 0189 3F000000 		.4byte	.LLST2
+ARM GAS  C:\Users\MATEOC~1.QUE\AppData\Local\Temp\cc339K1d.s 			page 11
+
+
+ 392 018d 08       		.uleb128 0x8
+ 393 018e 0A000000 		.4byte	.LVL4
+ 394 0192 D5020000 		.4byte	0x2d5
+ 395 0196 08       		.uleb128 0x8
+ 396 0197 10000000 		.4byte	.LVL5
+ 397 019b BE020000 		.4byte	0x2be
+ 398 019f 08       		.uleb128 0x8
+ 399 01a0 16000000 		.4byte	.LVL6
+ 400 01a4 CA020000 		.4byte	0x2ca
+ 401 01a8 08       		.uleb128 0x8
+ 402 01a9 1A000000 		.4byte	.LVL7
+ 403 01ad BE020000 		.4byte	0x2be
+ 404 01b1 08       		.uleb128 0x8
+ 405 01b2 20000000 		.4byte	.LVL8
+ 406 01b6 E1020000 		.4byte	0x2e1
+ 407 01ba 0B       		.uleb128 0xb
+ 408 01bb 28000000 		.4byte	.LVL9
+ 409 01bf EC020000 		.4byte	0x2ec
+ 410 01c3 07       		.uleb128 0x7
+ 411 01c4 01       		.uleb128 0x1
+ 412 01c5 50       		.byte	0x50
+ 413 01c6 02       		.uleb128 0x2
+ 414 01c7 75       		.byte	0x75
+ 415 01c8 00       		.sleb128 0
+ 416 01c9 00       		.byte	0
+ 417 01ca 00       		.byte	0
+ 418 01cb 0C       		.uleb128 0xc
+ 419 01cc 04       		.byte	0x4
+ 420 01cd 8C000000 		.4byte	0x8c
+ 421 01d1 0C       		.uleb128 0xc
+ 422 01d2 04       		.byte	0x4
+ 423 01d3 97000000 		.4byte	0x97
+ 424 01d7 09       		.uleb128 0x9
+ 425 01d8 17000000 		.4byte	.LASF29
+ 426 01dc 01       		.byte	0x1
+ 427 01dd 80       		.byte	0x80
+ 428 01de 97000000 		.4byte	0x97
+ 429 01e2 00000000 		.4byte	.LFB112
+ 430 01e6 48000000 		.4byte	.LFE112-.LFB112
+ 431 01ea 01       		.uleb128 0x1
+ 432 01eb 9C       		.byte	0x9c
+ 433 01ec 6A020000 		.4byte	0x26a
+ 434 01f0 0A       		.uleb128 0xa
+ 435 01f1 E6010000 		.4byte	.LASF25
+ 436 01f5 01       		.byte	0x1
+ 437 01f6 80       		.byte	0x80
+ 438 01f7 CB010000 		.4byte	0x1cb
+ 439 01fb 5D000000 		.4byte	.LLST3
+ 440 01ff 0A       		.uleb128 0xa
+ 441 0200 D9000000 		.4byte	.LASF26
+ 442 0204 01       		.byte	0x1
+ 443 0205 80       		.byte	0x80
+ 444 0206 A2000000 		.4byte	0xa2
+ 445 020a 7B000000 		.4byte	.LLST4
+ 446 020e 0A       		.uleb128 0xa
+ 447 020f D2030000 		.4byte	.LASF27
+ 448 0213 01       		.byte	0x1
+ARM GAS  C:\Users\MATEOC~1.QUE\AppData\Local\Temp\cc339K1d.s 			page 12
+
+
+ 449 0214 80       		.byte	0x80
+ 450 0215 D1010000 		.4byte	0x1d1
+ 451 0219 99000000 		.4byte	.LLST5
+ 452 021d 08       		.uleb128 0x8
+ 453 021e 0C000000 		.4byte	.LVL11
+ 454 0222 D5020000 		.4byte	0x2d5
+ 455 0226 08       		.uleb128 0x8
+ 456 0227 12000000 		.4byte	.LVL12
+ 457 022b BE020000 		.4byte	0x2be
+ 458 022f 08       		.uleb128 0x8
+ 459 0230 18000000 		.4byte	.LVL13
+ 460 0234 CA020000 		.4byte	0x2ca
+ 461 0238 08       		.uleb128 0x8
+ 462 0239 1C000000 		.4byte	.LVL14
+ 463 023d BE020000 		.4byte	0x2be
+ 464 0241 08       		.uleb128 0x8
+ 465 0242 22000000 		.4byte	.LVL15
+ 466 0246 CA020000 		.4byte	0x2ca
+ 467 024a 08       		.uleb128 0x8
+ 468 024b 26000000 		.4byte	.LVL16
+ 469 024f F7020000 		.4byte	0x2f7
+ 470 0253 0B       		.uleb128 0xb
+ 471 0254 36000000 		.4byte	.LVL18
+ 472 0258 02030000 		.4byte	0x302
+ 473 025c 07       		.uleb128 0x7
+ 474 025d 01       		.uleb128 0x1
+ 475 025e 50       		.byte	0x50
+ 476 025f 02       		.uleb128 0x2
+ 477 0260 76       		.byte	0x76
+ 478 0261 00       		.sleb128 0
+ 479 0262 07       		.uleb128 0x7
+ 480 0263 01       		.uleb128 0x1
+ 481 0264 51       		.byte	0x51
+ 482 0265 02       		.uleb128 0x2
+ 483 0266 75       		.byte	0x75
+ 484 0267 00       		.sleb128 0
+ 485 0268 00       		.byte	0
+ 486 0269 00       		.byte	0
+ 487 026a 0D       		.uleb128 0xd
+ 488 026b E4020000 		.4byte	.LASF30
+ 489 026f 06       		.byte	0x6
+ 490 0270 40       		.byte	0x40
+ 491 0271 E6000000 		.4byte	0xe6
+ 492 0275 0D       		.uleb128 0xd
+ 493 0276 C1020000 		.4byte	.LASF31
+ 494 027a 06       		.byte	0x6
+ 495 027b 47       		.byte	0x47
+ 496 027c F1000000 		.4byte	0xf1
+ 497 0280 0D       		.uleb128 0xd
+ 498 0281 5E020000 		.4byte	.LASF32
+ 499 0285 06       		.byte	0x6
+ 500 0286 4A       		.byte	0x4a
+ 501 0287 E6000000 		.4byte	0xe6
+ 502 028b 0D       		.uleb128 0xd
+ 503 028c 89000000 		.4byte	.LASF33
+ 504 0290 07       		.byte	0x7
+ 505 0291 48       		.byte	0x48
+ARM GAS  C:\Users\MATEOC~1.QUE\AppData\Local\Temp\cc339K1d.s 			page 13
+
+
+ 506 0292 FC000000 		.4byte	0xfc
+ 507 0296 0D       		.uleb128 0xd
+ 508 0297 AC020000 		.4byte	.LASF34
+ 509 029b 08       		.byte	0x8
+ 510 029c 44       		.byte	0x44
+ 511 029d E6000000 		.4byte	0xe6
+ 512 02a1 0E       		.uleb128 0xe
+ 513 02a2 A5010000 		.4byte	.LASF35
+ 514 02a6 09       		.byte	0x9
+ 515 02a7 1207     		.2byte	0x712
+ 516 02a9 AD020000 		.4byte	0x2ad
+ 517 02ad 0F       		.uleb128 0xf
+ 518 02ae 97000000 		.4byte	0x97
+ 519 02b2 10       		.uleb128 0x10
+ 520 02b3 ED010000 		.4byte	.LASF36
+ 521 02b7 ED010000 		.4byte	.LASF36
+ 522 02bb 0A       		.byte	0xa
+ 523 02bc 2A01     		.2byte	0x12a
+ 524 02be 10       		.uleb128 0x10
+ 525 02bf 50000000 		.4byte	.LASF37
+ 526 02c3 50000000 		.4byte	.LASF37
+ 527 02c7 0A       		.byte	0xa
+ 528 02c8 2D01     		.2byte	0x12d
+ 529 02ca 11       		.uleb128 0x11
+ 530 02cb 1A020000 		.4byte	.LASF38
+ 531 02cf 1A020000 		.4byte	.LASF38
+ 532 02d3 0B       		.byte	0xb
+ 533 02d4 22       		.byte	0x22
+ 534 02d5 10       		.uleb128 0x10
+ 535 02d6 C7010000 		.4byte	.LASF39
+ 536 02da C7010000 		.4byte	.LASF39
+ 537 02de 0A       		.byte	0xa
+ 538 02df 2E01     		.2byte	0x12e
+ 539 02e1 11       		.uleb128 0x11
+ 540 02e2 4A020000 		.4byte	.LASF40
+ 541 02e6 4A020000 		.4byte	.LASF40
+ 542 02ea 0B       		.byte	0xb
+ 543 02eb 29       		.byte	0x29
+ 544 02ec 11       		.uleb128 0x11
+ 545 02ed 31000000 		.4byte	.LASF41
+ 546 02f1 31000000 		.4byte	.LASF41
+ 547 02f5 0B       		.byte	0xb
+ 548 02f6 2B       		.byte	0x2b
+ 549 02f7 11       		.uleb128 0x11
+ 550 02f8 70000000 		.4byte	.LASF42
+ 551 02fc 70000000 		.4byte	.LASF42
+ 552 0300 0B       		.byte	0xb
+ 553 0301 28       		.byte	0x28
+ 554 0302 11       		.uleb128 0x11
+ 555 0303 40000000 		.4byte	.LASF43
+ 556 0307 40000000 		.4byte	.LASF43
+ 557 030b 0B       		.byte	0xb
+ 558 030c 23       		.byte	0x23
+ 559 030d 00       		.byte	0
+ 560              		.section	.debug_abbrev,"",%progbits
+ 561              	.Ldebug_abbrev0:
+ 562 0000 01       		.uleb128 0x1
+ARM GAS  C:\Users\MATEOC~1.QUE\AppData\Local\Temp\cc339K1d.s 			page 14
+
+
+ 563 0001 11       		.uleb128 0x11
+ 564 0002 01       		.byte	0x1
+ 565 0003 25       		.uleb128 0x25
+ 566 0004 0E       		.uleb128 0xe
+ 567 0005 13       		.uleb128 0x13
+ 568 0006 0B       		.uleb128 0xb
+ 569 0007 03       		.uleb128 0x3
+ 570 0008 0E       		.uleb128 0xe
+ 571 0009 1B       		.uleb128 0x1b
+ 572 000a 0E       		.uleb128 0xe
+ 573 000b 55       		.uleb128 0x55
+ 574 000c 17       		.uleb128 0x17
+ 575 000d 11       		.uleb128 0x11
+ 576 000e 01       		.uleb128 0x1
+ 577 000f 10       		.uleb128 0x10
+ 578 0010 17       		.uleb128 0x17
+ 579 0011 00       		.byte	0
+ 580 0012 00       		.byte	0
+ 581 0013 02       		.uleb128 0x2
+ 582 0014 24       		.uleb128 0x24
+ 583 0015 00       		.byte	0
+ 584 0016 0B       		.uleb128 0xb
+ 585 0017 0B       		.uleb128 0xb
+ 586 0018 3E       		.uleb128 0x3e
+ 587 0019 0B       		.uleb128 0xb
+ 588 001a 03       		.uleb128 0x3
+ 589 001b 0E       		.uleb128 0xe
+ 590 001c 00       		.byte	0
+ 591 001d 00       		.byte	0
+ 592 001e 03       		.uleb128 0x3
+ 593 001f 16       		.uleb128 0x16
+ 594 0020 00       		.byte	0
+ 595 0021 03       		.uleb128 0x3
+ 596 0022 0E       		.uleb128 0xe
+ 597 0023 3A       		.uleb128 0x3a
+ 598 0024 0B       		.uleb128 0xb
+ 599 0025 3B       		.uleb128 0x3b
+ 600 0026 0B       		.uleb128 0xb
+ 601 0027 49       		.uleb128 0x49
+ 602 0028 13       		.uleb128 0x13
+ 603 0029 00       		.byte	0
+ 604 002a 00       		.byte	0
+ 605 002b 04       		.uleb128 0x4
+ 606 002c 24       		.uleb128 0x24
+ 607 002d 00       		.byte	0
+ 608 002e 0B       		.uleb128 0xb
+ 609 002f 0B       		.uleb128 0xb
+ 610 0030 3E       		.uleb128 0x3e
+ 611 0031 0B       		.uleb128 0xb
+ 612 0032 03       		.uleb128 0x3
+ 613 0033 08       		.uleb128 0x8
+ 614 0034 00       		.byte	0
+ 615 0035 00       		.byte	0
+ 616 0036 05       		.uleb128 0x5
+ 617 0037 2E       		.uleb128 0x2e
+ 618 0038 01       		.byte	0x1
+ 619 0039 3F       		.uleb128 0x3f
+ARM GAS  C:\Users\MATEOC~1.QUE\AppData\Local\Temp\cc339K1d.s 			page 15
+
+
+ 620 003a 19       		.uleb128 0x19
+ 621 003b 03       		.uleb128 0x3
+ 622 003c 0E       		.uleb128 0xe
+ 623 003d 3A       		.uleb128 0x3a
+ 624 003e 0B       		.uleb128 0xb
+ 625 003f 3B       		.uleb128 0x3b
+ 626 0040 0B       		.uleb128 0xb
+ 627 0041 27       		.uleb128 0x27
+ 628 0042 19       		.uleb128 0x19
+ 629 0043 11       		.uleb128 0x11
+ 630 0044 01       		.uleb128 0x1
+ 631 0045 12       		.uleb128 0x12
+ 632 0046 06       		.uleb128 0x6
+ 633 0047 40       		.uleb128 0x40
+ 634 0048 18       		.uleb128 0x18
+ 635 0049 9742     		.uleb128 0x2117
+ 636 004b 19       		.uleb128 0x19
+ 637 004c 01       		.uleb128 0x1
+ 638 004d 13       		.uleb128 0x13
+ 639 004e 00       		.byte	0
+ 640 004f 00       		.byte	0
+ 641 0050 06       		.uleb128 0x6
+ 642 0051 898201   		.uleb128 0x4109
+ 643 0054 01       		.byte	0x1
+ 644 0055 11       		.uleb128 0x11
+ 645 0056 01       		.uleb128 0x1
+ 646 0057 31       		.uleb128 0x31
+ 647 0058 13       		.uleb128 0x13
+ 648 0059 01       		.uleb128 0x1
+ 649 005a 13       		.uleb128 0x13
+ 650 005b 00       		.byte	0
+ 651 005c 00       		.byte	0
+ 652 005d 07       		.uleb128 0x7
+ 653 005e 8A8201   		.uleb128 0x410a
+ 654 0061 00       		.byte	0
+ 655 0062 02       		.uleb128 0x2
+ 656 0063 18       		.uleb128 0x18
+ 657 0064 9142     		.uleb128 0x2111
+ 658 0066 18       		.uleb128 0x18
+ 659 0067 00       		.byte	0
+ 660 0068 00       		.byte	0
+ 661 0069 08       		.uleb128 0x8
+ 662 006a 898201   		.uleb128 0x4109
+ 663 006d 00       		.byte	0
+ 664 006e 11       		.uleb128 0x11
+ 665 006f 01       		.uleb128 0x1
+ 666 0070 31       		.uleb128 0x31
+ 667 0071 13       		.uleb128 0x13
+ 668 0072 00       		.byte	0
+ 669 0073 00       		.byte	0
+ 670 0074 09       		.uleb128 0x9
+ 671 0075 2E       		.uleb128 0x2e
+ 672 0076 01       		.byte	0x1
+ 673 0077 3F       		.uleb128 0x3f
+ 674 0078 19       		.uleb128 0x19
+ 675 0079 03       		.uleb128 0x3
+ 676 007a 0E       		.uleb128 0xe
+ARM GAS  C:\Users\MATEOC~1.QUE\AppData\Local\Temp\cc339K1d.s 			page 16
+
+
+ 677 007b 3A       		.uleb128 0x3a
+ 678 007c 0B       		.uleb128 0xb
+ 679 007d 3B       		.uleb128 0x3b
+ 680 007e 0B       		.uleb128 0xb
+ 681 007f 27       		.uleb128 0x27
+ 682 0080 19       		.uleb128 0x19
+ 683 0081 49       		.uleb128 0x49
+ 684 0082 13       		.uleb128 0x13
+ 685 0083 11       		.uleb128 0x11
+ 686 0084 01       		.uleb128 0x1
+ 687 0085 12       		.uleb128 0x12
+ 688 0086 06       		.uleb128 0x6
+ 689 0087 40       		.uleb128 0x40
+ 690 0088 18       		.uleb128 0x18
+ 691 0089 9742     		.uleb128 0x2117
+ 692 008b 19       		.uleb128 0x19
+ 693 008c 01       		.uleb128 0x1
+ 694 008d 13       		.uleb128 0x13
+ 695 008e 00       		.byte	0
+ 696 008f 00       		.byte	0
+ 697 0090 0A       		.uleb128 0xa
+ 698 0091 05       		.uleb128 0x5
+ 699 0092 00       		.byte	0
+ 700 0093 03       		.uleb128 0x3
+ 701 0094 0E       		.uleb128 0xe
+ 702 0095 3A       		.uleb128 0x3a
+ 703 0096 0B       		.uleb128 0xb
+ 704 0097 3B       		.uleb128 0x3b
+ 705 0098 0B       		.uleb128 0xb
+ 706 0099 49       		.uleb128 0x49
+ 707 009a 13       		.uleb128 0x13
+ 708 009b 02       		.uleb128 0x2
+ 709 009c 17       		.uleb128 0x17
+ 710 009d 00       		.byte	0
+ 711 009e 00       		.byte	0
+ 712 009f 0B       		.uleb128 0xb
+ 713 00a0 898201   		.uleb128 0x4109
+ 714 00a3 01       		.byte	0x1
+ 715 00a4 11       		.uleb128 0x11
+ 716 00a5 01       		.uleb128 0x1
+ 717 00a6 31       		.uleb128 0x31
+ 718 00a7 13       		.uleb128 0x13
+ 719 00a8 00       		.byte	0
+ 720 00a9 00       		.byte	0
+ 721 00aa 0C       		.uleb128 0xc
+ 722 00ab 0F       		.uleb128 0xf
+ 723 00ac 00       		.byte	0
+ 724 00ad 0B       		.uleb128 0xb
+ 725 00ae 0B       		.uleb128 0xb
+ 726 00af 49       		.uleb128 0x49
+ 727 00b0 13       		.uleb128 0x13
+ 728 00b1 00       		.byte	0
+ 729 00b2 00       		.byte	0
+ 730 00b3 0D       		.uleb128 0xd
+ 731 00b4 34       		.uleb128 0x34
+ 732 00b5 00       		.byte	0
+ 733 00b6 03       		.uleb128 0x3
+ARM GAS  C:\Users\MATEOC~1.QUE\AppData\Local\Temp\cc339K1d.s 			page 17
+
+
+ 734 00b7 0E       		.uleb128 0xe
+ 735 00b8 3A       		.uleb128 0x3a
+ 736 00b9 0B       		.uleb128 0xb
+ 737 00ba 3B       		.uleb128 0x3b
+ 738 00bb 0B       		.uleb128 0xb
+ 739 00bc 49       		.uleb128 0x49
+ 740 00bd 13       		.uleb128 0x13
+ 741 00be 3F       		.uleb128 0x3f
+ 742 00bf 19       		.uleb128 0x19
+ 743 00c0 3C       		.uleb128 0x3c
+ 744 00c1 19       		.uleb128 0x19
+ 745 00c2 00       		.byte	0
+ 746 00c3 00       		.byte	0
+ 747 00c4 0E       		.uleb128 0xe
+ 748 00c5 34       		.uleb128 0x34
+ 749 00c6 00       		.byte	0
+ 750 00c7 03       		.uleb128 0x3
+ 751 00c8 0E       		.uleb128 0xe
+ 752 00c9 3A       		.uleb128 0x3a
+ 753 00ca 0B       		.uleb128 0xb
+ 754 00cb 3B       		.uleb128 0x3b
+ 755 00cc 05       		.uleb128 0x5
+ 756 00cd 49       		.uleb128 0x49
+ 757 00ce 13       		.uleb128 0x13
+ 758 00cf 3F       		.uleb128 0x3f
+ 759 00d0 19       		.uleb128 0x19
+ 760 00d1 3C       		.uleb128 0x3c
+ 761 00d2 19       		.uleb128 0x19
+ 762 00d3 00       		.byte	0
+ 763 00d4 00       		.byte	0
+ 764 00d5 0F       		.uleb128 0xf
+ 765 00d6 35       		.uleb128 0x35
+ 766 00d7 00       		.byte	0
+ 767 00d8 49       		.uleb128 0x49
+ 768 00d9 13       		.uleb128 0x13
+ 769 00da 00       		.byte	0
+ 770 00db 00       		.byte	0
+ 771 00dc 10       		.uleb128 0x10
+ 772 00dd 2E       		.uleb128 0x2e
+ 773 00de 00       		.byte	0
+ 774 00df 3F       		.uleb128 0x3f
+ 775 00e0 19       		.uleb128 0x19
+ 776 00e1 3C       		.uleb128 0x3c
+ 777 00e2 19       		.uleb128 0x19
+ 778 00e3 6E       		.uleb128 0x6e
+ 779 00e4 0E       		.uleb128 0xe
+ 780 00e5 03       		.uleb128 0x3
+ 781 00e6 0E       		.uleb128 0xe
+ 782 00e7 3A       		.uleb128 0x3a
+ 783 00e8 0B       		.uleb128 0xb
+ 784 00e9 3B       		.uleb128 0x3b
+ 785 00ea 05       		.uleb128 0x5
+ 786 00eb 00       		.byte	0
+ 787 00ec 00       		.byte	0
+ 788 00ed 11       		.uleb128 0x11
+ 789 00ee 2E       		.uleb128 0x2e
+ 790 00ef 00       		.byte	0
+ARM GAS  C:\Users\MATEOC~1.QUE\AppData\Local\Temp\cc339K1d.s 			page 18
+
+
+ 791 00f0 3F       		.uleb128 0x3f
+ 792 00f1 19       		.uleb128 0x19
+ 793 00f2 3C       		.uleb128 0x3c
+ 794 00f3 19       		.uleb128 0x19
+ 795 00f4 6E       		.uleb128 0x6e
+ 796 00f5 0E       		.uleb128 0xe
+ 797 00f6 03       		.uleb128 0x3
+ 798 00f7 0E       		.uleb128 0xe
+ 799 00f8 3A       		.uleb128 0x3a
+ 800 00f9 0B       		.uleb128 0xb
+ 801 00fa 3B       		.uleb128 0x3b
+ 802 00fb 0B       		.uleb128 0xb
+ 803 00fc 00       		.byte	0
+ 804 00fd 00       		.byte	0
+ 805 00fe 00       		.byte	0
+ 806              		.section	.debug_loc,"",%progbits
+ 807              	.Ldebug_loc0:
+ 808              	.LLST0:
+ 809 0000 00000000 		.4byte	.LVL3
+ 810 0004 09000000 		.4byte	.LVL4-1
+ 811 0008 0100     		.2byte	0x1
+ 812 000a 50       		.byte	0x50
+ 813 000b 09000000 		.4byte	.LVL4-1
+ 814 000f 3A000000 		.4byte	.LFE111
+ 815 0013 0100     		.2byte	0x1
+ 816 0015 55       		.byte	0x55
+ 817 0016 00000000 		.4byte	0
+ 818 001a 00000000 		.4byte	0
+ 819              	.LLST1:
+ 820 001e 00000000 		.4byte	.LVL3
+ 821 0022 09000000 		.4byte	.LVL4-1
+ 822 0026 0100     		.2byte	0x1
+ 823 0028 51       		.byte	0x51
+ 824 0029 09000000 		.4byte	.LVL4-1
+ 825 002d 3A000000 		.4byte	.LFE111
+ 826 0031 0400     		.2byte	0x4
+ 827 0033 F3       		.byte	0xf3
+ 828 0034 01       		.uleb128 0x1
+ 829 0035 51       		.byte	0x51
+ 830 0036 9F       		.byte	0x9f
+ 831 0037 00000000 		.4byte	0
+ 832 003b 00000000 		.4byte	0
+ 833              	.LLST2:
+ 834 003f 00000000 		.4byte	.LVL3
+ 835 0043 09000000 		.4byte	.LVL4-1
+ 836 0047 0100     		.2byte	0x1
+ 837 0049 52       		.byte	0x52
+ 838 004a 09000000 		.4byte	.LVL4-1
+ 839 004e 3A000000 		.4byte	.LFE111
+ 840 0052 0100     		.2byte	0x1
+ 841 0054 54       		.byte	0x54
+ 842 0055 00000000 		.4byte	0
+ 843 0059 00000000 		.4byte	0
+ 844              	.LLST3:
+ 845 005d 00000000 		.4byte	.LVL10
+ 846 0061 0B000000 		.4byte	.LVL11-1
+ 847 0065 0100     		.2byte	0x1
+ARM GAS  C:\Users\MATEOC~1.QUE\AppData\Local\Temp\cc339K1d.s 			page 19
+
+
+ 848 0067 50       		.byte	0x50
+ 849 0068 0B000000 		.4byte	.LVL11-1
+ 850 006c 48000000 		.4byte	.LFE112
+ 851 0070 0100     		.2byte	0x1
+ 852 0072 56       		.byte	0x56
+ 853 0073 00000000 		.4byte	0
+ 854 0077 00000000 		.4byte	0
+ 855              	.LLST4:
+ 856 007b 00000000 		.4byte	.LVL10
+ 857 007f 0B000000 		.4byte	.LVL11-1
+ 858 0083 0100     		.2byte	0x1
+ 859 0085 51       		.byte	0x51
+ 860 0086 0B000000 		.4byte	.LVL11-1
+ 861 008a 48000000 		.4byte	.LFE112
+ 862 008e 0100     		.2byte	0x1
+ 863 0090 55       		.byte	0x55
+ 864 0091 00000000 		.4byte	0
+ 865 0095 00000000 		.4byte	0
+ 866              	.LLST5:
+ 867 0099 00000000 		.4byte	.LVL10
+ 868 009d 0B000000 		.4byte	.LVL11-1
+ 869 00a1 0100     		.2byte	0x1
+ 870 00a3 52       		.byte	0x52
+ 871 00a4 0B000000 		.4byte	.LVL11-1
+ 872 00a8 48000000 		.4byte	.LFE112
+ 873 00ac 0100     		.2byte	0x1
+ 874 00ae 54       		.byte	0x54
+ 875 00af 00000000 		.4byte	0
+ 876 00b3 00000000 		.4byte	0
+ 877              		.section	.debug_aranges,"",%progbits
+ 878 0000 2C000000 		.4byte	0x2c
+ 879 0004 0200     		.2byte	0x2
+ 880 0006 00000000 		.4byte	.Ldebug_info0
+ 881 000a 04       		.byte	0x4
+ 882 000b 00       		.byte	0
+ 883 000c 0000     		.2byte	0
+ 884 000e 0000     		.2byte	0
+ 885 0010 00000000 		.4byte	.LFB110
+ 886 0014 16000000 		.4byte	.LFE110-.LFB110
+ 887 0018 00000000 		.4byte	.LFB111
+ 888 001c 3A000000 		.4byte	.LFE111-.LFB111
+ 889 0020 00000000 		.4byte	.LFB112
+ 890 0024 48000000 		.4byte	.LFE112-.LFB112
+ 891 0028 00000000 		.4byte	0
+ 892 002c 00000000 		.4byte	0
+ 893              		.section	.debug_ranges,"",%progbits
+ 894              	.Ldebug_ranges0:
+ 895 0000 00000000 		.4byte	.LFB110
+ 896 0004 16000000 		.4byte	.LFE110
+ 897 0008 00000000 		.4byte	.LFB111
+ 898 000c 3A000000 		.4byte	.LFE111
+ 899 0010 00000000 		.4byte	.LFB112
+ 900 0014 48000000 		.4byte	.LFE112
+ 901 0018 00000000 		.4byte	0
+ 902 001c 00000000 		.4byte	0
+ 903              		.section	.debug_line,"",%progbits
+ 904              	.Ldebug_line0:
+ARM GAS  C:\Users\MATEOC~1.QUE\AppData\Local\Temp\cc339K1d.s 			page 20
+
+
+ 905 0000 8C020000 		.section	.debug_str,"MS",%progbits,1
+ 905      02003B02 
+ 905      00000201 
+ 905      FB0E0D00 
+ 905      01010101 
+ 906              	.LASF4:
+ 907 0000 5F5F7569 		.ascii	"__uint8_t\000"
+ 907      6E74385F 
+ 907      7400
+ 908              	.LASF47:
+ 909 000a 74726355 		.ascii	"trcUART_init\000"
+ 909      4152545F 
+ 909      696E6974 
+ 909      00
+ 910              	.LASF29:
+ 911 0017 74726355 		.ascii	"trcUARTTransmit\000"
+ 911      41525454 
+ 911      72616E73 
+ 911      6D697400 
+ 912              	.LASF5:
+ 913 0027 5F5F696E 		.ascii	"__int32_t\000"
+ 913      7433325F 
+ 913      7400
+ 914              	.LASF41:
+ 915 0031 55534255 		.ascii	"USBUART_GetAll\000"
+ 915      4152545F 
+ 915      47657441 
+ 915      6C6C00
+ 916              	.LASF43:
+ 917 0040 55534255 		.ascii	"USBUART_PutData\000"
+ 917      4152545F 
+ 917      50757444 
+ 917      61746100 
+ 918              	.LASF37:
+ 919 0050 55534255 		.ascii	"USBUART_GetConfiguration\000"
+ 919      4152545F 
+ 919      47657443 
+ 919      6F6E6669 
+ 919      67757261 
+ 920              	.LASF24:
+ 921 0069 45455F54 		.ascii	"EE_TID\000"
+ 921      494400
+ 922              	.LASF42:
+ 923 0070 55534255 		.ascii	"USBUART_CDCIsReady\000"
+ 923      4152545F 
+ 923      43444349 
+ 923      73526561 
+ 923      647900
+ 924              	.LASF16:
+ 925 0083 666C6F61 		.ascii	"float\000"
+ 925      7400
+ 926              	.LASF33:
+ 927 0089 45455F73 		.ascii	"EE_std_endcycle_next_tid\000"
+ 927      74645F65 
+ 927      6E646379 
+ 927      636C655F 
+ 927      6E657874 
+ARM GAS  C:\Users\MATEOC~1.QUE\AppData\Local\Temp\cc339K1d.s 			page 21
+
+
+ 928              	.LASF45:
+ 929 00a2 736F7572 		.ascii	"source\\bsw\\TraceRecorder\\streamport\\trcStreamin"
+ 929      63655C62 
+ 929      73775C54 
+ 929      72616365 
+ 929      5265636F 
+ 930 00d1 67506F72 		.ascii	"gPort.c\000"
+ 930      742E6300 
+ 931              	.LASF26:
+ 932 00d9 73697A65 		.ascii	"size\000"
+ 932      00
+ 933              	.LASF44:
+ 934 00de 474E5520 		.ascii	"GNU C11 5.4.1 20160609 (release) [ARM/embedded-5-br"
+ 934      43313120 
+ 934      352E342E 
+ 934      31203230 
+ 934      31363036 
+ 935 0111 616E6368 		.ascii	"anch revision 237715] -mcpu=cortex-m3 -mthumb -g -O"
+ 935      20726576 
+ 935      6973696F 
+ 935      6E203233 
+ 935      37373135 
+ 936 0144 67202D66 		.ascii	"g -ffunction-sections -ffat-lto-objects\000"
+ 936      66756E63 
+ 936      74696F6E 
+ 936      2D736563 
+ 936      74696F6E 
+ 937              	.LASF7:
+ 938 016c 5F5F7569 		.ascii	"__uint32_t\000"
+ 938      6E743332 
+ 938      5F7400
+ 939              	.LASF8:
+ 940 0177 6C6F6E67 		.ascii	"long unsigned int\000"
+ 940      20756E73 
+ 940      69676E65 
+ 940      6420696E 
+ 940      7400
+ 941              	.LASF3:
+ 942 0189 73686F72 		.ascii	"short unsigned int\000"
+ 942      7420756E 
+ 942      7369676E 
+ 942      65642069 
+ 942      6E7400
+ 943              	.LASF20:
+ 944 019c 45455F49 		.ascii	"EE_INT32\000"
+ 944      4E543332 
+ 944      00
+ 945              	.LASF35:
+ 946 01a5 49544D5F 		.ascii	"ITM_RxBuffer\000"
+ 946      52784275 
+ 946      66666572 
+ 946      00
+ 947              	.LASF1:
+ 948 01b2 756E7369 		.ascii	"unsigned char\000"
+ 948      676E6564 
+ 948      20636861 
+ 948      7200
+ARM GAS  C:\Users\MATEOC~1.QUE\AppData\Local\Temp\cc339K1d.s 			page 22
+
+
+ 949              	.LASF17:
+ 950 01c0 646F7562 		.ascii	"double\000"
+ 950      6C6500
+ 951              	.LASF39:
+ 952 01c7 55534255 		.ascii	"USBUART_IsConfigurationChanged\000"
+ 952      4152545F 
+ 952      4973436F 
+ 952      6E666967 
+ 952      75726174 
+ 953              	.LASF25:
+ 954 01e6 705F6461 		.ascii	"p_data\000"
+ 954      746100
+ 955              	.LASF36:
+ 956 01ed 55534255 		.ascii	"USBUART_Start\000"
+ 956      4152545F 
+ 956      53746172 
+ 956      7400
+ 957              	.LASF11:
+ 958 01fb 756E7369 		.ascii	"unsigned int\000"
+ 958      676E6564 
+ 958      20696E74 
+ 958      00
+ 959              	.LASF23:
+ 960 0208 45455F46 		.ascii	"EE_FREG\000"
+ 960      52454700 
+ 961              	.LASF21:
+ 962 0210 45455F55 		.ascii	"EE_UINT32\000"
+ 962      494E5433 
+ 962      3200
+ 963              	.LASF38:
+ 964 021a 55534255 		.ascii	"USBUART_CDC_Init\000"
+ 964      4152545F 
+ 964      4344435F 
+ 964      496E6974 
+ 964      00
+ 965              	.LASF10:
+ 966 022b 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 966      206C6F6E 
+ 966      6720756E 
+ 966      7369676E 
+ 966      65642069 
+ 967              	.LASF12:
+ 968 0242 75696E74 		.ascii	"uint8_t\000"
+ 968      385F7400 
+ 969              	.LASF40:
+ 970 024a 55534255 		.ascii	"USBUART_DataIsReady\000"
+ 970      4152545F 
+ 970      44617461 
+ 970      49735265 
+ 970      61647900 
+ 971              	.LASF32:
+ 972 025e 45455F41 		.ascii	"EE_ApplicationMode\000"
+ 972      70706C69 
+ 972      63617469 
+ 972      6F6E4D6F 
+ 972      646500
+ 973              	.LASF13:
+ARM GAS  C:\Users\MATEOC~1.QUE\AppData\Local\Temp\cc339K1d.s 			page 23
+
+
+ 974 0271 696E7433 		.ascii	"int32_t\000"
+ 974      325F7400 
+ 975              	.LASF19:
+ 976 0279 73697A65 		.ascii	"sizetype\000"
+ 976      74797065 
+ 976      00
+ 977              	.LASF28:
+ 978 0282 74726355 		.ascii	"trcUARTReceive\000"
+ 978      41525452 
+ 978      65636569 
+ 978      766500
+ 979              	.LASF9:
+ 980 0291 6C6F6E67 		.ascii	"long long int\000"
+ 980      206C6F6E 
+ 980      6720696E 
+ 980      7400
+ 981              	.LASF18:
+ 982 029f 63686172 		.ascii	"char\000"
+ 982      00
+ 983              	.LASF22:
+ 984 02a4 45455F55 		.ascii	"EE_UREG\000"
+ 984      52454700 
+ 985              	.LASF34:
+ 986 02ac 45455F49 		.ascii	"EE_IRQ_nesting_level\000"
+ 986      52515F6E 
+ 986      65737469 
+ 986      6E675F6C 
+ 986      6576656C 
+ 987              	.LASF31:
+ 988 02c1 45455F6F 		.ascii	"EE_oo_IRQ_suspend_status\000"
+ 988      6F5F4952 
+ 988      515F7375 
+ 988      7370656E 
+ 988      645F7374 
+ 989              	.LASF2:
+ 990 02da 73686F72 		.ascii	"short int\000"
+ 990      7420696E 
+ 990      7400
+ 991              	.LASF30:
+ 992 02e4 45455F6F 		.ascii	"EE_oo_IRQ_disable_count\000"
+ 992      6F5F4952 
+ 992      515F6469 
+ 992      7361626C 
+ 992      655F636F 
+ 993              	.LASF46:
+ 994 02fc 433A5C55 		.ascii	"C:\\Users\\Mateo C. Querol\\OneDrive\\University\\D"
+ 994      73657273 
+ 994      5C4D6174 
+ 994      656F2043 
+ 994      2E205175 
+ 995 032a 61726D73 		.ascii	"armstadt\\Advanced Microcontroller Systems and Embe"
+ 995      74616474 
+ 995      5C416476 
+ 995      616E6365 
+ 995      64204D69 
+ 996 035c 64646564 		.ascii	"dded Operating systems\\Embedded Operating Systems\\"
+ 996      204F7065 
+ARM GAS  C:\Users\MATEOC~1.QUE\AppData\Local\Temp\cc339K1d.s 			page 24
+
+
+ 996      72617469 
+ 996      6E672073 
+ 996      79737465 
+ 997 038e 576F726B 		.ascii	"Workbook\\JSONParser.cydsn\000"
+ 997      626F6F6B 
+ 997      5C4A534F 
+ 997      4E506172 
+ 997      7365722E 
+ 998              	.LASF14:
+ 999 03a8 75696E74 		.ascii	"uint32_t\000"
+ 999      33325F74 
+ 999      00
+ 1000              	.LASF6:
+ 1001 03b1 6C6F6E67 		.ascii	"long int\000"
+ 1001      20696E74 
+ 1001      00
+ 1002              	.LASF15:
+ 1003 03ba 6C6F6E67 		.ascii	"long double\000"
+ 1003      20646F75 
+ 1003      626C6500 
+ 1004              	.LASF0:
+ 1005 03c6 7369676E 		.ascii	"signed char\000"
+ 1005      65642063 
+ 1005      68617200 
+ 1006              	.LASF27:
+ 1007 03d2 705F4E75 		.ascii	"p_NumBytes\000"
+ 1007      6D427974 
+ 1007      657300
+ 1008              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 5.4.1 20160609 (release) [ARM/embedded-5-bran
