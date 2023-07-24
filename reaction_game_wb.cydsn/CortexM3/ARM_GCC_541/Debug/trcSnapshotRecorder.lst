@@ -1,0 +1,467 @@
+ARM GAS  C:\Users\robom\AppData\Local\Temp\ccm63bsL.s 			page 1
+
+
+   1              		.syntax unified
+   2              		.cpu cortex-m3
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 1
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.thumb
+  14              		.syntax unified
+  15              		.file	"trcSnapshotRecorder.c"
+  16              		.text
+  17              	.Ltext0:
+  18              		.cfi_sections	.debug_frame
+  19              	.Letext0:
+  20              		.file 1 "c:\\program files (x86)\\cypress\\psoc creator\\4.4\\psoc creator\\import\\gnu\\arm\\5.4.
+  21              		.file 2 "c:\\program files (x86)\\cypress\\psoc creator\\4.4\\psoc creator\\import\\gnu\\arm\\5.4.
+  22              		.file 3 "Generated_Source\\PSoC5/ErikaOS_1_common_ee_types.inc"
+  23              		.file 4 "Generated_Source\\PSoC5/ErikaOS_1_cortex_mx_ee_cpu.inc"
+  24              		.file 5 "Generated_Source\\PSoC5/ErikaOS_1_ee_oo_intfunc.inc"
+  25              		.file 6 "Generated_Source\\PSoC5/ErikaOS_1_cortex_mx_ee_context.inc"
+  26              		.file 7 "Generated_Source\\PSoC5/ErikaOS_1_common_ee_primitives.inc"
+  27              		.file 8 "Generated_Source\\PSoC5/core_cm3.h"
+  28              		.section	.debug_info,"",%progbits
+  29              	.Ldebug_info0:
+  30 0000 18010000 		.4byte	0x118
+  31 0004 0400     		.2byte	0x4
+  32 0006 00000000 		.4byte	.Ldebug_abbrev0
+  33 000a 04       		.byte	0x4
+  34 000b 01       		.uleb128 0x1
+  35 000c E6000000 		.4byte	.LASF27
+  36 0010 0C       		.byte	0xc
+  37 0011 7B020000 		.4byte	.LASF28
+  38 0015 23000000 		.4byte	.LASF29
+  39 0019 00000000 		.4byte	.Ldebug_line0
+  40 001d 02       		.uleb128 0x2
+  41 001e 01       		.byte	0x1
+  42 001f 06       		.byte	0x6
+  43 0020 BF020000 		.4byte	.LASF0
+  44 0024 02       		.uleb128 0x2
+  45 0025 01       		.byte	0x1
+  46 0026 08       		.byte	0x8
+  47 0027 D8000000 		.4byte	.LASF1
+  48 002b 02       		.uleb128 0x2
+  49 002c 02       		.byte	0x2
+  50 002d 05       		.byte	0x5
+  51 002e 71020000 		.4byte	.LASF2
+  52 0032 02       		.uleb128 0x2
+  53 0033 02       		.byte	0x2
+  54 0034 07       		.byte	0x7
+  55 0035 8F010000 		.4byte	.LASF3
+  56 0039 03       		.uleb128 0x3
+  57 003a 00000000 		.4byte	.LASF9
+ARM GAS  C:\Users\robom\AppData\Local\Temp\ccm63bsL.s 			page 2
+
+
+  58 003e 01       		.byte	0x1
+  59 003f 3F       		.byte	0x3f
+  60 0040 44000000 		.4byte	0x44
+  61 0044 02       		.uleb128 0x2
+  62 0045 04       		.byte	0x4
+  63 0046 05       		.byte	0x5
+  64 0047 AA020000 		.4byte	.LASF4
+  65 004b 02       		.uleb128 0x2
+  66 004c 04       		.byte	0x4
+  67 004d 07       		.byte	0x7
+  68 004e 7D010000 		.4byte	.LASF5
+  69 0052 02       		.uleb128 0x2
+  70 0053 08       		.byte	0x8
+  71 0054 05       		.byte	0x5
+  72 0055 41020000 		.4byte	.LASF6
+  73 0059 02       		.uleb128 0x2
+  74 005a 08       		.byte	0x8
+  75 005b 07       		.byte	0x7
+  76 005c 06020000 		.4byte	.LASF7
+  77 0060 04       		.uleb128 0x4
+  78 0061 04       		.byte	0x4
+  79 0062 05       		.byte	0x5
+  80 0063 696E7400 		.ascii	"int\000"
+  81 0067 02       		.uleb128 0x2
+  82 0068 04       		.byte	0x4
+  83 0069 07       		.byte	0x7
+  84 006a E7010000 		.4byte	.LASF8
+  85 006e 03       		.uleb128 0x3
+  86 006f 30020000 		.4byte	.LASF10
+  87 0073 02       		.byte	0x2
+  88 0074 2C       		.byte	0x2c
+  89 0075 39000000 		.4byte	0x39
+  90 0079 02       		.uleb128 0x2
+  91 007a 08       		.byte	0x8
+  92 007b 04       		.byte	0x4
+  93 007c B3020000 		.4byte	.LASF11
+  94 0080 02       		.uleb128 0x2
+  95 0081 04       		.byte	0x4
+  96 0082 04       		.byte	0x4
+  97 0083 D2000000 		.4byte	.LASF12
+  98 0087 02       		.uleb128 0x2
+  99 0088 08       		.byte	0x8
+ 100 0089 04       		.byte	0x4
+ 101 008a C7010000 		.4byte	.LASF13
+ 102 008e 02       		.uleb128 0x2
+ 103 008f 01       		.byte	0x1
+ 104 0090 08       		.byte	0x8
+ 105 0091 4F020000 		.4byte	.LASF14
+ 106 0095 02       		.uleb128 0x2
+ 107 0096 04       		.byte	0x4
+ 108 0097 07       		.byte	0x7
+ 109 0098 38020000 		.4byte	.LASF15
+ 110 009c 03       		.uleb128 0x3
+ 111 009d 74010000 		.4byte	.LASF16
+ 112 00a1 03       		.byte	0x3
+ 113 00a2 53       		.byte	0x53
+ 114 00a3 60000000 		.4byte	0x60
+ARM GAS  C:\Users\robom\AppData\Local\Temp\ccm63bsL.s 			page 3
+
+
+ 115 00a7 03       		.uleb128 0x3
+ 116 00a8 FC010000 		.4byte	.LASF17
+ 117 00ac 03       		.byte	0x3
+ 118 00ad 54       		.byte	0x54
+ 119 00ae 67000000 		.4byte	0x67
+ 120 00b2 03       		.uleb128 0x3
+ 121 00b3 54020000 		.4byte	.LASF18
+ 122 00b7 04       		.byte	0x4
+ 123 00b8 4D       		.byte	0x4d
+ 124 00b9 A7000000 		.4byte	0xa7
+ 125 00bd 03       		.uleb128 0x3
+ 126 00be F4010000 		.4byte	.LASF19
+ 127 00c2 04       		.byte	0x4
+ 128 00c3 4F       		.byte	0x4f
+ 129 00c4 A7000000 		.4byte	0xa7
+ 130 00c8 03       		.uleb128 0x3
+ 131 00c9 CB000000 		.4byte	.LASF20
+ 132 00cd 04       		.byte	0x4
+ 133 00ce 78       		.byte	0x78
+ 134 00cf 9C000000 		.4byte	0x9c
+ 135 00d3 05       		.uleb128 0x5
+ 136 00d4 A2010000 		.4byte	.LASF21
+ 137 00d8 05       		.byte	0x5
+ 138 00d9 40       		.byte	0x40
+ 139 00da B2000000 		.4byte	0xb2
+ 140 00de 05       		.uleb128 0x5
+ 141 00df 0A000000 		.4byte	.LASF22
+ 142 00e3 05       		.byte	0x5
+ 143 00e4 47       		.byte	0x47
+ 144 00e5 BD000000 		.4byte	0xbd
+ 145 00e9 05       		.uleb128 0x5
+ 146 00ea 1D020000 		.4byte	.LASF23
+ 147 00ee 05       		.byte	0x5
+ 148 00ef 4A       		.byte	0x4a
+ 149 00f0 B2000000 		.4byte	0xb2
+ 150 00f4 05       		.uleb128 0x5
+ 151 00f5 CE010000 		.4byte	.LASF24
+ 152 00f9 06       		.byte	0x6
+ 153 00fa 48       		.byte	0x48
+ 154 00fb C8000000 		.4byte	0xc8
+ 155 00ff 05       		.uleb128 0x5
+ 156 0100 5C020000 		.4byte	.LASF25
+ 157 0104 07       		.byte	0x7
+ 158 0105 44       		.byte	0x44
+ 159 0106 B2000000 		.4byte	0xb2
+ 160 010a 06       		.uleb128 0x6
+ 161 010b BA010000 		.4byte	.LASF26
+ 162 010f 08       		.byte	0x8
+ 163 0110 1207     		.2byte	0x712
+ 164 0112 16010000 		.4byte	0x116
+ 165 0116 07       		.uleb128 0x7
+ 166 0117 6E000000 		.4byte	0x6e
+ 167 011b 00       		.byte	0
+ 168              		.section	.debug_abbrev,"",%progbits
+ 169              	.Ldebug_abbrev0:
+ 170 0000 01       		.uleb128 0x1
+ 171 0001 11       		.uleb128 0x11
+ARM GAS  C:\Users\robom\AppData\Local\Temp\ccm63bsL.s 			page 4
+
+
+ 172 0002 01       		.byte	0x1
+ 173 0003 25       		.uleb128 0x25
+ 174 0004 0E       		.uleb128 0xe
+ 175 0005 13       		.uleb128 0x13
+ 176 0006 0B       		.uleb128 0xb
+ 177 0007 03       		.uleb128 0x3
+ 178 0008 0E       		.uleb128 0xe
+ 179 0009 1B       		.uleb128 0x1b
+ 180 000a 0E       		.uleb128 0xe
+ 181 000b 10       		.uleb128 0x10
+ 182 000c 17       		.uleb128 0x17
+ 183 000d 00       		.byte	0
+ 184 000e 00       		.byte	0
+ 185 000f 02       		.uleb128 0x2
+ 186 0010 24       		.uleb128 0x24
+ 187 0011 00       		.byte	0
+ 188 0012 0B       		.uleb128 0xb
+ 189 0013 0B       		.uleb128 0xb
+ 190 0014 3E       		.uleb128 0x3e
+ 191 0015 0B       		.uleb128 0xb
+ 192 0016 03       		.uleb128 0x3
+ 193 0017 0E       		.uleb128 0xe
+ 194 0018 00       		.byte	0
+ 195 0019 00       		.byte	0
+ 196 001a 03       		.uleb128 0x3
+ 197 001b 16       		.uleb128 0x16
+ 198 001c 00       		.byte	0
+ 199 001d 03       		.uleb128 0x3
+ 200 001e 0E       		.uleb128 0xe
+ 201 001f 3A       		.uleb128 0x3a
+ 202 0020 0B       		.uleb128 0xb
+ 203 0021 3B       		.uleb128 0x3b
+ 204 0022 0B       		.uleb128 0xb
+ 205 0023 49       		.uleb128 0x49
+ 206 0024 13       		.uleb128 0x13
+ 207 0025 00       		.byte	0
+ 208 0026 00       		.byte	0
+ 209 0027 04       		.uleb128 0x4
+ 210 0028 24       		.uleb128 0x24
+ 211 0029 00       		.byte	0
+ 212 002a 0B       		.uleb128 0xb
+ 213 002b 0B       		.uleb128 0xb
+ 214 002c 3E       		.uleb128 0x3e
+ 215 002d 0B       		.uleb128 0xb
+ 216 002e 03       		.uleb128 0x3
+ 217 002f 08       		.uleb128 0x8
+ 218 0030 00       		.byte	0
+ 219 0031 00       		.byte	0
+ 220 0032 05       		.uleb128 0x5
+ 221 0033 34       		.uleb128 0x34
+ 222 0034 00       		.byte	0
+ 223 0035 03       		.uleb128 0x3
+ 224 0036 0E       		.uleb128 0xe
+ 225 0037 3A       		.uleb128 0x3a
+ 226 0038 0B       		.uleb128 0xb
+ 227 0039 3B       		.uleb128 0x3b
+ 228 003a 0B       		.uleb128 0xb
+ARM GAS  C:\Users\robom\AppData\Local\Temp\ccm63bsL.s 			page 5
+
+
+ 229 003b 49       		.uleb128 0x49
+ 230 003c 13       		.uleb128 0x13
+ 231 003d 3F       		.uleb128 0x3f
+ 232 003e 19       		.uleb128 0x19
+ 233 003f 3C       		.uleb128 0x3c
+ 234 0040 19       		.uleb128 0x19
+ 235 0041 00       		.byte	0
+ 236 0042 00       		.byte	0
+ 237 0043 06       		.uleb128 0x6
+ 238 0044 34       		.uleb128 0x34
+ 239 0045 00       		.byte	0
+ 240 0046 03       		.uleb128 0x3
+ 241 0047 0E       		.uleb128 0xe
+ 242 0048 3A       		.uleb128 0x3a
+ 243 0049 0B       		.uleb128 0xb
+ 244 004a 3B       		.uleb128 0x3b
+ 245 004b 05       		.uleb128 0x5
+ 246 004c 49       		.uleb128 0x49
+ 247 004d 13       		.uleb128 0x13
+ 248 004e 3F       		.uleb128 0x3f
+ 249 004f 19       		.uleb128 0x19
+ 250 0050 3C       		.uleb128 0x3c
+ 251 0051 19       		.uleb128 0x19
+ 252 0052 00       		.byte	0
+ 253 0053 00       		.byte	0
+ 254 0054 07       		.uleb128 0x7
+ 255 0055 35       		.uleb128 0x35
+ 256 0056 00       		.byte	0
+ 257 0057 49       		.uleb128 0x49
+ 258 0058 13       		.uleb128 0x13
+ 259 0059 00       		.byte	0
+ 260 005a 00       		.byte	0
+ 261 005b 00       		.byte	0
+ 262              		.section	.debug_aranges,"",%progbits
+ 263 0000 14000000 		.4byte	0x14
+ 264 0004 0200     		.2byte	0x2
+ 265 0006 00000000 		.4byte	.Ldebug_info0
+ 266 000a 04       		.byte	0x4
+ 267 000b 00       		.byte	0
+ 268 000c 0000     		.2byte	0
+ 269 000e 0000     		.2byte	0
+ 270 0010 00000000 		.4byte	0
+ 271 0014 00000000 		.4byte	0
+ 272              		.section	.debug_line,"",%progbits
+ 273              	.Ldebug_line0:
+ 274 0000 E9010000 		.section	.debug_str,"MS",%progbits,1
+ 274      0200E301 
+ 274      00000201 
+ 274      FB0E0D00 
+ 274      01010101 
+ 275              	.LASF9:
+ 276 0000 5F5F696E 		.ascii	"__int32_t\000"
+ 276      7433325F 
+ 276      7400
+ 277              	.LASF22:
+ 278 000a 45455F6F 		.ascii	"EE_oo_IRQ_suspend_status\000"
+ 278      6F5F4952 
+ARM GAS  C:\Users\robom\AppData\Local\Temp\ccm63bsL.s 			page 6
+
+
+ 278      515F7375 
+ 278      7370656E 
+ 278      645F7374 
+ 279              	.LASF29:
+ 280 0023 433A5C55 		.ascii	"C:\\Users\\robom\\OneDrive\\University\\Darmstadt\\"
+ 280      73657273 
+ 280      5C726F62 
+ 280      6F6D5C4F 
+ 280      6E654472 
+ 281 0050 41647661 		.ascii	"Advanced Microcontroller Systems and Embedded Opera"
+ 281      6E636564 
+ 281      204D6963 
+ 281      726F636F 
+ 281      6E74726F 
+ 282 0083 74696E67 		.ascii	"ting systems\\Embedded Operating Systems\\Workbook\\"
+ 282      20737973 
+ 282      74656D73 
+ 282      5C456D62 
+ 282      65646465 
+ 283 00b4 72656163 		.ascii	"reaction_game_wb.cydsn\000"
+ 283      74696F6E 
+ 283      5F67616D 
+ 283      655F7762 
+ 283      2E637964 
+ 284              	.LASF20:
+ 285 00cb 45455F54 		.ascii	"EE_TID\000"
+ 285      494400
+ 286              	.LASF12:
+ 287 00d2 666C6F61 		.ascii	"float\000"
+ 287      7400
+ 288              	.LASF1:
+ 289 00d8 756E7369 		.ascii	"unsigned char\000"
+ 289      676E6564 
+ 289      20636861 
+ 289      7200
+ 290              	.LASF27:
+ 291 00e6 474E5520 		.ascii	"GNU C11 5.4.1 20160609 (release) [ARM/embedded-5-br"
+ 291      43313120 
+ 291      352E342E 
+ 291      31203230 
+ 291      31363036 
+ 292 0119 616E6368 		.ascii	"anch revision 237715] -mcpu=cortex-m3 -mthumb -g -O"
+ 292      20726576 
+ 292      6973696F 
+ 292      6E203233 
+ 292      37373135 
+ 293 014c 67202D66 		.ascii	"g -ffunction-sections -ffat-lto-objects\000"
+ 293      66756E63 
+ 293      74696F6E 
+ 293      2D736563 
+ 293      74696F6E 
+ 294              	.LASF16:
+ 295 0174 45455F49 		.ascii	"EE_INT32\000"
+ 295      4E543332 
+ 295      00
+ 296              	.LASF5:
+ 297 017d 6C6F6E67 		.ascii	"long unsigned int\000"
+ARM GAS  C:\Users\robom\AppData\Local\Temp\ccm63bsL.s 			page 7
+
+
+ 297      20756E73 
+ 297      69676E65 
+ 297      6420696E 
+ 297      7400
+ 298              	.LASF3:
+ 299 018f 73686F72 		.ascii	"short unsigned int\000"
+ 299      7420756E 
+ 299      7369676E 
+ 299      65642069 
+ 299      6E7400
+ 300              	.LASF21:
+ 301 01a2 45455F6F 		.ascii	"EE_oo_IRQ_disable_count\000"
+ 301      6F5F4952 
+ 301      515F6469 
+ 301      7361626C 
+ 301      655F636F 
+ 302              	.LASF26:
+ 303 01ba 49544D5F 		.ascii	"ITM_RxBuffer\000"
+ 303      52784275 
+ 303      66666572 
+ 303      00
+ 304              	.LASF13:
+ 305 01c7 646F7562 		.ascii	"double\000"
+ 305      6C6500
+ 306              	.LASF24:
+ 307 01ce 45455F73 		.ascii	"EE_std_endcycle_next_tid\000"
+ 307      74645F65 
+ 307      6E646379 
+ 307      636C655F 
+ 307      6E657874 
+ 308              	.LASF8:
+ 309 01e7 756E7369 		.ascii	"unsigned int\000"
+ 309      676E6564 
+ 309      20696E74 
+ 309      00
+ 310              	.LASF19:
+ 311 01f4 45455F46 		.ascii	"EE_FREG\000"
+ 311      52454700 
+ 312              	.LASF17:
+ 313 01fc 45455F55 		.ascii	"EE_UINT32\000"
+ 313      494E5433 
+ 313      3200
+ 314              	.LASF7:
+ 315 0206 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 315      206C6F6E 
+ 315      6720756E 
+ 315      7369676E 
+ 315      65642069 
+ 316              	.LASF23:
+ 317 021d 45455F41 		.ascii	"EE_ApplicationMode\000"
+ 317      70706C69 
+ 317      63617469 
+ 317      6F6E4D6F 
+ 317      646500
+ 318              	.LASF10:
+ 319 0230 696E7433 		.ascii	"int32_t\000"
+ 319      325F7400 
+ARM GAS  C:\Users\robom\AppData\Local\Temp\ccm63bsL.s 			page 8
+
+
+ 320              	.LASF15:
+ 321 0238 73697A65 		.ascii	"sizetype\000"
+ 321      74797065 
+ 321      00
+ 322              	.LASF6:
+ 323 0241 6C6F6E67 		.ascii	"long long int\000"
+ 323      206C6F6E 
+ 323      6720696E 
+ 323      7400
+ 324              	.LASF14:
+ 325 024f 63686172 		.ascii	"char\000"
+ 325      00
+ 326              	.LASF18:
+ 327 0254 45455F55 		.ascii	"EE_UREG\000"
+ 327      52454700 
+ 328              	.LASF25:
+ 329 025c 45455F49 		.ascii	"EE_IRQ_nesting_level\000"
+ 329      52515F6E 
+ 329      65737469 
+ 329      6E675F6C 
+ 329      6576656C 
+ 330              	.LASF2:
+ 331 0271 73686F72 		.ascii	"short int\000"
+ 331      7420696E 
+ 331      7400
+ 332              	.LASF28:
+ 333 027b 736F7572 		.ascii	"source\\bsw\\TraceRecorder\\trcSnapshotRecorder.c\000"
+ 333      63655C62 
+ 333      73775C54 
+ 333      72616365 
+ 333      5265636F 
+ 334              	.LASF4:
+ 335 02aa 6C6F6E67 		.ascii	"long int\000"
+ 335      20696E74 
+ 335      00
+ 336              	.LASF11:
+ 337 02b3 6C6F6E67 		.ascii	"long double\000"
+ 337      20646F75 
+ 337      626C6500 
+ 338              	.LASF0:
+ 339 02bf 7369676E 		.ascii	"signed char\000"
+ 339      65642063 
+ 339      68617200 
+ 340              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 5.4.1 20160609 (release) [ARM/embedded-5-bran

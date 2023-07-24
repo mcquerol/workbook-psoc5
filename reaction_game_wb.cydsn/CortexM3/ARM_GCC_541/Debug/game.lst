@@ -1,0 +1,2749 @@
+ARM GAS  C:\Users\robom\AppData\Local\Temp\ccAs7Q3f.s 			page 1
+
+
+   1              		.syntax unified
+   2              		.cpu cortex-m3
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 1
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.thumb
+  14              		.syntax unified
+  15              		.file	"game.c"
+  16              		.text
+  17              	.Ltext0:
+  18              		.cfi_sections	.debug_frame
+  19              		.section	.text.start,"ax",%progbits
+  20              		.align	2
+  21              		.global	start
+  22              		.thumb
+  23              		.thumb_func
+  24              		.type	start, %function
+  25              	start:
+  26              	.LFB111:
+  27              		.file 1 "game.c"
+   1:game.c        **** /* ========================================
+   2:game.c        ****  *
+   3:game.c        ****  * Copyright YOUR COMPANY, THE YEAR
+   4:game.c        ****  * All Rights Reserved
+   5:game.c        ****  * UNPUBLISHED, LICENSED SOFTWARE.
+   6:game.c        ****  *
+   7:game.c        ****  * CONFIDENTIAL AND PROPRIETARY INFORMATION
+   8:game.c        ****  * WHICH IS THE PROPERTY OF your company.
+   9:game.c        ****  *
+  10:game.c        ****  * ========================================
+  11:game.c        **** */
+  12:game.c        **** 
+  13:game.c        **** #include "game.h"
+  14:game.c        **** 
+  15:game.c        **** /* Helper functions for each state of the state machine */
+  16:game.c        **** RC_t start(EventMaskType ev, uint8_t *SSDnum, uint8_t *randTime)
+  17:game.c        **** {
+  28              		.loc 1 17 0
+  29              		.cfi_startproc
+  30              		@ args = 0, pretend = 0, frame = 0
+  31              		@ frame_needed = 0, uses_anonymous_args = 0
+  32              	.LVL0:
+  33 0000 70B5     		push	{r4, r5, r6, lr}
+  34              		.cfi_def_cfa_offset 16
+  35              		.cfi_offset 4, -16
+  36              		.cfi_offset 5, -12
+  37              		.cfi_offset 6, -8
+  38              		.cfi_offset 14, -4
+  39 0002 0E46     		mov	r6, r1
+  40 0004 1546     		mov	r5, r2
+ARM GAS  C:\Users\robom\AppData\Local\Temp\ccAs7Q3f.s 			page 2
+
+
+  18:game.c        ****     if(((ev & ev_button) && (BUTTON_2_Read() == 1)) || ((ev & ev_button) && (BUTTON_1_Read() == 1))
+  41              		.loc 1 18 0
+  42 0006 10F00104 		ands	r4, r0, #1
+  43 000a 03D0     		beq	.L2
+  44              		.loc 1 18 0 is_stmt 0 discriminator 1
+  45 000c FFF7FEFF 		bl	BUTTON_2_Read
+  46              	.LVL1:
+  47 0010 0128     		cmp	r0, #1
+  48 0012 04D0     		beq	.L3
+  49              	.L2:
+  50              		.loc 1 18 0 discriminator 3
+  51 0014 2CB3     		cbz	r4, .L4
+  52              		.loc 1 18 0 discriminator 4
+  53 0016 FFF7FEFF 		bl	BUTTON_1_Read
+  54              	.LVL2:
+  55 001a 0128     		cmp	r0, #1
+  56 001c 21D1     		bne	.L4
+  57              	.L3:
+  19:game.c        **** 	{
+  20:game.c        ****        *SSDnum = (rand() % 2) + 1; //ssd value
+  58              		.loc 1 20 0 is_stmt 1
+  59 001e FFF7FEFF 		bl	rand
+  60              	.LVL3:
+  61 0022 124B     		ldr	r3, .L7
+  62 0024 1840     		ands	r0, r0, r3
+  63 0026 03D5     		bpl	.L5
+  64 0028 0138     		subs	r0, r0, #1
+  65 002a 60F00100 		orn	r0, r0, #1
+  66 002e 0130     		adds	r0, r0, #1
+  67              	.L5:
+  68 0030 0130     		adds	r0, r0, #1
+  69 0032 3070     		strb	r0, [r6]
+  21:game.c        **** 	   *randTime = (rand() % 3 + 1) * 1000; //random wait time value
+  70              		.loc 1 21 0
+  71 0034 FFF7FEFF 		bl	rand
+  72              	.LVL4:
+  73 0038 0D4B     		ldr	r3, .L7+4
+  74 003a 83FB0023 		smull	r2, r3, r3, r0
+  75 003e A3EBE073 		sub	r3, r3, r0, asr #31
+  76 0042 03EB4303 		add	r3, r3, r3, lsl #1
+  77 0046 C31A     		subs	r3, r0, r3
+  78 0048 0133     		adds	r3, r3, #1
+  79 004a A3EB8303 		sub	r3, r3, r3, lsl #2
+  80 004e DA00     		lsls	r2, r3, #3
+  81 0050 2A70     		strb	r2, [r5]
+  22:game.c        **** 	   CancelAlarm(alrm_randTime);
+  82              		.loc 1 22 0
+  83 0052 0020     		movs	r0, #0
+  84 0054 FFF7FEFF 		bl	EE_oo_CancelAlarm
+  85              	.LVL5:
+  23:game.c        **** 	   SetRelAlarm(alrm_randTime,*randTime,0); // 2 seconds for test purposes
+  86              		.loc 1 23 0
+  87 0058 0022     		movs	r2, #0
+  88 005a 2978     		ldrb	r1, [r5]	@ zero_extendqisi2
+  89 005c 1046     		mov	r0, r2
+  90 005e FFF7FEFF 		bl	EE_oo_SetRelAlarm
+  91              	.LVL6:
+ARM GAS  C:\Users\robom\AppData\Local\Temp\ccAs7Q3f.s 			page 3
+
+
+  92              	.L4:
+  24:game.c        **** 	}
+  25:game.c        **** 	state = STATE_DISPLAYSSD;
+  93              		.loc 1 25 0
+  94 0062 0122     		movs	r2, #1
+  95 0064 034B     		ldr	r3, .L7+8
+  96 0066 1A70     		strb	r2, [r3]
+  26:game.c        ****                 
+  27:game.c        ****     return RC_SUCCESS;
+  28:game.c        **** }
+  97              		.loc 1 28 0
+  98 0068 0020     		movs	r0, #0
+  99 006a 70BD     		pop	{r4, r5, r6, pc}
+ 100              	.LVL7:
+ 101              	.L8:
+ 102              		.align	2
+ 103              	.L7:
+ 104 006c 01000080 		.word	-2147483647
+ 105 0070 56555555 		.word	1431655766
+ 106 0074 00000000 		.word	state
+ 107              		.cfi_endproc
+ 108              	.LFE111:
+ 109              		.size	start, .-start
+ 110              		.section	.text.displayssd,"ax",%progbits
+ 111              		.align	2
+ 112              		.global	displayssd
+ 113              		.thumb
+ 114              		.thumb_func
+ 115              		.type	displayssd, %function
+ 116              	displayssd:
+ 117              	.LFB112:
+  29:game.c        **** 
+  30:game.c        **** RC_t displayssd(EventMaskType ev, uint8_t *SSDnum)
+  31:game.c        **** {
+ 118              		.loc 1 31 0
+ 119              		.cfi_startproc
+ 120              		@ args = 0, pretend = 0, frame = 0
+ 121              		@ frame_needed = 0, uses_anonymous_args = 0
+ 122              	.LVL8:
+  32:game.c        ****     if(ev & ev_randTime)
+ 123              		.loc 1 32 0
+ 124 0000 10F0040F 		tst	r0, #4
+ 125 0004 20D0     		beq	.L14
+  31:game.c        ****     if(ev & ev_randTime)
+ 126              		.loc 1 31 0
+ 127 0006 08B5     		push	{r3, lr}
+ 128              		.cfi_def_cfa_offset 8
+ 129              		.cfi_offset 3, -8
+ 130              		.cfi_offset 14, -4
+  33:game.c        **** 	{
+  34:game.c        **** 		if((uint8_t)SSDnum == 1)
+ 131              		.loc 1 34 0
+ 132 0008 C9B2     		uxtb	r1, r1
+ 133              	.LVL9:
+ 134 000a 0129     		cmp	r1, #1
+ 135 000c 07D1     		bne	.L11
+  35:game.c        **** 		{
+ARM GAS  C:\Users\robom\AppData\Local\Temp\ccAs7Q3f.s 			page 4
+
+
+  36:game.c        **** 			SEVEN_Set(SEVEN_0,1);
+ 136              		.loc 1 36 0
+ 137 000e 0020     		movs	r0, #0
+ 138              	.LVL10:
+ 139 0010 FFF7FEFF 		bl	SEVEN_Set
+ 140              	.LVL11:
+  37:game.c        **** 			SEVEN_Set(SEVEN_1,1);
+ 141              		.loc 1 37 0
+ 142 0014 0121     		movs	r1, #1
+ 143 0016 0846     		mov	r0, r1
+ 144 0018 FFF7FEFF 		bl	SEVEN_Set
+ 145              	.LVL12:
+ 146 001c 07E0     		b	.L12
+ 147              	.LVL13:
+ 148              	.L11:
+  38:game.c        **** 		}
+  39:game.c        **** 		else
+  40:game.c        **** 		{
+  41:game.c        **** 			SEVEN_Set(SEVEN_0,2);
+ 149              		.loc 1 41 0
+ 150 001e 0221     		movs	r1, #2
+ 151 0020 0020     		movs	r0, #0
+ 152              	.LVL14:
+ 153 0022 FFF7FEFF 		bl	SEVEN_Set
+ 154              	.LVL15:
+  42:game.c        **** 			SEVEN_Set(SEVEN_1,2);
+ 155              		.loc 1 42 0
+ 156 0026 0221     		movs	r1, #2
+ 157 0028 0120     		movs	r0, #1
+ 158 002a FFF7FEFF 		bl	SEVEN_Set
+ 159              	.LVL16:
+ 160              	.L12:
+  43:game.c        **** 		}
+  44:game.c        ****         CancelAlarm(alrm_measureTime);
+ 161              		.loc 1 44 0
+ 162 002e 0220     		movs	r0, #2
+ 163 0030 FFF7FEFF 		bl	EE_oo_CancelAlarm
+ 164              	.LVL17:
+  45:game.c        ****         SetRelAlarm(alrm_measureTime,1,1);
+ 165              		.loc 1 45 0
+ 166 0034 0122     		movs	r2, #1
+ 167 0036 1146     		mov	r1, r2
+ 168 0038 0220     		movs	r0, #2
+ 169 003a FFF7FEFF 		bl	EE_oo_SetRelAlarm
+ 170              	.LVL18:
+  46:game.c        ****         state = STATE_BUTTONPRESS;
+ 171              		.loc 1 46 0
+ 172 003e 0222     		movs	r2, #2
+ 173 0040 024B     		ldr	r3, .L15
+ 174 0042 1A70     		strb	r2, [r3]
+  47:game.c        **** 	}
+  48:game.c        ****     return RC_SUCCESS;
+  49:game.c        **** }
+ 175              		.loc 1 49 0
+ 176 0044 0020     		movs	r0, #0
+ 177 0046 08BD     		pop	{r3, pc}
+ 178              	.LVL19:
+ARM GAS  C:\Users\robom\AppData\Local\Temp\ccAs7Q3f.s 			page 5
+
+
+ 179              	.L14:
+ 180              		.cfi_def_cfa_offset 0
+ 181              		.cfi_restore 3
+ 182              		.cfi_restore 14
+ 183 0048 0020     		movs	r0, #0
+ 184              	.LVL20:
+ 185 004a 7047     		bx	lr
+ 186              	.L16:
+ 187              		.align	2
+ 188              	.L15:
+ 189 004c 00000000 		.word	state
+ 190              		.cfi_endproc
+ 191              	.LFE112:
+ 192              		.size	displayssd, .-displayssd
+ 193              		.section	.text.startMessage,"ax",%progbits
+ 194              		.align	2
+ 195              		.global	startMessage
+ 196              		.thumb
+ 197              		.thumb_func
+ 198              		.type	startMessage, %function
+ 199              	startMessage:
+ 200              	.LFB115:
+  50:game.c        **** 
+  51:game.c        **** RC_t buttonpress(EventMaskType ev, uint8_t *SSDnum)
+  52:game.c        **** {
+  53:game.c        ****     CancelAlarm(alrm_measureTime);
+  54:game.c        **** 	if(ev & ev_button)
+  55:game.c        **** 	{
+  56:game.c        ****         // set timeout alarm for 1 second if no buttons are pressed
+  57:game.c        ****         CancelAlarm(alrm_1000ms);
+  58:game.c        ****         SetRelAlarm(alrm_1000ms,1000,0);
+  59:game.c        ****         
+  60:game.c        **** 		if((uint8_t)SSDnum == 1) //if ssd is number 1, user must press the right button
+  61:game.c        **** 		{
+  62:game.c        **** 			if((ev & ev_button) && (BUTTON_1_Read() == 1))
+  63:game.c        **** 			{
+  64:game.c        ****                 correctMessage();
+  65:game.c        ****             }
+  66:game.c        ****             else
+  67:game.c        ****             {
+  68:game.c        ****                 incorrectMessage();
+  69:game.c        ****             }
+  70:game.c        **** 		}
+  71:game.c        ****         else //if ssd is number 2, user must press the left button
+  72:game.c        ****         {
+  73:game.c        ****             if((ev & ev_button) && (BUTTON_1_Read() == 1))
+  74:game.c        ****             {
+  75:game.c        ****                 incorrectMessage();
+  76:game.c        ****             }
+  77:game.c        ****             else
+  78:game.c        ****             {
+  79:game.c        ****                 correctMessage();
+  80:game.c        ****             }
+  81:game.c        ****         }
+  82:game.c        ****         //clear the displays
+  83:game.c        ****         SEVEN_Clear(SEVEN_0);
+  84:game.c        ****         SEVEN_Clear(SEVEN_1); 
+ARM GAS  C:\Users\robom\AppData\Local\Temp\ccAs7Q3f.s 			page 6
+
+
+  85:game.c        **** 
+  86:game.c        ****         state = STATE_START;
+  87:game.c        **** 	}
+  88:game.c        ****     if(GetAlarm(alrm_1000ms,(unsigned int*)1000))
+  89:game.c        ****     {
+  90:game.c        ****         state = STATE_TOOSLOW;
+  91:game.c        ****     }  
+  92:game.c        ****     
+  93:game.c        ****     return RC_SUCCESS;
+  94:game.c        **** }
+  95:game.c        **** 
+  96:game.c        **** RC_t tooslow(EventMaskType ev)
+  97:game.c        **** {
+  98:game.c        ****     if(ev & ev_timeout)
+  99:game.c        ****     {
+ 100:game.c        ****         CancelAlarm(alrm_1000ms);
+ 101:game.c        **** 
+ 102:game.c        **** 		//clear the displays
+ 103:game.c        **** 		SEVEN_Clear(SEVEN_0);
+ 104:game.c        **** 		SEVEN_Clear(SEVEN_1);
+ 105:game.c        ****         
+ 106:game.c        ****         tooslowMessage();
+ 107:game.c        ****     }
+ 108:game.c        ****     state = STATE_START;
+ 109:game.c        ****     
+ 110:game.c        ****     return RC_SUCCESS;
+ 111:game.c        **** }
+ 112:game.c        **** 
+ 113:game.c        **** /* Message Functions to display to UART */
+ 114:game.c        **** 
+ 115:game.c        **** void startMessage()
+ 116:game.c        **** {
+ 201              		.loc 1 116 0
+ 202              		.cfi_startproc
+ 203              		@ args = 0, pretend = 0, frame = 0
+ 204              		@ frame_needed = 0, uses_anonymous_args = 0
+ 205 0000 08B5     		push	{r3, lr}
+ 206              		.cfi_def_cfa_offset 8
+ 207              		.cfi_offset 3, -8
+ 208              		.cfi_offset 14, -4
+ 117:game.c        ****     UART_LOG_PutString("Press the left button if a 2 is displayed or press the right button if a 1 
+ 209              		.loc 1 117 0
+ 210 0002 0248     		ldr	r0, .L19
+ 211 0004 FFF7FEFF 		bl	UART_LOG_PutString
+ 212              	.LVL21:
+ 213 0008 08BD     		pop	{r3, pc}
+ 214              	.L20:
+ 215 000a 00BF     		.align	2
+ 216              	.L19:
+ 217 000c 00000000 		.word	.LC0
+ 218              		.cfi_endproc
+ 219              	.LFE115:
+ 220              		.size	startMessage, .-startMessage
+ 221              		.section	.text.correctMessage,"ax",%progbits
+ 222              		.align	2
+ 223              		.global	correctMessage
+ 224              		.thumb
+ARM GAS  C:\Users\robom\AppData\Local\Temp\ccAs7Q3f.s 			page 7
+
+
+ 225              		.thumb_func
+ 226              		.type	correctMessage, %function
+ 227              	correctMessage:
+ 228              	.LFB116:
+ 118:game.c        **** }
+ 119:game.c        **** 
+ 120:game.c        **** void correctMessage()
+ 121:game.c        **** {
+ 229              		.loc 1 121 0
+ 230              		.cfi_startproc
+ 231              		@ args = 0, pretend = 0, frame = 0
+ 232              		@ frame_needed = 0, uses_anonymous_args = 0
+ 233 0000 08B5     		push	{r3, lr}
+ 234              		.cfi_def_cfa_offset 8
+ 235              		.cfi_offset 3, -8
+ 236              		.cfi_offset 14, -4
+ 122:game.c        ****     UART_LOG_PutString("correct button pressed\n");
+ 237              		.loc 1 122 0
+ 238 0002 0548     		ldr	r0, .L23
+ 239 0004 FFF7FEFF 		bl	UART_LOG_PutString
+ 240              	.LVL22:
+ 123:game.c        ****     UART_LOG_PutString("Press any button to go to the next round\n");
+ 241              		.loc 1 123 0
+ 242 0008 0448     		ldr	r0, .L23+4
+ 243 000a FFF7FEFF 		bl	UART_LOG_PutString
+ 244              	.LVL23:
+ 124:game.c        ****     UART_LOG_PutString("=======================================================\n");
+ 245              		.loc 1 124 0
+ 246 000e 0448     		ldr	r0, .L23+8
+ 247 0010 FFF7FEFF 		bl	UART_LOG_PutString
+ 248              	.LVL24:
+ 249 0014 08BD     		pop	{r3, pc}
+ 250              	.L24:
+ 251 0016 00BF     		.align	2
+ 252              	.L23:
+ 253 0018 5C000000 		.word	.LC1
+ 254 001c 74000000 		.word	.LC2
+ 255 0020 A0000000 		.word	.LC3
+ 256              		.cfi_endproc
+ 257              	.LFE116:
+ 258              		.size	correctMessage, .-correctMessage
+ 259              		.section	.text.incorrectMessage,"ax",%progbits
+ 260              		.align	2
+ 261              		.global	incorrectMessage
+ 262              		.thumb
+ 263              		.thumb_func
+ 264              		.type	incorrectMessage, %function
+ 265              	incorrectMessage:
+ 266              	.LFB117:
+ 125:game.c        **** }
+ 126:game.c        **** 
+ 127:game.c        **** void incorrectMessage()
+ 128:game.c        **** {
+ 267              		.loc 1 128 0
+ 268              		.cfi_startproc
+ 269              		@ args = 0, pretend = 0, frame = 0
+ 270              		@ frame_needed = 0, uses_anonymous_args = 0
+ARM GAS  C:\Users\robom\AppData\Local\Temp\ccAs7Q3f.s 			page 8
+
+
+ 271 0000 08B5     		push	{r3, lr}
+ 272              		.cfi_def_cfa_offset 8
+ 273              		.cfi_offset 3, -8
+ 274              		.cfi_offset 14, -4
+ 129:game.c        ****     UART_LOG_PutString("Incorrect button pressed\n");
+ 275              		.loc 1 129 0
+ 276 0002 0548     		ldr	r0, .L27
+ 277 0004 FFF7FEFF 		bl	UART_LOG_PutString
+ 278              	.LVL25:
+ 130:game.c        ****     UART_LOG_PutString("Press any button to go to the next round\n");
+ 279              		.loc 1 130 0
+ 280 0008 0448     		ldr	r0, .L27+4
+ 281 000a FFF7FEFF 		bl	UART_LOG_PutString
+ 282              	.LVL26:
+ 131:game.c        ****     UART_LOG_PutString("=======================================================\n");
+ 283              		.loc 1 131 0
+ 284 000e 0448     		ldr	r0, .L27+8
+ 285 0010 FFF7FEFF 		bl	UART_LOG_PutString
+ 286              	.LVL27:
+ 287 0014 08BD     		pop	{r3, pc}
+ 288              	.L28:
+ 289 0016 00BF     		.align	2
+ 290              	.L27:
+ 291 0018 DC000000 		.word	.LC4
+ 292 001c 74000000 		.word	.LC2
+ 293 0020 A0000000 		.word	.LC3
+ 294              		.cfi_endproc
+ 295              	.LFE117:
+ 296              		.size	incorrectMessage, .-incorrectMessage
+ 297              		.section	.text.buttonpress,"ax",%progbits
+ 298              		.align	2
+ 299              		.global	buttonpress
+ 300              		.thumb
+ 301              		.thumb_func
+ 302              		.type	buttonpress, %function
+ 303              	buttonpress:
+ 304              	.LFB113:
+  52:game.c        ****     CancelAlarm(alrm_measureTime);
+ 305              		.loc 1 52 0
+ 306              		.cfi_startproc
+ 307              		@ args = 0, pretend = 0, frame = 0
+ 308              		@ frame_needed = 0, uses_anonymous_args = 0
+ 309              	.LVL28:
+ 310 0000 38B5     		push	{r3, r4, r5, lr}
+ 311              		.cfi_def_cfa_offset 16
+ 312              		.cfi_offset 3, -16
+ 313              		.cfi_offset 4, -12
+ 314              		.cfi_offset 5, -8
+ 315              		.cfi_offset 14, -4
+ 316 0002 0446     		mov	r4, r0
+ 317 0004 0D46     		mov	r5, r1
+  53:game.c        **** 	if(ev & ev_button)
+ 318              		.loc 1 53 0
+ 319 0006 0220     		movs	r0, #2
+ 320              	.LVL29:
+ 321 0008 FFF7FEFF 		bl	EE_oo_CancelAlarm
+ 322              	.LVL30:
+ARM GAS  C:\Users\robom\AppData\Local\Temp\ccAs7Q3f.s 			page 9
+
+
+  54:game.c        **** 	{
+ 323              		.loc 1 54 0
+ 324 000c 14F00104 		ands	r4, r4, #1
+ 325              	.LVL31:
+ 326 0010 29D0     		beq	.L30
+  57:game.c        ****         SetRelAlarm(alrm_1000ms,1000,0);
+ 327              		.loc 1 57 0
+ 328 0012 0120     		movs	r0, #1
+ 329 0014 FFF7FEFF 		bl	EE_oo_CancelAlarm
+ 330              	.LVL32:
+  58:game.c        ****         
+ 331              		.loc 1 58 0
+ 332 0018 0022     		movs	r2, #0
+ 333 001a 4FF47A71 		mov	r1, #1000
+ 334 001e 0120     		movs	r0, #1
+ 335 0020 FFF7FEFF 		bl	EE_oo_SetRelAlarm
+ 336              	.LVL33:
+  60:game.c        **** 		{
+ 337              		.loc 1 60 0
+ 338 0024 EDB2     		uxtb	r5, r5
+ 339              	.LVL34:
+ 340 0026 012D     		cmp	r5, #1
+ 341 0028 0AD1     		bne	.L31
+  62:game.c        **** 			{
+ 342              		.loc 1 62 0
+ 343 002a 34B1     		cbz	r4, .L32
+  62:game.c        **** 			{
+ 344              		.loc 1 62 0 is_stmt 0 discriminator 1
+ 345 002c FFF7FEFF 		bl	BUTTON_1_Read
+ 346              	.LVL35:
+ 347 0030 0128     		cmp	r0, #1
+ 348 0032 02D1     		bne	.L32
+  64:game.c        ****             }
+ 349              		.loc 1 64 0 is_stmt 1
+ 350 0034 FFF7FEFF 		bl	correctMessage
+ 351              	.LVL36:
+ 352 0038 0CE0     		b	.L33
+ 353              	.L32:
+  68:game.c        ****             }
+ 354              		.loc 1 68 0
+ 355 003a FFF7FEFF 		bl	incorrectMessage
+ 356              	.LVL37:
+ 357 003e 09E0     		b	.L33
+ 358              	.L31:
+  73:game.c        ****             {
+ 359              		.loc 1 73 0
+ 360 0040 34B1     		cbz	r4, .L34
+  73:game.c        ****             {
+ 361              		.loc 1 73 0 is_stmt 0 discriminator 1
+ 362 0042 FFF7FEFF 		bl	BUTTON_1_Read
+ 363              	.LVL38:
+ 364 0046 0128     		cmp	r0, #1
+ 365 0048 02D1     		bne	.L34
+  75:game.c        ****             }
+ 366              		.loc 1 75 0 is_stmt 1
+ 367 004a FFF7FEFF 		bl	incorrectMessage
+ 368              	.LVL39:
+ARM GAS  C:\Users\robom\AppData\Local\Temp\ccAs7Q3f.s 			page 10
+
+
+ 369 004e 01E0     		b	.L33
+ 370              	.L34:
+  79:game.c        ****             }
+ 371              		.loc 1 79 0
+ 372 0050 FFF7FEFF 		bl	correctMessage
+ 373              	.LVL40:
+ 374              	.L33:
+  83:game.c        ****         SEVEN_Clear(SEVEN_1); 
+ 375              		.loc 1 83 0
+ 376 0054 0020     		movs	r0, #0
+ 377 0056 FFF7FEFF 		bl	SEVEN_Clear
+ 378              	.LVL41:
+  84:game.c        **** 
+ 379              		.loc 1 84 0
+ 380 005a 0120     		movs	r0, #1
+ 381 005c FFF7FEFF 		bl	SEVEN_Clear
+ 382              	.LVL42:
+  86:game.c        **** 	}
+ 383              		.loc 1 86 0
+ 384 0060 0022     		movs	r2, #0
+ 385 0062 064B     		ldr	r3, .L37
+ 386 0064 1A70     		strb	r2, [r3]
+ 387              	.L30:
+  88:game.c        ****     {
+ 388              		.loc 1 88 0
+ 389 0066 4FF47A71 		mov	r1, #1000
+ 390 006a 0120     		movs	r0, #1
+ 391 006c FFF7FEFF 		bl	EE_oo_GetAlarm
+ 392              	.LVL43:
+ 393 0070 10B1     		cbz	r0, .L35
+  90:game.c        ****     }  
+ 394              		.loc 1 90 0
+ 395 0072 0322     		movs	r2, #3
+ 396 0074 014B     		ldr	r3, .L37
+ 397 0076 1A70     		strb	r2, [r3]
+ 398              	.L35:
+  94:game.c        **** 
+ 399              		.loc 1 94 0
+ 400 0078 0020     		movs	r0, #0
+ 401 007a 38BD     		pop	{r3, r4, r5, pc}
+ 402              	.L38:
+ 403              		.align	2
+ 404              	.L37:
+ 405 007c 00000000 		.word	state
+ 406              		.cfi_endproc
+ 407              	.LFE113:
+ 408              		.size	buttonpress, .-buttonpress
+ 409              		.section	.text.tooslowMessage,"ax",%progbits
+ 410              		.align	2
+ 411              		.global	tooslowMessage
+ 412              		.thumb
+ 413              		.thumb_func
+ 414              		.type	tooslowMessage, %function
+ 415              	tooslowMessage:
+ 416              	.LFB118:
+ 132:game.c        **** }
+ 133:game.c        **** 
+ARM GAS  C:\Users\robom\AppData\Local\Temp\ccAs7Q3f.s 			page 11
+
+
+ 134:game.c        **** void tooslowMessage()
+ 135:game.c        **** {
+ 417              		.loc 1 135 0
+ 418              		.cfi_startproc
+ 419              		@ args = 0, pretend = 0, frame = 0
+ 420              		@ frame_needed = 0, uses_anonymous_args = 0
+ 421 0000 08B5     		push	{r3, lr}
+ 422              		.cfi_def_cfa_offset 8
+ 423              		.cfi_offset 3, -8
+ 424              		.cfi_offset 14, -4
+ 136:game.c        ****     UART_LOG_PutString("TIMEOUT!\n");
+ 425              		.loc 1 136 0
+ 426 0002 0548     		ldr	r0, .L41
+ 427 0004 FFF7FEFF 		bl	UART_LOG_PutString
+ 428              	.LVL44:
+ 137:game.c        ****     UART_LOG_PutString("Press any button to go to the next round\n");
+ 429              		.loc 1 137 0
+ 430 0008 0448     		ldr	r0, .L41+4
+ 431 000a FFF7FEFF 		bl	UART_LOG_PutString
+ 432              	.LVL45:
+ 138:game.c        ****     UART_LOG_PutString("=======================================================\n");
+ 433              		.loc 1 138 0
+ 434 000e 0448     		ldr	r0, .L41+8
+ 435 0010 FFF7FEFF 		bl	UART_LOG_PutString
+ 436              	.LVL46:
+ 437 0014 08BD     		pop	{r3, pc}
+ 438              	.L42:
+ 439 0016 00BF     		.align	2
+ 440              	.L41:
+ 441 0018 F8000000 		.word	.LC5
+ 442 001c 74000000 		.word	.LC2
+ 443 0020 A0000000 		.word	.LC3
+ 444              		.cfi_endproc
+ 445              	.LFE118:
+ 446              		.size	tooslowMessage, .-tooslowMessage
+ 447              		.section	.text.tooslow,"ax",%progbits
+ 448              		.align	2
+ 449              		.global	tooslow
+ 450              		.thumb
+ 451              		.thumb_func
+ 452              		.type	tooslow, %function
+ 453              	tooslow:
+ 454              	.LFB114:
+  97:game.c        ****     if(ev & ev_timeout)
+ 455              		.loc 1 97 0
+ 456              		.cfi_startproc
+ 457              		@ args = 0, pretend = 0, frame = 0
+ 458              		@ frame_needed = 0, uses_anonymous_args = 0
+ 459              	.LVL47:
+ 460 0000 08B5     		push	{r3, lr}
+ 461              		.cfi_def_cfa_offset 8
+ 462              		.cfi_offset 3, -8
+ 463              		.cfi_offset 14, -4
+  98:game.c        ****     {
+ 464              		.loc 1 98 0
+ 465 0002 10F0020F 		tst	r0, #2
+ 466 0006 0AD0     		beq	.L44
+ARM GAS  C:\Users\robom\AppData\Local\Temp\ccAs7Q3f.s 			page 12
+
+
+ 100:game.c        **** 
+ 467              		.loc 1 100 0
+ 468 0008 0120     		movs	r0, #1
+ 469              	.LVL48:
+ 470 000a FFF7FEFF 		bl	EE_oo_CancelAlarm
+ 471              	.LVL49:
+ 103:game.c        **** 		SEVEN_Clear(SEVEN_1);
+ 472              		.loc 1 103 0
+ 473 000e 0020     		movs	r0, #0
+ 474 0010 FFF7FEFF 		bl	SEVEN_Clear
+ 475              	.LVL50:
+ 104:game.c        ****         
+ 476              		.loc 1 104 0
+ 477 0014 0120     		movs	r0, #1
+ 478 0016 FFF7FEFF 		bl	SEVEN_Clear
+ 479              	.LVL51:
+ 106:game.c        ****     }
+ 480              		.loc 1 106 0
+ 481 001a FFF7FEFF 		bl	tooslowMessage
+ 482              	.LVL52:
+ 483              	.L44:
+ 108:game.c        ****     
+ 484              		.loc 1 108 0
+ 485 001e 0020     		movs	r0, #0
+ 486 0020 014B     		ldr	r3, .L46
+ 487 0022 1870     		strb	r0, [r3]
+ 111:game.c        **** 
+ 488              		.loc 1 111 0
+ 489 0024 08BD     		pop	{r3, pc}
+ 490              	.L47:
+ 491 0026 00BF     		.align	2
+ 492              	.L46:
+ 493 0028 00000000 		.word	state
+ 494              		.cfi_endproc
+ 495              	.LFE114:
+ 496              		.size	tooslow, .-tooslow
+ 497              		.section	.text.finalMessage,"ax",%progbits
+ 498              		.align	2
+ 499              		.global	finalMessage
+ 500              		.thumb
+ 501              		.thumb_func
+ 502              		.type	finalMessage, %function
+ 503              	finalMessage:
+ 504              	.LFB119:
+ 139:game.c        **** }
+ 140:game.c        **** 
+ 141:game.c        **** void finalMessage()
+ 142:game.c        **** {
+ 505              		.loc 1 142 0
+ 506              		.cfi_startproc
+ 507              		@ args = 0, pretend = 0, frame = 0
+ 508              		@ frame_needed = 0, uses_anonymous_args = 0
+ 509              		@ link register save eliminated.
+ 510 0000 7047     		bx	lr
+ 511              		.cfi_endproc
+ 512              	.LFE119:
+ 513              		.size	finalMessage, .-finalMessage
+ARM GAS  C:\Users\robom\AppData\Local\Temp\ccAs7Q3f.s 			page 13
+
+
+ 514 0002 00BF     		.section	.rodata.str1.4,"aMS",%progbits,1
+ 515              		.align	2
+ 516              	.LC0:
+ 517 0000 50726573 		.ascii	"Press the left button if a 2 is displayed or press "
+ 517      73207468 
+ 517      65206C65 
+ 517      66742062 
+ 517      7574746F 
+ 518 0033 74686520 		.ascii	"the right button if a 1 is displayed\012\000"
+ 518      72696768 
+ 518      74206275 
+ 518      74746F6E 
+ 518      20696620 
+ 519 0059 000000   		.space	3
+ 520              	.LC1:
+ 521 005c 636F7272 		.ascii	"correct button pressed\012\000"
+ 521      65637420 
+ 521      62757474 
+ 521      6F6E2070 
+ 521      72657373 
+ 522              	.LC2:
+ 523 0074 50726573 		.ascii	"Press any button to go to the next round\012\000"
+ 523      7320616E 
+ 523      79206275 
+ 523      74746F6E 
+ 523      20746F20 
+ 524 009e 0000     		.space	2
+ 525              	.LC3:
+ 526 00a0 3D3D3D3D 		.ascii	"==================================================="
+ 526      3D3D3D3D 
+ 526      3D3D3D3D 
+ 526      3D3D3D3D 
+ 526      3D3D3D3D 
+ 527 00d3 3D3D3D3D 		.ascii	"====\012\000"
+ 527      0A00
+ 528 00d9 000000   		.space	3
+ 529              	.LC4:
+ 530 00dc 496E636F 		.ascii	"Incorrect button pressed\012\000"
+ 530      72726563 
+ 530      74206275 
+ 530      74746F6E 
+ 530      20707265 
+ 531 00f6 0000     		.space	2
+ 532              	.LC5:
+ 533 00f8 54494D45 		.ascii	"TIMEOUT!\012\000"
+ 533      4F555421 
+ 533      0A00
+ 534              		.text
+ 535              	.Letext0:
+ 536              		.file 2 ".\\source\\bsw/global.h"
+ 537              		.file 3 ".\\source\\bsw\\LabBoard/seven.h"
+ 538              		.file 4 "c:\\program files (x86)\\cypress\\psoc creator\\4.4\\psoc creator\\import\\gnu\\arm\\5.4.
+ 539              		.file 5 "c:\\program files (x86)\\cypress\\psoc creator\\4.4\\psoc creator\\import\\gnu\\arm\\5.4.
+ 540              		.file 6 "Generated_Source\\PSoC5/ErikaOS_1_common_ee_types.inc"
+ 541              		.file 7 "Generated_Source\\PSoC5/ErikaOS_1_cortex_mx_ee_cpu.inc"
+ 542              		.file 8 "Generated_Source\\PSoC5/ErikaOS_1_ee_oo_common.inc"
+ 543              		.file 9 "game.h"
+ARM GAS  C:\Users\robom\AppData\Local\Temp\ccAs7Q3f.s 			page 14
+
+
+ 544              		.file 10 "Generated_Source\\PSoC5/ErikaOS_1_ee_oo_intfunc.inc"
+ 545              		.file 11 "Generated_Source\\PSoC5/ErikaOS_1_cortex_mx_ee_context.inc"
+ 546              		.file 12 "Generated_Source\\PSoC5/ErikaOS_1_common_ee_primitives.inc"
+ 547              		.file 13 "Generated_Source\\PSoC5/core_cm3.h"
+ 548              		.file 14 "Generated_Source\\PSoC5/BUTTON_2.h"
+ 549              		.file 15 "Generated_Source\\PSoC5/BUTTON_1.h"
+ 550              		.file 16 "c:\\program files (x86)\\cypress\\psoc creator\\4.4\\psoc creator\\import\\gnu\\arm\\5.4
+ 551              		.file 17 "Generated_Source\\PSoC5/ErikaOS_1_ee_oo_kernel.inc"
+ 552              		.file 18 "Generated_Source\\PSoC5/UART_LOG.h"
+ 553              		.section	.debug_info,"",%progbits
+ 554              	.Ldebug_info0:
+ 555 0000 A8060000 		.4byte	0x6a8
+ 556 0004 0400     		.2byte	0x4
+ 557 0006 00000000 		.4byte	.Ldebug_abbrev0
+ 558 000a 04       		.byte	0x4
+ 559 000b 01       		.uleb128 0x1
+ 560 000c 0D050000 		.4byte	.LASF83
+ 561 0010 0C       		.byte	0xc
+ 562 0011 D5040000 		.4byte	.LASF84
+ 563 0015 E2010000 		.4byte	.LASF85
+ 564 0019 00000000 		.4byte	.Ldebug_ranges0+0
+ 565 001d 00000000 		.4byte	0
+ 566 0021 00000000 		.4byte	.Ldebug_line0
+ 567 0025 02       		.uleb128 0x2
+ 568 0026 04       		.byte	0x4
+ 569 0027 07       		.byte	0x7
+ 570 0028 52030000 		.4byte	.LASF0
+ 571 002c 02       		.uleb128 0x2
+ 572 002d 01       		.byte	0x1
+ 573 002e 06       		.byte	0x6
+ 574 002f 2F030000 		.4byte	.LASF1
+ 575 0033 03       		.uleb128 0x3
+ 576 0034 DF000000 		.4byte	.LASF38
+ 577 0038 02       		.byte	0x2
+ 578 0039 91       		.byte	0x91
+ 579 003a 3E000000 		.4byte	0x3e
+ 580 003e 02       		.uleb128 0x2
+ 581 003f 01       		.byte	0x1
+ 582 0040 08       		.byte	0x8
+ 583 0041 17030000 		.4byte	.LASF2
+ 584 0045 02       		.uleb128 0x2
+ 585 0046 02       		.byte	0x2
+ 586 0047 05       		.byte	0x5
+ 587 0048 37000000 		.4byte	.LASF3
+ 588 004c 02       		.uleb128 0x2
+ 589 004d 02       		.byte	0x2
+ 590 004e 07       		.byte	0x7
+ 591 004f 5D040000 		.4byte	.LASF4
+ 592 0053 02       		.uleb128 0x2
+ 593 0054 04       		.byte	0x4
+ 594 0055 05       		.byte	0x5
+ 595 0056 C7010000 		.4byte	.LASF5
+ 596 005a 02       		.uleb128 0x2
+ 597 005b 04       		.byte	0x4
+ 598 005c 07       		.byte	0x7
+ 599 005d 83040000 		.4byte	.LASF6
+ 600 0061 02       		.uleb128 0x2
+ARM GAS  C:\Users\robom\AppData\Local\Temp\ccAs7Q3f.s 			page 15
+
+
+ 601 0062 04       		.byte	0x4
+ 602 0063 04       		.byte	0x4
+ 603 0064 39010000 		.4byte	.LASF7
+ 604 0068 02       		.uleb128 0x2
+ 605 0069 08       		.byte	0x8
+ 606 006a 04       		.byte	0x4
+ 607 006b 95040000 		.4byte	.LASF8
+ 608 006f 02       		.uleb128 0x2
+ 609 0070 08       		.byte	0x8
+ 610 0071 05       		.byte	0x5
+ 611 0072 6E010000 		.4byte	.LASF9
+ 612 0076 02       		.uleb128 0x2
+ 613 0077 08       		.byte	0x8
+ 614 0078 07       		.byte	0x7
+ 615 0079 3B030000 		.4byte	.LASF10
+ 616 007d 02       		.uleb128 0x2
+ 617 007e 01       		.byte	0x1
+ 618 007f 08       		.byte	0x8
+ 619 0080 02040000 		.4byte	.LASF11
+ 620 0084 04       		.uleb128 0x4
+ 621 0085 01       		.byte	0x1
+ 622 0086 2C000000 		.4byte	0x2c
+ 623 008a 02       		.byte	0x2
+ 624 008b CF       		.byte	0xcf
+ 625 008c 2D010000 		.4byte	0x12d
+ 626 0090 05       		.uleb128 0x5
+ 627 0091 1E000000 		.4byte	.LASF12
+ 628 0095 00       		.byte	0
+ 629 0096 06       		.uleb128 0x6
+ 630 0097 54040000 		.4byte	.LASF13
+ 631 009b 7F       		.sleb128 -1
+ 632 009c 06       		.uleb128 0x6
+ 633 009d 9F030000 		.4byte	.LASF14
+ 634 00a1 7E       		.sleb128 -2
+ 635 00a2 06       		.uleb128 0x6
+ 636 00a3 B9010000 		.4byte	.LASF15
+ 637 00a7 7D       		.sleb128 -3
+ 638 00a8 06       		.uleb128 0x6
+ 639 00a9 9B050000 		.4byte	.LASF16
+ 640 00ad 7C       		.sleb128 -4
+ 641 00ae 06       		.uleb128 0x6
+ 642 00af 1D010000 		.4byte	.LASF17
+ 643 00b3 7B       		.sleb128 -5
+ 644 00b4 06       		.uleb128 0x6
+ 645 00b5 41000000 		.4byte	.LASF18
+ 646 00b9 7A       		.sleb128 -6
+ 647 00ba 06       		.uleb128 0x6
+ 648 00bb D0010000 		.4byte	.LASF19
+ 649 00bf 79       		.sleb128 -7
+ 650 00c0 06       		.uleb128 0x6
+ 651 00c1 16040000 		.4byte	.LASF20
+ 652 00c5 78       		.sleb128 -8
+ 653 00c6 06       		.uleb128 0x6
+ 654 00c7 C3050000 		.4byte	.LASF21
+ 655 00cb 77       		.sleb128 -9
+ 656 00cc 06       		.uleb128 0x6
+ 657 00cd 95020000 		.4byte	.LASF22
+ARM GAS  C:\Users\robom\AppData\Local\Temp\ccAs7Q3f.s 			page 16
+
+
+ 658 00d1 76       		.sleb128 -10
+ 659 00d2 06       		.uleb128 0x6
+ 660 00d3 DE050000 		.4byte	.LASF23
+ 661 00d7 75       		.sleb128 -11
+ 662 00d8 06       		.uleb128 0x6
+ 663 00d9 5F030000 		.4byte	.LASF24
+ 664 00dd 74       		.sleb128 -12
+ 665 00de 06       		.uleb128 0x6
+ 666 00df 9C040000 		.4byte	.LASF25
+ 667 00e3 73       		.sleb128 -13
+ 668 00e4 06       		.uleb128 0x6
+ 669 00e5 CD020000 		.4byte	.LASF26
+ 670 00e9 72       		.sleb128 -14
+ 671 00ea 06       		.uleb128 0x6
+ 672 00eb 3F010000 		.4byte	.LASF27
+ 673 00ef 71       		.sleb128 -15
+ 674 00f0 06       		.uleb128 0x6
+ 675 00f1 A3020000 		.4byte	.LASF28
+ 676 00f5 70       		.sleb128 -16
+ 677 00f6 06       		.uleb128 0x6
+ 678 00f7 88000000 		.4byte	.LASF29
+ 679 00fb 6F       		.sleb128 -17
+ 680 00fc 06       		.uleb128 0x6
+ 681 00fd 52000000 		.4byte	.LASF30
+ 682 0101 6E       		.sleb128 -18
+ 683 0102 06       		.uleb128 0x6
+ 684 0103 95010000 		.4byte	.LASF31
+ 685 0107 6D       		.sleb128 -19
+ 686 0108 06       		.uleb128 0x6
+ 687 0109 41040000 		.4byte	.LASF32
+ 688 010d 6C       		.sleb128 -20
+ 689 010e 06       		.uleb128 0x6
+ 690 010f B4020000 		.4byte	.LASF33
+ 691 0113 6B       		.sleb128 -21
+ 692 0114 06       		.uleb128 0x6
+ 693 0115 DC040000 		.4byte	.LASF34
+ 694 0119 6A       		.sleb128 -22
+ 695 011a 06       		.uleb128 0x6
+ 696 011b 6D030000 		.4byte	.LASF35
+ 697 011f 69       		.sleb128 -23
+ 698 0120 06       		.uleb128 0x6
+ 699 0121 A8010000 		.4byte	.LASF36
+ 700 0125 68       		.sleb128 -24
+ 701 0126 06       		.uleb128 0x6
+ 702 0127 BF000000 		.4byte	.LASF37
+ 703 012b 67       		.sleb128 -25
+ 704 012c 00       		.byte	0
+ 705 012d 03       		.uleb128 0x3
+ 706 012e D9050000 		.4byte	.LASF39
+ 707 0132 02       		.byte	0x2
+ 708 0133 EA       		.byte	0xea
+ 709 0134 84000000 		.4byte	0x84
+ 710 0138 04       		.uleb128 0x4
+ 711 0139 01       		.byte	0x1
+ 712 013a 3E000000 		.4byte	0x3e
+ 713 013e 03       		.byte	0x3
+ 714 013f 5F       		.byte	0x5f
+ARM GAS  C:\Users\robom\AppData\Local\Temp\ccAs7Q3f.s 			page 17
+
+
+ 715 0140 51010000 		.4byte	0x151
+ 716 0144 05       		.uleb128 0x5
+ 717 0145 70000000 		.4byte	.LASF40
+ 718 0149 00       		.byte	0
+ 719 014a 05       		.uleb128 0x5
+ 720 014b 78000000 		.4byte	.LASF41
+ 721 014f 01       		.byte	0x1
+ 722 0150 00       		.byte	0
+ 723 0151 03       		.uleb128 0x3
+ 724 0152 CB040000 		.4byte	.LASF42
+ 725 0156 04       		.byte	0x4
+ 726 0157 3F       		.byte	0x3f
+ 727 0158 53000000 		.4byte	0x53
+ 728 015c 07       		.uleb128 0x7
+ 729 015d 04       		.byte	0x4
+ 730 015e 05       		.byte	0x5
+ 731 015f 696E7400 		.ascii	"int\000"
+ 732 0163 02       		.uleb128 0x2
+ 733 0164 08       		.byte	0x8
+ 734 0165 04       		.byte	0x4
+ 735 0166 0B030000 		.4byte	.LASF43
+ 736 016a 02       		.uleb128 0x2
+ 737 016b 04       		.byte	0x4
+ 738 016c 07       		.byte	0x7
+ 739 016d 67000000 		.4byte	.LASF44
+ 740 0171 03       		.uleb128 0x3
+ 741 0172 2B040000 		.4byte	.LASF45
+ 742 0176 05       		.byte	0x5
+ 743 0177 2C       		.byte	0x2c
+ 744 0178 51010000 		.4byte	0x151
+ 745 017c 03       		.uleb128 0x3
+ 746 017d C6030000 		.4byte	.LASF46
+ 747 0181 06       		.byte	0x6
+ 748 0182 53       		.byte	0x53
+ 749 0183 5C010000 		.4byte	0x15c
+ 750 0187 03       		.uleb128 0x3
+ 751 0188 25030000 		.4byte	.LASF47
+ 752 018c 06       		.byte	0x6
+ 753 018d 54       		.byte	0x54
+ 754 018e 25000000 		.4byte	0x25
+ 755 0192 03       		.uleb128 0x3
+ 756 0193 16000000 		.4byte	.LASF48
+ 757 0197 07       		.byte	0x7
+ 758 0198 4D       		.byte	0x4d
+ 759 0199 87010000 		.4byte	0x187
+ 760 019d 03       		.uleb128 0x3
+ 761 019e 80000000 		.4byte	.LASF49
+ 762 01a2 07       		.byte	0x7
+ 763 01a3 4F       		.byte	0x4f
+ 764 01a4 87010000 		.4byte	0x187
+ 765 01a8 03       		.uleb128 0x3
+ 766 01a9 D8000000 		.4byte	.LASF50
+ 767 01ad 07       		.byte	0x7
+ 768 01ae 78       		.byte	0x78
+ 769 01af 7C010000 		.4byte	0x17c
+ 770 01b3 08       		.uleb128 0x8
+ 771 01b4 00000000 		.4byte	.LASF51
+ARM GAS  C:\Users\robom\AppData\Local\Temp\ccAs7Q3f.s 			page 18
+
+
+ 772 01b8 08       		.byte	0x8
+ 773 01b9 2C02     		.2byte	0x22c
+ 774 01bb 92010000 		.4byte	0x192
+ 775 01bf 09       		.uleb128 0x9
+ 776 01c0 29000000 		.4byte	.LASF86
+ 777 01c4 01       		.byte	0x1
+ 778 01c5 3E000000 		.4byte	0x3e
+ 779 01c9 09       		.byte	0x9
+ 780 01ca 1D       		.byte	0x1d
+ 781 01cb E8010000 		.4byte	0x1e8
+ 782 01cf 05       		.uleb128 0x5
+ 783 01d0 E0020000 		.4byte	.LASF52
+ 784 01d4 00       		.byte	0
+ 785 01d5 05       		.uleb128 0x5
+ 786 01d6 9C000000 		.4byte	.LASF53
+ 787 01da 01       		.byte	0x1
+ 788 01db 05       		.uleb128 0x5
+ 789 01dc F0030000 		.4byte	.LASF54
+ 790 01e0 02       		.byte	0x2
+ 791 01e1 05       		.uleb128 0x5
+ 792 01e2 33040000 		.4byte	.LASF55
+ 793 01e6 03       		.byte	0x3
+ 794 01e7 00       		.byte	0
+ 795 01e8 03       		.uleb128 0x3
+ 796 01e9 EE040000 		.4byte	.LASF56
+ 797 01ed 09       		.byte	0x9
+ 798 01ee 25       		.byte	0x25
+ 799 01ef BF010000 		.4byte	0x1bf
+ 800 01f3 0A       		.uleb128 0xa
+ 801 01f4 DE030000 		.4byte	.LASF59
+ 802 01f8 01       		.byte	0x1
+ 803 01f9 10       		.byte	0x10
+ 804 01fa 2D010000 		.4byte	0x12d
+ 805 01fe 00000000 		.4byte	.LFB111
+ 806 0202 78000000 		.4byte	.LFE111-.LFB111
+ 807 0206 01       		.uleb128 0x1
+ 808 0207 9C       		.byte	0x9c
+ 809 0208 84020000 		.4byte	0x284
+ 810 020c 0B       		.uleb128 0xb
+ 811 020d 657600   		.ascii	"ev\000"
+ 812 0210 01       		.byte	0x1
+ 813 0211 10       		.byte	0x10
+ 814 0212 B3010000 		.4byte	0x1b3
+ 815 0216 00000000 		.4byte	.LLST0
+ 816 021a 0C       		.uleb128 0xc
+ 817 021b C6020000 		.4byte	.LASF57
+ 818 021f 01       		.byte	0x1
+ 819 0220 10       		.byte	0x10
+ 820 0221 84020000 		.4byte	0x284
+ 821 0225 21000000 		.4byte	.LLST1
+ 822 0229 0C       		.uleb128 0xc
+ 823 022a F7040000 		.4byte	.LASF58
+ 824 022e 01       		.byte	0x1
+ 825 022f 10       		.byte	0x10
+ 826 0230 84020000 		.4byte	0x284
+ 827 0234 4D000000 		.4byte	.LLST2
+ 828 0238 0D       		.uleb128 0xd
+ARM GAS  C:\Users\robom\AppData\Local\Temp\ccAs7Q3f.s 			page 19
+
+
+ 829 0239 10000000 		.4byte	.LVL1
+ 830 023d 45060000 		.4byte	0x645
+ 831 0241 0D       		.uleb128 0xd
+ 832 0242 1A000000 		.4byte	.LVL2
+ 833 0246 50060000 		.4byte	0x650
+ 834 024a 0D       		.uleb128 0xd
+ 835 024b 22000000 		.4byte	.LVL3
+ 836 024f 5B060000 		.4byte	0x65b
+ 837 0253 0D       		.uleb128 0xd
+ 838 0254 38000000 		.4byte	.LVL4
+ 839 0258 5B060000 		.4byte	0x65b
+ 840 025c 0E       		.uleb128 0xe
+ 841 025d 58000000 		.4byte	.LVL5
+ 842 0261 66060000 		.4byte	0x666
+ 843 0265 6F020000 		.4byte	0x26f
+ 844 0269 0F       		.uleb128 0xf
+ 845 026a 01       		.uleb128 0x1
+ 846 026b 50       		.byte	0x50
+ 847 026c 01       		.uleb128 0x1
+ 848 026d 30       		.byte	0x30
+ 849 026e 00       		.byte	0
+ 850 026f 10       		.uleb128 0x10
+ 851 0270 62000000 		.4byte	.LVL6
+ 852 0274 72060000 		.4byte	0x672
+ 853 0278 0F       		.uleb128 0xf
+ 854 0279 01       		.uleb128 0x1
+ 855 027a 50       		.byte	0x50
+ 856 027b 01       		.uleb128 0x1
+ 857 027c 30       		.byte	0x30
+ 858 027d 0F       		.uleb128 0xf
+ 859 027e 01       		.uleb128 0x1
+ 860 027f 52       		.byte	0x52
+ 861 0280 01       		.uleb128 0x1
+ 862 0281 30       		.byte	0x30
+ 863 0282 00       		.byte	0
+ 864 0283 00       		.byte	0
+ 865 0284 11       		.uleb128 0x11
+ 866 0285 04       		.byte	0x4
+ 867 0286 33000000 		.4byte	0x33
+ 868 028a 0A       		.uleb128 0xa
+ 869 028b 8A020000 		.4byte	.LASF60
+ 870 028f 01       		.byte	0x1
+ 871 0290 1E       		.byte	0x1e
+ 872 0291 2D010000 		.4byte	0x12d
+ 873 0295 00000000 		.4byte	.LFB112
+ 874 0299 50000000 		.4byte	.LFE112-.LFB112
+ 875 029d 01       		.uleb128 0x1
+ 876 029e 9C       		.byte	0x9c
+ 877 029f 4F030000 		.4byte	0x34f
+ 878 02a3 0B       		.uleb128 0xb
+ 879 02a4 657600   		.ascii	"ev\000"
+ 880 02a7 01       		.byte	0x1
+ 881 02a8 1E       		.byte	0x1e
+ 882 02a9 B3010000 		.4byte	0x1b3
+ 883 02ad 79000000 		.4byte	.LLST3
+ 884 02b1 0C       		.uleb128 0xc
+ 885 02b2 C6020000 		.4byte	.LASF57
+ARM GAS  C:\Users\robom\AppData\Local\Temp\ccAs7Q3f.s 			page 20
+
+
+ 886 02b6 01       		.byte	0x1
+ 887 02b7 1E       		.byte	0x1e
+ 888 02b8 84020000 		.4byte	0x284
+ 889 02bc CC000000 		.4byte	.LLST4
+ 890 02c0 0E       		.uleb128 0xe
+ 891 02c1 14000000 		.4byte	.LVL11
+ 892 02c5 7E060000 		.4byte	0x67e
+ 893 02c9 DA020000 		.4byte	0x2da
+ 894 02cd 0F       		.uleb128 0xf
+ 895 02ce 01       		.uleb128 0x1
+ 896 02cf 50       		.byte	0x50
+ 897 02d0 01       		.uleb128 0x1
+ 898 02d1 30       		.byte	0x30
+ 899 02d2 0F       		.uleb128 0xf
+ 900 02d3 01       		.uleb128 0x1
+ 901 02d4 51       		.byte	0x51
+ 902 02d5 03       		.uleb128 0x3
+ 903 02d6 F3       		.byte	0xf3
+ 904 02d7 01       		.uleb128 0x1
+ 905 02d8 51       		.byte	0x51
+ 906 02d9 00       		.byte	0
+ 907 02da 0E       		.uleb128 0xe
+ 908 02db 1C000000 		.4byte	.LVL12
+ 909 02df 7E060000 		.4byte	0x67e
+ 910 02e3 F2020000 		.4byte	0x2f2
+ 911 02e7 0F       		.uleb128 0xf
+ 912 02e8 01       		.uleb128 0x1
+ 913 02e9 50       		.byte	0x50
+ 914 02ea 01       		.uleb128 0x1
+ 915 02eb 31       		.byte	0x31
+ 916 02ec 0F       		.uleb128 0xf
+ 917 02ed 01       		.uleb128 0x1
+ 918 02ee 51       		.byte	0x51
+ 919 02ef 01       		.uleb128 0x1
+ 920 02f0 31       		.byte	0x31
+ 921 02f1 00       		.byte	0
+ 922 02f2 0E       		.uleb128 0xe
+ 923 02f3 26000000 		.4byte	.LVL15
+ 924 02f7 7E060000 		.4byte	0x67e
+ 925 02fb 0A030000 		.4byte	0x30a
+ 926 02ff 0F       		.uleb128 0xf
+ 927 0300 01       		.uleb128 0x1
+ 928 0301 50       		.byte	0x50
+ 929 0302 01       		.uleb128 0x1
+ 930 0303 30       		.byte	0x30
+ 931 0304 0F       		.uleb128 0xf
+ 932 0305 01       		.uleb128 0x1
+ 933 0306 51       		.byte	0x51
+ 934 0307 01       		.uleb128 0x1
+ 935 0308 32       		.byte	0x32
+ 936 0309 00       		.byte	0
+ 937 030a 0E       		.uleb128 0xe
+ 938 030b 2E000000 		.4byte	.LVL16
+ 939 030f 7E060000 		.4byte	0x67e
+ 940 0313 22030000 		.4byte	0x322
+ 941 0317 0F       		.uleb128 0xf
+ 942 0318 01       		.uleb128 0x1
+ARM GAS  C:\Users\robom\AppData\Local\Temp\ccAs7Q3f.s 			page 21
+
+
+ 943 0319 50       		.byte	0x50
+ 944 031a 01       		.uleb128 0x1
+ 945 031b 31       		.byte	0x31
+ 946 031c 0F       		.uleb128 0xf
+ 947 031d 01       		.uleb128 0x1
+ 948 031e 51       		.byte	0x51
+ 949 031f 01       		.uleb128 0x1
+ 950 0320 32       		.byte	0x32
+ 951 0321 00       		.byte	0
+ 952 0322 0E       		.uleb128 0xe
+ 953 0323 34000000 		.4byte	.LVL17
+ 954 0327 66060000 		.4byte	0x666
+ 955 032b 35030000 		.4byte	0x335
+ 956 032f 0F       		.uleb128 0xf
+ 957 0330 01       		.uleb128 0x1
+ 958 0331 50       		.byte	0x50
+ 959 0332 01       		.uleb128 0x1
+ 960 0333 32       		.byte	0x32
+ 961 0334 00       		.byte	0
+ 962 0335 10       		.uleb128 0x10
+ 963 0336 3E000000 		.4byte	.LVL18
+ 964 033a 72060000 		.4byte	0x672
+ 965 033e 0F       		.uleb128 0xf
+ 966 033f 01       		.uleb128 0x1
+ 967 0340 50       		.byte	0x50
+ 968 0341 01       		.uleb128 0x1
+ 969 0342 32       		.byte	0x32
+ 970 0343 0F       		.uleb128 0xf
+ 971 0344 01       		.uleb128 0x1
+ 972 0345 51       		.byte	0x51
+ 973 0346 01       		.uleb128 0x1
+ 974 0347 31       		.byte	0x31
+ 975 0348 0F       		.uleb128 0xf
+ 976 0349 01       		.uleb128 0x1
+ 977 034a 52       		.byte	0x52
+ 978 034b 01       		.uleb128 0x1
+ 979 034c 31       		.byte	0x31
+ 980 034d 00       		.byte	0
+ 981 034e 00       		.byte	0
+ 982 034f 12       		.uleb128 0x12
+ 983 0350 53010000 		.4byte	.LASF61
+ 984 0354 01       		.byte	0x1
+ 985 0355 73       		.byte	0x73
+ 986 0356 00000000 		.4byte	.LFB115
+ 987 035a 10000000 		.4byte	.LFE115-.LFB115
+ 988 035e 01       		.uleb128 0x1
+ 989 035f 9C       		.byte	0x9c
+ 990 0360 78030000 		.4byte	0x378
+ 991 0364 10       		.uleb128 0x10
+ 992 0365 08000000 		.4byte	.LVL21
+ 993 0369 89060000 		.4byte	0x689
+ 994 036d 0F       		.uleb128 0xf
+ 995 036e 01       		.uleb128 0x1
+ 996 036f 50       		.byte	0x50
+ 997 0370 05       		.uleb128 0x5
+ 998 0371 03       		.byte	0x3
+ 999 0372 00000000 		.4byte	.LC0
+ARM GAS  C:\Users\robom\AppData\Local\Temp\ccAs7Q3f.s 			page 22
+
+
+ 1000 0376 00       		.byte	0
+ 1001 0377 00       		.byte	0
+ 1002 0378 12       		.uleb128 0x12
+ 1003 0379 CF030000 		.4byte	.LASF62
+ 1004 037d 01       		.byte	0x1
+ 1005 037e 78       		.byte	0x78
+ 1006 037f 00000000 		.4byte	.LFB116
+ 1007 0383 24000000 		.4byte	.LFE116-.LFB116
+ 1008 0387 01       		.uleb128 0x1
+ 1009 0388 9C       		.byte	0x9c
+ 1010 0389 CF030000 		.4byte	0x3cf
+ 1011 038d 0E       		.uleb128 0xe
+ 1012 038e 08000000 		.4byte	.LVL22
+ 1013 0392 89060000 		.4byte	0x689
+ 1014 0396 A4030000 		.4byte	0x3a4
+ 1015 039a 0F       		.uleb128 0xf
+ 1016 039b 01       		.uleb128 0x1
+ 1017 039c 50       		.byte	0x50
+ 1018 039d 05       		.uleb128 0x5
+ 1019 039e 03       		.byte	0x3
+ 1020 039f 5C000000 		.4byte	.LC1
+ 1021 03a3 00       		.byte	0
+ 1022 03a4 0E       		.uleb128 0xe
+ 1023 03a5 0E000000 		.4byte	.LVL23
+ 1024 03a9 89060000 		.4byte	0x689
+ 1025 03ad BB030000 		.4byte	0x3bb
+ 1026 03b1 0F       		.uleb128 0xf
+ 1027 03b2 01       		.uleb128 0x1
+ 1028 03b3 50       		.byte	0x50
+ 1029 03b4 05       		.uleb128 0x5
+ 1030 03b5 03       		.byte	0x3
+ 1031 03b6 74000000 		.4byte	.LC2
+ 1032 03ba 00       		.byte	0
+ 1033 03bb 10       		.uleb128 0x10
+ 1034 03bc 14000000 		.4byte	.LVL24
+ 1035 03c0 89060000 		.4byte	0x689
+ 1036 03c4 0F       		.uleb128 0xf
+ 1037 03c5 01       		.uleb128 0x1
+ 1038 03c6 50       		.byte	0x50
+ 1039 03c7 05       		.uleb128 0x5
+ 1040 03c8 03       		.byte	0x3
+ 1041 03c9 A0000000 		.4byte	.LC3
+ 1042 03cd 00       		.byte	0
+ 1043 03ce 00       		.byte	0
+ 1044 03cf 12       		.uleb128 0x12
+ 1045 03d0 84030000 		.4byte	.LASF63
+ 1046 03d4 01       		.byte	0x1
+ 1047 03d5 7F       		.byte	0x7f
+ 1048 03d6 00000000 		.4byte	.LFB117
+ 1049 03da 24000000 		.4byte	.LFE117-.LFB117
+ 1050 03de 01       		.uleb128 0x1
+ 1051 03df 9C       		.byte	0x9c
+ 1052 03e0 26040000 		.4byte	0x426
+ 1053 03e4 0E       		.uleb128 0xe
+ 1054 03e5 08000000 		.4byte	.LVL25
+ 1055 03e9 89060000 		.4byte	0x689
+ 1056 03ed FB030000 		.4byte	0x3fb
+ARM GAS  C:\Users\robom\AppData\Local\Temp\ccAs7Q3f.s 			page 23
+
+
+ 1057 03f1 0F       		.uleb128 0xf
+ 1058 03f2 01       		.uleb128 0x1
+ 1059 03f3 50       		.byte	0x50
+ 1060 03f4 05       		.uleb128 0x5
+ 1061 03f5 03       		.byte	0x3
+ 1062 03f6 DC000000 		.4byte	.LC4
+ 1063 03fa 00       		.byte	0
+ 1064 03fb 0E       		.uleb128 0xe
+ 1065 03fc 0E000000 		.4byte	.LVL26
+ 1066 0400 89060000 		.4byte	0x689
+ 1067 0404 12040000 		.4byte	0x412
+ 1068 0408 0F       		.uleb128 0xf
+ 1069 0409 01       		.uleb128 0x1
+ 1070 040a 50       		.byte	0x50
+ 1071 040b 05       		.uleb128 0x5
+ 1072 040c 03       		.byte	0x3
+ 1073 040d 74000000 		.4byte	.LC2
+ 1074 0411 00       		.byte	0
+ 1075 0412 10       		.uleb128 0x10
+ 1076 0413 14000000 		.4byte	.LVL27
+ 1077 0417 89060000 		.4byte	0x689
+ 1078 041b 0F       		.uleb128 0xf
+ 1079 041c 01       		.uleb128 0x1
+ 1080 041d 50       		.byte	0x50
+ 1081 041e 05       		.uleb128 0x5
+ 1082 041f 03       		.byte	0x3
+ 1083 0420 A0000000 		.4byte	.LC3
+ 1084 0424 00       		.byte	0
+ 1085 0425 00       		.byte	0
+ 1086 0426 0A       		.uleb128 0xa
+ 1087 0427 E4030000 		.4byte	.LASF64
+ 1088 042b 01       		.byte	0x1
+ 1089 042c 33       		.byte	0x33
+ 1090 042d 2D010000 		.4byte	0x12d
+ 1091 0431 00000000 		.4byte	.LFB113
+ 1092 0435 80000000 		.4byte	.LFE113-.LFB113
+ 1093 0439 01       		.uleb128 0x1
+ 1094 043a 9C       		.byte	0x9c
+ 1095 043b 14050000 		.4byte	0x514
+ 1096 043f 0B       		.uleb128 0xb
+ 1097 0440 657600   		.ascii	"ev\000"
+ 1098 0443 01       		.byte	0x1
+ 1099 0444 33       		.byte	0x33
+ 1100 0445 B3010000 		.4byte	0x1b3
+ 1101 0449 F8000000 		.4byte	.LLST5
+ 1102 044d 0C       		.uleb128 0xc
+ 1103 044e C6020000 		.4byte	.LASF57
+ 1104 0452 01       		.byte	0x1
+ 1105 0453 33       		.byte	0x33
+ 1106 0454 84020000 		.4byte	0x284
+ 1107 0458 24010000 		.4byte	.LLST6
+ 1108 045c 0E       		.uleb128 0xe
+ 1109 045d 0C000000 		.4byte	.LVL30
+ 1110 0461 66060000 		.4byte	0x666
+ 1111 0465 6F040000 		.4byte	0x46f
+ 1112 0469 0F       		.uleb128 0xf
+ 1113 046a 01       		.uleb128 0x1
+ARM GAS  C:\Users\robom\AppData\Local\Temp\ccAs7Q3f.s 			page 24
+
+
+ 1114 046b 50       		.byte	0x50
+ 1115 046c 01       		.uleb128 0x1
+ 1116 046d 32       		.byte	0x32
+ 1117 046e 00       		.byte	0
+ 1118 046f 0E       		.uleb128 0xe
+ 1119 0470 18000000 		.4byte	.LVL32
+ 1120 0474 66060000 		.4byte	0x666
+ 1121 0478 82040000 		.4byte	0x482
+ 1122 047c 0F       		.uleb128 0xf
+ 1123 047d 01       		.uleb128 0x1
+ 1124 047e 50       		.byte	0x50
+ 1125 047f 01       		.uleb128 0x1
+ 1126 0480 31       		.byte	0x31
+ 1127 0481 00       		.byte	0
+ 1128 0482 0E       		.uleb128 0xe
+ 1129 0483 24000000 		.4byte	.LVL33
+ 1130 0487 72060000 		.4byte	0x672
+ 1131 048b A1040000 		.4byte	0x4a1
+ 1132 048f 0F       		.uleb128 0xf
+ 1133 0490 01       		.uleb128 0x1
+ 1134 0491 50       		.byte	0x50
+ 1135 0492 01       		.uleb128 0x1
+ 1136 0493 31       		.byte	0x31
+ 1137 0494 0F       		.uleb128 0xf
+ 1138 0495 01       		.uleb128 0x1
+ 1139 0496 51       		.byte	0x51
+ 1140 0497 03       		.uleb128 0x3
+ 1141 0498 0A       		.byte	0xa
+ 1142 0499 E803     		.2byte	0x3e8
+ 1143 049b 0F       		.uleb128 0xf
+ 1144 049c 01       		.uleb128 0x1
+ 1145 049d 52       		.byte	0x52
+ 1146 049e 01       		.uleb128 0x1
+ 1147 049f 30       		.byte	0x30
+ 1148 04a0 00       		.byte	0
+ 1149 04a1 0D       		.uleb128 0xd
+ 1150 04a2 30000000 		.4byte	.LVL35
+ 1151 04a6 50060000 		.4byte	0x650
+ 1152 04aa 0D       		.uleb128 0xd
+ 1153 04ab 38000000 		.4byte	.LVL36
+ 1154 04af 78030000 		.4byte	0x378
+ 1155 04b3 0D       		.uleb128 0xd
+ 1156 04b4 3E000000 		.4byte	.LVL37
+ 1157 04b8 CF030000 		.4byte	0x3cf
+ 1158 04bc 0D       		.uleb128 0xd
+ 1159 04bd 46000000 		.4byte	.LVL38
+ 1160 04c1 50060000 		.4byte	0x650
+ 1161 04c5 0D       		.uleb128 0xd
+ 1162 04c6 4E000000 		.4byte	.LVL39
+ 1163 04ca CF030000 		.4byte	0x3cf
+ 1164 04ce 0D       		.uleb128 0xd
+ 1165 04cf 54000000 		.4byte	.LVL40
+ 1166 04d3 78030000 		.4byte	0x378
+ 1167 04d7 0E       		.uleb128 0xe
+ 1168 04d8 5A000000 		.4byte	.LVL41
+ 1169 04dc 94060000 		.4byte	0x694
+ 1170 04e0 EA040000 		.4byte	0x4ea
+ARM GAS  C:\Users\robom\AppData\Local\Temp\ccAs7Q3f.s 			page 25
+
+
+ 1171 04e4 0F       		.uleb128 0xf
+ 1172 04e5 01       		.uleb128 0x1
+ 1173 04e6 50       		.byte	0x50
+ 1174 04e7 01       		.uleb128 0x1
+ 1175 04e8 30       		.byte	0x30
+ 1176 04e9 00       		.byte	0
+ 1177 04ea 0E       		.uleb128 0xe
+ 1178 04eb 60000000 		.4byte	.LVL42
+ 1179 04ef 94060000 		.4byte	0x694
+ 1180 04f3 FD040000 		.4byte	0x4fd
+ 1181 04f7 0F       		.uleb128 0xf
+ 1182 04f8 01       		.uleb128 0x1
+ 1183 04f9 50       		.byte	0x50
+ 1184 04fa 01       		.uleb128 0x1
+ 1185 04fb 31       		.byte	0x31
+ 1186 04fc 00       		.byte	0
+ 1187 04fd 10       		.uleb128 0x10
+ 1188 04fe 70000000 		.4byte	.LVL43
+ 1189 0502 9F060000 		.4byte	0x69f
+ 1190 0506 0F       		.uleb128 0xf
+ 1191 0507 01       		.uleb128 0x1
+ 1192 0508 50       		.byte	0x50
+ 1193 0509 01       		.uleb128 0x1
+ 1194 050a 31       		.byte	0x31
+ 1195 050b 0F       		.uleb128 0xf
+ 1196 050c 01       		.uleb128 0x1
+ 1197 050d 51       		.byte	0x51
+ 1198 050e 03       		.uleb128 0x3
+ 1199 050f 0A       		.byte	0xa
+ 1200 0510 E803     		.2byte	0x3e8
+ 1201 0512 00       		.byte	0
+ 1202 0513 00       		.byte	0
+ 1203 0514 12       		.uleb128 0x12
+ 1204 0515 07040000 		.4byte	.LASF65
+ 1205 0519 01       		.byte	0x1
+ 1206 051a 86       		.byte	0x86
+ 1207 051b 00000000 		.4byte	.LFB118
+ 1208 051f 24000000 		.4byte	.LFE118-.LFB118
+ 1209 0523 01       		.uleb128 0x1
+ 1210 0524 9C       		.byte	0x9c
+ 1211 0525 6B050000 		.4byte	0x56b
+ 1212 0529 0E       		.uleb128 0xe
+ 1213 052a 08000000 		.4byte	.LVL44
+ 1214 052e 89060000 		.4byte	0x689
+ 1215 0532 40050000 		.4byte	0x540
+ 1216 0536 0F       		.uleb128 0xf
+ 1217 0537 01       		.uleb128 0x1
+ 1218 0538 50       		.byte	0x50
+ 1219 0539 05       		.uleb128 0x5
+ 1220 053a 03       		.byte	0x3
+ 1221 053b F8000000 		.4byte	.LC5
+ 1222 053f 00       		.byte	0
+ 1223 0540 0E       		.uleb128 0xe
+ 1224 0541 0E000000 		.4byte	.LVL45
+ 1225 0545 89060000 		.4byte	0x689
+ 1226 0549 57050000 		.4byte	0x557
+ 1227 054d 0F       		.uleb128 0xf
+ARM GAS  C:\Users\robom\AppData\Local\Temp\ccAs7Q3f.s 			page 26
+
+
+ 1228 054e 01       		.uleb128 0x1
+ 1229 054f 50       		.byte	0x50
+ 1230 0550 05       		.uleb128 0x5
+ 1231 0551 03       		.byte	0x3
+ 1232 0552 74000000 		.4byte	.LC2
+ 1233 0556 00       		.byte	0
+ 1234 0557 10       		.uleb128 0x10
+ 1235 0558 14000000 		.4byte	.LVL46
+ 1236 055c 89060000 		.4byte	0x689
+ 1237 0560 0F       		.uleb128 0xf
+ 1238 0561 01       		.uleb128 0x1
+ 1239 0562 50       		.byte	0x50
+ 1240 0563 05       		.uleb128 0x5
+ 1241 0564 03       		.byte	0x3
+ 1242 0565 A0000000 		.4byte	.LC3
+ 1243 0569 00       		.byte	0
+ 1244 056a 00       		.byte	0
+ 1245 056b 0A       		.uleb128 0xa
+ 1246 056c 0E000000 		.4byte	.LASF66
+ 1247 0570 01       		.byte	0x1
+ 1248 0571 60       		.byte	0x60
+ 1249 0572 2D010000 		.4byte	0x12d
+ 1250 0576 00000000 		.4byte	.LFB114
+ 1251 057a 2C000000 		.4byte	.LFE114-.LFB114
+ 1252 057e 01       		.uleb128 0x1
+ 1253 057f 9C       		.byte	0x9c
+ 1254 0580 D5050000 		.4byte	0x5d5
+ 1255 0584 0B       		.uleb128 0xb
+ 1256 0585 657600   		.ascii	"ev\000"
+ 1257 0588 01       		.byte	0x1
+ 1258 0589 60       		.byte	0x60
+ 1259 058a B3010000 		.4byte	0x1b3
+ 1260 058e 50010000 		.4byte	.LLST7
+ 1261 0592 0E       		.uleb128 0xe
+ 1262 0593 0E000000 		.4byte	.LVL49
+ 1263 0597 66060000 		.4byte	0x666
+ 1264 059b A5050000 		.4byte	0x5a5
+ 1265 059f 0F       		.uleb128 0xf
+ 1266 05a0 01       		.uleb128 0x1
+ 1267 05a1 50       		.byte	0x50
+ 1268 05a2 01       		.uleb128 0x1
+ 1269 05a3 31       		.byte	0x31
+ 1270 05a4 00       		.byte	0
+ 1271 05a5 0E       		.uleb128 0xe
+ 1272 05a6 14000000 		.4byte	.LVL50
+ 1273 05aa 94060000 		.4byte	0x694
+ 1274 05ae B8050000 		.4byte	0x5b8
+ 1275 05b2 0F       		.uleb128 0xf
+ 1276 05b3 01       		.uleb128 0x1
+ 1277 05b4 50       		.byte	0x50
+ 1278 05b5 01       		.uleb128 0x1
+ 1279 05b6 30       		.byte	0x30
+ 1280 05b7 00       		.byte	0
+ 1281 05b8 0E       		.uleb128 0xe
+ 1282 05b9 1A000000 		.4byte	.LVL51
+ 1283 05bd 94060000 		.4byte	0x694
+ 1284 05c1 CB050000 		.4byte	0x5cb
+ARM GAS  C:\Users\robom\AppData\Local\Temp\ccAs7Q3f.s 			page 27
+
+
+ 1285 05c5 0F       		.uleb128 0xf
+ 1286 05c6 01       		.uleb128 0x1
+ 1287 05c7 50       		.byte	0x50
+ 1288 05c8 01       		.uleb128 0x1
+ 1289 05c9 31       		.byte	0x31
+ 1290 05ca 00       		.byte	0
+ 1291 05cb 0D       		.uleb128 0xd
+ 1292 05cc 1E000000 		.4byte	.LVL52
+ 1293 05d0 14050000 		.4byte	0x514
+ 1294 05d4 00       		.byte	0
+ 1295 05d5 13       		.uleb128 0x13
+ 1296 05d6 2C010000 		.4byte	.LASF87
+ 1297 05da 01       		.byte	0x1
+ 1298 05db 8D       		.byte	0x8d
+ 1299 05dc 00000000 		.4byte	.LFB119
+ 1300 05e0 02000000 		.4byte	.LFE119-.LFB119
+ 1301 05e4 01       		.uleb128 0x1
+ 1302 05e5 9C       		.byte	0x9c
+ 1303 05e6 14       		.uleb128 0x14
+ 1304 05e7 95030000 		.4byte	.LASF88
+ 1305 05eb 09       		.byte	0x9
+ 1306 05ec 29       		.byte	0x29
+ 1307 05ed 33000000 		.4byte	0x33
+ 1308 05f1 00       		.byte	0
+ 1309 05f2 15       		.uleb128 0x15
+ 1310 05f3 AB050000 		.4byte	.LASF67
+ 1311 05f7 0A       		.byte	0xa
+ 1312 05f8 40       		.byte	0x40
+ 1313 05f9 92010000 		.4byte	0x192
+ 1314 05fd 15       		.uleb128 0x15
+ 1315 05fe 7C010000 		.4byte	.LASF68
+ 1316 0602 0A       		.byte	0xa
+ 1317 0603 47       		.byte	0x47
+ 1318 0604 9D010000 		.4byte	0x19d
+ 1319 0608 15       		.uleb128 0x15
+ 1320 0609 70040000 		.4byte	.LASF69
+ 1321 060d 0A       		.byte	0xa
+ 1322 060e 4A       		.byte	0x4a
+ 1323 060f 92010000 		.4byte	0x192
+ 1324 0613 15       		.uleb128 0x15
+ 1325 0614 AD030000 		.4byte	.LASF70
+ 1326 0618 0B       		.byte	0xb
+ 1327 0619 48       		.byte	0x48
+ 1328 061a A8010000 		.4byte	0x1a8
+ 1329 061e 15       		.uleb128 0x15
+ 1330 061f FE000000 		.4byte	.LASF71
+ 1331 0623 0C       		.byte	0xc
+ 1332 0624 44       		.byte	0x44
+ 1333 0625 92010000 		.4byte	0x192
+ 1334 0629 16       		.uleb128 0x16
+ 1335 062a 00050000 		.4byte	.LASF72
+ 1336 062e 0D       		.byte	0xd
+ 1337 062f 1207     		.2byte	0x712
+ 1338 0631 35060000 		.4byte	0x635
+ 1339 0635 17       		.uleb128 0x17
+ 1340 0636 71010000 		.4byte	0x171
+ 1341 063a 15       		.uleb128 0x15
+ARM GAS  C:\Users\robom\AppData\Local\Temp\ccAs7Q3f.s 			page 28
+
+
+ 1342 063b 31000000 		.4byte	.LASF73
+ 1343 063f 09       		.byte	0x9
+ 1344 0640 27       		.byte	0x27
+ 1345 0641 E8010000 		.4byte	0x1e8
+ 1346 0645 18       		.uleb128 0x18
+ 1347 0646 BD040000 		.4byte	.LASF74
+ 1348 064a BD040000 		.4byte	.LASF74
+ 1349 064e 0E       		.byte	0xe
+ 1350 064f 29       		.byte	0x29
+ 1351 0650 18       		.uleb128 0x18
+ 1352 0651 60010000 		.4byte	.LASF75
+ 1353 0655 60010000 		.4byte	.LASF75
+ 1354 0659 0F       		.byte	0xf
+ 1355 065a 29       		.byte	0x29
+ 1356 065b 18       		.uleb128 0x18
+ 1357 065c F9000000 		.4byte	.LASF76
+ 1358 0660 F9000000 		.4byte	.LASF76
+ 1359 0664 10       		.byte	0x10
+ 1360 0665 88       		.byte	0x88
+ 1361 0666 19       		.uleb128 0x19
+ 1362 0667 E7000000 		.4byte	.LASF77
+ 1363 066b E7000000 		.4byte	.LASF77
+ 1364 066f 11       		.byte	0x11
+ 1365 0670 F901     		.2byte	0x1f9
+ 1366 0672 19       		.uleb128 0x19
+ 1367 0673 AD000000 		.4byte	.LASF78
+ 1368 0677 AD000000 		.4byte	.LASF78
+ 1369 067b 11       		.byte	0x11
+ 1370 067c EF01     		.2byte	0x1ef
+ 1371 067e 18       		.uleb128 0x18
+ 1372 067f 13010000 		.4byte	.LASF79
+ 1373 0683 13010000 		.4byte	.LASF79
+ 1374 0687 03       		.byte	0x3
+ 1375 0688 82       		.byte	0x82
+ 1376 0689 18       		.uleb128 0x18
+ 1377 068a EC020000 		.4byte	.LASF80
+ 1378 068e EC020000 		.4byte	.LASF80
+ 1379 0692 12       		.byte	0x12
+ 1380 0693 8B       		.byte	0x8b
+ 1381 0694 18       		.uleb128 0x18
+ 1382 0695 FF020000 		.4byte	.LASF81
+ 1383 0699 FF020000 		.4byte	.LASF81
+ 1384 069d 03       		.byte	0x3
+ 1385 069e A0       		.byte	0xa0
+ 1386 069f 19       		.uleb128 0x19
+ 1387 06a0 AE040000 		.4byte	.LASF82
+ 1388 06a4 AE040000 		.4byte	.LASF82
+ 1389 06a8 11       		.byte	0x11
+ 1390 06a9 EA01     		.2byte	0x1ea
+ 1391 06ab 00       		.byte	0
+ 1392              		.section	.debug_abbrev,"",%progbits
+ 1393              	.Ldebug_abbrev0:
+ 1394 0000 01       		.uleb128 0x1
+ 1395 0001 11       		.uleb128 0x11
+ 1396 0002 01       		.byte	0x1
+ 1397 0003 25       		.uleb128 0x25
+ 1398 0004 0E       		.uleb128 0xe
+ARM GAS  C:\Users\robom\AppData\Local\Temp\ccAs7Q3f.s 			page 29
+
+
+ 1399 0005 13       		.uleb128 0x13
+ 1400 0006 0B       		.uleb128 0xb
+ 1401 0007 03       		.uleb128 0x3
+ 1402 0008 0E       		.uleb128 0xe
+ 1403 0009 1B       		.uleb128 0x1b
+ 1404 000a 0E       		.uleb128 0xe
+ 1405 000b 55       		.uleb128 0x55
+ 1406 000c 17       		.uleb128 0x17
+ 1407 000d 11       		.uleb128 0x11
+ 1408 000e 01       		.uleb128 0x1
+ 1409 000f 10       		.uleb128 0x10
+ 1410 0010 17       		.uleb128 0x17
+ 1411 0011 00       		.byte	0
+ 1412 0012 00       		.byte	0
+ 1413 0013 02       		.uleb128 0x2
+ 1414 0014 24       		.uleb128 0x24
+ 1415 0015 00       		.byte	0
+ 1416 0016 0B       		.uleb128 0xb
+ 1417 0017 0B       		.uleb128 0xb
+ 1418 0018 3E       		.uleb128 0x3e
+ 1419 0019 0B       		.uleb128 0xb
+ 1420 001a 03       		.uleb128 0x3
+ 1421 001b 0E       		.uleb128 0xe
+ 1422 001c 00       		.byte	0
+ 1423 001d 00       		.byte	0
+ 1424 001e 03       		.uleb128 0x3
+ 1425 001f 16       		.uleb128 0x16
+ 1426 0020 00       		.byte	0
+ 1427 0021 03       		.uleb128 0x3
+ 1428 0022 0E       		.uleb128 0xe
+ 1429 0023 3A       		.uleb128 0x3a
+ 1430 0024 0B       		.uleb128 0xb
+ 1431 0025 3B       		.uleb128 0x3b
+ 1432 0026 0B       		.uleb128 0xb
+ 1433 0027 49       		.uleb128 0x49
+ 1434 0028 13       		.uleb128 0x13
+ 1435 0029 00       		.byte	0
+ 1436 002a 00       		.byte	0
+ 1437 002b 04       		.uleb128 0x4
+ 1438 002c 04       		.uleb128 0x4
+ 1439 002d 01       		.byte	0x1
+ 1440 002e 0B       		.uleb128 0xb
+ 1441 002f 0B       		.uleb128 0xb
+ 1442 0030 49       		.uleb128 0x49
+ 1443 0031 13       		.uleb128 0x13
+ 1444 0032 3A       		.uleb128 0x3a
+ 1445 0033 0B       		.uleb128 0xb
+ 1446 0034 3B       		.uleb128 0x3b
+ 1447 0035 0B       		.uleb128 0xb
+ 1448 0036 01       		.uleb128 0x1
+ 1449 0037 13       		.uleb128 0x13
+ 1450 0038 00       		.byte	0
+ 1451 0039 00       		.byte	0
+ 1452 003a 05       		.uleb128 0x5
+ 1453 003b 28       		.uleb128 0x28
+ 1454 003c 00       		.byte	0
+ 1455 003d 03       		.uleb128 0x3
+ARM GAS  C:\Users\robom\AppData\Local\Temp\ccAs7Q3f.s 			page 30
+
+
+ 1456 003e 0E       		.uleb128 0xe
+ 1457 003f 1C       		.uleb128 0x1c
+ 1458 0040 0B       		.uleb128 0xb
+ 1459 0041 00       		.byte	0
+ 1460 0042 00       		.byte	0
+ 1461 0043 06       		.uleb128 0x6
+ 1462 0044 28       		.uleb128 0x28
+ 1463 0045 00       		.byte	0
+ 1464 0046 03       		.uleb128 0x3
+ 1465 0047 0E       		.uleb128 0xe
+ 1466 0048 1C       		.uleb128 0x1c
+ 1467 0049 0D       		.uleb128 0xd
+ 1468 004a 00       		.byte	0
+ 1469 004b 00       		.byte	0
+ 1470 004c 07       		.uleb128 0x7
+ 1471 004d 24       		.uleb128 0x24
+ 1472 004e 00       		.byte	0
+ 1473 004f 0B       		.uleb128 0xb
+ 1474 0050 0B       		.uleb128 0xb
+ 1475 0051 3E       		.uleb128 0x3e
+ 1476 0052 0B       		.uleb128 0xb
+ 1477 0053 03       		.uleb128 0x3
+ 1478 0054 08       		.uleb128 0x8
+ 1479 0055 00       		.byte	0
+ 1480 0056 00       		.byte	0
+ 1481 0057 08       		.uleb128 0x8
+ 1482 0058 16       		.uleb128 0x16
+ 1483 0059 00       		.byte	0
+ 1484 005a 03       		.uleb128 0x3
+ 1485 005b 0E       		.uleb128 0xe
+ 1486 005c 3A       		.uleb128 0x3a
+ 1487 005d 0B       		.uleb128 0xb
+ 1488 005e 3B       		.uleb128 0x3b
+ 1489 005f 05       		.uleb128 0x5
+ 1490 0060 49       		.uleb128 0x49
+ 1491 0061 13       		.uleb128 0x13
+ 1492 0062 00       		.byte	0
+ 1493 0063 00       		.byte	0
+ 1494 0064 09       		.uleb128 0x9
+ 1495 0065 04       		.uleb128 0x4
+ 1496 0066 01       		.byte	0x1
+ 1497 0067 03       		.uleb128 0x3
+ 1498 0068 0E       		.uleb128 0xe
+ 1499 0069 0B       		.uleb128 0xb
+ 1500 006a 0B       		.uleb128 0xb
+ 1501 006b 49       		.uleb128 0x49
+ 1502 006c 13       		.uleb128 0x13
+ 1503 006d 3A       		.uleb128 0x3a
+ 1504 006e 0B       		.uleb128 0xb
+ 1505 006f 3B       		.uleb128 0x3b
+ 1506 0070 0B       		.uleb128 0xb
+ 1507 0071 01       		.uleb128 0x1
+ 1508 0072 13       		.uleb128 0x13
+ 1509 0073 00       		.byte	0
+ 1510 0074 00       		.byte	0
+ 1511 0075 0A       		.uleb128 0xa
+ 1512 0076 2E       		.uleb128 0x2e
+ARM GAS  C:\Users\robom\AppData\Local\Temp\ccAs7Q3f.s 			page 31
+
+
+ 1513 0077 01       		.byte	0x1
+ 1514 0078 3F       		.uleb128 0x3f
+ 1515 0079 19       		.uleb128 0x19
+ 1516 007a 03       		.uleb128 0x3
+ 1517 007b 0E       		.uleb128 0xe
+ 1518 007c 3A       		.uleb128 0x3a
+ 1519 007d 0B       		.uleb128 0xb
+ 1520 007e 3B       		.uleb128 0x3b
+ 1521 007f 0B       		.uleb128 0xb
+ 1522 0080 27       		.uleb128 0x27
+ 1523 0081 19       		.uleb128 0x19
+ 1524 0082 49       		.uleb128 0x49
+ 1525 0083 13       		.uleb128 0x13
+ 1526 0084 11       		.uleb128 0x11
+ 1527 0085 01       		.uleb128 0x1
+ 1528 0086 12       		.uleb128 0x12
+ 1529 0087 06       		.uleb128 0x6
+ 1530 0088 40       		.uleb128 0x40
+ 1531 0089 18       		.uleb128 0x18
+ 1532 008a 9742     		.uleb128 0x2117
+ 1533 008c 19       		.uleb128 0x19
+ 1534 008d 01       		.uleb128 0x1
+ 1535 008e 13       		.uleb128 0x13
+ 1536 008f 00       		.byte	0
+ 1537 0090 00       		.byte	0
+ 1538 0091 0B       		.uleb128 0xb
+ 1539 0092 05       		.uleb128 0x5
+ 1540 0093 00       		.byte	0
+ 1541 0094 03       		.uleb128 0x3
+ 1542 0095 08       		.uleb128 0x8
+ 1543 0096 3A       		.uleb128 0x3a
+ 1544 0097 0B       		.uleb128 0xb
+ 1545 0098 3B       		.uleb128 0x3b
+ 1546 0099 0B       		.uleb128 0xb
+ 1547 009a 49       		.uleb128 0x49
+ 1548 009b 13       		.uleb128 0x13
+ 1549 009c 02       		.uleb128 0x2
+ 1550 009d 17       		.uleb128 0x17
+ 1551 009e 00       		.byte	0
+ 1552 009f 00       		.byte	0
+ 1553 00a0 0C       		.uleb128 0xc
+ 1554 00a1 05       		.uleb128 0x5
+ 1555 00a2 00       		.byte	0
+ 1556 00a3 03       		.uleb128 0x3
+ 1557 00a4 0E       		.uleb128 0xe
+ 1558 00a5 3A       		.uleb128 0x3a
+ 1559 00a6 0B       		.uleb128 0xb
+ 1560 00a7 3B       		.uleb128 0x3b
+ 1561 00a8 0B       		.uleb128 0xb
+ 1562 00a9 49       		.uleb128 0x49
+ 1563 00aa 13       		.uleb128 0x13
+ 1564 00ab 02       		.uleb128 0x2
+ 1565 00ac 17       		.uleb128 0x17
+ 1566 00ad 00       		.byte	0
+ 1567 00ae 00       		.byte	0
+ 1568 00af 0D       		.uleb128 0xd
+ 1569 00b0 898201   		.uleb128 0x4109
+ARM GAS  C:\Users\robom\AppData\Local\Temp\ccAs7Q3f.s 			page 32
+
+
+ 1570 00b3 00       		.byte	0
+ 1571 00b4 11       		.uleb128 0x11
+ 1572 00b5 01       		.uleb128 0x1
+ 1573 00b6 31       		.uleb128 0x31
+ 1574 00b7 13       		.uleb128 0x13
+ 1575 00b8 00       		.byte	0
+ 1576 00b9 00       		.byte	0
+ 1577 00ba 0E       		.uleb128 0xe
+ 1578 00bb 898201   		.uleb128 0x4109
+ 1579 00be 01       		.byte	0x1
+ 1580 00bf 11       		.uleb128 0x11
+ 1581 00c0 01       		.uleb128 0x1
+ 1582 00c1 31       		.uleb128 0x31
+ 1583 00c2 13       		.uleb128 0x13
+ 1584 00c3 01       		.uleb128 0x1
+ 1585 00c4 13       		.uleb128 0x13
+ 1586 00c5 00       		.byte	0
+ 1587 00c6 00       		.byte	0
+ 1588 00c7 0F       		.uleb128 0xf
+ 1589 00c8 8A8201   		.uleb128 0x410a
+ 1590 00cb 00       		.byte	0
+ 1591 00cc 02       		.uleb128 0x2
+ 1592 00cd 18       		.uleb128 0x18
+ 1593 00ce 9142     		.uleb128 0x2111
+ 1594 00d0 18       		.uleb128 0x18
+ 1595 00d1 00       		.byte	0
+ 1596 00d2 00       		.byte	0
+ 1597 00d3 10       		.uleb128 0x10
+ 1598 00d4 898201   		.uleb128 0x4109
+ 1599 00d7 01       		.byte	0x1
+ 1600 00d8 11       		.uleb128 0x11
+ 1601 00d9 01       		.uleb128 0x1
+ 1602 00da 31       		.uleb128 0x31
+ 1603 00db 13       		.uleb128 0x13
+ 1604 00dc 00       		.byte	0
+ 1605 00dd 00       		.byte	0
+ 1606 00de 11       		.uleb128 0x11
+ 1607 00df 0F       		.uleb128 0xf
+ 1608 00e0 00       		.byte	0
+ 1609 00e1 0B       		.uleb128 0xb
+ 1610 00e2 0B       		.uleb128 0xb
+ 1611 00e3 49       		.uleb128 0x49
+ 1612 00e4 13       		.uleb128 0x13
+ 1613 00e5 00       		.byte	0
+ 1614 00e6 00       		.byte	0
+ 1615 00e7 12       		.uleb128 0x12
+ 1616 00e8 2E       		.uleb128 0x2e
+ 1617 00e9 01       		.byte	0x1
+ 1618 00ea 3F       		.uleb128 0x3f
+ 1619 00eb 19       		.uleb128 0x19
+ 1620 00ec 03       		.uleb128 0x3
+ 1621 00ed 0E       		.uleb128 0xe
+ 1622 00ee 3A       		.uleb128 0x3a
+ 1623 00ef 0B       		.uleb128 0xb
+ 1624 00f0 3B       		.uleb128 0x3b
+ 1625 00f1 0B       		.uleb128 0xb
+ 1626 00f2 11       		.uleb128 0x11
+ARM GAS  C:\Users\robom\AppData\Local\Temp\ccAs7Q3f.s 			page 33
+
+
+ 1627 00f3 01       		.uleb128 0x1
+ 1628 00f4 12       		.uleb128 0x12
+ 1629 00f5 06       		.uleb128 0x6
+ 1630 00f6 40       		.uleb128 0x40
+ 1631 00f7 18       		.uleb128 0x18
+ 1632 00f8 9742     		.uleb128 0x2117
+ 1633 00fa 19       		.uleb128 0x19
+ 1634 00fb 01       		.uleb128 0x1
+ 1635 00fc 13       		.uleb128 0x13
+ 1636 00fd 00       		.byte	0
+ 1637 00fe 00       		.byte	0
+ 1638 00ff 13       		.uleb128 0x13
+ 1639 0100 2E       		.uleb128 0x2e
+ 1640 0101 00       		.byte	0
+ 1641 0102 3F       		.uleb128 0x3f
+ 1642 0103 19       		.uleb128 0x19
+ 1643 0104 03       		.uleb128 0x3
+ 1644 0105 0E       		.uleb128 0xe
+ 1645 0106 3A       		.uleb128 0x3a
+ 1646 0107 0B       		.uleb128 0xb
+ 1647 0108 3B       		.uleb128 0x3b
+ 1648 0109 0B       		.uleb128 0xb
+ 1649 010a 11       		.uleb128 0x11
+ 1650 010b 01       		.uleb128 0x1
+ 1651 010c 12       		.uleb128 0x12
+ 1652 010d 06       		.uleb128 0x6
+ 1653 010e 40       		.uleb128 0x40
+ 1654 010f 18       		.uleb128 0x18
+ 1655 0110 9742     		.uleb128 0x2117
+ 1656 0112 19       		.uleb128 0x19
+ 1657 0113 00       		.byte	0
+ 1658 0114 00       		.byte	0
+ 1659 0115 14       		.uleb128 0x14
+ 1660 0116 34       		.uleb128 0x34
+ 1661 0117 00       		.byte	0
+ 1662 0118 03       		.uleb128 0x3
+ 1663 0119 0E       		.uleb128 0xe
+ 1664 011a 3A       		.uleb128 0x3a
+ 1665 011b 0B       		.uleb128 0xb
+ 1666 011c 3B       		.uleb128 0x3b
+ 1667 011d 0B       		.uleb128 0xb
+ 1668 011e 49       		.uleb128 0x49
+ 1669 011f 13       		.uleb128 0x13
+ 1670 0120 1C       		.uleb128 0x1c
+ 1671 0121 0B       		.uleb128 0xb
+ 1672 0122 00       		.byte	0
+ 1673 0123 00       		.byte	0
+ 1674 0124 15       		.uleb128 0x15
+ 1675 0125 34       		.uleb128 0x34
+ 1676 0126 00       		.byte	0
+ 1677 0127 03       		.uleb128 0x3
+ 1678 0128 0E       		.uleb128 0xe
+ 1679 0129 3A       		.uleb128 0x3a
+ 1680 012a 0B       		.uleb128 0xb
+ 1681 012b 3B       		.uleb128 0x3b
+ 1682 012c 0B       		.uleb128 0xb
+ 1683 012d 49       		.uleb128 0x49
+ARM GAS  C:\Users\robom\AppData\Local\Temp\ccAs7Q3f.s 			page 34
+
+
+ 1684 012e 13       		.uleb128 0x13
+ 1685 012f 3F       		.uleb128 0x3f
+ 1686 0130 19       		.uleb128 0x19
+ 1687 0131 3C       		.uleb128 0x3c
+ 1688 0132 19       		.uleb128 0x19
+ 1689 0133 00       		.byte	0
+ 1690 0134 00       		.byte	0
+ 1691 0135 16       		.uleb128 0x16
+ 1692 0136 34       		.uleb128 0x34
+ 1693 0137 00       		.byte	0
+ 1694 0138 03       		.uleb128 0x3
+ 1695 0139 0E       		.uleb128 0xe
+ 1696 013a 3A       		.uleb128 0x3a
+ 1697 013b 0B       		.uleb128 0xb
+ 1698 013c 3B       		.uleb128 0x3b
+ 1699 013d 05       		.uleb128 0x5
+ 1700 013e 49       		.uleb128 0x49
+ 1701 013f 13       		.uleb128 0x13
+ 1702 0140 3F       		.uleb128 0x3f
+ 1703 0141 19       		.uleb128 0x19
+ 1704 0142 3C       		.uleb128 0x3c
+ 1705 0143 19       		.uleb128 0x19
+ 1706 0144 00       		.byte	0
+ 1707 0145 00       		.byte	0
+ 1708 0146 17       		.uleb128 0x17
+ 1709 0147 35       		.uleb128 0x35
+ 1710 0148 00       		.byte	0
+ 1711 0149 49       		.uleb128 0x49
+ 1712 014a 13       		.uleb128 0x13
+ 1713 014b 00       		.byte	0
+ 1714 014c 00       		.byte	0
+ 1715 014d 18       		.uleb128 0x18
+ 1716 014e 2E       		.uleb128 0x2e
+ 1717 014f 00       		.byte	0
+ 1718 0150 3F       		.uleb128 0x3f
+ 1719 0151 19       		.uleb128 0x19
+ 1720 0152 3C       		.uleb128 0x3c
+ 1721 0153 19       		.uleb128 0x19
+ 1722 0154 6E       		.uleb128 0x6e
+ 1723 0155 0E       		.uleb128 0xe
+ 1724 0156 03       		.uleb128 0x3
+ 1725 0157 0E       		.uleb128 0xe
+ 1726 0158 3A       		.uleb128 0x3a
+ 1727 0159 0B       		.uleb128 0xb
+ 1728 015a 3B       		.uleb128 0x3b
+ 1729 015b 0B       		.uleb128 0xb
+ 1730 015c 00       		.byte	0
+ 1731 015d 00       		.byte	0
+ 1732 015e 19       		.uleb128 0x19
+ 1733 015f 2E       		.uleb128 0x2e
+ 1734 0160 00       		.byte	0
+ 1735 0161 3F       		.uleb128 0x3f
+ 1736 0162 19       		.uleb128 0x19
+ 1737 0163 3C       		.uleb128 0x3c
+ 1738 0164 19       		.uleb128 0x19
+ 1739 0165 6E       		.uleb128 0x6e
+ 1740 0166 0E       		.uleb128 0xe
+ARM GAS  C:\Users\robom\AppData\Local\Temp\ccAs7Q3f.s 			page 35
+
+
+ 1741 0167 03       		.uleb128 0x3
+ 1742 0168 0E       		.uleb128 0xe
+ 1743 0169 3A       		.uleb128 0x3a
+ 1744 016a 0B       		.uleb128 0xb
+ 1745 016b 3B       		.uleb128 0x3b
+ 1746 016c 05       		.uleb128 0x5
+ 1747 016d 00       		.byte	0
+ 1748 016e 00       		.byte	0
+ 1749 016f 00       		.byte	0
+ 1750              		.section	.debug_loc,"",%progbits
+ 1751              	.Ldebug_loc0:
+ 1752              	.LLST0:
+ 1753 0000 00000000 		.4byte	.LVL0
+ 1754 0004 0F000000 		.4byte	.LVL1-1
+ 1755 0008 0100     		.2byte	0x1
+ 1756 000a 50       		.byte	0x50
+ 1757 000b 0F000000 		.4byte	.LVL1-1
+ 1758 000f 78000000 		.4byte	.LFE111
+ 1759 0013 0400     		.2byte	0x4
+ 1760 0015 F3       		.byte	0xf3
+ 1761 0016 01       		.uleb128 0x1
+ 1762 0017 50       		.byte	0x50
+ 1763 0018 9F       		.byte	0x9f
+ 1764 0019 00000000 		.4byte	0
+ 1765 001d 00000000 		.4byte	0
+ 1766              	.LLST1:
+ 1767 0021 00000000 		.4byte	.LVL0
+ 1768 0025 0F000000 		.4byte	.LVL1-1
+ 1769 0029 0100     		.2byte	0x1
+ 1770 002b 51       		.byte	0x51
+ 1771 002c 0F000000 		.4byte	.LVL1-1
+ 1772 0030 6C000000 		.4byte	.LVL7
+ 1773 0034 0100     		.2byte	0x1
+ 1774 0036 56       		.byte	0x56
+ 1775 0037 6C000000 		.4byte	.LVL7
+ 1776 003b 78000000 		.4byte	.LFE111
+ 1777 003f 0400     		.2byte	0x4
+ 1778 0041 F3       		.byte	0xf3
+ 1779 0042 01       		.uleb128 0x1
+ 1780 0043 51       		.byte	0x51
+ 1781 0044 9F       		.byte	0x9f
+ 1782 0045 00000000 		.4byte	0
+ 1783 0049 00000000 		.4byte	0
+ 1784              	.LLST2:
+ 1785 004d 00000000 		.4byte	.LVL0
+ 1786 0051 0F000000 		.4byte	.LVL1-1
+ 1787 0055 0100     		.2byte	0x1
+ 1788 0057 52       		.byte	0x52
+ 1789 0058 0F000000 		.4byte	.LVL1-1
+ 1790 005c 6C000000 		.4byte	.LVL7
+ 1791 0060 0100     		.2byte	0x1
+ 1792 0062 55       		.byte	0x55
+ 1793 0063 6C000000 		.4byte	.LVL7
+ 1794 0067 78000000 		.4byte	.LFE111
+ 1795 006b 0400     		.2byte	0x4
+ 1796 006d F3       		.byte	0xf3
+ 1797 006e 01       		.uleb128 0x1
+ARM GAS  C:\Users\robom\AppData\Local\Temp\ccAs7Q3f.s 			page 36
+
+
+ 1798 006f 52       		.byte	0x52
+ 1799 0070 9F       		.byte	0x9f
+ 1800 0071 00000000 		.4byte	0
+ 1801 0075 00000000 		.4byte	0
+ 1802              	.LLST3:
+ 1803 0079 00000000 		.4byte	.LVL8
+ 1804 007d 10000000 		.4byte	.LVL10
+ 1805 0081 0100     		.2byte	0x1
+ 1806 0083 50       		.byte	0x50
+ 1807 0084 10000000 		.4byte	.LVL10
+ 1808 0088 1E000000 		.4byte	.LVL13
+ 1809 008c 0400     		.2byte	0x4
+ 1810 008e F3       		.byte	0xf3
+ 1811 008f 01       		.uleb128 0x1
+ 1812 0090 50       		.byte	0x50
+ 1813 0091 9F       		.byte	0x9f
+ 1814 0092 1E000000 		.4byte	.LVL13
+ 1815 0096 22000000 		.4byte	.LVL14
+ 1816 009a 0100     		.2byte	0x1
+ 1817 009c 50       		.byte	0x50
+ 1818 009d 22000000 		.4byte	.LVL14
+ 1819 00a1 48000000 		.4byte	.LVL19
+ 1820 00a5 0400     		.2byte	0x4
+ 1821 00a7 F3       		.byte	0xf3
+ 1822 00a8 01       		.uleb128 0x1
+ 1823 00a9 50       		.byte	0x50
+ 1824 00aa 9F       		.byte	0x9f
+ 1825 00ab 48000000 		.4byte	.LVL19
+ 1826 00af 4A000000 		.4byte	.LVL20
+ 1827 00b3 0100     		.2byte	0x1
+ 1828 00b5 50       		.byte	0x50
+ 1829 00b6 4A000000 		.4byte	.LVL20
+ 1830 00ba 50000000 		.4byte	.LFE112
+ 1831 00be 0400     		.2byte	0x4
+ 1832 00c0 F3       		.byte	0xf3
+ 1833 00c1 01       		.uleb128 0x1
+ 1834 00c2 50       		.byte	0x50
+ 1835 00c3 9F       		.byte	0x9f
+ 1836 00c4 00000000 		.4byte	0
+ 1837 00c8 00000000 		.4byte	0
+ 1838              	.LLST4:
+ 1839 00cc 00000000 		.4byte	.LVL8
+ 1840 00d0 0A000000 		.4byte	.LVL9
+ 1841 00d4 0100     		.2byte	0x1
+ 1842 00d6 51       		.byte	0x51
+ 1843 00d7 0A000000 		.4byte	.LVL9
+ 1844 00db 48000000 		.4byte	.LVL19
+ 1845 00df 0400     		.2byte	0x4
+ 1846 00e1 F3       		.byte	0xf3
+ 1847 00e2 01       		.uleb128 0x1
+ 1848 00e3 51       		.byte	0x51
+ 1849 00e4 9F       		.byte	0x9f
+ 1850 00e5 48000000 		.4byte	.LVL19
+ 1851 00e9 50000000 		.4byte	.LFE112
+ 1852 00ed 0100     		.2byte	0x1
+ 1853 00ef 51       		.byte	0x51
+ 1854 00f0 00000000 		.4byte	0
+ARM GAS  C:\Users\robom\AppData\Local\Temp\ccAs7Q3f.s 			page 37
+
+
+ 1855 00f4 00000000 		.4byte	0
+ 1856              	.LLST5:
+ 1857 00f8 00000000 		.4byte	.LVL28
+ 1858 00fc 08000000 		.4byte	.LVL29
+ 1859 0100 0100     		.2byte	0x1
+ 1860 0102 50       		.byte	0x50
+ 1861 0103 08000000 		.4byte	.LVL29
+ 1862 0107 10000000 		.4byte	.LVL31
+ 1863 010b 0100     		.2byte	0x1
+ 1864 010d 54       		.byte	0x54
+ 1865 010e 10000000 		.4byte	.LVL31
+ 1866 0112 80000000 		.4byte	.LFE113
+ 1867 0116 0400     		.2byte	0x4
+ 1868 0118 F3       		.byte	0xf3
+ 1869 0119 01       		.uleb128 0x1
+ 1870 011a 50       		.byte	0x50
+ 1871 011b 9F       		.byte	0x9f
+ 1872 011c 00000000 		.4byte	0
+ 1873 0120 00000000 		.4byte	0
+ 1874              	.LLST6:
+ 1875 0124 00000000 		.4byte	.LVL28
+ 1876 0128 0B000000 		.4byte	.LVL30-1
+ 1877 012c 0100     		.2byte	0x1
+ 1878 012e 51       		.byte	0x51
+ 1879 012f 0B000000 		.4byte	.LVL30-1
+ 1880 0133 26000000 		.4byte	.LVL34
+ 1881 0137 0100     		.2byte	0x1
+ 1882 0139 55       		.byte	0x55
+ 1883 013a 26000000 		.4byte	.LVL34
+ 1884 013e 80000000 		.4byte	.LFE113
+ 1885 0142 0400     		.2byte	0x4
+ 1886 0144 F3       		.byte	0xf3
+ 1887 0145 01       		.uleb128 0x1
+ 1888 0146 51       		.byte	0x51
+ 1889 0147 9F       		.byte	0x9f
+ 1890 0148 00000000 		.4byte	0
+ 1891 014c 00000000 		.4byte	0
+ 1892              	.LLST7:
+ 1893 0150 00000000 		.4byte	.LVL47
+ 1894 0154 0A000000 		.4byte	.LVL48
+ 1895 0158 0100     		.2byte	0x1
+ 1896 015a 50       		.byte	0x50
+ 1897 015b 0A000000 		.4byte	.LVL48
+ 1898 015f 2C000000 		.4byte	.LFE114
+ 1899 0163 0400     		.2byte	0x4
+ 1900 0165 F3       		.byte	0xf3
+ 1901 0166 01       		.uleb128 0x1
+ 1902 0167 50       		.byte	0x50
+ 1903 0168 9F       		.byte	0x9f
+ 1904 0169 00000000 		.4byte	0
+ 1905 016d 00000000 		.4byte	0
+ 1906              		.section	.debug_aranges,"",%progbits
+ 1907 0000 5C000000 		.4byte	0x5c
+ 1908 0004 0200     		.2byte	0x2
+ 1909 0006 00000000 		.4byte	.Ldebug_info0
+ 1910 000a 04       		.byte	0x4
+ 1911 000b 00       		.byte	0
+ARM GAS  C:\Users\robom\AppData\Local\Temp\ccAs7Q3f.s 			page 38
+
+
+ 1912 000c 0000     		.2byte	0
+ 1913 000e 0000     		.2byte	0
+ 1914 0010 00000000 		.4byte	.LFB111
+ 1915 0014 78000000 		.4byte	.LFE111-.LFB111
+ 1916 0018 00000000 		.4byte	.LFB112
+ 1917 001c 50000000 		.4byte	.LFE112-.LFB112
+ 1918 0020 00000000 		.4byte	.LFB115
+ 1919 0024 10000000 		.4byte	.LFE115-.LFB115
+ 1920 0028 00000000 		.4byte	.LFB116
+ 1921 002c 24000000 		.4byte	.LFE116-.LFB116
+ 1922 0030 00000000 		.4byte	.LFB117
+ 1923 0034 24000000 		.4byte	.LFE117-.LFB117
+ 1924 0038 00000000 		.4byte	.LFB113
+ 1925 003c 80000000 		.4byte	.LFE113-.LFB113
+ 1926 0040 00000000 		.4byte	.LFB118
+ 1927 0044 24000000 		.4byte	.LFE118-.LFB118
+ 1928 0048 00000000 		.4byte	.LFB114
+ 1929 004c 2C000000 		.4byte	.LFE114-.LFB114
+ 1930 0050 00000000 		.4byte	.LFB119
+ 1931 0054 02000000 		.4byte	.LFE119-.LFB119
+ 1932 0058 00000000 		.4byte	0
+ 1933 005c 00000000 		.4byte	0
+ 1934              		.section	.debug_ranges,"",%progbits
+ 1935              	.Ldebug_ranges0:
+ 1936 0000 00000000 		.4byte	.LFB111
+ 1937 0004 78000000 		.4byte	.LFE111
+ 1938 0008 00000000 		.4byte	.LFB112
+ 1939 000c 50000000 		.4byte	.LFE112
+ 1940 0010 00000000 		.4byte	.LFB115
+ 1941 0014 10000000 		.4byte	.LFE115
+ 1942 0018 00000000 		.4byte	.LFB116
+ 1943 001c 24000000 		.4byte	.LFE116
+ 1944 0020 00000000 		.4byte	.LFB117
+ 1945 0024 24000000 		.4byte	.LFE117
+ 1946 0028 00000000 		.4byte	.LFB113
+ 1947 002c 80000000 		.4byte	.LFE113
+ 1948 0030 00000000 		.4byte	.LFB118
+ 1949 0034 24000000 		.4byte	.LFE118
+ 1950 0038 00000000 		.4byte	.LFB114
+ 1951 003c 2C000000 		.4byte	.LFE114
+ 1952 0040 00000000 		.4byte	.LFB119
+ 1953 0044 02000000 		.4byte	.LFE119
+ 1954 0048 00000000 		.4byte	0
+ 1955 004c 00000000 		.4byte	0
+ 1956              		.section	.debug_line,"",%progbits
+ 1957              	.Ldebug_line0:
+ 1958 0000 F1030000 		.section	.debug_str,"MS",%progbits,1
+ 1958      02000B03 
+ 1958      00000201 
+ 1958      FB0E0D00 
+ 1958      01010101 
+ 1959              	.LASF51:
+ 1960 0000 4576656E 		.ascii	"EventMaskType\000"
+ 1960      744D6173 
+ 1960      6B547970 
+ 1960      6500
+ 1961              	.LASF66:
+ARM GAS  C:\Users\robom\AppData\Local\Temp\ccAs7Q3f.s 			page 39
+
+
+ 1962 000e 746F6F73 		.ascii	"tooslow\000"
+ 1962      6C6F7700 
+ 1963              	.LASF48:
+ 1964 0016 45455F55 		.ascii	"EE_UREG\000"
+ 1964      52454700 
+ 1965              	.LASF12:
+ 1966 001e 52435F53 		.ascii	"RC_SUCCESS\000"
+ 1966      55434345 
+ 1966      535300
+ 1967              	.LASF86:
+ 1968 0029 65535441 		.ascii	"eSTATES\000"
+ 1968      54455300 
+ 1969              	.LASF73:
+ 1970 0031 73746174 		.ascii	"state\000"
+ 1970      6500
+ 1971              	.LASF3:
+ 1972 0037 73686F72 		.ascii	"short int\000"
+ 1972      7420696E 
+ 1972      7400
+ 1973              	.LASF18:
+ 1974 0041 52435F45 		.ascii	"RC_ERROR_OVERRUN\000"
+ 1974      52524F52 
+ 1974      5F4F5645 
+ 1974      5252554E 
+ 1974      00
+ 1975              	.LASF30:
+ 1976 0052 52435F45 		.ascii	"RC_ERROR_WRITE_FAILS\000"
+ 1976      52524F52 
+ 1976      5F575249 
+ 1976      54455F46 
+ 1976      41494C53 
+ 1977              	.LASF44:
+ 1978 0067 73697A65 		.ascii	"sizetype\000"
+ 1978      74797065 
+ 1978      00
+ 1979              	.LASF40:
+ 1980 0070 53455645 		.ascii	"SEVEN_0\000"
+ 1980      4E5F3000 
+ 1981              	.LASF41:
+ 1982 0078 53455645 		.ascii	"SEVEN_1\000"
+ 1982      4E5F3100 
+ 1983              	.LASF49:
+ 1984 0080 45455F46 		.ascii	"EE_FREG\000"
+ 1984      52454700 
+ 1985              	.LASF29:
+ 1986 0088 52435F45 		.ascii	"RC_ERROR_READ_FAILS\000"
+ 1986      52524F52 
+ 1986      5F524541 
+ 1986      445F4641 
+ 1986      494C5300 
+ 1987              	.LASF53:
+ 1988 009c 53544154 		.ascii	"STATE_DISPLAYSSD\000"
+ 1988      455F4449 
+ 1988      53504C41 
+ 1988      59535344 
+ 1988      00
+ 1989              	.LASF78:
+ARM GAS  C:\Users\robom\AppData\Local\Temp\ccAs7Q3f.s 			page 40
+
+
+ 1990 00ad 45455F6F 		.ascii	"EE_oo_SetRelAlarm\000"
+ 1990      6F5F5365 
+ 1990      7452656C 
+ 1990      416C6172 
+ 1990      6D00
+ 1991              	.LASF37:
+ 1992 00bf 52435F45 		.ascii	"RC_ERROR_NOT_IMPLEMENTED\000"
+ 1992      52524F52 
+ 1992      5F4E4F54 
+ 1992      5F494D50 
+ 1992      4C454D45 
+ 1993              	.LASF50:
+ 1994 00d8 45455F54 		.ascii	"EE_TID\000"
+ 1994      494400
+ 1995              	.LASF38:
+ 1996 00df 75696E74 		.ascii	"uint8_t\000"
+ 1996      385F7400 
+ 1997              	.LASF77:
+ 1998 00e7 45455F6F 		.ascii	"EE_oo_CancelAlarm\000"
+ 1998      6F5F4361 
+ 1998      6E63656C 
+ 1998      416C6172 
+ 1998      6D00
+ 1999              	.LASF76:
+ 2000 00f9 72616E64 		.ascii	"rand\000"
+ 2000      00
+ 2001              	.LASF71:
+ 2002 00fe 45455F49 		.ascii	"EE_IRQ_nesting_level\000"
+ 2002      52515F6E 
+ 2002      65737469 
+ 2002      6E675F6C 
+ 2002      6576656C 
+ 2003              	.LASF79:
+ 2004 0113 53455645 		.ascii	"SEVEN_Set\000"
+ 2004      4E5F5365 
+ 2004      7400
+ 2005              	.LASF17:
+ 2006 011d 52435F45 		.ascii	"RC_ERROR_RANGE\000"
+ 2006      52524F52 
+ 2006      5F52414E 
+ 2006      474500
+ 2007              	.LASF87:
+ 2008 012c 66696E61 		.ascii	"finalMessage\000"
+ 2008      6C4D6573 
+ 2008      73616765 
+ 2008      00
+ 2009              	.LASF7:
+ 2010 0139 666C6F61 		.ascii	"float\000"
+ 2010      7400
+ 2011              	.LASF27:
+ 2012 013f 52435F45 		.ascii	"RC_ERROR_WRITE_ONLY\000"
+ 2012      52524F52 
+ 2012      5F575249 
+ 2012      54455F4F 
+ 2012      4E4C5900 
+ 2013              	.LASF61:
+ 2014 0153 73746172 		.ascii	"startMessage\000"
+ARM GAS  C:\Users\robom\AppData\Local\Temp\ccAs7Q3f.s 			page 41
+
+
+ 2014      744D6573 
+ 2014      73616765 
+ 2014      00
+ 2015              	.LASF75:
+ 2016 0160 42555454 		.ascii	"BUTTON_1_Read\000"
+ 2016      4F4E5F31 
+ 2016      5F526561 
+ 2016      6400
+ 2017              	.LASF9:
+ 2018 016e 6C6F6E67 		.ascii	"long long int\000"
+ 2018      206C6F6E 
+ 2018      6720696E 
+ 2018      7400
+ 2019              	.LASF68:
+ 2020 017c 45455F6F 		.ascii	"EE_oo_IRQ_suspend_status\000"
+ 2020      6F5F4952 
+ 2020      515F7375 
+ 2020      7370656E 
+ 2020      645F7374 
+ 2021              	.LASF31:
+ 2022 0195 52435F45 		.ascii	"RC_ERROR_NOT_MATCH\000"
+ 2022      52524F52 
+ 2022      5F4E4F54 
+ 2022      5F4D4154 
+ 2022      434800
+ 2023              	.LASF36:
+ 2024 01a8 52435F45 		.ascii	"RC_ERROR_UNKNOWN\000"
+ 2024      52524F52 
+ 2024      5F554E4B 
+ 2024      4E4F574E 
+ 2024      00
+ 2025              	.LASF15:
+ 2026 01b9 52435F45 		.ascii	"RC_ERROR_ZERO\000"
+ 2026      52524F52 
+ 2026      5F5A4552 
+ 2026      4F00
+ 2027              	.LASF5:
+ 2028 01c7 6C6F6E67 		.ascii	"long int\000"
+ 2028      20696E74 
+ 2028      00
+ 2029              	.LASF19:
+ 2030 01d0 52435F45 		.ascii	"RC_ERROR_UNDERRUN\000"
+ 2030      52524F52 
+ 2030      5F554E44 
+ 2030      45525255 
+ 2030      4E00
+ 2031              	.LASF85:
+ 2032 01e2 433A5C55 		.ascii	"C:\\Users\\robom\\OneDrive\\University\\Darmstadt\\"
+ 2032      73657273 
+ 2032      5C726F62 
+ 2032      6F6D5C4F 
+ 2032      6E654472 
+ 2033 020f 41647661 		.ascii	"Advanced Microcontroller Systems and Embedded Opera"
+ 2033      6E636564 
+ 2033      204D6963 
+ 2033      726F636F 
+ 2033      6E74726F 
+ARM GAS  C:\Users\robom\AppData\Local\Temp\ccAs7Q3f.s 			page 42
+
+
+ 2034 0242 74696E67 		.ascii	"ting systems\\Embedded Operating Systems\\Workbook\\"
+ 2034      20737973 
+ 2034      74656D73 
+ 2034      5C456D62 
+ 2034      65646465 
+ 2035 0273 72656163 		.ascii	"reaction_game_wb.cydsn\000"
+ 2035      74696F6E 
+ 2035      5F67616D 
+ 2035      655F7762 
+ 2035      2E637964 
+ 2036              	.LASF60:
+ 2037 028a 64697370 		.ascii	"displayssd\000"
+ 2037      6C617973 
+ 2037      736400
+ 2038              	.LASF22:
+ 2039 0295 52435F45 		.ascii	"RC_ERROR_BUSY\000"
+ 2039      52524F52 
+ 2039      5F425553 
+ 2039      5900
+ 2040              	.LASF28:
+ 2041 02a3 52435F45 		.ascii	"RC_ERROR_INVALID\000"
+ 2041      52524F52 
+ 2041      5F494E56 
+ 2041      414C4944 
+ 2041      00
+ 2042              	.LASF33:
+ 2043 02b4 52435F45 		.ascii	"RC_ERROR_BAD_DATA\000"
+ 2043      52524F52 
+ 2043      5F424144 
+ 2043      5F444154 
+ 2043      4100
+ 2044              	.LASF57:
+ 2045 02c6 5353446E 		.ascii	"SSDnum\000"
+ 2045      756D00
+ 2046              	.LASF26:
+ 2047 02cd 52435F45 		.ascii	"RC_ERROR_READ_ONLY\000"
+ 2047      52524F52 
+ 2047      5F524541 
+ 2047      445F4F4E 
+ 2047      4C5900
+ 2048              	.LASF52:
+ 2049 02e0 53544154 		.ascii	"STATE_START\000"
+ 2049      455F5354 
+ 2049      41525400 
+ 2050              	.LASF80:
+ 2051 02ec 55415254 		.ascii	"UART_LOG_PutString\000"
+ 2051      5F4C4F47 
+ 2051      5F507574 
+ 2051      53747269 
+ 2051      6E6700
+ 2052              	.LASF81:
+ 2053 02ff 53455645 		.ascii	"SEVEN_Clear\000"
+ 2053      4E5F436C 
+ 2053      65617200 
+ 2054              	.LASF43:
+ 2055 030b 6C6F6E67 		.ascii	"long double\000"
+ 2055      20646F75 
+ARM GAS  C:\Users\robom\AppData\Local\Temp\ccAs7Q3f.s 			page 43
+
+
+ 2055      626C6500 
+ 2056              	.LASF2:
+ 2057 0317 756E7369 		.ascii	"unsigned char\000"
+ 2057      676E6564 
+ 2057      20636861 
+ 2057      7200
+ 2058              	.LASF47:
+ 2059 0325 45455F55 		.ascii	"EE_UINT32\000"
+ 2059      494E5433 
+ 2059      3200
+ 2060              	.LASF1:
+ 2061 032f 7369676E 		.ascii	"signed char\000"
+ 2061      65642063 
+ 2061      68617200 
+ 2062              	.LASF10:
+ 2063 033b 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 2063      206C6F6E 
+ 2063      6720756E 
+ 2063      7369676E 
+ 2063      65642069 
+ 2064              	.LASF0:
+ 2065 0352 756E7369 		.ascii	"unsigned int\000"
+ 2065      676E6564 
+ 2065      20696E74 
+ 2065      00
+ 2066              	.LASF24:
+ 2067 035f 52435F45 		.ascii	"RC_ERROR_OPEN\000"
+ 2067      52524F52 
+ 2067      5F4F5045 
+ 2067      4E00
+ 2068              	.LASF35:
+ 2069 036d 52435F45 		.ascii	"RC_ERROR_INVALID_STATE\000"
+ 2069      52524F52 
+ 2069      5F494E56 
+ 2069      414C4944 
+ 2069      5F535441 
+ 2070              	.LASF63:
+ 2071 0384 696E636F 		.ascii	"incorrectMessage\000"
+ 2071      72726563 
+ 2071      744D6573 
+ 2071      73616765 
+ 2071      00
+ 2072              	.LASF88:
+ 2073 0395 74696D65 		.ascii	"timeScore\000"
+ 2073      53636F72 
+ 2073      6500
+ 2074              	.LASF14:
+ 2075 039f 52435F45 		.ascii	"RC_ERROR_NULL\000"
+ 2075      52524F52 
+ 2075      5F4E554C 
+ 2075      4C00
+ 2076              	.LASF70:
+ 2077 03ad 45455F73 		.ascii	"EE_std_endcycle_next_tid\000"
+ 2077      74645F65 
+ 2077      6E646379 
+ 2077      636C655F 
+ 2077      6E657874 
+ARM GAS  C:\Users\robom\AppData\Local\Temp\ccAs7Q3f.s 			page 44
+
+
+ 2078              	.LASF46:
+ 2079 03c6 45455F49 		.ascii	"EE_INT32\000"
+ 2079      4E543332 
+ 2079      00
+ 2080              	.LASF62:
+ 2081 03cf 636F7272 		.ascii	"correctMessage\000"
+ 2081      6563744D 
+ 2081      65737361 
+ 2081      676500
+ 2082              	.LASF59:
+ 2083 03de 73746172 		.ascii	"start\000"
+ 2083      7400
+ 2084              	.LASF64:
+ 2085 03e4 62757474 		.ascii	"buttonpress\000"
+ 2085      6F6E7072 
+ 2085      65737300 
+ 2086              	.LASF54:
+ 2087 03f0 53544154 		.ascii	"STATE_BUTTONPRESS\000"
+ 2087      455F4255 
+ 2087      54544F4E 
+ 2087      50524553 
+ 2087      5300
+ 2088              	.LASF11:
+ 2089 0402 63686172 		.ascii	"char\000"
+ 2089      00
+ 2090              	.LASF65:
+ 2091 0407 746F6F73 		.ascii	"tooslowMessage\000"
+ 2091      6C6F774D 
+ 2091      65737361 
+ 2091      676500
+ 2092              	.LASF20:
+ 2093 0416 52435F45 		.ascii	"RC_ERROR_BUFFER_FULL\000"
+ 2093      52524F52 
+ 2093      5F425546 
+ 2093      4645525F 
+ 2093      46554C4C 
+ 2094              	.LASF45:
+ 2095 042b 696E7433 		.ascii	"int32_t\000"
+ 2095      325F7400 
+ 2096              	.LASF55:
+ 2097 0433 53544154 		.ascii	"STATE_TOOSLOW\000"
+ 2097      455F544F 
+ 2097      4F534C4F 
+ 2097      5700
+ 2098              	.LASF32:
+ 2099 0441 52435F45 		.ascii	"RC_ERROR_BAD_PARAM\000"
+ 2099      52524F52 
+ 2099      5F424144 
+ 2099      5F504152 
+ 2099      414D00
+ 2100              	.LASF13:
+ 2101 0454 52435F45 		.ascii	"RC_ERROR\000"
+ 2101      52524F52 
+ 2101      00
+ 2102              	.LASF4:
+ 2103 045d 73686F72 		.ascii	"short unsigned int\000"
+ 2103      7420756E 
+ARM GAS  C:\Users\robom\AppData\Local\Temp\ccAs7Q3f.s 			page 45
+
+
+ 2103      7369676E 
+ 2103      65642069 
+ 2103      6E7400
+ 2104              	.LASF69:
+ 2105 0470 45455F41 		.ascii	"EE_ApplicationMode\000"
+ 2105      70706C69 
+ 2105      63617469 
+ 2105      6F6E4D6F 
+ 2105      646500
+ 2106              	.LASF6:
+ 2107 0483 6C6F6E67 		.ascii	"long unsigned int\000"
+ 2107      20756E73 
+ 2107      69676E65 
+ 2107      6420696E 
+ 2107      7400
+ 2108              	.LASF8:
+ 2109 0495 646F7562 		.ascii	"double\000"
+ 2109      6C6500
+ 2110              	.LASF25:
+ 2111 049c 52435F45 		.ascii	"RC_ERROR_CHECKSUM\000"
+ 2111      52524F52 
+ 2111      5F434845 
+ 2111      434B5355 
+ 2111      4D00
+ 2112              	.LASF82:
+ 2113 04ae 45455F6F 		.ascii	"EE_oo_GetAlarm\000"
+ 2113      6F5F4765 
+ 2113      74416C61 
+ 2113      726D00
+ 2114              	.LASF74:
+ 2115 04bd 42555454 		.ascii	"BUTTON_2_Read\000"
+ 2115      4F4E5F32 
+ 2115      5F526561 
+ 2115      6400
+ 2116              	.LASF42:
+ 2117 04cb 5F5F696E 		.ascii	"__int32_t\000"
+ 2117      7433325F 
+ 2117      7400
+ 2118              	.LASF84:
+ 2119 04d5 67616D65 		.ascii	"game.c\000"
+ 2119      2E6300
+ 2120              	.LASF34:
+ 2121 04dc 52435F45 		.ascii	"RC_ERROR_CANCELED\000"
+ 2121      52524F52 
+ 2121      5F43414E 
+ 2121      43454C45 
+ 2121      4400
+ 2122              	.LASF56:
+ 2123 04ee 53544154 		.ascii	"STATES_t\000"
+ 2123      45535F74 
+ 2123      00
+ 2124              	.LASF58:
+ 2125 04f7 72616E64 		.ascii	"randTime\000"
+ 2125      54696D65 
+ 2125      00
+ 2126              	.LASF72:
+ 2127 0500 49544D5F 		.ascii	"ITM_RxBuffer\000"
+ARM GAS  C:\Users\robom\AppData\Local\Temp\ccAs7Q3f.s 			page 46
+
+
+ 2127      52784275 
+ 2127      66666572 
+ 2127      00
+ 2128              	.LASF83:
+ 2129 050d 474E5520 		.ascii	"GNU C11 5.4.1 20160609 (release) [ARM/embedded-5-br"
+ 2129      43313120 
+ 2129      352E342E 
+ 2129      31203230 
+ 2129      31363036 
+ 2130 0540 616E6368 		.ascii	"anch revision 237715] -mcpu=cortex-m3 -mthumb -g -O"
+ 2130      20726576 
+ 2130      6973696F 
+ 2130      6E203233 
+ 2130      37373135 
+ 2131 0573 67202D66 		.ascii	"g -ffunction-sections -ffat-lto-objects\000"
+ 2131      66756E63 
+ 2131      74696F6E 
+ 2131      2D736563 
+ 2131      74696F6E 
+ 2132              	.LASF16:
+ 2133 059b 52435F45 		.ascii	"RC_ERROR_MEMORY\000"
+ 2133      52524F52 
+ 2133      5F4D454D 
+ 2133      4F525900 
+ 2134              	.LASF67:
+ 2135 05ab 45455F6F 		.ascii	"EE_oo_IRQ_disable_count\000"
+ 2135      6F5F4952 
+ 2135      515F6469 
+ 2135      7361626C 
+ 2135      655F636F 
+ 2136              	.LASF21:
+ 2137 05c3 52435F45 		.ascii	"RC_ERROR_BUFFER_EMTPY\000"
+ 2137      52524F52 
+ 2137      5F425546 
+ 2137      4645525F 
+ 2137      454D5450 
+ 2138              	.LASF39:
+ 2139 05d9 52435F74 		.ascii	"RC_t\000"
+ 2139      00
+ 2140              	.LASF23:
+ 2141 05de 52435F45 		.ascii	"RC_ERROR_TIME_OUT\000"
+ 2141      52524F52 
+ 2141      5F54494D 
+ 2141      455F4F55 
+ 2141      5400
+ 2142              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 5.4.1 20160609 (release) [ARM/embedded-5-bran

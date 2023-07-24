@@ -1,0 +1,43 @@
+--------------- Rebuild Started: 02/07/2023 18:22:02 Project: main.c, Configuration: ARM GCC 5.4-2016-q2-update Debug ---------------
+arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I.\source\asw -I.\source\bsw -I.\source\bsw\TraceRecorder -I.\source\bsw\TraceRecorder\config -I.\source\bsw\TraceRecorder\include -I.\source\bsw\TraceRecorder\streamport -I.\source\bsw\LabBoard -I.\source\bsw\Services -I.\source\bsw\tft -I.\source\bsw\tft\fonts -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/main.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c source\asw\main.c -o .\CortexM3\ARM_GCC_541\Debug\main.o
+In file included from Generated_Source\PSoC5/cyfitter_cfg.h:20:0,
+                 from Generated_Source\PSoC5/project.h:17,
+                 from source\asw\main.c:12:
+Generated_Source\PSoC5/cytypes.h:1372:0: warning: "LO8" redefined
+ #define LO8(x)                  ((uint8) ((x) & 0xFFu))
+ ^
+In file included from source\asw\main.c:11:0:
+.\source\bsw/global.h:306:0: note: this is the location of the previous definition
+  # define LO8(x)   ((uint8_t) ((x) & 0xFFu))
+ ^
+In file included from Generated_Source\PSoC5/cyfitter_cfg.h:20:0,
+                 from Generated_Source\PSoC5/project.h:17,
+                 from source\asw\main.c:12:
+Generated_Source\PSoC5/cytypes.h:1373:0: warning: "HI8" redefined
+ #define HI8(x)                  ((uint8) ((uint16)(x) >> 8))
+ ^
+In file included from source\asw\main.c:11:0:
+.\source\bsw/global.h:311:0: note: this is the location of the previous definition
+  # define HI8(x)   ((uint8_t) ((uint16_t)(x) >> 8))
+ ^
+In file included from Generated_Source\PSoC5/cyfitter_cfg.h:20:0,
+                 from Generated_Source\PSoC5/project.h:17,
+                 from source\asw\main.c:12:
+Generated_Source\PSoC5/cytypes.h:1376:0: warning: "LO16" redefined
+ #define LO16(x)                 ((uint16) ((x) & 0xFFFFu))
+ ^
+In file included from source\asw\main.c:11:0:
+.\source\bsw/global.h:316:0: note: this is the location of the previous definition
+  # define LO16(x)   ((uint16_t) ((x) & 0xFFFFu))
+ ^
+In file included from Generated_Source\PSoC5/cyfitter_cfg.h:20:0,
+                 from Generated_Source\PSoC5/project.h:17,
+                 from source\asw\main.c:12:
+Generated_Source\PSoC5/cytypes.h:1377:0: warning: "HI16" redefined
+ #define HI16(x)                 ((uint16) ((uint32)(x) >> 16))
+ ^
+In file included from source\asw\main.c:11:0:
+.\source\bsw/global.h:321:0: note: this is the location of the previous definition
+  # define HI16(x)   ((uint16_t) ((uint32_t)(x) >> 16))
+ ^
+--------------- Rebuild Succeeded: 02/07/2023 18:22:03 ---------------
