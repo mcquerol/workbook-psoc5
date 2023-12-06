@@ -1,0 +1,1213 @@
+ARM GAS  C:\Users\MATEOC~1.QUE\AppData\Local\Temp\ccLrlqmO.s 			page 1
+
+
+   1              		.syntax unified
+   2              		.cpu cortex-m3
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 1
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.thumb
+  14              		.syntax unified
+  15              		.file	"joystick.c"
+  16              		.text
+  17              	.Ltext0:
+  18              		.cfi_sections	.debug_frame
+  19              		.section	.text.JOYSTICK_Init,"ax",%progbits
+  20              		.align	2
+  21              		.global	JOYSTICK_Init
+  22              		.thumb
+  23              		.thumb_func
+  24              		.type	JOYSTICK_Init, %function
+  25              	JOYSTICK_Init:
+  26              	.LFB63:
+  27              		.file 1 "source\\bsw\\LabBoard\\joystick.c"
+   1:source\bsw\LabBoard/joystick.c **** /**
+   2:source\bsw\LabBoard/joystick.c **** * \file joystick.c
+   3:source\bsw\LabBoard/joystick.c **** * \author P. Fromm
+   4:source\bsw\LabBoard/joystick.c **** * \date 29.8.17
+   5:source\bsw\LabBoard/joystick.c **** *
+   6:source\bsw\LabBoard/joystick.c **** * \brief Joystick driver
+   7:source\bsw\LabBoard/joystick.c **** *
+   8:source\bsw\LabBoard/joystick.c **** * \copyright Copyright ©2016
+   9:source\bsw\LabBoard/joystick.c **** * Department of electrical engineering and information technology, Hochschule Darmstadt - Universit
+  10:source\bsw\LabBoard/joystick.c **** * Permission to use, copy, modify, and distribute this software and its documentation for education
+  11:source\bsw\LabBoard/joystick.c **** * (unless permitted by h_da) and official h_da projects, is hereby granted for enrolled students of
+  12:source\bsw\LabBoard/joystick.c **** * this paragraph and the following paragraph appear in all copies, modifications, and distributions
+  13:source\bsw\LabBoard/joystick.c **** * Contact Prof.Dr.-Ing. Peter Fromm, peter.fromm@h-da.de, Birkenweg 8 64295 Darmstadt - GERMANY for
+  14:source\bsw\LabBoard/joystick.c **** *
+  15:source\bsw\LabBoard/joystick.c **** * \warning This software is a PROTOTYPE version and is not designed or intended for use in producti
+  16:source\bsw\LabBoard/joystick.c **** * The user represents and warrants that it will NOT use or redistribute the Software for such purpo
+  17:source\bsw\LabBoard/joystick.c **** * This prototype is for research purposes only. This software is provided "AS IS," without a warran
+  18:source\bsw\LabBoard/joystick.c **** */
+  19:source\bsw\LabBoard/joystick.c **** 
+  20:source\bsw\LabBoard/joystick.c **** /*****************************************************************************/
+  21:source\bsw\LabBoard/joystick.c **** /* Include files                                                             */
+  22:source\bsw\LabBoard/joystick.c **** /*****************************************************************************/
+  23:source\bsw\LabBoard/joystick.c **** 
+  24:source\bsw\LabBoard/joystick.c **** #include "project.h"
+  25:source\bsw\LabBoard/joystick.c **** #include "joystick.h"
+  26:source\bsw\LabBoard/joystick.c **** 
+  27:source\bsw\LabBoard/joystick.c **** 
+  28:source\bsw\LabBoard/joystick.c **** 
+  29:source\bsw\LabBoard/joystick.c **** /*****************************************************************************/
+  30:source\bsw\LabBoard/joystick.c **** /* Local pre-processor symbols/macros ('#define')                            */
+ARM GAS  C:\Users\MATEOC~1.QUE\AppData\Local\Temp\ccLrlqmO.s 			page 2
+
+
+  31:source\bsw\LabBoard/joystick.c **** /*****************************************************************************/
+  32:source\bsw\LabBoard/joystick.c **** 
+  33:source\bsw\LabBoard/joystick.c **** /*****************************************************************************/
+  34:source\bsw\LabBoard/joystick.c **** /* Global variable definitions (declared in header file with 'extern')       */
+  35:source\bsw\LabBoard/joystick.c **** /*****************************************************************************/
+  36:source\bsw\LabBoard/joystick.c **** 
+  37:source\bsw\LabBoard/joystick.c **** /*****************************************************************************/
+  38:source\bsw\LabBoard/joystick.c **** /* Local type definitions ('typedef')                                        */
+  39:source\bsw\LabBoard/joystick.c **** /*****************************************************************************/
+  40:source\bsw\LabBoard/joystick.c **** 
+  41:source\bsw\LabBoard/joystick.c **** /*****************************************************************************/
+  42:source\bsw\LabBoard/joystick.c **** /* Local variable definitions ('static')                                     */
+  43:source\bsw\LabBoard/joystick.c **** /*****************************************************************************/
+  44:source\bsw\LabBoard/joystick.c **** 
+  45:source\bsw\LabBoard/joystick.c **** 
+  46:source\bsw\LabBoard/joystick.c **** 
+  47:source\bsw\LabBoard/joystick.c **** /*****************************************************************************/
+  48:source\bsw\LabBoard/joystick.c **** /* Local function prototypes ('static')                                      */
+  49:source\bsw\LabBoard/joystick.c **** /*****************************************************************************/
+  50:source\bsw\LabBoard/joystick.c **** 
+  51:source\bsw\LabBoard/joystick.c **** 
+  52:source\bsw\LabBoard/joystick.c **** /*****************************************************************************/
+  53:source\bsw\LabBoard/joystick.c **** /* Function implementation - global ('extern') and local ('static')          */
+  54:source\bsw\LabBoard/joystick.c **** /*****************************************************************************/
+  55:source\bsw\LabBoard/joystick.c **** 
+  56:source\bsw\LabBoard/joystick.c **** /**
+  57:source\bsw\LabBoard/joystick.c ****  * Initialisation of the Joystick
+  58:source\bsw\LabBoard/joystick.c ****  * @return RC_SUCCESS if all ok
+  59:source\bsw\LabBoard/joystick.c ****  */
+  60:source\bsw\LabBoard/joystick.c **** RC_t JOYSTICK_Init()
+  61:source\bsw\LabBoard/joystick.c **** {
+  28              		.loc 1 61 0
+  29              		.cfi_startproc
+  30              		@ args = 0, pretend = 0, frame = 0
+  31              		@ frame_needed = 0, uses_anonymous_args = 0
+  32 0000 08B5     		push	{r3, lr}
+  33              		.cfi_def_cfa_offset 8
+  34              		.cfi_offset 3, -8
+  35              		.cfi_offset 14, -4
+  62:source\bsw\LabBoard/joystick.c ****     
+  63:source\bsw\LabBoard/joystick.c ****     JOYSTICK_ADC_XY_Start();
+  36              		.loc 1 63 0
+  37 0002 FFF7FEFF 		bl	JOYSTICK_ADC_XY_Start
+  38              	.LVL0:
+  64:source\bsw\LabBoard/joystick.c ****     //JOYSTICK_ADC_X_IRQ_Enable(); //May be activated later
+  65:source\bsw\LabBoard/joystick.c ****     JOYSTICK_ADC_XY_StartConvert();
+  39              		.loc 1 65 0
+  40 0006 FFF7FEFF 		bl	JOYSTICK_ADC_XY_StartConvert
+  41              	.LVL1:
+  66:source\bsw\LabBoard/joystick.c ****     
+  67:source\bsw\LabBoard/joystick.c ****     return RC_SUCCESS;
+  68:source\bsw\LabBoard/joystick.c **** }
+  42              		.loc 1 68 0
+  43 000a 0020     		movs	r0, #0
+  44 000c 08BD     		pop	{r3, pc}
+  45              		.cfi_endproc
+  46              	.LFE63:
+ARM GAS  C:\Users\MATEOC~1.QUE\AppData\Local\Temp\ccLrlqmO.s 			page 3
+
+
+  47              		.size	JOYSTICK_Init, .-JOYSTICK_Init
+  48 000e 00BF     		.section	.text.JOYSTICK_ReadPosition,"ax",%progbits
+  49              		.align	2
+  50              		.global	JOYSTICK_ReadPosition
+  51              		.thumb
+  52              		.thumb_func
+  53              		.type	JOYSTICK_ReadPosition, %function
+  54              	JOYSTICK_ReadPosition:
+  55              	.LFB64:
+  69:source\bsw\LabBoard/joystick.c **** 
+  70:source\bsw\LabBoard/joystick.c **** /**
+  71:source\bsw\LabBoard/joystick.c ****  * Read the Joystick position
+  72:source\bsw\LabBoard/joystick.c ****  * @param sint8_t* x, sint8_t* y - OUT x and y position
+  73:source\bsw\LabBoard/joystick.c ****  * @return RC_SUCCESS if all ok
+  74:source\bsw\LabBoard/joystick.c ****  */
+  75:source\bsw\LabBoard/joystick.c **** RC_t JOYSTICK_ReadPosition(sint8_t* x, sint8_t* y)
+  76:source\bsw\LabBoard/joystick.c **** {
+  56              		.loc 1 76 0
+  57              		.cfi_startproc
+  58              		@ args = 0, pretend = 0, frame = 0
+  59              		@ frame_needed = 0, uses_anonymous_args = 0
+  60              	.LVL2:
+  61 0000 70B5     		push	{r4, r5, r6, lr}
+  62              		.cfi_def_cfa_offset 16
+  63              		.cfi_offset 4, -16
+  64              		.cfi_offset 5, -12
+  65              		.cfi_offset 6, -8
+  66              		.cfi_offset 14, -4
+  67 0002 0646     		mov	r6, r0
+  68 0004 0D46     		mov	r5, r1
+  77:source\bsw\LabBoard/joystick.c ****     //Wait for end of conversion
+  78:source\bsw\LabBoard/joystick.c ****     JOYSTICK_ADC_XY_IsEndConversion(JOYSTICK_ADC_XY_WAIT_FOR_RESULT);
+  69              		.loc 1 78 0
+  70 0006 0020     		movs	r0, #0
+  71              	.LVL3:
+  72 0008 FFF7FEFF 		bl	JOYSTICK_ADC_XY_IsEndConversion
+  73              	.LVL4:
+  79:source\bsw\LabBoard/joystick.c **** 
+  80:source\bsw\LabBoard/joystick.c ****     //Read channels
+  81:source\bsw\LabBoard/joystick.c ****     uint16_t posX = JOYSTICK_ADC_XY_GetResult16(0);
+  74              		.loc 1 81 0
+  75 000c 0020     		movs	r0, #0
+  76 000e FFF7FEFF 		bl	JOYSTICK_ADC_XY_GetResult16
+  77              	.LVL5:
+  78 0012 84B2     		uxth	r4, r0
+  79              	.LVL6:
+  82:source\bsw\LabBoard/joystick.c ****     uint16_t posY = JOYSTICK_ADC_XY_GetResult16(1);
+  80              		.loc 1 82 0
+  81 0014 0120     		movs	r0, #1
+  82 0016 FFF7FEFF 		bl	JOYSTICK_ADC_XY_GetResult16
+  83              	.LVL7:
+  84 001a 80B2     		uxth	r0, r0
+  85              	.LVL8:
+  83:source\bsw\LabBoard/joystick.c ****     
+  84:source\bsw\LabBoard/joystick.c ****     //Convert to scaled 8bit signal
+  85:source\bsw\LabBoard/joystick.c ****     *x = (sint8_t)((2048 - posX) / 16);
+  86              		.loc 1 85 0
+ARM GAS  C:\Users\MATEOC~1.QUE\AppData\Local\Temp\ccLrlqmO.s 			page 4
+
+
+  87 001c D4F50064 		rsbs	r4, r4, #2048
+  88              	.LVL9:
+  89 0020 00D5     		bpl	.L4
+  90 0022 0F34     		adds	r4, r4, #15
+  91              	.L4:
+  92 0024 44F30714 		sbfx	r4, r4, #4, #8
+  93 0028 3470     		strb	r4, [r6]
+  86:source\bsw\LabBoard/joystick.c ****     *y = (sint8_t)((2048 - posY) / 16);
+  94              		.loc 1 86 0
+  95 002a D0F50060 		rsbs	r0, r0, #2048
+  96              	.LVL10:
+  97 002e 00D5     		bpl	.L5
+  98 0030 0F30     		adds	r0, r0, #15
+  99              	.L5:
+ 100 0032 40F30710 		sbfx	r0, r0, #4, #8
+ 101 0036 2870     		strb	r0, [r5]
+  87:source\bsw\LabBoard/joystick.c ****     
+  88:source\bsw\LabBoard/joystick.c ****     return RC_SUCCESS;
+  89:source\bsw\LabBoard/joystick.c **** }
+ 102              		.loc 1 89 0
+ 103 0038 0020     		movs	r0, #0
+ 104 003a 70BD     		pop	{r4, r5, r6, pc}
+ 105              		.cfi_endproc
+ 106              	.LFE64:
+ 107              		.size	JOYSTICK_ReadPosition, .-JOYSTICK_ReadPosition
+ 108              		.text
+ 109              	.Letext0:
+ 110              		.file 2 "c:\\program files (x86)\\cypress\\psoc creator\\4.4\\psoc creator\\import\\gnu\\arm\\5.4.
+ 111              		.file 3 "c:\\program files (x86)\\cypress\\psoc creator\\4.4\\psoc creator\\import\\gnu\\arm\\5.4.
+ 112              		.file 4 ".\\source\\bsw/global.h"
+ 113              		.file 5 "Generated_Source\\PSoC5/JOYSTICK_ADC_XY.h"
+ 114              		.file 6 "Generated_Source\\PSoC5/core_cm3.h"
+ 115              		.section	.debug_info,"",%progbits
+ 116              	.Ldebug_info0:
+ 117 0000 6C020000 		.4byte	0x26c
+ 118 0004 0400     		.2byte	0x4
+ 119 0006 00000000 		.4byte	.Ldebug_abbrev0
+ 120 000a 04       		.byte	0x4
+ 121 000b 01       		.uleb128 0x1
+ 122 000c CA000000 		.4byte	.LASF52
+ 123 0010 0C       		.byte	0xc
+ 124 0011 85030000 		.4byte	.LASF53
+ 125 0015 40020000 		.4byte	.LASF54
+ 126 0019 00000000 		.4byte	.Ldebug_ranges0+0
+ 127 001d 00000000 		.4byte	0
+ 128 0021 00000000 		.4byte	.Ldebug_line0
+ 129 0025 02       		.uleb128 0x2
+ 130 0026 01       		.byte	0x1
+ 131 0027 06       		.byte	0x6
+ 132 0028 7D040000 		.4byte	.LASF0
+ 133 002c 02       		.uleb128 0x2
+ 134 002d 01       		.byte	0x1
+ 135 002e 08       		.byte	0x8
+ 136 002f BC000000 		.4byte	.LASF1
+ 137 0033 02       		.uleb128 0x2
+ 138 0034 02       		.byte	0x2
+ 139 0035 05       		.byte	0x5
+ARM GAS  C:\Users\MATEOC~1.QUE\AppData\Local\Temp\ccLrlqmO.s 			page 5
+
+
+ 140 0036 18040000 		.4byte	.LASF2
+ 141 003a 03       		.uleb128 0x3
+ 142 003b F7010000 		.4byte	.LASF4
+ 143 003f 02       		.byte	0x2
+ 144 0040 2B       		.byte	0x2b
+ 145 0041 45000000 		.4byte	0x45
+ 146 0045 02       		.uleb128 0x2
+ 147 0046 02       		.byte	0x2
+ 148 0047 07       		.byte	0x7
+ 149 0048 83010000 		.4byte	.LASF3
+ 150 004c 03       		.uleb128 0x3
+ 151 004d 5F000000 		.4byte	.LASF5
+ 152 0051 02       		.byte	0x2
+ 153 0052 3F       		.byte	0x3f
+ 154 0053 57000000 		.4byte	0x57
+ 155 0057 02       		.uleb128 0x2
+ 156 0058 04       		.byte	0x4
+ 157 0059 05       		.byte	0x5
+ 158 005a 55040000 		.4byte	.LASF6
+ 159 005e 02       		.uleb128 0x2
+ 160 005f 04       		.byte	0x4
+ 161 0060 07       		.byte	0x7
+ 162 0061 71010000 		.4byte	.LASF7
+ 163 0065 02       		.uleb128 0x2
+ 164 0066 08       		.byte	0x8
+ 165 0067 05       		.byte	0x5
+ 166 0068 D2030000 		.4byte	.LASF8
+ 167 006c 02       		.uleb128 0x2
+ 168 006d 08       		.byte	0x8
+ 169 006e 07       		.byte	0x7
+ 170 006f 5C030000 		.4byte	.LASF9
+ 171 0073 04       		.uleb128 0x4
+ 172 0074 04       		.byte	0x4
+ 173 0075 05       		.byte	0x5
+ 174 0076 696E7400 		.ascii	"int\000"
+ 175 007a 02       		.uleb128 0x2
+ 176 007b 04       		.byte	0x4
+ 177 007c 07       		.byte	0x7
+ 178 007d 41030000 		.4byte	.LASF10
+ 179 0081 03       		.uleb128 0x3
+ 180 0082 36040000 		.4byte	.LASF11
+ 181 0086 03       		.byte	0x3
+ 182 0087 24       		.byte	0x24
+ 183 0088 3A000000 		.4byte	0x3a
+ 184 008c 03       		.uleb128 0x3
+ 185 008d C1030000 		.4byte	.LASF12
+ 186 0091 03       		.byte	0x3
+ 187 0092 2C       		.byte	0x2c
+ 188 0093 4C000000 		.4byte	0x4c
+ 189 0097 02       		.uleb128 0x2
+ 190 0098 04       		.byte	0x4
+ 191 0099 04       		.byte	0x4
+ 192 009a A8000000 		.4byte	.LASF13
+ 193 009e 02       		.uleb128 0x2
+ 194 009f 08       		.byte	0x8
+ 195 00a0 04       		.byte	0x4
+ 196 00a1 02020000 		.4byte	.LASF14
+ARM GAS  C:\Users\MATEOC~1.QUE\AppData\Local\Temp\ccLrlqmO.s 			page 6
+
+
+ 197 00a5 02       		.uleb128 0x2
+ 198 00a6 01       		.byte	0x1
+ 199 00a7 08       		.byte	0x8
+ 200 00a8 E0030000 		.4byte	.LASF15
+ 201 00ac 02       		.uleb128 0x2
+ 202 00ad 08       		.byte	0x8
+ 203 00ae 04       		.byte	0x4
+ 204 00af 5E040000 		.4byte	.LASF16
+ 205 00b3 02       		.uleb128 0x2
+ 206 00b4 04       		.byte	0x4
+ 207 00b5 07       		.byte	0x7
+ 208 00b6 C9030000 		.4byte	.LASF17
+ 209 00ba 03       		.uleb128 0x3
+ 210 00bb DC010000 		.4byte	.LASF18
+ 211 00bf 04       		.byte	0x4
+ 212 00c0 90       		.byte	0x90
+ 213 00c1 25000000 		.4byte	0x25
+ 214 00c5 05       		.uleb128 0x5
+ 215 00c6 01       		.byte	0x1
+ 216 00c7 25000000 		.4byte	0x25
+ 217 00cb 04       		.byte	0x4
+ 218 00cc CF       		.byte	0xcf
+ 219 00cd 6E010000 		.4byte	0x16e
+ 220 00d1 06       		.uleb128 0x6
+ 221 00d2 58010000 		.4byte	.LASF19
+ 222 00d6 00       		.byte	0
+ 223 00d7 07       		.uleb128 0x7
+ 224 00d8 29000000 		.4byte	.LASF20
+ 225 00dc 7F       		.sleb128 -1
+ 226 00dd 07       		.uleb128 0x7
+ 227 00de 81000000 		.4byte	.LASF21
+ 228 00e2 7E       		.sleb128 -2
+ 229 00e3 07       		.uleb128 0x7
+ 230 00e4 63010000 		.4byte	.LASF22
+ 231 00e8 7D       		.sleb128 -3
+ 232 00e9 07       		.uleb128 0x7
+ 233 00ea 30020000 		.4byte	.LASF23
+ 234 00ee 7C       		.sleb128 -4
+ 235 00ef 07       		.uleb128 0x7
+ 236 00f0 A8040000 		.4byte	.LASF24
+ 237 00f4 7B       		.sleb128 -5
+ 238 00f5 07       		.uleb128 0x7
+ 239 00f6 1F020000 		.4byte	.LASF25
+ 240 00fa 7A       		.sleb128 -6
+ 241 00fb 07       		.uleb128 0x7
+ 242 00fc 3C000000 		.4byte	.LASF26
+ 243 0100 79       		.sleb128 -7
+ 244 0101 07       		.uleb128 0x7
+ 245 0102 00000000 		.4byte	.LASF27
+ 246 0106 78       		.sleb128 -8
+ 247 0107 07       		.uleb128 0x7
+ 248 0108 F9020000 		.4byte	.LASF28
+ 249 010c 77       		.sleb128 -9
+ 250 010d 07       		.uleb128 0x7
+ 251 010e 4E030000 		.4byte	.LASF29
+ 252 0112 76       		.sleb128 -10
+ 253 0113 07       		.uleb128 0x7
+ARM GAS  C:\Users\MATEOC~1.QUE\AppData\Local\Temp\ccLrlqmO.s 			page 7
+
+
+ 254 0114 96010000 		.4byte	.LASF30
+ 255 0118 75       		.sleb128 -11
+ 256 0119 07       		.uleb128 0x7
+ 257 011a 9A040000 		.4byte	.LASF31
+ 258 011e 74       		.sleb128 -12
+ 259 011f 07       		.uleb128 0x7
+ 260 0120 73030000 		.4byte	.LASF32
+ 261 0124 73       		.sleb128 -13
+ 262 0125 07       		.uleb128 0x7
+ 263 0126 6A040000 		.4byte	.LASF33
+ 264 012a 72       		.sleb128 -14
+ 265 012b 07       		.uleb128 0x7
+ 266 012c 22040000 		.4byte	.LASF34
+ 267 0130 71       		.sleb128 -15
+ 268 0131 07       		.uleb128 0x7
+ 269 0132 89040000 		.4byte	.LASF35
+ 270 0136 70       		.sleb128 -16
+ 271 0137 07       		.uleb128 0x7
+ 272 0138 15000000 		.4byte	.LASF36
+ 273 013c 6F       		.sleb128 -17
+ 274 013d 07       		.uleb128 0x7
+ 275 013e BA010000 		.4byte	.LASF37
+ 276 0142 6E       		.sleb128 -18
+ 277 0143 07       		.uleb128 0x7
+ 278 0144 E4010000 		.4byte	.LASF38
+ 279 0148 6D       		.sleb128 -19
+ 280 0149 07       		.uleb128 0x7
+ 281 014a 69000000 		.4byte	.LASF39
+ 282 014e 6C       		.sleb128 -20
+ 283 014f 07       		.uleb128 0x7
+ 284 0150 A8010000 		.4byte	.LASF40
+ 285 0154 6B       		.sleb128 -21
+ 286 0155 07       		.uleb128 0x7
+ 287 0156 0F030000 		.4byte	.LASF41
+ 288 015a 6A       		.sleb128 -22
+ 289 015b 07       		.uleb128 0x7
+ 290 015c 01040000 		.4byte	.LASF42
+ 291 0160 69       		.sleb128 -23
+ 292 0161 07       		.uleb128 0x7
+ 293 0162 4E000000 		.4byte	.LASF43
+ 294 0166 68       		.sleb128 -24
+ 295 0167 07       		.uleb128 0x7
+ 296 0168 8F000000 		.4byte	.LASF44
+ 297 016c 67       		.sleb128 -25
+ 298 016d 00       		.byte	0
+ 299 016e 03       		.uleb128 0x3
+ 300 016f 7C000000 		.4byte	.LASF45
+ 301 0173 04       		.byte	0x4
+ 302 0174 EA       		.byte	0xea
+ 303 0175 C5000000 		.4byte	0xc5
+ 304 0179 08       		.uleb128 0x8
+ 305 017a AE000000 		.4byte	.LASF55
+ 306 017e 01       		.byte	0x1
+ 307 017f 3C       		.byte	0x3c
+ 308 0180 6E010000 		.4byte	0x16e
+ 309 0184 00000000 		.4byte	.LFB63
+ 310 0188 0E000000 		.4byte	.LFE63-.LFB63
+ARM GAS  C:\Users\MATEOC~1.QUE\AppData\Local\Temp\ccLrlqmO.s 			page 8
+
+
+ 311 018c 01       		.uleb128 0x1
+ 312 018d 9C       		.byte	0x9c
+ 313 018e A5010000 		.4byte	0x1a5
+ 314 0192 09       		.uleb128 0x9
+ 315 0193 06000000 		.4byte	.LVL0
+ 316 0197 43020000 		.4byte	0x243
+ 317 019b 09       		.uleb128 0x9
+ 318 019c 0A000000 		.4byte	.LVL1
+ 319 01a0 4E020000 		.4byte	0x24e
+ 320 01a4 00       		.byte	0
+ 321 01a5 0A       		.uleb128 0xa
+ 322 01a6 3F040000 		.4byte	.LASF56
+ 323 01aa 01       		.byte	0x1
+ 324 01ab 4B       		.byte	0x4b
+ 325 01ac 6E010000 		.4byte	0x16e
+ 326 01b0 00000000 		.4byte	.LFB64
+ 327 01b4 3C000000 		.4byte	.LFE64-.LFB64
+ 328 01b8 01       		.uleb128 0x1
+ 329 01b9 9C       		.byte	0x9c
+ 330 01ba 2C020000 		.4byte	0x22c
+ 331 01be 0B       		.uleb128 0xb
+ 332 01bf 7800     		.ascii	"x\000"
+ 333 01c1 01       		.byte	0x1
+ 334 01c2 4B       		.byte	0x4b
+ 335 01c3 2C020000 		.4byte	0x22c
+ 336 01c7 00000000 		.4byte	.LLST0
+ 337 01cb 0B       		.uleb128 0xb
+ 338 01cc 7900     		.ascii	"y\000"
+ 339 01ce 01       		.byte	0x1
+ 340 01cf 4B       		.byte	0x4b
+ 341 01d0 2C020000 		.4byte	0x22c
+ 342 01d4 1E000000 		.4byte	.LLST1
+ 343 01d8 0C       		.uleb128 0xc
+ 344 01d9 32000000 		.4byte	.LASF46
+ 345 01dd 01       		.byte	0x1
+ 346 01de 51       		.byte	0x51
+ 347 01df 81000000 		.4byte	0x81
+ 348 01e3 3C000000 		.4byte	.LLST2
+ 349 01e7 0C       		.uleb128 0xc
+ 350 01e8 37000000 		.4byte	.LASF47
+ 351 01ec 01       		.byte	0x1
+ 352 01ed 52       		.byte	0x52
+ 353 01ee 81000000 		.4byte	0x81
+ 354 01f2 4F000000 		.4byte	.LLST3
+ 355 01f6 0D       		.uleb128 0xd
+ 356 01f7 0C000000 		.4byte	.LVL4
+ 357 01fb 59020000 		.4byte	0x259
+ 358 01ff 09020000 		.4byte	0x209
+ 359 0203 0E       		.uleb128 0xe
+ 360 0204 01       		.uleb128 0x1
+ 361 0205 50       		.byte	0x50
+ 362 0206 01       		.uleb128 0x1
+ 363 0207 30       		.byte	0x30
+ 364 0208 00       		.byte	0
+ 365 0209 0D       		.uleb128 0xd
+ 366 020a 12000000 		.4byte	.LVL5
+ 367 020e 64020000 		.4byte	0x264
+ARM GAS  C:\Users\MATEOC~1.QUE\AppData\Local\Temp\ccLrlqmO.s 			page 9
+
+
+ 368 0212 1C020000 		.4byte	0x21c
+ 369 0216 0E       		.uleb128 0xe
+ 370 0217 01       		.uleb128 0x1
+ 371 0218 50       		.byte	0x50
+ 372 0219 01       		.uleb128 0x1
+ 373 021a 30       		.byte	0x30
+ 374 021b 00       		.byte	0
+ 375 021c 0F       		.uleb128 0xf
+ 376 021d 1A000000 		.4byte	.LVL7
+ 377 0221 64020000 		.4byte	0x264
+ 378 0225 0E       		.uleb128 0xe
+ 379 0226 01       		.uleb128 0x1
+ 380 0227 50       		.byte	0x50
+ 381 0228 01       		.uleb128 0x1
+ 382 0229 31       		.byte	0x31
+ 383 022a 00       		.byte	0
+ 384 022b 00       		.byte	0
+ 385 022c 10       		.uleb128 0x10
+ 386 022d 04       		.byte	0x4
+ 387 022e BA000000 		.4byte	0xba
+ 388 0232 11       		.uleb128 0x11
+ 389 0233 CF010000 		.4byte	.LASF57
+ 390 0237 06       		.byte	0x6
+ 391 0238 1207     		.2byte	0x712
+ 392 023a 3E020000 		.4byte	0x23e
+ 393 023e 12       		.uleb128 0x12
+ 394 023f 8C000000 		.4byte	0x8c
+ 395 0243 13       		.uleb128 0x13
+ 396 0244 09020000 		.4byte	.LASF48
+ 397 0248 09020000 		.4byte	.LASF48
+ 398 024c 05       		.byte	0x5
+ 399 024d 31       		.byte	0x31
+ 400 024e 13       		.uleb128 0x13
+ 401 024f A4030000 		.4byte	.LASF49
+ 402 0253 A4030000 		.4byte	.LASF49
+ 403 0257 05       		.byte	0x5
+ 404 0258 A1       		.byte	0xa1
+ 405 0259 13       		.uleb128 0x13
+ 406 025a 21030000 		.4byte	.LASF50
+ 407 025e 21030000 		.4byte	.LASF50
+ 408 0262 05       		.byte	0x5
+ 409 0263 34       		.byte	0x34
+ 410 0264 13       		.uleb128 0x13
+ 411 0265 E5030000 		.4byte	.LASF51
+ 412 0269 E5030000 		.4byte	.LASF51
+ 413 026d 05       		.byte	0x5
+ 414 026e 35       		.byte	0x35
+ 415 026f 00       		.byte	0
+ 416              		.section	.debug_abbrev,"",%progbits
+ 417              	.Ldebug_abbrev0:
+ 418 0000 01       		.uleb128 0x1
+ 419 0001 11       		.uleb128 0x11
+ 420 0002 01       		.byte	0x1
+ 421 0003 25       		.uleb128 0x25
+ 422 0004 0E       		.uleb128 0xe
+ 423 0005 13       		.uleb128 0x13
+ 424 0006 0B       		.uleb128 0xb
+ARM GAS  C:\Users\MATEOC~1.QUE\AppData\Local\Temp\ccLrlqmO.s 			page 10
+
+
+ 425 0007 03       		.uleb128 0x3
+ 426 0008 0E       		.uleb128 0xe
+ 427 0009 1B       		.uleb128 0x1b
+ 428 000a 0E       		.uleb128 0xe
+ 429 000b 55       		.uleb128 0x55
+ 430 000c 17       		.uleb128 0x17
+ 431 000d 11       		.uleb128 0x11
+ 432 000e 01       		.uleb128 0x1
+ 433 000f 10       		.uleb128 0x10
+ 434 0010 17       		.uleb128 0x17
+ 435 0011 00       		.byte	0
+ 436 0012 00       		.byte	0
+ 437 0013 02       		.uleb128 0x2
+ 438 0014 24       		.uleb128 0x24
+ 439 0015 00       		.byte	0
+ 440 0016 0B       		.uleb128 0xb
+ 441 0017 0B       		.uleb128 0xb
+ 442 0018 3E       		.uleb128 0x3e
+ 443 0019 0B       		.uleb128 0xb
+ 444 001a 03       		.uleb128 0x3
+ 445 001b 0E       		.uleb128 0xe
+ 446 001c 00       		.byte	0
+ 447 001d 00       		.byte	0
+ 448 001e 03       		.uleb128 0x3
+ 449 001f 16       		.uleb128 0x16
+ 450 0020 00       		.byte	0
+ 451 0021 03       		.uleb128 0x3
+ 452 0022 0E       		.uleb128 0xe
+ 453 0023 3A       		.uleb128 0x3a
+ 454 0024 0B       		.uleb128 0xb
+ 455 0025 3B       		.uleb128 0x3b
+ 456 0026 0B       		.uleb128 0xb
+ 457 0027 49       		.uleb128 0x49
+ 458 0028 13       		.uleb128 0x13
+ 459 0029 00       		.byte	0
+ 460 002a 00       		.byte	0
+ 461 002b 04       		.uleb128 0x4
+ 462 002c 24       		.uleb128 0x24
+ 463 002d 00       		.byte	0
+ 464 002e 0B       		.uleb128 0xb
+ 465 002f 0B       		.uleb128 0xb
+ 466 0030 3E       		.uleb128 0x3e
+ 467 0031 0B       		.uleb128 0xb
+ 468 0032 03       		.uleb128 0x3
+ 469 0033 08       		.uleb128 0x8
+ 470 0034 00       		.byte	0
+ 471 0035 00       		.byte	0
+ 472 0036 05       		.uleb128 0x5
+ 473 0037 04       		.uleb128 0x4
+ 474 0038 01       		.byte	0x1
+ 475 0039 0B       		.uleb128 0xb
+ 476 003a 0B       		.uleb128 0xb
+ 477 003b 49       		.uleb128 0x49
+ 478 003c 13       		.uleb128 0x13
+ 479 003d 3A       		.uleb128 0x3a
+ 480 003e 0B       		.uleb128 0xb
+ 481 003f 3B       		.uleb128 0x3b
+ARM GAS  C:\Users\MATEOC~1.QUE\AppData\Local\Temp\ccLrlqmO.s 			page 11
+
+
+ 482 0040 0B       		.uleb128 0xb
+ 483 0041 01       		.uleb128 0x1
+ 484 0042 13       		.uleb128 0x13
+ 485 0043 00       		.byte	0
+ 486 0044 00       		.byte	0
+ 487 0045 06       		.uleb128 0x6
+ 488 0046 28       		.uleb128 0x28
+ 489 0047 00       		.byte	0
+ 490 0048 03       		.uleb128 0x3
+ 491 0049 0E       		.uleb128 0xe
+ 492 004a 1C       		.uleb128 0x1c
+ 493 004b 0B       		.uleb128 0xb
+ 494 004c 00       		.byte	0
+ 495 004d 00       		.byte	0
+ 496 004e 07       		.uleb128 0x7
+ 497 004f 28       		.uleb128 0x28
+ 498 0050 00       		.byte	0
+ 499 0051 03       		.uleb128 0x3
+ 500 0052 0E       		.uleb128 0xe
+ 501 0053 1C       		.uleb128 0x1c
+ 502 0054 0D       		.uleb128 0xd
+ 503 0055 00       		.byte	0
+ 504 0056 00       		.byte	0
+ 505 0057 08       		.uleb128 0x8
+ 506 0058 2E       		.uleb128 0x2e
+ 507 0059 01       		.byte	0x1
+ 508 005a 3F       		.uleb128 0x3f
+ 509 005b 19       		.uleb128 0x19
+ 510 005c 03       		.uleb128 0x3
+ 511 005d 0E       		.uleb128 0xe
+ 512 005e 3A       		.uleb128 0x3a
+ 513 005f 0B       		.uleb128 0xb
+ 514 0060 3B       		.uleb128 0x3b
+ 515 0061 0B       		.uleb128 0xb
+ 516 0062 49       		.uleb128 0x49
+ 517 0063 13       		.uleb128 0x13
+ 518 0064 11       		.uleb128 0x11
+ 519 0065 01       		.uleb128 0x1
+ 520 0066 12       		.uleb128 0x12
+ 521 0067 06       		.uleb128 0x6
+ 522 0068 40       		.uleb128 0x40
+ 523 0069 18       		.uleb128 0x18
+ 524 006a 9742     		.uleb128 0x2117
+ 525 006c 19       		.uleb128 0x19
+ 526 006d 01       		.uleb128 0x1
+ 527 006e 13       		.uleb128 0x13
+ 528 006f 00       		.byte	0
+ 529 0070 00       		.byte	0
+ 530 0071 09       		.uleb128 0x9
+ 531 0072 898201   		.uleb128 0x4109
+ 532 0075 00       		.byte	0
+ 533 0076 11       		.uleb128 0x11
+ 534 0077 01       		.uleb128 0x1
+ 535 0078 31       		.uleb128 0x31
+ 536 0079 13       		.uleb128 0x13
+ 537 007a 00       		.byte	0
+ 538 007b 00       		.byte	0
+ARM GAS  C:\Users\MATEOC~1.QUE\AppData\Local\Temp\ccLrlqmO.s 			page 12
+
+
+ 539 007c 0A       		.uleb128 0xa
+ 540 007d 2E       		.uleb128 0x2e
+ 541 007e 01       		.byte	0x1
+ 542 007f 3F       		.uleb128 0x3f
+ 543 0080 19       		.uleb128 0x19
+ 544 0081 03       		.uleb128 0x3
+ 545 0082 0E       		.uleb128 0xe
+ 546 0083 3A       		.uleb128 0x3a
+ 547 0084 0B       		.uleb128 0xb
+ 548 0085 3B       		.uleb128 0x3b
+ 549 0086 0B       		.uleb128 0xb
+ 550 0087 27       		.uleb128 0x27
+ 551 0088 19       		.uleb128 0x19
+ 552 0089 49       		.uleb128 0x49
+ 553 008a 13       		.uleb128 0x13
+ 554 008b 11       		.uleb128 0x11
+ 555 008c 01       		.uleb128 0x1
+ 556 008d 12       		.uleb128 0x12
+ 557 008e 06       		.uleb128 0x6
+ 558 008f 40       		.uleb128 0x40
+ 559 0090 18       		.uleb128 0x18
+ 560 0091 9742     		.uleb128 0x2117
+ 561 0093 19       		.uleb128 0x19
+ 562 0094 01       		.uleb128 0x1
+ 563 0095 13       		.uleb128 0x13
+ 564 0096 00       		.byte	0
+ 565 0097 00       		.byte	0
+ 566 0098 0B       		.uleb128 0xb
+ 567 0099 05       		.uleb128 0x5
+ 568 009a 00       		.byte	0
+ 569 009b 03       		.uleb128 0x3
+ 570 009c 08       		.uleb128 0x8
+ 571 009d 3A       		.uleb128 0x3a
+ 572 009e 0B       		.uleb128 0xb
+ 573 009f 3B       		.uleb128 0x3b
+ 574 00a0 0B       		.uleb128 0xb
+ 575 00a1 49       		.uleb128 0x49
+ 576 00a2 13       		.uleb128 0x13
+ 577 00a3 02       		.uleb128 0x2
+ 578 00a4 17       		.uleb128 0x17
+ 579 00a5 00       		.byte	0
+ 580 00a6 00       		.byte	0
+ 581 00a7 0C       		.uleb128 0xc
+ 582 00a8 34       		.uleb128 0x34
+ 583 00a9 00       		.byte	0
+ 584 00aa 03       		.uleb128 0x3
+ 585 00ab 0E       		.uleb128 0xe
+ 586 00ac 3A       		.uleb128 0x3a
+ 587 00ad 0B       		.uleb128 0xb
+ 588 00ae 3B       		.uleb128 0x3b
+ 589 00af 0B       		.uleb128 0xb
+ 590 00b0 49       		.uleb128 0x49
+ 591 00b1 13       		.uleb128 0x13
+ 592 00b2 02       		.uleb128 0x2
+ 593 00b3 17       		.uleb128 0x17
+ 594 00b4 00       		.byte	0
+ 595 00b5 00       		.byte	0
+ARM GAS  C:\Users\MATEOC~1.QUE\AppData\Local\Temp\ccLrlqmO.s 			page 13
+
+
+ 596 00b6 0D       		.uleb128 0xd
+ 597 00b7 898201   		.uleb128 0x4109
+ 598 00ba 01       		.byte	0x1
+ 599 00bb 11       		.uleb128 0x11
+ 600 00bc 01       		.uleb128 0x1
+ 601 00bd 31       		.uleb128 0x31
+ 602 00be 13       		.uleb128 0x13
+ 603 00bf 01       		.uleb128 0x1
+ 604 00c0 13       		.uleb128 0x13
+ 605 00c1 00       		.byte	0
+ 606 00c2 00       		.byte	0
+ 607 00c3 0E       		.uleb128 0xe
+ 608 00c4 8A8201   		.uleb128 0x410a
+ 609 00c7 00       		.byte	0
+ 610 00c8 02       		.uleb128 0x2
+ 611 00c9 18       		.uleb128 0x18
+ 612 00ca 9142     		.uleb128 0x2111
+ 613 00cc 18       		.uleb128 0x18
+ 614 00cd 00       		.byte	0
+ 615 00ce 00       		.byte	0
+ 616 00cf 0F       		.uleb128 0xf
+ 617 00d0 898201   		.uleb128 0x4109
+ 618 00d3 01       		.byte	0x1
+ 619 00d4 11       		.uleb128 0x11
+ 620 00d5 01       		.uleb128 0x1
+ 621 00d6 31       		.uleb128 0x31
+ 622 00d7 13       		.uleb128 0x13
+ 623 00d8 00       		.byte	0
+ 624 00d9 00       		.byte	0
+ 625 00da 10       		.uleb128 0x10
+ 626 00db 0F       		.uleb128 0xf
+ 627 00dc 00       		.byte	0
+ 628 00dd 0B       		.uleb128 0xb
+ 629 00de 0B       		.uleb128 0xb
+ 630 00df 49       		.uleb128 0x49
+ 631 00e0 13       		.uleb128 0x13
+ 632 00e1 00       		.byte	0
+ 633 00e2 00       		.byte	0
+ 634 00e3 11       		.uleb128 0x11
+ 635 00e4 34       		.uleb128 0x34
+ 636 00e5 00       		.byte	0
+ 637 00e6 03       		.uleb128 0x3
+ 638 00e7 0E       		.uleb128 0xe
+ 639 00e8 3A       		.uleb128 0x3a
+ 640 00e9 0B       		.uleb128 0xb
+ 641 00ea 3B       		.uleb128 0x3b
+ 642 00eb 05       		.uleb128 0x5
+ 643 00ec 49       		.uleb128 0x49
+ 644 00ed 13       		.uleb128 0x13
+ 645 00ee 3F       		.uleb128 0x3f
+ 646 00ef 19       		.uleb128 0x19
+ 647 00f0 3C       		.uleb128 0x3c
+ 648 00f1 19       		.uleb128 0x19
+ 649 00f2 00       		.byte	0
+ 650 00f3 00       		.byte	0
+ 651 00f4 12       		.uleb128 0x12
+ 652 00f5 35       		.uleb128 0x35
+ARM GAS  C:\Users\MATEOC~1.QUE\AppData\Local\Temp\ccLrlqmO.s 			page 14
+
+
+ 653 00f6 00       		.byte	0
+ 654 00f7 49       		.uleb128 0x49
+ 655 00f8 13       		.uleb128 0x13
+ 656 00f9 00       		.byte	0
+ 657 00fa 00       		.byte	0
+ 658 00fb 13       		.uleb128 0x13
+ 659 00fc 2E       		.uleb128 0x2e
+ 660 00fd 00       		.byte	0
+ 661 00fe 3F       		.uleb128 0x3f
+ 662 00ff 19       		.uleb128 0x19
+ 663 0100 3C       		.uleb128 0x3c
+ 664 0101 19       		.uleb128 0x19
+ 665 0102 6E       		.uleb128 0x6e
+ 666 0103 0E       		.uleb128 0xe
+ 667 0104 03       		.uleb128 0x3
+ 668 0105 0E       		.uleb128 0xe
+ 669 0106 3A       		.uleb128 0x3a
+ 670 0107 0B       		.uleb128 0xb
+ 671 0108 3B       		.uleb128 0x3b
+ 672 0109 0B       		.uleb128 0xb
+ 673 010a 00       		.byte	0
+ 674 010b 00       		.byte	0
+ 675 010c 00       		.byte	0
+ 676              		.section	.debug_loc,"",%progbits
+ 677              	.Ldebug_loc0:
+ 678              	.LLST0:
+ 679 0000 00000000 		.4byte	.LVL2
+ 680 0004 08000000 		.4byte	.LVL3
+ 681 0008 0100     		.2byte	0x1
+ 682 000a 50       		.byte	0x50
+ 683 000b 08000000 		.4byte	.LVL3
+ 684 000f 3C000000 		.4byte	.LFE64
+ 685 0013 0100     		.2byte	0x1
+ 686 0015 56       		.byte	0x56
+ 687 0016 00000000 		.4byte	0
+ 688 001a 00000000 		.4byte	0
+ 689              	.LLST1:
+ 690 001e 00000000 		.4byte	.LVL2
+ 691 0022 0B000000 		.4byte	.LVL4-1
+ 692 0026 0100     		.2byte	0x1
+ 693 0028 51       		.byte	0x51
+ 694 0029 0B000000 		.4byte	.LVL4-1
+ 695 002d 3C000000 		.4byte	.LFE64
+ 696 0031 0100     		.2byte	0x1
+ 697 0033 55       		.byte	0x55
+ 698 0034 00000000 		.4byte	0
+ 699 0038 00000000 		.4byte	0
+ 700              	.LLST2:
+ 701 003c 14000000 		.4byte	.LVL6
+ 702 0040 20000000 		.4byte	.LVL9
+ 703 0044 0100     		.2byte	0x1
+ 704 0046 54       		.byte	0x54
+ 705 0047 00000000 		.4byte	0
+ 706 004b 00000000 		.4byte	0
+ 707              	.LLST3:
+ 708 004f 1C000000 		.4byte	.LVL8
+ 709 0053 2E000000 		.4byte	.LVL10
+ARM GAS  C:\Users\MATEOC~1.QUE\AppData\Local\Temp\ccLrlqmO.s 			page 15
+
+
+ 710 0057 0100     		.2byte	0x1
+ 711 0059 50       		.byte	0x50
+ 712 005a 00000000 		.4byte	0
+ 713 005e 00000000 		.4byte	0
+ 714              		.section	.debug_aranges,"",%progbits
+ 715 0000 24000000 		.4byte	0x24
+ 716 0004 0200     		.2byte	0x2
+ 717 0006 00000000 		.4byte	.Ldebug_info0
+ 718 000a 04       		.byte	0x4
+ 719 000b 00       		.byte	0
+ 720 000c 0000     		.2byte	0
+ 721 000e 0000     		.2byte	0
+ 722 0010 00000000 		.4byte	.LFB63
+ 723 0014 0E000000 		.4byte	.LFE63-.LFB63
+ 724 0018 00000000 		.4byte	.LFB64
+ 725 001c 3C000000 		.4byte	.LFE64-.LFB64
+ 726 0020 00000000 		.4byte	0
+ 727 0024 00000000 		.4byte	0
+ 728              		.section	.debug_ranges,"",%progbits
+ 729              	.Ldebug_ranges0:
+ 730 0000 00000000 		.4byte	.LFB63
+ 731 0004 0E000000 		.4byte	.LFE63
+ 732 0008 00000000 		.4byte	.LFB64
+ 733 000c 3C000000 		.4byte	.LFE64
+ 734 0010 00000000 		.4byte	0
+ 735 0014 00000000 		.4byte	0
+ 736              		.section	.debug_line,"",%progbits
+ 737              	.Ldebug_line0:
+ 738 0000 B3010000 		.section	.debug_str,"MS",%progbits,1
+ 738      02008501 
+ 738      00000201 
+ 738      FB0E0D00 
+ 738      01010101 
+ 739              	.LASF27:
+ 740 0000 52435F45 		.ascii	"RC_ERROR_BUFFER_FULL\000"
+ 740      52524F52 
+ 740      5F425546 
+ 740      4645525F 
+ 740      46554C4C 
+ 741              	.LASF36:
+ 742 0015 52435F45 		.ascii	"RC_ERROR_READ_FAILS\000"
+ 742      52524F52 
+ 742      5F524541 
+ 742      445F4641 
+ 742      494C5300 
+ 743              	.LASF20:
+ 744 0029 52435F45 		.ascii	"RC_ERROR\000"
+ 744      52524F52 
+ 744      00
+ 745              	.LASF46:
+ 746 0032 706F7358 		.ascii	"posX\000"
+ 746      00
+ 747              	.LASF47:
+ 748 0037 706F7359 		.ascii	"posY\000"
+ 748      00
+ 749              	.LASF26:
+ 750 003c 52435F45 		.ascii	"RC_ERROR_UNDERRUN\000"
+ARM GAS  C:\Users\MATEOC~1.QUE\AppData\Local\Temp\ccLrlqmO.s 			page 16
+
+
+ 750      52524F52 
+ 750      5F554E44 
+ 750      45525255 
+ 750      4E00
+ 751              	.LASF43:
+ 752 004e 52435F45 		.ascii	"RC_ERROR_UNKNOWN\000"
+ 752      52524F52 
+ 752      5F554E4B 
+ 752      4E4F574E 
+ 752      00
+ 753              	.LASF5:
+ 754 005f 5F5F696E 		.ascii	"__int32_t\000"
+ 754      7433325F 
+ 754      7400
+ 755              	.LASF39:
+ 756 0069 52435F45 		.ascii	"RC_ERROR_BAD_PARAM\000"
+ 756      52524F52 
+ 756      5F424144 
+ 756      5F504152 
+ 756      414D00
+ 757              	.LASF45:
+ 758 007c 52435F74 		.ascii	"RC_t\000"
+ 758      00
+ 759              	.LASF21:
+ 760 0081 52435F45 		.ascii	"RC_ERROR_NULL\000"
+ 760      52524F52 
+ 760      5F4E554C 
+ 760      4C00
+ 761              	.LASF44:
+ 762 008f 52435F45 		.ascii	"RC_ERROR_NOT_IMPLEMENTED\000"
+ 762      52524F52 
+ 762      5F4E4F54 
+ 762      5F494D50 
+ 762      4C454D45 
+ 763              	.LASF13:
+ 764 00a8 666C6F61 		.ascii	"float\000"
+ 764      7400
+ 765              	.LASF55:
+ 766 00ae 4A4F5953 		.ascii	"JOYSTICK_Init\000"
+ 766      5449434B 
+ 766      5F496E69 
+ 766      7400
+ 767              	.LASF1:
+ 768 00bc 756E7369 		.ascii	"unsigned char\000"
+ 768      676E6564 
+ 768      20636861 
+ 768      7200
+ 769              	.LASF52:
+ 770 00ca 474E5520 		.ascii	"GNU C11 5.4.1 20160609 (release) [ARM/embedded-5-br"
+ 770      43313120 
+ 770      352E342E 
+ 770      31203230 
+ 770      31363036 
+ 771 00fd 616E6368 		.ascii	"anch revision 237715] -mcpu=cortex-m3 -mthumb -g -O"
+ 771      20726576 
+ 771      6973696F 
+ 771      6E203233 
+ARM GAS  C:\Users\MATEOC~1.QUE\AppData\Local\Temp\ccLrlqmO.s 			page 17
+
+
+ 771      37373135 
+ 772 0130 67202D66 		.ascii	"g -ffunction-sections -ffat-lto-objects\000"
+ 772      66756E63 
+ 772      74696F6E 
+ 772      2D736563 
+ 772      74696F6E 
+ 773              	.LASF19:
+ 774 0158 52435F53 		.ascii	"RC_SUCCESS\000"
+ 774      55434345 
+ 774      535300
+ 775              	.LASF22:
+ 776 0163 52435F45 		.ascii	"RC_ERROR_ZERO\000"
+ 776      52524F52 
+ 776      5F5A4552 
+ 776      4F00
+ 777              	.LASF7:
+ 778 0171 6C6F6E67 		.ascii	"long unsigned int\000"
+ 778      20756E73 
+ 778      69676E65 
+ 778      6420696E 
+ 778      7400
+ 779              	.LASF3:
+ 780 0183 73686F72 		.ascii	"short unsigned int\000"
+ 780      7420756E 
+ 780      7369676E 
+ 780      65642069 
+ 780      6E7400
+ 781              	.LASF30:
+ 782 0196 52435F45 		.ascii	"RC_ERROR_TIME_OUT\000"
+ 782      52524F52 
+ 782      5F54494D 
+ 782      455F4F55 
+ 782      5400
+ 783              	.LASF40:
+ 784 01a8 52435F45 		.ascii	"RC_ERROR_BAD_DATA\000"
+ 784      52524F52 
+ 784      5F424144 
+ 784      5F444154 
+ 784      4100
+ 785              	.LASF37:
+ 786 01ba 52435F45 		.ascii	"RC_ERROR_WRITE_FAILS\000"
+ 786      52524F52 
+ 786      5F575249 
+ 786      54455F46 
+ 786      41494C53 
+ 787              	.LASF57:
+ 788 01cf 49544D5F 		.ascii	"ITM_RxBuffer\000"
+ 788      52784275 
+ 788      66666572 
+ 788      00
+ 789              	.LASF18:
+ 790 01dc 73696E74 		.ascii	"sint8_t\000"
+ 790      385F7400 
+ 791              	.LASF38:
+ 792 01e4 52435F45 		.ascii	"RC_ERROR_NOT_MATCH\000"
+ 792      52524F52 
+ 792      5F4E4F54 
+ARM GAS  C:\Users\MATEOC~1.QUE\AppData\Local\Temp\ccLrlqmO.s 			page 18
+
+
+ 792      5F4D4154 
+ 792      434800
+ 793              	.LASF4:
+ 794 01f7 5F5F7569 		.ascii	"__uint16_t\000"
+ 794      6E743136 
+ 794      5F7400
+ 795              	.LASF14:
+ 796 0202 646F7562 		.ascii	"double\000"
+ 796      6C6500
+ 797              	.LASF48:
+ 798 0209 4A4F5953 		.ascii	"JOYSTICK_ADC_XY_Start\000"
+ 798      5449434B 
+ 798      5F414443 
+ 798      5F58595F 
+ 798      53746172 
+ 799              	.LASF25:
+ 800 021f 52435F45 		.ascii	"RC_ERROR_OVERRUN\000"
+ 800      52524F52 
+ 800      5F4F5645 
+ 800      5252554E 
+ 800      00
+ 801              	.LASF23:
+ 802 0230 52435F45 		.ascii	"RC_ERROR_MEMORY\000"
+ 802      52524F52 
+ 802      5F4D454D 
+ 802      4F525900 
+ 803              	.LASF54:
+ 804 0240 433A5C55 		.ascii	"C:\\Users\\Mateo C. Querol\\OneDrive\\University\\D"
+ 804      73657273 
+ 804      5C4D6174 
+ 804      656F2043 
+ 804      2E205175 
+ 805 026e 61726D73 		.ascii	"armstadt\\Advanced Microcontroller Systems and Embe"
+ 805      74616474 
+ 805      5C416476 
+ 805      616E6365 
+ 805      64204D69 
+ 806 02a0 64646564 		.ascii	"dded Operating systems\\Embedded Operating Systems\\"
+ 806      204F7065 
+ 806      72617469 
+ 806      6E672073 
+ 806      79737465 
+ 807 02d2 576F726B 		.ascii	"Workbook\\1.2_lets_press_a_button.cydsn\000"
+ 807      626F6F6B 
+ 807      5C312E32 
+ 807      5F6C6574 
+ 807      735F7072 
+ 808              	.LASF28:
+ 809 02f9 52435F45 		.ascii	"RC_ERROR_BUFFER_EMTPY\000"
+ 809      52524F52 
+ 809      5F425546 
+ 809      4645525F 
+ 809      454D5450 
+ 810              	.LASF41:
+ 811 030f 52435F45 		.ascii	"RC_ERROR_CANCELED\000"
+ 811      52524F52 
+ 811      5F43414E 
+ARM GAS  C:\Users\MATEOC~1.QUE\AppData\Local\Temp\ccLrlqmO.s 			page 19
+
+
+ 811      43454C45 
+ 811      4400
+ 812              	.LASF50:
+ 813 0321 4A4F5953 		.ascii	"JOYSTICK_ADC_XY_IsEndConversion\000"
+ 813      5449434B 
+ 813      5F414443 
+ 813      5F58595F 
+ 813      4973456E 
+ 814              	.LASF10:
+ 815 0341 756E7369 		.ascii	"unsigned int\000"
+ 815      676E6564 
+ 815      20696E74 
+ 815      00
+ 816              	.LASF29:
+ 817 034e 52435F45 		.ascii	"RC_ERROR_BUSY\000"
+ 817      52524F52 
+ 817      5F425553 
+ 817      5900
+ 818              	.LASF9:
+ 819 035c 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 819      206C6F6E 
+ 819      6720756E 
+ 819      7369676E 
+ 819      65642069 
+ 820              	.LASF32:
+ 821 0373 52435F45 		.ascii	"RC_ERROR_CHECKSUM\000"
+ 821      52524F52 
+ 821      5F434845 
+ 821      434B5355 
+ 821      4D00
+ 822              	.LASF53:
+ 823 0385 736F7572 		.ascii	"source\\bsw\\LabBoard\\joystick.c\000"
+ 823      63655C62 
+ 823      73775C4C 
+ 823      6162426F 
+ 823      6172645C 
+ 824              	.LASF49:
+ 825 03a4 4A4F5953 		.ascii	"JOYSTICK_ADC_XY_StartConvert\000"
+ 825      5449434B 
+ 825      5F414443 
+ 825      5F58595F 
+ 825      53746172 
+ 826              	.LASF12:
+ 827 03c1 696E7433 		.ascii	"int32_t\000"
+ 827      325F7400 
+ 828              	.LASF17:
+ 829 03c9 73697A65 		.ascii	"sizetype\000"
+ 829      74797065 
+ 829      00
+ 830              	.LASF8:
+ 831 03d2 6C6F6E67 		.ascii	"long long int\000"
+ 831      206C6F6E 
+ 831      6720696E 
+ 831      7400
+ 832              	.LASF15:
+ 833 03e0 63686172 		.ascii	"char\000"
+ 833      00
+ARM GAS  C:\Users\MATEOC~1.QUE\AppData\Local\Temp\ccLrlqmO.s 			page 20
+
+
+ 834              	.LASF51:
+ 835 03e5 4A4F5953 		.ascii	"JOYSTICK_ADC_XY_GetResult16\000"
+ 835      5449434B 
+ 835      5F414443 
+ 835      5F58595F 
+ 835      47657452 
+ 836              	.LASF42:
+ 837 0401 52435F45 		.ascii	"RC_ERROR_INVALID_STATE\000"
+ 837      52524F52 
+ 837      5F494E56 
+ 837      414C4944 
+ 837      5F535441 
+ 838              	.LASF2:
+ 839 0418 73686F72 		.ascii	"short int\000"
+ 839      7420696E 
+ 839      7400
+ 840              	.LASF34:
+ 841 0422 52435F45 		.ascii	"RC_ERROR_WRITE_ONLY\000"
+ 841      52524F52 
+ 841      5F575249 
+ 841      54455F4F 
+ 841      4E4C5900 
+ 842              	.LASF11:
+ 843 0436 75696E74 		.ascii	"uint16_t\000"
+ 843      31365F74 
+ 843      00
+ 844              	.LASF56:
+ 845 043f 4A4F5953 		.ascii	"JOYSTICK_ReadPosition\000"
+ 845      5449434B 
+ 845      5F526561 
+ 845      64506F73 
+ 845      6974696F 
+ 846              	.LASF6:
+ 847 0455 6C6F6E67 		.ascii	"long int\000"
+ 847      20696E74 
+ 847      00
+ 848              	.LASF16:
+ 849 045e 6C6F6E67 		.ascii	"long double\000"
+ 849      20646F75 
+ 849      626C6500 
+ 850              	.LASF33:
+ 851 046a 52435F45 		.ascii	"RC_ERROR_READ_ONLY\000"
+ 851      52524F52 
+ 851      5F524541 
+ 851      445F4F4E 
+ 851      4C5900
+ 852              	.LASF0:
+ 853 047d 7369676E 		.ascii	"signed char\000"
+ 853      65642063 
+ 853      68617200 
+ 854              	.LASF35:
+ 855 0489 52435F45 		.ascii	"RC_ERROR_INVALID\000"
+ 855      52524F52 
+ 855      5F494E56 
+ 855      414C4944 
+ 855      00
+ 856              	.LASF31:
+ARM GAS  C:\Users\MATEOC~1.QUE\AppData\Local\Temp\ccLrlqmO.s 			page 21
+
+
+ 857 049a 52435F45 		.ascii	"RC_ERROR_OPEN\000"
+ 857      52524F52 
+ 857      5F4F5045 
+ 857      4E00
+ 858              	.LASF24:
+ 859 04a8 52435F45 		.ascii	"RC_ERROR_RANGE\000"
+ 859      52524F52 
+ 859      5F52414E 
+ 859      474500
+ 860              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 5.4.1 20160609 (release) [ARM/embedded-5-bran

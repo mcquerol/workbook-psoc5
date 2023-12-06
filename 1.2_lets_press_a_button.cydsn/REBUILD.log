@@ -1,0 +1,3 @@
+--------------- Rebuild Started: 12/06/2023 19:47:28 Project: main.c, Configuration: ARM GCC 5.4-2016-q2-update Debug ---------------
+arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I.\source\asw -I.\source\bsw -I.\source\bsw\TraceRecorder -I.\source\bsw\TraceRecorder\config -I.\source\bsw\TraceRecorder\include -I.\source\bsw\TraceRecorder\streamport -I.\source\bsw\LabBoard -I.\source\bsw\Services -I.\source\bsw\tft -I.\source\bsw\tft\fonts -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/main.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c source\asw\main.c -o .\CortexM3\ARM_GCC_541\Debug\main.o
+--------------- Rebuild Succeeded: 12/06/2023 19:47:29 ---------------

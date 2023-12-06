@@ -1,0 +1,10 @@
+C:\Users\Mateo C. Querol\OneDrive\University\Darmstadt\Advanced Microcontroller Systems and Embedded Operating systems\Embedded Operating Systems\Workbook\reaction_game_wb.cydsn\reaction_game_wb.cyprj|f83f3d0e-0075-43f2-99fe-e047e059a646
+C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\psoc\content\default\CyAnnotationLibrary\CyAnnotationLibrary.cylib\CyAnnotationLibrary.cyprj|cf232c23-cfdc-4d87-a6c8-e05d0f42bb76
+C:\Users\Mateo C. Querol\Documents\PSoC Creator\4.4\Downloads ( 4.4).cylib\Downloads ( 4.4).cyprj|6a362821-9e9b-4ceb-939e-8574127b2fe3
+C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\psoc\content\cycomponentlibraryupdates\CyComponentLibraryUpdates.cylib\CyComponentLibraryUpdates.cyprj|2ff178c6-3a3c-4ee3-991f-05d7ac4115d2
+C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\psoc\content\cycomponentlibrary\CyComponentLibrary.cylib\CyComponentLibrary.cyprj|c70350c5-d21a-421e-a07f-e12c87d7cb9c
+C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\psoc\content\cyprimitives\CyPrimitives.cylib\CyPrimitives.cyprj|d52690b7-9cdf-4805-82b6-dad2bb35e172
+C:\Users\Mateo C. Querol\OneDrive\University\Darmstadt\Advanced Microcontroller Systems and Embedded Operating systems\Embedded Operating Systems\Workbook\mp3_player_wb.cydsn\mp3_player_wb.cyprj|29eeac65-0915-493a-ab24-3c1cd44217b6
+C:\Users\Mateo C. Querol\OneDrive\University\Darmstadt\Advanced Microcontroller Systems and Embedded Operating systems\Embedded Operating Systems\Workbook\Ringbuffer_testing.cydsn\Ringbuffer_testing.cyprj|e802754d-f4e1-4d65-b5e2-e6f1dc73e4da
+C:\Users\Mateo C. Querol\OneDrive\University\Darmstadt\Advanced Microcontroller Systems and Embedded Operating systems\Embedded Operating Systems\Workbook\JSONParser.cydsn\JSONParser.cyprj|69ff7009-91ff-49be-8852-5eaa3ad2032e
+C:\Users\Mateo C. Querol\OneDrive\University\Darmstadt\Advanced Microcontroller Systems and Embedded Operating systems\Embedded Operating Systems\Workbook\1.2_lets_press_a_button.cydsn\1.2_lets_press_a_button.cyprj|ba87da76-3df4-44a0-8f19-507b146558d2
