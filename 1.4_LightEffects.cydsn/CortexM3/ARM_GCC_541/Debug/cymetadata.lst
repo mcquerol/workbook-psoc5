@@ -1,0 +1,4277 @@
+ARM GAS  C:\Users\MATEOC~1.QUE\AppData\Local\Temp\ccFh5Tza.s 			page 1
+
+
+   1              		.syntax unified
+   2              		.cpu cortex-m3
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 1
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.thumb
+  14              		.syntax unified
+  15              		.file	"cymetadata.c"
+  16              		.text
+  17              	.Ltext0:
+  18              		.cfi_sections	.debug_frame
+  19              		.global	cy_metadata
+  20              		.global	cy_meta_flashprotect
+  21              		.global	cy_meta_wonvl
+  22              		.global	cy_meta_custnvl
+  23              		.global	cy_meta_configecc
+  24              		.section	.cyconfigecc,"a",%progbits
+  25              		.align	2
+  26              		.type	cy_meta_configecc, %object
+  27              		.size	cy_meta_configecc, 3572
+  28              	cy_meta_configecc:
+  29 0000 02       		.byte	2
+  30 0001 4F       		.byte	79
+  31 0002 00       		.byte	0
+  32 0003 40       		.byte	64
+  33 0004 06       		.byte	6
+  34 0005 52       		.byte	82
+  35 0006 00       		.byte	0
+  36 0007 40       		.byte	64
+  37 0008 01       		.byte	1
+  38 0009 5B       		.byte	91
+  39 000a 00       		.byte	0
+  40 000b 40       		.byte	64
+  41 000c 03       		.byte	3
+  42 000d 64       		.byte	100
+  43 000e 00       		.byte	0
+  44 000f 40       		.byte	64
+  45 0010 02       		.byte	2
+  46 0011 65       		.byte	101
+  47 0012 00       		.byte	0
+  48 0013 40       		.byte	64
+  49 0014 42       		.byte	66
+  50 0015 00       		.byte	0
+  51 0016 01       		.byte	1
+  52 0017 40       		.byte	64
+  53 0018 2E       		.byte	46
+  54 0019 01       		.byte	1
+  55 001a 01       		.byte	1
+  56 001b 40       		.byte	64
+  57 001c 52       		.byte	82
+ARM GAS  C:\Users\MATEOC~1.QUE\AppData\Local\Temp\ccFh5Tza.s 			page 2
+
+
+  58 001d 02       		.byte	2
+  59 001e 01       		.byte	1
+  60 001f 40       		.byte	64
+  61 0020 4A       		.byte	74
+  62 0021 03       		.byte	3
+  63 0022 01       		.byte	1
+  64 0023 40       		.byte	64
+  65 0024 44       		.byte	68
+  66 0025 04       		.byte	4
+  67 0026 01       		.byte	1
+  68 0027 40       		.byte	64
+  69 0028 47       		.byte	71
+  70 0029 05       		.byte	5
+  71 002a 01       		.byte	1
+  72 002b 40       		.byte	64
+  73 002c 26       		.byte	38
+  74 002d 06       		.byte	6
+  75 002e 01       		.byte	1
+  76 002f 40       		.byte	64
+  77 0030 36       		.byte	54
+  78 0031 07       		.byte	7
+  79 0032 01       		.byte	1
+  80 0033 40       		.byte	64
+  81 0034 4C       		.byte	76
+  82 0035 08       		.byte	8
+  83 0036 01       		.byte	1
+  84 0037 40       		.byte	64
+  85 0038 5B       		.byte	91
+  86 0039 09       		.byte	9
+  87 003a 01       		.byte	1
+  88 003b 40       		.byte	64
+  89 003c 45       		.byte	69
+  90 003d 0A       		.byte	10
+  91 003e 01       		.byte	1
+  92 003f 40       		.byte	64
+  93 0040 4F       		.byte	79
+  94 0041 0B       		.byte	11
+  95 0042 01       		.byte	1
+  96 0043 40       		.byte	64
+  97 0044 4A       		.byte	74
+  98 0045 0C       		.byte	12
+  99 0046 01       		.byte	1
+ 100 0047 40       		.byte	64
+ 101 0048 54       		.byte	84
+ 102 0049 0D       		.byte	13
+ 103 004a 01       		.byte	1
+ 104 004b 40       		.byte	64
+ 105 004c 38       		.byte	56
+ 106 004d 0E       		.byte	14
+ 107 004e 01       		.byte	1
+ 108 004f 40       		.byte	64
+ 109 0050 34       		.byte	52
+ 110 0051 0F       		.byte	15
+ 111 0052 01       		.byte	1
+ 112 0053 40       		.byte	64
+ 113 0054 34       		.byte	52
+ 114 0055 14       		.byte	20
+ARM GAS  C:\Users\MATEOC~1.QUE\AppData\Local\Temp\ccFh5Tza.s 			page 3
+
+
+ 115 0056 01       		.byte	1
+ 116 0057 40       		.byte	64
+ 117 0058 41       		.byte	65
+ 118 0059 15       		.byte	21
+ 119 005a 01       		.byte	1
+ 120 005b 40       		.byte	64
+ 121 005c 38       		.byte	56
+ 122 005d 16       		.byte	22
+ 123 005e 01       		.byte	1
+ 124 005f 40       		.byte	64
+ 125 0060 41       		.byte	65
+ 126 0061 17       		.byte	23
+ 127 0062 01       		.byte	1
+ 128 0063 40       		.byte	64
+ 129 0064 2C       		.byte	44
+ 130 0065 18       		.byte	24
+ 131 0066 01       		.byte	1
+ 132 0067 40       		.byte	64
+ 133 0068 46       		.byte	70
+ 134 0069 19       		.byte	25
+ 135 006a 01       		.byte	1
+ 136 006b 40       		.byte	64
+ 137 006c 0F       		.byte	15
+ 138 006d 1A       		.byte	26
+ 139 006e 01       		.byte	1
+ 140 006f 40       		.byte	64
+ 141 0070 49       		.byte	73
+ 142 0071 1B       		.byte	27
+ 143 0072 01       		.byte	1
+ 144 0073 40       		.byte	64
+ 145 0074 09       		.byte	9
+ 146 0075 40       		.byte	64
+ 147 0076 01       		.byte	1
+ 148 0077 40       		.byte	64
+ 149 0078 16       		.byte	22
+ 150 0079 41       		.byte	65
+ 151 007a 01       		.byte	1
+ 152 007b 40       		.byte	64
+ 153 007c 11       		.byte	17
+ 154 007d 42       		.byte	66
+ 155 007e 01       		.byte	1
+ 156 007f 40       		.byte	64
+ 157 0080 09       		.byte	9
+ 158 0081 43       		.byte	67
+ 159 0082 01       		.byte	1
+ 160 0083 40       		.byte	64
+ 161 0084 04       		.byte	4
+ 162 0085 44       		.byte	68
+ 163 0086 01       		.byte	1
+ 164 0087 40       		.byte	64
+ 165 0088 05       		.byte	5
+ 166 0089 45       		.byte	69
+ 167 008a 01       		.byte	1
+ 168 008b 40       		.byte	64
+ 169 008c 08       		.byte	8
+ 170 008d 46       		.byte	70
+ 171 008e 01       		.byte	1
+ARM GAS  C:\Users\MATEOC~1.QUE\AppData\Local\Temp\ccFh5Tza.s 			page 4
+
+
+ 172 008f 40       		.byte	64
+ 173 0090 07       		.byte	7
+ 174 0091 47       		.byte	71
+ 175 0092 01       		.byte	1
+ 176 0093 40       		.byte	64
+ 177 0094 04       		.byte	4
+ 178 0095 48       		.byte	72
+ 179 0096 01       		.byte	1
+ 180 0097 40       		.byte	64
+ 181 0098 07       		.byte	7
+ 182 0099 49       		.byte	73
+ 183 009a 01       		.byte	1
+ 184 009b 40       		.byte	64
+ 185 009c 0B       		.byte	11
+ 186 009d 4C       		.byte	76
+ 187 009e 01       		.byte	1
+ 188 009f 40       		.byte	64
+ 189 00a0 17       		.byte	23
+ 190 00a1 4D       		.byte	77
+ 191 00a2 01       		.byte	1
+ 192 00a3 40       		.byte	64
+ 193 00a4 06       		.byte	6
+ 194 00a5 50       		.byte	80
+ 195 00a6 01       		.byte	1
+ 196 00a7 40       		.byte	64
+ 197 00a8 02       		.byte	2
+ 198 00a9 51       		.byte	81
+ 199 00aa 01       		.byte	1
+ 200 00ab 40       		.byte	64
+ 201 00ac 01       		.byte	1
+ 202 00ad 40       		.byte	64
+ 203 00ae 0A       		.byte	10
+ 204 00af 4B       		.byte	75
+ 205 00b0 00       		.byte	0
+ 206 00b1 83       		.byte	-125
+ 207 00b2 01       		.byte	1
+ 208 00b3 82       		.byte	-126
+ 209 00b4 08       		.byte	8
+ 210 00b5 9A       		.byte	-102
+ 211 00b6 09       		.byte	9
+ 212 00b7 A9       		.byte	-87
+ 213 00b8 60       		.byte	96
+ 214 00b9 14       		.byte	20
+ 215 00ba 61       		.byte	97
+ 216 00bb 84       		.byte	-124
+ 217 00bc 27       		.byte	39
+ 218 00bd 84       		.byte	-124
+ 219 00be 83       		.byte	-125
+ 220 00bf 01       		.byte	1
+ 221 00c0 8C       		.byte	-116
+ 222 00c1 72       		.byte	114
+ 223 00c2 8E       		.byte	-114
+ 224 00c3 0F       		.byte	15
+ 225 00c4 86       		.byte	-122
+ 226 00c5 0F       		.byte	15
+ 227 00c6 88       		.byte	-120
+ 228 00c7 38       		.byte	56
+ARM GAS  C:\Users\MATEOC~1.QUE\AppData\Local\Temp\ccFh5Tza.s 			page 5
+
+
+ 229 00c8 06       		.byte	6
+ 230 00c9 01       		.byte	1
+ 231 00ca 1A       		.byte	26
+ 232 00cb 02       		.byte	2
+ 233 00cc 30       		.byte	48
+ 234 00cd 02       		.byte	2
+ 235 00ce 36       		.byte	54
+ 236 00cf 01       		.byte	1
+ 237 00d0 40       		.byte	64
+ 238 00d1 40       		.byte	64
+ 239 00d2 41       		.byte	65
+ 240 00d3 03       		.byte	3
+ 241 00d4 49       		.byte	73
+ 242 00d5 FF       		.byte	-1
+ 243 00d6 4A       		.byte	74
+ 244 00d7 FF       		.byte	-1
+ 245 00d8 4B       		.byte	75
+ 246 00d9 FF       		.byte	-1
+ 247 00da 4D       		.byte	77
+ 248 00db A0       		.byte	-96
+ 249 00dc 4F       		.byte	79
+ 250 00dd 04       		.byte	4
+ 251 00de 50       		.byte	80
+ 252 00df 18       		.byte	24
+ 253 00e0 52       		.byte	82
+ 254 00e1 80       		.byte	-128
+ 255 00e2 58       		.byte	88
+ 256 00e3 04       		.byte	4
+ 257 00e4 59       		.byte	89
+ 258 00e5 04       		.byte	4
+ 259 00e6 5A       		.byte	90
+ 260 00e7 04       		.byte	4
+ 261 00e8 5B       		.byte	91
+ 262 00e9 04       		.byte	4
+ 263 00ea 5C       		.byte	92
+ 264 00eb 22       		.byte	34
+ 265 00ec 5D       		.byte	93
+ 266 00ed 11       		.byte	17
+ 267 00ee 5F       		.byte	95
+ 268 00ef 01       		.byte	1
+ 269 00f0 60       		.byte	96
+ 270 00f1 40       		.byte	64
+ 271 00f2 62       		.byte	98
+ 272 00f3 C0       		.byte	-64
+ 273 00f4 64       		.byte	100
+ 274 00f5 40       		.byte	64
+ 275 00f6 65       		.byte	101
+ 276 00f7 40       		.byte	64
+ 277 00f8 66       		.byte	102
+ 278 00f9 C0       		.byte	-64
+ 279 00fa 68       		.byte	104
+ 280 00fb C0       		.byte	-64
+ 281 00fc 6A       		.byte	106
+ 282 00fd C0       		.byte	-64
+ 283 00fe 6C       		.byte	108
+ 284 00ff C0       		.byte	-64
+ 285 0100 6E       		.byte	110
+ARM GAS  C:\Users\MATEOC~1.QUE\AppData\Local\Temp\ccFh5Tza.s 			page 6
+
+
+ 286 0101 C0       		.byte	-64
+ 287 0102 8A       		.byte	-118
+ 288 0103 01       		.byte	1
+ 289 0104 8C       		.byte	-116
+ 290 0105 01       		.byte	1
+ 291 0106 90       		.byte	-112
+ 292 0107 01       		.byte	1
+ 293 0108 94       		.byte	-108
+ 294 0109 01       		.byte	1
+ 295 010a 9A       		.byte	-102
+ 296 010b 01       		.byte	1
+ 297 010c 9C       		.byte	-100
+ 298 010d 01       		.byte	1
+ 299 010e AC       		.byte	-84
+ 300 010f 01       		.byte	1
+ 301 0110 B6       		.byte	-74
+ 302 0111 01       		.byte	1
+ 303 0112 C0       		.byte	-64
+ 304 0113 40       		.byte	64
+ 305 0114 C1       		.byte	-63
+ 306 0115 03       		.byte	3
+ 307 0116 C5       		.byte	-59
+ 308 0117 01       		.byte	1
+ 309 0118 C6       		.byte	-58
+ 310 0119 20       		.byte	32
+ 311 011a C8       		.byte	-56
+ 312 011b 09       		.byte	9
+ 313 011c C9       		.byte	-55
+ 314 011d FF       		.byte	-1
+ 315 011e CA       		.byte	-54
+ 316 011f FF       		.byte	-1
+ 317 0120 CB       		.byte	-53
+ 318 0121 FF       		.byte	-1
+ 319 0122 CD       		.byte	-51
+ 320 0123 AF       		.byte	-81
+ 321 0124 CE       		.byte	-50
+ 322 0125 0F       		.byte	15
+ 323 0126 CF       		.byte	-49
+ 324 0127 04       		.byte	4
+ 325 0128 D0       		.byte	-48
+ 326 0129 18       		.byte	24
+ 327 012a D2       		.byte	-46
+ 328 012b 80       		.byte	-128
+ 329 012c D8       		.byte	-40
+ 330 012d 04       		.byte	4
+ 331 012e D9       		.byte	-39
+ 332 012f 04       		.byte	4
+ 333 0130 DA       		.byte	-38
+ 334 0131 04       		.byte	4
+ 335 0132 DB       		.byte	-37
+ 336 0133 04       		.byte	4
+ 337 0134 DC       		.byte	-36
+ 338 0135 22       		.byte	34
+ 339 0136 DD       		.byte	-35
+ 340 0137 11       		.byte	17
+ 341 0138 DF       		.byte	-33
+ 342 0139 01       		.byte	1
+ARM GAS  C:\Users\MATEOC~1.QUE\AppData\Local\Temp\ccFh5Tza.s 			page 7
+
+
+ 343 013a E0       		.byte	-32
+ 344 013b 40       		.byte	64
+ 345 013c E2       		.byte	-30
+ 346 013d C0       		.byte	-64
+ 347 013e E4       		.byte	-28
+ 348 013f 40       		.byte	64
+ 349 0140 E5       		.byte	-27
+ 350 0141 40       		.byte	64
+ 351 0142 E6       		.byte	-26
+ 352 0143 C0       		.byte	-64
+ 353 0144 E8       		.byte	-24
+ 354 0145 C0       		.byte	-64
+ 355 0146 EA       		.byte	-22
+ 356 0147 C0       		.byte	-64
+ 357 0148 EC       		.byte	-20
+ 358 0149 C0       		.byte	-64
+ 359 014a EE       		.byte	-18
+ 360 014b C0       		.byte	-64
+ 361 014c 00       		.byte	0
+ 362 014d 88       		.byte	-120
+ 363 014e 04       		.byte	4
+ 364 014f 80       		.byte	-128
+ 365 0150 05       		.byte	5
+ 366 0151 20       		.byte	32
+ 367 0152 08       		.byte	8
+ 368 0153 01       		.byte	1
+ 369 0154 09       		.byte	9
+ 370 0155 28       		.byte	40
+ 371 0156 0B       		.byte	11
+ 372 0157 02       		.byte	2
+ 373 0158 0C       		.byte	12
+ 374 0159 01       		.byte	1
+ 375 015a 0D       		.byte	13
+ 376 015b 08       		.byte	8
+ 377 015c 0E       		.byte	14
+ 378 015d 06       		.byte	6
+ 379 015e 0F       		.byte	15
+ 380 015f 80       		.byte	-128
+ 381 0160 11       		.byte	17
+ 382 0161 50       		.byte	80
+ 383 0162 13       		.byte	19
+ 384 0163 42       		.byte	66
+ 385 0164 15       		.byte	21
+ 386 0165 40       		.byte	64
+ 387 0166 18       		.byte	24
+ 388 0167 80       		.byte	-128
+ 389 0168 19       		.byte	25
+ 390 0169 40       		.byte	64
+ 391 016a 1B       		.byte	27
+ 392 016b 43       		.byte	67
+ 393 016c 1F       		.byte	31
+ 394 016d 80       		.byte	-128
+ 395 016e 29       		.byte	41
+ 396 016f 40       		.byte	64
+ 397 0170 2D       		.byte	45
+ 398 0171 30       		.byte	48
+ 399 0172 31       		.byte	49
+ARM GAS  C:\Users\MATEOC~1.QUE\AppData\Local\Temp\ccFh5Tza.s 			page 8
+
+
+ 400 0173 08       		.byte	8
+ 401 0174 32       		.byte	50
+ 402 0175 02       		.byte	2
+ 403 0176 33       		.byte	51
+ 404 0177 04       		.byte	4
+ 405 0178 35       		.byte	53
+ 406 0179 40       		.byte	64
+ 407 017a 36       		.byte	54
+ 408 017b 03       		.byte	3
+ 409 017c 37       		.byte	55
+ 410 017d 06       		.byte	6
+ 411 017e 39       		.byte	57
+ 412 017f 14       		.byte	20
+ 413 0180 3B       		.byte	59
+ 414 0181 42       		.byte	66
+ 415 0182 3D       		.byte	61
+ 416 0183 04       		.byte	4
+ 417 0184 3E       		.byte	62
+ 418 0185 04       		.byte	4
+ 419 0186 3F       		.byte	63
+ 420 0187 42       		.byte	66
+ 421 0188 42       		.byte	66
+ 422 0189 60       		.byte	96
+ 423 018a 43       		.byte	67
+ 424 018b 01       		.byte	1
+ 425 018c 46       		.byte	70
+ 426 018d 20       		.byte	32
+ 427 018e 47       		.byte	71
+ 428 018f 01       		.byte	1
+ 429 0190 4F       		.byte	79
+ 430 0191 04       		.byte	4
+ 431 0192 56       		.byte	86
+ 432 0193 20       		.byte	32
+ 433 0194 70       		.byte	112
+ 434 0195 01       		.byte	1
+ 435 0196 77       		.byte	119
+ 436 0197 80       		.byte	-128
+ 437 0198 7F       		.byte	127
+ 438 0199 03       		.byte	3
+ 439 019a C0       		.byte	-64
+ 440 019b C5       		.byte	-59
+ 441 019c C2       		.byte	-62
+ 442 019d FF       		.byte	-1
+ 443 019e C4       		.byte	-60
+ 444 019f 8B       		.byte	-117
+ 445 01a0 CA       		.byte	-54
+ 446 01a1 28       		.byte	40
+ 447 01a2 CC       		.byte	-52
+ 448 01a3 D3       		.byte	-45
+ 449 01a4 CE       		.byte	-50
+ 450 01a5 DF       		.byte	-33
+ 451 01a6 D0       		.byte	-48
+ 452 01a7 C3       		.byte	-61
+ 453 01a8 04       		.byte	4
+ 454 01a9 04       		.byte	4
+ 455 01aa 08       		.byte	8
+ 456 01ab 04       		.byte	4
+ARM GAS  C:\Users\MATEOC~1.QUE\AppData\Local\Temp\ccFh5Tza.s 			page 9
+
+
+ 457 01ac 0B       		.byte	11
+ 458 01ad 02       		.byte	2
+ 459 01ae 1A       		.byte	26
+ 460 01af 02       		.byte	2
+ 461 01b0 1B       		.byte	27
+ 462 01b1 02       		.byte	2
+ 463 01b2 1C       		.byte	28
+ 464 01b3 04       		.byte	4
+ 465 01b4 1F       		.byte	31
+ 466 01b5 01       		.byte	1
+ 467 01b6 22       		.byte	34
+ 468 01b7 01       		.byte	1
+ 469 01b8 26       		.byte	38
+ 470 01b9 02       		.byte	2
+ 471 01ba 2C       		.byte	44
+ 472 01bb 04       		.byte	4
+ 473 01bc 30       		.byte	48
+ 474 01bd 01       		.byte	1
+ 475 01be 32       		.byte	50
+ 476 01bf 02       		.byte	2
+ 477 01c0 34       		.byte	52
+ 478 01c1 04       		.byte	4
+ 479 01c2 35       		.byte	53
+ 480 01c3 01       		.byte	1
+ 481 01c4 37       		.byte	55
+ 482 01c5 02       		.byte	2
+ 483 01c6 38       		.byte	56
+ 484 01c7 20       		.byte	32
+ 485 01c8 3E       		.byte	62
+ 486 01c9 10       		.byte	16
+ 487 01ca 40       		.byte	64
+ 488 01cb 60       		.byte	96
+ 489 01cc 41       		.byte	65
+ 490 01cd 01       		.byte	1
+ 491 01ce 49       		.byte	73
+ 492 01cf FF       		.byte	-1
+ 493 01d0 4A       		.byte	74
+ 494 01d1 FF       		.byte	-1
+ 495 01d2 4B       		.byte	75
+ 496 01d3 FF       		.byte	-1
+ 497 01d4 4D       		.byte	77
+ 498 01d5 A0       		.byte	-96
+ 499 01d6 4F       		.byte	79
+ 500 01d7 04       		.byte	4
+ 501 01d8 50       		.byte	80
+ 502 01d9 18       		.byte	24
+ 503 01da 52       		.byte	82
+ 504 01db 80       		.byte	-128
+ 505 01dc 58       		.byte	88
+ 506 01dd 04       		.byte	4
+ 507 01de 59       		.byte	89
+ 508 01df 04       		.byte	4
+ 509 01e0 5A       		.byte	90
+ 510 01e1 04       		.byte	4
+ 511 01e2 5B       		.byte	91
+ 512 01e3 04       		.byte	4
+ 513 01e4 5C       		.byte	92
+ARM GAS  C:\Users\MATEOC~1.QUE\AppData\Local\Temp\ccFh5Tza.s 			page 10
+
+
+ 514 01e5 11       		.byte	17
+ 515 01e6 5D       		.byte	93
+ 516 01e7 11       		.byte	17
+ 517 01e8 5F       		.byte	95
+ 518 01e9 01       		.byte	1
+ 519 01ea 60       		.byte	96
+ 520 01eb 40       		.byte	64
+ 521 01ec 62       		.byte	98
+ 522 01ed C0       		.byte	-64
+ 523 01ee 64       		.byte	100
+ 524 01ef 40       		.byte	64
+ 525 01f0 65       		.byte	101
+ 526 01f1 40       		.byte	64
+ 527 01f2 66       		.byte	102
+ 528 01f3 C0       		.byte	-64
+ 529 01f4 68       		.byte	104
+ 530 01f5 C0       		.byte	-64
+ 531 01f6 6A       		.byte	106
+ 532 01f7 C0       		.byte	-64
+ 533 01f8 6C       		.byte	108
+ 534 01f9 C0       		.byte	-64
+ 535 01fa 6E       		.byte	110
+ 536 01fb C0       		.byte	-64
+ 537 01fc 83       		.byte	-125
+ 538 01fd 01       		.byte	1
+ 539 01fe 87       		.byte	-121
+ 540 01ff 04       		.byte	4
+ 541 0200 93       		.byte	-109
+ 542 0201 04       		.byte	4
+ 543 0202 95       		.byte	-107
+ 544 0203 02       		.byte	2
+ 545 0204 AD       		.byte	-83
+ 546 0205 02       		.byte	2
+ 547 0206 B1       		.byte	-79
+ 548 0207 04       		.byte	4
+ 549 0208 B3       		.byte	-77
+ 550 0209 01       		.byte	1
+ 551 020a B5       		.byte	-75
+ 552 020b 02       		.byte	2
+ 553 020c B9       		.byte	-71
+ 554 020d 20       		.byte	32
+ 555 020e BF       		.byte	-65
+ 556 020f 10       		.byte	16
+ 557 0210 C0       		.byte	-64
+ 558 0211 60       		.byte	96
+ 559 0212 C1       		.byte	-63
+ 560 0213 05       		.byte	5
+ 561 0214 C5       		.byte	-59
+ 562 0215 01       		.byte	1
+ 563 0216 C7       		.byte	-57
+ 564 0217 20       		.byte	32
+ 565 0218 C8       		.byte	-56
+ 566 0219 21       		.byte	33
+ 567 021a C9       		.byte	-55
+ 568 021b FF       		.byte	-1
+ 569 021c CA       		.byte	-54
+ 570 021d FF       		.byte	-1
+ARM GAS  C:\Users\MATEOC~1.QUE\AppData\Local\Temp\ccFh5Tza.s 			page 11
+
+
+ 571 021e CB       		.byte	-53
+ 572 021f FF       		.byte	-1
+ 573 0220 CD       		.byte	-51
+ 574 0221 AF       		.byte	-81
+ 575 0222 CE       		.byte	-50
+ 576 0223 0F       		.byte	15
+ 577 0224 CF       		.byte	-49
+ 578 0225 04       		.byte	4
+ 579 0226 D0       		.byte	-48
+ 580 0227 18       		.byte	24
+ 581 0228 D6       		.byte	-42
+ 582 0229 02       		.byte	2
+ 583 022a D7       		.byte	-41
+ 584 022b 36       		.byte	54
+ 585 022c D8       		.byte	-40
+ 586 022d 04       		.byte	4
+ 587 022e D9       		.byte	-39
+ 588 022f 04       		.byte	4
+ 589 0230 DA       		.byte	-38
+ 590 0231 04       		.byte	4
+ 591 0232 DB       		.byte	-37
+ 592 0233 0C       		.byte	12
+ 593 0234 DC       		.byte	-36
+ 594 0235 12       		.byte	18
+ 595 0236 DD       		.byte	-35
+ 596 0237 21       		.byte	33
+ 597 0238 DF       		.byte	-33
+ 598 0239 01       		.byte	1
+ 599 023a E0       		.byte	-32
+ 600 023b 40       		.byte	64
+ 601 023c E2       		.byte	-30
+ 602 023d C0       		.byte	-64
+ 603 023e E4       		.byte	-28
+ 604 023f 40       		.byte	64
+ 605 0240 E5       		.byte	-27
+ 606 0241 40       		.byte	64
+ 607 0242 E6       		.byte	-26
+ 608 0243 C0       		.byte	-64
+ 609 0244 E8       		.byte	-24
+ 610 0245 C0       		.byte	-64
+ 611 0246 EA       		.byte	-22
+ 612 0247 C0       		.byte	-64
+ 613 0248 EC       		.byte	-20
+ 614 0249 C0       		.byte	-64
+ 615 024a EE       		.byte	-18
+ 616 024b C0       		.byte	-64
+ 617 024c 01       		.byte	1
+ 618 024d 28       		.byte	40
+ 619 024e 06       		.byte	6
+ 620 024f 10       		.byte	16
+ 621 0250 07       		.byte	7
+ 622 0251 08       		.byte	8
+ 623 0252 09       		.byte	9
+ 624 0253 08       		.byte	8
+ 625 0254 0A       		.byte	10
+ 626 0255 84       		.byte	-124
+ 627 0256 0B       		.byte	11
+ARM GAS  C:\Users\MATEOC~1.QUE\AppData\Local\Temp\ccFh5Tza.s 			page 12
+
+
+ 628 0257 42       		.byte	66
+ 629 0258 0F       		.byte	15
+ 630 0259 0A       		.byte	10
+ 631 025a 12       		.byte	18
+ 632 025b 02       		.byte	2
+ 633 025c 14       		.byte	20
+ 634 025d 01       		.byte	1
+ 635 025e 16       		.byte	22
+ 636 025f 80       		.byte	-128
+ 637 0260 17       		.byte	23
+ 638 0261 04       		.byte	4
+ 639 0262 1E       		.byte	30
+ 640 0263 40       		.byte	64
+ 641 0264 1F       		.byte	31
+ 642 0265 2A       		.byte	42
+ 643 0266 20       		.byte	32
+ 644 0267 04       		.byte	4
+ 645 0268 21       		.byte	33
+ 646 0269 01       		.byte	1
+ 647 026a 23       		.byte	35
+ 648 026b 10       		.byte	16
+ 649 026c 26       		.byte	38
+ 650 026d 40       		.byte	64
+ 651 026e 27       		.byte	39
+ 652 026f 04       		.byte	4
+ 653 0270 28       		.byte	40
+ 654 0271 02       		.byte	2
+ 655 0272 30       		.byte	48
+ 656 0273 08       		.byte	8
+ 657 0274 32       		.byte	50
+ 658 0275 04       		.byte	4
+ 659 0276 33       		.byte	51
+ 660 0277 02       		.byte	2
+ 661 0278 36       		.byte	54
+ 662 0279 10       		.byte	16
+ 663 027a 37       		.byte	55
+ 664 027b 80       		.byte	-128
+ 665 027c 38       		.byte	56
+ 666 027d 02       		.byte	2
+ 667 027e 3B       		.byte	59
+ 668 027f 04       		.byte	4
+ 669 0280 3F       		.byte	63
+ 670 0281 10       		.byte	16
+ 671 0282 46       		.byte	70
+ 672 0283 01       		.byte	1
+ 673 0284 48       		.byte	72
+ 674 0285 02       		.byte	2
+ 675 0286 4A       		.byte	74
+ 676 0287 10       		.byte	16
+ 677 0288 4B       		.byte	75
+ 678 0289 10       		.byte	16
+ 679 028a 4F       		.byte	79
+ 680 028b 10       		.byte	16
+ 681 028c 50       		.byte	80
+ 682 028d 02       		.byte	2
+ 683 028e 52       		.byte	82
+ 684 028f 01       		.byte	1
+ARM GAS  C:\Users\MATEOC~1.QUE\AppData\Local\Temp\ccFh5Tza.s 			page 13
+
+
+ 685 0290 5A       		.byte	90
+ 686 0291 08       		.byte	8
+ 687 0292 60       		.byte	96
+ 688 0293 04       		.byte	4
+ 689 0294 68       		.byte	104
+ 690 0295 04       		.byte	4
+ 691 0296 69       		.byte	105
+ 692 0297 14       		.byte	20
+ 693 0298 6B       		.byte	107
+ 694 0299 41       		.byte	65
+ 695 029a 71       		.byte	113
+ 696 029b 20       		.byte	32
+ 697 029c 72       		.byte	114
+ 698 029d 0A       		.byte	10
+ 699 029e 76       		.byte	118
+ 700 029f 80       		.byte	-128
+ 701 02a0 79       		.byte	121
+ 702 02a1 40       		.byte	64
+ 703 02a2 86       		.byte	-122
+ 704 02a3 40       		.byte	64
+ 705 02a4 8A       		.byte	-118
+ 706 02a5 10       		.byte	16
+ 707 02a6 8B       		.byte	-117
+ 708 02a7 01       		.byte	1
+ 709 02a8 90       		.byte	-112
+ 710 02a9 02       		.byte	2
+ 711 02aa 93       		.byte	-109
+ 712 02ab 06       		.byte	6
+ 713 02ac 96       		.byte	-106
+ 714 02ad 44       		.byte	68
+ 715 02ae 97       		.byte	-105
+ 716 02af 40       		.byte	64
+ 717 02b0 99       		.byte	-103
+ 718 02b1 40       		.byte	64
+ 719 02b2 9B       		.byte	-101
+ 720 02b3 80       		.byte	-128
+ 721 02b4 9D       		.byte	-99
+ 722 02b5 20       		.byte	32
+ 723 02b6 A4       		.byte	-92
+ 724 02b7 04       		.byte	4
+ 725 02b8 A5       		.byte	-91
+ 726 02b9 28       		.byte	40
+ 727 02ba A6       		.byte	-90
+ 728 02bb 02       		.byte	2
+ 729 02bc AC       		.byte	-84
+ 730 02bd 40       		.byte	64
+ 731 02be AE       		.byte	-82
+ 732 02bf 04       		.byte	4
+ 733 02c0 AF       		.byte	-81
+ 734 02c1 80       		.byte	-128
+ 735 02c2 B2       		.byte	-78
+ 736 02c3 02       		.byte	2
+ 737 02c4 B3       		.byte	-77
+ 738 02c5 02       		.byte	2
+ 739 02c6 C0       		.byte	-64
+ 740 02c7 66       		.byte	102
+ 741 02c8 C2       		.byte	-62
+ARM GAS  C:\Users\MATEOC~1.QUE\AppData\Local\Temp\ccFh5Tza.s 			page 14
+
+
+ 742 02c9 CF       		.byte	-49
+ 743 02ca C4       		.byte	-60
+ 744 02cb B1       		.byte	-79
+ 745 02cc CA       		.byte	-54
+ 746 02cd 08       		.byte	8
+ 747 02ce CC       		.byte	-52
+ 748 02cf 33       		.byte	51
+ 749 02d0 CE       		.byte	-50
+ 750 02d1 23       		.byte	35
+ 751 02d2 D0       		.byte	-48
+ 752 02d3 10       		.byte	16
+ 753 02d4 D2       		.byte	-46
+ 754 02d5 2C       		.byte	44
+ 755 02d6 D6       		.byte	-42
+ 756 02d7 02       		.byte	2
+ 757 02d8 D8       		.byte	-40
+ 758 02d9 04       		.byte	4
+ 759 02da DE       		.byte	-34
+ 760 02db 08       		.byte	8
+ 761 02dc E0       		.byte	-32
+ 762 02dd 80       		.byte	-128
+ 763 02de E4       		.byte	-28
+ 764 02df 20       		.byte	32
+ 765 02e0 02       		.byte	2
+ 766 02e1 02       		.byte	2
+ 767 02e2 07       		.byte	7
+ 768 02e3 01       		.byte	1
+ 769 02e4 0E       		.byte	14
+ 770 02e5 01       		.byte	1
+ 771 02e6 23       		.byte	35
+ 772 02e7 02       		.byte	2
+ 773 02e8 30       		.byte	48
+ 774 02e9 02       		.byte	2
+ 775 02ea 31       		.byte	49
+ 776 02eb 02       		.byte	2
+ 777 02ec 33       		.byte	51
+ 778 02ed 01       		.byte	1
+ 779 02ee 34       		.byte	52
+ 780 02ef 01       		.byte	1
+ 781 02f0 40       		.byte	64
+ 782 02f1 30       		.byte	48
+ 783 02f2 41       		.byte	65
+ 784 02f3 04       		.byte	4
+ 785 02f4 49       		.byte	73
+ 786 02f5 FF       		.byte	-1
+ 787 02f6 4A       		.byte	74
+ 788 02f7 FF       		.byte	-1
+ 789 02f8 4B       		.byte	75
+ 790 02f9 FF       		.byte	-1
+ 791 02fa 4D       		.byte	77
+ 792 02fb A0       		.byte	-96
+ 793 02fc 4F       		.byte	79
+ 794 02fd 04       		.byte	4
+ 795 02fe 50       		.byte	80
+ 796 02ff 18       		.byte	24
+ 797 0300 52       		.byte	82
+ 798 0301 03       		.byte	3
+ARM GAS  C:\Users\MATEOC~1.QUE\AppData\Local\Temp\ccFh5Tza.s 			page 15
+
+
+ 799 0302 53       		.byte	83
+ 800 0303 02       		.byte	2
+ 801 0304 58       		.byte	88
+ 802 0305 04       		.byte	4
+ 803 0306 59       		.byte	89
+ 804 0307 04       		.byte	4
+ 805 0308 5A       		.byte	90
+ 806 0309 04       		.byte	4
+ 807 030a 5B       		.byte	91
+ 808 030b 04       		.byte	4
+ 809 030c 5C       		.byte	92
+ 810 030d 22       		.byte	34
+ 811 030e 5D       		.byte	93
+ 812 030f 21       		.byte	33
+ 813 0310 5F       		.byte	95
+ 814 0311 01       		.byte	1
+ 815 0312 60       		.byte	96
+ 816 0313 40       		.byte	64
+ 817 0314 62       		.byte	98
+ 818 0315 C0       		.byte	-64
+ 819 0316 64       		.byte	100
+ 820 0317 40       		.byte	64
+ 821 0318 65       		.byte	101
+ 822 0319 40       		.byte	64
+ 823 031a 66       		.byte	102
+ 824 031b C0       		.byte	-64
+ 825 031c 68       		.byte	104
+ 826 031d C0       		.byte	-64
+ 827 031e 6A       		.byte	106
+ 828 031f C0       		.byte	-64
+ 829 0320 6C       		.byte	108
+ 830 0321 C0       		.byte	-64
+ 831 0322 6E       		.byte	110
+ 832 0323 C0       		.byte	-64
+ 833 0324 8D       		.byte	-115
+ 834 0325 01       		.byte	1
+ 835 0326 91       		.byte	-111
+ 836 0327 01       		.byte	1
+ 837 0328 95       		.byte	-107
+ 838 0329 01       		.byte	1
+ 839 032a 9D       		.byte	-99
+ 840 032b 01       		.byte	1
+ 841 032c A5       		.byte	-91
+ 842 032d 01       		.byte	1
+ 843 032e AB       		.byte	-85
+ 844 032f 01       		.byte	1
+ 845 0330 AD       		.byte	-83
+ 846 0331 01       		.byte	1
+ 847 0332 B1       		.byte	-79
+ 848 0333 01       		.byte	1
+ 849 0334 C0       		.byte	-64
+ 850 0335 30       		.byte	48
+ 851 0336 C1       		.byte	-63
+ 852 0337 04       		.byte	4
+ 853 0338 C7       		.byte	-57
+ 854 0339 21       		.byte	33
+ 855 033a C8       		.byte	-56
+ARM GAS  C:\Users\MATEOC~1.QUE\AppData\Local\Temp\ccFh5Tza.s 			page 16
+
+
+ 856 033b 30       		.byte	48
+ 857 033c C9       		.byte	-55
+ 858 033d FF       		.byte	-1
+ 859 033e CA       		.byte	-54
+ 860 033f FF       		.byte	-1
+ 861 0340 CB       		.byte	-53
+ 862 0341 FF       		.byte	-1
+ 863 0342 CD       		.byte	-51
+ 864 0343 AF       		.byte	-81
+ 865 0344 CE       		.byte	-50
+ 866 0345 0F       		.byte	15
+ 867 0346 CF       		.byte	-49
+ 868 0347 04       		.byte	4
+ 869 0348 D0       		.byte	-48
+ 870 0349 18       		.byte	24
+ 871 034a D8       		.byte	-40
+ 872 034b 04       		.byte	4
+ 873 034c D9       		.byte	-39
+ 874 034d 04       		.byte	4
+ 875 034e DA       		.byte	-38
+ 876 034f 04       		.byte	4
+ 877 0350 DC       		.byte	-36
+ 878 0351 22       		.byte	34
+ 879 0352 DD       		.byte	-35
+ 880 0353 01       		.byte	1
+ 881 0354 DF       		.byte	-33
+ 882 0355 01       		.byte	1
+ 883 0356 E0       		.byte	-32
+ 884 0357 40       		.byte	64
+ 885 0358 E2       		.byte	-30
+ 886 0359 C0       		.byte	-64
+ 887 035a E4       		.byte	-28
+ 888 035b 40       		.byte	64
+ 889 035c E5       		.byte	-27
+ 890 035d 40       		.byte	64
+ 891 035e E6       		.byte	-26
+ 892 035f C0       		.byte	-64
+ 893 0360 E8       		.byte	-24
+ 894 0361 C0       		.byte	-64
+ 895 0362 EA       		.byte	-22
+ 896 0363 C0       		.byte	-64
+ 897 0364 EC       		.byte	-20
+ 898 0365 C0       		.byte	-64
+ 899 0366 EE       		.byte	-18
+ 900 0367 C0       		.byte	-64
+ 901 0368 03       		.byte	3
+ 902 0369 41       		.byte	65
+ 903 036a 05       		.byte	5
+ 904 036b 60       		.byte	96
+ 905 036c 06       		.byte	6
+ 906 036d 80       		.byte	-128
+ 907 036e 08       		.byte	8
+ 908 036f 04       		.byte	4
+ 909 0370 0A       		.byte	10
+ 910 0371 44       		.byte	68
+ 911 0372 0B       		.byte	11
+ 912 0373 02       		.byte	2
+ARM GAS  C:\Users\MATEOC~1.QUE\AppData\Local\Temp\ccFh5Tza.s 			page 17
+
+
+ 913 0374 0D       		.byte	13
+ 914 0375 08       		.byte	8
+ 915 0376 0E       		.byte	14
+ 916 0377 44       		.byte	68
+ 917 0378 10       		.byte	16
+ 918 0379 01       		.byte	1
+ 919 037a 11       		.byte	17
+ 920 037b 01       		.byte	1
+ 921 037c 12       		.byte	18
+ 922 037d 08       		.byte	8
+ 923 037e 15       		.byte	21
+ 924 037f 03       		.byte	3
+ 925 0380 18       		.byte	24
+ 926 0381 80       		.byte	-128
+ 927 0382 19       		.byte	25
+ 928 0383 10       		.byte	16
+ 929 0384 1A       		.byte	26
+ 930 0385 C4       		.byte	-60
+ 931 0386 1B       		.byte	27
+ 932 0387 10       		.byte	16
+ 933 0388 21       		.byte	33
+ 934 0389 09       		.byte	9
+ 935 038a 22       		.byte	34
+ 936 038b 0A       		.byte	10
+ 937 038c 27       		.byte	39
+ 938 038d 80       		.byte	-128
+ 939 038e 28       		.byte	40
+ 940 038f 01       		.byte	1
+ 941 0390 29       		.byte	41
+ 942 0391 50       		.byte	80
+ 943 0392 2A       		.byte	42
+ 944 0393 02       		.byte	2
+ 945 0394 2C       		.byte	44
+ 946 0395 04       		.byte	4
+ 947 0396 2D       		.byte	45
+ 948 0397 20       		.byte	32
+ 949 0398 2E       		.byte	46
+ 950 0399 A4       		.byte	-92
+ 951 039a 2F       		.byte	47
+ 952 039b 01       		.byte	1
+ 953 039c 31       		.byte	49
+ 954 039d 08       		.byte	8
+ 955 039e 32       		.byte	50
+ 956 039f 02       		.byte	2
+ 957 03a0 35       		.byte	53
+ 958 03a1 40       		.byte	64
+ 959 03a2 36       		.byte	54
+ 960 03a3 0A       		.byte	10
+ 961 03a4 38       		.byte	56
+ 962 03a5 80       		.byte	-128
+ 963 03a6 39       		.byte	57
+ 964 03a7 04       		.byte	4
+ 965 03a8 3A       		.byte	58
+ 966 03a9 20       		.byte	32
+ 967 03aa 3B       		.byte	59
+ 968 03ab 02       		.byte	2
+ 969 03ac 3E       		.byte	62
+ARM GAS  C:\Users\MATEOC~1.QUE\AppData\Local\Temp\ccFh5Tza.s 			page 18
+
+
+ 970 03ad 40       		.byte	64
+ 971 03ae 43       		.byte	67
+ 972 03af 06       		.byte	6
+ 973 03b0 45       		.byte	69
+ 974 03b1 01       		.byte	1
+ 975 03b2 47       		.byte	71
+ 976 03b3 04       		.byte	4
+ 977 03b4 55       		.byte	85
+ 978 03b5 01       		.byte	1
+ 979 03b6 57       		.byte	87
+ 980 03b7 06       		.byte	6
+ 981 03b8 68       		.byte	104
+ 982 03b9 09       		.byte	9
+ 983 03ba 69       		.byte	105
+ 984 03bb 40       		.byte	64
+ 985 03bc 87       		.byte	-121
+ 986 03bd 80       		.byte	-128
+ 987 03be 88       		.byte	-120
+ 988 03bf 01       		.byte	1
+ 989 03c0 8C       		.byte	-116
+ 990 03c1 40       		.byte	64
+ 991 03c2 91       		.byte	-111
+ 992 03c3 14       		.byte	20
+ 993 03c4 93       		.byte	-109
+ 994 03c5 02       		.byte	2
+ 995 03c6 95       		.byte	-107
+ 996 03c7 40       		.byte	64
+ 997 03c8 96       		.byte	-106
+ 998 03c9 84       		.byte	-124
+ 999 03ca 99       		.byte	-103
+ 1000 03cb 60       		.byte	96
+ 1001 03cc 9A       		.byte	-102
+ 1002 03cd 0A       		.byte	10
+ 1003 03ce 9B       		.byte	-101
+ 1004 03cf 45       		.byte	69
+ 1005 03d0 9C       		.byte	-100
+ 1006 03d1 02       		.byte	2
+ 1007 03d2 A4       		.byte	-92
+ 1008 03d3 08       		.byte	8
+ 1009 03d4 A5       		.byte	-91
+ 1010 03d5 08       		.byte	8
+ 1011 03d6 A6       		.byte	-90
+ 1012 03d7 02       		.byte	2
+ 1013 03d8 A7       		.byte	-89
+ 1014 03d9 04       		.byte	4
+ 1015 03da AC       		.byte	-84
+ 1016 03db 01       		.byte	1
+ 1017 03dc AF       		.byte	-81
+ 1018 03dd 28       		.byte	40
+ 1019 03de B1       		.byte	-79
+ 1020 03df 49       		.byte	73
+ 1021 03e0 B5       		.byte	-75
+ 1022 03e1 20       		.byte	32
+ 1023 03e2 B7       		.byte	-73
+ 1024 03e3 08       		.byte	8
+ 1025 03e4 C0       		.byte	-64
+ 1026 03e5 D9       		.byte	-39
+ARM GAS  C:\Users\MATEOC~1.QUE\AppData\Local\Temp\ccFh5Tza.s 			page 19
+
+
+ 1027 03e6 C2       		.byte	-62
+ 1028 03e7 7F       		.byte	127
+ 1029 03e8 C4       		.byte	-60
+ 1030 03e9 1B       		.byte	27
+ 1031 03ea CA       		.byte	-54
+ 1032 03eb 7D       		.byte	125
+ 1033 03ec CC       		.byte	-52
+ 1034 03ed D3       		.byte	-45
+ 1035 03ee CE       		.byte	-50
+ 1036 03ef 1F       		.byte	31
+ 1037 03f0 D0       		.byte	-48
+ 1038 03f1 C3       		.byte	-61
+ 1039 03f2 EA       		.byte	-22
+ 1040 03f3 40       		.byte	64
+ 1041 03f4 EC       		.byte	-20
+ 1042 03f5 40       		.byte	64
+ 1043 03f6 58       		.byte	88
+ 1044 03f7 04       		.byte	4
+ 1045 03f8 59       		.byte	89
+ 1046 03f9 04       		.byte	4
+ 1047 03fa 5C       		.byte	92
+ 1048 03fb 22       		.byte	34
+ 1049 03fc 5F       		.byte	95
+ 1050 03fd 01       		.byte	1
+ 1051 03fe 82       		.byte	-126
+ 1052 03ff 02       		.byte	2
+ 1053 0400 83       		.byte	-125
+ 1054 0401 01       		.byte	1
+ 1055 0402 85       		.byte	-123
+ 1056 0403 08       		.byte	8
+ 1057 0404 88       		.byte	-120
+ 1058 0405 01       		.byte	1
+ 1059 0406 89       		.byte	-119
+ 1060 0407 20       		.byte	32
+ 1061 0408 8B       		.byte	-117
+ 1062 0409 10       		.byte	16
+ 1063 040a 8F       		.byte	-113
+ 1064 040b 04       		.byte	4
+ 1065 040c 91       		.byte	-111
+ 1066 040d 80       		.byte	-128
+ 1067 040e 93       		.byte	-109
+ 1068 040f 40       		.byte	64
+ 1069 0410 94       		.byte	-108
+ 1070 0411 02       		.byte	2
+ 1071 0412 97       		.byte	-105
+ 1072 0413 08       		.byte	8
+ 1073 0414 9A       		.byte	-102
+ 1074 0415 01       		.byte	1
+ 1075 0416 9B       		.byte	-101
+ 1076 0417 02       		.byte	2
+ 1077 0418 9D       		.byte	-99
+ 1078 0419 04       		.byte	4
+ 1079 041a 9E       		.byte	-98
+ 1080 041b 04       		.byte	4
+ 1081 041c A1       		.byte	-95
+ 1082 041d 02       		.byte	2
+ 1083 041e A2       		.byte	-94
+ARM GAS  C:\Users\MATEOC~1.QUE\AppData\Local\Temp\ccFh5Tza.s 			page 20
+
+
+ 1084 041f 10       		.byte	16
+ 1085 0420 A5       		.byte	-91
+ 1086 0421 01       		.byte	1
+ 1087 0422 A6       		.byte	-90
+ 1088 0423 08       		.byte	8
+ 1089 0424 A8       		.byte	-88
+ 1090 0425 08       		.byte	8
+ 1091 0426 A9       		.byte	-87
+ 1092 0427 40       		.byte	64
+ 1093 0428 AB       		.byte	-85
+ 1094 0429 80       		.byte	-128
+ 1095 042a AC       		.byte	-84
+ 1096 042b 04       		.byte	4
+ 1097 042c AD       		.byte	-83
+ 1098 042d 10       		.byte	16
+ 1099 042e AF       		.byte	-81
+ 1100 042f 20       		.byte	32
+ 1101 0430 B0       		.byte	-80
+ 1102 0431 1F       		.byte	31
+ 1103 0432 B7       		.byte	-73
+ 1104 0433 FF       		.byte	-1
+ 1105 0434 B8       		.byte	-72
+ 1106 0435 02       		.byte	2
+ 1107 0436 BE       		.byte	-66
+ 1108 0437 01       		.byte	1
+ 1109 0438 BF       		.byte	-65
+ 1110 0439 40       		.byte	64
+ 1111 043a D8       		.byte	-40
+ 1112 043b 04       		.byte	4
+ 1113 043c D9       		.byte	-39
+ 1114 043d 04       		.byte	4
+ 1115 043e DC       		.byte	-36
+ 1116 043f 02       		.byte	2
+ 1117 0440 DF       		.byte	-33
+ 1118 0441 01       		.byte	1
+ 1119 0442 00       		.byte	0
+ 1120 0443 40       		.byte	64
+ 1121 0444 01       		.byte	1
+ 1122 0445 22       		.byte	34
+ 1123 0446 02       		.byte	2
+ 1124 0447 18       		.byte	24
+ 1125 0448 04       		.byte	4
+ 1126 0449 40       		.byte	64
+ 1127 044a 05       		.byte	5
+ 1128 044b 50       		.byte	80
+ 1129 044c 08       		.byte	8
+ 1130 044d 50       		.byte	80
+ 1131 044e 0A       		.byte	10
+ 1132 044f A0       		.byte	-96
+ 1133 0450 0C       		.byte	12
+ 1134 0451 20       		.byte	32
+ 1135 0452 0D       		.byte	13
+ 1136 0453 08       		.byte	8
+ 1137 0454 0E       		.byte	14
+ 1138 0455 40       		.byte	64
+ 1139 0456 10       		.byte	16
+ 1140 0457 08       		.byte	8
+ARM GAS  C:\Users\MATEOC~1.QUE\AppData\Local\Temp\ccFh5Tza.s 			page 21
+
+
+ 1141 0458 11       		.byte	17
+ 1142 0459 44       		.byte	68
+ 1143 045a 12       		.byte	18
+ 1144 045b 80       		.byte	-128
+ 1145 045c 15       		.byte	21
+ 1146 045d 41       		.byte	65
+ 1147 045e 1A       		.byte	26
+ 1148 045f C0       		.byte	-64
+ 1149 0460 1B       		.byte	27
+ 1150 0461 01       		.byte	1
+ 1151 0462 22       		.byte	34
+ 1152 0463 80       		.byte	-128
+ 1153 0464 28       		.byte	40
+ 1154 0465 12       		.byte	18
+ 1155 0466 29       		.byte	41
+ 1156 0467 52       		.byte	82
+ 1157 0468 2A       		.byte	42
+ 1158 0469 1A       		.byte	26
+ 1159 046a 2C       		.byte	44
+ 1160 046b 08       		.byte	8
+ 1161 046c 2D       		.byte	45
+ 1162 046d 41       		.byte	65
+ 1163 046e 30       		.byte	48
+ 1164 046f 68       		.byte	104
+ 1165 0470 31       		.byte	49
+ 1166 0471 08       		.byte	8
+ 1167 0472 32       		.byte	50
+ 1168 0473 10       		.byte	16
+ 1169 0474 33       		.byte	51
+ 1170 0475 41       		.byte	65
+ 1171 0476 35       		.byte	53
+ 1172 0477 40       		.byte	64
+ 1173 0478 36       		.byte	54
+ 1174 0479 02       		.byte	2
+ 1175 047a 38       		.byte	56
+ 1176 047b 80       		.byte	-128
+ 1177 047c 39       		.byte	57
+ 1178 047d 55       		.byte	85
+ 1179 047e 3B       		.byte	59
+ 1180 047f 02       		.byte	2
+ 1181 0480 3E       		.byte	62
+ 1182 0481 40       		.byte	64
+ 1183 0482 3F       		.byte	63
+ 1184 0483 20       		.byte	32
+ 1185 0484 89       		.byte	-119
+ 1186 0485 08       		.byte	8
+ 1187 0486 8D       		.byte	-115
+ 1188 0487 10       		.byte	16
+ 1189 0488 90       		.byte	-112
+ 1190 0489 80       		.byte	-128
+ 1191 048a 91       		.byte	-111
+ 1192 048b 14       		.byte	20
+ 1193 048c 93       		.byte	-109
+ 1194 048d 02       		.byte	2
+ 1195 048e 99       		.byte	-103
+ 1196 048f 50       		.byte	80
+ 1197 0490 9A       		.byte	-102
+ARM GAS  C:\Users\MATEOC~1.QUE\AppData\Local\Temp\ccFh5Tza.s 			page 22
+
+
+ 1198 0491 0A       		.byte	10
+ 1199 0492 9B       		.byte	-101
+ 1200 0493 41       		.byte	65
+ 1201 0494 A1       		.byte	-95
+ 1202 0495 08       		.byte	8
+ 1203 0496 A2       		.byte	-94
+ 1204 0497 02       		.byte	2
+ 1205 0498 A3       		.byte	-93
+ 1206 0499 10       		.byte	16
+ 1207 049a B4       		.byte	-76
+ 1208 049b 02       		.byte	2
+ 1209 049c B5       		.byte	-75
+ 1210 049d 10       		.byte	16
+ 1211 049e C0       		.byte	-64
+ 1212 049f CF       		.byte	-49
+ 1213 04a0 C2       		.byte	-62
+ 1214 04a1 7F       		.byte	127
+ 1215 04a2 C4       		.byte	-60
+ 1216 04a3 9F       		.byte	-97
+ 1217 04a4 CA       		.byte	-54
+ 1218 04a5 BF       		.byte	-65
+ 1219 04a6 CC       		.byte	-52
+ 1220 04a7 9F       		.byte	-97
+ 1221 04a8 CE       		.byte	-50
+ 1222 04a9 3F       		.byte	63
+ 1223 04aa EA       		.byte	-22
+ 1224 04ab 04       		.byte	4
+ 1225 04ac EE       		.byte	-18
+ 1226 04ad 04       		.byte	4
+ 1227 04ae 00       		.byte	0
+ 1228 04af 02       		.byte	2
+ 1229 04b0 02       		.byte	2
+ 1230 04b1 01       		.byte	1
+ 1231 04b2 0B       		.byte	11
+ 1232 04b3 01       		.byte	1
+ 1233 04b4 14       		.byte	20
+ 1234 04b5 01       		.byte	1
+ 1235 04b6 16       		.byte	22
+ 1236 04b7 02       		.byte	2
+ 1237 04b8 24       		.byte	36
+ 1238 04b9 03       		.byte	3
+ 1239 04ba 27       		.byte	39
+ 1240 04bb 01       		.byte	1
+ 1241 04bc 28       		.byte	40
+ 1242 04bd 03       		.byte	3
+ 1243 04be 32       		.byte	50
+ 1244 04bf 03       		.byte	3
+ 1245 04c0 37       		.byte	55
+ 1246 04c1 01       		.byte	1
+ 1247 04c2 3F       		.byte	63
+ 1248 04c3 40       		.byte	64
+ 1249 04c4 54       		.byte	84
+ 1250 04c5 01       		.byte	1
+ 1251 04c6 58       		.byte	88
+ 1252 04c7 04       		.byte	4
+ 1253 04c8 59       		.byte	89
+ 1254 04c9 04       		.byte	4
+ARM GAS  C:\Users\MATEOC~1.QUE\AppData\Local\Temp\ccFh5Tza.s 			page 23
+
+
+ 1255 04ca 5B       		.byte	91
+ 1256 04cb 0E       		.byte	14
+ 1257 04cc 5C       		.byte	92
+ 1258 04cd 23       		.byte	35
+ 1259 04ce 5D       		.byte	93
+ 1260 04cf 20       		.byte	32
+ 1261 04d0 5F       		.byte	95
+ 1262 04d1 01       		.byte	1
+ 1263 04d2 80       		.byte	-128
+ 1264 04d3 04       		.byte	4
+ 1265 04d4 81       		.byte	-127
+ 1266 04d5 01       		.byte	1
+ 1267 04d6 84       		.byte	-124
+ 1268 04d7 1F       		.byte	31
+ 1269 04d8 85       		.byte	-123
+ 1270 04d9 01       		.byte	1
+ 1271 04da 88       		.byte	-120
+ 1272 04db 07       		.byte	7
+ 1273 04dc 89       		.byte	-119
+ 1274 04dd 01       		.byte	1
+ 1275 04de 8A       		.byte	-118
+ 1276 04df 18       		.byte	24
+ 1277 04e0 8D       		.byte	-115
+ 1278 04e1 01       		.byte	1
+ 1279 04e2 92       		.byte	-110
+ 1280 04e3 03       		.byte	3
+ 1281 04e4 93       		.byte	-109
+ 1282 04e5 01       		.byte	1
+ 1283 04e6 94       		.byte	-108
+ 1284 04e7 1C       		.byte	28
+ 1285 04e8 96       		.byte	-106
+ 1286 04e9 01       		.byte	1
+ 1287 04ea 98       		.byte	-104
+ 1288 04eb 1C       		.byte	28
+ 1289 04ec 9A       		.byte	-102
+ 1290 04ed 02       		.byte	2
+ 1291 04ee 9E       		.byte	-98
+ 1292 04ef 04       		.byte	4
+ 1293 04f0 A0       		.byte	-96
+ 1294 04f1 10       		.byte	16
+ 1295 04f2 A3       		.byte	-93
+ 1296 04f3 01       		.byte	1
+ 1297 04f4 A4       		.byte	-92
+ 1298 04f5 08       		.byte	8
+ 1299 04f6 A8       		.byte	-88
+ 1300 04f7 18       		.byte	24
+ 1301 04f8 AF       		.byte	-81
+ 1302 04f9 02       		.byte	2
+ 1303 04fa B1       		.byte	-79
+ 1304 04fb 02       		.byte	2
+ 1305 04fc B3       		.byte	-77
+ 1306 04fd 01       		.byte	1
+ 1307 04fe B4       		.byte	-76
+ 1308 04ff 1F       		.byte	31
+ 1309 0500 BA       		.byte	-70
+ 1310 0501 20       		.byte	32
+ 1311 0502 BF       		.byte	-65
+ARM GAS  C:\Users\MATEOC~1.QUE\AppData\Local\Temp\ccFh5Tza.s 			page 24
+
+
+ 1312 0503 04       		.byte	4
+ 1313 0504 C0       		.byte	-64
+ 1314 0505 26       		.byte	38
+ 1315 0506 C1       		.byte	-63
+ 1316 0507 04       		.byte	4
+ 1317 0508 C2       		.byte	-62
+ 1318 0509 50       		.byte	80
+ 1319 050a C5       		.byte	-59
+ 1320 050b BE       		.byte	-66
+ 1321 050c C6       		.byte	-58
+ 1322 050d FD       		.byte	-3
+ 1323 050e C7       		.byte	-57
+ 1324 050f 0C       		.byte	12
+ 1325 0510 C8       		.byte	-56
+ 1326 0511 1F       		.byte	31
+ 1327 0512 C9       		.byte	-55
+ 1328 0513 FF       		.byte	-1
+ 1329 0514 CA       		.byte	-54
+ 1330 0515 FF       		.byte	-1
+ 1331 0516 CB       		.byte	-53
+ 1332 0517 FF       		.byte	-1
+ 1333 0518 CC       		.byte	-52
+ 1334 0519 22       		.byte	34
+ 1335 051a CE       		.byte	-50
+ 1336 051b F0       		.byte	-16
+ 1337 051c CF       		.byte	-49
+ 1338 051d 08       		.byte	8
+ 1339 051e D0       		.byte	-48
+ 1340 051f 04       		.byte	4
+ 1341 0520 D4       		.byte	-44
+ 1342 0521 40       		.byte	64
+ 1343 0522 D8       		.byte	-40
+ 1344 0523 04       		.byte	4
+ 1345 0524 D9       		.byte	-39
+ 1346 0525 04       		.byte	4
+ 1347 0526 DA       		.byte	-38
+ 1348 0527 04       		.byte	4
+ 1349 0528 DB       		.byte	-37
+ 1350 0529 04       		.byte	4
+ 1351 052a DC       		.byte	-36
+ 1352 052b 33       		.byte	51
+ 1353 052c DF       		.byte	-33
+ 1354 052d 01       		.byte	1
+ 1355 052e E2       		.byte	-30
+ 1356 052f C0       		.byte	-64
+ 1357 0530 E4       		.byte	-28
+ 1358 0531 40       		.byte	64
+ 1359 0532 E5       		.byte	-27
+ 1360 0533 01       		.byte	1
+ 1361 0534 E6       		.byte	-26
+ 1362 0535 10       		.byte	16
+ 1363 0536 E7       		.byte	-25
+ 1364 0537 11       		.byte	17
+ 1365 0538 E8       		.byte	-24
+ 1366 0539 C0       		.byte	-64
+ 1367 053a E9       		.byte	-23
+ 1368 053b 01       		.byte	1
+ARM GAS  C:\Users\MATEOC~1.QUE\AppData\Local\Temp\ccFh5Tza.s 			page 25
+
+
+ 1369 053c EB       		.byte	-21
+ 1370 053d 11       		.byte	17
+ 1371 053e EC       		.byte	-20
+ 1372 053f 40       		.byte	64
+ 1373 0540 ED       		.byte	-19
+ 1374 0541 01       		.byte	1
+ 1375 0542 EE       		.byte	-18
+ 1376 0543 40       		.byte	64
+ 1377 0544 EF       		.byte	-17
+ 1378 0545 01       		.byte	1
+ 1379 0546 02       		.byte	2
+ 1380 0547 50       		.byte	80
+ 1381 0548 03       		.byte	3
+ 1382 0549 04       		.byte	4
+ 1383 054a 06       		.byte	6
+ 1384 054b 40       		.byte	64
+ 1385 054c 09       		.byte	9
+ 1386 054d 01       		.byte	1
+ 1387 054e 0A       		.byte	10
+ 1388 054f 0A       		.byte	10
+ 1389 0550 0B       		.byte	11
+ 1390 0551 20       		.byte	32
+ 1391 0552 0E       		.byte	14
+ 1392 0553 20       		.byte	32
+ 1393 0554 10       		.byte	16
+ 1394 0555 A1       		.byte	-95
+ 1395 0556 11       		.byte	17
+ 1396 0557 80       		.byte	-128
+ 1397 0558 13       		.byte	19
+ 1398 0559 20       		.byte	32
+ 1399 055a 16       		.byte	22
+ 1400 055b 20       		.byte	32
+ 1401 055c 17       		.byte	23
+ 1402 055d 10       		.byte	16
+ 1403 055e 18       		.byte	24
+ 1404 055f 08       		.byte	8
+ 1405 0560 1A       		.byte	26
+ 1406 0561 08       		.byte	8
+ 1407 0562 1B       		.byte	27
+ 1408 0563 10       		.byte	16
+ 1409 0564 1E       		.byte	30
+ 1410 0565 20       		.byte	32
+ 1411 0566 22       		.byte	34
+ 1412 0567 09       		.byte	9
+ 1413 0568 25       		.byte	37
+ 1414 0569 40       		.byte	64
+ 1415 056a 2A       		.byte	42
+ 1416 056b 40       		.byte	64
+ 1417 056c 2B       		.byte	43
+ 1418 056d 80       		.byte	-128
+ 1419 056e 2C       		.byte	44
+ 1420 056f 40       		.byte	64
+ 1421 0570 2D       		.byte	45
+ 1422 0571 40       		.byte	64
+ 1423 0572 2E       		.byte	46
+ 1424 0573 08       		.byte	8
+ 1425 0574 2F       		.byte	47
+ARM GAS  C:\Users\MATEOC~1.QUE\AppData\Local\Temp\ccFh5Tza.s 			page 26
+
+
+ 1426 0575 08       		.byte	8
+ 1427 0576 30       		.byte	48
+ 1428 0577 02       		.byte	2
+ 1429 0578 34       		.byte	52
+ 1430 0579 10       		.byte	16
+ 1431 057a 35       		.byte	53
+ 1432 057b 80       		.byte	-128
+ 1433 057c 36       		.byte	54
+ 1434 057d 02       		.byte	2
+ 1435 057e 38       		.byte	56
+ 1436 057f 80       		.byte	-128
+ 1437 0580 39       		.byte	57
+ 1438 0581 15       		.byte	21
+ 1439 0582 3C       		.byte	60
+ 1440 0583 A0       		.byte	-96
+ 1441 0584 40       		.byte	64
+ 1442 0585 04       		.byte	4
+ 1443 0586 42       		.byte	66
+ 1444 0587 40       		.byte	64
+ 1445 0588 46       		.byte	70
+ 1446 0589 10       		.byte	16
+ 1447 058a 47       		.byte	71
+ 1448 058b 08       		.byte	8
+ 1449 058c 48       		.byte	72
+ 1450 058d 01       		.byte	1
+ 1451 058e 49       		.byte	73
+ 1452 058f 05       		.byte	5
+ 1453 0590 4A       		.byte	74
+ 1454 0591 04       		.byte	4
+ 1455 0592 51       		.byte	81
+ 1456 0593 20       		.byte	32
+ 1457 0594 52       		.byte	82
+ 1458 0595 80       		.byte	-128
+ 1459 0596 53       		.byte	83
+ 1460 0597 84       		.byte	-124
+ 1461 0598 5A       		.byte	90
+ 1462 0599 04       		.byte	4
+ 1463 059a 5B       		.byte	91
+ 1464 059b 04       		.byte	4
+ 1465 059c 5C       		.byte	92
+ 1466 059d 40       		.byte	64
+ 1467 059e 61       		.byte	97
+ 1468 059f 20       		.byte	32
+ 1469 05a0 62       		.byte	98
+ 1470 05a1 88       		.byte	-120
+ 1471 05a2 7F       		.byte	127
+ 1472 05a3 20       		.byte	32
+ 1473 05a4 88       		.byte	-120
+ 1474 05a5 40       		.byte	64
+ 1475 05a6 89       		.byte	-119
+ 1476 05a7 02       		.byte	2
+ 1477 05a8 8D       		.byte	-115
+ 1478 05a9 40       		.byte	64
+ 1479 05aa 90       		.byte	-112
+ 1480 05ab C4       		.byte	-60
+ 1481 05ac 91       		.byte	-111
+ 1482 05ad 17       		.byte	23
+ARM GAS  C:\Users\MATEOC~1.QUE\AppData\Local\Temp\ccFh5Tza.s 			page 27
+
+
+ 1483 05ae 92       		.byte	-110
+ 1484 05af 44       		.byte	68
+ 1485 05b0 93       		.byte	-109
+ 1486 05b1 22       		.byte	34
+ 1487 05b2 94       		.byte	-108
+ 1488 05b3 08       		.byte	8
+ 1489 05b4 97       		.byte	-105
+ 1490 05b5 08       		.byte	8
+ 1491 05b6 98       		.byte	-104
+ 1492 05b7 10       		.byte	16
+ 1493 05b8 9A       		.byte	-102
+ 1494 05b9 68       		.byte	104
+ 1495 05ba 9B       		.byte	-101
+ 1496 05bb 31       		.byte	49
+ 1497 05bc 9C       		.byte	-100
+ 1498 05bd 02       		.byte	2
+ 1499 05be 9D       		.byte	-99
+ 1500 05bf 45       		.byte	69
+ 1501 05c0 9F       		.byte	-97
+ 1502 05c1 08       		.byte	8
+ 1503 05c2 A0       		.byte	-96
+ 1504 05c3 B3       		.byte	-77
+ 1505 05c4 A2       		.byte	-94
+ 1506 05c5 06       		.byte	6
+ 1507 05c6 A3       		.byte	-93
+ 1508 05c7 60       		.byte	96
+ 1509 05c8 A4       		.byte	-92
+ 1510 05c9 40       		.byte	64
+ 1511 05ca A5       		.byte	-91
+ 1512 05cb 01       		.byte	1
+ 1513 05cc A6       		.byte	-90
+ 1514 05cd 31       		.byte	49
+ 1515 05ce A7       		.byte	-89
+ 1516 05cf 10       		.byte	16
+ 1517 05d0 AB       		.byte	-85
+ 1518 05d1 02       		.byte	2
+ 1519 05d2 AE       		.byte	-82
+ 1520 05d3 01       		.byte	1
+ 1521 05d4 B1       		.byte	-79
+ 1522 05d5 01       		.byte	1
+ 1523 05d6 B3       		.byte	-77
+ 1524 05d7 10       		.byte	16
+ 1525 05d8 B7       		.byte	-73
+ 1526 05d9 80       		.byte	-128
+ 1527 05da C0       		.byte	-64
+ 1528 05db 1E       		.byte	30
+ 1529 05dc C2       		.byte	-62
+ 1530 05dd 2F       		.byte	47
+ 1531 05de C4       		.byte	-60
+ 1532 05df 6E       		.byte	110
+ 1533 05e0 CA       		.byte	-54
+ 1534 05e1 F9       		.byte	-7
+ 1535 05e2 CC       		.byte	-52
+ 1536 05e3 B1       		.byte	-79
+ 1537 05e4 CE       		.byte	-50
+ 1538 05e5 3F       		.byte	63
+ 1539 05e6 D0       		.byte	-48
+ARM GAS  C:\Users\MATEOC~1.QUE\AppData\Local\Temp\ccFh5Tza.s 			page 28
+
+
+ 1540 05e7 05       		.byte	5
+ 1541 05e8 D2       		.byte	-46
+ 1542 05e9 0C       		.byte	12
+ 1543 05ea D6       		.byte	-42
+ 1544 05eb 10       		.byte	16
+ 1545 05ec D8       		.byte	-40
+ 1546 05ed 0E       		.byte	14
+ 1547 05ee DE       		.byte	-34
+ 1548 05ef 40       		.byte	64
+ 1549 05f0 E0       		.byte	-32
+ 1550 05f1 40       		.byte	64
+ 1551 05f2 E4       		.byte	-28
+ 1552 05f3 20       		.byte	32
+ 1553 05f4 E8       		.byte	-24
+ 1554 05f5 40       		.byte	64
+ 1555 05f6 EA       		.byte	-22
+ 1556 05f7 10       		.byte	16
+ 1557 05f8 EC       		.byte	-20
+ 1558 05f9 02       		.byte	2
+ 1559 05fa EE       		.byte	-18
+ 1560 05fb 04       		.byte	4
+ 1561 05fc 00       		.byte	0
+ 1562 05fd 9A       		.byte	-102
+ 1563 05fe 01       		.byte	1
+ 1564 05ff 04       		.byte	4
+ 1565 0600 04       		.byte	4
+ 1566 0601 21       		.byte	33
+ 1567 0602 05       		.byte	5
+ 1568 0603 04       		.byte	4
+ 1569 0604 06       		.byte	6
+ 1570 0605 D8       		.byte	-40
+ 1571 0606 08       		.byte	8
+ 1572 0607 FC       		.byte	-4
+ 1573 0608 0A       		.byte	10
+ 1574 0609 03       		.byte	3
+ 1575 060a 0B       		.byte	11
+ 1576 060b 04       		.byte	4
+ 1577 060c 0C       		.byte	12
+ 1578 060d 9A       		.byte	-102
+ 1579 060e 0D       		.byte	13
+ 1580 060f 04       		.byte	4
+ 1581 0610 10       		.byte	16
+ 1582 0611 13       		.byte	19
+ 1583 0612 11       		.byte	17
+ 1584 0613 01       		.byte	1
+ 1585 0614 12       		.byte	18
+ 1586 0615 64       		.byte	100
+ 1587 0616 14       		.byte	20
+ 1588 0617 38       		.byte	56
+ 1589 0618 15       		.byte	21
+ 1590 0619 56       		.byte	86
+ 1591 061a 16       		.byte	22
+ 1592 061b C0       		.byte	-64
+ 1593 061c 17       		.byte	23
+ 1594 061d 09       		.byte	9
+ 1595 061e 18       		.byte	24
+ 1596 061f 02       		.byte	2
+ARM GAS  C:\Users\MATEOC~1.QUE\AppData\Local\Temp\ccFh5Tza.s 			page 29
+
+
+ 1597 0620 19       		.byte	25
+ 1598 0621 04       		.byte	4
+ 1599 0622 1D       		.byte	29
+ 1600 0623 04       		.byte	4
+ 1601 0624 21       		.byte	33
+ 1602 0625 60       		.byte	96
+ 1603 0626 24       		.byte	36
+ 1604 0627 98       		.byte	-104
+ 1605 0628 26       		.byte	38
+ 1606 0629 02       		.byte	2
+ 1607 062a 28       		.byte	40
+ 1608 062b 02       		.byte	2
+ 1609 062c 29       		.byte	41
+ 1610 062d 0A       		.byte	10
+ 1611 062e 2A       		.byte	42
+ 1612 062f 98       		.byte	-104
+ 1613 0630 2B       		.byte	43
+ 1614 0631 10       		.byte	16
+ 1615 0632 2C       		.byte	44
+ 1616 0633 98       		.byte	-104
+ 1617 0634 2D       		.byte	45
+ 1618 0635 07       		.byte	7
+ 1619 0636 2E       		.byte	46
+ 1620 0637 02       		.byte	2
+ 1621 0638 2F       		.byte	47
+ 1622 0639 38       		.byte	56
+ 1623 063a 30       		.byte	48
+ 1624 063b 13       		.byte	19
+ 1625 063c 31       		.byte	49
+ 1626 063d 7F       		.byte	127
+ 1627 063e 32       		.byte	50
+ 1628 063f E0       		.byte	-32
+ 1629 0640 34       		.byte	52
+ 1630 0641 0F       		.byte	15
+ 1631 0642 37       		.byte	55
+ 1632 0643 08       		.byte	8
+ 1633 0644 39       		.byte	57
+ 1634 0645 02       		.byte	2
+ 1635 0646 3A       		.byte	58
+ 1636 0647 28       		.byte	40
+ 1637 0648 3F       		.byte	63
+ 1638 0649 40       		.byte	64
+ 1639 064a 54       		.byte	84
+ 1640 064b 09       		.byte	9
+ 1641 064c 58       		.byte	88
+ 1642 064d 04       		.byte	4
+ 1643 064e 59       		.byte	89
+ 1644 064f 04       		.byte	4
+ 1645 0650 5B       		.byte	91
+ 1646 0651 04       		.byte	4
+ 1647 0652 5F       		.byte	95
+ 1648 0653 01       		.byte	1
+ 1649 0654 82       		.byte	-126
+ 1650 0655 01       		.byte	1
+ 1651 0656 84       		.byte	-124
+ 1652 0657 04       		.byte	4
+ 1653 0658 8C       		.byte	-116
+ARM GAS  C:\Users\MATEOC~1.QUE\AppData\Local\Temp\ccFh5Tza.s 			page 30
+
+
+ 1654 0659 01       		.byte	1
+ 1655 065a 8D       		.byte	-115
+ 1656 065b 01       		.byte	1
+ 1657 065c 8F       		.byte	-113
+ 1658 065d 02       		.byte	2
+ 1659 065e 95       		.byte	-107
+ 1660 065f 04       		.byte	4
+ 1661 0660 98       		.byte	-104
+ 1662 0661 04       		.byte	4
+ 1663 0662 99       		.byte	-103
+ 1664 0663 06       		.byte	6
+ 1665 0664 9B       		.byte	-101
+ 1666 0665 01       		.byte	1
+ 1667 0666 9E       		.byte	-98
+ 1668 0667 02       		.byte	2
+ 1669 0668 A0       		.byte	-96
+ 1670 0669 04       		.byte	4
+ 1671 066a A4       		.byte	-92
+ 1672 066b 04       		.byte	4
+ 1673 066c A9       		.byte	-87
+ 1674 066d 04       		.byte	4
+ 1675 066e B2       		.byte	-78
+ 1676 066f 04       		.byte	4
+ 1677 0670 B3       		.byte	-77
+ 1678 0671 07       		.byte	7
+ 1679 0672 B6       		.byte	-74
+ 1680 0673 03       		.byte	3
+ 1681 0674 BB       		.byte	-69
+ 1682 0675 08       		.byte	8
+ 1683 0676 BE       		.byte	-66
+ 1684 0677 04       		.byte	4
+ 1685 0678 D6       		.byte	-42
+ 1686 0679 08       		.byte	8
+ 1687 067a D8       		.byte	-40
+ 1688 067b 04       		.byte	4
+ 1689 067c D9       		.byte	-39
+ 1690 067d 04       		.byte	4
+ 1691 067e DB       		.byte	-37
+ 1692 067f 04       		.byte	4
+ 1693 0680 DC       		.byte	-36
+ 1694 0681 09       		.byte	9
+ 1695 0682 DD       		.byte	-35
+ 1696 0683 90       		.byte	-112
+ 1697 0684 DF       		.byte	-33
+ 1698 0685 01       		.byte	1
+ 1699 0686 00       		.byte	0
+ 1700 0687 04       		.byte	4
+ 1701 0688 01       		.byte	1
+ 1702 0689 41       		.byte	65
+ 1703 068a 02       		.byte	2
+ 1704 068b 08       		.byte	8
+ 1705 068c 04       		.byte	4
+ 1706 068d 49       		.byte	73
+ 1707 068e 08       		.byte	8
+ 1708 068f 20       		.byte	32
+ 1709 0690 0A       		.byte	10
+ 1710 0691 60       		.byte	96
+ARM GAS  C:\Users\MATEOC~1.QUE\AppData\Local\Temp\ccFh5Tza.s 			page 31
+
+
+ 1711 0692 0B       		.byte	11
+ 1712 0693 08       		.byte	8
+ 1713 0694 0E       		.byte	14
+ 1714 0695 06       		.byte	6
+ 1715 0696 10       		.byte	16
+ 1716 0697 02       		.byte	2
+ 1717 0698 11       		.byte	17
+ 1718 0699 14       		.byte	20
+ 1719 069a 15       		.byte	21
+ 1720 069b 02       		.byte	2
+ 1721 069c 17       		.byte	23
+ 1722 069d 08       		.byte	8
+ 1723 069e 18       		.byte	24
+ 1724 069f 04       		.byte	4
+ 1725 06a0 19       		.byte	25
+ 1726 06a1 30       		.byte	48
+ 1727 06a2 1A       		.byte	26
+ 1728 06a3 60       		.byte	96
+ 1729 06a4 1B       		.byte	27
+ 1730 06a5 01       		.byte	1
+ 1731 06a6 1C       		.byte	28
+ 1732 06a7 11       		.byte	17
+ 1733 06a8 1F       		.byte	31
+ 1734 06a9 40       		.byte	64
+ 1735 06aa 22       		.byte	34
+ 1736 06ab 41       		.byte	65
+ 1737 06ac 25       		.byte	37
+ 1738 06ad 0C       		.byte	12
+ 1739 06ae 26       		.byte	38
+ 1740 06af 0C       		.byte	12
+ 1741 06b0 29       		.byte	41
+ 1742 06b1 11       		.byte	17
+ 1743 06b2 2B       		.byte	43
+ 1744 06b3 01       		.byte	1
+ 1745 06b4 2F       		.byte	47
+ 1746 06b5 04       		.byte	4
+ 1747 06b6 31       		.byte	49
+ 1748 06b7 08       		.byte	8
+ 1749 06b8 32       		.byte	50
+ 1750 06b9 11       		.byte	17
+ 1751 06ba 33       		.byte	51
+ 1752 06bb 40       		.byte	64
+ 1753 06bc 35       		.byte	53
+ 1754 06bd 20       		.byte	32
+ 1755 06be 36       		.byte	54
+ 1756 06bf 08       		.byte	8
+ 1757 06c0 38       		.byte	56
+ 1758 06c1 80       		.byte	-128
+ 1759 06c2 39       		.byte	57
+ 1760 06c3 15       		.byte	21
+ 1761 06c4 3E       		.byte	62
+ 1762 06c5 40       		.byte	64
+ 1763 06c6 58       		.byte	88
+ 1764 06c7 20       		.byte	32
+ 1765 06c8 59       		.byte	89
+ 1766 06c9 04       		.byte	4
+ 1767 06ca 5A       		.byte	90
+ARM GAS  C:\Users\MATEOC~1.QUE\AppData\Local\Temp\ccFh5Tza.s 			page 32
+
+
+ 1768 06cb 81       		.byte	-127
+ 1769 06cc 5C       		.byte	92
+ 1770 06cd 80       		.byte	-128
+ 1771 06ce 62       		.byte	98
+ 1772 06cf 80       		.byte	-128
+ 1773 06d0 66       		.byte	102
+ 1774 06d1 40       		.byte	64
+ 1775 06d2 67       		.byte	103
+ 1776 06d3 02       		.byte	2
+ 1777 06d4 84       		.byte	-124
+ 1778 06d5 80       		.byte	-128
+ 1779 06d6 8B       		.byte	-117
+ 1780 06d7 20       		.byte	32
+ 1781 06d8 8E       		.byte	-114
+ 1782 06d9 02       		.byte	2
+ 1783 06da 90       		.byte	-112
+ 1784 06db C0       		.byte	-64
+ 1785 06dc 91       		.byte	-111
+ 1786 06dd 57       		.byte	87
+ 1787 06de 92       		.byte	-110
+ 1788 06df 05       		.byte	5
+ 1789 06e0 94       		.byte	-108
+ 1790 06e1 14       		.byte	20
+ 1791 06e2 96       		.byte	-106
+ 1792 06e3 40       		.byte	64
+ 1793 06e4 97       		.byte	-105
+ 1794 06e5 80       		.byte	-128
+ 1795 06e6 98       		.byte	-104
+ 1796 06e7 10       		.byte	16
+ 1797 06e8 9A       		.byte	-102
+ 1798 06e9 28       		.byte	40
+ 1799 06ea 9B       		.byte	-101
+ 1800 06eb 71       		.byte	113
+ 1801 06ec 9C       		.byte	-100
+ 1802 06ed 02       		.byte	2
+ 1803 06ee 9D       		.byte	-99
+ 1804 06ef 60       		.byte	96
+ 1805 06f0 9E       		.byte	-98
+ 1806 06f1 40       		.byte	64
+ 1807 06f2 9F       		.byte	-97
+ 1808 06f3 08       		.byte	8
+ 1809 06f4 A0       		.byte	-96
+ 1810 06f5 B3       		.byte	-77
+ 1811 06f6 A2       		.byte	-94
+ 1812 06f7 80       		.byte	-128
+ 1813 06f8 A3       		.byte	-93
+ 1814 06f9 42       		.byte	66
+ 1815 06fa A4       		.byte	-92
+ 1816 06fb 40       		.byte	64
+ 1817 06fc A5       		.byte	-91
+ 1818 06fd 05       		.byte	5
+ 1819 06fe A6       		.byte	-90
+ 1820 06ff 32       		.byte	50
+ 1821 0700 A7       		.byte	-89
+ 1822 0701 B1       		.byte	-79
+ 1823 0702 B0       		.byte	-80
+ 1824 0703 08       		.byte	8
+ARM GAS  C:\Users\MATEOC~1.QUE\AppData\Local\Temp\ccFh5Tza.s 			page 33
+
+
+ 1825 0704 B4       		.byte	-76
+ 1826 0705 40       		.byte	64
+ 1827 0706 B6       		.byte	-74
+ 1828 0707 20       		.byte	32
+ 1829 0708 B7       		.byte	-73
+ 1830 0709 08       		.byte	8
+ 1831 070a C0       		.byte	-64
+ 1832 070b BF       		.byte	-65
+ 1833 070c C2       		.byte	-62
+ 1834 070d CE       		.byte	-50
+ 1835 070e C4       		.byte	-60
+ 1836 070f 37       		.byte	55
+ 1837 0710 CA       		.byte	-54
+ 1838 0711 2D       		.byte	45
+ 1839 0712 CC       		.byte	-52
+ 1840 0713 6F       		.byte	111
+ 1841 0714 CE       		.byte	-50
+ 1842 0715 1F       		.byte	31
+ 1843 0716 D6       		.byte	-42
+ 1844 0717 1F       		.byte	31
+ 1845 0718 D8       		.byte	-40
+ 1846 0719 18       		.byte	24
+ 1847 071a E0       		.byte	-32
+ 1848 071b 80       		.byte	-128
+ 1849 071c E4       		.byte	-28
+ 1850 071d 10       		.byte	16
+ 1851 071e E6       		.byte	-26
+ 1852 071f 02       		.byte	2
+ 1853 0720 E8       		.byte	-24
+ 1854 0721 A0       		.byte	-96
+ 1855 0722 EA       		.byte	-22
+ 1856 0723 50       		.byte	80
+ 1857 0724 08       		.byte	8
+ 1858 0725 05       		.byte	5
+ 1859 0726 0A       		.byte	10
+ 1860 0727 0A       		.byte	10
+ 1861 0728 0E       		.byte	14
+ 1862 0729 10       		.byte	16
+ 1863 072a 15       		.byte	21
+ 1864 072b 01       		.byte	1
+ 1865 072c 16       		.byte	22
+ 1866 072d 20       		.byte	32
+ 1867 072e 18       		.byte	24
+ 1868 072f 0E       		.byte	14
+ 1869 0730 1C       		.byte	28
+ 1870 0731 03       		.byte	3
+ 1871 0732 1E       		.byte	30
+ 1872 0733 04       		.byte	4
+ 1873 0734 22       		.byte	34
+ 1874 0735 20       		.byte	32
+ 1875 0736 23       		.byte	35
+ 1876 0737 03       		.byte	3
+ 1877 0738 2C       		.byte	44
+ 1878 0739 04       		.byte	4
+ 1879 073a 2E       		.byte	46
+ 1880 073b 09       		.byte	9
+ 1881 073c 31       		.byte	49
+ARM GAS  C:\Users\MATEOC~1.QUE\AppData\Local\Temp\ccFh5Tza.s 			page 34
+
+
+ 1882 073d 01       		.byte	1
+ 1883 073e 32       		.byte	50
+ 1884 073f 30       		.byte	48
+ 1885 0740 33       		.byte	51
+ 1886 0741 02       		.byte	2
+ 1887 0742 34       		.byte	52
+ 1888 0743 0F       		.byte	15
+ 1889 0744 38       		.byte	56
+ 1890 0745 22       		.byte	34
+ 1891 0746 3E       		.byte	62
+ 1892 0747 05       		.byte	5
+ 1893 0748 40       		.byte	64
+ 1894 0749 24       		.byte	36
+ 1895 074a 41       		.byte	65
+ 1896 074b 05       		.byte	5
+ 1897 074c 42       		.byte	66
+ 1898 074d 06       		.byte	6
+ 1899 074e 44       		.byte	68
+ 1900 074f 03       		.byte	3
+ 1901 0750 46       		.byte	70
+ 1902 0751 0E       		.byte	14
+ 1903 0752 47       		.byte	71
+ 1904 0753 0C       		.byte	12
+ 1905 0754 48       		.byte	72
+ 1906 0755 14       		.byte	20
+ 1907 0756 49       		.byte	73
+ 1908 0757 FF       		.byte	-1
+ 1909 0758 4A       		.byte	74
+ 1910 0759 FF       		.byte	-1
+ 1911 075a 4B       		.byte	75
+ 1912 075b FF       		.byte	-1
+ 1913 075c 4C       		.byte	76
+ 1914 075d 62       		.byte	98
+ 1915 075e 4D       		.byte	77
+ 1916 075f A0       		.byte	-96
+ 1917 0760 4E       		.byte	78
+ 1918 0761 F0       		.byte	-16
+ 1919 0762 4F       		.byte	79
+ 1920 0763 41       		.byte	65
+ 1921 0764 50       		.byte	80
+ 1922 0765 0C       		.byte	12
+ 1923 0766 56       		.byte	86
+ 1924 0767 02       		.byte	2
+ 1925 0768 57       		.byte	87
+ 1926 0769 11       		.byte	17
+ 1927 076a 58       		.byte	88
+ 1928 076b 04       		.byte	4
+ 1929 076c 59       		.byte	89
+ 1930 076d 0E       		.byte	14
+ 1931 076e 5A       		.byte	90
+ 1932 076f 04       		.byte	4
+ 1933 0770 5B       		.byte	91
+ 1934 0771 04       		.byte	4
+ 1935 0772 5C       		.byte	92
+ 1936 0773 20       		.byte	32
+ 1937 0774 5D       		.byte	93
+ 1938 0775 33       		.byte	51
+ARM GAS  C:\Users\MATEOC~1.QUE\AppData\Local\Temp\ccFh5Tza.s 			page 35
+
+
+ 1939 0776 5F       		.byte	95
+ 1940 0777 01       		.byte	1
+ 1941 0778 66       		.byte	102
+ 1942 0779 40       		.byte	64
+ 1943 077a 67       		.byte	103
+ 1944 077b 02       		.byte	2
+ 1945 077c 69       		.byte	105
+ 1946 077d 10       		.byte	16
+ 1947 077e 6A       		.byte	106
+ 1948 077f 30       		.byte	48
+ 1949 0780 6B       		.byte	107
+ 1950 0781 10       		.byte	16
+ 1951 0782 6D       		.byte	109
+ 1952 0783 10       		.byte	16
+ 1953 0784 6E       		.byte	110
+ 1954 0785 10       		.byte	16
+ 1955 0786 6F       		.byte	111
+ 1956 0787 12       		.byte	18
+ 1957 0788 81       		.byte	-127
+ 1958 0789 1D       		.byte	29
+ 1959 078a 85       		.byte	-123
+ 1960 078b 1D       		.byte	29
+ 1961 078c 89       		.byte	-119
+ 1962 078d 1D       		.byte	29
+ 1963 078e 8D       		.byte	-115
+ 1964 078f 1D       		.byte	29
+ 1965 0790 91       		.byte	-111
+ 1966 0791 0D       		.byte	13
+ 1967 0792 93       		.byte	-109
+ 1968 0793 10       		.byte	16
+ 1969 0794 97       		.byte	-105
+ 1970 0795 40       		.byte	64
+ 1971 0796 99       		.byte	-103
+ 1972 0797 02       		.byte	2
+ 1973 0798 9B       		.byte	-101
+ 1974 0799 0D       		.byte	13
+ 1975 079a A1       		.byte	-95
+ 1976 079b 02       		.byte	2
+ 1977 079c A3       		.byte	-93
+ 1978 079d 68       		.byte	104
+ 1979 079e A9       		.byte	-87
+ 1980 079f 02       		.byte	2
+ 1981 07a0 AB       		.byte	-85
+ 1982 07a1 64       		.byte	100
+ 1983 07a2 AD       		.byte	-83
+ 1984 07a3 21       		.byte	33
+ 1985 07a4 AF       		.byte	-81
+ 1986 07a5 02       		.byte	2
+ 1987 07a6 B3       		.byte	-77
+ 1988 07a7 60       		.byte	96
+ 1989 07a8 B5       		.byte	-75
+ 1990 07a9 0F       		.byte	15
+ 1991 07aa B7       		.byte	-73
+ 1992 07ab 10       		.byte	16
+ 1993 07ac BB       		.byte	-69
+ 1994 07ad 20       		.byte	32
+ 1995 07ae BF       		.byte	-65
+ARM GAS  C:\Users\MATEOC~1.QUE\AppData\Local\Temp\ccFh5Tza.s 			page 36
+
+
+ 1996 07af 40       		.byte	64
+ 1997 07b0 D8       		.byte	-40
+ 1998 07b1 04       		.byte	4
+ 1999 07b2 D9       		.byte	-39
+ 2000 07b3 04       		.byte	4
+ 2001 07b4 DC       		.byte	-36
+ 2002 07b5 02       		.byte	2
+ 2003 07b6 DF       		.byte	-33
+ 2004 07b7 01       		.byte	1
+ 2005 07b8 00       		.byte	0
+ 2006 07b9 80       		.byte	-128
+ 2007 07ba 02       		.byte	2
+ 2008 07bb 20       		.byte	32
+ 2009 07bc 03       		.byte	3
+ 2010 07bd 80       		.byte	-128
+ 2011 07be 05       		.byte	5
+ 2012 07bf 60       		.byte	96
+ 2013 07c0 08       		.byte	8
+ 2014 07c1 1A       		.byte	26
+ 2015 07c2 0C       		.byte	12
+ 2016 07c3 04       		.byte	4
+ 2017 07c4 0E       		.byte	14
+ 2018 07c5 28       		.byte	40
+ 2019 07c6 0F       		.byte	15
+ 2020 07c7 02       		.byte	2
+ 2021 07c8 12       		.byte	18
+ 2022 07c9 02       		.byte	2
+ 2023 07ca 16       		.byte	22
+ 2024 07cb 41       		.byte	65
+ 2025 07cc 1D       		.byte	29
+ 2026 07cd 08       		.byte	8
+ 2027 07ce 1E       		.byte	30
+ 2028 07cf 08       		.byte	8
+ 2029 07d0 1F       		.byte	31
+ 2030 07d1 02       		.byte	2
+ 2031 07d2 20       		.byte	32
+ 2032 07d3 02       		.byte	2
+ 2033 07d4 22       		.byte	34
+ 2034 07d5 14       		.byte	20
+ 2035 07d6 24       		.byte	36
+ 2036 07d7 40       		.byte	64
+ 2037 07d8 26       		.byte	38
+ 2038 07d9 08       		.byte	8
+ 2039 07da 29       		.byte	41
+ 2040 07db 20       		.byte	32
+ 2041 07dc 2A       		.byte	42
+ 2042 07dd 01       		.byte	1
+ 2043 07de 2B       		.byte	43
+ 2044 07df 01       		.byte	1
+ 2045 07e0 2F       		.byte	47
+ 2046 07e1 40       		.byte	64
+ 2047 07e2 30       		.byte	48
+ 2048 07e3 02       		.byte	2
+ 2049 07e4 32       		.byte	50
+ 2050 07e5 14       		.byte	20
+ 2051 07e6 36       		.byte	54
+ 2052 07e7 08       		.byte	8
+ARM GAS  C:\Users\MATEOC~1.QUE\AppData\Local\Temp\ccFh5Tza.s 			page 37
+
+
+ 2053 07e8 38       		.byte	56
+ 2054 07e9 80       		.byte	-128
+ 2055 07ea 39       		.byte	57
+ 2056 07eb 55       		.byte	85
+ 2057 07ec 3C       		.byte	60
+ 2058 07ed 22       		.byte	34
+ 2059 07ee 3E       		.byte	62
+ 2060 07ef 01       		.byte	1
+ 2061 07f0 3F       		.byte	63
+ 2062 07f1 10       		.byte	16
+ 2063 07f2 42       		.byte	66
+ 2064 07f3 20       		.byte	32
+ 2065 07f4 43       		.byte	67
+ 2066 07f5 04       		.byte	4
+ 2067 07f6 44       		.byte	68
+ 2068 07f7 40       		.byte	64
+ 2069 07f8 45       		.byte	69
+ 2070 07f9 29       		.byte	41
+ 2071 07fa 4C       		.byte	76
+ 2072 07fb 01       		.byte	1
+ 2073 07fc 4D       		.byte	77
+ 2074 07fd 80       		.byte	-128
+ 2075 07fe 4F       		.byte	79
+ 2076 07ff 10       		.byte	16
+ 2077 0800 56       		.byte	86
+ 2078 0801 08       		.byte	8
+ 2079 0802 57       		.byte	87
+ 2080 0803 40       		.byte	64
+ 2081 0804 5C       		.byte	92
+ 2082 0805 10       		.byte	16
+ 2083 0806 64       		.byte	100
+ 2084 0807 01       		.byte	1
+ 2085 0808 66       		.byte	102
+ 2086 0809 40       		.byte	64
+ 2087 080a 6F       		.byte	111
+ 2088 080b 15       		.byte	21
+ 2089 080c 74       		.byte	116
+ 2090 080d A0       		.byte	-96
+ 2091 080e 75       		.byte	117
+ 2092 080f 10       		.byte	16
+ 2093 0810 76       		.byte	118
+ 2094 0811 12       		.byte	18
+ 2095 0812 77       		.byte	119
+ 2096 0813 20       		.byte	32
+ 2097 0814 7F       		.byte	127
+ 2098 0815 20       		.byte	32
+ 2099 0816 86       		.byte	-122
+ 2100 0817 04       		.byte	4
+ 2101 0818 88       		.byte	-120
+ 2102 0819 20       		.byte	32
+ 2103 081a 89       		.byte	-119
+ 2104 081b C0       		.byte	-64
+ 2105 081c 8B       		.byte	-117
+ 2106 081d 08       		.byte	8
+ 2107 081e 8D       		.byte	-115
+ 2108 081f 04       		.byte	4
+ 2109 0820 8E       		.byte	-114
+ARM GAS  C:\Users\MATEOC~1.QUE\AppData\Local\Temp\ccFh5Tza.s 			page 38
+
+
+ 2110 0821 01       		.byte	1
+ 2111 0822 90       		.byte	-112
+ 2112 0823 80       		.byte	-128
+ 2113 0824 91       		.byte	-111
+ 2114 0825 17       		.byte	23
+ 2115 0826 92       		.byte	-110
+ 2116 0827 04       		.byte	4
+ 2117 0828 94       		.byte	-108
+ 2118 0829 06       		.byte	6
+ 2119 082a 96       		.byte	-106
+ 2120 082b 40       		.byte	64
+ 2121 082c 98       		.byte	-104
+ 2122 082d 10       		.byte	16
+ 2123 082e 9B       		.byte	-101
+ 2124 082f 40       		.byte	64
+ 2125 0830 9C       		.byte	-100
+ 2126 0831 6D       		.byte	109
+ 2127 0832 9D       		.byte	-99
+ 2128 0833 10       		.byte	16
+ 2129 0834 9E       		.byte	-98
+ 2130 0835 12       		.byte	18
+ 2131 0836 A0       		.byte	-96
+ 2132 0837 12       		.byte	18
+ 2133 0838 A1       		.byte	-95
+ 2134 0839 20       		.byte	32
+ 2135 083a A2       		.byte	-94
+ 2136 083b 80       		.byte	-128
+ 2137 083c A4       		.byte	-92
+ 2138 083d C0       		.byte	-64
+ 2139 083e A5       		.byte	-91
+ 2140 083f 04       		.byte	4
+ 2141 0840 A6       		.byte	-90
+ 2142 0841 02       		.byte	2
+ 2143 0842 A7       		.byte	-89
+ 2144 0843 98       		.byte	-104
+ 2145 0844 B2       		.byte	-78
+ 2146 0845 20       		.byte	32
+ 2147 0846 B3       		.byte	-77
+ 2148 0847 20       		.byte	32
+ 2149 0848 C0       		.byte	-64
+ 2150 0849 CD       		.byte	-51
+ 2151 084a C2       		.byte	-62
+ 2152 084b EE       		.byte	-18
+ 2153 084c C4       		.byte	-60
+ 2154 084d 91       		.byte	-111
+ 2155 084e CA       		.byte	-54
+ 2156 084f 8D       		.byte	-115
+ 2157 0850 CC       		.byte	-52
+ 2158 0851 47       		.byte	71
+ 2159 0852 CE       		.byte	-50
+ 2160 0853 0F       		.byte	15
+ 2161 0854 D0       		.byte	-48
+ 2162 0855 E0       		.byte	-32
+ 2163 0856 D2       		.byte	-46
+ 2164 0857 30       		.byte	48
+ 2165 0858 D6       		.byte	-42
+ 2166 0859 20       		.byte	32
+ARM GAS  C:\Users\MATEOC~1.QUE\AppData\Local\Temp\ccFh5Tza.s 			page 39
+
+
+ 2167 085a DE       		.byte	-34
+ 2168 085b 40       		.byte	64
+ 2169 085c E4       		.byte	-28
+ 2170 085d 08       		.byte	8
+ 2171 085e EC       		.byte	-20
+ 2172 085f A0       		.byte	-96
+ 2173 0860 01       		.byte	1
+ 2174 0861 06       		.byte	6
+ 2175 0862 03       		.byte	3
+ 2176 0863 01       		.byte	1
+ 2177 0864 04       		.byte	4
+ 2178 0865 05       		.byte	5
+ 2179 0866 05       		.byte	5
+ 2180 0867 06       		.byte	6
+ 2181 0868 06       		.byte	6
+ 2182 0869 0A       		.byte	10
+ 2183 086a 07       		.byte	7
+ 2184 086b 01       		.byte	1
+ 2185 086c 08       		.byte	8
+ 2186 086d 02       		.byte	2
+ 2187 086e 09       		.byte	9
+ 2188 086f 06       		.byte	6
+ 2189 0870 0A       		.byte	10
+ 2190 0871 0D       		.byte	13
+ 2191 0872 0D       		.byte	13
+ 2192 0873 08       		.byte	8
+ 2193 0874 10       		.byte	16
+ 2194 0875 03       		.byte	3
+ 2195 0876 11       		.byte	17
+ 2196 0877 07       		.byte	7
+ 2197 0878 12       		.byte	18
+ 2198 0879 0C       		.byte	12
+ 2199 087a 15       		.byte	21
+ 2200 087b 08       		.byte	8
+ 2201 087c 19       		.byte	25
+ 2202 087d 01       		.byte	1
+ 2203 087e 1B       		.byte	27
+ 2204 087f 06       		.byte	6
+ 2205 0880 1D       		.byte	29
+ 2206 0881 04       		.byte	4
+ 2207 0882 23       		.byte	35
+ 2208 0883 01       		.byte	1
+ 2209 0884 24       		.byte	36
+ 2210 0885 09       		.byte	9
+ 2211 0886 25       		.byte	37
+ 2212 0887 08       		.byte	8
+ 2213 0888 26       		.byte	38
+ 2214 0889 06       		.byte	6
+ 2215 088a 29       		.byte	41
+ 2216 088b 02       		.byte	2
+ 2217 088c 31       		.byte	49
+ 2218 088d 07       		.byte	7
+ 2219 088e 32       		.byte	50
+ 2220 088f 0F       		.byte	15
+ 2221 0890 37       		.byte	55
+ 2222 0891 08       		.byte	8
+ 2223 0892 3A       		.byte	58
+ARM GAS  C:\Users\MATEOC~1.QUE\AppData\Local\Temp\ccFh5Tza.s 			page 40
+
+
+ 2224 0893 08       		.byte	8
+ 2225 0894 3B       		.byte	59
+ 2226 0895 02       		.byte	2
+ 2227 0896 3F       		.byte	63
+ 2228 0897 40       		.byte	64
+ 2229 0898 56       		.byte	86
+ 2230 0899 02       		.byte	2
+ 2231 089a 57       		.byte	87
+ 2232 089b 28       		.byte	40
+ 2233 089c 58       		.byte	88
+ 2234 089d 04       		.byte	4
+ 2235 089e 59       		.byte	89
+ 2236 089f 04       		.byte	4
+ 2237 08a0 5B       		.byte	91
+ 2238 08a1 04       		.byte	4
+ 2239 08a2 5C       		.byte	92
+ 2240 08a3 30       		.byte	48
+ 2241 08a4 5F       		.byte	95
+ 2242 08a5 01       		.byte	1
+ 2243 08a6 80       		.byte	-128
+ 2244 08a7 1F       		.byte	31
+ 2245 08a8 84       		.byte	-124
+ 2246 08a9 0C       		.byte	12
+ 2247 08aa 88       		.byte	-120
+ 2248 08ab 04       		.byte	4
+ 2249 08ac 90       		.byte	-112
+ 2250 08ad 02       		.byte	2
+ 2251 08ae 94       		.byte	-108
+ 2252 08af 1C       		.byte	28
+ 2253 08b0 96       		.byte	-106
+ 2254 08b1 03       		.byte	3
+ 2255 08b2 98       		.byte	-104
+ 2256 08b3 13       		.byte	19
+ 2257 08b4 9A       		.byte	-102
+ 2258 08b5 0C       		.byte	12
+ 2259 08b6 9E       		.byte	-98
+ 2260 08b7 13       		.byte	19
+ 2261 08b8 A0       		.byte	-96
+ 2262 08b9 0F       		.byte	15
+ 2263 08ba A2       		.byte	-94
+ 2264 08bb 10       		.byte	16
+ 2265 08bc A4       		.byte	-92
+ 2266 08bd 03       		.byte	3
+ 2267 08be A8       		.byte	-88
+ 2268 08bf 01       		.byte	1
+ 2269 08c0 AC       		.byte	-84
+ 2270 08c1 08       		.byte	8
+ 2271 08c2 B2       		.byte	-78
+ 2272 08c3 1C       		.byte	28
+ 2273 08c4 B4       		.byte	-76
+ 2274 08c5 0F       		.byte	15
+ 2275 08c6 BA       		.byte	-70
+ 2276 08c7 20       		.byte	32
+ 2277 08c8 D8       		.byte	-40
+ 2278 08c9 04       		.byte	4
+ 2279 08ca D9       		.byte	-39
+ 2280 08cb 04       		.byte	4
+ARM GAS  C:\Users\MATEOC~1.QUE\AppData\Local\Temp\ccFh5Tza.s 			page 41
+
+
+ 2281 08cc DC       		.byte	-36
+ 2282 08cd 23       		.byte	35
+ 2283 08ce DF       		.byte	-33
+ 2284 08cf 01       		.byte	1
+ 2285 08d0 00       		.byte	0
+ 2286 08d1 14       		.byte	20
+ 2287 08d2 03       		.byte	3
+ 2288 08d3 20       		.byte	32
+ 2289 08d4 04       		.byte	4
+ 2290 08d5 02       		.byte	2
+ 2291 08d6 05       		.byte	5
+ 2292 08d7 11       		.byte	17
+ 2293 08d8 06       		.byte	6
+ 2294 08d9 10       		.byte	16
+ 2295 08da 0A       		.byte	10
+ 2296 08db 40       		.byte	64
+ 2297 08dc 0B       		.byte	11
+ 2298 08dd 80       		.byte	-128
+ 2299 08de 0C       		.byte	12
+ 2300 08df 41       		.byte	65
+ 2301 08e0 0D       		.byte	13
+ 2302 08e1 04       		.byte	4
+ 2303 08e2 0E       		.byte	14
+ 2304 08e3 04       		.byte	4
+ 2305 08e4 0F       		.byte	15
+ 2306 08e5 20       		.byte	32
+ 2307 08e6 11       		.byte	17
+ 2308 08e7 08       		.byte	8
+ 2309 08e8 14       		.byte	20
+ 2310 08e9 24       		.byte	36
+ 2311 08ea 15       		.byte	21
+ 2312 08eb 02       		.byte	2
+ 2313 08ec 16       		.byte	22
+ 2314 08ed 02       		.byte	2
+ 2315 08ee 18       		.byte	24
+ 2316 08ef 10       		.byte	16
+ 2317 08f0 1C       		.byte	28
+ 2318 08f1 20       		.byte	32
+ 2319 08f2 1D       		.byte	29
+ 2320 08f3 20       		.byte	32
+ 2321 08f4 1E       		.byte	30
+ 2322 08f5 04       		.byte	4
+ 2323 08f6 21       		.byte	33
+ 2324 08f7 01       		.byte	1
+ 2325 08f8 22       		.byte	34
+ 2326 08f9 80       		.byte	-128
+ 2327 08fa 28       		.byte	40
+ 2328 08fb 40       		.byte	64
+ 2329 08fc 29       		.byte	41
+ 2330 08fd 10       		.byte	16
+ 2331 08fe 2B       		.byte	43
+ 2332 08ff 20       		.byte	32
+ 2333 0900 2F       		.byte	47
+ 2334 0901 88       		.byte	-120
+ 2335 0902 30       		.byte	48
+ 2336 0903 80       		.byte	-128
+ 2337 0904 31       		.byte	49
+ARM GAS  C:\Users\MATEOC~1.QUE\AppData\Local\Temp\ccFh5Tza.s 			page 42
+
+
+ 2338 0905 21       		.byte	33
+ 2339 0906 33       		.byte	51
+ 2340 0907 04       		.byte	4
+ 2341 0908 34       		.byte	52
+ 2342 0909 18       		.byte	24
+ 2343 090a 36       		.byte	54
+ 2344 090b 02       		.byte	2
+ 2345 090c 37       		.byte	55
+ 2346 090d 20       		.byte	32
+ 2347 090e 39       		.byte	57
+ 2348 090f 0A       		.byte	10
+ 2349 0910 3A       		.byte	58
+ 2350 0911 10       		.byte	16
+ 2351 0912 3B       		.byte	59
+ 2352 0913 80       		.byte	-128
+ 2353 0914 3C       		.byte	60
+ 2354 0915 80       		.byte	-128
+ 2355 0916 3E       		.byte	62
+ 2356 0917 20       		.byte	32
+ 2357 0918 45       		.byte	69
+ 2358 0919 04       		.byte	4
+ 2359 091a 47       		.byte	71
+ 2360 091b 04       		.byte	4
+ 2361 091c 5A       		.byte	90
+ 2362 091d 80       		.byte	-128
+ 2363 091e 5B       		.byte	91
+ 2364 091f 40       		.byte	64
+ 2365 0920 60       		.byte	96
+ 2366 0921 10       		.byte	16
+ 2367 0922 68       		.byte	104
+ 2368 0923 02       		.byte	2
+ 2369 0924 69       		.byte	105
+ 2370 0925 15       		.byte	21
+ 2371 0926 6A       		.byte	106
+ 2372 0927 80       		.byte	-128
+ 2373 0928 70       		.byte	112
+ 2374 0929 40       		.byte	64
+ 2375 092a C0       		.byte	-64
+ 2376 092b 76       		.byte	118
+ 2377 092c C2       		.byte	-62
+ 2378 092d F8       		.byte	-8
+ 2379 092e C4       		.byte	-60
+ 2380 092f F4       		.byte	-12
+ 2381 0930 CA       		.byte	-54
+ 2382 0931 A7       		.byte	-89
+ 2383 0932 CC       		.byte	-52
+ 2384 0933 EF       		.byte	-17
+ 2385 0934 CE       		.byte	-50
+ 2386 0935 3F       		.byte	63
+ 2387 0936 D8       		.byte	-40
+ 2388 0937 02       		.byte	2
+ 2389 0938 07       		.byte	7
+ 2390 0939 01       		.byte	1
+ 2391 093a 09       		.byte	9
+ 2392 093b 02       		.byte	2
+ 2393 093c 1D       		.byte	29
+ 2394 093d 03       		.byte	3
+ARM GAS  C:\Users\MATEOC~1.QUE\AppData\Local\Temp\ccFh5Tza.s 			page 43
+
+
+ 2395 093e 29       		.byte	41
+ 2396 093f 03       		.byte	3
+ 2397 0940 35       		.byte	53
+ 2398 0941 03       		.byte	3
+ 2399 0942 39       		.byte	57
+ 2400 0943 20       		.byte	32
+ 2401 0944 3F       		.byte	63
+ 2402 0945 10       		.byte	16
+ 2403 0946 40       		.byte	64
+ 2404 0947 02       		.byte	2
+ 2405 0948 45       		.byte	69
+ 2406 0949 04       		.byte	4
+ 2407 094a 49       		.byte	73
+ 2408 094b FF       		.byte	-1
+ 2409 094c 4A       		.byte	74
+ 2410 094d 07       		.byte	7
+ 2411 094e 4B       		.byte	75
+ 2412 094f FF       		.byte	-1
+ 2413 0950 4C       		.byte	76
+ 2414 0951 40       		.byte	64
+ 2415 0952 4D       		.byte	77
+ 2416 0953 20       		.byte	32
+ 2417 0954 4E       		.byte	78
+ 2418 0955 F0       		.byte	-16
+ 2419 0956 4F       		.byte	79
+ 2420 0957 05       		.byte	5
+ 2421 0958 50       		.byte	80
+ 2422 0959 08       		.byte	8
+ 2423 095a 58       		.byte	88
+ 2424 095b 04       		.byte	4
+ 2425 095c 59       		.byte	89
+ 2426 095d 04       		.byte	4
+ 2427 095e 5A       		.byte	90
+ 2428 095f 04       		.byte	4
+ 2429 0960 5C       		.byte	92
+ 2430 0961 22       		.byte	34
+ 2431 0962 5D       		.byte	93
+ 2432 0963 03       		.byte	3
+ 2433 0964 5F       		.byte	95
+ 2434 0965 01       		.byte	1
+ 2435 0966 60       		.byte	96
+ 2436 0967 40       		.byte	64
+ 2437 0968 61       		.byte	97
+ 2438 0969 A8       		.byte	-88
+ 2439 096a 62       		.byte	98
+ 2440 096b 40       		.byte	64
+ 2441 096c 63       		.byte	99
+ 2442 096d 20       		.byte	32
+ 2443 096e 86       		.byte	-122
+ 2444 096f 29       		.byte	41
+ 2445 0970 87       		.byte	-121
+ 2446 0971 01       		.byte	1
+ 2447 0972 8C       		.byte	-116
+ 2448 0973 18       		.byte	24
+ 2449 0974 8E       		.byte	-114
+ 2450 0975 20       		.byte	32
+ 2451 0976 95       		.byte	-107
+ARM GAS  C:\Users\MATEOC~1.QUE\AppData\Local\Temp\ccFh5Tza.s 			page 44
+
+
+ 2452 0977 01       		.byte	1
+ 2453 0978 9A       		.byte	-102
+ 2454 0979 02       		.byte	2
+ 2455 097a 9C       		.byte	-100
+ 2456 097b 18       		.byte	24
+ 2457 097c 9D       		.byte	-99
+ 2458 097d 01       		.byte	1
+ 2459 097e 9E       		.byte	-98
+ 2460 097f 23       		.byte	35
+ 2461 0980 A2       		.byte	-94
+ 2462 0981 06       		.byte	6
+ 2463 0982 A3       		.byte	-93
+ 2464 0983 01       		.byte	1
+ 2465 0984 A4       		.byte	-92
+ 2466 0985 18       		.byte	24
+ 2467 0986 A6       		.byte	-90
+ 2468 0987 25       		.byte	37
+ 2469 0988 A7       		.byte	-89
+ 2470 0989 01       		.byte	1
+ 2471 098a A8       		.byte	-88
+ 2472 098b 16       		.byte	22
+ 2473 098c AA       		.byte	-86
+ 2474 098d 21       		.byte	33
+ 2475 098e B1       		.byte	-79
+ 2476 098f 01       		.byte	1
+ 2477 0990 B2       		.byte	-78
+ 2478 0991 3C       		.byte	60
+ 2479 0992 B6       		.byte	-74
+ 2480 0993 07       		.byte	7
+ 2481 0994 BA       		.byte	-70
+ 2482 0995 88       		.byte	-120
+ 2483 0996 BF       		.byte	-65
+ 2484 0997 01       		.byte	1
+ 2485 0998 D8       		.byte	-40
+ 2486 0999 04       		.byte	4
+ 2487 099a D9       		.byte	-39
+ 2488 099b 04       		.byte	4
+ 2489 099c DC       		.byte	-36
+ 2490 099d 23       		.byte	35
+ 2491 099e DF       		.byte	-33
+ 2492 099f 01       		.byte	1
+ 2493 09a0 01       		.byte	1
+ 2494 09a1 40       		.byte	64
+ 2495 09a2 04       		.byte	4
+ 2496 09a3 08       		.byte	8
+ 2497 09a4 06       		.byte	6
+ 2498 09a5 02       		.byte	2
+ 2499 09a6 08       		.byte	8
+ 2500 09a7 01       		.byte	1
+ 2501 09a8 09       		.byte	9
+ 2502 09a9 41       		.byte	65
+ 2503 09aa 0A       		.byte	10
+ 2504 09ab 10       		.byte	16
+ 2505 09ac 0C       		.byte	12
+ 2506 09ad 60       		.byte	96
+ 2507 09ae 10       		.byte	16
+ 2508 09af 18       		.byte	24
+ARM GAS  C:\Users\MATEOC~1.QUE\AppData\Local\Temp\ccFh5Tza.s 			page 45
+
+
+ 2509 09b0 13       		.byte	19
+ 2510 09b1 02       		.byte	2
+ 2511 09b2 16       		.byte	22
+ 2512 09b3 18       		.byte	24
+ 2513 09b4 17       		.byte	23
+ 2514 09b5 01       		.byte	1
+ 2515 09b6 1D       		.byte	29
+ 2516 09b7 44       		.byte	68
+ 2517 09b8 1F       		.byte	31
+ 2518 09b9 08       		.byte	8
+ 2519 09ba 20       		.byte	32
+ 2520 09bb 04       		.byte	4
+ 2521 09bc 24       		.byte	36
+ 2522 09bd 40       		.byte	64
+ 2523 09be 28       		.byte	40
+ 2524 09bf 82       		.byte	-126
+ 2525 09c0 2A       		.byte	42
+ 2526 09c1 14       		.byte	20
+ 2527 09c2 2B       		.byte	43
+ 2528 09c3 08       		.byte	8
+ 2529 09c4 2C       		.byte	44
+ 2530 09c5 08       		.byte	8
+ 2531 09c6 2D       		.byte	45
+ 2532 09c7 40       		.byte	64
+ 2533 09c8 2E       		.byte	46
+ 2534 09c9 0A       		.byte	10
+ 2535 09ca 2F       		.byte	47
+ 2536 09cb 10       		.byte	16
+ 2537 09cc 30       		.byte	48
+ 2538 09cd 59       		.byte	89
+ 2539 09ce 31       		.byte	49
+ 2540 09cf 40       		.byte	64
+ 2541 09d0 34       		.byte	52
+ 2542 09d1 12       		.byte	18
+ 2543 09d2 35       		.byte	53
+ 2544 09d3 64       		.byte	100
+ 2545 09d4 37       		.byte	55
+ 2546 09d5 02       		.byte	2
+ 2547 09d6 38       		.byte	56
+ 2548 09d7 08       		.byte	8
+ 2549 09d8 3A       		.byte	58
+ 2550 09d9 80       		.byte	-128
+ 2551 09da 3B       		.byte	59
+ 2552 09db 24       		.byte	36
+ 2553 09dc 3D       		.byte	61
+ 2554 09dd 82       		.byte	-126
+ 2555 09de 3E       		.byte	62
+ 2556 09df 90       		.byte	-112
+ 2557 09e0 3F       		.byte	63
+ 2558 09e1 26       		.byte	38
+ 2559 09e2 40       		.byte	64
+ 2560 09e3 04       		.byte	4
+ 2561 09e4 48       		.byte	72
+ 2562 09e5 20       		.byte	32
+ 2563 09e6 4B       		.byte	75
+ 2564 09e7 08       		.byte	8
+ 2565 09e8 50       		.byte	80
+ARM GAS  C:\Users\MATEOC~1.QUE\AppData\Local\Temp\ccFh5Tza.s 			page 46
+
+
+ 2566 09e9 04       		.byte	4
+ 2567 09ea 80       		.byte	-128
+ 2568 09eb 80       		.byte	-128
+ 2569 09ec 83       		.byte	-125
+ 2570 09ed 10       		.byte	16
+ 2571 09ee 91       		.byte	-111
+ 2572 09ef 40       		.byte	64
+ 2573 09f0 93       		.byte	-109
+ 2574 09f1 20       		.byte	32
+ 2575 09f2 94       		.byte	-108
+ 2576 09f3 48       		.byte	72
+ 2577 09f4 96       		.byte	-106
+ 2578 09f5 10       		.byte	16
+ 2579 09f6 97       		.byte	-105
+ 2580 09f7 08       		.byte	8
+ 2581 09f8 98       		.byte	-104
+ 2582 09f9 02       		.byte	2
+ 2583 09fa 99       		.byte	-103
+ 2584 09fb 20       		.byte	32
+ 2585 09fc 9A       		.byte	-102
+ 2586 09fd 06       		.byte	6
+ 2587 09fe 9B       		.byte	-101
+ 2588 09ff 01       		.byte	1
+ 2589 0a00 9C       		.byte	-100
+ 2590 0a01 40       		.byte	64
+ 2591 0a02 9E       		.byte	-98
+ 2592 0a03 10       		.byte	16
+ 2593 0a04 9F       		.byte	-97
+ 2594 0a05 02       		.byte	2
+ 2595 0a06 A0       		.byte	-96
+ 2596 0a07 08       		.byte	8
+ 2597 0a08 A1       		.byte	-95
+ 2598 0a09 40       		.byte	64
+ 2599 0a0a A3       		.byte	-93
+ 2600 0a0b 11       		.byte	17
+ 2601 0a0c A9       		.byte	-87
+ 2602 0a0d 01       		.byte	1
+ 2603 0a0e AE       		.byte	-82
+ 2604 0a0f 33       		.byte	51
+ 2605 0a10 C0       		.byte	-64
+ 2606 0a11 A1       		.byte	-95
+ 2607 0a12 C2       		.byte	-62
+ 2608 0a13 CD       		.byte	-51
+ 2609 0a14 C4       		.byte	-60
+ 2610 0a15 7E       		.byte	126
+ 2611 0a16 CA       		.byte	-54
+ 2612 0a17 FF       		.byte	-1
+ 2613 0a18 CC       		.byte	-52
+ 2614 0a19 FF       		.byte	-1
+ 2615 0a1a CE       		.byte	-50
+ 2616 0a1b FE       		.byte	-2
+ 2617 0a1c D0       		.byte	-48
+ 2618 0a1d 04       		.byte	4
+ 2619 0a1e E4       		.byte	-28
+ 2620 0a1f 04       		.byte	4
+ 2621 0a20 EC       		.byte	-20
+ 2622 0a21 21       		.byte	33
+ARM GAS  C:\Users\MATEOC~1.QUE\AppData\Local\Temp\ccFh5Tza.s 			page 47
+
+
+ 2623 0a22 03       		.byte	3
+ 2624 0a23 03       		.byte	3
+ 2625 0a24 05       		.byte	5
+ 2626 0a25 14       		.byte	20
+ 2627 0a26 06       		.byte	6
+ 2628 0a27 03       		.byte	3
+ 2629 0a28 09       		.byte	9
+ 2630 0a29 20       		.byte	32
+ 2631 0a2a 11       		.byte	17
+ 2632 0a2b 09       		.byte	9
+ 2633 0a2c 13       		.byte	19
+ 2634 0a2d 10       		.byte	16
+ 2635 0a2e 15       		.byte	21
+ 2636 0a2f 80       		.byte	-128
+ 2637 0a30 18       		.byte	24
+ 2638 0a31 0C       		.byte	12
+ 2639 0a32 19       		.byte	25
+ 2640 0a33 50       		.byte	80
+ 2641 0a34 1A       		.byte	26
+ 2642 0a35 03       		.byte	3
+ 2643 0a36 1B       		.byte	27
+ 2644 0a37 0C       		.byte	12
+ 2645 0a38 1C       		.byte	28
+ 2646 0a39 01       		.byte	1
+ 2647 0a3a 1D       		.byte	29
+ 2648 0a3b 4C       		.byte	76
+ 2649 0a3c 1E       		.byte	30
+ 2650 0a3d 0E       		.byte	14
+ 2651 0a3e 1F       		.byte	31
+ 2652 0a3f 11       		.byte	17
+ 2653 0a40 22       		.byte	34
+ 2654 0a41 0C       		.byte	12
+ 2655 0a42 24       		.byte	36
+ 2656 0a43 01       		.byte	1
+ 2657 0a44 25       		.byte	37
+ 2658 0a45 1C       		.byte	28
+ 2659 0a46 26       		.byte	38
+ 2660 0a47 06       		.byte	6
+ 2661 0a48 27       		.byte	39
+ 2662 0a49 42       		.byte	66
+ 2663 0a4a 29       		.byte	41
+ 2664 0a4b 10       		.byte	16
+ 2665 0a4c 2A       		.byte	42
+ 2666 0a4d 08       		.byte	8
+ 2667 0a4e 31       		.byte	49
+ 2668 0a4f 1F       		.byte	31
+ 2669 0a50 34       		.byte	52
+ 2670 0a51 0F       		.byte	15
+ 2671 0a52 35       		.byte	53
+ 2672 0a53 20       		.byte	32
+ 2673 0a54 37       		.byte	55
+ 2674 0a55 C0       		.byte	-64
+ 2675 0a56 39       		.byte	57
+ 2676 0a57 80       		.byte	-128
+ 2677 0a58 3A       		.byte	58
+ 2678 0a59 20       		.byte	32
+ 2679 0a5a 3F       		.byte	63
+ARM GAS  C:\Users\MATEOC~1.QUE\AppData\Local\Temp\ccFh5Tza.s 			page 48
+
+
+ 2680 0a5b 10       		.byte	16
+ 2681 0a5c 40       		.byte	64
+ 2682 0a5d 36       		.byte	54
+ 2683 0a5e 41       		.byte	65
+ 2684 0a5f 04       		.byte	4
+ 2685 0a60 45       		.byte	69
+ 2686 0a61 0B       		.byte	11
+ 2687 0a62 46       		.byte	70
+ 2688 0a63 E0       		.byte	-32
+ 2689 0a64 47       		.byte	71
+ 2690 0a65 C0       		.byte	-64
+ 2691 0a66 48       		.byte	72
+ 2692 0a67 29       		.byte	41
+ 2693 0a68 49       		.byte	73
+ 2694 0a69 FF       		.byte	-1
+ 2695 0a6a 4A       		.byte	74
+ 2696 0a6b FF       		.byte	-1
+ 2697 0a6c 4B       		.byte	75
+ 2698 0a6d FF       		.byte	-1
+ 2699 0a6e 4E       		.byte	78
+ 2700 0a6f F0       		.byte	-16
+ 2701 0a70 4F       		.byte	79
+ 2702 0a71 44       		.byte	68
+ 2703 0a72 50       		.byte	80
+ 2704 0a73 0C       		.byte	12
+ 2705 0a74 54       		.byte	84
+ 2706 0a75 01       		.byte	1
+ 2707 0a76 58       		.byte	88
+ 2708 0a77 04       		.byte	4
+ 2709 0a78 59       		.byte	89
+ 2710 0a79 04       		.byte	4
+ 2711 0a7a 5A       		.byte	90
+ 2712 0a7b 04       		.byte	4
+ 2713 0a7c 5B       		.byte	91
+ 2714 0a7d 04       		.byte	4
+ 2715 0a7e 5C       		.byte	92
+ 2716 0a7f 33       		.byte	51
+ 2717 0a80 5D       		.byte	93
+ 2718 0a81 33       		.byte	51
+ 2719 0a82 5F       		.byte	95
+ 2720 0a83 01       		.byte	1
+ 2721 0a84 66       		.byte	102
+ 2722 0a85 C0       		.byte	-64
+ 2723 0a86 6A       		.byte	106
+ 2724 0a87 40       		.byte	64
+ 2725 0a88 6B       		.byte	107
+ 2726 0a89 02       		.byte	2
+ 2727 0a8a D8       		.byte	-40
+ 2728 0a8b 04       		.byte	4
+ 2729 0a8c D9       		.byte	-39
+ 2730 0a8d 04       		.byte	4
+ 2731 0a8e DC       		.byte	-36
+ 2732 0a8f 22       		.byte	34
+ 2733 0a90 DF       		.byte	-33
+ 2734 0a91 01       		.byte	1
+ 2735 0a92 01       		.byte	1
+ 2736 0a93 41       		.byte	65
+ARM GAS  C:\Users\MATEOC~1.QUE\AppData\Local\Temp\ccFh5Tza.s 			page 49
+
+
+ 2737 0a94 04       		.byte	4
+ 2738 0a95 08       		.byte	8
+ 2739 0a96 09       		.byte	9
+ 2740 0a97 40       		.byte	64
+ 2741 0a98 0A       		.byte	10
+ 2742 0a99 90       		.byte	-112
+ 2743 0a9a 0C       		.byte	12
+ 2744 0a9b 40       		.byte	64
+ 2745 0a9c 0E       		.byte	14
+ 2746 0a9d 04       		.byte	4
+ 2747 0a9e 10       		.byte	16
+ 2748 0a9f 08       		.byte	8
+ 2749 0aa0 13       		.byte	19
+ 2750 0aa1 02       		.byte	2
+ 2751 0aa2 15       		.byte	21
+ 2752 0aa3 10       		.byte	16
+ 2753 0aa4 16       		.byte	22
+ 2754 0aa5 10       		.byte	16
+ 2755 0aa6 17       		.byte	23
+ 2756 0aa7 01       		.byte	1
+ 2757 0aa8 1E       		.byte	30
+ 2758 0aa9 04       		.byte	4
+ 2759 0aaa 1F       		.byte	31
+ 2760 0aab 10       		.byte	16
+ 2761 0aac 25       		.byte	37
+ 2762 0aad 01       		.byte	1
+ 2763 0aae 27       		.byte	39
+ 2764 0aaf 09       		.byte	9
+ 2765 0ab0 28       		.byte	40
+ 2766 0ab1 02       		.byte	2
+ 2767 0ab2 29       		.byte	41
+ 2768 0ab3 20       		.byte	32
+ 2769 0ab4 2B       		.byte	43
+ 2770 0ab5 10       		.byte	16
+ 2771 0ab6 2D       		.byte	45
+ 2772 0ab7 10       		.byte	16
+ 2773 0ab8 2F       		.byte	47
+ 2774 0ab9 14       		.byte	20
+ 2775 0aba 30       		.byte	48
+ 2776 0abb 08       		.byte	8
+ 2777 0abc 32       		.byte	50
+ 2778 0abd 42       		.byte	66
+ 2779 0abe 34       		.byte	52
+ 2780 0abf 60       		.byte	96
+ 2781 0ac0 36       		.byte	54
+ 2782 0ac1 08       		.byte	8
+ 2783 0ac2 37       		.byte	55
+ 2784 0ac3 01       		.byte	1
+ 2785 0ac4 38       		.byte	56
+ 2786 0ac5 80       		.byte	-128
+ 2787 0ac6 3D       		.byte	61
+ 2788 0ac7 02       		.byte	2
+ 2789 0ac8 3E       		.byte	62
+ 2790 0ac9 20       		.byte	32
+ 2791 0aca 3F       		.byte	63
+ 2792 0acb 04       		.byte	4
+ 2793 0acc 44       		.byte	68
+ARM GAS  C:\Users\MATEOC~1.QUE\AppData\Local\Temp\ccFh5Tza.s 			page 50
+
+
+ 2794 0acd 60       		.byte	96
+ 2795 0ace 46       		.byte	70
+ 2796 0acf 10       		.byte	16
+ 2797 0ad0 4C       		.byte	76
+ 2798 0ad1 04       		.byte	4
+ 2799 0ad2 4E       		.byte	78
+ 2800 0ad3 08       		.byte	8
+ 2801 0ad4 4F       		.byte	79
+ 2802 0ad5 04       		.byte	4
+ 2803 0ad6 56       		.byte	86
+ 2804 0ad7 22       		.byte	34
+ 2805 0ad8 5C       		.byte	92
+ 2806 0ad9 40       		.byte	64
+ 2807 0ada 5E       		.byte	94
+ 2808 0adb 21       		.byte	33
+ 2809 0adc 5F       		.byte	95
+ 2810 0add 08       		.byte	8
+ 2811 0ade 8C       		.byte	-116
+ 2812 0adf 40       		.byte	64
+ 2813 0ae0 8D       		.byte	-115
+ 2814 0ae1 20       		.byte	32
+ 2815 0ae2 8E       		.byte	-114
+ 2816 0ae3 04       		.byte	4
+ 2817 0ae4 90       		.byte	-112
+ 2818 0ae5 80       		.byte	-128
+ 2819 0ae6 91       		.byte	-111
+ 2820 0ae7 41       		.byte	65
+ 2821 0ae8 92       		.byte	-110
+ 2822 0ae9 80       		.byte	-128
+ 2823 0aea 98       		.byte	-104
+ 2824 0aeb 02       		.byte	2
+ 2825 0aec 99       		.byte	-103
+ 2826 0aed 20       		.byte	32
+ 2827 0aee A0       		.byte	-96
+ 2828 0aef 08       		.byte	8
+ 2829 0af0 A1       		.byte	-95
+ 2830 0af1 40       		.byte	64
+ 2831 0af2 A2       		.byte	-94
+ 2832 0af3 02       		.byte	2
+ 2833 0af4 A3       		.byte	-93
+ 2834 0af5 11       		.byte	17
+ 2835 0af6 AC       		.byte	-84
+ 2836 0af7 20       		.byte	32
+ 2837 0af8 AD       		.byte	-83
+ 2838 0af9 41       		.byte	65
+ 2839 0afa AE       		.byte	-82
+ 2840 0afb 0A       		.byte	10
+ 2841 0afc B1       		.byte	-79
+ 2842 0afd 40       		.byte	64
+ 2843 0afe B6       		.byte	-74
+ 2844 0aff 40       		.byte	64
+ 2845 0b00 C0       		.byte	-64
+ 2846 0b01 29       		.byte	41
+ 2847 0b02 C2       		.byte	-62
+ 2848 0b03 CD       		.byte	-51
+ 2849 0b04 C4       		.byte	-60
+ 2850 0b05 7A       		.byte	122
+ARM GAS  C:\Users\MATEOC~1.QUE\AppData\Local\Temp\ccFh5Tza.s 			page 51
+
+
+ 2851 0b06 CA       		.byte	-54
+ 2852 0b07 6E       		.byte	110
+ 2853 0b08 CC       		.byte	-52
+ 2854 0b09 FB       		.byte	-5
+ 2855 0b0a CE       		.byte	-50
+ 2856 0b0b E8       		.byte	-24
+ 2857 0b0c D0       		.byte	-48
+ 2858 0b0d C0       		.byte	-64
+ 2859 0b0e D2       		.byte	-46
+ 2860 0b0f 20       		.byte	32
+ 2861 0b10 D6       		.byte	-42
+ 2862 0b11 F0       		.byte	-16
+ 2863 0b12 E8       		.byte	-24
+ 2864 0b13 08       		.byte	8
+ 2865 0b14 00       		.byte	0
+ 2866 0b15 10       		.byte	16
+ 2867 0b16 02       		.byte	2
+ 2868 0b17 04       		.byte	4
+ 2869 0b18 03       		.byte	3
+ 2870 0b19 03       		.byte	3
+ 2871 0b1a 04       		.byte	4
+ 2872 0b1b 02       		.byte	2
+ 2873 0b1c 05       		.byte	5
+ 2874 0b1d 03       		.byte	3
+ 2875 0b1e 08       		.byte	8
+ 2876 0b1f 02       		.byte	2
+ 2877 0b20 09       		.byte	9
+ 2878 0b21 04       		.byte	4
+ 2879 0b22 0C       		.byte	12
+ 2880 0b23 04       		.byte	4
+ 2881 0b24 0E       		.byte	14
+ 2882 0b25 18       		.byte	24
+ 2883 0b26 11       		.byte	17
+ 2884 0b27 04       		.byte	4
+ 2885 0b28 12       		.byte	18
+ 2886 0b29 01       		.byte	1
+ 2887 0b2a 15       		.byte	21
+ 2888 0b2b 03       		.byte	3
+ 2889 0b2c 16       		.byte	22
+ 2890 0b2d 02       		.byte	2
+ 2891 0b2e 19       		.byte	25
+ 2892 0b2f 04       		.byte	4
+ 2893 0b30 1A       		.byte	26
+ 2894 0b31 01       		.byte	1
+ 2895 0b32 1D       		.byte	29
+ 2896 0b33 03       		.byte	3
+ 2897 0b34 21       		.byte	33
+ 2898 0b35 01       		.byte	1
+ 2899 0b36 22       		.byte	34
+ 2900 0b37 02       		.byte	2
+ 2901 0b38 24       		.byte	36
+ 2902 0b39 1C       		.byte	28
+ 2903 0b3a 27       		.byte	39
+ 2904 0b3b 03       		.byte	3
+ 2905 0b3c 28       		.byte	40
+ 2906 0b3d 1C       		.byte	28
+ 2907 0b3e 2B       		.byte	43
+ARM GAS  C:\Users\MATEOC~1.QUE\AppData\Local\Temp\ccFh5Tza.s 			page 52
+
+
+ 2908 0b3f 03       		.byte	3
+ 2909 0b40 2C       		.byte	44
+ 2910 0b41 08       		.byte	8
+ 2911 0b42 2D       		.byte	45
+ 2912 0b43 02       		.byte	2
+ 2913 0b44 2E       		.byte	46
+ 2914 0b45 04       		.byte	4
+ 2915 0b46 31       		.byte	49
+ 2916 0b47 04       		.byte	4
+ 2917 0b48 32       		.byte	50
+ 2918 0b49 01       		.byte	1
+ 2919 0b4a 34       		.byte	52
+ 2920 0b4b 02       		.byte	2
+ 2921 0b4c 36       		.byte	54
+ 2922 0b4d 1C       		.byte	28
+ 2923 0b4e 37       		.byte	55
+ 2924 0b4f 03       		.byte	3
+ 2925 0b50 38       		.byte	56
+ 2926 0b51 20       		.byte	32
+ 2927 0b52 3B       		.byte	59
+ 2928 0b53 20       		.byte	32
+ 2929 0b54 3E       		.byte	62
+ 2930 0b55 04       		.byte	4
+ 2931 0b56 54       		.byte	84
+ 2932 0b57 18       		.byte	24
+ 2933 0b58 58       		.byte	88
+ 2934 0b59 04       		.byte	4
+ 2935 0b5a 59       		.byte	89
+ 2936 0b5b 04       		.byte	4
+ 2937 0b5c 5B       		.byte	91
+ 2938 0b5d 04       		.byte	4
+ 2939 0b5e 5C       		.byte	92
+ 2940 0b5f 33       		.byte	51
+ 2941 0b60 5D       		.byte	93
+ 2942 0b61 30       		.byte	48
+ 2943 0b62 5F       		.byte	95
+ 2944 0b63 01       		.byte	1
+ 2945 0b64 D8       		.byte	-40
+ 2946 0b65 04       		.byte	4
+ 2947 0b66 D9       		.byte	-39
+ 2948 0b67 04       		.byte	4
+ 2949 0b68 DC       		.byte	-36
+ 2950 0b69 22       		.byte	34
+ 2951 0b6a DF       		.byte	-33
+ 2952 0b6b 01       		.byte	1
+ 2953 0b6c 00       		.byte	0
+ 2954 0b6d 80       		.byte	-128
+ 2955 0b6e 03       		.byte	3
+ 2956 0b6f 40       		.byte	64
+ 2957 0b70 04       		.byte	4
+ 2958 0b71 08       		.byte	8
+ 2959 0b72 05       		.byte	5
+ 2960 0b73 40       		.byte	64
+ 2961 0b74 06       		.byte	6
+ 2962 0b75 40       		.byte	64
+ 2963 0b76 07       		.byte	7
+ 2964 0b77 04       		.byte	4
+ARM GAS  C:\Users\MATEOC~1.QUE\AppData\Local\Temp\ccFh5Tza.s 			page 53
+
+
+ 2965 0b78 08       		.byte	8
+ 2966 0b79 52       		.byte	82
+ 2967 0b7a 0B       		.byte	11
+ 2968 0b7b 04       		.byte	4
+ 2969 0b7c 0C       		.byte	12
+ 2970 0b7d 04       		.byte	4
+ 2971 0b7e 0D       		.byte	13
+ 2972 0b7f 20       		.byte	32
+ 2973 0b80 0F       		.byte	15
+ 2974 0b81 A0       		.byte	-96
+ 2975 0b82 10       		.byte	16
+ 2976 0b83 20       		.byte	32
+ 2977 0b84 11       		.byte	17
+ 2978 0b85 40       		.byte	64
+ 2979 0b86 15       		.byte	21
+ 2980 0b87 02       		.byte	2
+ 2981 0b88 16       		.byte	22
+ 2982 0b89 22       		.byte	34
+ 2983 0b8a 17       		.byte	23
+ 2984 0b8b 10       		.byte	16
+ 2985 0b8c 1D       		.byte	29
+ 2986 0b8d 60       		.byte	96
+ 2987 0b8e 1F       		.byte	31
+ 2988 0b8f 04       		.byte	4
+ 2989 0b90 24       		.byte	36
+ 2990 0b91 09       		.byte	9
+ 2991 0b92 25       		.byte	37
+ 2992 0b93 01       		.byte	1
+ 2993 0b94 27       		.byte	39
+ 2994 0b95 08       		.byte	8
+ 2995 0b96 28       		.byte	40
+ 2996 0b97 40       		.byte	64
+ 2997 0b98 29       		.byte	41
+ 2998 0b99 04       		.byte	4
+ 2999 0b9a 2C       		.byte	44
+ 3000 0b9b 04       		.byte	4
+ 3001 0b9c 2E       		.byte	46
+ 3002 0b9d 02       		.byte	2
+ 3003 0b9e 2F       		.byte	47
+ 3004 0b9f 11       		.byte	17
+ 3005 0ba0 30       		.byte	48
+ 3006 0ba1 10       		.byte	16
+ 3007 0ba2 31       		.byte	49
+ 3008 0ba3 0A       		.byte	10
+ 3009 0ba4 33       		.byte	51
+ 3010 0ba5 40       		.byte	64
+ 3011 0ba6 35       		.byte	53
+ 3012 0ba7 40       		.byte	64
+ 3013 0ba8 37       		.byte	55
+ 3014 0ba9 19       		.byte	25
+ 3015 0baa 39       		.byte	57
+ 3016 0bab 40       		.byte	64
+ 3017 0bac 3D       		.byte	61
+ 3018 0bad 02       		.byte	2
+ 3019 0bae 3E       		.byte	62
+ 3020 0baf 24       		.byte	36
+ 3021 0bb0 5C       		.byte	92
+ARM GAS  C:\Users\MATEOC~1.QUE\AppData\Local\Temp\ccFh5Tza.s 			page 54
+
+
+ 3022 0bb1 01       		.byte	1
+ 3023 0bb2 64       		.byte	100
+ 3024 0bb3 01       		.byte	1
+ 3025 0bb4 67       		.byte	103
+ 3026 0bb5 08       		.byte	8
+ 3027 0bb6 8C       		.byte	-116
+ 3028 0bb7 22       		.byte	34
+ 3029 0bb8 8D       		.byte	-115
+ 3030 0bb9 0C       		.byte	12
+ 3031 0bba 91       		.byte	-111
+ 3032 0bbb 42       		.byte	66
+ 3033 0bbc 92       		.byte	-110
+ 3034 0bbd 04       		.byte	4
+ 3035 0bbe 93       		.byte	-109
+ 3036 0bbf 22       		.byte	34
+ 3037 0bc0 98       		.byte	-104
+ 3038 0bc1 11       		.byte	17
+ 3039 0bc2 9A       		.byte	-102
+ 3040 0bc3 60       		.byte	96
+ 3041 0bc4 9B       		.byte	-101
+ 3042 0bc5 55       		.byte	85
+ 3043 0bc6 9C       		.byte	-100
+ 3044 0bc7 02       		.byte	2
+ 3045 0bc8 9D       		.byte	-99
+ 3046 0bc9 40       		.byte	64
+ 3047 0bca 9F       		.byte	-97
+ 3048 0bcb 08       		.byte	8
+ 3049 0bcc A0       		.byte	-96
+ 3050 0bcd 40       		.byte	64
+ 3051 0bce A1       		.byte	-95
+ 3052 0bcf 02       		.byte	2
+ 3053 0bd0 A2       		.byte	-94
+ 3054 0bd1 10       		.byte	16
+ 3055 0bd2 A3       		.byte	-93
+ 3056 0bd3 51       		.byte	81
+ 3057 0bd4 A5       		.byte	-91
+ 3058 0bd5 01       		.byte	1
+ 3059 0bd6 A6       		.byte	-90
+ 3060 0bd7 01       		.byte	1
+ 3061 0bd8 AD       		.byte	-83
+ 3062 0bd9 80       		.byte	-128
+ 3063 0bda B0       		.byte	-80
+ 3064 0bdb 40       		.byte	64
+ 3065 0bdc B3       		.byte	-77
+ 3066 0bdd 01       		.byte	1
+ 3067 0bde B6       		.byte	-74
+ 3068 0bdf 20       		.byte	32
+ 3069 0be0 B7       		.byte	-73
+ 3070 0be1 48       		.byte	72
+ 3071 0be2 C0       		.byte	-64
+ 3072 0be3 F9       		.byte	-7
+ 3073 0be4 C2       		.byte	-62
+ 3074 0be5 7B       		.byte	123
+ 3075 0be6 C4       		.byte	-60
+ 3076 0be7 F5       		.byte	-11
+ 3077 0be8 CA       		.byte	-54
+ 3078 0be9 F3       		.byte	-13
+ARM GAS  C:\Users\MATEOC~1.QUE\AppData\Local\Temp\ccFh5Tza.s 			page 55
+
+
+ 3079 0bea CC       		.byte	-52
+ 3080 0beb FF       		.byte	-1
+ 3081 0bec CE       		.byte	-50
+ 3082 0bed E8       		.byte	-24
+ 3083 0bee D6       		.byte	-42
+ 3084 0bef 80       		.byte	-128
+ 3085 0bf0 D8       		.byte	-40
+ 3086 0bf1 30       		.byte	48
+ 3087 0bf2 E0       		.byte	-32
+ 3088 0bf3 10       		.byte	16
+ 3089 0bf4 E4       		.byte	-28
+ 3090 0bf5 10       		.byte	16
+ 3091 0bf6 E8       		.byte	-24
+ 3092 0bf7 90       		.byte	-112
+ 3093 0bf8 58       		.byte	88
+ 3094 0bf9 04       		.byte	4
+ 3095 0bfa 59       		.byte	89
+ 3096 0bfb 04       		.byte	4
+ 3097 0bfc 5B       		.byte	91
+ 3098 0bfd 04       		.byte	4
+ 3099 0bfe 5C       		.byte	92
+ 3100 0bff 22       		.byte	34
+ 3101 0c00 5F       		.byte	95
+ 3102 0c01 01       		.byte	1
+ 3103 0c02 89       		.byte	-119
+ 3104 0c03 01       		.byte	1
+ 3105 0c04 B3       		.byte	-77
+ 3106 0c05 01       		.byte	1
+ 3107 0c06 BF       		.byte	-65
+ 3108 0c07 04       		.byte	4
+ 3109 0c08 D6       		.byte	-42
+ 3110 0c09 08       		.byte	8
+ 3111 0c0a D8       		.byte	-40
+ 3112 0c0b 04       		.byte	4
+ 3113 0c0c D9       		.byte	-39
+ 3114 0c0d 04       		.byte	4
+ 3115 0c0e DB       		.byte	-37
+ 3116 0c0f 04       		.byte	4
+ 3117 0c10 DC       		.byte	-36
+ 3118 0c11 22       		.byte	34
+ 3119 0c12 DD       		.byte	-35
+ 3120 0c13 90       		.byte	-112
+ 3121 0c14 DF       		.byte	-33
+ 3122 0c15 01       		.byte	1
+ 3123 0c16 00       		.byte	0
+ 3124 0c17 04       		.byte	4
+ 3125 0c18 03       		.byte	3
+ 3126 0c19 40       		.byte	64
+ 3127 0c1a 04       		.byte	4
+ 3128 0c1b 04       		.byte	4
+ 3129 0c1c 05       		.byte	5
+ 3130 0c1d 04       		.byte	4
+ 3131 0c1e 06       		.byte	6
+ 3132 0c1f 40       		.byte	64
+ 3133 0c20 07       		.byte	7
+ 3134 0c21 40       		.byte	64
+ 3135 0c22 08       		.byte	8
+ARM GAS  C:\Users\MATEOC~1.QUE\AppData\Local\Temp\ccFh5Tza.s 			page 56
+
+
+ 3136 0c23 10       		.byte	16
+ 3137 0c24 0A       		.byte	10
+ 3138 0c25 02       		.byte	2
+ 3139 0c26 0C       		.byte	12
+ 3140 0c27 70       		.byte	112
+ 3141 0c28 0D       		.byte	13
+ 3142 0c29 02       		.byte	2
+ 3143 0c2a 0F       		.byte	15
+ 3144 0c2b 02       		.byte	2
+ 3145 0c2c 10       		.byte	16
+ 3146 0c2d 40       		.byte	64
+ 3147 0c2e 11       		.byte	17
+ 3148 0c2f 40       		.byte	64
+ 3149 0c30 12       		.byte	18
+ 3150 0c31 20       		.byte	32
+ 3151 0c32 13       		.byte	19
+ 3152 0c33 04       		.byte	4
+ 3153 0c34 15       		.byte	21
+ 3154 0c35 48       		.byte	72
+ 3155 0c36 27       		.byte	39
+ 3156 0c37 10       		.byte	16
+ 3157 0c38 28       		.byte	40
+ 3158 0c39 40       		.byte	64
+ 3159 0c3a 2A       		.byte	42
+ 3160 0c3b 40       		.byte	64
+ 3161 0c3c 2C       		.byte	44
+ 3162 0c3d 60       		.byte	96
+ 3163 0c3e 2D       		.byte	45
+ 3164 0c3f 40       		.byte	64
+ 3165 0c40 30       		.byte	48
+ 3166 0c41 20       		.byte	32
+ 3167 0c42 31       		.byte	49
+ 3168 0c43 06       		.byte	6
+ 3169 0c44 32       		.byte	50
+ 3170 0c45 01       		.byte	1
+ 3171 0c46 33       		.byte	51
+ 3172 0c47 01       		.byte	1
+ 3173 0c48 35       		.byte	53
+ 3174 0c49 04       		.byte	4
+ 3175 0c4a 36       		.byte	54
+ 3176 0c4b 20       		.byte	32
+ 3177 0c4c 37       		.byte	55
+ 3178 0c4d 41       		.byte	65
+ 3179 0c4e 39       		.byte	57
+ 3180 0c4f 48       		.byte	72
+ 3181 0c50 3B       		.byte	59
+ 3182 0c51 04       		.byte	4
+ 3183 0c52 3C       		.byte	60
+ 3184 0c53 10       		.byte	16
+ 3185 0c54 49       		.byte	73
+ 3186 0c55 80       		.byte	-128
+ 3187 0c56 4A       		.byte	74
+ 3188 0c57 01       		.byte	1
+ 3189 0c58 5C       		.byte	92
+ 3190 0c59 40       		.byte	64
+ 3191 0c5a 65       		.byte	101
+ 3192 0c5b 80       		.byte	-128
+ARM GAS  C:\Users\MATEOC~1.QUE\AppData\Local\Temp\ccFh5Tza.s 			page 57
+
+
+ 3193 0c5c 68       		.byte	104
+ 3194 0c5d 01       		.byte	1
+ 3195 0c5e 69       		.byte	105
+ 3196 0c5f 02       		.byte	2
+ 3197 0c60 6A       		.byte	106
+ 3198 0c61 24       		.byte	36
+ 3199 0c62 70       		.byte	112
+ 3200 0c63 10       		.byte	16
+ 3201 0c64 71       		.byte	113
+ 3202 0c65 80       		.byte	-128
+ 3203 0c66 73       		.byte	115
+ 3204 0c67 50       		.byte	80
+ 3205 0c68 80       		.byte	-128
+ 3206 0c69 40       		.byte	64
+ 3207 0c6a 81       		.byte	-127
+ 3208 0c6b 80       		.byte	-128
+ 3209 0c6c 83       		.byte	-125
+ 3210 0c6d 10       		.byte	16
+ 3211 0c6e 87       		.byte	-121
+ 3212 0c6f 50       		.byte	80
+ 3213 0c70 88       		.byte	-120
+ 3214 0c71 01       		.byte	1
+ 3215 0c72 89       		.byte	-119
+ 3216 0c73 01       		.byte	1
+ 3217 0c74 8A       		.byte	-118
+ 3218 0c75 04       		.byte	4
+ 3219 0c76 8C       		.byte	-116
+ 3220 0c77 10       		.byte	16
+ 3221 0c78 8E       		.byte	-114
+ 3222 0c79 10       		.byte	16
+ 3223 0c7a 90       		.byte	-112
+ 3224 0c7b 10       		.byte	16
+ 3225 0c7c 91       		.byte	-111
+ 3226 0c7d 40       		.byte	64
+ 3227 0c7e 93       		.byte	-109
+ 3228 0c7f 04       		.byte	4
+ 3229 0c80 99       		.byte	-103
+ 3230 0c81 04       		.byte	4
+ 3231 0c82 9B       		.byte	-101
+ 3232 0c83 40       		.byte	64
+ 3233 0c84 9C       		.byte	-100
+ 3234 0c85 40       		.byte	64
+ 3235 0c86 A0       		.byte	-96
+ 3236 0c87 20       		.byte	32
+ 3237 0c88 A1       		.byte	-95
+ 3238 0c89 02       		.byte	2
+ 3239 0c8a A3       		.byte	-93
+ 3240 0c8b 01       		.byte	1
+ 3241 0c8c A6       		.byte	-90
+ 3242 0c8d 01       		.byte	1
+ 3243 0c8e A8       		.byte	-88
+ 3244 0c8f 10       		.byte	16
+ 3245 0c90 B2       		.byte	-78
+ 3246 0c91 12       		.byte	18
+ 3247 0c92 C0       		.byte	-64
+ 3248 0c93 3C       		.byte	60
+ 3249 0c94 C2       		.byte	-62
+ARM GAS  C:\Users\MATEOC~1.QUE\AppData\Local\Temp\ccFh5Tza.s 			page 58
+
+
+ 3250 0c95 D3       		.byte	-45
+ 3251 0c96 C4       		.byte	-60
+ 3252 0c97 AD       		.byte	-83
+ 3253 0c98 CA       		.byte	-54
+ 3254 0c99 D9       		.byte	-39
+ 3255 0c9a CC       		.byte	-52
+ 3256 0c9b F7       		.byte	-9
+ 3257 0c9c CE       		.byte	-50
+ 3258 0c9d 2A       		.byte	42
+ 3259 0c9e D6       		.byte	-42
+ 3260 0c9f 10       		.byte	16
+ 3261 0ca0 D8       		.byte	-40
+ 3262 0ca1 10       		.byte	16
+ 3263 0ca2 E0       		.byte	-32
+ 3264 0ca3 0C       		.byte	12
+ 3265 0ca4 E4       		.byte	-28
+ 3266 0ca5 03       		.byte	3
+ 3267 0ca6 EC       		.byte	-20
+ 3268 0ca7 20       		.byte	32
+ 3269 0ca8 12       		.byte	18
+ 3270 0ca9 80       		.byte	-128
+ 3271 0caa 16       		.byte	22
+ 3272 0cab 80       		.byte	-128
+ 3273 0cac 31       		.byte	49
+ 3274 0cad 10       		.byte	16
+ 3275 0cae 36       		.byte	54
+ 3276 0caf 10       		.byte	16
+ 3277 0cb0 3B       		.byte	59
+ 3278 0cb1 02       		.byte	2
+ 3279 0cb2 3E       		.byte	62
+ 3280 0cb3 80       		.byte	-128
+ 3281 0cb4 C4       		.byte	-60
+ 3282 0cb5 30       		.byte	48
+ 3283 0cb6 CC       		.byte	-52
+ 3284 0cb7 30       		.byte	48
+ 3285 0cb8 CE       		.byte	-50
+ 3286 0cb9 60       		.byte	96
+ 3287 0cba 05       		.byte	5
+ 3288 0cbb 40       		.byte	64
+ 3289 0cbc 09       		.byte	9
+ 3290 0cbd 02       		.byte	2
+ 3291 0cbe 0E       		.byte	14
+ 3292 0cbf 40       		.byte	64
+ 3293 0cc0 56       		.byte	86
+ 3294 0cc1 80       		.byte	-128
+ 3295 0cc2 57       		.byte	87
+ 3296 0cc3 01       		.byte	1
+ 3297 0cc4 5B       		.byte	91
+ 3298 0cc5 02       		.byte	2
+ 3299 0cc6 64       		.byte	100
+ 3300 0cc7 10       		.byte	16
+ 3301 0cc8 84       		.byte	-124
+ 3302 0cc9 10       		.byte	16
+ 3303 0cca 89       		.byte	-119
+ 3304 0ccb 42       		.byte	66
+ 3305 0ccc 97       		.byte	-105
+ 3306 0ccd 02       		.byte	2
+ARM GAS  C:\Users\MATEOC~1.QUE\AppData\Local\Temp\ccFh5Tza.s 			page 59
+
+
+ 3307 0cce 9D       		.byte	-99
+ 3308 0ccf 10       		.byte	16
+ 3309 0cd0 A2       		.byte	-94
+ 3310 0cd1 80       		.byte	-128
+ 3311 0cd2 A3       		.byte	-93
+ 3312 0cd3 01       		.byte	1
+ 3313 0cd4 A6       		.byte	-90
+ 3314 0cd5 10       		.byte	16
+ 3315 0cd6 AF       		.byte	-81
+ 3316 0cd7 01       		.byte	1
+ 3317 0cd8 C0       		.byte	-64
+ 3318 0cd9 80       		.byte	-128
+ 3319 0cda C2       		.byte	-62
+ 3320 0cdb 30       		.byte	48
+ 3321 0cdc D4       		.byte	-44
+ 3322 0cdd 40       		.byte	64
+ 3323 0cde D6       		.byte	-42
+ 3324 0cdf 60       		.byte	96
+ 3325 0ce0 D8       		.byte	-40
+ 3326 0ce1 80       		.byte	-128
+ 3327 0ce2 E6       		.byte	-26
+ 3328 0ce3 40       		.byte	64
+ 3329 0ce4 EE       		.byte	-18
+ 3330 0ce5 10       		.byte	16
+ 3331 0ce6 57       		.byte	87
+ 3332 0ce7 04       		.byte	4
+ 3333 0ce8 59       		.byte	89
+ 3334 0ce9 01       		.byte	1
+ 3335 0cea 86       		.byte	-122
+ 3336 0ceb 80       		.byte	-128
+ 3337 0cec 97       		.byte	-105
+ 3338 0ced 02       		.byte	2
+ 3339 0cee 9E       		.byte	-98
+ 3340 0cef 80       		.byte	-128
+ 3341 0cf0 A2       		.byte	-94
+ 3342 0cf1 80       		.byte	-128
+ 3343 0cf2 A4       		.byte	-92
+ 3344 0cf3 40       		.byte	64
+ 3345 0cf4 AC       		.byte	-84
+ 3346 0cf5 40       		.byte	64
+ 3347 0cf6 AE       		.byte	-82
+ 3348 0cf7 10       		.byte	16
+ 3349 0cf8 AF       		.byte	-81
+ 3350 0cf9 02       		.byte	2
+ 3351 0cfa B5       		.byte	-75
+ 3352 0cfb 10       		.byte	16
+ 3353 0cfc B6       		.byte	-74
+ 3354 0cfd 40       		.byte	64
+ 3355 0cfe D4       		.byte	-44
+ 3356 0cff 40       		.byte	64
+ 3357 0d00 D6       		.byte	-42
+ 3358 0d01 40       		.byte	64
+ 3359 0d02 E2       		.byte	-30
+ 3360 0d03 40       		.byte	64
+ 3361 0d04 E8       		.byte	-24
+ 3362 0d05 40       		.byte	64
+ 3363 0d06 EE       		.byte	-18
+ARM GAS  C:\Users\MATEOC~1.QUE\AppData\Local\Temp\ccFh5Tza.s 			page 60
+
+
+ 3364 0d07 50       		.byte	80
+ 3365 0d08 1B       		.byte	27
+ 3366 0d09 04       		.byte	4
+ 3367 0d0a A2       		.byte	-94
+ 3368 0d0b 80       		.byte	-128
+ 3369 0d0c A4       		.byte	-92
+ 3370 0d0d 40       		.byte	64
+ 3371 0d0e A7       		.byte	-89
+ 3372 0d0f 04       		.byte	4
+ 3373 0d10 A9       		.byte	-87
+ 3374 0d11 01       		.byte	1
+ 3375 0d12 AB       		.byte	-85
+ 3376 0d13 01       		.byte	1
+ 3377 0d14 C6       		.byte	-58
+ 3378 0d15 10       		.byte	16
+ 3379 0d16 EA       		.byte	-22
+ 3380 0d17 20       		.byte	32
+ 3381 0d18 EE       		.byte	-18
+ 3382 0d19 20       		.byte	32
+ 3383 0d1a 75       		.byte	117
+ 3384 0d1b 08       		.byte	8
+ 3385 0d1c 78       		.byte	120
+ 3386 0d1d 80       		.byte	-128
+ 3387 0d1e DC       		.byte	-36
+ 3388 0d1f 01       		.byte	1
+ 3389 0d20 DE       		.byte	-34
+ 3390 0d21 04       		.byte	4
+ 3391 0d22 53       		.byte	83
+ 3392 0d23 10       		.byte	16
+ 3393 0d24 85       		.byte	-123
+ 3394 0d25 08       		.byte	8
+ 3395 0d26 9C       		.byte	-100
+ 3396 0d27 80       		.byte	-128
+ 3397 0d28 9D       		.byte	-99
+ 3398 0d29 08       		.byte	8
+ 3399 0d2a D4       		.byte	-44
+ 3400 0d2b 04       		.byte	4
+ 3401 0d2c 1B       		.byte	27
+ 3402 0d2d 04       		.byte	4
+ 3403 0d2e 24       		.byte	36
+ 3404 0d2f 10       		.byte	16
+ 3405 0d30 84       		.byte	-124
+ 3406 0d31 10       		.byte	16
+ 3407 0d32 9C       		.byte	-100
+ 3408 0d33 80       		.byte	-128
+ 3409 0d34 B3       		.byte	-77
+ 3410 0d35 10       		.byte	16
+ 3411 0d36 C6       		.byte	-58
+ 3412 0d37 08       		.byte	8
+ 3413 0d38 C8       		.byte	-56
+ 3414 0d39 01       		.byte	1
+ 3415 0d3a E8       		.byte	-24
+ 3416 0d3b 04       		.byte	4
+ 3417 0d3c 44       		.byte	68
+ 3418 0d3d 01       		.byte	1
+ 3419 0d3e 9C       		.byte	-100
+ 3420 0d3f 10       		.byte	16
+ARM GAS  C:\Users\MATEOC~1.QUE\AppData\Local\Temp\ccFh5Tza.s 			page 61
+
+
+ 3421 0d40 AB       		.byte	-85
+ 3422 0d41 04       		.byte	4
+ 3423 0d42 AC       		.byte	-84
+ 3424 0d43 80       		.byte	-128
+ 3425 0d44 B4       		.byte	-76
+ 3426 0d45 10       		.byte	16
+ 3427 0d46 D0       		.byte	-48
+ 3428 0d47 04       		.byte	4
+ 3429 0d48 EA       		.byte	-22
+ 3430 0d49 08       		.byte	8
+ 3431 0d4a 25       		.byte	37
+ 3432 0d4b 02       		.byte	2
+ 3433 0d4c A2       		.byte	-94
+ 3434 0d4d 80       		.byte	-128
+ 3435 0d4e A4       		.byte	-92
+ 3436 0d4f 40       		.byte	64
+ 3437 0d50 C8       		.byte	-56
+ 3438 0d51 80       		.byte	-128
+ 3439 0d52 00       		.byte	0
+ 3440 0d53 80       		.byte	-128
+ 3441 0d54 82       		.byte	-126
+ 3442 0d55 80       		.byte	-128
+ 3443 0d56 A2       		.byte	-94
+ 3444 0d57 80       		.byte	-128
+ 3445 0d58 A4       		.byte	-92
+ 3446 0d59 40       		.byte	64
+ 3447 0d5a B1       		.byte	-79
+ 3448 0d5b 02       		.byte	2
+ 3449 0d5c C0       		.byte	-64
+ 3450 0d5d 40       		.byte	64
+ 3451 0d5e E4       		.byte	-28
+ 3452 0d5f 20       		.byte	32
+ 3453 0d60 51       		.byte	81
+ 3454 0d61 08       		.byte	8
+ 3455 0d62 57       		.byte	87
+ 3456 0d63 20       		.byte	32
+ 3457 0d64 58       		.byte	88
+ 3458 0d65 40       		.byte	64
+ 3459 0d66 5B       		.byte	91
+ 3460 0d67 08       		.byte	8
+ 3461 0d68 5F       		.byte	95
+ 3462 0d69 42       		.byte	66
+ 3463 0d6a 61       		.byte	97
+ 3464 0d6b 20       		.byte	32
+ 3465 0d6c 66       		.byte	102
+ 3466 0d6d 08       		.byte	8
+ 3467 0d6e 9C       		.byte	-100
+ 3468 0d6f 11       		.byte	17
+ 3469 0d70 D4       		.byte	-44
+ 3470 0d71 07       		.byte	7
+ 3471 0d72 D6       		.byte	-42
+ 3472 0d73 07       		.byte	7
+ 3473 0d74 D8       		.byte	-40
+ 3474 0d75 03       		.byte	3
+ 3475 0d76 10       		.byte	16
+ 3476 0d77 10       		.byte	16
+ 3477 0d78 72       		.byte	114
+ARM GAS  C:\Users\MATEOC~1.QUE\AppData\Local\Temp\ccFh5Tza.s 			page 62
+
+
+ 3478 0d79 20       		.byte	32
+ 3479 0d7a 82       		.byte	-126
+ 3480 0d7b 20       		.byte	32
+ 3481 0d7c 83       		.byte	-125
+ 3482 0d7d 02       		.byte	2
+ 3483 0d7e 86       		.byte	-122
+ 3484 0d7f 08       		.byte	8
+ 3485 0d80 87       		.byte	-121
+ 3486 0d81 08       		.byte	8
+ 3487 0d82 88       		.byte	-120
+ 3488 0d83 40       		.byte	64
+ 3489 0d84 89       		.byte	-119
+ 3490 0d85 08       		.byte	8
+ 3491 0d86 8B       		.byte	-117
+ 3492 0d87 40       		.byte	64
+ 3493 0d88 8D       		.byte	-115
+ 3494 0d89 20       		.byte	32
+ 3495 0d8a 8F       		.byte	-113
+ 3496 0d8b 20       		.byte	32
+ 3497 0d8c 97       		.byte	-105
+ 3498 0d8d 40       		.byte	64
+ 3499 0d8e 9C       		.byte	-100
+ 3500 0d8f 50       		.byte	80
+ 3501 0d90 9E       		.byte	-98
+ 3502 0d91 08       		.byte	8
+ 3503 0d92 9F       		.byte	-97
+ 3504 0d93 0A       		.byte	10
+ 3505 0d94 A5       		.byte	-91
+ 3506 0d95 28       		.byte	40
+ 3507 0d96 A7       		.byte	-89
+ 3508 0d97 20       		.byte	32
+ 3509 0d98 B0       		.byte	-80
+ 3510 0d99 01       		.byte	1
+ 3511 0d9a C4       		.byte	-60
+ 3512 0d9b 08       		.byte	8
+ 3513 0d9c DC       		.byte	-36
+ 3514 0d9d 01       		.byte	1
+ 3515 0d9e E0       		.byte	-32
+ 3516 0d9f 07       		.byte	7
+ 3517 0da0 E4       		.byte	-28
+ 3518 0da1 06       		.byte	6
+ 3519 0da2 EC       		.byte	-20
+ 3520 0da3 04       		.byte	4
+ 3521 0da4 10       		.byte	16
+ 3522 0da5 0C       		.byte	12
+ 3523 0da6 11       		.byte	17
+ 3524 0da7 01       		.byte	1
+ 3525 0da8 12       		.byte	18
+ 3526 0da9 14       		.byte	20
+ 3527 0daa 1A       		.byte	26
+ 3528 0dab 0C       		.byte	12
+ 3529 0dac 1C       		.byte	28
+ 3530 0dad 0C       		.byte	12
+ 3531 0dae 1D       		.byte	29
+ 3532 0daf 01       		.byte	1
+ 3533 0db0 00       		.byte	0
+ 3534 0db1 0F       		.byte	15
+ARM GAS  C:\Users\MATEOC~1.QUE\AppData\Local\Temp\ccFh5Tza.s 			page 63
+
+
+ 3535 0db2 10       		.byte	16
+ 3536 0db3 0A       		.byte	10
+ 3537 0db4 0F       		.byte	15
+ 3538 0db5 01       		.byte	1
+ 3539 0db6 14       		.byte	20
+ 3540 0db7 00       		.byte	0
+ 3541 0db8 00       		.byte	0
+ 3542 0db9 00       		.byte	0
+ 3543 0dba 00       		.byte	0
+ 3544 0dbb 00       		.byte	0
+ 3545 0dbc 06       		.byte	6
+ 3546 0dbd 00       		.byte	0
+ 3547 0dbe 06       		.byte	6
+ 3548 0dbf 00       		.byte	0
+ 3549 0dc0 0D       		.byte	13
+ 3550 0dc1 01       		.byte	1
+ 3551 0dc2 0D       		.byte	13
+ 3552 0dc3 00       		.byte	0
+ 3553 0dc4 38       		.byte	56
+ 3554 0dc5 C0       		.byte	-64
+ 3555 0dc6 C0       		.byte	-64
+ 3556 0dc7 00       		.byte	0
+ 3557 0dc8 C0       		.byte	-64
+ 3558 0dc9 03       		.byte	3
+ 3559 0dca 03       		.byte	3
+ 3560 0dcb 00       		.byte	0
+ 3561 0dcc 80       		.byte	-128
+ 3562 0dcd 00       		.byte	0
+ 3563 0dce 40       		.byte	64
+ 3564 0dcf BC       		.byte	-68
+ 3565 0dd0 BC       		.byte	-68
+ 3566 0dd1 00       		.byte	0
+ 3567 0dd2 B4       		.byte	-76
+ 3568 0dd3 00       		.byte	0
+ 3569 0dd4 00       		.byte	0
+ 3570 0dd5 00       		.byte	0
+ 3571 0dd6 00       		.byte	0
+ 3572 0dd7 00       		.byte	0
+ 3573 0dd8 00       		.byte	0
+ 3574 0dd9 FF       		.byte	-1
+ 3575 0dda FF       		.byte	-1
+ 3576 0ddb 00       		.byte	0
+ 3577 0ddc FF       		.byte	-1
+ 3578 0ddd 00       		.byte	0
+ 3579 0dde 00       		.byte	0
+ 3580 0ddf 00       		.byte	0
+ 3581 0de0 00       		.byte	0
+ 3582 0de1 01       		.byte	1
+ 3583 0de2 01       		.byte	1
+ 3584 0de3 00       		.byte	0
+ 3585 0de4 01       		.byte	1
+ 3586 0de5 00       		.byte	0
+ 3587 0de6 00       		.byte	0
+ 3588 0de7 00       		.byte	0
+ 3589 0de8 04       		.byte	4
+ 3590 0de9 38       		.byte	56
+ 3591 0dea 38       		.byte	56
+ARM GAS  C:\Users\MATEOC~1.QUE\AppData\Local\Temp\ccFh5Tza.s 			page 64
+
+
+ 3592 0deb 00       		.byte	0
+ 3593 0dec 08       		.byte	8
+ 3594 0ded 00       		.byte	0
+ 3595 0dee 00       		.byte	0
+ 3596 0def 00       		.byte	0
+ 3597 0df0 00       		.byte	0
+ 3598 0df1 01       		.byte	1
+ 3599 0df2 00       		.byte	0
+ 3600 0df3 00       		.byte	0
+ 3601              		.section	.cywolatch,"a",%progbits
+ 3602              		.align	2
+ 3603              		.type	cy_meta_wonvl, %object
+ 3604              		.size	cy_meta_wonvl, 4
+ 3605              	cy_meta_wonvl:
+ 3606 0000 BC       		.byte	-68
+ 3607 0001 90       		.byte	-112
+ 3608 0002 AC       		.byte	-84
+ 3609 0003 AF       		.byte	-81
+ 3610              		.section	.cycustnvl,"a",%progbits
+ 3611              		.align	2
+ 3612              		.type	cy_meta_custnvl, %object
+ 3613              		.size	cy_meta_custnvl, 4
+ 3614              	cy_meta_custnvl:
+ 3615 0000 00       		.byte	0
+ 3616 0001 00       		.byte	0
+ 3617 0002 40       		.byte	64
+ 3618 0003 07       		.byte	7
+ 3619              		.section	.cymeta,"a",%progbits
+ 3620              		.align	2
+ 3621              		.type	cy_metadata, %object
+ 3622              		.size	cy_metadata, 12
+ 3623              	cy_metadata:
+ 3624 0000 00       		.byte	0
+ 3625 0001 01       		.byte	1
+ 3626 0002 2E       		.byte	46
+ 3627 0003 16       		.byte	22
+ 3628 0004 10       		.byte	16
+ 3629 0005 69       		.byte	105
+ 3630 0006 00       		.byte	0
+ 3631 0007 01       		.byte	1
+ 3632 0008 00       		.byte	0
+ 3633 0009 00       		.byte	0
+ 3634 000a 00       		.byte	0
+ 3635 000b 00       		.byte	0
+ 3636              		.section	.cyflashprotect,"a",%progbits
+ 3637              		.align	2
+ 3638              		.type	cy_meta_flashprotect, %object
+ 3639              		.size	cy_meta_flashprotect, 256
+ 3640              	cy_meta_flashprotect:
+ 3641 0000 00000000 		.space	256
+ 3641      00000000 
+ 3641      00000000 
+ 3641      00000000 
+ 3641      00000000 
+ 3642              		.text
+ 3643              	.Letext0:
+ 3644              		.file 1 "c:\\program files (x86)\\cypress\\psoc creator\\4.4\\psoc creator\\import\\gnu\\arm\\5.4.
+ARM GAS  C:\Users\MATEOC~1.QUE\AppData\Local\Temp\ccFh5Tza.s 			page 65
+
+
+ 3645              		.file 2 "c:\\program files (x86)\\cypress\\psoc creator\\4.4\\psoc creator\\import\\gnu\\arm\\5.4.
+ 3646              		.file 3 "Generated_Source\\PSoC5\\cymetadata.c"
+ 3647              		.section	.debug_info,"",%progbits
+ 3648              	.Ldebug_info0:
+ 3649 0000 35010000 		.4byte	0x135
+ 3650 0004 0400     		.2byte	0x4
+ 3651 0006 00000000 		.4byte	.Ldebug_abbrev0
+ 3652 000a 04       		.byte	0x4
+ 3653 000b 01       		.uleb128 0x1
+ 3654 000c D6000000 		.4byte	.LASF17
+ 3655 0010 0C       		.byte	0xc
+ 3656 0011 30020000 		.4byte	.LASF18
+ 3657 0015 00000000 		.4byte	.LASF19
+ 3658 0019 00000000 		.4byte	.Ldebug_line0
+ 3659 001d 02       		.uleb128 0x2
+ 3660 001e 01       		.byte	0x1
+ 3661 001f 06       		.byte	0x6
+ 3662 0020 24020000 		.4byte	.LASF0
+ 3663 0024 03       		.uleb128 0x3
+ 3664 0025 B2000000 		.4byte	.LASF9
+ 3665 0029 01       		.byte	0x1
+ 3666 002a 1D       		.byte	0x1d
+ 3667 002b 2F000000 		.4byte	0x2f
+ 3668 002f 02       		.uleb128 0x2
+ 3669 0030 01       		.byte	0x1
+ 3670 0031 08       		.byte	0x8
+ 3671 0032 C8000000 		.4byte	.LASF1
+ 3672 0036 02       		.uleb128 0x2
+ 3673 0037 02       		.byte	0x2
+ 3674 0038 05       		.byte	0x5
+ 3675 0039 11020000 		.4byte	.LASF2
+ 3676 003d 02       		.uleb128 0x2
+ 3677 003e 02       		.byte	0x2
+ 3678 003f 07       		.byte	0x7
+ 3679 0040 76010000 		.4byte	.LASF3
+ 3680 0044 02       		.uleb128 0x2
+ 3681 0045 04       		.byte	0x4
+ 3682 0046 05       		.byte	0x5
+ 3683 0047 1B020000 		.4byte	.LASF4
+ 3684 004b 02       		.uleb128 0x2
+ 3685 004c 04       		.byte	0x4
+ 3686 004d 07       		.byte	0x7
+ 3687 004e 64010000 		.4byte	.LASF5
+ 3688 0052 02       		.uleb128 0x2
+ 3689 0053 08       		.byte	0x8
+ 3690 0054 05       		.byte	0x5
+ 3691 0055 03020000 		.4byte	.LASF6
+ 3692 0059 02       		.uleb128 0x2
+ 3693 005a 08       		.byte	0x8
+ 3694 005b 07       		.byte	0x7
+ 3695 005c B8010000 		.4byte	.LASF7
+ 3696 0060 04       		.uleb128 0x4
+ 3697 0061 04       		.byte	0x4
+ 3698 0062 05       		.byte	0x5
+ 3699 0063 696E7400 		.ascii	"int\000"
+ 3700 0067 02       		.uleb128 0x2
+ 3701 0068 04       		.byte	0x4
+ARM GAS  C:\Users\MATEOC~1.QUE\AppData\Local\Temp\ccFh5Tza.s 			page 66
+
+
+ 3702 0069 07       		.byte	0x7
+ 3703 006a AB010000 		.4byte	.LASF8
+ 3704 006e 03       		.uleb128 0x3
+ 3705 006f CF010000 		.4byte	.LASF10
+ 3706 0073 02       		.byte	0x2
+ 3707 0074 18       		.byte	0x18
+ 3708 0075 24000000 		.4byte	0x24
+ 3709 0079 05       		.uleb128 0x5
+ 3710 007a 91000000 		.4byte	0x91
+ 3711 007e 8A000000 		.4byte	0x8a
+ 3712 0082 06       		.uleb128 0x6
+ 3713 0083 8A000000 		.4byte	0x8a
+ 3714 0087 F30D     		.2byte	0xdf3
+ 3715 0089 00       		.byte	0
+ 3716 008a 02       		.uleb128 0x2
+ 3717 008b 04       		.byte	0x4
+ 3718 008c 07       		.byte	0x7
+ 3719 008d FA010000 		.4byte	.LASF11
+ 3720 0091 07       		.uleb128 0x7
+ 3721 0092 6E000000 		.4byte	0x6e
+ 3722 0096 08       		.uleb128 0x8
+ 3723 0097 99010000 		.4byte	.LASF12
+ 3724 009b 03       		.byte	0x3
+ 3725 009c 1F       		.byte	0x1f
+ 3726 009d A7000000 		.4byte	0xa7
+ 3727 00a1 05       		.uleb128 0x5
+ 3728 00a2 03       		.byte	0x3
+ 3729 00a3 00000000 		.4byte	cy_meta_configecc
+ 3730 00a7 07       		.uleb128 0x7
+ 3731 00a8 79000000 		.4byte	0x79
+ 3732 00ac 05       		.uleb128 0x5
+ 3733 00ad 91000000 		.4byte	0x91
+ 3734 00b1 BC000000 		.4byte	0xbc
+ 3735 00b5 09       		.uleb128 0x9
+ 3736 00b6 8A000000 		.4byte	0x8a
+ 3737 00ba 03       		.byte	0x3
+ 3738 00bb 00       		.byte	0
+ 3739 00bc 0A       		.uleb128 0xa
+ 3740 00bd 89010000 		.4byte	.LASF13
+ 3741 00c1 03       		.byte	0x3
+ 3742 00c2 EB01     		.2byte	0x1eb
+ 3743 00c4 CE000000 		.4byte	0xce
+ 3744 00c8 05       		.uleb128 0x5
+ 3745 00c9 03       		.byte	0x3
+ 3746 00ca 00000000 		.4byte	cy_meta_custnvl
+ 3747 00ce 07       		.uleb128 0x7
+ 3748 00cf AC000000 		.4byte	0xac
+ 3749 00d3 0A       		.uleb128 0xa
+ 3750 00d4 EC010000 		.4byte	.LASF14
+ 3751 00d8 03       		.byte	0x3
+ 3752 00d9 F901     		.2byte	0x1f9
+ 3753 00db E5000000 		.4byte	0xe5
+ 3754 00df 05       		.uleb128 0x5
+ 3755 00e0 03       		.byte	0x3
+ 3756 00e1 00000000 		.4byte	cy_meta_wonvl
+ 3757 00e5 07       		.uleb128 0x7
+ 3758 00e6 AC000000 		.4byte	0xac
+ARM GAS  C:\Users\MATEOC~1.QUE\AppData\Local\Temp\ccFh5Tza.s 			page 67
+
+
+ 3759 00ea 05       		.uleb128 0x5
+ 3760 00eb 91000000 		.4byte	0x91
+ 3761 00ef FA000000 		.4byte	0xfa
+ 3762 00f3 09       		.uleb128 0x9
+ 3763 00f4 8A000000 		.4byte	0x8a
+ 3764 00f8 FF       		.byte	0xff
+ 3765 00f9 00       		.byte	0
+ 3766 00fa 0A       		.uleb128 0xa
+ 3767 00fb D7010000 		.4byte	.LASF15
+ 3768 00ff 03       		.byte	0x3
+ 3769 0100 0702     		.2byte	0x207
+ 3770 0102 0C010000 		.4byte	0x10c
+ 3771 0106 05       		.uleb128 0x5
+ 3772 0107 03       		.byte	0x3
+ 3773 0108 00000000 		.4byte	cy_meta_flashprotect
+ 3774 010c 07       		.uleb128 0x7
+ 3775 010d EA000000 		.4byte	0xea
+ 3776 0111 05       		.uleb128 0x5
+ 3777 0112 91000000 		.4byte	0x91
+ 3778 0116 21010000 		.4byte	0x121
+ 3779 011a 09       		.uleb128 0x9
+ 3780 011b 8A000000 		.4byte	0x8a
+ 3781 011f 0B       		.byte	0xb
+ 3782 0120 00       		.byte	0
+ 3783 0121 0A       		.uleb128 0xa
+ 3784 0122 BC000000 		.4byte	.LASF16
+ 3785 0126 03       		.byte	0x3
+ 3786 0127 3402     		.2byte	0x234
+ 3787 0129 33010000 		.4byte	0x133
+ 3788 012d 05       		.uleb128 0x5
+ 3789 012e 03       		.byte	0x3
+ 3790 012f 00000000 		.4byte	cy_metadata
+ 3791 0133 07       		.uleb128 0x7
+ 3792 0134 11010000 		.4byte	0x111
+ 3793 0138 00       		.byte	0
+ 3794              		.section	.debug_abbrev,"",%progbits
+ 3795              	.Ldebug_abbrev0:
+ 3796 0000 01       		.uleb128 0x1
+ 3797 0001 11       		.uleb128 0x11
+ 3798 0002 01       		.byte	0x1
+ 3799 0003 25       		.uleb128 0x25
+ 3800 0004 0E       		.uleb128 0xe
+ 3801 0005 13       		.uleb128 0x13
+ 3802 0006 0B       		.uleb128 0xb
+ 3803 0007 03       		.uleb128 0x3
+ 3804 0008 0E       		.uleb128 0xe
+ 3805 0009 1B       		.uleb128 0x1b
+ 3806 000a 0E       		.uleb128 0xe
+ 3807 000b 10       		.uleb128 0x10
+ 3808 000c 17       		.uleb128 0x17
+ 3809 000d 00       		.byte	0
+ 3810 000e 00       		.byte	0
+ 3811 000f 02       		.uleb128 0x2
+ 3812 0010 24       		.uleb128 0x24
+ 3813 0011 00       		.byte	0
+ 3814 0012 0B       		.uleb128 0xb
+ 3815 0013 0B       		.uleb128 0xb
+ARM GAS  C:\Users\MATEOC~1.QUE\AppData\Local\Temp\ccFh5Tza.s 			page 68
+
+
+ 3816 0014 3E       		.uleb128 0x3e
+ 3817 0015 0B       		.uleb128 0xb
+ 3818 0016 03       		.uleb128 0x3
+ 3819 0017 0E       		.uleb128 0xe
+ 3820 0018 00       		.byte	0
+ 3821 0019 00       		.byte	0
+ 3822 001a 03       		.uleb128 0x3
+ 3823 001b 16       		.uleb128 0x16
+ 3824 001c 00       		.byte	0
+ 3825 001d 03       		.uleb128 0x3
+ 3826 001e 0E       		.uleb128 0xe
+ 3827 001f 3A       		.uleb128 0x3a
+ 3828 0020 0B       		.uleb128 0xb
+ 3829 0021 3B       		.uleb128 0x3b
+ 3830 0022 0B       		.uleb128 0xb
+ 3831 0023 49       		.uleb128 0x49
+ 3832 0024 13       		.uleb128 0x13
+ 3833 0025 00       		.byte	0
+ 3834 0026 00       		.byte	0
+ 3835 0027 04       		.uleb128 0x4
+ 3836 0028 24       		.uleb128 0x24
+ 3837 0029 00       		.byte	0
+ 3838 002a 0B       		.uleb128 0xb
+ 3839 002b 0B       		.uleb128 0xb
+ 3840 002c 3E       		.uleb128 0x3e
+ 3841 002d 0B       		.uleb128 0xb
+ 3842 002e 03       		.uleb128 0x3
+ 3843 002f 08       		.uleb128 0x8
+ 3844 0030 00       		.byte	0
+ 3845 0031 00       		.byte	0
+ 3846 0032 05       		.uleb128 0x5
+ 3847 0033 01       		.uleb128 0x1
+ 3848 0034 01       		.byte	0x1
+ 3849 0035 49       		.uleb128 0x49
+ 3850 0036 13       		.uleb128 0x13
+ 3851 0037 01       		.uleb128 0x1
+ 3852 0038 13       		.uleb128 0x13
+ 3853 0039 00       		.byte	0
+ 3854 003a 00       		.byte	0
+ 3855 003b 06       		.uleb128 0x6
+ 3856 003c 21       		.uleb128 0x21
+ 3857 003d 00       		.byte	0
+ 3858 003e 49       		.uleb128 0x49
+ 3859 003f 13       		.uleb128 0x13
+ 3860 0040 2F       		.uleb128 0x2f
+ 3861 0041 05       		.uleb128 0x5
+ 3862 0042 00       		.byte	0
+ 3863 0043 00       		.byte	0
+ 3864 0044 07       		.uleb128 0x7
+ 3865 0045 26       		.uleb128 0x26
+ 3866 0046 00       		.byte	0
+ 3867 0047 49       		.uleb128 0x49
+ 3868 0048 13       		.uleb128 0x13
+ 3869 0049 00       		.byte	0
+ 3870 004a 00       		.byte	0
+ 3871 004b 08       		.uleb128 0x8
+ 3872 004c 34       		.uleb128 0x34
+ARM GAS  C:\Users\MATEOC~1.QUE\AppData\Local\Temp\ccFh5Tza.s 			page 69
+
+
+ 3873 004d 00       		.byte	0
+ 3874 004e 03       		.uleb128 0x3
+ 3875 004f 0E       		.uleb128 0xe
+ 3876 0050 3A       		.uleb128 0x3a
+ 3877 0051 0B       		.uleb128 0xb
+ 3878 0052 3B       		.uleb128 0x3b
+ 3879 0053 0B       		.uleb128 0xb
+ 3880 0054 49       		.uleb128 0x49
+ 3881 0055 13       		.uleb128 0x13
+ 3882 0056 3F       		.uleb128 0x3f
+ 3883 0057 19       		.uleb128 0x19
+ 3884 0058 02       		.uleb128 0x2
+ 3885 0059 18       		.uleb128 0x18
+ 3886 005a 00       		.byte	0
+ 3887 005b 00       		.byte	0
+ 3888 005c 09       		.uleb128 0x9
+ 3889 005d 21       		.uleb128 0x21
+ 3890 005e 00       		.byte	0
+ 3891 005f 49       		.uleb128 0x49
+ 3892 0060 13       		.uleb128 0x13
+ 3893 0061 2F       		.uleb128 0x2f
+ 3894 0062 0B       		.uleb128 0xb
+ 3895 0063 00       		.byte	0
+ 3896 0064 00       		.byte	0
+ 3897 0065 0A       		.uleb128 0xa
+ 3898 0066 34       		.uleb128 0x34
+ 3899 0067 00       		.byte	0
+ 3900 0068 03       		.uleb128 0x3
+ 3901 0069 0E       		.uleb128 0xe
+ 3902 006a 3A       		.uleb128 0x3a
+ 3903 006b 0B       		.uleb128 0xb
+ 3904 006c 3B       		.uleb128 0x3b
+ 3905 006d 05       		.uleb128 0x5
+ 3906 006e 49       		.uleb128 0x49
+ 3907 006f 13       		.uleb128 0x13
+ 3908 0070 3F       		.uleb128 0x3f
+ 3909 0071 19       		.uleb128 0x19
+ 3910 0072 02       		.uleb128 0x2
+ 3911 0073 18       		.uleb128 0x18
+ 3912 0074 00       		.byte	0
+ 3913 0075 00       		.byte	0
+ 3914 0076 00       		.byte	0
+ 3915              		.section	.debug_aranges,"",%progbits
+ 3916 0000 14000000 		.4byte	0x14
+ 3917 0004 0200     		.2byte	0x2
+ 3918 0006 00000000 		.4byte	.Ldebug_info0
+ 3919 000a 04       		.byte	0x4
+ 3920 000b 00       		.byte	0
+ 3921 000c 0000     		.2byte	0
+ 3922 000e 0000     		.2byte	0
+ 3923 0010 00000000 		.4byte	0
+ 3924 0014 00000000 		.4byte	0
+ 3925              		.section	.debug_line,"",%progbits
+ 3926              	.Ldebug_line0:
+ 3927 0000 3D010000 		.section	.debug_str,"MS",%progbits,1
+ 3927      02003701 
+ 3927      00000201 
+ARM GAS  C:\Users\MATEOC~1.QUE\AppData\Local\Temp\ccFh5Tza.s 			page 70
+
+
+ 3927      FB0E0D00 
+ 3927      01010101 
+ 3928              	.LASF19:
+ 3929 0000 433A5C55 		.ascii	"C:\\Users\\Mateo C. Querol\\OneDrive\\University\\D"
+ 3929      73657273 
+ 3929      5C4D6174 
+ 3929      656F2043 
+ 3929      2E205175 
+ 3930 002e 61726D73 		.ascii	"armstadt\\Advanced Microcontroller Systems and Embe"
+ 3930      74616474 
+ 3930      5C416476 
+ 3930      616E6365 
+ 3930      64204D69 
+ 3931 0060 64646564 		.ascii	"dded Operating systems\\Embedded Operating Systems\\"
+ 3931      204F7065 
+ 3931      72617469 
+ 3931      6E672073 
+ 3931      79737465 
+ 3932 0092 576F726B 		.ascii	"Workbook\\1.4_LightEffects.cydsn\000"
+ 3932      626F6F6B 
+ 3932      5C312E34 
+ 3932      5F4C6967 
+ 3932      68744566 
+ 3933              	.LASF9:
+ 3934 00b2 5F5F7569 		.ascii	"__uint8_t\000"
+ 3934      6E74385F 
+ 3934      7400
+ 3935              	.LASF16:
+ 3936 00bc 63795F6D 		.ascii	"cy_metadata\000"
+ 3936      65746164 
+ 3936      61746100 
+ 3937              	.LASF1:
+ 3938 00c8 756E7369 		.ascii	"unsigned char\000"
+ 3938      676E6564 
+ 3938      20636861 
+ 3938      7200
+ 3939              	.LASF17:
+ 3940 00d6 474E5520 		.ascii	"GNU C11 5.4.1 20160609 (release) [ARM/embedded-5-br"
+ 3940      43313120 
+ 3940      352E342E 
+ 3940      31203230 
+ 3940      31363036 
+ 3941 0109 616E6368 		.ascii	"anch revision 237715] -mcpu=cortex-m3 -mthumb -g -O"
+ 3941      20726576 
+ 3941      6973696F 
+ 3941      6E203233 
+ 3941      37373135 
+ 3942 013c 67202D66 		.ascii	"g -ffunction-sections -ffat-lto-objects\000"
+ 3942      66756E63 
+ 3942      74696F6E 
+ 3942      2D736563 
+ 3942      74696F6E 
+ 3943              	.LASF5:
+ 3944 0164 6C6F6E67 		.ascii	"long unsigned int\000"
+ 3944      20756E73 
+ 3944      69676E65 
+ 3944      6420696E 
+ARM GAS  C:\Users\MATEOC~1.QUE\AppData\Local\Temp\ccFh5Tza.s 			page 71
+
+
+ 3944      7400
+ 3945              	.LASF3:
+ 3946 0176 73686F72 		.ascii	"short unsigned int\000"
+ 3946      7420756E 
+ 3946      7369676E 
+ 3946      65642069 
+ 3946      6E7400
+ 3947              	.LASF13:
+ 3948 0189 63795F6D 		.ascii	"cy_meta_custnvl\000"
+ 3948      6574615F 
+ 3948      63757374 
+ 3948      6E766C00 
+ 3949              	.LASF12:
+ 3950 0199 63795F6D 		.ascii	"cy_meta_configecc\000"
+ 3950      6574615F 
+ 3950      636F6E66 
+ 3950      69676563 
+ 3950      6300
+ 3951              	.LASF8:
+ 3952 01ab 756E7369 		.ascii	"unsigned int\000"
+ 3952      676E6564 
+ 3952      20696E74 
+ 3952      00
+ 3953              	.LASF7:
+ 3954 01b8 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 3954      206C6F6E 
+ 3954      6720756E 
+ 3954      7369676E 
+ 3954      65642069 
+ 3955              	.LASF10:
+ 3956 01cf 75696E74 		.ascii	"uint8_t\000"
+ 3956      385F7400 
+ 3957              	.LASF15:
+ 3958 01d7 63795F6D 		.ascii	"cy_meta_flashprotect\000"
+ 3958      6574615F 
+ 3958      666C6173 
+ 3958      6870726F 
+ 3958      74656374 
+ 3959              	.LASF14:
+ 3960 01ec 63795F6D 		.ascii	"cy_meta_wonvl\000"
+ 3960      6574615F 
+ 3960      776F6E76 
+ 3960      6C00
+ 3961              	.LASF11:
+ 3962 01fa 73697A65 		.ascii	"sizetype\000"
+ 3962      74797065 
+ 3962      00
+ 3963              	.LASF6:
+ 3964 0203 6C6F6E67 		.ascii	"long long int\000"
+ 3964      206C6F6E 
+ 3964      6720696E 
+ 3964      7400
+ 3965              	.LASF2:
+ 3966 0211 73686F72 		.ascii	"short int\000"
+ 3966      7420696E 
+ 3966      7400
+ 3967              	.LASF4:
+ARM GAS  C:\Users\MATEOC~1.QUE\AppData\Local\Temp\ccFh5Tza.s 			page 72
+
+
+ 3968 021b 6C6F6E67 		.ascii	"long int\000"
+ 3968      20696E74 
+ 3968      00
+ 3969              	.LASF0:
+ 3970 0224 7369676E 		.ascii	"signed char\000"
+ 3970      65642063 
+ 3970      68617200 
+ 3971              	.LASF18:
+ 3972 0230 47656E65 		.ascii	"Generated_Source\\PSoC5\\cymetadata.c\000"
+ 3972      72617465 
+ 3972      645F536F 
+ 3972      75726365 
+ 3972      5C50536F 
+ 3973              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 5.4.1 20160609 (release) [ARM/embedded-5-bran

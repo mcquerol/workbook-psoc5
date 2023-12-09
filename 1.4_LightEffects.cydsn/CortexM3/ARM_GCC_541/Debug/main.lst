@@ -1,0 +1,1625 @@
+ARM GAS  C:\Users\MATEOC~1.QUE\AppData\Local\Temp\ccHvU2Pe.s 			page 1
+
+
+   1              		.syntax unified
+   2              		.cpu cortex-m3
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 1
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.thumb
+  14              		.syntax unified
+  15              		.file	"main.c"
+  16              		.text
+  17              	.Ltext0:
+  18              		.cfi_sections	.debug_frame
+  19              		.section	.text.setTrafficLight,"ax",%progbits
+  20              		.align	2
+  21              		.global	setTrafficLight
+  22              		.thumb
+  23              		.thumb_func
+  24              		.type	setTrafficLight, %function
+  25              	setTrafficLight:
+  26              	.LFB64:
+  27              		.file 1 "source\\asw\\main.c"
+   1:source\asw/main.c **** /**
+   2:source\asw/main.c **** * \file main
+   3:source\asw/main.c **** * \author Peter Fromm
+   4:source\asw/main.c **** * \date 5.12.2019
+   5:source\asw/main.c **** *
+   6:source\asw/main.c **** * \brief Demonstrator for critical regions
+   7:source\asw/main.c **** *
+   8:source\asw/main.c **** */
+   9:source\asw/main.c **** 
+  10:source\asw/main.c **** #include "project.h"
+  11:source\asw/main.c **** #include "global.h"
+  12:source\asw/main.c **** 
+  13:source\asw/main.c **** #include "button.h"
+  14:source\asw/main.c **** #include "tft.h"
+  15:source\asw/main.c **** #include "seven.h"
+  16:source\asw/main.c **** #include "led.h"
+  17:source\asw/main.c **** #include "joystick.h"
+  18:source\asw/main.c **** 
+  19:source\asw/main.c **** enum eeledColor
+  20:source\asw/main.c **** {
+  21:source\asw/main.c **** 
+  22:source\asw/main.c ****     yellow,
+  23:source\asw/main.c ****     red,
+  24:source\asw/main.c ****     green
+  25:source\asw/main.c **** 
+  26:source\asw/main.c **** };
+  27:source\asw/main.c **** 
+  28:source\asw/main.c **** typedef enum eeledColor ledColor_t;
+  29:source\asw/main.c **** 
+  30:source\asw/main.c **** 
+ARM GAS  C:\Users\MATEOC~1.QUE\AppData\Local\Temp\ccHvU2Pe.s 			page 2
+
+
+  31:source\asw/main.c **** void setTrafficLight(uint16 delay, ledColor_t color)
+  32:source\asw/main.c **** {
+  28              		.loc 1 32 0
+  29              		.cfi_startproc
+  30              		@ args = 0, pretend = 0, frame = 0
+  31              		@ frame_needed = 0, uses_anonymous_args = 0
+  32              	.LVL0:
+  33 0000 10B5     		push	{r4, lr}
+  34              		.cfi_def_cfa_offset 8
+  35              		.cfi_offset 4, -8
+  36              		.cfi_offset 14, -4
+  37 0002 0446     		mov	r4, r0
+  33:source\asw/main.c ****     switch(color)
+  38              		.loc 1 33 0
+  39 0004 0129     		cmp	r1, #1
+  40 0006 17D0     		beq	.L3
+  41 0008 11B1     		cbz	r1, .L4
+  42 000a 0229     		cmp	r1, #2
+  43 000c 0AD0     		beq	.L5
+  44 000e 1CE0     		b	.L2
+  45              	.L4:
+  34:source\asw/main.c ****     {
+  35:source\asw/main.c ****         case yellow:
+  36:source\asw/main.c ****             LED_green_Write(0);
+  46              		.loc 1 36 0
+  47 0010 0020     		movs	r0, #0
+  48              	.LVL1:
+  49 0012 FFF7FEFF 		bl	LED_green_Write
+  50              	.LVL2:
+  37:source\asw/main.c ****             LED_yellow_Write(1);
+  51              		.loc 1 37 0
+  52 0016 0120     		movs	r0, #1
+  53 0018 FFF7FEFF 		bl	LED_yellow_Write
+  54              	.LVL3:
+  38:source\asw/main.c ****             LED_red_Write(0);
+  55              		.loc 1 38 0
+  56 001c 0020     		movs	r0, #0
+  57 001e FFF7FEFF 		bl	LED_red_Write
+  58              	.LVL4:
+  39:source\asw/main.c ****         break;
+  59              		.loc 1 39 0
+  60 0022 12E0     		b	.L2
+  61              	.LVL5:
+  62              	.L5:
+  40:source\asw/main.c ****             
+  41:source\asw/main.c ****         case green:
+  42:source\asw/main.c ****             LED_green_Write(1);
+  63              		.loc 1 42 0
+  64 0024 0120     		movs	r0, #1
+  65              	.LVL6:
+  66 0026 FFF7FEFF 		bl	LED_green_Write
+  67              	.LVL7:
+  43:source\asw/main.c ****             LED_yellow_Write(0);
+  68              		.loc 1 43 0
+  69 002a 0020     		movs	r0, #0
+  70 002c FFF7FEFF 		bl	LED_yellow_Write
+  71              	.LVL8:
+ARM GAS  C:\Users\MATEOC~1.QUE\AppData\Local\Temp\ccHvU2Pe.s 			page 3
+
+
+  44:source\asw/main.c ****             LED_red_Write(0);
+  72              		.loc 1 44 0
+  73 0030 0020     		movs	r0, #0
+  74 0032 FFF7FEFF 		bl	LED_red_Write
+  75              	.LVL9:
+  45:source\asw/main.c ****         break;
+  76              		.loc 1 45 0
+  77 0036 08E0     		b	.L2
+  78              	.LVL10:
+  79              	.L3:
+  46:source\asw/main.c **** 
+  47:source\asw/main.c **** 
+  48:source\asw/main.c ****         case red:
+  49:source\asw/main.c ****             LED_green_Write(0);
+  80              		.loc 1 49 0
+  81 0038 0020     		movs	r0, #0
+  82              	.LVL11:
+  83 003a FFF7FEFF 		bl	LED_green_Write
+  84              	.LVL12:
+  50:source\asw/main.c ****             LED_yellow_Write(0);
+  85              		.loc 1 50 0
+  86 003e 0020     		movs	r0, #0
+  87 0040 FFF7FEFF 		bl	LED_yellow_Write
+  88              	.LVL13:
+  51:source\asw/main.c ****             LED_red_Write(1);
+  89              		.loc 1 51 0
+  90 0044 0120     		movs	r0, #1
+  91 0046 FFF7FEFF 		bl	LED_red_Write
+  92              	.LVL14:
+  93              	.L2:
+  52:source\asw/main.c ****         break;
+  53:source\asw/main.c ****         
+  54:source\asw/main.c ****     }
+  55:source\asw/main.c ****     CyDelay(delay*1000);
+  94              		.loc 1 55 0
+  95 004a 4FF47A70 		mov	r0, #1000
+  96 004e 00FB04F0 		mul	r0, r0, r4
+  97 0052 FFF7FEFF 		bl	CyDelay
+  98              	.LVL15:
+  99 0056 10BD     		pop	{r4, pc}
+ 100              		.cfi_endproc
+ 101              	.LFE64:
+ 102              		.size	setTrafficLight, .-setTrafficLight
+ 103              		.section	.text.main,"ax",%progbits
+ 104              		.align	2
+ 105              		.global	main
+ 106              		.thumb
+ 107              		.thumb_func
+ 108              		.type	main, %function
+ 109              	main:
+ 110              	.LFB65:
+  56:source\asw/main.c **** }
+  57:source\asw/main.c **** 
+  58:source\asw/main.c **** 
+  59:source\asw/main.c **** 
+  60:source\asw/main.c **** int main()
+  61:source\asw/main.c **** {
+ARM GAS  C:\Users\MATEOC~1.QUE\AppData\Local\Temp\ccHvU2Pe.s 			page 4
+
+
+ 111              		.loc 1 61 0
+ 112              		.cfi_startproc
+ 113              		@ args = 0, pretend = 0, frame = 16
+ 114              		@ frame_needed = 0, uses_anonymous_args = 0
+ 115 0000 10B5     		push	{r4, lr}
+ 116              		.cfi_def_cfa_offset 8
+ 117              		.cfi_offset 4, -8
+ 118              		.cfi_offset 14, -4
+ 119 0002 84B0     		sub	sp, sp, #16
+ 120              		.cfi_def_cfa_offset 24
+  62:source\asw/main.c ****     CyGlobalIntEnable; /* Enable global interrupts. */
+ 121              		.loc 1 62 0
+ 122              		.syntax unified
+ 123              	@ 62 "source\asw\main.c" 1
+ 124 0004 62B6     		CPSIE   i
+ 125              	@ 0 "" 2
+  63:source\asw/main.c **** 
+  64:source\asw/main.c ****     LED_Init();
+ 126              		.loc 1 64 0
+ 127              		.thumb
+ 128              		.syntax unified
+ 129 0006 FFF7FEFF 		bl	LED_Init
+ 130              	.LVL16:
+ 131              	.L24:
+ 132              	.LBB2:
+  65:source\asw/main.c ****    
+  66:source\asw/main.c ****     // Start Operating System
+  67:source\asw/main.c ****     for(;;)
+  68:source\asw/main.c ****     {
+  69:source\asw/main.c ****         //setTrafficLight(2,yellow);
+  70:source\asw/main.c ****         //setTrafficLight(5,green);
+  71:source\asw/main.c ****         //setTrafficLight(2,yellow);
+  72:source\asw/main.c ****         //setTrafficLight(3,red);
+  73:source\asw/main.c ****         
+  74:source\asw/main.c **** //        for (int i = 0; i <= 255; i++) {
+  75:source\asw/main.c **** //            LED_RGB_Set(i,i,i);        
+  76:source\asw/main.c **** //            // Add a delay to control the fading speed
+  77:source\asw/main.c **** //            // This delay may need adjustment based on your specific requirements
+  78:source\asw/main.c **** //            for (volatile int delay = 0; delay < 10000; delay++);
+  79:source\asw/main.c **** //        }
+  80:source\asw/main.c **** //        for (int i = 255; i >= 0; i--) {
+  81:source\asw/main.c **** //            LED_RGB_Set(i,i,i);        
+  82:source\asw/main.c **** //            // Add a delay to control the fading speed
+  83:source\asw/main.c **** //            // This delay may need adjustment based on your specific requirements
+  84:source\asw/main.c **** //            for (volatile int delay = 0; delay < 10000; delay++);
+  85:source\asw/main.c **** //        }
+  86:source\asw/main.c ****         
+  87:source\asw/main.c ****         
+  88:source\asw/main.c ****         
+  89:source\asw/main.c ****                 for (int i = 0; i <= 255; i++) {
+ 133              		.loc 1 89 0
+ 134 000a 0024     		movs	r4, #0
+ 135 000c 1CE0     		b	.L8
+ 136              	.LVL17:
+ 137              	.L13:
+  90:source\asw/main.c ****             if (i <= 127) {
+ 138              		.loc 1 90 0
+ARM GAS  C:\Users\MATEOC~1.QUE\AppData\Local\Temp\ccHvU2Pe.s 			page 5
+
+
+ 139 000e 7F2C     		cmp	r4, #127
+ 140 0010 05DC     		bgt	.L9
+  91:source\asw/main.c ****                 // Red is fading in
+  92:source\asw/main.c ****                 LED_RGB_Set(i, 0, 0);
+ 141              		.loc 1 92 0
+ 142 0012 0022     		movs	r2, #0
+ 143 0014 1146     		mov	r1, r2
+ 144 0016 E0B2     		uxtb	r0, r4
+ 145 0018 FFF7FEFF 		bl	LED_RGB_Set
+ 146              	.LVL18:
+ 147 001c 08E0     		b	.L10
+ 148              	.L9:
+  93:source\asw/main.c ****             } else {
+  94:source\asw/main.c ****                 // Green is fading in while Red is fading out
+  95:source\asw/main.c ****                 LED_RGB_Set(255 - i, i - 127, 0);
+ 149              		.loc 1 95 0
+ 150 001e E0B2     		uxtb	r0, r4
+ 151 0020 A0F17F01 		sub	r1, r0, #127
+ 152 0024 C043     		mvns	r0, r0
+ 153 0026 0022     		movs	r2, #0
+ 154 0028 C9B2     		uxtb	r1, r1
+ 155 002a C0B2     		uxtb	r0, r0
+ 156 002c FFF7FEFF 		bl	LED_RGB_Set
+ 157              	.LVL19:
+ 158              	.L10:
+ 159              	.LBB3:
+  96:source\asw/main.c ****             }
+  97:source\asw/main.c **** 
+  98:source\asw/main.c ****             // Add a delay to control the fading speed
+  99:source\asw/main.c ****             // This delay may need adjustment based on your specific requirements
+ 100:source\asw/main.c ****             for (volatile int delay = 0; delay < 10000; delay++);
+ 160              		.loc 1 100 0
+ 161 0030 0023     		movs	r3, #0
+ 162 0032 0193     		str	r3, [sp, #4]
+ 163 0034 02E0     		b	.L11
+ 164              	.L12:
+ 165              		.loc 1 100 0 is_stmt 0 discriminator 3
+ 166 0036 019B     		ldr	r3, [sp, #4]
+ 167 0038 0133     		adds	r3, r3, #1
+ 168 003a 0193     		str	r3, [sp, #4]
+ 169              	.L11:
+ 170              		.loc 1 100 0 discriminator 1
+ 171 003c 019A     		ldr	r2, [sp, #4]
+ 172 003e 42F20F73 		movw	r3, #9999
+ 173 0042 9A42     		cmp	r2, r3
+ 174 0044 F7DD     		ble	.L12
+ 175              	.LBE3:
+  89:source\asw/main.c ****             if (i <= 127) {
+ 176              		.loc 1 89 0 is_stmt 1 discriminator 2
+ 177 0046 0134     		adds	r4, r4, #1
+ 178              	.LVL20:
+ 179              	.L8:
+  89:source\asw/main.c ****             if (i <= 127) {
+ 180              		.loc 1 89 0 is_stmt 0 discriminator 1
+ 181 0048 FF2C     		cmp	r4, #255
+ 182 004a E0DD     		ble	.L13
+ 183 004c FF24     		movs	r4, #255
+ARM GAS  C:\Users\MATEOC~1.QUE\AppData\Local\Temp\ccHvU2Pe.s 			page 6
+
+
+ 184              	.LVL21:
+ 185 004e 1DE0     		b	.L14
+ 186              	.LVL22:
+ 187              	.L19:
+ 188              	.LBE2:
+ 189              	.LBB4:
+ 101:source\asw/main.c ****         }
+ 102:source\asw/main.c **** 
+ 103:source\asw/main.c ****         // Fade out
+ 104:source\asw/main.c ****         for (int i = 255; i >= 0; i--) {
+ 105:source\asw/main.c ****             if (i <= 127) {
+ 190              		.loc 1 105 0 is_stmt 1
+ 191 0050 7F2C     		cmp	r4, #127
+ 192 0052 06DC     		bgt	.L15
+ 106:source\asw/main.c ****                 // Green is fading out
+ 107:source\asw/main.c ****                 LED_RGB_Set(255 - i, i, 0);
+ 193              		.loc 1 107 0
+ 194 0054 E1B2     		uxtb	r1, r4
+ 195 0056 C843     		mvns	r0, r1
+ 196 0058 0022     		movs	r2, #0
+ 197 005a C0B2     		uxtb	r0, r0
+ 198 005c FFF7FEFF 		bl	LED_RGB_Set
+ 199              	.LVL23:
+ 200 0060 08E0     		b	.L16
+ 201              	.L15:
+ 108:source\asw/main.c ****             } else {
+ 109:source\asw/main.c ****                 // Blue is fading in while Green is fading out
+ 110:source\asw/main.c ****                 LED_RGB_Set(0, 255 - i, i - 127);
+ 202              		.loc 1 110 0
+ 203 0062 E1B2     		uxtb	r1, r4
+ 204 0064 A1F17F02 		sub	r2, r1, #127
+ 205 0068 C943     		mvns	r1, r1
+ 206 006a D2B2     		uxtb	r2, r2
+ 207 006c C9B2     		uxtb	r1, r1
+ 208 006e 0020     		movs	r0, #0
+ 209 0070 FFF7FEFF 		bl	LED_RGB_Set
+ 210              	.LVL24:
+ 211              	.L16:
+ 212              	.LBB5:
+ 111:source\asw/main.c ****             }
+ 112:source\asw/main.c **** 
+ 113:source\asw/main.c ****             // Add a delay to control the fading speed
+ 114:source\asw/main.c ****             // This delay may need adjustment based on your specific requirements
+ 115:source\asw/main.c ****             for (volatile int delay = 0; delay < 10000; delay++);
+ 213              		.loc 1 115 0
+ 214 0074 0023     		movs	r3, #0
+ 215 0076 0293     		str	r3, [sp, #8]
+ 216 0078 02E0     		b	.L17
+ 217              	.L18:
+ 218              		.loc 1 115 0 is_stmt 0 discriminator 3
+ 219 007a 029B     		ldr	r3, [sp, #8]
+ 220 007c 0133     		adds	r3, r3, #1
+ 221 007e 0293     		str	r3, [sp, #8]
+ 222              	.L17:
+ 223              		.loc 1 115 0 discriminator 1
+ 224 0080 029A     		ldr	r2, [sp, #8]
+ 225 0082 42F20F73 		movw	r3, #9999
+ARM GAS  C:\Users\MATEOC~1.QUE\AppData\Local\Temp\ccHvU2Pe.s 			page 7
+
+
+ 226 0086 9A42     		cmp	r2, r3
+ 227 0088 F7DD     		ble	.L18
+ 228              	.LBE5:
+ 104:source\asw/main.c ****             if (i <= 127) {
+ 229              		.loc 1 104 0 is_stmt 1 discriminator 2
+ 230 008a 013C     		subs	r4, r4, #1
+ 231              	.LVL25:
+ 232              	.L14:
+ 104:source\asw/main.c ****             if (i <= 127) {
+ 233              		.loc 1 104 0 is_stmt 0 discriminator 1
+ 234 008c 002C     		cmp	r4, #0
+ 235 008e DFDA     		bge	.L19
+ 236 0090 FF24     		movs	r4, #255
+ 237              	.LVL26:
+ 238 0092 11E0     		b	.L20
+ 239              	.LVL27:
+ 240              	.L23:
+ 241              	.LBE4:
+ 242              	.LBB6:
+ 116:source\asw/main.c ****         }
+ 117:source\asw/main.c **** 
+ 118:source\asw/main.c ****         // Fade out blue (final stage)
+ 119:source\asw/main.c ****         for (int i = 255; i >= 0; i--) {
+ 120:source\asw/main.c ****             // Blue is fading out
+ 121:source\asw/main.c ****             LED_RGB_Set(0, 255 - i, i);
+ 243              		.loc 1 121 0 is_stmt 1
+ 244 0094 E2B2     		uxtb	r2, r4
+ 245 0096 D143     		mvns	r1, r2
+ 246 0098 C9B2     		uxtb	r1, r1
+ 247 009a 0020     		movs	r0, #0
+ 248 009c FFF7FEFF 		bl	LED_RGB_Set
+ 249              	.LVL28:
+ 250              	.LBB7:
+ 122:source\asw/main.c **** 
+ 123:source\asw/main.c ****             // Add a delay to control the fading speed
+ 124:source\asw/main.c ****             // This delay may need adjustment based on your specific requirements
+ 125:source\asw/main.c ****             for (volatile int delay = 0; delay < 10000; delay++);
+ 251              		.loc 1 125 0
+ 252 00a0 0023     		movs	r3, #0
+ 253 00a2 0393     		str	r3, [sp, #12]
+ 254 00a4 02E0     		b	.L21
+ 255              	.L22:
+ 256              		.loc 1 125 0 is_stmt 0 discriminator 3
+ 257 00a6 039B     		ldr	r3, [sp, #12]
+ 258 00a8 0133     		adds	r3, r3, #1
+ 259 00aa 0393     		str	r3, [sp, #12]
+ 260              	.L21:
+ 261              		.loc 1 125 0 discriminator 1
+ 262 00ac 039A     		ldr	r2, [sp, #12]
+ 263 00ae 42F20F73 		movw	r3, #9999
+ 264 00b2 9A42     		cmp	r2, r3
+ 265 00b4 F7DD     		ble	.L22
+ 266              	.LBE7:
+ 119:source\asw/main.c ****             // Blue is fading out
+ 267              		.loc 1 119 0 is_stmt 1 discriminator 2
+ 268 00b6 013C     		subs	r4, r4, #1
+ 269              	.LVL29:
+ARM GAS  C:\Users\MATEOC~1.QUE\AppData\Local\Temp\ccHvU2Pe.s 			page 8
+
+
+ 270              	.L20:
+ 119:source\asw/main.c ****             // Blue is fading out
+ 271              		.loc 1 119 0 is_stmt 0 discriminator 1
+ 272 00b8 002C     		cmp	r4, #0
+ 273 00ba EBDA     		bge	.L23
+ 274              	.LBE6:
+ 126:source\asw/main.c ****         }
+ 127:source\asw/main.c ****         
+ 128:source\asw/main.c ****         CyDelay(500);
+ 275              		.loc 1 128 0 is_stmt 1
+ 276 00bc 4FF4FA70 		mov	r0, #500
+ 277 00c0 FFF7FEFF 		bl	CyDelay
+ 278              	.LVL30:
+ 129:source\asw/main.c ****     }
+ 279              		.loc 1 129 0
+ 280 00c4 A1E7     		b	.L24
+ 281              		.cfi_endproc
+ 282              	.LFE65:
+ 283              		.size	main, .-main
+ 284 00c6 00BF     		.text
+ 285              	.Letext0:
+ 286              		.file 2 "c:\\program files (x86)\\cypress\\psoc creator\\4.4\\psoc creator\\import\\gnu\\arm\\5.4.
+ 287              		.file 3 "c:\\program files (x86)\\cypress\\psoc creator\\4.4\\psoc creator\\import\\gnu\\arm\\5.4.
+ 288              		.file 4 "Generated_Source\\PSoC5/cytypes.h"
+ 289              		.file 5 "Generated_Source\\PSoC5/LED_green.h"
+ 290              		.file 6 "Generated_Source\\PSoC5/LED_yellow.h"
+ 291              		.file 7 "Generated_Source\\PSoC5/LED_red.h"
+ 292              		.file 8 "Generated_Source\\PSoC5/CyLib.h"
+ 293              		.file 9 ".\\source\\bsw\\LabBoard/led.h"
+ 294              		.file 10 "Generated_Source\\PSoC5/core_cm3.h"
+ 295              		.section	.debug_info,"",%progbits
+ 296              	.Ldebug_info0:
+ 297 0000 A7030000 		.4byte	0x3a7
+ 298 0004 0400     		.2byte	0x4
+ 299 0006 00000000 		.4byte	.Ldebug_abbrev0
+ 300 000a 04       		.byte	0x4
+ 301 000b 01       		.uleb128 0x1
+ 302 000c 0B010000 		.4byte	.LASF28
+ 303 0010 0C       		.byte	0xc
+ 304 0011 65020000 		.4byte	.LASF29
+ 305 0015 10000000 		.4byte	.LASF30
+ 306 0019 00000000 		.4byte	.Ldebug_ranges0+0
+ 307 001d 00000000 		.4byte	0
+ 308 0021 00000000 		.4byte	.Ldebug_line0
+ 309 0025 02       		.uleb128 0x2
+ 310 0026 01       		.byte	0x1
+ 311 0027 06       		.byte	0x6
+ 312 0028 EB000000 		.4byte	.LASF0
+ 313 002c 02       		.uleb128 0x2
+ 314 002d 01       		.byte	0x1
+ 315 002e 08       		.byte	0x8
+ 316 002f FD000000 		.4byte	.LASF1
+ 317 0033 02       		.uleb128 0x2
+ 318 0034 02       		.byte	0x2
+ 319 0035 05       		.byte	0x5
+ 320 0036 7C020000 		.4byte	.LASF2
+ 321 003a 02       		.uleb128 0x2
+ARM GAS  C:\Users\MATEOC~1.QUE\AppData\Local\Temp\ccHvU2Pe.s 			page 9
+
+
+ 322 003b 02       		.byte	0x2
+ 323 003c 07       		.byte	0x7
+ 324 003d AB010000 		.4byte	.LASF3
+ 325 0041 03       		.uleb128 0x3
+ 326 0042 C2000000 		.4byte	.LASF9
+ 327 0046 02       		.byte	0x2
+ 328 0047 3F       		.byte	0x3f
+ 329 0048 4C000000 		.4byte	0x4c
+ 330 004c 02       		.uleb128 0x2
+ 331 004d 04       		.byte	0x4
+ 332 004e 05       		.byte	0x5
+ 333 004f 8D020000 		.4byte	.LASF4
+ 334 0053 02       		.uleb128 0x2
+ 335 0054 04       		.byte	0x4
+ 336 0055 07       		.byte	0x7
+ 337 0056 99010000 		.4byte	.LASF5
+ 338 005a 02       		.uleb128 0x2
+ 339 005b 08       		.byte	0x8
+ 340 005c 05       		.byte	0x5
+ 341 005d 57020000 		.4byte	.LASF6
+ 342 0061 02       		.uleb128 0x2
+ 343 0062 08       		.byte	0x8
+ 344 0063 07       		.byte	0x7
+ 345 0064 12020000 		.4byte	.LASF7
+ 346 0068 04       		.uleb128 0x4
+ 347 0069 04       		.byte	0x4
+ 348 006a 05       		.byte	0x5
+ 349 006b 696E7400 		.ascii	"int\000"
+ 350 006f 02       		.uleb128 0x2
+ 351 0070 04       		.byte	0x4
+ 352 0071 07       		.byte	0x7
+ 353 0072 05020000 		.4byte	.LASF8
+ 354 0076 03       		.uleb128 0x3
+ 355 0077 3A020000 		.4byte	.LASF10
+ 356 007b 03       		.byte	0x3
+ 357 007c 2C       		.byte	0x2c
+ 358 007d 41000000 		.4byte	0x41
+ 359 0081 05       		.uleb128 0x5
+ 360 0082 E9010000 		.4byte	.LASF11
+ 361 0086 04       		.byte	0x4
+ 362 0087 E501     		.2byte	0x1e5
+ 363 0089 3A000000 		.4byte	0x3a
+ 364 008d 02       		.uleb128 0x2
+ 365 008e 04       		.byte	0x4
+ 366 008f 04       		.byte	0x4
+ 367 0090 E5000000 		.4byte	.LASF12
+ 368 0094 02       		.uleb128 0x2
+ 369 0095 08       		.byte	0x8
+ 370 0096 04       		.byte	0x4
+ 371 0097 D1010000 		.4byte	.LASF13
+ 372 009b 02       		.uleb128 0x2
+ 373 009c 01       		.byte	0x1
+ 374 009d 08       		.byte	0x8
+ 375 009e 77020000 		.4byte	.LASF14
+ 376 00a2 02       		.uleb128 0x2
+ 377 00a3 08       		.byte	0x8
+ 378 00a4 04       		.byte	0x4
+ARM GAS  C:\Users\MATEOC~1.QUE\AppData\Local\Temp\ccHvU2Pe.s 			page 10
+
+
+ 379 00a5 96020000 		.4byte	.LASF15
+ 380 00a9 02       		.uleb128 0x2
+ 381 00aa 04       		.byte	0x4
+ 382 00ab 07       		.byte	0x7
+ 383 00ac 42020000 		.4byte	.LASF16
+ 384 00b0 06       		.uleb128 0x6
+ 385 00b1 D8010000 		.4byte	.LASF31
+ 386 00b5 01       		.byte	0x1
+ 387 00b6 2C000000 		.4byte	0x2c
+ 388 00ba 01       		.byte	0x1
+ 389 00bb 13       		.byte	0x13
+ 390 00bc D3000000 		.4byte	0xd3
+ 391 00c0 07       		.uleb128 0x7
+ 392 00c1 86020000 		.4byte	.LASF17
+ 393 00c5 00       		.byte	0
+ 394 00c6 08       		.uleb128 0x8
+ 395 00c7 72656400 		.ascii	"red\000"
+ 396 00cb 01       		.byte	0x1
+ 397 00cc 07       		.uleb128 0x7
+ 398 00cd BE010000 		.4byte	.LASF18
+ 399 00d1 02       		.byte	0x2
+ 400 00d2 00       		.byte	0
+ 401 00d3 03       		.uleb128 0x3
+ 402 00d4 DA000000 		.4byte	.LASF19
+ 403 00d8 01       		.byte	0x1
+ 404 00d9 1C       		.byte	0x1c
+ 405 00da B0000000 		.4byte	0xb0
+ 406 00de 09       		.uleb128 0x9
+ 407 00df F5010000 		.4byte	.LASF32
+ 408 00e3 01       		.byte	0x1
+ 409 00e4 1F       		.byte	0x1f
+ 410 00e5 00000000 		.4byte	.LFB64
+ 411 00e9 58000000 		.4byte	.LFE64-.LFB64
+ 412 00ed 01       		.uleb128 0x1
+ 413 00ee 9C       		.byte	0x9c
+ 414 00ef D1010000 		.4byte	0x1d1
+ 415 00f3 0A       		.uleb128 0xa
+ 416 00f4 F7000000 		.4byte	.LASF20
+ 417 00f8 01       		.byte	0x1
+ 418 00f9 1F       		.byte	0x1f
+ 419 00fa 81000000 		.4byte	0x81
+ 420 00fe 00000000 		.4byte	.LLST0
+ 421 0102 0A       		.uleb128 0xa
+ 422 0103 E3010000 		.4byte	.LASF21
+ 423 0107 01       		.byte	0x1
+ 424 0108 1F       		.byte	0x1f
+ 425 0109 D3000000 		.4byte	0xd3
+ 426 010d 53000000 		.4byte	.LLST1
+ 427 0111 0B       		.uleb128 0xb
+ 428 0112 16000000 		.4byte	.LVL2
+ 429 0116 68030000 		.4byte	0x368
+ 430 011a 24010000 		.4byte	0x124
+ 431 011e 0C       		.uleb128 0xc
+ 432 011f 01       		.uleb128 0x1
+ 433 0120 50       		.byte	0x50
+ 434 0121 01       		.uleb128 0x1
+ 435 0122 30       		.byte	0x30
+ARM GAS  C:\Users\MATEOC~1.QUE\AppData\Local\Temp\ccHvU2Pe.s 			page 11
+
+
+ 436 0123 00       		.byte	0
+ 437 0124 0B       		.uleb128 0xb
+ 438 0125 1C000000 		.4byte	.LVL3
+ 439 0129 73030000 		.4byte	0x373
+ 440 012d 37010000 		.4byte	0x137
+ 441 0131 0C       		.uleb128 0xc
+ 442 0132 01       		.uleb128 0x1
+ 443 0133 50       		.byte	0x50
+ 444 0134 01       		.uleb128 0x1
+ 445 0135 31       		.byte	0x31
+ 446 0136 00       		.byte	0
+ 447 0137 0B       		.uleb128 0xb
+ 448 0138 22000000 		.4byte	.LVL4
+ 449 013c 7E030000 		.4byte	0x37e
+ 450 0140 4A010000 		.4byte	0x14a
+ 451 0144 0C       		.uleb128 0xc
+ 452 0145 01       		.uleb128 0x1
+ 453 0146 50       		.byte	0x50
+ 454 0147 01       		.uleb128 0x1
+ 455 0148 30       		.byte	0x30
+ 456 0149 00       		.byte	0
+ 457 014a 0B       		.uleb128 0xb
+ 458 014b 2A000000 		.4byte	.LVL7
+ 459 014f 68030000 		.4byte	0x368
+ 460 0153 5D010000 		.4byte	0x15d
+ 461 0157 0C       		.uleb128 0xc
+ 462 0158 01       		.uleb128 0x1
+ 463 0159 50       		.byte	0x50
+ 464 015a 01       		.uleb128 0x1
+ 465 015b 31       		.byte	0x31
+ 466 015c 00       		.byte	0
+ 467 015d 0B       		.uleb128 0xb
+ 468 015e 30000000 		.4byte	.LVL8
+ 469 0162 73030000 		.4byte	0x373
+ 470 0166 70010000 		.4byte	0x170
+ 471 016a 0C       		.uleb128 0xc
+ 472 016b 01       		.uleb128 0x1
+ 473 016c 50       		.byte	0x50
+ 474 016d 01       		.uleb128 0x1
+ 475 016e 30       		.byte	0x30
+ 476 016f 00       		.byte	0
+ 477 0170 0B       		.uleb128 0xb
+ 478 0171 36000000 		.4byte	.LVL9
+ 479 0175 7E030000 		.4byte	0x37e
+ 480 0179 83010000 		.4byte	0x183
+ 481 017d 0C       		.uleb128 0xc
+ 482 017e 01       		.uleb128 0x1
+ 483 017f 50       		.byte	0x50
+ 484 0180 01       		.uleb128 0x1
+ 485 0181 30       		.byte	0x30
+ 486 0182 00       		.byte	0
+ 487 0183 0B       		.uleb128 0xb
+ 488 0184 3E000000 		.4byte	.LVL12
+ 489 0188 68030000 		.4byte	0x368
+ 490 018c 96010000 		.4byte	0x196
+ 491 0190 0C       		.uleb128 0xc
+ 492 0191 01       		.uleb128 0x1
+ARM GAS  C:\Users\MATEOC~1.QUE\AppData\Local\Temp\ccHvU2Pe.s 			page 12
+
+
+ 493 0192 50       		.byte	0x50
+ 494 0193 01       		.uleb128 0x1
+ 495 0194 30       		.byte	0x30
+ 496 0195 00       		.byte	0
+ 497 0196 0B       		.uleb128 0xb
+ 498 0197 44000000 		.4byte	.LVL13
+ 499 019b 73030000 		.4byte	0x373
+ 500 019f A9010000 		.4byte	0x1a9
+ 501 01a3 0C       		.uleb128 0xc
+ 502 01a4 01       		.uleb128 0x1
+ 503 01a5 50       		.byte	0x50
+ 504 01a6 01       		.uleb128 0x1
+ 505 01a7 30       		.byte	0x30
+ 506 01a8 00       		.byte	0
+ 507 01a9 0B       		.uleb128 0xb
+ 508 01aa 4A000000 		.4byte	.LVL14
+ 509 01ae 7E030000 		.4byte	0x37e
+ 510 01b2 BC010000 		.4byte	0x1bc
+ 511 01b6 0C       		.uleb128 0xc
+ 512 01b7 01       		.uleb128 0x1
+ 513 01b8 50       		.byte	0x50
+ 514 01b9 01       		.uleb128 0x1
+ 515 01ba 31       		.byte	0x31
+ 516 01bb 00       		.byte	0
+ 517 01bc 0D       		.uleb128 0xd
+ 518 01bd 56000000 		.4byte	.LVL15
+ 519 01c1 89030000 		.4byte	0x389
+ 520 01c5 0C       		.uleb128 0xc
+ 521 01c6 01       		.uleb128 0x1
+ 522 01c7 50       		.byte	0x50
+ 523 01c8 06       		.uleb128 0x6
+ 524 01c9 74       		.byte	0x74
+ 525 01ca 00       		.sleb128 0
+ 526 01cb 0A       		.byte	0xa
+ 527 01cc E803     		.2byte	0x3e8
+ 528 01ce 1E       		.byte	0x1e
+ 529 01cf 00       		.byte	0
+ 530 01d0 00       		.byte	0
+ 531 01d1 0E       		.uleb128 0xe
+ 532 01d2 F0010000 		.4byte	.LASF33
+ 533 01d6 01       		.byte	0x1
+ 534 01d7 3C       		.byte	0x3c
+ 535 01d8 68000000 		.4byte	0x68
+ 536 01dc 00000000 		.4byte	.LFB65
+ 537 01e0 C6000000 		.4byte	.LFE65-.LFB65
+ 538 01e4 01       		.uleb128 0x1
+ 539 01e5 9C       		.byte	0x9c
+ 540 01e6 52030000 		.4byte	0x352
+ 541 01ea 0F       		.uleb128 0xf
+ 542 01eb 0A000000 		.4byte	.LBB2
+ 543 01ef 46000000 		.4byte	.LBE2-.LBB2
+ 544 01f3 64020000 		.4byte	0x264
+ 545 01f7 10       		.uleb128 0x10
+ 546 01f8 6900     		.ascii	"i\000"
+ 547 01fa 01       		.byte	0x1
+ 548 01fb 59       		.byte	0x59
+ 549 01fc 68000000 		.4byte	0x68
+ARM GAS  C:\Users\MATEOC~1.QUE\AppData\Local\Temp\ccHvU2Pe.s 			page 13
+
+
+ 550 0200 A6000000 		.4byte	.LLST2
+ 551 0204 0F       		.uleb128 0xf
+ 552 0205 30000000 		.4byte	.LBB3
+ 553 0209 16000000 		.4byte	.LBE3-.LBB3
+ 554 020d 20020000 		.4byte	0x220
+ 555 0211 11       		.uleb128 0x11
+ 556 0212 F7000000 		.4byte	.LASF20
+ 557 0216 01       		.byte	0x1
+ 558 0217 64       		.byte	0x64
+ 559 0218 52030000 		.4byte	0x352
+ 560 021c 02       		.uleb128 0x2
+ 561 021d 91       		.byte	0x91
+ 562 021e 6C       		.sleb128 -20
+ 563 021f 00       		.byte	0
+ 564 0220 0B       		.uleb128 0xb
+ 565 0221 1C000000 		.4byte	.LVL18
+ 566 0225 94030000 		.4byte	0x394
+ 567 0229 3E020000 		.4byte	0x23e
+ 568 022d 0C       		.uleb128 0xc
+ 569 022e 01       		.uleb128 0x1
+ 570 022f 50       		.byte	0x50
+ 571 0230 02       		.uleb128 0x2
+ 572 0231 74       		.byte	0x74
+ 573 0232 00       		.sleb128 0
+ 574 0233 0C       		.uleb128 0xc
+ 575 0234 01       		.uleb128 0x1
+ 576 0235 51       		.byte	0x51
+ 577 0236 01       		.uleb128 0x1
+ 578 0237 30       		.byte	0x30
+ 579 0238 0C       		.uleb128 0xc
+ 580 0239 01       		.uleb128 0x1
+ 581 023a 52       		.byte	0x52
+ 582 023b 01       		.uleb128 0x1
+ 583 023c 30       		.byte	0x30
+ 584 023d 00       		.byte	0
+ 585 023e 0D       		.uleb128 0xd
+ 586 023f 30000000 		.4byte	.LVL19
+ 587 0243 94030000 		.4byte	0x394
+ 588 0247 0C       		.uleb128 0xc
+ 589 0248 01       		.uleb128 0x1
+ 590 0249 50       		.byte	0x50
+ 591 024a 06       		.uleb128 0x6
+ 592 024b 74       		.byte	0x74
+ 593 024c 00       		.sleb128 0
+ 594 024d 08       		.byte	0x8
+ 595 024e FF       		.byte	0xff
+ 596 024f 1A       		.byte	0x1a
+ 597 0250 20       		.byte	0x20
+ 598 0251 0C       		.uleb128 0xc
+ 599 0252 01       		.uleb128 0x1
+ 600 0253 51       		.byte	0x51
+ 601 0254 08       		.uleb128 0x8
+ 602 0255 74       		.byte	0x74
+ 603 0256 00       		.sleb128 0
+ 604 0257 08       		.byte	0x8
+ 605 0258 FF       		.byte	0xff
+ 606 0259 1A       		.byte	0x1a
+ARM GAS  C:\Users\MATEOC~1.QUE\AppData\Local\Temp\ccHvU2Pe.s 			page 14
+
+
+ 607 025a 08       		.byte	0x8
+ 608 025b 7F       		.byte	0x7f
+ 609 025c 1C       		.byte	0x1c
+ 610 025d 0C       		.uleb128 0xc
+ 611 025e 01       		.uleb128 0x1
+ 612 025f 52       		.byte	0x52
+ 613 0260 01       		.uleb128 0x1
+ 614 0261 30       		.byte	0x30
+ 615 0262 00       		.byte	0
+ 616 0263 00       		.byte	0
+ 617 0264 0F       		.uleb128 0xf
+ 618 0265 50000000 		.4byte	.LBB4
+ 619 0269 44000000 		.4byte	.LBE4-.LBB4
+ 620 026d E3020000 		.4byte	0x2e3
+ 621 0271 10       		.uleb128 0x10
+ 622 0272 6900     		.ascii	"i\000"
+ 623 0274 01       		.byte	0x1
+ 624 0275 68       		.byte	0x68
+ 625 0276 68000000 		.4byte	0x68
+ 626 027a C5000000 		.4byte	.LLST3
+ 627 027e 0F       		.uleb128 0xf
+ 628 027f 74000000 		.4byte	.LBB5
+ 629 0283 16000000 		.4byte	.LBE5-.LBB5
+ 630 0287 9A020000 		.4byte	0x29a
+ 631 028b 11       		.uleb128 0x11
+ 632 028c F7000000 		.4byte	.LASF20
+ 633 0290 01       		.byte	0x1
+ 634 0291 73       		.byte	0x73
+ 635 0292 52030000 		.4byte	0x352
+ 636 0296 02       		.uleb128 0x2
+ 637 0297 91       		.byte	0x91
+ 638 0298 70       		.sleb128 -16
+ 639 0299 00       		.byte	0
+ 640 029a 0B       		.uleb128 0xb
+ 641 029b 60000000 		.4byte	.LVL23
+ 642 029f 94030000 		.4byte	0x394
+ 643 02a3 BD020000 		.4byte	0x2bd
+ 644 02a7 0C       		.uleb128 0xc
+ 645 02a8 01       		.uleb128 0x1
+ 646 02a9 50       		.byte	0x50
+ 647 02aa 06       		.uleb128 0x6
+ 648 02ab 74       		.byte	0x74
+ 649 02ac 00       		.sleb128 0
+ 650 02ad 08       		.byte	0x8
+ 651 02ae FF       		.byte	0xff
+ 652 02af 1A       		.byte	0x1a
+ 653 02b0 20       		.byte	0x20
+ 654 02b1 0C       		.uleb128 0xc
+ 655 02b2 01       		.uleb128 0x1
+ 656 02b3 51       		.byte	0x51
+ 657 02b4 02       		.uleb128 0x2
+ 658 02b5 74       		.byte	0x74
+ 659 02b6 00       		.sleb128 0
+ 660 02b7 0C       		.uleb128 0xc
+ 661 02b8 01       		.uleb128 0x1
+ 662 02b9 52       		.byte	0x52
+ 663 02ba 01       		.uleb128 0x1
+ARM GAS  C:\Users\MATEOC~1.QUE\AppData\Local\Temp\ccHvU2Pe.s 			page 15
+
+
+ 664 02bb 30       		.byte	0x30
+ 665 02bc 00       		.byte	0
+ 666 02bd 0D       		.uleb128 0xd
+ 667 02be 74000000 		.4byte	.LVL24
+ 668 02c2 94030000 		.4byte	0x394
+ 669 02c6 0C       		.uleb128 0xc
+ 670 02c7 01       		.uleb128 0x1
+ 671 02c8 50       		.byte	0x50
+ 672 02c9 01       		.uleb128 0x1
+ 673 02ca 30       		.byte	0x30
+ 674 02cb 0C       		.uleb128 0xc
+ 675 02cc 01       		.uleb128 0x1
+ 676 02cd 51       		.byte	0x51
+ 677 02ce 06       		.uleb128 0x6
+ 678 02cf 74       		.byte	0x74
+ 679 02d0 00       		.sleb128 0
+ 680 02d1 08       		.byte	0x8
+ 681 02d2 FF       		.byte	0xff
+ 682 02d3 1A       		.byte	0x1a
+ 683 02d4 20       		.byte	0x20
+ 684 02d5 0C       		.uleb128 0xc
+ 685 02d6 01       		.uleb128 0x1
+ 686 02d7 52       		.byte	0x52
+ 687 02d8 08       		.uleb128 0x8
+ 688 02d9 74       		.byte	0x74
+ 689 02da 00       		.sleb128 0
+ 690 02db 08       		.byte	0x8
+ 691 02dc FF       		.byte	0xff
+ 692 02dd 1A       		.byte	0x1a
+ 693 02de 08       		.byte	0x8
+ 694 02df 7F       		.byte	0x7f
+ 695 02e0 1C       		.byte	0x1c
+ 696 02e1 00       		.byte	0
+ 697 02e2 00       		.byte	0
+ 698 02e3 0F       		.uleb128 0xf
+ 699 02e4 94000000 		.4byte	.LBB6
+ 700 02e8 28000000 		.4byte	.LBE6-.LBB6
+ 701 02ec 37030000 		.4byte	0x337
+ 702 02f0 12       		.uleb128 0x12
+ 703 02f1 6900     		.ascii	"i\000"
+ 704 02f3 01       		.byte	0x1
+ 705 02f4 77       		.byte	0x77
+ 706 02f5 68000000 		.4byte	0x68
+ 707 02f9 01       		.uleb128 0x1
+ 708 02fa 54       		.byte	0x54
+ 709 02fb 0F       		.uleb128 0xf
+ 710 02fc A0000000 		.4byte	.LBB7
+ 711 0300 16000000 		.4byte	.LBE7-.LBB7
+ 712 0304 17030000 		.4byte	0x317
+ 713 0308 11       		.uleb128 0x11
+ 714 0309 F7000000 		.4byte	.LASF20
+ 715 030d 01       		.byte	0x1
+ 716 030e 7D       		.byte	0x7d
+ 717 030f 52030000 		.4byte	0x352
+ 718 0313 02       		.uleb128 0x2
+ 719 0314 91       		.byte	0x91
+ 720 0315 74       		.sleb128 -12
+ARM GAS  C:\Users\MATEOC~1.QUE\AppData\Local\Temp\ccHvU2Pe.s 			page 16
+
+
+ 721 0316 00       		.byte	0
+ 722 0317 0D       		.uleb128 0xd
+ 723 0318 A0000000 		.4byte	.LVL28
+ 724 031c 94030000 		.4byte	0x394
+ 725 0320 0C       		.uleb128 0xc
+ 726 0321 01       		.uleb128 0x1
+ 727 0322 50       		.byte	0x50
+ 728 0323 01       		.uleb128 0x1
+ 729 0324 30       		.byte	0x30
+ 730 0325 0C       		.uleb128 0xc
+ 731 0326 01       		.uleb128 0x1
+ 732 0327 51       		.byte	0x51
+ 733 0328 06       		.uleb128 0x6
+ 734 0329 74       		.byte	0x74
+ 735 032a 00       		.sleb128 0
+ 736 032b 08       		.byte	0x8
+ 737 032c FF       		.byte	0xff
+ 738 032d 1A       		.byte	0x1a
+ 739 032e 20       		.byte	0x20
+ 740 032f 0C       		.uleb128 0xc
+ 741 0330 01       		.uleb128 0x1
+ 742 0331 52       		.byte	0x52
+ 743 0332 02       		.uleb128 0x2
+ 744 0333 74       		.byte	0x74
+ 745 0334 00       		.sleb128 0
+ 746 0335 00       		.byte	0
+ 747 0336 00       		.byte	0
+ 748 0337 13       		.uleb128 0x13
+ 749 0338 0A000000 		.4byte	.LVL16
+ 750 033c 9F030000 		.4byte	0x39f
+ 751 0340 0D       		.uleb128 0xd
+ 752 0341 C4000000 		.4byte	.LVL30
+ 753 0345 89030000 		.4byte	0x389
+ 754 0349 0C       		.uleb128 0xc
+ 755 034a 01       		.uleb128 0x1
+ 756 034b 50       		.byte	0x50
+ 757 034c 03       		.uleb128 0x3
+ 758 034d 0A       		.byte	0xa
+ 759 034e F401     		.2byte	0x1f4
+ 760 0350 00       		.byte	0
+ 761 0351 00       		.byte	0
+ 762 0352 14       		.uleb128 0x14
+ 763 0353 68000000 		.4byte	0x68
+ 764 0357 15       		.uleb128 0x15
+ 765 0358 C4010000 		.4byte	.LASF34
+ 766 035c 0A       		.byte	0xa
+ 767 035d 1207     		.2byte	0x712
+ 768 035f 63030000 		.4byte	0x363
+ 769 0363 14       		.uleb128 0x14
+ 770 0364 76000000 		.4byte	0x76
+ 771 0368 16       		.uleb128 0x16
+ 772 0369 00000000 		.4byte	.LASF22
+ 773 036d 00000000 		.4byte	.LASF22
+ 774 0371 05       		.byte	0x5
+ 775 0372 26       		.byte	0x26
+ 776 0373 16       		.uleb128 0x16
+ 777 0374 29020000 		.4byte	.LASF23
+ARM GAS  C:\Users\MATEOC~1.QUE\AppData\Local\Temp\ccHvU2Pe.s 			page 17
+
+
+ 778 0378 29020000 		.4byte	.LASF23
+ 779 037c 06       		.byte	0x6
+ 780 037d 26       		.byte	0x26
+ 781 037e 16       		.uleb128 0x16
+ 782 037f CC000000 		.4byte	.LASF24
+ 783 0383 CC000000 		.4byte	.LASF24
+ 784 0387 07       		.byte	0x7
+ 785 0388 26       		.byte	0x26
+ 786 0389 16       		.uleb128 0x16
+ 787 038a AB020000 		.4byte	.LASF25
+ 788 038e AB020000 		.4byte	.LASF25
+ 789 0392 08       		.byte	0x8
+ 790 0393 76       		.byte	0x76
+ 791 0394 16       		.uleb128 0x16
+ 792 0395 4B020000 		.4byte	.LASF26
+ 793 0399 4B020000 		.4byte	.LASF26
+ 794 039d 09       		.byte	0x9
+ 795 039e A5       		.byte	0xa5
+ 796 039f 16       		.uleb128 0x16
+ 797 03a0 A2020000 		.4byte	.LASF27
+ 798 03a4 A2020000 		.4byte	.LASF27
+ 799 03a8 09       		.byte	0x9
+ 800 03a9 8D       		.byte	0x8d
+ 801 03aa 00       		.byte	0
+ 802              		.section	.debug_abbrev,"",%progbits
+ 803              	.Ldebug_abbrev0:
+ 804 0000 01       		.uleb128 0x1
+ 805 0001 11       		.uleb128 0x11
+ 806 0002 01       		.byte	0x1
+ 807 0003 25       		.uleb128 0x25
+ 808 0004 0E       		.uleb128 0xe
+ 809 0005 13       		.uleb128 0x13
+ 810 0006 0B       		.uleb128 0xb
+ 811 0007 03       		.uleb128 0x3
+ 812 0008 0E       		.uleb128 0xe
+ 813 0009 1B       		.uleb128 0x1b
+ 814 000a 0E       		.uleb128 0xe
+ 815 000b 55       		.uleb128 0x55
+ 816 000c 17       		.uleb128 0x17
+ 817 000d 11       		.uleb128 0x11
+ 818 000e 01       		.uleb128 0x1
+ 819 000f 10       		.uleb128 0x10
+ 820 0010 17       		.uleb128 0x17
+ 821 0011 00       		.byte	0
+ 822 0012 00       		.byte	0
+ 823 0013 02       		.uleb128 0x2
+ 824 0014 24       		.uleb128 0x24
+ 825 0015 00       		.byte	0
+ 826 0016 0B       		.uleb128 0xb
+ 827 0017 0B       		.uleb128 0xb
+ 828 0018 3E       		.uleb128 0x3e
+ 829 0019 0B       		.uleb128 0xb
+ 830 001a 03       		.uleb128 0x3
+ 831 001b 0E       		.uleb128 0xe
+ 832 001c 00       		.byte	0
+ 833 001d 00       		.byte	0
+ 834 001e 03       		.uleb128 0x3
+ARM GAS  C:\Users\MATEOC~1.QUE\AppData\Local\Temp\ccHvU2Pe.s 			page 18
+
+
+ 835 001f 16       		.uleb128 0x16
+ 836 0020 00       		.byte	0
+ 837 0021 03       		.uleb128 0x3
+ 838 0022 0E       		.uleb128 0xe
+ 839 0023 3A       		.uleb128 0x3a
+ 840 0024 0B       		.uleb128 0xb
+ 841 0025 3B       		.uleb128 0x3b
+ 842 0026 0B       		.uleb128 0xb
+ 843 0027 49       		.uleb128 0x49
+ 844 0028 13       		.uleb128 0x13
+ 845 0029 00       		.byte	0
+ 846 002a 00       		.byte	0
+ 847 002b 04       		.uleb128 0x4
+ 848 002c 24       		.uleb128 0x24
+ 849 002d 00       		.byte	0
+ 850 002e 0B       		.uleb128 0xb
+ 851 002f 0B       		.uleb128 0xb
+ 852 0030 3E       		.uleb128 0x3e
+ 853 0031 0B       		.uleb128 0xb
+ 854 0032 03       		.uleb128 0x3
+ 855 0033 08       		.uleb128 0x8
+ 856 0034 00       		.byte	0
+ 857 0035 00       		.byte	0
+ 858 0036 05       		.uleb128 0x5
+ 859 0037 16       		.uleb128 0x16
+ 860 0038 00       		.byte	0
+ 861 0039 03       		.uleb128 0x3
+ 862 003a 0E       		.uleb128 0xe
+ 863 003b 3A       		.uleb128 0x3a
+ 864 003c 0B       		.uleb128 0xb
+ 865 003d 3B       		.uleb128 0x3b
+ 866 003e 05       		.uleb128 0x5
+ 867 003f 49       		.uleb128 0x49
+ 868 0040 13       		.uleb128 0x13
+ 869 0041 00       		.byte	0
+ 870 0042 00       		.byte	0
+ 871 0043 06       		.uleb128 0x6
+ 872 0044 04       		.uleb128 0x4
+ 873 0045 01       		.byte	0x1
+ 874 0046 03       		.uleb128 0x3
+ 875 0047 0E       		.uleb128 0xe
+ 876 0048 0B       		.uleb128 0xb
+ 877 0049 0B       		.uleb128 0xb
+ 878 004a 49       		.uleb128 0x49
+ 879 004b 13       		.uleb128 0x13
+ 880 004c 3A       		.uleb128 0x3a
+ 881 004d 0B       		.uleb128 0xb
+ 882 004e 3B       		.uleb128 0x3b
+ 883 004f 0B       		.uleb128 0xb
+ 884 0050 01       		.uleb128 0x1
+ 885 0051 13       		.uleb128 0x13
+ 886 0052 00       		.byte	0
+ 887 0053 00       		.byte	0
+ 888 0054 07       		.uleb128 0x7
+ 889 0055 28       		.uleb128 0x28
+ 890 0056 00       		.byte	0
+ 891 0057 03       		.uleb128 0x3
+ARM GAS  C:\Users\MATEOC~1.QUE\AppData\Local\Temp\ccHvU2Pe.s 			page 19
+
+
+ 892 0058 0E       		.uleb128 0xe
+ 893 0059 1C       		.uleb128 0x1c
+ 894 005a 0B       		.uleb128 0xb
+ 895 005b 00       		.byte	0
+ 896 005c 00       		.byte	0
+ 897 005d 08       		.uleb128 0x8
+ 898 005e 28       		.uleb128 0x28
+ 899 005f 00       		.byte	0
+ 900 0060 03       		.uleb128 0x3
+ 901 0061 08       		.uleb128 0x8
+ 902 0062 1C       		.uleb128 0x1c
+ 903 0063 0B       		.uleb128 0xb
+ 904 0064 00       		.byte	0
+ 905 0065 00       		.byte	0
+ 906 0066 09       		.uleb128 0x9
+ 907 0067 2E       		.uleb128 0x2e
+ 908 0068 01       		.byte	0x1
+ 909 0069 3F       		.uleb128 0x3f
+ 910 006a 19       		.uleb128 0x19
+ 911 006b 03       		.uleb128 0x3
+ 912 006c 0E       		.uleb128 0xe
+ 913 006d 3A       		.uleb128 0x3a
+ 914 006e 0B       		.uleb128 0xb
+ 915 006f 3B       		.uleb128 0x3b
+ 916 0070 0B       		.uleb128 0xb
+ 917 0071 27       		.uleb128 0x27
+ 918 0072 19       		.uleb128 0x19
+ 919 0073 11       		.uleb128 0x11
+ 920 0074 01       		.uleb128 0x1
+ 921 0075 12       		.uleb128 0x12
+ 922 0076 06       		.uleb128 0x6
+ 923 0077 40       		.uleb128 0x40
+ 924 0078 18       		.uleb128 0x18
+ 925 0079 9742     		.uleb128 0x2117
+ 926 007b 19       		.uleb128 0x19
+ 927 007c 01       		.uleb128 0x1
+ 928 007d 13       		.uleb128 0x13
+ 929 007e 00       		.byte	0
+ 930 007f 00       		.byte	0
+ 931 0080 0A       		.uleb128 0xa
+ 932 0081 05       		.uleb128 0x5
+ 933 0082 00       		.byte	0
+ 934 0083 03       		.uleb128 0x3
+ 935 0084 0E       		.uleb128 0xe
+ 936 0085 3A       		.uleb128 0x3a
+ 937 0086 0B       		.uleb128 0xb
+ 938 0087 3B       		.uleb128 0x3b
+ 939 0088 0B       		.uleb128 0xb
+ 940 0089 49       		.uleb128 0x49
+ 941 008a 13       		.uleb128 0x13
+ 942 008b 02       		.uleb128 0x2
+ 943 008c 17       		.uleb128 0x17
+ 944 008d 00       		.byte	0
+ 945 008e 00       		.byte	0
+ 946 008f 0B       		.uleb128 0xb
+ 947 0090 898201   		.uleb128 0x4109
+ 948 0093 01       		.byte	0x1
+ARM GAS  C:\Users\MATEOC~1.QUE\AppData\Local\Temp\ccHvU2Pe.s 			page 20
+
+
+ 949 0094 11       		.uleb128 0x11
+ 950 0095 01       		.uleb128 0x1
+ 951 0096 31       		.uleb128 0x31
+ 952 0097 13       		.uleb128 0x13
+ 953 0098 01       		.uleb128 0x1
+ 954 0099 13       		.uleb128 0x13
+ 955 009a 00       		.byte	0
+ 956 009b 00       		.byte	0
+ 957 009c 0C       		.uleb128 0xc
+ 958 009d 8A8201   		.uleb128 0x410a
+ 959 00a0 00       		.byte	0
+ 960 00a1 02       		.uleb128 0x2
+ 961 00a2 18       		.uleb128 0x18
+ 962 00a3 9142     		.uleb128 0x2111
+ 963 00a5 18       		.uleb128 0x18
+ 964 00a6 00       		.byte	0
+ 965 00a7 00       		.byte	0
+ 966 00a8 0D       		.uleb128 0xd
+ 967 00a9 898201   		.uleb128 0x4109
+ 968 00ac 01       		.byte	0x1
+ 969 00ad 11       		.uleb128 0x11
+ 970 00ae 01       		.uleb128 0x1
+ 971 00af 31       		.uleb128 0x31
+ 972 00b0 13       		.uleb128 0x13
+ 973 00b1 00       		.byte	0
+ 974 00b2 00       		.byte	0
+ 975 00b3 0E       		.uleb128 0xe
+ 976 00b4 2E       		.uleb128 0x2e
+ 977 00b5 01       		.byte	0x1
+ 978 00b6 3F       		.uleb128 0x3f
+ 979 00b7 19       		.uleb128 0x19
+ 980 00b8 03       		.uleb128 0x3
+ 981 00b9 0E       		.uleb128 0xe
+ 982 00ba 3A       		.uleb128 0x3a
+ 983 00bb 0B       		.uleb128 0xb
+ 984 00bc 3B       		.uleb128 0x3b
+ 985 00bd 0B       		.uleb128 0xb
+ 986 00be 49       		.uleb128 0x49
+ 987 00bf 13       		.uleb128 0x13
+ 988 00c0 8701     		.uleb128 0x87
+ 989 00c2 19       		.uleb128 0x19
+ 990 00c3 11       		.uleb128 0x11
+ 991 00c4 01       		.uleb128 0x1
+ 992 00c5 12       		.uleb128 0x12
+ 993 00c6 06       		.uleb128 0x6
+ 994 00c7 40       		.uleb128 0x40
+ 995 00c8 18       		.uleb128 0x18
+ 996 00c9 9742     		.uleb128 0x2117
+ 997 00cb 19       		.uleb128 0x19
+ 998 00cc 01       		.uleb128 0x1
+ 999 00cd 13       		.uleb128 0x13
+ 1000 00ce 00       		.byte	0
+ 1001 00cf 00       		.byte	0
+ 1002 00d0 0F       		.uleb128 0xf
+ 1003 00d1 0B       		.uleb128 0xb
+ 1004 00d2 01       		.byte	0x1
+ 1005 00d3 11       		.uleb128 0x11
+ARM GAS  C:\Users\MATEOC~1.QUE\AppData\Local\Temp\ccHvU2Pe.s 			page 21
+
+
+ 1006 00d4 01       		.uleb128 0x1
+ 1007 00d5 12       		.uleb128 0x12
+ 1008 00d6 06       		.uleb128 0x6
+ 1009 00d7 01       		.uleb128 0x1
+ 1010 00d8 13       		.uleb128 0x13
+ 1011 00d9 00       		.byte	0
+ 1012 00da 00       		.byte	0
+ 1013 00db 10       		.uleb128 0x10
+ 1014 00dc 34       		.uleb128 0x34
+ 1015 00dd 00       		.byte	0
+ 1016 00de 03       		.uleb128 0x3
+ 1017 00df 08       		.uleb128 0x8
+ 1018 00e0 3A       		.uleb128 0x3a
+ 1019 00e1 0B       		.uleb128 0xb
+ 1020 00e2 3B       		.uleb128 0x3b
+ 1021 00e3 0B       		.uleb128 0xb
+ 1022 00e4 49       		.uleb128 0x49
+ 1023 00e5 13       		.uleb128 0x13
+ 1024 00e6 02       		.uleb128 0x2
+ 1025 00e7 17       		.uleb128 0x17
+ 1026 00e8 00       		.byte	0
+ 1027 00e9 00       		.byte	0
+ 1028 00ea 11       		.uleb128 0x11
+ 1029 00eb 34       		.uleb128 0x34
+ 1030 00ec 00       		.byte	0
+ 1031 00ed 03       		.uleb128 0x3
+ 1032 00ee 0E       		.uleb128 0xe
+ 1033 00ef 3A       		.uleb128 0x3a
+ 1034 00f0 0B       		.uleb128 0xb
+ 1035 00f1 3B       		.uleb128 0x3b
+ 1036 00f2 0B       		.uleb128 0xb
+ 1037 00f3 49       		.uleb128 0x49
+ 1038 00f4 13       		.uleb128 0x13
+ 1039 00f5 02       		.uleb128 0x2
+ 1040 00f6 18       		.uleb128 0x18
+ 1041 00f7 00       		.byte	0
+ 1042 00f8 00       		.byte	0
+ 1043 00f9 12       		.uleb128 0x12
+ 1044 00fa 34       		.uleb128 0x34
+ 1045 00fb 00       		.byte	0
+ 1046 00fc 03       		.uleb128 0x3
+ 1047 00fd 08       		.uleb128 0x8
+ 1048 00fe 3A       		.uleb128 0x3a
+ 1049 00ff 0B       		.uleb128 0xb
+ 1050 0100 3B       		.uleb128 0x3b
+ 1051 0101 0B       		.uleb128 0xb
+ 1052 0102 49       		.uleb128 0x49
+ 1053 0103 13       		.uleb128 0x13
+ 1054 0104 02       		.uleb128 0x2
+ 1055 0105 18       		.uleb128 0x18
+ 1056 0106 00       		.byte	0
+ 1057 0107 00       		.byte	0
+ 1058 0108 13       		.uleb128 0x13
+ 1059 0109 898201   		.uleb128 0x4109
+ 1060 010c 00       		.byte	0
+ 1061 010d 11       		.uleb128 0x11
+ 1062 010e 01       		.uleb128 0x1
+ARM GAS  C:\Users\MATEOC~1.QUE\AppData\Local\Temp\ccHvU2Pe.s 			page 22
+
+
+ 1063 010f 31       		.uleb128 0x31
+ 1064 0110 13       		.uleb128 0x13
+ 1065 0111 00       		.byte	0
+ 1066 0112 00       		.byte	0
+ 1067 0113 14       		.uleb128 0x14
+ 1068 0114 35       		.uleb128 0x35
+ 1069 0115 00       		.byte	0
+ 1070 0116 49       		.uleb128 0x49
+ 1071 0117 13       		.uleb128 0x13
+ 1072 0118 00       		.byte	0
+ 1073 0119 00       		.byte	0
+ 1074 011a 15       		.uleb128 0x15
+ 1075 011b 34       		.uleb128 0x34
+ 1076 011c 00       		.byte	0
+ 1077 011d 03       		.uleb128 0x3
+ 1078 011e 0E       		.uleb128 0xe
+ 1079 011f 3A       		.uleb128 0x3a
+ 1080 0120 0B       		.uleb128 0xb
+ 1081 0121 3B       		.uleb128 0x3b
+ 1082 0122 05       		.uleb128 0x5
+ 1083 0123 49       		.uleb128 0x49
+ 1084 0124 13       		.uleb128 0x13
+ 1085 0125 3F       		.uleb128 0x3f
+ 1086 0126 19       		.uleb128 0x19
+ 1087 0127 3C       		.uleb128 0x3c
+ 1088 0128 19       		.uleb128 0x19
+ 1089 0129 00       		.byte	0
+ 1090 012a 00       		.byte	0
+ 1091 012b 16       		.uleb128 0x16
+ 1092 012c 2E       		.uleb128 0x2e
+ 1093 012d 00       		.byte	0
+ 1094 012e 3F       		.uleb128 0x3f
+ 1095 012f 19       		.uleb128 0x19
+ 1096 0130 3C       		.uleb128 0x3c
+ 1097 0131 19       		.uleb128 0x19
+ 1098 0132 6E       		.uleb128 0x6e
+ 1099 0133 0E       		.uleb128 0xe
+ 1100 0134 03       		.uleb128 0x3
+ 1101 0135 0E       		.uleb128 0xe
+ 1102 0136 3A       		.uleb128 0x3a
+ 1103 0137 0B       		.uleb128 0xb
+ 1104 0138 3B       		.uleb128 0x3b
+ 1105 0139 0B       		.uleb128 0xb
+ 1106 013a 00       		.byte	0
+ 1107 013b 00       		.byte	0
+ 1108 013c 00       		.byte	0
+ 1109              		.section	.debug_loc,"",%progbits
+ 1110              	.Ldebug_loc0:
+ 1111              	.LLST0:
+ 1112 0000 00000000 		.4byte	.LVL0
+ 1113 0004 12000000 		.4byte	.LVL1
+ 1114 0008 0100     		.2byte	0x1
+ 1115 000a 50       		.byte	0x50
+ 1116 000b 12000000 		.4byte	.LVL1
+ 1117 000f 24000000 		.4byte	.LVL5
+ 1118 0013 0400     		.2byte	0x4
+ 1119 0015 F3       		.byte	0xf3
+ARM GAS  C:\Users\MATEOC~1.QUE\AppData\Local\Temp\ccHvU2Pe.s 			page 23
+
+
+ 1120 0016 01       		.uleb128 0x1
+ 1121 0017 50       		.byte	0x50
+ 1122 0018 9F       		.byte	0x9f
+ 1123 0019 24000000 		.4byte	.LVL5
+ 1124 001d 26000000 		.4byte	.LVL6
+ 1125 0021 0100     		.2byte	0x1
+ 1126 0023 50       		.byte	0x50
+ 1127 0024 26000000 		.4byte	.LVL6
+ 1128 0028 38000000 		.4byte	.LVL10
+ 1129 002c 0400     		.2byte	0x4
+ 1130 002e F3       		.byte	0xf3
+ 1131 002f 01       		.uleb128 0x1
+ 1132 0030 50       		.byte	0x50
+ 1133 0031 9F       		.byte	0x9f
+ 1134 0032 38000000 		.4byte	.LVL10
+ 1135 0036 3A000000 		.4byte	.LVL11
+ 1136 003a 0100     		.2byte	0x1
+ 1137 003c 50       		.byte	0x50
+ 1138 003d 3A000000 		.4byte	.LVL11
+ 1139 0041 58000000 		.4byte	.LFE64
+ 1140 0045 0400     		.2byte	0x4
+ 1141 0047 F3       		.byte	0xf3
+ 1142 0048 01       		.uleb128 0x1
+ 1143 0049 50       		.byte	0x50
+ 1144 004a 9F       		.byte	0x9f
+ 1145 004b 00000000 		.4byte	0
+ 1146 004f 00000000 		.4byte	0
+ 1147              	.LLST1:
+ 1148 0053 00000000 		.4byte	.LVL0
+ 1149 0057 15000000 		.4byte	.LVL2-1
+ 1150 005b 0100     		.2byte	0x1
+ 1151 005d 51       		.byte	0x51
+ 1152 005e 15000000 		.4byte	.LVL2-1
+ 1153 0062 24000000 		.4byte	.LVL5
+ 1154 0066 0400     		.2byte	0x4
+ 1155 0068 F3       		.byte	0xf3
+ 1156 0069 01       		.uleb128 0x1
+ 1157 006a 51       		.byte	0x51
+ 1158 006b 9F       		.byte	0x9f
+ 1159 006c 24000000 		.4byte	.LVL5
+ 1160 0070 29000000 		.4byte	.LVL7-1
+ 1161 0074 0100     		.2byte	0x1
+ 1162 0076 51       		.byte	0x51
+ 1163 0077 29000000 		.4byte	.LVL7-1
+ 1164 007b 38000000 		.4byte	.LVL10
+ 1165 007f 0400     		.2byte	0x4
+ 1166 0081 F3       		.byte	0xf3
+ 1167 0082 01       		.uleb128 0x1
+ 1168 0083 51       		.byte	0x51
+ 1169 0084 9F       		.byte	0x9f
+ 1170 0085 38000000 		.4byte	.LVL10
+ 1171 0089 3D000000 		.4byte	.LVL12-1
+ 1172 008d 0100     		.2byte	0x1
+ 1173 008f 51       		.byte	0x51
+ 1174 0090 3D000000 		.4byte	.LVL12-1
+ 1175 0094 58000000 		.4byte	.LFE64
+ 1176 0098 0400     		.2byte	0x4
+ARM GAS  C:\Users\MATEOC~1.QUE\AppData\Local\Temp\ccHvU2Pe.s 			page 24
+
+
+ 1177 009a F3       		.byte	0xf3
+ 1178 009b 01       		.uleb128 0x1
+ 1179 009c 51       		.byte	0x51
+ 1180 009d 9F       		.byte	0x9f
+ 1181 009e 00000000 		.4byte	0
+ 1182 00a2 00000000 		.4byte	0
+ 1183              	.LLST2:
+ 1184 00a6 0A000000 		.4byte	.LVL16
+ 1185 00aa 0E000000 		.4byte	.LVL17
+ 1186 00ae 0200     		.2byte	0x2
+ 1187 00b0 30       		.byte	0x30
+ 1188 00b1 9F       		.byte	0x9f
+ 1189 00b2 0E000000 		.4byte	.LVL17
+ 1190 00b6 4E000000 		.4byte	.LVL21
+ 1191 00ba 0100     		.2byte	0x1
+ 1192 00bc 54       		.byte	0x54
+ 1193 00bd 00000000 		.4byte	0
+ 1194 00c1 00000000 		.4byte	0
+ 1195              	.LLST3:
+ 1196 00c5 50000000 		.4byte	.LVL22
+ 1197 00c9 92000000 		.4byte	.LVL26
+ 1198 00cd 0100     		.2byte	0x1
+ 1199 00cf 54       		.byte	0x54
+ 1200 00d0 00000000 		.4byte	0
+ 1201 00d4 00000000 		.4byte	0
+ 1202              		.section	.debug_aranges,"",%progbits
+ 1203 0000 24000000 		.4byte	0x24
+ 1204 0004 0200     		.2byte	0x2
+ 1205 0006 00000000 		.4byte	.Ldebug_info0
+ 1206 000a 04       		.byte	0x4
+ 1207 000b 00       		.byte	0
+ 1208 000c 0000     		.2byte	0
+ 1209 000e 0000     		.2byte	0
+ 1210 0010 00000000 		.4byte	.LFB64
+ 1211 0014 58000000 		.4byte	.LFE64-.LFB64
+ 1212 0018 00000000 		.4byte	.LFB65
+ 1213 001c C6000000 		.4byte	.LFE65-.LFB65
+ 1214 0020 00000000 		.4byte	0
+ 1215 0024 00000000 		.4byte	0
+ 1216              		.section	.debug_ranges,"",%progbits
+ 1217              	.Ldebug_ranges0:
+ 1218 0000 00000000 		.4byte	.LFB64
+ 1219 0004 58000000 		.4byte	.LFE64
+ 1220 0008 00000000 		.4byte	.LFB65
+ 1221 000c C6000000 		.4byte	.LFE65
+ 1222 0010 00000000 		.4byte	0
+ 1223 0014 00000000 		.4byte	0
+ 1224              		.section	.debug_line,"",%progbits
+ 1225              	.Ldebug_line0:
+ 1226 0000 43020000 		.section	.debug_str,"MS",%progbits,1
+ 1226      0200AD01 
+ 1226      00000201 
+ 1226      FB0E0D00 
+ 1226      01010101 
+ 1227              	.LASF22:
+ 1228 0000 4C45445F 		.ascii	"LED_green_Write\000"
+ 1228      67726565 
+ARM GAS  C:\Users\MATEOC~1.QUE\AppData\Local\Temp\ccHvU2Pe.s 			page 25
+
+
+ 1228      6E5F5772 
+ 1228      69746500 
+ 1229              	.LASF30:
+ 1230 0010 433A5C55 		.ascii	"C:\\Users\\Mateo C. Querol\\OneDrive\\University\\D"
+ 1230      73657273 
+ 1230      5C4D6174 
+ 1230      656F2043 
+ 1230      2E205175 
+ 1231 003e 61726D73 		.ascii	"armstadt\\Advanced Microcontroller Systems and Embe"
+ 1231      74616474 
+ 1231      5C416476 
+ 1231      616E6365 
+ 1231      64204D69 
+ 1232 0070 64646564 		.ascii	"dded Operating systems\\Embedded Operating Systems\\"
+ 1232      204F7065 
+ 1232      72617469 
+ 1232      6E672073 
+ 1232      79737465 
+ 1233 00a2 576F726B 		.ascii	"Workbook\\1.4_LightEffects.cydsn\000"
+ 1233      626F6F6B 
+ 1233      5C312E34 
+ 1233      5F4C6967 
+ 1233      68744566 
+ 1234              	.LASF9:
+ 1235 00c2 5F5F696E 		.ascii	"__int32_t\000"
+ 1235      7433325F 
+ 1235      7400
+ 1236              	.LASF24:
+ 1237 00cc 4C45445F 		.ascii	"LED_red_Write\000"
+ 1237      7265645F 
+ 1237      57726974 
+ 1237      6500
+ 1238              	.LASF19:
+ 1239 00da 6C656443 		.ascii	"ledColor_t\000"
+ 1239      6F6C6F72 
+ 1239      5F7400
+ 1240              	.LASF12:
+ 1241 00e5 666C6F61 		.ascii	"float\000"
+ 1241      7400
+ 1242              	.LASF0:
+ 1243 00eb 7369676E 		.ascii	"signed char\000"
+ 1243      65642063 
+ 1243      68617200 
+ 1244              	.LASF20:
+ 1245 00f7 64656C61 		.ascii	"delay\000"
+ 1245      7900
+ 1246              	.LASF1:
+ 1247 00fd 756E7369 		.ascii	"unsigned char\000"
+ 1247      676E6564 
+ 1247      20636861 
+ 1247      7200
+ 1248              	.LASF28:
+ 1249 010b 474E5520 		.ascii	"GNU C11 5.4.1 20160609 (release) [ARM/embedded-5-br"
+ 1249      43313120 
+ 1249      352E342E 
+ 1249      31203230 
+ 1249      31363036 
+ARM GAS  C:\Users\MATEOC~1.QUE\AppData\Local\Temp\ccHvU2Pe.s 			page 26
+
+
+ 1250 013e 616E6368 		.ascii	"anch revision 237715] -mcpu=cortex-m3 -mthumb -g -O"
+ 1250      20726576 
+ 1250      6973696F 
+ 1250      6E203233 
+ 1250      37373135 
+ 1251 0171 67202D66 		.ascii	"g -ffunction-sections -ffat-lto-objects\000"
+ 1251      66756E63 
+ 1251      74696F6E 
+ 1251      2D736563 
+ 1251      74696F6E 
+ 1252              	.LASF5:
+ 1253 0199 6C6F6E67 		.ascii	"long unsigned int\000"
+ 1253      20756E73 
+ 1253      69676E65 
+ 1253      6420696E 
+ 1253      7400
+ 1254              	.LASF3:
+ 1255 01ab 73686F72 		.ascii	"short unsigned int\000"
+ 1255      7420756E 
+ 1255      7369676E 
+ 1255      65642069 
+ 1255      6E7400
+ 1256              	.LASF18:
+ 1257 01be 67726565 		.ascii	"green\000"
+ 1257      6E00
+ 1258              	.LASF34:
+ 1259 01c4 49544D5F 		.ascii	"ITM_RxBuffer\000"
+ 1259      52784275 
+ 1259      66666572 
+ 1259      00
+ 1260              	.LASF13:
+ 1261 01d1 646F7562 		.ascii	"double\000"
+ 1261      6C6500
+ 1262              	.LASF31:
+ 1263 01d8 65656C65 		.ascii	"eeledColor\000"
+ 1263      64436F6C 
+ 1263      6F7200
+ 1264              	.LASF21:
+ 1265 01e3 636F6C6F 		.ascii	"color\000"
+ 1265      7200
+ 1266              	.LASF11:
+ 1267 01e9 75696E74 		.ascii	"uint16\000"
+ 1267      313600
+ 1268              	.LASF33:
+ 1269 01f0 6D61696E 		.ascii	"main\000"
+ 1269      00
+ 1270              	.LASF32:
+ 1271 01f5 73657454 		.ascii	"setTrafficLight\000"
+ 1271      72616666 
+ 1271      69634C69 
+ 1271      67687400 
+ 1272              	.LASF8:
+ 1273 0205 756E7369 		.ascii	"unsigned int\000"
+ 1273      676E6564 
+ 1273      20696E74 
+ 1273      00
+ 1274              	.LASF7:
+ARM GAS  C:\Users\MATEOC~1.QUE\AppData\Local\Temp\ccHvU2Pe.s 			page 27
+
+
+ 1275 0212 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 1275      206C6F6E 
+ 1275      6720756E 
+ 1275      7369676E 
+ 1275      65642069 
+ 1276              	.LASF23:
+ 1277 0229 4C45445F 		.ascii	"LED_yellow_Write\000"
+ 1277      79656C6C 
+ 1277      6F775F57 
+ 1277      72697465 
+ 1277      00
+ 1278              	.LASF10:
+ 1279 023a 696E7433 		.ascii	"int32_t\000"
+ 1279      325F7400 
+ 1280              	.LASF16:
+ 1281 0242 73697A65 		.ascii	"sizetype\000"
+ 1281      74797065 
+ 1281      00
+ 1282              	.LASF26:
+ 1283 024b 4C45445F 		.ascii	"LED_RGB_Set\000"
+ 1283      5247425F 
+ 1283      53657400 
+ 1284              	.LASF6:
+ 1285 0257 6C6F6E67 		.ascii	"long long int\000"
+ 1285      206C6F6E 
+ 1285      6720696E 
+ 1285      7400
+ 1286              	.LASF29:
+ 1287 0265 736F7572 		.ascii	"source\\asw\\main.c\000"
+ 1287      63655C61 
+ 1287      73775C6D 
+ 1287      61696E2E 
+ 1287      6300
+ 1288              	.LASF14:
+ 1289 0277 63686172 		.ascii	"char\000"
+ 1289      00
+ 1290              	.LASF2:
+ 1291 027c 73686F72 		.ascii	"short int\000"
+ 1291      7420696E 
+ 1291      7400
+ 1292              	.LASF17:
+ 1293 0286 79656C6C 		.ascii	"yellow\000"
+ 1293      6F7700
+ 1294              	.LASF4:
+ 1295 028d 6C6F6E67 		.ascii	"long int\000"
+ 1295      20696E74 
+ 1295      00
+ 1296              	.LASF15:
+ 1297 0296 6C6F6E67 		.ascii	"long double\000"
+ 1297      20646F75 
+ 1297      626C6500 
+ 1298              	.LASF27:
+ 1299 02a2 4C45445F 		.ascii	"LED_Init\000"
+ 1299      496E6974 
+ 1299      00
+ 1300              	.LASF25:
+ 1301 02ab 43794465 		.ascii	"CyDelay\000"
+ARM GAS  C:\Users\MATEOC~1.QUE\AppData\Local\Temp\ccHvU2Pe.s 			page 28
+
+
+ 1301      6C617900 
+ 1302              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 5.4.1 20160609 (release) [ARM/embedded-5-bran
