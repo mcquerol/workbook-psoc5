@@ -1,0 +1,182 @@
+# 1.3_introducing_interrupts
+# 2023-12-09 17:15:10Z
+
+set_location "\JOYSTICK_ADC_XY:AMuxHw_2_Decoder_is_active_split\" 2 5 0 0
+set_location "ClockBlock" clockblockcell -1 -1 0
+set_io "SEVEN_A(0)" iocell 1 7
+set_io "SEVEN_B(0)" iocell 1 6
+set_io "SEVEN_C(0)" iocell 1 5
+set_io "SEVEN_D(0)" iocell 1 4
+set_io "SEVEN_E(0)" iocell 1 3
+set_io "SEVEN_F(0)" iocell 1 2
+set_io "SEVEN_G(0)" iocell 1 1
+set_io "SEVEN_DP(0)" iocell 1 0
+set_io "SEVEN_SELECT(0)" iocell 3 5
+set_location "BUTTON_3" logicalport -1 -1 0
+set_io "BUTTON_3(0)" iocell 0 5
+set_io "LED_red(0)" iocell 0 6
+set_io "LED_yellow(0)" iocell 2 0
+set_io "LED_green(0)" iocell 0 7
+set_io "UART_LOG_TX(0)" iocell 12 7
+set_io "UART_LOG_RX(0)" iocell 12 6
+set_io "RGB_R(0)" iocell 2 5
+set_io "RGB_G(0)" iocell 2 4
+set_io "RGB_B(0)" iocell 2 3
+set_io "JOYSTICK_X(0)" iocell 0 0
+set_io "JOYSTICK_Y(0)" iocell 0 1
+set_io "TFT_SCL(0)" iocell 12 4
+set_io "TFT_DC(0)" iocell 12 3
+set_io "TFT_RES(0)" iocell 3 4
+set_io "TFT_CS(0)" iocell 3 3
+set_io "TFT_LED(0)" iocell 12 2
+set_io "TFT_SDA(0)" iocell 12 5
+set_location "Net_1027" 0 0 0 2
+set_location "\UART_LOG:BUART:counter_load_not\" 1 0 0 2
+set_location "\UART_LOG:BUART:tx_status_0\" 0 1 1 3
+set_location "\UART_LOG:BUART:tx_status_2\" 0 2 0 2
+set_location "\UART_LOG:BUART:rx_counter_load\" 2 0 1 1
+set_location "\UART_LOG:BUART:rx_postpoll\" 2 1 1 2
+set_location "\UART_LOG:BUART:rx_status_4\" 3 0 0 2
+set_location "\UART_LOG:BUART:rx_status_5\" 3 0 0 0
+set_location "UART_LOG_RX(0)_SYNC" 3 2 5 0
+set_location "\JOYSTICK_ADC_XY:AMuxHw_2_Decoder_is_active\" 2 5 1 3
+set_location "\JOYSTICK_ADC_XY:bSAR_SEQ:cnt_enable\" 2 3 1 3
+set_location "\TFT_SPI:BSPIM:load_rx_data\" 2 2 1 1
+set_location "\TFT_SPI:BSPIM:tx_status_0\" 3 1 0 2
+set_location "\TFT_SPI:BSPIM:tx_status_4\" 2 2 1 2
+set_location "\TFT_SPI:BSPIM:rx_status_6\" 2 3 0 2
+set_location "\SEVEN_reg:Sync:ctrl_reg\" 0 4 6
+set_location "__ONE__" 0 3 1 2
+set_location "\UART_LOG:BUART:sTX:TxShifter:u0\" 0 1 2
+set_location "\UART_LOG:BUART:sTX:sCLOCK:TxBitClkGen\" 1 1 2
+set_location "\UART_LOG:BUART:sTX:TxSts\" 0 2 4
+set_location "\UART_LOG:BUART:sRX:RxShifter:u0\" 2 1 2
+set_location "\UART_LOG:BUART:sRX:RxBitCounter\" 2 0 7
+set_location "\UART_LOG:BUART:sRX:RxSts\" 3 0 4
+set_location "\RGB_PWM_red:PWMUDB:genblk1:ctrlreg\" 1 0 6
+set_location "\RGB_PWM_red:PWMUDB:sP16:pwmdp:u0\" 0 0 2
+set_location "\RGB_PWM_red:PWMUDB:sP16:pwmdp:u1\" 1 0 2
+set_location "\RGB_PWM_green:PWMUDB:genblk1:ctrlreg\" 1 2 6
+set_location "\RGB_PWM_green:PWMUDB:sP16:pwmdp:u0\" 1 2 2
+set_location "\RGB_PWM_green:PWMUDB:sP16:pwmdp:u1\" 0 2 2
+set_location "\RGB_PWM_blue:PWMUDB:genblk1:ctrlreg\" 0 5 6
+set_location "\RGB_PWM_blue:PWMUDB:sP16:pwmdp:u0\" 0 4 2
+set_location "\RGB_PWM_blue:PWMUDB:sP16:pwmdp:u1\" 0 5 2
+set_location "\JOYSTICK_ADC_XY:SAR:ADC_SAR\" sarcell -1 -1 0
+set_location "\JOYSTICK_ADC_XY:bSAR_SEQ:CtrlReg\" 1 3 6
+set_location "\JOYSTICK_ADC_XY:bSAR_SEQ:ChannelCounter\" 2 3 7
+set_location "\JOYSTICK_ADC_XY:bSAR_SEQ:EOCSts\" 1 1 3
+set_location "\JOYSTICK_ADC_XY:TempBuf\" drqcell -1 -1 1
+set_location "\JOYSTICK_ADC_XY:FinalBuf\" drqcell -1 -1 0
+set_location "\JOYSTICK_ADC_XY:IRQ\" interrupt -1 -1 0
+set_location "\JOYSTICK_ADC_XY:Sync:genblk1[0]:INST\" 0 1 5 0
+set_location "\TFT_SPI:BSPIM:BitCounter\" 2 2 7
+set_location "\TFT_SPI:BSPIM:TxStsReg\" 2 1 4
+set_location "\TFT_SPI:BSPIM:RxStsReg\" 2 4 4
+set_location "\TFT_SPI:BSPIM:sR8:Dp:u0\" 2 2 2
+set_location "\TFT_BackLight:PWMHW\" timercell -1 -1 0
+set_location "isr_BUTTON_3" interrupt -1 -1 4
+set_location "\UART_LOG:BUART:txn\" 0 0 1 0
+set_location "\UART_LOG:BUART:tx_state_1\" 1 0 1 3
+set_location "\UART_LOG:BUART:tx_state_0\" 0 1 0 0
+set_location "\UART_LOG:BUART:tx_state_2\" 0 0 0 0
+set_location "\UART_LOG:BUART:tx_bitclk\" 0 0 1 1
+set_location "\UART_LOG:BUART:tx_ctrl_mark_last\" 2 0 0 3
+set_location "\UART_LOG:BUART:rx_state_0\" 2 0 0 0
+set_location "\UART_LOG:BUART:rx_load_fifo\" 2 0 1 0
+set_location "\UART_LOG:BUART:rx_state_3\" 2 0 0 2
+set_location "\UART_LOG:BUART:rx_state_2\" 2 0 0 1
+set_location "\UART_LOG:BUART:rx_bitclk_enable\" 2 1 1 3
+set_location "\UART_LOG:BUART:rx_state_stop1_reg\" 2 0 1 3
+set_location "\UART_LOG:BUART:pollcount_1\" 2 1 1 1
+set_location "\UART_LOG:BUART:pollcount_0\" 2 1 1 0
+set_location "\UART_LOG:BUART:rx_status_3\" 2 0 1 2
+set_location "\UART_LOG:BUART:rx_last\" 3 0 0 3
+set_location "\RGB_PWM_red:PWMUDB:runmode_enable\" 1 0 0 0
+set_location "Net_403" 1 0 0 1
+set_location "\RGB_PWM_green:PWMUDB:runmode_enable\" 1 2 1 0
+set_location "Net_1516" 1 2 1 1
+set_location "\RGB_PWM_blue:PWMUDB:runmode_enable\" 0 5 1 0
+set_location "Net_1518" 0 5 1 1
+set_location "\JOYSTICK_ADC_XY:AMuxHw_2_Decoder_old_id_5\" 2 4 0 3
+set_location "\JOYSTICK_ADC_XY:AMuxHw_2_Decoder_old_id_4\" 2 4 0 1
+set_location "\JOYSTICK_ADC_XY:AMuxHw_2_Decoder_old_id_3\" 2 4 1 1
+set_location "\JOYSTICK_ADC_XY:AMuxHw_2_Decoder_old_id_2\" 2 4 1 2
+set_location "\JOYSTICK_ADC_XY:AMuxHw_2_Decoder_old_id_1\" 2 4 0 2
+set_location "\JOYSTICK_ADC_XY:AMuxHw_2_Decoder_old_id_0\" 3 5 1 2
+set_location "\JOYSTICK_ADC_XY:AMuxHw_2_Decoder_one_hot_0\" 1 5 1 3
+set_location "\JOYSTICK_ADC_XY:AMuxHw_2_Decoder_one_hot_1\" 0 3 1 1
+set_location "\JOYSTICK_ADC_XY:AMuxHw_2_Decoder_one_hot_2\" 0 2 0 3
+set_location "\JOYSTICK_ADC_XY:AMuxHw_2_Decoder_one_hot_3\" 3 4 1 1
+set_location "\JOYSTICK_ADC_XY:AMuxHw_2_Decoder_one_hot_4\" 3 3 1 0
+set_location "\JOYSTICK_ADC_XY:AMuxHw_2_Decoder_one_hot_5\" 1 4 0 3
+set_location "\JOYSTICK_ADC_XY:AMuxHw_2_Decoder_one_hot_6\" 0 2 1 2
+set_location "\JOYSTICK_ADC_XY:AMuxHw_2_Decoder_one_hot_7\" 2 3 1 0
+set_location "\JOYSTICK_ADC_XY:AMuxHw_2_Decoder_one_hot_8\" 1 2 0 2
+set_location "\JOYSTICK_ADC_XY:AMuxHw_2_Decoder_one_hot_9\" 0 4 0 0
+set_location "\JOYSTICK_ADC_XY:AMuxHw_2_Decoder_one_hot_10\" 3 1 1 1
+set_location "\JOYSTICK_ADC_XY:AMuxHw_2_Decoder_one_hot_11\" 2 4 1 3
+set_location "\JOYSTICK_ADC_XY:AMuxHw_2_Decoder_one_hot_12\" 3 2 0 2
+set_location "\JOYSTICK_ADC_XY:AMuxHw_2_Decoder_one_hot_13\" 1 5 1 0
+set_location "\JOYSTICK_ADC_XY:AMuxHw_2_Decoder_one_hot_14\" 1 5 1 1
+set_location "\JOYSTICK_ADC_XY:AMuxHw_2_Decoder_one_hot_15\" 3 2 0 1
+set_location "\JOYSTICK_ADC_XY:AMuxHw_2_Decoder_one_hot_16\" 0 5 0 1
+set_location "\JOYSTICK_ADC_XY:AMuxHw_2_Decoder_one_hot_17\" 3 5 1 1
+set_location "\JOYSTICK_ADC_XY:AMuxHw_2_Decoder_one_hot_18\" 3 1 1 0
+set_location "\JOYSTICK_ADC_XY:AMuxHw_2_Decoder_one_hot_19\" 3 3 1 1
+set_location "\JOYSTICK_ADC_XY:AMuxHw_2_Decoder_one_hot_20\" 2 5 1 0
+set_location "\JOYSTICK_ADC_XY:AMuxHw_2_Decoder_one_hot_21\" 3 4 1 2
+set_location "\JOYSTICK_ADC_XY:AMuxHw_2_Decoder_one_hot_22\" 1 2 0 0
+set_location "\JOYSTICK_ADC_XY:AMuxHw_2_Decoder_one_hot_23\" 3 3 0 1
+set_location "\JOYSTICK_ADC_XY:AMuxHw_2_Decoder_one_hot_24\" 3 5 1 0
+set_location "\JOYSTICK_ADC_XY:AMuxHw_2_Decoder_one_hot_25\" 3 4 0 3
+set_location "\JOYSTICK_ADC_XY:AMuxHw_2_Decoder_one_hot_26\" 1 3 0 2
+set_location "\JOYSTICK_ADC_XY:AMuxHw_2_Decoder_one_hot_27\" 3 3 1 2
+set_location "\JOYSTICK_ADC_XY:AMuxHw_2_Decoder_one_hot_28\" 2 2 0 1
+set_location "\JOYSTICK_ADC_XY:AMuxHw_2_Decoder_one_hot_29\" 3 2 0 3
+set_location "\JOYSTICK_ADC_XY:AMuxHw_2_Decoder_one_hot_30\" 2 5 1 2
+set_location "\JOYSTICK_ADC_XY:AMuxHw_2_Decoder_one_hot_31\" 0 5 0 2
+set_location "\JOYSTICK_ADC_XY:AMuxHw_2_Decoder_one_hot_32\" 3 5 0 0
+set_location "\JOYSTICK_ADC_XY:AMuxHw_2_Decoder_one_hot_33\" 3 3 1 3
+set_location "\JOYSTICK_ADC_XY:AMuxHw_2_Decoder_one_hot_34\" 2 4 0 0
+set_location "\JOYSTICK_ADC_XY:AMuxHw_2_Decoder_one_hot_35\" 3 3 0 0
+set_location "\JOYSTICK_ADC_XY:AMuxHw_2_Decoder_one_hot_36\" 2 5 1 1
+set_location "\JOYSTICK_ADC_XY:AMuxHw_2_Decoder_one_hot_37\" 0 1 1 0
+set_location "\JOYSTICK_ADC_XY:AMuxHw_2_Decoder_one_hot_38\" 2 4 1 0
+set_location "\JOYSTICK_ADC_XY:AMuxHw_2_Decoder_one_hot_39\" 3 4 1 0
+set_location "\JOYSTICK_ADC_XY:AMuxHw_2_Decoder_one_hot_40\" 0 3 0 3
+set_location "\JOYSTICK_ADC_XY:AMuxHw_2_Decoder_one_hot_41\" 3 4 0 1
+set_location "\JOYSTICK_ADC_XY:AMuxHw_2_Decoder_one_hot_42\" 0 4 0 3
+set_location "\JOYSTICK_ADC_XY:AMuxHw_2_Decoder_one_hot_43\" 3 5 0 2
+set_location "\JOYSTICK_ADC_XY:AMuxHw_2_Decoder_one_hot_44\" 1 5 1 2
+set_location "\JOYSTICK_ADC_XY:AMuxHw_2_Decoder_one_hot_45\" 2 3 1 1
+set_location "\JOYSTICK_ADC_XY:AMuxHw_2_Decoder_one_hot_46\" 0 1 1 1
+set_location "\JOYSTICK_ADC_XY:AMuxHw_2_Decoder_one_hot_47\" 2 2 0 3
+set_location "\JOYSTICK_ADC_XY:AMuxHw_2_Decoder_one_hot_48\" 0 2 1 1
+set_location "\JOYSTICK_ADC_XY:AMuxHw_2_Decoder_one_hot_49\" 1 5 0 0
+set_location "\JOYSTICK_ADC_XY:AMuxHw_2_Decoder_one_hot_50\" 1 4 0 0
+set_location "\JOYSTICK_ADC_XY:AMuxHw_2_Decoder_one_hot_51\" 1 4 1 0
+set_location "\JOYSTICK_ADC_XY:AMuxHw_2_Decoder_one_hot_52\" 0 4 1 1
+set_location "\JOYSTICK_ADC_XY:AMuxHw_2_Decoder_one_hot_53\" 2 2 0 2
+set_location "\JOYSTICK_ADC_XY:AMuxHw_2_Decoder_one_hot_54\" 3 4 0 0
+set_location "\JOYSTICK_ADC_XY:AMuxHw_2_Decoder_one_hot_55\" 0 4 0 2
+set_location "\JOYSTICK_ADC_XY:AMuxHw_2_Decoder_one_hot_56\" 3 1 1 3
+set_location "\JOYSTICK_ADC_XY:AMuxHw_2_Decoder_one_hot_57\" 0 1 1 2
+set_location "\JOYSTICK_ADC_XY:AMuxHw_2_Decoder_one_hot_58\" 1 4 1 3
+set_location "\JOYSTICK_ADC_XY:AMuxHw_2_Decoder_one_hot_59\" 1 3 1 1
+set_location "\JOYSTICK_ADC_XY:AMuxHw_2_Decoder_one_hot_60\" 3 3 0 3
+set_location "\JOYSTICK_ADC_XY:AMuxHw_2_Decoder_one_hot_61\" 0 3 0 2
+set_location "\JOYSTICK_ADC_XY:AMuxHw_2_Decoder_one_hot_62\" 3 3 0 2
+set_location "\JOYSTICK_ADC_XY:AMuxHw_2_Decoder_one_hot_63\" 0 4 1 3
+set_location "Net_4061" 1 1 1 0
+set_location "\JOYSTICK_ADC_XY:bSAR_SEQ:bus_clk_nrq_reg\" 1 1 0 0
+set_location "\JOYSTICK_ADC_XY:bSAR_SEQ:nrq_reg\" 1 1 1 1
+set_location "wTFT_SDA" 2 2 1 0
+set_location "\TFT_SPI:BSPIM:state_2\" 2 1 0 1
+set_location "\TFT_SPI:BSPIM:state_1\" 2 1 0 0
+set_location "\TFT_SPI:BSPIM:state_0\" 3 1 0 0
+set_location "Net_4070" 3 1 0 1
+set_location "\TFT_SPI:BSPIM:load_cond\" 2 3 0 0
+set_location "\TFT_SPI:BSPIM:ld_ident\" 2 1 0 2
+set_location "\TFT_SPI:BSPIM:cnt_enable\" 3 2 1 0
+set_location "wTFT_SCL" 2 3 0 1

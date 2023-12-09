@@ -1,0 +1,11 @@
+C:\Users\Mateo C. Querol\OneDrive\University\Darmstadt\Advanced Microcontroller Systems and Embedded Operating systems\Embedded Operating Systems\Workbook\reaction_game_wb.cydsn\reaction_game_wb.cyprj|3d1a622c-28a8-4d7e-a4ce-60e6d63752d2
+C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\psoc\content\default\CyAnnotationLibrary\CyAnnotationLibrary.cylib\CyAnnotationLibrary.cyprj|2d0a6568-5aaa-4b1a-b2cd-d50cb333dce7
+C:\Users\Mateo C. Querol\Documents\PSoC Creator\4.4\Downloads ( 4.4).cylib\Downloads ( 4.4).cyprj|b2486e5c-6ad1-41e5-a317-36bfb61a4e12
+C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\psoc\content\cycomponentlibraryupdates\CyComponentLibraryUpdates.cylib\CyComponentLibraryUpdates.cyprj|41b70ab9-74ca-4709-beb2-f912ccbf4016
+C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\psoc\content\cycomponentlibrary\CyComponentLibrary.cylib\CyComponentLibrary.cyprj|aef79847-2064-4248-92cf-c9f3495d2ba0
+C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\psoc\content\cyprimitives\CyPrimitives.cylib\CyPrimitives.cyprj|0732a7cf-4a3e-4b26-8e3e-be3e7b9581b8
+C:\Users\Mateo C. Querol\OneDrive\University\Darmstadt\Advanced Microcontroller Systems and Embedded Operating systems\Embedded Operating Systems\Workbook\mp3_player_wb.cydsn\mp3_player_wb.cyprj|9096e70e-aacc-4318-a5c7-307196375a45
+C:\Users\Mateo C. Querol\OneDrive\University\Darmstadt\Advanced Microcontroller Systems and Embedded Operating systems\Embedded Operating Systems\Workbook\Ringbuffer_testing.cydsn\Ringbuffer_testing.cyprj|a39ac285-1286-49cf-8ec2-be4041b4ff78
+C:\Users\Mateo C. Querol\OneDrive\University\Darmstadt\Advanced Microcontroller Systems and Embedded Operating systems\Embedded Operating Systems\Workbook\JSONParser.cydsn\JSONParser.cyprj|f7b06c11-5c2f-4322-9a6f-f2fa239e90f4
+C:\Users\Mateo C. Querol\OneDrive\University\Darmstadt\Advanced Microcontroller Systems and Embedded Operating systems\Embedded Operating Systems\Workbook\1.2_lets_press_a_button.cydsn\1.2_lets_press_a_button.cyprj|a02fa847-8d13-4a4e-b8b2-945a0c09d99e
+C:\Users\Mateo C. Querol\OneDrive\University\Darmstadt\Advanced Microcontroller Systems and Embedded Operating systems\Embedded Operating Systems\Workbook\1.3_introducing_interrupts.cydsn\1.3_introducing_interrupts.cyprj|2aa00563-1610-4bc9-a279-09015bdd8cb4

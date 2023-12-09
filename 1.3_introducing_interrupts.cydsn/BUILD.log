@@ -1,0 +1,102 @@
+--------------- Build Started: 12/09/2023 18:14:58 Project: 1.3_introducing_interrupts, Configuration: ARM GCC 5.4-2016-q2-update Debug ---------------
+cydsfit.exe -.appdatapath "C:\Users\Mateo C. Querol\AppData\Local\Cypress Semiconductor\PSoC Creator\4.4" -.fdsnotice -.fdswarpdepfile=warp_dependencies.txt -.fdselabdepfile=elab_dependencies.txt -.fdsbldfile=generated_files.txt -.fdsreffile=referenced_files.txt -p "C:\Users\Mateo C. Querol\OneDrive\University\Darmstadt\Advanced Microcontroller Systems and Embedded Operating systems\Embedded Operating Systems\Workbook\1.3_introducing_interrupts.cydsn\1.3_introducing_interrupts.cyprj" -d CY8C5888LTI-LP097 -s "C:\Users\Mateo C. Querol\OneDrive\University\Darmstadt\Advanced Microcontroller Systems and Embedded Operating systems\Embedded Operating Systems\Workbook\1.3_introducing_interrupts.cydsn\Generated_Source\PSoC5" -- -yv2 -q10 -ygs -o2 -v3 -.fftcfgtype=LE
+Elaborating Design...
+ADD: sdb.M0065: information: Analog terminal "vdac_ref" on ADC_SAR_SEQ_v2_10 is unconnected.
+ * C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\ADC_SAR_SEQ_v2_10\PSoC5\ADC_SAR_SEQ_v2_10.cysch (Signal: vdac_ref)
+ * C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\ADC_SAR_SEQ_v2_10\PSoC5\ADC_SAR_SEQ_v2_10.cysch (Shape_798)
+ * C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\ADC_SAR_SEQ_v2_10\PSoC5\ADC_SAR_SEQ_v2_10.cysch (Shape_885)
+ADD: fit.M0032: warning: Clock Warning: (TFT_SPI_IntClock's accuracy range '72 MHz +/- 0.25%, (71.82 MHz - 72.18 MHz)' is not within the specified tolerance range '66 MHz +/- 5%, (62.7 MHz - 69.3 MHz)'.).
+ * C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\SPI_Master_v2_50\SPI_Master_v2_50.cysch (Instance:IntClock)
+ * C:\Users\Mateo C. Querol\OneDrive\University\Darmstadt\Advanced Microcontroller Systems and Embedded Operating systems\Embedded Operating Systems\Workbook\1.3_introducing_interrupts.cydsn\1.3_introducing_interrupts.cydwr (TFT_SPI_IntClock)
+HDL Generation...
+Synthesis...
+Tech Mapping...
+Analog Placement...
+Info: apr.M0002: Analog signal "Net_3991" is connected to one terminal only. (App=cydsfit)
+Info: apr.M0002: Analog signal "Net_4010" is connected to one terminal only. (App=cydsfit)
+Info: apr.M0002: Analog signal "Net_4040" is connected to one terminal only. (App=cydsfit)
+Info: apr.M0002: Analog signal "Net_4019" is connected to one terminal only. (App=cydsfit)
+Info: apr.M0002: Analog signal "Net_4020" is connected to one terminal only. (App=cydsfit)
+Info: apr.M0002: Analog signal "Net_4043" is connected to one terminal only. (App=cydsfit)
+Info: apr.M0002: Analog signal "Net_4023" is connected to one terminal only. (App=cydsfit)
+Info: apr.M0002: Analog signal "Net_4024" is connected to one terminal only. (App=cydsfit)
+Info: apr.M0002: Analog signal "Net_4059" is connected to one terminal only. (App=cydsfit)
+Info: apr.M0002: Analog signal "Net_4027" is connected to one terminal only. (App=cydsfit)
+Info: apr.M0002: Analog signal "Net_4028" is connected to one terminal only. (App=cydsfit)
+Info: apr.M0002: Analog signal "Net_4060" is connected to one terminal only. (App=cydsfit)
+Info: apr.M0002: Analog signal "Net_3969" is connected to one terminal only. (App=cydsfit)
+Info: apr.M0002: Analog signal "Net_3970" is connected to one terminal only. (App=cydsfit)
+Info: apr.M0002: Analog signal "Net_4030" is connected to one terminal only. (App=cydsfit)
+Info: apr.M0002: Analog signal "Net_3973" is connected to one terminal only. (App=cydsfit)
+Info: apr.M0002: Analog signal "Net_3974" is connected to one terminal only. (App=cydsfit)
+Info: apr.M0002: Analog signal "Net_4031" is connected to one terminal only. (App=cydsfit)
+Info: apr.M0002: Analog signal "Net_3977" is connected to one terminal only. (App=cydsfit)
+Info: apr.M0002: Analog signal "Net_3978" is connected to one terminal only. (App=cydsfit)
+Info: apr.M0002: Analog signal "Net_4032" is connected to one terminal only. (App=cydsfit)
+Info: apr.M0002: Analog signal "Net_3981" is connected to one terminal only. (App=cydsfit)
+Info: apr.M0002: Analog signal "Net_3982" is connected to one terminal only. (App=cydsfit)
+Info: apr.M0002: Analog signal "Net_4033" is connected to one terminal only. (App=cydsfit)
+Info: apr.M0002: Analog signal "Net_3985" is connected to one terminal only. (App=cydsfit)
+Info: apr.M0002: Analog signal "Net_3986" is connected to one terminal only. (App=cydsfit)
+Info: apr.M0002: Analog signal "Net_4034" is connected to one terminal only. (App=cydsfit)
+Info: apr.M0002: Analog signal "Net_3990" is connected to one terminal only. (App=cydsfit)
+Info: apr.M0002: Analog signal "Net_3992" is connected to one terminal only. (App=cydsfit)
+Info: apr.M0002: Analog signal "Net_4035" is connected to one terminal only. (App=cydsfit)
+Info: apr.M0002: Analog signal "Net_3995" is connected to one terminal only. (App=cydsfit)
+Info: apr.M0002: Analog signal "Net_3996" is connected to one terminal only. (App=cydsfit)
+Info: apr.M0002: Analog signal "Net_4036" is connected to one terminal only. (App=cydsfit)
+Info: apr.M0002: Analog signal "Net_3999" is connected to one terminal only. (App=cydsfit)
+Info: apr.M0002: Analog signal "Net_4000" is connected to one terminal only. (App=cydsfit)
+Info: apr.M0002: Analog signal "Net_4037" is connected to one terminal only. (App=cydsfit)
+Info: apr.M0002: Analog signal "Net_4003" is connected to one terminal only. (App=cydsfit)
+Info: apr.M0002: Analog signal "Net_4004" is connected to one terminal only. (App=cydsfit)
+Info: apr.M0002: Analog signal "Net_4038" is connected to one terminal only. (App=cydsfit)
+Info: apr.M0002: Analog signal "Net_4007" is connected to one terminal only. (App=cydsfit)
+Info: apr.M0002: Analog signal "Net_4008" is connected to one terminal only. (App=cydsfit)
+Info: apr.M0002: Analog signal "Net_4039" is connected to one terminal only. (App=cydsfit)
+Info: apr.M0002: Analog signal "Net_4012" is connected to one terminal only. (App=cydsfit)
+Info: apr.M0002: Analog signal "Net_4014" is connected to one terminal only. (App=cydsfit)
+Info: apr.M0002: Analog signal "Net_4041" is connected to one terminal only. (App=cydsfit)
+Info: apr.M0002: Analog signal "Net_4017" is connected to one terminal only. (App=cydsfit)
+Info: apr.M0002: Analog signal "Net_4042" is connected to one terminal only. (App=cydsfit)
+Info: apr.M0002: Analog signal "Net_4044" is connected to one terminal only. (App=cydsfit)
+Info: apr.M0002: Analog signal "Net_4045" is connected to one terminal only. (App=cydsfit)
+Info: apr.M0002: Analog signal "Net_4046" is connected to one terminal only. (App=cydsfit)
+Info: apr.M0002: Analog signal "Net_4047" is connected to one terminal only. (App=cydsfit)
+Info: apr.M0002: Analog signal "Net_4048" is connected to one terminal only. (App=cydsfit)
+Info: apr.M0002: Analog signal "Net_4049" is connected to one terminal only. (App=cydsfit)
+Info: apr.M0002: Analog signal "Net_4050" is connected to one terminal only. (App=cydsfit)
+Info: apr.M0002: Analog signal "Net_4051" is connected to one terminal only. (App=cydsfit)
+Info: apr.M0002: Analog signal "Net_4052" is connected to one terminal only. (App=cydsfit)
+Info: apr.M0002: Analog signal "Net_4053" is connected to one terminal only. (App=cydsfit)
+Info: apr.M0002: Analog signal "Net_4054" is connected to one terminal only. (App=cydsfit)
+Info: apr.M0002: Analog signal "Net_4055" is connected to one terminal only. (App=cydsfit)
+Info: apr.M0002: Analog signal "Net_4056" is connected to one terminal only. (App=cydsfit)
+Info: apr.M0002: Analog signal "Net_4057" is connected to one terminal only. (App=cydsfit)
+Info: apr.M0002: Analog signal "Net_4058" is connected to one terminal only. (App=cydsfit)
+Log: apr.M0058: The analog placement iterative improvement is 35% done. (App=cydsfit)
+Log: apr.M0058: The analog placement iterative improvement is 80% done. (App=cydsfit)
+Analog Routing...
+Analog Code Generation...
+Digital Placement...
+Digital Routing...
+Bitstream Generation...
+Bitstream Verification...
+Static timing analysis...
+Warning: sta.M0019: 1.3_introducing_interrupts_timing.html: Warning-1366: Setup time violation found in a path from clock ( CyBUS_CLK ) to clock ( UART_LOG_IntClock ). (File=C:\Users\Mateo C. Querol\OneDrive\University\Darmstadt\Advanced Microcontroller Systems and Embedded Operating systems\Embedded Operating Systems\Workbook\1.3_introducing_interrupts.cydsn\1.3_introducing_interrupts_timing.html)
+Warning: sta.M0019: 1.3_introducing_interrupts_timing.html: Warning-1366: Setup time violation found in a path from clock ( TFT_SPI_IntClock ) to clock ( TFT_SPI_IntClock ). (File=C:\Users\Mateo C. Querol\OneDrive\University\Darmstadt\Advanced Microcontroller Systems and Embedded Operating systems\Embedded Operating Systems\Workbook\1.3_introducing_interrupts.cydsn\1.3_introducing_interrupts_timing.html)
+API Generation...
+Dependency Generation...
+Cleanup...
+The compile step is up to date, no work needs to be done.
+arm-none-eabi-ar.exe -rs .\CortexM3\ARM_GCC_541\Debug\1.3_introducing_interrupts.a .\CortexM3\ARM_GCC_541\Debug\BUTTON_3.o .\CortexM3\ARM_GCC_541\Debug\LED_red.o .\CortexM3\ARM_GCC_541\Debug\LED_yellow.o .\CortexM3\ARM_GCC_541\Debug\LED_green.o .\CortexM3\ARM_GCC_541\Debug\CyDmac.o .\CortexM3\ARM_GCC_541\Debug\CyFlash.o .\CortexM3\ARM_GCC_541\Debug\CyLib.o .\CortexM3\ARM_GCC_541\Debug\cyPm.o .\CortexM3\ARM_GCC_541\Debug\CySpc.o .\CortexM3\ARM_GCC_541\Debug\cyutils.o .\CortexM3\ARM_GCC_541\Debug\cy_em_eeprom.o .\CortexM3\ARM_GCC_541\Debug\SEVEN_A.o .\CortexM3\ARM_GCC_541\Debug\SEVEN_B.o .\CortexM3\ARM_GCC_541\Debug\SEVEN_C.o .\CortexM3\ARM_GCC_541\Debug\SEVEN_D.o .\CortexM3\ARM_GCC_541\Debug\SEVEN_E.o .\CortexM3\ARM_GCC_541\Debug\SEVEN_F.o .\CortexM3\ARM_GCC_541\Debug\SEVEN_G.o .\CortexM3\ARM_GCC_541\Debug\SEVEN_DP.o .\CortexM3\ARM_GCC_541\Debug\SEVEN_SELECT.o .\CortexM3\ARM_GCC_541\Debug\SEVEN_reg.o .\CortexM3\ARM_GCC_541\Debug\SEVEN_reg_PM.o .\CortexM3\ARM_GCC_541\Debug\UART_LOG.o .\CortexM3\ARM_GCC_541\Debug\UART_LOG_PM.o .\CortexM3\ARM_GCC_541\Debug\UART_LOG_INT.o .\CortexM3\ARM_GCC_541\Debug\UART_LOG_BOOT.o .\CortexM3\ARM_GCC_541\Debug\RGB_PWM_red.o .\CortexM3\ARM_GCC_541\Debug\RGB_PWM_red_PM.o .\CortexM3\ARM_GCC_541\Debug\PWM_Clock.o .\CortexM3\ARM_GCC_541\Debug\RGB_PWM_green.o .\CortexM3\ARM_GCC_541\Debug\RGB_PWM_green_PM.o .\CortexM3\ARM_GCC_541\Debug\RGB_PWM_blue.o .\CortexM3\ARM_GCC_541\Debug\RGB_PWM_blue_PM.o .\CortexM3\ARM_GCC_541\Debug\RGB_R.o .\CortexM3\ARM_GCC_541\Debug\RGB_G.o .\CortexM3\ARM_GCC_541\Debug\RGB_B.o .\CortexM3\ARM_GCC_541\Debug\JOYSTICK_ADC_XY.o .\CortexM3\ARM_GCC_541\Debug\JOYSTICK_ADC_XY_PM.o .\CortexM3\ARM_GCC_541\Debug\JOYSTICK_ADC_XY_INT.o .\CortexM3\ARM_GCC_541\Debug\JOYSTICK_X.o .\CortexM3\ARM_GCC_541\Debug\JOYSTICK_Y.o .\CortexM3\ARM_GCC_541\Debug\TFT_SPI.o .\CortexM3\ARM_GCC_541\Debug\TFT_SPI_PM.o .\CortexM3\ARM_GCC_541\Debug\TFT_SPI_INT.o .\CortexM3\ARM_GCC_541\Debug\TFT_SCL.o .\CortexM3\ARM_GCC_541\Debug\TFT_DC.o .\CortexM3\ARM_GCC_541\Debug\TFT_RES.o .\CortexM3\ARM_GCC_541\Debug\TFT_CS.o .\CortexM3\ARM_GCC_541\Debug\TFT_LED.o .\CortexM3\ARM_GCC_541\Debug\TFT_SDA.o .\CortexM3\ARM_GCC_541\Debug\TFT_BackLight.o .\CortexM3\ARM_GCC_541\Debug\TFT_BackLight_PM.o .\CortexM3\ARM_GCC_541\Debug\CLK_LED.o .\CortexM3\ARM_GCC_541\Debug\UART_LOG_IntClock.o .\CortexM3\ARM_GCC_541\Debug\JOYSTICK_ADC_XY_SAR.o .\CortexM3\ARM_GCC_541\Debug\JOYSTICK_ADC_XY_SAR_INT.o .\CortexM3\ARM_GCC_541\Debug\JOYSTICK_ADC_XY_SAR_PM.o .\CortexM3\ARM_GCC_541\Debug\JOYSTICK_ADC_XY_IntClock.o .\CortexM3\ARM_GCC_541\Debug\JOYSTICK_ADC_XY_TempBuf_dma.o .\CortexM3\ARM_GCC_541\Debug\JOYSTICK_ADC_XY_FinalBuf_dma.o .\CortexM3\ARM_GCC_541\Debug\JOYSTICK_ADC_XY_IRQ.o .\CortexM3\ARM_GCC_541\Debug\TFT_SPI_IntClock.o .\CortexM3\ARM_GCC_541\Debug\isr_BUTTON_3.o .\CortexM3\ARM_GCC_541\Debug\CyBootAsmGnu.o
+arm-none-eabi-ar.exe: creating .\CortexM3\ARM_GCC_541\Debug\1.3_introducing_interrupts.a
+arm-none-eabi-gcc.exe -Wl,--start-group -o "C:\Users\Mateo C. Querol\OneDrive\University\Darmstadt\Advanced Microcontroller Systems and Embedded Operating systems\Embedded Operating Systems\Workbook\1.3_introducing_interrupts.cydsn\CortexM3\ARM_GCC_541\Debug\1.3_introducing_interrupts.elf" .\CortexM3\ARM_GCC_541\Debug\main.o .\CortexM3\ARM_GCC_541\Debug\button.o .\CortexM3\ARM_GCC_541\Debug\joystick.o .\CortexM3\ARM_GCC_541\Debug\led.o .\CortexM3\ARM_GCC_541\Debug\seven.o .\CortexM3\ARM_GCC_541\Debug\logging.o .\CortexM3\ARM_GCC_541\Debug\tft.o .\CortexM3\ARM_GCC_541\Debug\cyfitter_cfg.o .\CortexM3\ARM_GCC_541\Debug\cymetadata.o .\CortexM3\ARM_GCC_541\Debug\Cm3Start.o .\CortexM3\ARM_GCC_541\Debug\1.3_introducing_interrupts.a "C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\psoc\content\cycomponentlibrary\CyComponentLibrary.cylib\CortexM3\ARM_GCC_541\Debug\CyComponentLibrary.a" -mcpu=cortex-m3 -mthumb -L Generated_Source\PSoC5 -Wl,-Map,.\CortexM3\ARM_GCC_541\Debug/1.3_introducing_interrupts.map -T Generated_Source\PSoC5\cm3gcc.ld -specs=nano.specs -Wl,--gc-sections -g -ffunction-sections -Og -ffat-lto-objects -Wl,--end-group
+cyelftool.exe -C "C:\Users\Mateo C. Querol\OneDrive\University\Darmstadt\Advanced Microcontroller Systems and Embedded Operating systems\Embedded Operating Systems\Workbook\1.3_introducing_interrupts.cydsn\CortexM3\ARM_GCC_541\Debug\1.3_introducing_interrupts.elf" --flash_row_size 256 --flash_size 262144 --flash_offset 0x00000000
+No ELF section .cychecksum found, creating one
+Application checksum calculated and stored in ELF section .cychecksum
+Checksum calculated and stored in ELF section .cymeta
+cyelftool.exe -S "C:\Users\Mateo C. Querol\OneDrive\University\Darmstadt\Advanced Microcontroller Systems and Embedded Operating systems\Embedded Operating Systems\Workbook\1.3_introducing_interrupts.cydsn\CortexM3\ARM_GCC_541\Debug\1.3_introducing_interrupts.elf"
+Flash used: 1830 of 262144 bytes (0.7%).
+SRAM used: 2529 of 65536 bytes (3.9%). Stack: 2048 bytes. Heap: 128 bytes.
+--------------- Build Succeeded: 12/09/2023 18:15:18 ---------------

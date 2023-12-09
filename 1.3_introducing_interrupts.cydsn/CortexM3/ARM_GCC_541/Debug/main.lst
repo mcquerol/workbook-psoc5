@@ -1,0 +1,866 @@
+ARM GAS  C:\Users\MATEOC~1.QUE\AppData\Local\Temp\ccUJOKa6.s 			page 1
+
+
+   1              		.syntax unified
+   2              		.cpu cortex-m3
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 1
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.thumb
+  14              		.syntax unified
+  15              		.file	"main.c"
+  16              		.text
+  17              	.Ltext0:
+  18              		.cfi_sections	.debug_frame
+  19              		.section	.text.isr_BUTTON_3,"ax",%progbits
+  20              		.align	2
+  21              		.global	isr_BUTTON_3
+  22              		.thumb
+  23              		.thumb_func
+  24              		.type	isr_BUTTON_3, %function
+  25              	isr_BUTTON_3:
+  26              	.LFB65:
+  27              		.file 1 "source\\asw\\main.c"
+   1:source\asw/main.c **** /**
+   2:source\asw/main.c **** * \file main
+   3:source\asw/main.c **** * \author Peter Fromm
+   4:source\asw/main.c **** * \date 5.12.2019
+   5:source\asw/main.c **** *
+   6:source\asw/main.c **** * \brief Demonstrator for critical regions
+   7:source\asw/main.c **** *
+   8:source\asw/main.c **** */
+   9:source\asw/main.c **** 
+  10:source\asw/main.c **** #include "project.h"
+  11:source\asw/main.c **** #include "global.h"
+  12:source\asw/main.c **** 
+  13:source\asw/main.c **** #include "button.h"
+  14:source\asw/main.c **** #include "tft.h"
+  15:source\asw/main.c **** #include "seven.h"
+  16:source\asw/main.c **** #include "led.h"
+  17:source\asw/main.c **** #include "joystick.h"
+  18:source\asw/main.c **** 
+  19:source\asw/main.c **** volatile uint8 toggle = 0;
+  20:source\asw/main.c **** 
+  21:source\asw/main.c **** CY_ISR_PROTO(isr_BUTTON_3);
+  22:source\asw/main.c **** 
+  23:source\asw/main.c **** int main(void)
+  24:source\asw/main.c **** {
+  25:source\asw/main.c ****     CyGlobalIntEnable; /* Enable global interrupts. */
+  26:source\asw/main.c ****     isr_BUTTON_3_StartEx(isr_BUTTON_3);
+  27:source\asw/main.c ****     
+  28:source\asw/main.c ****     for(;;)
+  29:source\asw/main.c ****     {
+  30:source\asw/main.c ****         // Check if the button is pressed
+ARM GAS  C:\Users\MATEOC~1.QUE\AppData\Local\Temp\ccUJOKa6.s 			page 2
+
+
+  31:source\asw/main.c ****         if (toggle)
+  32:source\asw/main.c ****         {
+  33:source\asw/main.c ****             // Toggle the LEDs
+  34:source\asw/main.c ****             LED_green_Write(1);
+  35:source\asw/main.c ****             LED_yellow_Write(0);
+  36:source\asw/main.c ****             LED_red_Write(1);
+  37:source\asw/main.c ****         }
+  38:source\asw/main.c ****         else
+  39:source\asw/main.c ****         {
+  40:source\asw/main.c ****             // Toggle the LEDs
+  41:source\asw/main.c ****             LED_green_Write(0);
+  42:source\asw/main.c ****             LED_yellow_Write(1);
+  43:source\asw/main.c ****             LED_red_Write(0);
+  44:source\asw/main.c ****         }
+  45:source\asw/main.c ****     }
+  46:source\asw/main.c **** }
+  47:source\asw/main.c **** 
+  48:source\asw/main.c **** /********************************************************************************
+  49:source\asw/main.c ****  * ISR Definitions
+  50:source\asw/main.c ****  ********************************************************************************/
+  51:source\asw/main.c **** 
+  52:source\asw/main.c **** CY_ISR(isr_BUTTON_3)
+  53:source\asw/main.c **** {
+  28              		.loc 1 53 0
+  29              		.cfi_startproc
+  30              		@ args = 0, pretend = 0, frame = 0
+  31              		@ frame_needed = 0, uses_anonymous_args = 0
+  32              		@ link register save eliminated.
+  54:source\asw/main.c ****     //BUTTON_3_ClearInterrupt();
+  55:source\asw/main.c ****     
+  56:source\asw/main.c ****     if(toggle == 0)
+  33              		.loc 1 56 0
+  34 0000 064B     		ldr	r3, .L4
+  35 0002 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+  36 0004 13F0FF0F 		tst	r3, #255
+  37 0008 03D1     		bne	.L2
+  57:source\asw/main.c ****     {
+  58:source\asw/main.c ****         toggle = 1;    
+  38              		.loc 1 58 0
+  39 000a 0122     		movs	r2, #1
+  40 000c 034B     		ldr	r3, .L4
+  41 000e 1A70     		strb	r2, [r3]
+  42 0010 7047     		bx	lr
+  43              	.L2:
+  59:source\asw/main.c ****     }
+  60:source\asw/main.c ****     else
+  61:source\asw/main.c ****     {
+  62:source\asw/main.c ****         toggle = 0;    
+  44              		.loc 1 62 0
+  45 0012 0022     		movs	r2, #0
+  46 0014 014B     		ldr	r3, .L4
+  47 0016 1A70     		strb	r2, [r3]
+  48 0018 7047     		bx	lr
+  49              	.L5:
+  50 001a 00BF     		.align	2
+  51              	.L4:
+  52 001c 00000000 		.word	.LANCHOR0
+ARM GAS  C:\Users\MATEOC~1.QUE\AppData\Local\Temp\ccUJOKa6.s 			page 3
+
+
+  53              		.cfi_endproc
+  54              	.LFE65:
+  55              		.size	isr_BUTTON_3, .-isr_BUTTON_3
+  56              		.section	.text.main,"ax",%progbits
+  57              		.align	2
+  58              		.global	main
+  59              		.thumb
+  60              		.thumb_func
+  61              		.type	main, %function
+  62              	main:
+  63              	.LFB64:
+  24:source\asw/main.c ****     CyGlobalIntEnable; /* Enable global interrupts. */
+  64              		.loc 1 24 0
+  65              		.cfi_startproc
+  66              		@ Volatile: function does not return.
+  67              		@ args = 0, pretend = 0, frame = 0
+  68              		@ frame_needed = 0, uses_anonymous_args = 0
+  69 0000 08B5     		push	{r3, lr}
+  70              		.cfi_def_cfa_offset 8
+  71              		.cfi_offset 3, -8
+  72              		.cfi_offset 14, -4
+  25:source\asw/main.c ****     isr_BUTTON_3_StartEx(isr_BUTTON_3);
+  73              		.loc 1 25 0
+  74              		.syntax unified
+  75              	@ 25 "source\asw\main.c" 1
+  76 0002 62B6     		CPSIE   i
+  77              	@ 0 "" 2
+  26:source\asw/main.c ****     
+  78              		.loc 1 26 0
+  79              		.thumb
+  80              		.syntax unified
+  81 0004 0D48     		ldr	r0, .L11
+  82 0006 FFF7FEFF 		bl	isr_BUTTON_3_StartEx
+  83              	.LVL0:
+  84              	.L7:
+  31:source\asw/main.c ****         {
+  85              		.loc 1 31 0
+  86 000a 0D4B     		ldr	r3, .L11+4
+  87 000c 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+  88 000e 13F0FF0F 		tst	r3, #255
+  89 0012 09D0     		beq	.L8
+  34:source\asw/main.c ****             LED_yellow_Write(0);
+  90              		.loc 1 34 0
+  91 0014 0120     		movs	r0, #1
+  92 0016 FFF7FEFF 		bl	LED_green_Write
+  93              	.LVL1:
+  35:source\asw/main.c ****             LED_red_Write(1);
+  94              		.loc 1 35 0
+  95 001a 0020     		movs	r0, #0
+  96 001c FFF7FEFF 		bl	LED_yellow_Write
+  97              	.LVL2:
+  36:source\asw/main.c ****         }
+  98              		.loc 1 36 0
+  99 0020 0120     		movs	r0, #1
+ 100 0022 FFF7FEFF 		bl	LED_red_Write
+ 101              	.LVL3:
+ 102 0026 F0E7     		b	.L7
+ARM GAS  C:\Users\MATEOC~1.QUE\AppData\Local\Temp\ccUJOKa6.s 			page 4
+
+
+ 103              	.L8:
+  41:source\asw/main.c ****             LED_yellow_Write(1);
+ 104              		.loc 1 41 0
+ 105 0028 0020     		movs	r0, #0
+ 106 002a FFF7FEFF 		bl	LED_green_Write
+ 107              	.LVL4:
+  42:source\asw/main.c ****             LED_red_Write(0);
+ 108              		.loc 1 42 0
+ 109 002e 0120     		movs	r0, #1
+ 110 0030 FFF7FEFF 		bl	LED_yellow_Write
+ 111              	.LVL5:
+  43:source\asw/main.c ****         }
+ 112              		.loc 1 43 0
+ 113 0034 0020     		movs	r0, #0
+ 114 0036 FFF7FEFF 		bl	LED_red_Write
+ 115              	.LVL6:
+ 116 003a E6E7     		b	.L7
+ 117              	.L12:
+ 118              		.align	2
+ 119              	.L11:
+ 120 003c 00000000 		.word	isr_BUTTON_3
+ 121 0040 00000000 		.word	.LANCHOR0
+ 122              		.cfi_endproc
+ 123              	.LFE64:
+ 124              		.size	main, .-main
+ 125              		.global	toggle
+ 126              		.bss
+ 127              		.set	.LANCHOR0,. + 0
+ 128              		.type	toggle, %object
+ 129              		.size	toggle, 1
+ 130              	toggle:
+ 131 0000 00       		.space	1
+ 132              		.text
+ 133              	.Letext0:
+ 134              		.file 2 "c:\\program files (x86)\\cypress\\psoc creator\\4.4\\psoc creator\\import\\gnu\\arm\\5.4.
+ 135              		.file 3 "c:\\program files (x86)\\cypress\\psoc creator\\4.4\\psoc creator\\import\\gnu\\arm\\5.4.
+ 136              		.file 4 "Generated_Source\\PSoC5/cytypes.h"
+ 137              		.file 5 "Generated_Source\\PSoC5/core_cm3.h"
+ 138              		.file 6 "Generated_Source\\PSoC5/isr_BUTTON_3.h"
+ 139              		.file 7 "Generated_Source\\PSoC5/LED_green.h"
+ 140              		.file 8 "Generated_Source\\PSoC5/LED_yellow.h"
+ 141              		.file 9 "Generated_Source\\PSoC5/LED_red.h"
+ 142              		.section	.debug_info,"",%progbits
+ 143              	.Ldebug_info0:
+ 144 0000 B0010000 		.4byte	0x1b0
+ 145 0004 0400     		.2byte	0x4
+ 146 0006 00000000 		.4byte	.Ldebug_abbrev0
+ 147 000a 04       		.byte	0x4
+ 148 000b 01       		.uleb128 0x1
+ 149 000c 33000000 		.4byte	.LASF23
+ 150 0010 0C       		.byte	0xc
+ 151 0011 5F020000 		.4byte	.LASF24
+ 152 0015 23010000 		.4byte	.LASF25
+ 153 0019 00000000 		.4byte	.Ldebug_ranges0+0
+ 154 001d 00000000 		.4byte	0
+ 155 0021 00000000 		.4byte	.Ldebug_line0
+ 156 0025 02       		.uleb128 0x2
+ARM GAS  C:\Users\MATEOC~1.QUE\AppData\Local\Temp\ccUJOKa6.s 			page 5
+
+
+ 157 0026 01       		.byte	0x1
+ 158 0027 06       		.byte	0x6
+ 159 0028 22020000 		.4byte	.LASF0
+ 160 002c 02       		.uleb128 0x2
+ 161 002d 01       		.byte	0x1
+ 162 002e 08       		.byte	0x8
+ 163 002f 07010000 		.4byte	.LASF1
+ 164 0033 02       		.uleb128 0x2
+ 165 0034 02       		.byte	0x2
+ 166 0035 05       		.byte	0x5
+ 167 0036 D9000000 		.4byte	.LASF2
+ 168 003a 02       		.uleb128 0x2
+ 169 003b 02       		.byte	0x2
+ 170 003c 07       		.byte	0x7
+ 171 003d 0E000000 		.4byte	.LASF3
+ 172 0041 03       		.uleb128 0x3
+ 173 0042 3A020000 		.4byte	.LASF9
+ 174 0046 02       		.byte	0x2
+ 175 0047 3F       		.byte	0x3f
+ 176 0048 4C000000 		.4byte	0x4c
+ 177 004c 02       		.uleb128 0x2
+ 178 004d 04       		.byte	0x4
+ 179 004e 05       		.byte	0x5
+ 180 004f 1A010000 		.4byte	.LASF4
+ 181 0053 02       		.uleb128 0x2
+ 182 0054 04       		.byte	0x4
+ 183 0055 07       		.byte	0x7
+ 184 0056 C7000000 		.4byte	.LASF5
+ 185 005a 02       		.uleb128 0x2
+ 186 005b 08       		.byte	0x8
+ 187 005c 05       		.byte	0x5
+ 188 005d 00000000 		.4byte	.LASF6
+ 189 0061 02       		.uleb128 0x2
+ 190 0062 08       		.byte	0x8
+ 191 0063 07       		.byte	0x7
+ 192 0064 F0000000 		.4byte	.LASF7
+ 193 0068 04       		.uleb128 0x4
+ 194 0069 04       		.byte	0x4
+ 195 006a 05       		.byte	0x5
+ 196 006b 696E7400 		.ascii	"int\000"
+ 197 006f 02       		.uleb128 0x2
+ 198 0070 04       		.byte	0x4
+ 199 0071 07       		.byte	0x7
+ 200 0072 21000000 		.4byte	.LASF8
+ 201 0076 03       		.uleb128 0x3
+ 202 0077 71020000 		.4byte	.LASF10
+ 203 007b 03       		.byte	0x3
+ 204 007c 2C       		.byte	0x2c
+ 205 007d 41000000 		.4byte	0x41
+ 206 0081 05       		.uleb128 0x5
+ 207 0082 C1000000 		.4byte	.LASF11
+ 208 0086 04       		.byte	0x4
+ 209 0087 E401     		.2byte	0x1e4
+ 210 0089 2C000000 		.4byte	0x2c
+ 211 008d 02       		.uleb128 0x2
+ 212 008e 04       		.byte	0x4
+ 213 008f 04       		.byte	0x4
+ARM GAS  C:\Users\MATEOC~1.QUE\AppData\Local\Temp\ccUJOKa6.s 			page 6
+
+
+ 214 0090 59020000 		.4byte	.LASF12
+ 215 0094 02       		.uleb128 0x2
+ 216 0095 08       		.byte	0x8
+ 217 0096 04       		.byte	0x4
+ 218 0097 DF010000 		.4byte	.LASF13
+ 219 009b 02       		.uleb128 0x2
+ 220 009c 01       		.byte	0x1
+ 221 009d 08       		.byte	0x8
+ 222 009e 15010000 		.4byte	.LASF14
+ 223 00a2 06       		.uleb128 0x6
+ 224 00a3 81000000 		.4byte	0x81
+ 225 00a7 02       		.uleb128 0x2
+ 226 00a8 08       		.byte	0x8
+ 227 00a9 04       		.byte	0x4
+ 228 00aa 2E020000 		.4byte	.LASF15
+ 229 00ae 02       		.uleb128 0x2
+ 230 00af 04       		.byte	0x4
+ 231 00b0 07       		.byte	0x7
+ 232 00b1 80020000 		.4byte	.LASF16
+ 233 00b5 07       		.uleb128 0x7
+ 234 00b6 E3000000 		.4byte	.LASF26
+ 235 00ba 01       		.byte	0x1
+ 236 00bb 34       		.byte	0x34
+ 237 00bc 00000000 		.4byte	.LFB65
+ 238 00c0 20000000 		.4byte	.LFE65-.LFB65
+ 239 00c4 01       		.uleb128 0x1
+ 240 00c5 9C       		.byte	0x9c
+ 241 00c6 08       		.uleb128 0x8
+ 242 00c7 2E000000 		.4byte	.LASF27
+ 243 00cb 01       		.byte	0x1
+ 244 00cc 17       		.byte	0x17
+ 245 00cd 68000000 		.4byte	0x68
+ 246 00d1 00000000 		.4byte	.LFB64
+ 247 00d5 44000000 		.4byte	.LFE64-.LFB64
+ 248 00d9 01       		.uleb128 0x1
+ 249 00da 9C       		.byte	0x9c
+ 250 00db 65010000 		.4byte	0x165
+ 251 00df 09       		.uleb128 0x9
+ 252 00e0 0A000000 		.4byte	.LVL0
+ 253 00e4 87010000 		.4byte	0x187
+ 254 00e8 F6000000 		.4byte	0xf6
+ 255 00ec 0A       		.uleb128 0xa
+ 256 00ed 01       		.uleb128 0x1
+ 257 00ee 50       		.byte	0x50
+ 258 00ef 05       		.uleb128 0x5
+ 259 00f0 03       		.byte	0x3
+ 260 00f1 00000000 		.4byte	isr_BUTTON_3
+ 261 00f5 00       		.byte	0
+ 262 00f6 09       		.uleb128 0x9
+ 263 00f7 1A000000 		.4byte	.LVL1
+ 264 00fb 92010000 		.4byte	0x192
+ 265 00ff 09010000 		.4byte	0x109
+ 266 0103 0A       		.uleb128 0xa
+ 267 0104 01       		.uleb128 0x1
+ 268 0105 50       		.byte	0x50
+ 269 0106 01       		.uleb128 0x1
+ 270 0107 31       		.byte	0x31
+ARM GAS  C:\Users\MATEOC~1.QUE\AppData\Local\Temp\ccUJOKa6.s 			page 7
+
+
+ 271 0108 00       		.byte	0
+ 272 0109 09       		.uleb128 0x9
+ 273 010a 20000000 		.4byte	.LVL2
+ 274 010e 9D010000 		.4byte	0x19d
+ 275 0112 1C010000 		.4byte	0x11c
+ 276 0116 0A       		.uleb128 0xa
+ 277 0117 01       		.uleb128 0x1
+ 278 0118 50       		.byte	0x50
+ 279 0119 01       		.uleb128 0x1
+ 280 011a 30       		.byte	0x30
+ 281 011b 00       		.byte	0
+ 282 011c 09       		.uleb128 0x9
+ 283 011d 26000000 		.4byte	.LVL3
+ 284 0121 A8010000 		.4byte	0x1a8
+ 285 0125 2F010000 		.4byte	0x12f
+ 286 0129 0A       		.uleb128 0xa
+ 287 012a 01       		.uleb128 0x1
+ 288 012b 50       		.byte	0x50
+ 289 012c 01       		.uleb128 0x1
+ 290 012d 31       		.byte	0x31
+ 291 012e 00       		.byte	0
+ 292 012f 09       		.uleb128 0x9
+ 293 0130 2E000000 		.4byte	.LVL4
+ 294 0134 92010000 		.4byte	0x192
+ 295 0138 42010000 		.4byte	0x142
+ 296 013c 0A       		.uleb128 0xa
+ 297 013d 01       		.uleb128 0x1
+ 298 013e 50       		.byte	0x50
+ 299 013f 01       		.uleb128 0x1
+ 300 0140 30       		.byte	0x30
+ 301 0141 00       		.byte	0
+ 302 0142 09       		.uleb128 0x9
+ 303 0143 34000000 		.4byte	.LVL5
+ 304 0147 9D010000 		.4byte	0x19d
+ 305 014b 55010000 		.4byte	0x155
+ 306 014f 0A       		.uleb128 0xa
+ 307 0150 01       		.uleb128 0x1
+ 308 0151 50       		.byte	0x50
+ 309 0152 01       		.uleb128 0x1
+ 310 0153 31       		.byte	0x31
+ 311 0154 00       		.byte	0
+ 312 0155 0B       		.uleb128 0xb
+ 313 0156 3A000000 		.4byte	.LVL6
+ 314 015a A8010000 		.4byte	0x1a8
+ 315 015e 0A       		.uleb128 0xa
+ 316 015f 01       		.uleb128 0x1
+ 317 0160 50       		.byte	0x50
+ 318 0161 01       		.uleb128 0x1
+ 319 0162 30       		.byte	0x30
+ 320 0163 00       		.byte	0
+ 321 0164 00       		.byte	0
+ 322 0165 0C       		.uleb128 0xc
+ 323 0166 15020000 		.4byte	.LASF17
+ 324 016a 05       		.byte	0x5
+ 325 016b 1207     		.2byte	0x712
+ 326 016d 71010000 		.4byte	0x171
+ 327 0171 06       		.uleb128 0x6
+ARM GAS  C:\Users\MATEOC~1.QUE\AppData\Local\Temp\ccUJOKa6.s 			page 8
+
+
+ 328 0172 76000000 		.4byte	0x76
+ 329 0176 0D       		.uleb128 0xd
+ 330 0177 79020000 		.4byte	.LASF18
+ 331 017b 01       		.byte	0x1
+ 332 017c 13       		.byte	0x13
+ 333 017d A2000000 		.4byte	0xa2
+ 334 0181 05       		.uleb128 0x5
+ 335 0182 03       		.byte	0x3
+ 336 0183 00000000 		.4byte	toggle
+ 337 0187 0E       		.uleb128 0xe
+ 338 0188 44020000 		.4byte	.LASF19
+ 339 018c 44020000 		.4byte	.LASF19
+ 340 0190 06       		.byte	0x6
+ 341 0191 18       		.byte	0x18
+ 342 0192 0E       		.uleb128 0xe
+ 343 0193 F7010000 		.4byte	.LASF20
+ 344 0197 F7010000 		.4byte	.LASF20
+ 345 019b 07       		.byte	0x7
+ 346 019c 26       		.byte	0x26
+ 347 019d 0E       		.uleb128 0xe
+ 348 019e E6010000 		.4byte	.LASF21
+ 349 01a2 E6010000 		.4byte	.LASF21
+ 350 01a6 08       		.byte	0x8
+ 351 01a7 26       		.byte	0x26
+ 352 01a8 0E       		.uleb128 0xe
+ 353 01a9 07020000 		.4byte	.LASF22
+ 354 01ad 07020000 		.4byte	.LASF22
+ 355 01b1 09       		.byte	0x9
+ 356 01b2 26       		.byte	0x26
+ 357 01b3 00       		.byte	0
+ 358              		.section	.debug_abbrev,"",%progbits
+ 359              	.Ldebug_abbrev0:
+ 360 0000 01       		.uleb128 0x1
+ 361 0001 11       		.uleb128 0x11
+ 362 0002 01       		.byte	0x1
+ 363 0003 25       		.uleb128 0x25
+ 364 0004 0E       		.uleb128 0xe
+ 365 0005 13       		.uleb128 0x13
+ 366 0006 0B       		.uleb128 0xb
+ 367 0007 03       		.uleb128 0x3
+ 368 0008 0E       		.uleb128 0xe
+ 369 0009 1B       		.uleb128 0x1b
+ 370 000a 0E       		.uleb128 0xe
+ 371 000b 55       		.uleb128 0x55
+ 372 000c 17       		.uleb128 0x17
+ 373 000d 11       		.uleb128 0x11
+ 374 000e 01       		.uleb128 0x1
+ 375 000f 10       		.uleb128 0x10
+ 376 0010 17       		.uleb128 0x17
+ 377 0011 00       		.byte	0
+ 378 0012 00       		.byte	0
+ 379 0013 02       		.uleb128 0x2
+ 380 0014 24       		.uleb128 0x24
+ 381 0015 00       		.byte	0
+ 382 0016 0B       		.uleb128 0xb
+ 383 0017 0B       		.uleb128 0xb
+ 384 0018 3E       		.uleb128 0x3e
+ARM GAS  C:\Users\MATEOC~1.QUE\AppData\Local\Temp\ccUJOKa6.s 			page 9
+
+
+ 385 0019 0B       		.uleb128 0xb
+ 386 001a 03       		.uleb128 0x3
+ 387 001b 0E       		.uleb128 0xe
+ 388 001c 00       		.byte	0
+ 389 001d 00       		.byte	0
+ 390 001e 03       		.uleb128 0x3
+ 391 001f 16       		.uleb128 0x16
+ 392 0020 00       		.byte	0
+ 393 0021 03       		.uleb128 0x3
+ 394 0022 0E       		.uleb128 0xe
+ 395 0023 3A       		.uleb128 0x3a
+ 396 0024 0B       		.uleb128 0xb
+ 397 0025 3B       		.uleb128 0x3b
+ 398 0026 0B       		.uleb128 0xb
+ 399 0027 49       		.uleb128 0x49
+ 400 0028 13       		.uleb128 0x13
+ 401 0029 00       		.byte	0
+ 402 002a 00       		.byte	0
+ 403 002b 04       		.uleb128 0x4
+ 404 002c 24       		.uleb128 0x24
+ 405 002d 00       		.byte	0
+ 406 002e 0B       		.uleb128 0xb
+ 407 002f 0B       		.uleb128 0xb
+ 408 0030 3E       		.uleb128 0x3e
+ 409 0031 0B       		.uleb128 0xb
+ 410 0032 03       		.uleb128 0x3
+ 411 0033 08       		.uleb128 0x8
+ 412 0034 00       		.byte	0
+ 413 0035 00       		.byte	0
+ 414 0036 05       		.uleb128 0x5
+ 415 0037 16       		.uleb128 0x16
+ 416 0038 00       		.byte	0
+ 417 0039 03       		.uleb128 0x3
+ 418 003a 0E       		.uleb128 0xe
+ 419 003b 3A       		.uleb128 0x3a
+ 420 003c 0B       		.uleb128 0xb
+ 421 003d 3B       		.uleb128 0x3b
+ 422 003e 05       		.uleb128 0x5
+ 423 003f 49       		.uleb128 0x49
+ 424 0040 13       		.uleb128 0x13
+ 425 0041 00       		.byte	0
+ 426 0042 00       		.byte	0
+ 427 0043 06       		.uleb128 0x6
+ 428 0044 35       		.uleb128 0x35
+ 429 0045 00       		.byte	0
+ 430 0046 49       		.uleb128 0x49
+ 431 0047 13       		.uleb128 0x13
+ 432 0048 00       		.byte	0
+ 433 0049 00       		.byte	0
+ 434 004a 07       		.uleb128 0x7
+ 435 004b 2E       		.uleb128 0x2e
+ 436 004c 00       		.byte	0
+ 437 004d 3F       		.uleb128 0x3f
+ 438 004e 19       		.uleb128 0x19
+ 439 004f 03       		.uleb128 0x3
+ 440 0050 0E       		.uleb128 0xe
+ 441 0051 3A       		.uleb128 0x3a
+ARM GAS  C:\Users\MATEOC~1.QUE\AppData\Local\Temp\ccUJOKa6.s 			page 10
+
+
+ 442 0052 0B       		.uleb128 0xb
+ 443 0053 3B       		.uleb128 0x3b
+ 444 0054 0B       		.uleb128 0xb
+ 445 0055 27       		.uleb128 0x27
+ 446 0056 19       		.uleb128 0x19
+ 447 0057 11       		.uleb128 0x11
+ 448 0058 01       		.uleb128 0x1
+ 449 0059 12       		.uleb128 0x12
+ 450 005a 06       		.uleb128 0x6
+ 451 005b 40       		.uleb128 0x40
+ 452 005c 18       		.uleb128 0x18
+ 453 005d 9742     		.uleb128 0x2117
+ 454 005f 19       		.uleb128 0x19
+ 455 0060 00       		.byte	0
+ 456 0061 00       		.byte	0
+ 457 0062 08       		.uleb128 0x8
+ 458 0063 2E       		.uleb128 0x2e
+ 459 0064 01       		.byte	0x1
+ 460 0065 3F       		.uleb128 0x3f
+ 461 0066 19       		.uleb128 0x19
+ 462 0067 03       		.uleb128 0x3
+ 463 0068 0E       		.uleb128 0xe
+ 464 0069 3A       		.uleb128 0x3a
+ 465 006a 0B       		.uleb128 0xb
+ 466 006b 3B       		.uleb128 0x3b
+ 467 006c 0B       		.uleb128 0xb
+ 468 006d 27       		.uleb128 0x27
+ 469 006e 19       		.uleb128 0x19
+ 470 006f 49       		.uleb128 0x49
+ 471 0070 13       		.uleb128 0x13
+ 472 0071 8701     		.uleb128 0x87
+ 473 0073 19       		.uleb128 0x19
+ 474 0074 11       		.uleb128 0x11
+ 475 0075 01       		.uleb128 0x1
+ 476 0076 12       		.uleb128 0x12
+ 477 0077 06       		.uleb128 0x6
+ 478 0078 40       		.uleb128 0x40
+ 479 0079 18       		.uleb128 0x18
+ 480 007a 9742     		.uleb128 0x2117
+ 481 007c 19       		.uleb128 0x19
+ 482 007d 01       		.uleb128 0x1
+ 483 007e 13       		.uleb128 0x13
+ 484 007f 00       		.byte	0
+ 485 0080 00       		.byte	0
+ 486 0081 09       		.uleb128 0x9
+ 487 0082 898201   		.uleb128 0x4109
+ 488 0085 01       		.byte	0x1
+ 489 0086 11       		.uleb128 0x11
+ 490 0087 01       		.uleb128 0x1
+ 491 0088 31       		.uleb128 0x31
+ 492 0089 13       		.uleb128 0x13
+ 493 008a 01       		.uleb128 0x1
+ 494 008b 13       		.uleb128 0x13
+ 495 008c 00       		.byte	0
+ 496 008d 00       		.byte	0
+ 497 008e 0A       		.uleb128 0xa
+ 498 008f 8A8201   		.uleb128 0x410a
+ARM GAS  C:\Users\MATEOC~1.QUE\AppData\Local\Temp\ccUJOKa6.s 			page 11
+
+
+ 499 0092 00       		.byte	0
+ 500 0093 02       		.uleb128 0x2
+ 501 0094 18       		.uleb128 0x18
+ 502 0095 9142     		.uleb128 0x2111
+ 503 0097 18       		.uleb128 0x18
+ 504 0098 00       		.byte	0
+ 505 0099 00       		.byte	0
+ 506 009a 0B       		.uleb128 0xb
+ 507 009b 898201   		.uleb128 0x4109
+ 508 009e 01       		.byte	0x1
+ 509 009f 11       		.uleb128 0x11
+ 510 00a0 01       		.uleb128 0x1
+ 511 00a1 31       		.uleb128 0x31
+ 512 00a2 13       		.uleb128 0x13
+ 513 00a3 00       		.byte	0
+ 514 00a4 00       		.byte	0
+ 515 00a5 0C       		.uleb128 0xc
+ 516 00a6 34       		.uleb128 0x34
+ 517 00a7 00       		.byte	0
+ 518 00a8 03       		.uleb128 0x3
+ 519 00a9 0E       		.uleb128 0xe
+ 520 00aa 3A       		.uleb128 0x3a
+ 521 00ab 0B       		.uleb128 0xb
+ 522 00ac 3B       		.uleb128 0x3b
+ 523 00ad 05       		.uleb128 0x5
+ 524 00ae 49       		.uleb128 0x49
+ 525 00af 13       		.uleb128 0x13
+ 526 00b0 3F       		.uleb128 0x3f
+ 527 00b1 19       		.uleb128 0x19
+ 528 00b2 3C       		.uleb128 0x3c
+ 529 00b3 19       		.uleb128 0x19
+ 530 00b4 00       		.byte	0
+ 531 00b5 00       		.byte	0
+ 532 00b6 0D       		.uleb128 0xd
+ 533 00b7 34       		.uleb128 0x34
+ 534 00b8 00       		.byte	0
+ 535 00b9 03       		.uleb128 0x3
+ 536 00ba 0E       		.uleb128 0xe
+ 537 00bb 3A       		.uleb128 0x3a
+ 538 00bc 0B       		.uleb128 0xb
+ 539 00bd 3B       		.uleb128 0x3b
+ 540 00be 0B       		.uleb128 0xb
+ 541 00bf 49       		.uleb128 0x49
+ 542 00c0 13       		.uleb128 0x13
+ 543 00c1 3F       		.uleb128 0x3f
+ 544 00c2 19       		.uleb128 0x19
+ 545 00c3 02       		.uleb128 0x2
+ 546 00c4 18       		.uleb128 0x18
+ 547 00c5 00       		.byte	0
+ 548 00c6 00       		.byte	0
+ 549 00c7 0E       		.uleb128 0xe
+ 550 00c8 2E       		.uleb128 0x2e
+ 551 00c9 00       		.byte	0
+ 552 00ca 3F       		.uleb128 0x3f
+ 553 00cb 19       		.uleb128 0x19
+ 554 00cc 3C       		.uleb128 0x3c
+ 555 00cd 19       		.uleb128 0x19
+ARM GAS  C:\Users\MATEOC~1.QUE\AppData\Local\Temp\ccUJOKa6.s 			page 12
+
+
+ 556 00ce 6E       		.uleb128 0x6e
+ 557 00cf 0E       		.uleb128 0xe
+ 558 00d0 03       		.uleb128 0x3
+ 559 00d1 0E       		.uleb128 0xe
+ 560 00d2 3A       		.uleb128 0x3a
+ 561 00d3 0B       		.uleb128 0xb
+ 562 00d4 3B       		.uleb128 0x3b
+ 563 00d5 0B       		.uleb128 0xb
+ 564 00d6 00       		.byte	0
+ 565 00d7 00       		.byte	0
+ 566 00d8 00       		.byte	0
+ 567              		.section	.debug_aranges,"",%progbits
+ 568 0000 24000000 		.4byte	0x24
+ 569 0004 0200     		.2byte	0x2
+ 570 0006 00000000 		.4byte	.Ldebug_info0
+ 571 000a 04       		.byte	0x4
+ 572 000b 00       		.byte	0
+ 573 000c 0000     		.2byte	0
+ 574 000e 0000     		.2byte	0
+ 575 0010 00000000 		.4byte	.LFB65
+ 576 0014 20000000 		.4byte	.LFE65-.LFB65
+ 577 0018 00000000 		.4byte	.LFB64
+ 578 001c 44000000 		.4byte	.LFE64-.LFB64
+ 579 0020 00000000 		.4byte	0
+ 580 0024 00000000 		.4byte	0
+ 581              		.section	.debug_ranges,"",%progbits
+ 582              	.Ldebug_ranges0:
+ 583 0000 00000000 		.4byte	.LFB65
+ 584 0004 20000000 		.4byte	.LFE65
+ 585 0008 00000000 		.4byte	.LFB64
+ 586 000c 44000000 		.4byte	.LFE64
+ 587 0010 00000000 		.4byte	0
+ 588 0014 00000000 		.4byte	0
+ 589              		.section	.debug_line,"",%progbits
+ 590              	.Ldebug_line0:
+ 591 0000 C5010000 		.section	.debug_str,"MS",%progbits,1
+ 591      02009501 
+ 591      00000201 
+ 591      FB0E0D00 
+ 591      01010101 
+ 592              	.LASF6:
+ 593 0000 6C6F6E67 		.ascii	"long long int\000"
+ 593      206C6F6E 
+ 593      6720696E 
+ 593      7400
+ 594              	.LASF3:
+ 595 000e 73686F72 		.ascii	"short unsigned int\000"
+ 595      7420756E 
+ 595      7369676E 
+ 595      65642069 
+ 595      6E7400
+ 596              	.LASF8:
+ 597 0021 756E7369 		.ascii	"unsigned int\000"
+ 597      676E6564 
+ 597      20696E74 
+ 597      00
+ 598              	.LASF27:
+ARM GAS  C:\Users\MATEOC~1.QUE\AppData\Local\Temp\ccUJOKa6.s 			page 13
+
+
+ 599 002e 6D61696E 		.ascii	"main\000"
+ 599      00
+ 600              	.LASF23:
+ 601 0033 474E5520 		.ascii	"GNU C11 5.4.1 20160609 (release) [ARM/embedded-5-br"
+ 601      43313120 
+ 601      352E342E 
+ 601      31203230 
+ 601      31363036 
+ 602 0066 616E6368 		.ascii	"anch revision 237715] -mcpu=cortex-m3 -mthumb -g -O"
+ 602      20726576 
+ 602      6973696F 
+ 602      6E203233 
+ 602      37373135 
+ 603 0099 67202D66 		.ascii	"g -ffunction-sections -ffat-lto-objects\000"
+ 603      66756E63 
+ 603      74696F6E 
+ 603      2D736563 
+ 603      74696F6E 
+ 604              	.LASF11:
+ 605 00c1 75696E74 		.ascii	"uint8\000"
+ 605      3800
+ 606              	.LASF5:
+ 607 00c7 6C6F6E67 		.ascii	"long unsigned int\000"
+ 607      20756E73 
+ 607      69676E65 
+ 607      6420696E 
+ 607      7400
+ 608              	.LASF2:
+ 609 00d9 73686F72 		.ascii	"short int\000"
+ 609      7420696E 
+ 609      7400
+ 610              	.LASF26:
+ 611 00e3 6973725F 		.ascii	"isr_BUTTON_3\000"
+ 611      42555454 
+ 611      4F4E5F33 
+ 611      00
+ 612              	.LASF7:
+ 613 00f0 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 613      206C6F6E 
+ 613      6720756E 
+ 613      7369676E 
+ 613      65642069 
+ 614              	.LASF1:
+ 615 0107 756E7369 		.ascii	"unsigned char\000"
+ 615      676E6564 
+ 615      20636861 
+ 615      7200
+ 616              	.LASF14:
+ 617 0115 63686172 		.ascii	"char\000"
+ 617      00
+ 618              	.LASF4:
+ 619 011a 6C6F6E67 		.ascii	"long int\000"
+ 619      20696E74 
+ 619      00
+ 620              	.LASF25:
+ 621 0123 433A5C55 		.ascii	"C:\\Users\\Mateo C. Querol\\OneDrive\\University\\D"
+ 621      73657273 
+ARM GAS  C:\Users\MATEOC~1.QUE\AppData\Local\Temp\ccUJOKa6.s 			page 14
+
+
+ 621      5C4D6174 
+ 621      656F2043 
+ 621      2E205175 
+ 622 0151 61726D73 		.ascii	"armstadt\\Advanced Microcontroller Systems and Embe"
+ 622      74616474 
+ 622      5C416476 
+ 622      616E6365 
+ 622      64204D69 
+ 623 0183 64646564 		.ascii	"dded Operating systems\\Embedded Operating Systems\\"
+ 623      204F7065 
+ 623      72617469 
+ 623      6E672073 
+ 623      79737465 
+ 624 01b5 576F726B 		.ascii	"Workbook\\1.3_introducing_interrupts.cydsn\000"
+ 624      626F6F6B 
+ 624      5C312E33 
+ 624      5F696E74 
+ 624      726F6475 
+ 625              	.LASF13:
+ 626 01df 646F7562 		.ascii	"double\000"
+ 626      6C6500
+ 627              	.LASF21:
+ 628 01e6 4C45445F 		.ascii	"LED_yellow_Write\000"
+ 628      79656C6C 
+ 628      6F775F57 
+ 628      72697465 
+ 628      00
+ 629              	.LASF20:
+ 630 01f7 4C45445F 		.ascii	"LED_green_Write\000"
+ 630      67726565 
+ 630      6E5F5772 
+ 630      69746500 
+ 631              	.LASF22:
+ 632 0207 4C45445F 		.ascii	"LED_red_Write\000"
+ 632      7265645F 
+ 632      57726974 
+ 632      6500
+ 633              	.LASF17:
+ 634 0215 49544D5F 		.ascii	"ITM_RxBuffer\000"
+ 634      52784275 
+ 634      66666572 
+ 634      00
+ 635              	.LASF0:
+ 636 0222 7369676E 		.ascii	"signed char\000"
+ 636      65642063 
+ 636      68617200 
+ 637              	.LASF15:
+ 638 022e 6C6F6E67 		.ascii	"long double\000"
+ 638      20646F75 
+ 638      626C6500 
+ 639              	.LASF9:
+ 640 023a 5F5F696E 		.ascii	"__int32_t\000"
+ 640      7433325F 
+ 640      7400
+ 641              	.LASF19:
+ 642 0244 6973725F 		.ascii	"isr_BUTTON_3_StartEx\000"
+ 642      42555454 
+ARM GAS  C:\Users\MATEOC~1.QUE\AppData\Local\Temp\ccUJOKa6.s 			page 15
+
+
+ 642      4F4E5F33 
+ 642      5F537461 
+ 642      72744578 
+ 643              	.LASF12:
+ 644 0259 666C6F61 		.ascii	"float\000"
+ 644      7400
+ 645              	.LASF24:
+ 646 025f 736F7572 		.ascii	"source\\asw\\main.c\000"
+ 646      63655C61 
+ 646      73775C6D 
+ 646      61696E2E 
+ 646      6300
+ 647              	.LASF10:
+ 648 0271 696E7433 		.ascii	"int32_t\000"
+ 648      325F7400 
+ 649              	.LASF18:
+ 650 0279 746F6767 		.ascii	"toggle\000"
+ 650      6C6500
+ 651              	.LASF16:
+ 652 0280 73697A65 		.ascii	"sizetype\000"
+ 652      74797065 
+ 652      00
+ 653              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 5.4.1 20160609 (release) [ARM/embedded-5-bran
