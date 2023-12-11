@@ -1,0 +1,3405 @@
+ARM GAS  C:\Users\MATEOC~1.QUE\AppData\Local\Temp\ccGACnuM.s 			page 1
+
+
+   1              		.syntax unified
+   2              		.cpu cortex-m3
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 1
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.thumb
+  14              		.syntax unified
+  15              		.file	"trcKernelPort.c"
+  16              		.text
+  17              	.Ltext0:
+  18              		.cfi_sections	.debug_frame
+  19              		.section	.text.prvTraceGetCurrentTaskId,"ax",%progbits
+  20              		.align	2
+  21              		.global	prvTraceGetCurrentTaskId
+  22              		.thumb
+  23              		.thumb_func
+  24              		.type	prvTraceGetCurrentTaskId, %function
+  25              	prvTraceGetCurrentTaskId:
+  26              	.LFB111:
+  27              		.file 1 "source\\bsw\\TraceRecorder\\trcKernelPort.c"
+   1:source\bsw\TraceRecorder/trcKernelPort.c **** /*******************************************************************************
+   2:source\bsw\TraceRecorder/trcKernelPort.c ****  * Trace Recorder Library for Tracealyzer v4.1.0
+   3:source\bsw\TraceRecorder/trcKernelPort.c ****  * Percepio AB, www.percepio.com
+   4:source\bsw\TraceRecorder/trcKernelPort.c ****  *
+   5:source\bsw\TraceRecorder/trcKernelPort.c ****  * trcKernelPort.c
+   6:source\bsw\TraceRecorder/trcKernelPort.c ****  *
+   7:source\bsw\TraceRecorder/trcKernelPort.c ****  * The FreeRTOS-specific parts of the trace recorder
+   8:source\bsw\TraceRecorder/trcKernelPort.c ****  *
+   9:source\bsw\TraceRecorder/trcKernelPort.c ****  * Terms of Use
+  10:source\bsw\TraceRecorder/trcKernelPort.c ****  * This file is part of the trace recorder library (RECORDER), which is the 
+  11:source\bsw\TraceRecorder/trcKernelPort.c ****  * intellectual property of Percepio AB (PERCEPIO) and provided under a
+  12:source\bsw\TraceRecorder/trcKernelPort.c ****  * license as follows.
+  13:source\bsw\TraceRecorder/trcKernelPort.c ****  * The RECORDER may be used free of charge for the purpose of recording data
+  14:source\bsw\TraceRecorder/trcKernelPort.c ****  * intended for analysis in PERCEPIO products. It may not be used or modified
+  15:source\bsw\TraceRecorder/trcKernelPort.c ****  * for other purposes without explicit permission from PERCEPIO.
+  16:source\bsw\TraceRecorder/trcKernelPort.c ****  * You may distribute the RECORDER in its original source code form, assuming
+  17:source\bsw\TraceRecorder/trcKernelPort.c ****  * this text (terms of use, disclaimer, copyright notice) is unchanged. You are
+  18:source\bsw\TraceRecorder/trcKernelPort.c ****  * allowed to distribute the RECORDER with minor modifications intended for
+  19:source\bsw\TraceRecorder/trcKernelPort.c ****  * configuration or porting of the RECORDER, e.g., to allow using it on a 
+  20:source\bsw\TraceRecorder/trcKernelPort.c ****  * specific processor, processor family or with a specific communication
+  21:source\bsw\TraceRecorder/trcKernelPort.c ****  * interface. Any such modifications should be documented directly below
+  22:source\bsw\TraceRecorder/trcKernelPort.c ****  * this comment block.  
+  23:source\bsw\TraceRecorder/trcKernelPort.c ****  *
+  24:source\bsw\TraceRecorder/trcKernelPort.c ****  * Disclaimer
+  25:source\bsw\TraceRecorder/trcKernelPort.c ****  * The RECORDER is being delivered to you AS IS and PERCEPIO makes no warranty
+  26:source\bsw\TraceRecorder/trcKernelPort.c ****  * as to its use or performance. PERCEPIO does not and cannot warrant the 
+  27:source\bsw\TraceRecorder/trcKernelPort.c ****  * performance or results you may obtain by using the RECORDER or documentation.
+  28:source\bsw\TraceRecorder/trcKernelPort.c ****  * PERCEPIO make no warranties, express or implied, as to noninfringement of
+  29:source\bsw\TraceRecorder/trcKernelPort.c ****  * third party rights, merchantability, or fitness for any particular purpose.
+  30:source\bsw\TraceRecorder/trcKernelPort.c ****  * In no event will PERCEPIO, its technology partners, or distributors be liable
+ARM GAS  C:\Users\MATEOC~1.QUE\AppData\Local\Temp\ccGACnuM.s 			page 2
+
+
+  31:source\bsw\TraceRecorder/trcKernelPort.c ****  * to you for any consequential, incidental or special damages, including any
+  32:source\bsw\TraceRecorder/trcKernelPort.c ****  * lost profits or lost savings, even if a representative of PERCEPIO has been
+  33:source\bsw\TraceRecorder/trcKernelPort.c ****  * advised of the possibility of such damages, or for any claim by any third
+  34:source\bsw\TraceRecorder/trcKernelPort.c ****  * party. Some jurisdictions do not allow the exclusion or limitation of
+  35:source\bsw\TraceRecorder/trcKernelPort.c ****  * incidental, consequential or special damages, or the exclusion of implied
+  36:source\bsw\TraceRecorder/trcKernelPort.c ****  * warranties or limitations on how long an implied warranty may last, so the
+  37:source\bsw\TraceRecorder/trcKernelPort.c ****  * above limitations may not apply to you.
+  38:source\bsw\TraceRecorder/trcKernelPort.c ****  *
+  39:source\bsw\TraceRecorder/trcKernelPort.c ****  * Tabs are used for indent in this file (1 tab = 4 spaces)
+  40:source\bsw\TraceRecorder/trcKernelPort.c ****  *
+  41:source\bsw\TraceRecorder/trcKernelPort.c ****  * Copyright Percepio AB, 2018.
+  42:source\bsw\TraceRecorder/trcKernelPort.c ****  * www.percepio.com
+  43:source\bsw\TraceRecorder/trcKernelPort.c ****  ******************************************************************************/
+  44:source\bsw\TraceRecorder/trcKernelPort.c **** 
+  45:source\bsw\TraceRecorder/trcKernelPort.c **** #include "ERIKAPorting.h"
+  46:source\bsw\TraceRecorder/trcKernelPort.c **** #include "trcKernelPort.h"
+  47:source\bsw\TraceRecorder/trcKernelPort.c **** 
+  48:source\bsw\TraceRecorder/trcKernelPort.c **** #if (!defined(TRC_USE_TRACEALYZER_RECORDER) && configUSE_TRACE_FACILITY == 1)
+  49:source\bsw\TraceRecorder/trcKernelPort.c **** #error Trace Recorder: You need to include trcRecorder.h at the end of your FreeRTOSConfig.h!
+  50:source\bsw\TraceRecorder/trcKernelPort.c **** #endif
+  51:source\bsw\TraceRecorder/trcKernelPort.c **** 
+  52:source\bsw\TraceRecorder/trcKernelPort.c **** #if (defined(TRC_USE_TRACEALYZER_RECORDER) && TRC_USE_TRACEALYZER_RECORDER == 1)
+  53:source\bsw\TraceRecorder/trcKernelPort.c **** 
+  54:source\bsw\TraceRecorder/trcKernelPort.c **** #ifndef TRC_CFG_INCLUDE_EVENT_GROUP_EVENTS
+  55:source\bsw\TraceRecorder/trcKernelPort.c ****  /* TRC_CFG_INCLUDE_EVENT_GROUP_EVENTS is missing in trcConfig.h. */
+  56:source\bsw\TraceRecorder/trcKernelPort.c **** #error "TRC_CFG_INCLUDE_EVENT_GROUP_EVENTS must be defined in trcConfig.h."
+  57:source\bsw\TraceRecorder/trcKernelPort.c **** #endif
+  58:source\bsw\TraceRecorder/trcKernelPort.c **** 
+  59:source\bsw\TraceRecorder/trcKernelPort.c **** #ifndef TRC_CFG_INCLUDE_TIMER_EVENTS
+  60:source\bsw\TraceRecorder/trcKernelPort.c ****  /* TRC_CFG_INCLUDE_TIMER_EVENTS is missing in trcConfig.h. */
+  61:source\bsw\TraceRecorder/trcKernelPort.c **** #error "TRC_CFG_INCLUDE_TIMER_EVENTS must be defined in trcConfig.h."
+  62:source\bsw\TraceRecorder/trcKernelPort.c **** #endif
+  63:source\bsw\TraceRecorder/trcKernelPort.c **** 
+  64:source\bsw\TraceRecorder/trcKernelPort.c **** #ifndef TRC_CFG_INCLUDE_PEND_FUNC_CALL_EVENTS
+  65:source\bsw\TraceRecorder/trcKernelPort.c ****  /* TRC_CFG_INCLUDE_PEND_FUNC_CALL_EVENTS is missing in trcConfig.h. */
+  66:source\bsw\TraceRecorder/trcKernelPort.c **** #error "TRC_CFG_INCLUDE_PEND_FUNC_CALL_EVENTS must be defined in trcConfig.h."
+  67:source\bsw\TraceRecorder/trcKernelPort.c **** #endif
+  68:source\bsw\TraceRecorder/trcKernelPort.c **** 
+  69:source\bsw\TraceRecorder/trcKernelPort.c **** #ifndef TRC_CFG_INCLUDE_STREAM_BUFFER_EVENTS
+  70:source\bsw\TraceRecorder/trcKernelPort.c ****  /* TRC_CFG_INCLUDE_STREAM_BUFFER_EVENTS is missing in trcConfig.h. Define this as 1 if using FreeR
+  71:source\bsw\TraceRecorder/trcKernelPort.c **** #error "TRC_CFG_INCLUDE_STREAM_BUFFER_EVENTS must be defined in trcConfig.h."
+  72:source\bsw\TraceRecorder/trcKernelPort.c **** #endif
+  73:source\bsw\TraceRecorder/trcKernelPort.c **** 
+  74:source\bsw\TraceRecorder/trcKernelPort.c **** #if (configUSE_TICKLESS_IDLE != 0 && (TRC_HWTC_TYPE == TRC_OS_TIMER_INCR || TRC_HWTC_TYPE == TRC_OS
+  75:source\bsw\TraceRecorder/trcKernelPort.c **** 	/* 	
+  76:source\bsw\TraceRecorder/trcKernelPort.c **** 		The below error message is to alert you on the following issue:
+  77:source\bsw\TraceRecorder/trcKernelPort.c **** 		
+  78:source\bsw\TraceRecorder/trcKernelPort.c **** 		The hardware port selected in trcConfig.h uses the operating system timer for the 
+  79:source\bsw\TraceRecorder/trcKernelPort.c **** 		timestamping, i.e., the periodic interrupt timer that drives the OS tick interrupt.
+  80:source\bsw\TraceRecorder/trcKernelPort.c **** 				
+  81:source\bsw\TraceRecorder/trcKernelPort.c **** 		When using "tickless idle" mode, the recorder needs an independent time source in
+  82:source\bsw\TraceRecorder/trcKernelPort.c **** 		order to correctly record the durations of the idle times. Otherwise, the trace may appear
+  83:source\bsw\TraceRecorder/trcKernelPort.c **** 		to have a different length than in reality, and the reported CPU load is also affected.
+  84:source\bsw\TraceRecorder/trcKernelPort.c **** 		
+  85:source\bsw\TraceRecorder/trcKernelPort.c **** 		You may override this warning by defining the TRC_CFG_ACKNOWLEDGE_TICKLESS_IDLE_WARNING
+  86:source\bsw\TraceRecorder/trcKernelPort.c **** 		macro in your trcConfig.h file. But then the time scale may be incorrect during
+  87:source\bsw\TraceRecorder/trcKernelPort.c **** 		tickless idle periods.
+ARM GAS  C:\Users\MATEOC~1.QUE\AppData\Local\Temp\ccGACnuM.s 			page 3
+
+
+  88:source\bsw\TraceRecorder/trcKernelPort.c **** 		
+  89:source\bsw\TraceRecorder/trcKernelPort.c **** 		To get this correct, override the default timestamping by setting TRC_CFG_HARDWARE_PORT
+  90:source\bsw\TraceRecorder/trcKernelPort.c **** 		in trcConfig.h to TRC_HARDWARE_PORT_APPLICATION_DEFINED and define the HWTC macros
+  91:source\bsw\TraceRecorder/trcKernelPort.c **** 		accordingly, using a free running counter or an independent periodic interrupt timer.
+  92:source\bsw\TraceRecorder/trcKernelPort.c **** 		See trcHardwarePort.h for details.
+  93:source\bsw\TraceRecorder/trcKernelPort.c **** 				
+  94:source\bsw\TraceRecorder/trcKernelPort.c **** 		For ARM Cortex-M3, M4 and M7 MCUs this is not an issue, since the recorder uses the 
+  95:source\bsw\TraceRecorder/trcKernelPort.c **** 		DWT cycle counter for timestamping in these cases.		
+  96:source\bsw\TraceRecorder/trcKernelPort.c **** 	*/
+  97:source\bsw\TraceRecorder/trcKernelPort.c **** 	
+  98:source\bsw\TraceRecorder/trcKernelPort.c **** 	#ifndef TRC_CFG_ACKNOWLEDGE_TICKLESS_IDLE_WARNING
+  99:source\bsw\TraceRecorder/trcKernelPort.c **** 	#error Trace Recorder: This timestamping mode is not recommended with Tickless Idle.
+ 100:source\bsw\TraceRecorder/trcKernelPort.c **** 	#endif
+ 101:source\bsw\TraceRecorder/trcKernelPort.c **** #endif /* (configUSE_TICKLESS_IDLE != 0 && (TRC_HWTC_TYPE == TRC_OS_TIMER_INCR || TRC_HWTC_TYPE == 
+ 102:source\bsw\TraceRecorder/trcKernelPort.c **** 	
+ 103:source\bsw\TraceRecorder/trcKernelPort.c **** //#include "task.h"
+ 104:source\bsw\TraceRecorder/trcKernelPort.c **** //#include "queue.h"
+ 105:source\bsw\TraceRecorder/trcKernelPort.c **** 
+ 106:source\bsw\TraceRecorder/trcKernelPort.c **** #if (TRC_CFG_INCLUDE_TIMER_EVENTS == 1 && TRC_CFG_FREERTOS_VERSION >= TRC_FREERTOS_VERSION_8_X)
+ 107:source\bsw\TraceRecorder/trcKernelPort.c **** /* If the project does not include the FreeRTOS timers, TRC_CFG_INCLUDE_TIMER_EVENTS must be set to
+ 108:source\bsw\TraceRecorder/trcKernelPort.c **** //#include "timers.h"
+ 109:source\bsw\TraceRecorder/trcKernelPort.c **** #endif /* (TRC_CFG_INCLUDE_TIMER_EVENTS == 1 && TRC_CFG_FREERTOS_VERSION >= TRC_FREERTOS_VERSION_8_
+ 110:source\bsw\TraceRecorder/trcKernelPort.c **** 
+ 111:source\bsw\TraceRecorder/trcKernelPort.c **** #if (TRC_CFG_INCLUDE_EVENT_GROUP_EVENTS == 1 && TRC_CFG_FREERTOS_VERSION >= TRC_FREERTOS_VERSION_8_
+ 112:source\bsw\TraceRecorder/trcKernelPort.c **** /* If the project does not include the FreeRTOS event groups, TRC_CFG_INCLUDE_TIMER_EVENTS must be 
+ 113:source\bsw\TraceRecorder/trcKernelPort.c **** #include "event_groups.h"
+ 114:source\bsw\TraceRecorder/trcKernelPort.c **** #endif /* (TRC_CFG_INCLUDE_EVENT_GROUP_EVENTS == 1 && TRC_CFG_FREERTOS_VERSION >= TRC_FREERTOS_VERS
+ 115:source\bsw\TraceRecorder/trcKernelPort.c **** 
+ 116:source\bsw\TraceRecorder/trcKernelPort.c **** #if (TRC_CFG_INCLUDE_STREAM_BUFFER_EVENTS == 1 && TRC_CFG_FREERTOS_VERSION >= TRC_FREERTOS_VERSION_
+ 117:source\bsw\TraceRecorder/trcKernelPort.c **** /* If the project does not include the FreeRTOS stream buffers, TRC_CFG_INCLUDE_STREAM_BUFFER_EVENT
+ 118:source\bsw\TraceRecorder/trcKernelPort.c **** #include "stream_buffer.h"
+ 119:source\bsw\TraceRecorder/trcKernelPort.c **** #endif /* (TRC_CFG_INCLUDE_STREAM_BUFFER_EVENTS == 1 && TRC_CFG_FREERTOS_VERSION >= TRC_FREERTOS_VE
+ 120:source\bsw\TraceRecorder/trcKernelPort.c **** 
+ 121:source\bsw\TraceRecorder/trcKernelPort.c **** //uint32_t prvTraceGetQueueNumber(void* handle);
+ 122:source\bsw\TraceRecorder/trcKernelPort.c **** 
+ 123:source\bsw\TraceRecorder/trcKernelPort.c **** #if (TRC_CFG_FREERTOS_VERSION < TRC_FREERTOS_VERSION_8_X)
+ 124:source\bsw\TraceRecorder/trcKernelPort.c **** 
+ 125:source\bsw\TraceRecorder/trcKernelPort.c **** extern unsigned char ucQueueGetQueueNumber( xQueueHandle pxQueue );
+ 126:source\bsw\TraceRecorder/trcKernelPort.c **** extern void vQueueSetQueueNumber( xQueueHandle pxQueue, unsigned char ucQueueNumber );
+ 127:source\bsw\TraceRecorder/trcKernelPort.c **** extern unsigned char ucQueueGetQueueType( xQueueHandle pxQueue );
+ 128:source\bsw\TraceRecorder/trcKernelPort.c **** 
+ 129:source\bsw\TraceRecorder/trcKernelPort.c **** uint32_t prvTraceGetQueueNumber(void* handle)
+ 130:source\bsw\TraceRecorder/trcKernelPort.c **** {
+ 131:source\bsw\TraceRecorder/trcKernelPort.c **** 	return (uint32_t)ucQueueGetQueueNumber(handle);
+ 132:source\bsw\TraceRecorder/trcKernelPort.c **** }
+ 133:source\bsw\TraceRecorder/trcKernelPort.c **** #else 
+ 134:source\bsw\TraceRecorder/trcKernelPort.c **** /*uint32_t prvTraceGetQueueNumber(void* handle)
+ 135:source\bsw\TraceRecorder/trcKernelPort.c **** {
+ 136:source\bsw\TraceRecorder/trcKernelPort.c **** 	return (uint32_t)uxQueueGetQueueNumber(handle);
+ 137:source\bsw\TraceRecorder/trcKernelPort.c **** }*/
+ 138:source\bsw\TraceRecorder/trcKernelPort.c **** #endif /* (TRC_CFG_FREERTOS_VERSION < TRC_FREERTOS_VERSION_8_X) */
+ 139:source\bsw\TraceRecorder/trcKernelPort.c **** 
+ 140:source\bsw\TraceRecorder/trcKernelPort.c **** /*uint8_t prvTraceGetQueueType(void* handle)
+ 141:source\bsw\TraceRecorder/trcKernelPort.c **** {
+ 142:source\bsw\TraceRecorder/trcKernelPort.c **** 	// This is either declared in header file in FreeRTOS 8 and later, or as extern above
+ 143:source\bsw\TraceRecorder/trcKernelPort.c **** 	return ucQueueGetQueueType(handle);
+ 144:source\bsw\TraceRecorder/trcKernelPort.c **** }
+ARM GAS  C:\Users\MATEOC~1.QUE\AppData\Local\Temp\ccGACnuM.s 			page 4
+
+
+ 145:source\bsw\TraceRecorder/trcKernelPort.c **** */
+ 146:source\bsw\TraceRecorder/trcKernelPort.c **** 
+ 147:source\bsw\TraceRecorder/trcKernelPort.c **** /***********************************************************************************************
+ 148:source\bsw\TraceRecorder/trcKernelPort.c ****   * The TzCtrl task - receives commands from Tracealyzer (start/stop)
+ 149:source\bsw\TraceRecorder/trcKernelPort.c ****   * Task defined as a cyclic task. 
+ 150:source\bsw\TraceRecorder/trcKernelPort.c ****   * Alarm started in Task_Init.Can alternatively be initiated in VTraceEnable API
+ 151:source\bsw\TraceRecorder/trcKernelPort.c **** ************************************************************************************************/
+ 152:source\bsw\TraceRecorder/trcKernelPort.c **** TASK(TzCtrl)  
+ 153:source\bsw\TraceRecorder/trcKernelPort.c **** {
+ 154:source\bsw\TraceRecorder/trcKernelPort.c ****     TracealyzerCommandType msg;
+ 155:source\bsw\TraceRecorder/trcKernelPort.c **** 	int32_t bytes = 0;
+ 156:source\bsw\TraceRecorder/trcKernelPort.c **** 	int32_t status = 0;
+ 157:source\bsw\TraceRecorder/trcKernelPort.c **** 		do
+ 158:source\bsw\TraceRecorder/trcKernelPort.c **** 		{
+ 159:source\bsw\TraceRecorder/trcKernelPort.c ****             /* Listen for new commands */
+ 160:source\bsw\TraceRecorder/trcKernelPort.c **** 			bytes = 0;
+ 161:source\bsw\TraceRecorder/trcKernelPort.c **** 			status = TRC_STREAM_PORT_READ_DATA(&msg, sizeof(TracealyzerCommandType), (int32_t*)&bytes);
+ 162:source\bsw\TraceRecorder/trcKernelPort.c **** 
+ 163:source\bsw\TraceRecorder/trcKernelPort.c **** 			if ((status == 0) && (bytes == sizeof(TracealyzerCommandType)))
+ 164:source\bsw\TraceRecorder/trcKernelPort.c **** 			{
+ 165:source\bsw\TraceRecorder/trcKernelPort.c **** 				if (prvIsValidCommand(&msg))
+ 166:source\bsw\TraceRecorder/trcKernelPort.c **** 				{
+ 167:source\bsw\TraceRecorder/trcKernelPort.c **** 					prvProcessCommand(&msg); /* Start or Stop currently... */
+ 168:source\bsw\TraceRecorder/trcKernelPort.c **** 				}
+ 169:source\bsw\TraceRecorder/trcKernelPort.c **** 			}
+ 170:source\bsw\TraceRecorder/trcKernelPort.c ****             /* Send periodic data */
+ 171:source\bsw\TraceRecorder/trcKernelPort.c **** 			bytes = 0;
+ 172:source\bsw\TraceRecorder/trcKernelPort.c **** 			#if (TRC_STREAM_PORT_USE_INTERNAL_BUFFER == 1)
+ 173:source\bsw\TraceRecorder/trcKernelPort.c **** 			/* If there is a buffer page, this sends it to the streaming interface using TRC_STREAM_PORT_WRI
+ 174:source\bsw\TraceRecorder/trcKernelPort.c **** 			bytes = prvPagedEventBufferTransfer();
+ 175:source\bsw\TraceRecorder/trcKernelPort.c ****             #endif	
+ 176:source\bsw\TraceRecorder/trcKernelPort.c **** 			/* If there was data sent (bytes != 0), immediately loop around and do all this again. Otherwise
+ 177:source\bsw\TraceRecorder/trcKernelPort.c **** 		} while (bytes != 0);
+ 178:source\bsw\TraceRecorder/trcKernelPort.c ****         prvCheckRecorderStatus();
+ 179:source\bsw\TraceRecorder/trcKernelPort.c ****         TerminateTask();
+ 180:source\bsw\TraceRecorder/trcKernelPort.c **** } 
+ 181:source\bsw\TraceRecorder/trcKernelPort.c **** 
+ 182:source\bsw\TraceRecorder/trcKernelPort.c **** /********************************************************************************
+ 183:source\bsw\TraceRecorder/trcKernelPort.c ****  * prvTraceGetCurrentTaskHandle
+ 184:source\bsw\TraceRecorder/trcKernelPort.c ****  * This function returns current TASK ID
+ 185:source\bsw\TraceRecorder/trcKernelPort.c **** *********************************************************************************/
+ 186:source\bsw\TraceRecorder/trcKernelPort.c **** 
+ 187:source\bsw\TraceRecorder/trcKernelPort.c **** TaskType prvTraceGetCurrentTaskId()
+ 188:source\bsw\TraceRecorder/trcKernelPort.c **** {
+  28              		.loc 1 188 0
+  29              		.cfi_startproc
+  30              		@ args = 0, pretend = 0, frame = 8
+  31              		@ frame_needed = 0, uses_anonymous_args = 0
+  32 0000 00B5     		push	{lr}
+  33              		.cfi_def_cfa_offset 4
+  34              		.cfi_offset 14, -4
+  35 0002 83B0     		sub	sp, sp, #12
+  36              		.cfi_def_cfa_offset 16
+ 189:source\bsw\TraceRecorder/trcKernelPort.c ****     TaskType TASKID;
+ 190:source\bsw\TraceRecorder/trcKernelPort.c ****     GetTaskID(&TASKID);
+  37              		.loc 1 190 0
+  38 0004 01A8     		add	r0, sp, #4
+ARM GAS  C:\Users\MATEOC~1.QUE\AppData\Local\Temp\ccGACnuM.s 			page 5
+
+
+  39 0006 FFF7FEFF 		bl	EE_oo_GetTaskID
+  40              	.LVL0:
+ 191:source\bsw\TraceRecorder/trcKernelPort.c **** 	return (TASKID+TASK_ID_OFFSET);
+ 192:source\bsw\TraceRecorder/trcKernelPort.c **** }
+  41              		.loc 1 192 0
+  42 000a 0198     		ldr	r0, [sp, #4]
+  43 000c 0130     		adds	r0, r0, #1
+  44 000e 03B0     		add	sp, sp, #12
+  45              		.cfi_def_cfa_offset 4
+  46              		@ sp needed
+  47 0010 5DF804FB 		ldr	pc, [sp], #4
+  48              		.cfi_endproc
+  49              	.LFE111:
+  50              		.size	prvTraceGetCurrentTaskId, .-prvTraceGetCurrentTaskId
+  51              		.section	.text.prvTraceGetTaskNumberLow16,"ax",%progbits
+  52              		.align	2
+  53              		.global	prvTraceGetTaskNumberLow16
+  54              		.thumb
+  55              		.thumb_func
+  56              		.type	prvTraceGetTaskNumberLow16, %function
+  57              	prvTraceGetTaskNumberLow16:
+  58              	.LFB112:
+ 193:source\bsw\TraceRecorder/trcKernelPort.c **** 
+ 194:source\bsw\TraceRecorder/trcKernelPort.c **** /* Tasks */
+ 195:source\bsw\TraceRecorder/trcKernelPort.c **** uint16_t prvTraceGetTaskNumberLow16(void* handle)
+ 196:source\bsw\TraceRecorder/trcKernelPort.c **** {
+  59              		.loc 1 196 0
+  60              		.cfi_startproc
+  61              		@ args = 0, pretend = 0, frame = 0
+  62              		@ frame_needed = 0, uses_anonymous_args = 0
+  63              		@ link register save eliminated.
+  64              	.LVL1:
+ 197:source\bsw\TraceRecorder/trcKernelPort.c **** 	return 0;
+ 198:source\bsw\TraceRecorder/trcKernelPort.c **** }
+  65              		.loc 1 198 0
+  66 0000 0020     		movs	r0, #0
+  67              	.LVL2:
+  68 0002 7047     		bx	lr
+  69              		.cfi_endproc
+  70              	.LFE112:
+  71              		.size	prvTraceGetTaskNumberLow16, .-prvTraceGetTaskNumberLow16
+  72              		.section	.text.prvTraceGetTaskNumberHigh16,"ax",%progbits
+  73              		.align	2
+  74              		.global	prvTraceGetTaskNumberHigh16
+  75              		.thumb
+  76              		.thumb_func
+  77              		.type	prvTraceGetTaskNumberHigh16, %function
+  78              	prvTraceGetTaskNumberHigh16:
+  79              	.LFB113:
+ 199:source\bsw\TraceRecorder/trcKernelPort.c **** 
+ 200:source\bsw\TraceRecorder/trcKernelPort.c **** uint16_t prvTraceGetTaskNumberHigh16(void* handle)
+ 201:source\bsw\TraceRecorder/trcKernelPort.c **** {
+  80              		.loc 1 201 0
+  81              		.cfi_startproc
+  82              		@ args = 0, pretend = 0, frame = 0
+  83              		@ frame_needed = 0, uses_anonymous_args = 0
+  84              		@ link register save eliminated.
+ARM GAS  C:\Users\MATEOC~1.QUE\AppData\Local\Temp\ccGACnuM.s 			page 6
+
+
+  85              	.LVL3:
+ 202:source\bsw\TraceRecorder/trcKernelPort.c **** 	return 0;
+ 203:source\bsw\TraceRecorder/trcKernelPort.c **** }
+  86              		.loc 1 203 0
+  87 0000 0020     		movs	r0, #0
+  88              	.LVL4:
+  89 0002 7047     		bx	lr
+  90              		.cfi_endproc
+  91              	.LFE113:
+  92              		.size	prvTraceGetTaskNumberHigh16, .-prvTraceGetTaskNumberHigh16
+  93              		.section	.text.prvTraceSetTaskNumberLow16,"ax",%progbits
+  94              		.align	2
+  95              		.global	prvTraceSetTaskNumberLow16
+  96              		.thumb
+  97              		.thumb_func
+  98              		.type	prvTraceSetTaskNumberLow16, %function
+  99              	prvTraceSetTaskNumberLow16:
+ 100              	.LFB114:
+ 204:source\bsw\TraceRecorder/trcKernelPort.c **** 
+ 205:source\bsw\TraceRecorder/trcKernelPort.c **** void prvTraceSetTaskNumberLow16(void* handle, uint16_t value)
+ 206:source\bsw\TraceRecorder/trcKernelPort.c **** {
+ 101              		.loc 1 206 0
+ 102              		.cfi_startproc
+ 103              		@ args = 0, pretend = 0, frame = 0
+ 104              		@ frame_needed = 0, uses_anonymous_args = 0
+ 105              		@ link register save eliminated.
+ 106              	.LVL5:
+ 107 0000 7047     		bx	lr
+ 108              		.cfi_endproc
+ 109              	.LFE114:
+ 110              		.size	prvTraceSetTaskNumberLow16, .-prvTraceSetTaskNumberLow16
+ 111 0002 00BF     		.section	.text.prvTraceSetTaskNumberHigh16,"ax",%progbits
+ 112              		.align	2
+ 113              		.global	prvTraceSetTaskNumberHigh16
+ 114              		.thumb
+ 115              		.thumb_func
+ 116              		.type	prvTraceSetTaskNumberHigh16, %function
+ 117              	prvTraceSetTaskNumberHigh16:
+ 118              	.LFB115:
+ 207:source\bsw\TraceRecorder/trcKernelPort.c **** 
+ 208:source\bsw\TraceRecorder/trcKernelPort.c **** }
+ 209:source\bsw\TraceRecorder/trcKernelPort.c **** 
+ 210:source\bsw\TraceRecorder/trcKernelPort.c **** void prvTraceSetTaskNumberHigh16(void* handle, uint16_t value)
+ 211:source\bsw\TraceRecorder/trcKernelPort.c **** {
+ 119              		.loc 1 211 0
+ 120              		.cfi_startproc
+ 121              		@ args = 0, pretend = 0, frame = 0
+ 122              		@ frame_needed = 0, uses_anonymous_args = 0
+ 123              		@ link register save eliminated.
+ 124              	.LVL6:
+ 125 0000 7047     		bx	lr
+ 126              		.cfi_endproc
+ 127              	.LFE115:
+ 128              		.size	prvTraceSetTaskNumberHigh16, .-prvTraceSetTaskNumberHigh16
+ 129 0002 00BF     		.section	.text.vTraceEnable,"ax",%progbits
+ 130              		.align	2
+ 131              		.global	vTraceEnable
+ARM GAS  C:\Users\MATEOC~1.QUE\AppData\Local\Temp\ccGACnuM.s 			page 7
+
+
+ 132              		.thumb
+ 133              		.thumb_func
+ 134              		.type	vTraceEnable, %function
+ 135              	vTraceEnable:
+ 136              	.LFB116:
+ 212:source\bsw\TraceRecorder/trcKernelPort.c **** 
+ 213:source\bsw\TraceRecorder/trcKernelPort.c **** }
+ 214:source\bsw\TraceRecorder/trcKernelPort.c **** 
+ 215:source\bsw\TraceRecorder/trcKernelPort.c **** /*
+ 216:source\bsw\TraceRecorder/trcKernelPort.c ****  * ERIKA Changes- removed the below queue functions corresponding to TX version update for the ring
+ 217:source\bsw\TraceRecorder/trcKernelPort.c ****  * In general the implementation for these functions is specific to FreeRTOS which is not taken ove
+ 218:source\bsw\TraceRecorder/trcKernelPort.c **** */
+ 219:source\bsw\TraceRecorder/trcKernelPort.c **** /*
+ 220:source\bsw\TraceRecorder/trcKernelPort.c **** uint16_t prvTraceGetQueueNumberLow16(void* handle)
+ 221:source\bsw\TraceRecorder/trcKernelPort.c **** {
+ 222:source\bsw\TraceRecorder/trcKernelPort.c **** 	return TRACE_GET_LOW16(prvTraceGetQueueNumber(handle));
+ 223:source\bsw\TraceRecorder/trcKernelPort.c **** }
+ 224:source\bsw\TraceRecorder/trcKernelPort.c **** 
+ 225:source\bsw\TraceRecorder/trcKernelPort.c **** uint16_t prvTraceGetQueueNumberHigh16(void* handle)
+ 226:source\bsw\TraceRecorder/trcKernelPort.c **** {
+ 227:source\bsw\TraceRecorder/trcKernelPort.c **** 	return TRACE_GET_HIGH16(prvTraceGetQueueNumber(handle));
+ 228:source\bsw\TraceRecorder/trcKernelPort.c **** }
+ 229:source\bsw\TraceRecorder/trcKernelPort.c **** 
+ 230:source\bsw\TraceRecorder/trcKernelPort.c **** void prvTraceSetQueueNumberLow16(void* handle, uint16_t value)
+ 231:source\bsw\TraceRecorder/trcKernelPort.c **** {
+ 232:source\bsw\TraceRecorder/trcKernelPort.c **** 	vQueueSetQueueNumber(handle, TRACE_SET_LOW16(prvTraceGetQueueNumber(handle), value));
+ 233:source\bsw\TraceRecorder/trcKernelPort.c **** }
+ 234:source\bsw\TraceRecorder/trcKernelPort.c **** 
+ 235:source\bsw\TraceRecorder/trcKernelPort.c **** void prvTraceSetQueueNumberHigh16(void* handle, uint16_t value)
+ 236:source\bsw\TraceRecorder/trcKernelPort.c **** {
+ 237:source\bsw\TraceRecorder/trcKernelPort.c **** 	vQueueSetQueueNumber(handle, TRACE_SET_HIGH16(prvTraceGetQueueNumber(handle), value));
+ 238:source\bsw\TraceRecorder/trcKernelPort.c **** }
+ 239:source\bsw\TraceRecorder/trcKernelPort.c **** */
+ 240:source\bsw\TraceRecorder/trcKernelPort.c **** #if (TRC_CFG_INCLUDE_TIMER_EVENTS == 1 && TRC_CFG_FREERTOS_VERSION >= TRC_FREERTOS_VERSION_10_0_0)
+ 241:source\bsw\TraceRecorder/trcKernelPort.c **** 
+ 242:source\bsw\TraceRecorder/trcKernelPort.c **** 
+ 243:source\bsw\TraceRecorder/trcKernelPort.c **** #endif /* (TRC_CFG_INCLUDE_TIMER_EVENTS == 1 && TRC_CFG_FREERTOS_VERSION >= TRC_FREERTOS_VERSION_10
+ 244:source\bsw\TraceRecorder/trcKernelPort.c **** 
+ 245:source\bsw\TraceRecorder/trcKernelPort.c **** #if (TRC_CFG_INCLUDE_EVENT_GROUP_EVENTS == 1 && TRC_CFG_FREERTOS_VERSION >= TRC_FREERTOS_VERSION_10
+ 246:source\bsw\TraceRecorder/trcKernelPort.c **** 
+ 247:source\bsw\TraceRecorder/trcKernelPort.c **** uint16_t prvTraceGetEventGroupNumberLow16(void* handle)
+ 248:source\bsw\TraceRecorder/trcKernelPort.c **** {
+ 249:source\bsw\TraceRecorder/trcKernelPort.c **** 	return TRACE_GET_LOW16(uxEventGroupGetNumber(handle));
+ 250:source\bsw\TraceRecorder/trcKernelPort.c **** }
+ 251:source\bsw\TraceRecorder/trcKernelPort.c **** 
+ 252:source\bsw\TraceRecorder/trcKernelPort.c **** uint16_t prvTraceGetEventGroupNumberHigh16(void* handle)
+ 253:source\bsw\TraceRecorder/trcKernelPort.c **** {
+ 254:source\bsw\TraceRecorder/trcKernelPort.c **** 	return TRACE_GET_HIGH16(uxEventGroupGetNumber(handle));
+ 255:source\bsw\TraceRecorder/trcKernelPort.c **** }
+ 256:source\bsw\TraceRecorder/trcKernelPort.c **** 
+ 257:source\bsw\TraceRecorder/trcKernelPort.c **** void prvTraceSetEventGroupNumberLow16(void* handle, uint16_t value)
+ 258:source\bsw\TraceRecorder/trcKernelPort.c **** {
+ 259:source\bsw\TraceRecorder/trcKernelPort.c **** 	vEventGroupSetNumber(handle, TRACE_SET_LOW16(uxEventGroupGetNumber(handle), value));
+ 260:source\bsw\TraceRecorder/trcKernelPort.c **** }
+ 261:source\bsw\TraceRecorder/trcKernelPort.c **** 
+ 262:source\bsw\TraceRecorder/trcKernelPort.c **** void prvTraceSetEventGroupNumberHigh16(void* handle, uint16_t value)
+ 263:source\bsw\TraceRecorder/trcKernelPort.c **** {
+ARM GAS  C:\Users\MATEOC~1.QUE\AppData\Local\Temp\ccGACnuM.s 			page 8
+
+
+ 264:source\bsw\TraceRecorder/trcKernelPort.c **** 	vEventGroupSetNumber(handle, TRACE_SET_HIGH16(uxEventGroupGetNumber(handle), value));
+ 265:source\bsw\TraceRecorder/trcKernelPort.c **** }
+ 266:source\bsw\TraceRecorder/trcKernelPort.c **** #endif /* (TRC_CFG_INCLUDE_EVENT_GROUP_EVENTS == 1 && TRC_CFG_FREERTOS_VERSION >= TRC_FREERTOS_VERS
+ 267:source\bsw\TraceRecorder/trcKernelPort.c **** 
+ 268:source\bsw\TraceRecorder/trcKernelPort.c **** #if (TRC_CFG_INCLUDE_STREAM_BUFFER_EVENTS == 1 && TRC_CFG_FREERTOS_VERSION >= TRC_FREERTOS_VERSION_
+ 269:source\bsw\TraceRecorder/trcKernelPort.c **** 
+ 270:source\bsw\TraceRecorder/trcKernelPort.c **** uint16_t prvTraceGetStreamBufferNumberLow16(void* handle)
+ 271:source\bsw\TraceRecorder/trcKernelPort.c **** {
+ 272:source\bsw\TraceRecorder/trcKernelPort.c **** 	return TRACE_GET_LOW16(uxStreamBufferGetStreamBufferNumber(handle));
+ 273:source\bsw\TraceRecorder/trcKernelPort.c **** }
+ 274:source\bsw\TraceRecorder/trcKernelPort.c **** 
+ 275:source\bsw\TraceRecorder/trcKernelPort.c **** uint16_t prvTraceGetStreamBufferNumberHigh16(void* handle)
+ 276:source\bsw\TraceRecorder/trcKernelPort.c **** {
+ 277:source\bsw\TraceRecorder/trcKernelPort.c **** 	return TRACE_GET_HIGH16(uxStreamBufferGetStreamBufferNumber(handle));
+ 278:source\bsw\TraceRecorder/trcKernelPort.c **** }
+ 279:source\bsw\TraceRecorder/trcKernelPort.c **** 
+ 280:source\bsw\TraceRecorder/trcKernelPort.c **** void prvTraceSetStreamBufferNumberLow16(void* handle, uint16_t value)
+ 281:source\bsw\TraceRecorder/trcKernelPort.c **** {
+ 282:source\bsw\TraceRecorder/trcKernelPort.c **** 	vStreamBufferSetStreamBufferNumber(handle, TRACE_SET_LOW16(uxStreamBufferGetStreamBufferNumber(han
+ 283:source\bsw\TraceRecorder/trcKernelPort.c **** }
+ 284:source\bsw\TraceRecorder/trcKernelPort.c **** 
+ 285:source\bsw\TraceRecorder/trcKernelPort.c **** void prvTraceSetStreamBufferNumberHigh16(void* handle, uint16_t value)
+ 286:source\bsw\TraceRecorder/trcKernelPort.c **** {
+ 287:source\bsw\TraceRecorder/trcKernelPort.c **** 	vStreamBufferSetStreamBufferNumber(handle, TRACE_SET_HIGH16(uxStreamBufferGetStreamBufferNumber(ha
+ 288:source\bsw\TraceRecorder/trcKernelPort.c **** }
+ 289:source\bsw\TraceRecorder/trcKernelPort.c **** #endif /* (TRC_CFG_INCLUDE_STREAM_BUFFER_EVENTS == 1 && TRC_CFG_FREERTOS_VERSION >= TRC_FREERTOS_VE
+ 290:source\bsw\TraceRecorder/trcKernelPort.c **** 
+ 291:source\bsw\TraceRecorder/trcKernelPort.c **** #if (TRC_CFG_RECORDER_MODE == TRC_RECORDER_MODE_STREAMING)
+ 292:source\bsw\TraceRecorder/trcKernelPort.c **** 	
+ 293:source\bsw\TraceRecorder/trcKernelPort.c **** //static void* pCurrentTCB = NULL; ERIKA OS Changes
+ 294:source\bsw\TraceRecorder/trcKernelPort.c **** #if (defined(configENABLE_BACKWARD_COMPATIBILITY) && configENABLE_BACKWARD_COMPATIBILITY == 0)
+ 295:source\bsw\TraceRecorder/trcKernelPort.c **** /* We're explicitly not using compatibility mode */
+ 296:source\bsw\TraceRecorder/trcKernelPort.c **** static TaskHandle_t HandleTzCtrl = NULL;       /* TzCtrl task TCB */
+ 297:source\bsw\TraceRecorder/trcKernelPort.c **** #else
+ 298:source\bsw\TraceRecorder/trcKernelPort.c **** /* We're using compatibility mode, or we're running an old kernel */
+ 299:source\bsw\TraceRecorder/trcKernelPort.c **** //static xTaskHandle HandleTzCtrl = NULL;       /* TzCtrl task TCB */
+ 300:source\bsw\TraceRecorder/trcKernelPort.c **** #endif
+ 301:source\bsw\TraceRecorder/trcKernelPort.c **** 
+ 302:source\bsw\TraceRecorder/trcKernelPort.c **** #if defined(configSUPPORT_STATIC_ALLOCATION)
+ 303:source\bsw\TraceRecorder/trcKernelPort.c **** #if (configSUPPORT_STATIC_ALLOCATION == 1)
+ 304:source\bsw\TraceRecorder/trcKernelPort.c **** static StackType_t stackTzCtrl[TRC_CFG_CTRL_TASK_STACK_SIZE];
+ 305:source\bsw\TraceRecorder/trcKernelPort.c **** static StaticTask_t tcbTzCtrl;
+ 306:source\bsw\TraceRecorder/trcKernelPort.c **** #endif
+ 307:source\bsw\TraceRecorder/trcKernelPort.c **** #endif
+ 308:source\bsw\TraceRecorder/trcKernelPort.c **** 
+ 309:source\bsw\TraceRecorder/trcKernelPort.c **** /* Monitored by TzCtrl task, that give warnings as User Events */
+ 310:source\bsw\TraceRecorder/trcKernelPort.c **** extern volatile uint32_t NoRoomForSymbol;
+ 311:source\bsw\TraceRecorder/trcKernelPort.c **** extern volatile uint32_t NoRoomForObjectData;
+ 312:source\bsw\TraceRecorder/trcKernelPort.c **** extern volatile uint32_t LongestSymbolName;
+ 313:source\bsw\TraceRecorder/trcKernelPort.c **** extern volatile uint32_t MaxBytesTruncated;
+ 314:source\bsw\TraceRecorder/trcKernelPort.c **** 
+ 315:source\bsw\TraceRecorder/trcKernelPort.c **** /* Keeps track of previous values, to only react on changes. */
+ 316:source\bsw\TraceRecorder/trcKernelPort.c **** static uint32_t NoRoomForSymbol_last = 0;
+ 317:source\bsw\TraceRecorder/trcKernelPort.c **** static uint32_t NoRoomForObjectData_last = 0;
+ 318:source\bsw\TraceRecorder/trcKernelPort.c **** static uint32_t LongestSymbolName_last = 0;
+ 319:source\bsw\TraceRecorder/trcKernelPort.c **** static uint32_t MaxBytesTruncated_last = 0;
+ 320:source\bsw\TraceRecorder/trcKernelPort.c **** 
+ARM GAS  C:\Users\MATEOC~1.QUE\AppData\Local\Temp\ccGACnuM.s 			page 9
+
+
+ 321:source\bsw\TraceRecorder/trcKernelPort.c **** /* User Event Channel for giving warnings regarding NoRoomForSymbol etc. */
+ 322:source\bsw\TraceRecorder/trcKernelPort.c **** traceString trcWarningChannel;
+ 323:source\bsw\TraceRecorder/trcKernelPort.c **** 
+ 324:source\bsw\TraceRecorder/trcKernelPort.c **** #define TRC_PORT_MALLOC(size) pvPortMalloc(size)
+ 325:source\bsw\TraceRecorder/trcKernelPort.c **** 
+ 326:source\bsw\TraceRecorder/trcKernelPort.c **** TRC_STREAM_PORT_ALLOCATE_FIELDS()
+ 327:source\bsw\TraceRecorder/trcKernelPort.c **** 
+ 328:source\bsw\TraceRecorder/trcKernelPort.c **** 
+ 329:source\bsw\TraceRecorder/trcKernelPort.c **** 
+ 330:source\bsw\TraceRecorder/trcKernelPort.c **** extern void prvTraceWarning(int errCode);
+ 331:source\bsw\TraceRecorder/trcKernelPort.c **** 
+ 332:source\bsw\TraceRecorder/trcKernelPort.c **** 
+ 333:source\bsw\TraceRecorder/trcKernelPort.c **** //static portTASK_FUNCTION( TzCtrl, pvParameters ); //ERIKA OS Changes This is declaration of Trz_C
+ 334:source\bsw\TraceRecorder/trcKernelPort.c **** 
+ 335:source\bsw\TraceRecorder/trcKernelPort.c **** /*******************************************************************************
+ 336:source\bsw\TraceRecorder/trcKernelPort.c ****  * vTraceEnable
+ 337:source\bsw\TraceRecorder/trcKernelPort.c ****  *
+ 338:source\bsw\TraceRecorder/trcKernelPort.c ****  * Function that enables the tracing and creates the control task. It will halt
+ 339:source\bsw\TraceRecorder/trcKernelPort.c ****  * execution until a Start command has been received if haltUntilStart is true.
+ 340:source\bsw\TraceRecorder/trcKernelPort.c ****  *
+ 341:source\bsw\TraceRecorder/trcKernelPort.c ****  ******************************************************************************/
+ 342:source\bsw\TraceRecorder/trcKernelPort.c **** void vTraceEnable(int startOption)
+ 343:source\bsw\TraceRecorder/trcKernelPort.c **** {
+ 137              		.loc 1 343 0
+ 138              		.cfi_startproc
+ 139              		@ args = 0, pretend = 0, frame = 16
+ 140              		@ frame_needed = 0, uses_anonymous_args = 0
+ 141              	.LVL7:
+ 142              		.loc 1 343 0
+ 143 0000 10B5     		push	{r4, lr}
+ 144              		.cfi_def_cfa_offset 8
+ 145              		.cfi_offset 4, -8
+ 146              		.cfi_offset 14, -4
+ 147 0002 84B0     		sub	sp, sp, #16
+ 148              		.cfi_def_cfa_offset 24
+ 149 0004 0446     		mov	r4, r0
+ 344:source\bsw\TraceRecorder/trcKernelPort.c **** 	int32_t bytes = 0;
+ 150              		.loc 1 344 0
+ 151 0006 0023     		movs	r3, #0
+ 152 0008 0393     		str	r3, [sp, #12]
+ 345:source\bsw\TraceRecorder/trcKernelPort.c **** 	int32_t status;
+ 346:source\bsw\TraceRecorder/trcKernelPort.c **** 	extern uint32_t RecorderEnabled;
+ 347:source\bsw\TraceRecorder/trcKernelPort.c **** 	TracealyzerCommandType msg;
+ 348:source\bsw\TraceRecorder/trcKernelPort.c **** 
+ 349:source\bsw\TraceRecorder/trcKernelPort.c **** 	/* Only do this first time...*/
+ 350:source\bsw\TraceRecorder/trcKernelPort.c **** 	//if (HandleTzCtrl == NULL)
+ 351:source\bsw\TraceRecorder/trcKernelPort.c **** 	//{
+ 352:source\bsw\TraceRecorder/trcKernelPort.c **** 		TRC_STREAM_PORT_INIT();
+ 153              		.loc 1 352 0
+ 154 000a FFF7FEFF 		bl	trcUART_init
+ 155              	.LVL8:
+ 353:source\bsw\TraceRecorder/trcKernelPort.c **** 		
+ 354:source\bsw\TraceRecorder/trcKernelPort.c **** 		/* Note: Requires that TRC_CFG_INCLUDE_USER_EVENTS is 1. */
+ 355:source\bsw\TraceRecorder/trcKernelPort.c **** 		trcWarningChannel = xTraceRegisterString("Warnings from Recorder");
+ 156              		.loc 1 355 0
+ 157 000e 1F48     		ldr	r0, .L16
+ 158 0010 FFF7FEFF 		bl	xTraceRegisterString
+ARM GAS  C:\Users\MATEOC~1.QUE\AppData\Local\Temp\ccGACnuM.s 			page 10
+
+
+ 159              	.LVL9:
+ 160 0014 1E4B     		ldr	r3, .L16+4
+ 161 0016 1860     		str	r0, [r3]
+ 356:source\bsw\TraceRecorder/trcKernelPort.c **** 
+ 357:source\bsw\TraceRecorder/trcKernelPort.c **** 		/* Creates the TzCtrl task - receives trace commands (start, stop, ...) */
+ 358:source\bsw\TraceRecorder/trcKernelPort.c **** 		#if defined(configSUPPORT_STATIC_ALLOCATION) && (configSUPPORT_STATIC_ALLOCATION == 1)
+ 359:source\bsw\TraceRecorder/trcKernelPort.c **** 		HandleTzCtrl = xTaskCreateStatic(TzCtrl, STRING_CAST("TzCtrl"), TRC_CFG_CTRL_TASK_STACK_SIZE, NUL
+ 360:source\bsw\TraceRecorder/trcKernelPort.c **** 		#else
+ 361:source\bsw\TraceRecorder/trcKernelPort.c **** 		//xTaskCreate( TzCtrl, STRING_CAST("TzCtrl"), TRC_CFG_CTRL_TASK_STACK_SIZE, NULL, TRC_CFG_CTRL_TA
+ 362:source\bsw\TraceRecorder/trcKernelPort.c **** 		#endif
+ 363:source\bsw\TraceRecorder/trcKernelPort.c **** 
+ 364:source\bsw\TraceRecorder/trcKernelPort.c **** 		//if (HandleTzCtrl == NULL)
+ 365:source\bsw\TraceRecorder/trcKernelPort.c **** 		//{
+ 366:source\bsw\TraceRecorder/trcKernelPort.c **** 		//	prvTraceError(PSF_ERROR_TZCTRLTASK_NOT_CREATED);
+ 367:source\bsw\TraceRecorder/trcKernelPort.c **** 		//}
+ 368:source\bsw\TraceRecorder/trcKernelPort.c **** 	//}
+ 369:source\bsw\TraceRecorder/trcKernelPort.c **** 
+ 370:source\bsw\TraceRecorder/trcKernelPort.c **** 	if (startOption == TRC_START_AWAIT_HOST)
+ 162              		.loc 1 370 0
+ 163 0018 022C     		cmp	r4, #2
+ 164 001a 26D1     		bne	.L8
+ 165              	.LVL10:
+ 166              	.L12:
+ 371:source\bsw\TraceRecorder/trcKernelPort.c **** 	{
+ 372:source\bsw\TraceRecorder/trcKernelPort.c **** 		/* We keep trying to read commands until the recorder has been started */
+ 373:source\bsw\TraceRecorder/trcKernelPort.c **** 		do
+ 374:source\bsw\TraceRecorder/trcKernelPort.c **** 		{
+ 375:source\bsw\TraceRecorder/trcKernelPort.c **** 			bytes = 0;
+ 167              		.loc 1 375 0
+ 168 001c 04AA     		add	r2, sp, #16
+ 169 001e 0023     		movs	r3, #0
+ 170 0020 42F8043D 		str	r3, [r2, #-4]!
+ 376:source\bsw\TraceRecorder/trcKernelPort.c **** 			
+ 377:source\bsw\TraceRecorder/trcKernelPort.c **** 			status = TRC_STREAM_PORT_READ_DATA(&msg, sizeof(TracealyzerCommandType), (int32_t*)&bytes);
+ 171              		.loc 1 377 0
+ 172 0024 0821     		movs	r1, #8
+ 173 0026 01A8     		add	r0, sp, #4
+ 174 0028 FFF7FEFF 		bl	trcUARTReceive
+ 175              	.LVL11:
+ 378:source\bsw\TraceRecorder/trcKernelPort.c **** 			
+ 379:source\bsw\TraceRecorder/trcKernelPort.c **** 			if (status != 0)
+ 176              		.loc 1 379 0
+ 177 002c 0446     		mov	r4, r0
+ 178 002e 10B1     		cbz	r0, .L9
+ 380:source\bsw\TraceRecorder/trcKernelPort.c **** 			{
+ 381:source\bsw\TraceRecorder/trcKernelPort.c **** 				prvTraceWarning(PSF_WARNING_STREAM_PORT_READ);
+ 179              		.loc 1 381 0
+ 180 0030 6920     		movs	r0, #105
+ 181              	.LVL12:
+ 182 0032 FFF7FEFF 		bl	prvTraceWarning
+ 183              	.LVL13:
+ 184              	.L9:
+ 382:source\bsw\TraceRecorder/trcKernelPort.c **** 			}
+ 383:source\bsw\TraceRecorder/trcKernelPort.c **** 
+ 384:source\bsw\TraceRecorder/trcKernelPort.c **** 			if ((status == 0) && (bytes == sizeof(TracealyzerCommandType)))
+ 185              		.loc 1 384 0
+ 186 0036 9CB9     		cbnz	r4, .L10
+ARM GAS  C:\Users\MATEOC~1.QUE\AppData\Local\Temp\ccGACnuM.s 			page 11
+
+
+ 187              		.loc 1 384 0 is_stmt 0 discriminator 1
+ 188 0038 039B     		ldr	r3, [sp, #12]
+ 189 003a 082B     		cmp	r3, #8
+ 190 003c 10D1     		bne	.L10
+ 385:source\bsw\TraceRecorder/trcKernelPort.c **** 			{
+ 386:source\bsw\TraceRecorder/trcKernelPort.c **** 				if (prvIsValidCommand(&msg))
+ 191              		.loc 1 386 0 is_stmt 1
+ 192 003e 01A8     		add	r0, sp, #4
+ 193 0040 FFF7FEFF 		bl	prvIsValidCommand
+ 194              	.LVL14:
+ 195 0044 60B1     		cbz	r0, .L10
+ 387:source\bsw\TraceRecorder/trcKernelPort.c **** 				{
+ 388:source\bsw\TraceRecorder/trcKernelPort.c **** 					if (msg.cmdCode == CMD_SET_ACTIVE && msg.param1 == 1)
+ 196              		.loc 1 388 0
+ 197 0046 9DF80430 		ldrb	r3, [sp, #4]	@ zero_extendqisi2
+ 198 004a 012B     		cmp	r3, #1
+ 199 004c 05D1     		bne	.L11
+ 200              		.loc 1 388 0 is_stmt 0 discriminator 1
+ 201 004e 9DF80530 		ldrb	r3, [sp, #5]	@ zero_extendqisi2
+ 202 0052 012B     		cmp	r3, #1
+ 203 0054 01D1     		bne	.L11
+ 389:source\bsw\TraceRecorder/trcKernelPort.c **** 					{
+ 390:source\bsw\TraceRecorder/trcKernelPort.c **** 						/* On start, init and reset the timestamping */
+ 391:source\bsw\TraceRecorder/trcKernelPort.c **** 						TRC_PORT_SPECIFIC_INIT();
+ 204              		.loc 1 391 0 is_stmt 1
+ 205 0056 FFF7FEFF 		bl	prvTraceInitCortexM
+ 206              	.LVL15:
+ 207              	.L11:
+ 392:source\bsw\TraceRecorder/trcKernelPort.c **** 					}
+ 393:source\bsw\TraceRecorder/trcKernelPort.c **** 					
+ 394:source\bsw\TraceRecorder/trcKernelPort.c **** 					prvProcessCommand(&msg);
+ 208              		.loc 1 394 0
+ 209 005a 01A8     		add	r0, sp, #4
+ 210 005c FFF7FEFF 		bl	prvProcessCommand
+ 211              	.LVL16:
+ 212              	.L10:
+ 395:source\bsw\TraceRecorder/trcKernelPort.c **** 				}
+ 396:source\bsw\TraceRecorder/trcKernelPort.c **** 			}
+ 397:source\bsw\TraceRecorder/trcKernelPort.c **** 		}
+ 398:source\bsw\TraceRecorder/trcKernelPort.c **** 		while (RecorderEnabled == 0);
+ 213              		.loc 1 398 0
+ 214 0060 0C4B     		ldr	r3, .L16+8
+ 215 0062 1B68     		ldr	r3, [r3]
+ 216 0064 002B     		cmp	r3, #0
+ 217 0066 D9D0     		beq	.L12
+ 218 0068 0EE0     		b	.L7
+ 219              	.LVL17:
+ 220              	.L8:
+ 399:source\bsw\TraceRecorder/trcKernelPort.c **** 	}
+ 400:source\bsw\TraceRecorder/trcKernelPort.c **** 	else if (startOption == TRC_START)
+ 221              		.loc 1 400 0
+ 222 006a 012C     		cmp	r4, #1
+ 223 006c 0AD1     		bne	.L14
+ 401:source\bsw\TraceRecorder/trcKernelPort.c **** 	{
+ 402:source\bsw\TraceRecorder/trcKernelPort.c **** 		/* We start streaming directly - this assumes that the interface is ready! */
+ 403:source\bsw\TraceRecorder/trcKernelPort.c **** 		TRC_PORT_SPECIFIC_INIT();
+ 224              		.loc 1 403 0
+ARM GAS  C:\Users\MATEOC~1.QUE\AppData\Local\Temp\ccGACnuM.s 			page 12
+
+
+ 225 006e FFF7FEFF 		bl	prvTraceInitCortexM
+ 226              	.LVL18:
+ 404:source\bsw\TraceRecorder/trcKernelPort.c **** 		
+ 405:source\bsw\TraceRecorder/trcKernelPort.c **** 		msg.cmdCode = CMD_SET_ACTIVE;
+ 227              		.loc 1 405 0
+ 228 0072 0123     		movs	r3, #1
+ 229 0074 8DF80430 		strb	r3, [sp, #4]
+ 406:source\bsw\TraceRecorder/trcKernelPort.c **** 		msg.param1 = 1;
+ 230              		.loc 1 406 0
+ 231 0078 8DF80530 		strb	r3, [sp, #5]
+ 407:source\bsw\TraceRecorder/trcKernelPort.c **** 		prvProcessCommand(&msg);
+ 232              		.loc 1 407 0
+ 233 007c 01A8     		add	r0, sp, #4
+ 234 007e FFF7FEFF 		bl	prvProcessCommand
+ 235              	.LVL19:
+ 236 0082 01E0     		b	.L7
+ 237              	.L14:
+ 408:source\bsw\TraceRecorder/trcKernelPort.c **** 	}
+ 409:source\bsw\TraceRecorder/trcKernelPort.c **** 	else
+ 410:source\bsw\TraceRecorder/trcKernelPort.c **** 	{
+ 411:source\bsw\TraceRecorder/trcKernelPort.c **** 		/* On TRC_INIT */
+ 412:source\bsw\TraceRecorder/trcKernelPort.c **** 		TRC_PORT_SPECIFIC_INIT();
+ 238              		.loc 1 412 0
+ 239 0084 FFF7FEFF 		bl	prvTraceInitCortexM
+ 240              	.LVL20:
+ 241              	.L7:
+ 413:source\bsw\TraceRecorder/trcKernelPort.c **** 	}
+ 414:source\bsw\TraceRecorder/trcKernelPort.c **** }
+ 242              		.loc 1 414 0
+ 243 0088 04B0     		add	sp, sp, #16
+ 244              		.cfi_def_cfa_offset 8
+ 245              		@ sp needed
+ 246 008a 10BD     		pop	{r4, pc}
+ 247              	.L17:
+ 248              		.align	2
+ 249              	.L16:
+ 250 008c 00000000 		.word	.LC0
+ 251 0090 00000000 		.word	trcWarningChannel
+ 252 0094 00000000 		.word	RecorderEnabled
+ 253              		.cfi_endproc
+ 254              	.LFE116:
+ 255              		.size	vTraceEnable, .-vTraceEnable
+ 256              		.section	.text.vTraceSetQueueName,"ax",%progbits
+ 257              		.align	2
+ 258              		.global	vTraceSetQueueName
+ 259              		.thumb
+ 260              		.thumb_func
+ 261              		.type	vTraceSetQueueName, %function
+ 262              	vTraceSetQueueName:
+ 263              	.LFB117:
+ 415:source\bsw\TraceRecorder/trcKernelPort.c **** 
+ 416:source\bsw\TraceRecorder/trcKernelPort.c **** #if (TRC_CFG_SCHEDULING_ONLY == 0)
+ 417:source\bsw\TraceRecorder/trcKernelPort.c **** /*******************************************************************************
+ 418:source\bsw\TraceRecorder/trcKernelPort.c ****  * vTraceSetQueueName(void* object, const char* name)
+ 419:source\bsw\TraceRecorder/trcKernelPort.c ****  *
+ 420:source\bsw\TraceRecorder/trcKernelPort.c ****  * Parameter object: pointer to the Queue that shall be named
+ 421:source\bsw\TraceRecorder/trcKernelPort.c ****  * Parameter name: the name to set (const string literal)
+ARM GAS  C:\Users\MATEOC~1.QUE\AppData\Local\Temp\ccGACnuM.s 			page 13
+
+
+ 422:source\bsw\TraceRecorder/trcKernelPort.c ****  *
+ 423:source\bsw\TraceRecorder/trcKernelPort.c ****  * Sets a name for Queue objects for display in Tracealyzer.
+ 424:source\bsw\TraceRecorder/trcKernelPort.c ****  ******************************************************************************/
+ 425:source\bsw\TraceRecorder/trcKernelPort.c **** void vTraceSetQueueName(void* object, const char* name)
+ 426:source\bsw\TraceRecorder/trcKernelPort.c **** {
+ 264              		.loc 1 426 0
+ 265              		.cfi_startproc
+ 266              		@ args = 0, pretend = 0, frame = 0
+ 267              		@ frame_needed = 0, uses_anonymous_args = 0
+ 268              	.LVL21:
+ 269 0000 08B5     		push	{r3, lr}
+ 270              		.cfi_def_cfa_offset 8
+ 271              		.cfi_offset 3, -8
+ 272              		.cfi_offset 14, -4
+ 427:source\bsw\TraceRecorder/trcKernelPort.c **** 	vTraceStoreKernelObjectName(object, name);
+ 273              		.loc 1 427 0
+ 274 0002 FFF7FEFF 		bl	vTraceStoreKernelObjectName
+ 275              	.LVL22:
+ 276 0006 08BD     		pop	{r3, pc}
+ 277              		.cfi_endproc
+ 278              	.LFE117:
+ 279              		.size	vTraceSetQueueName, .-vTraceSetQueueName
+ 280              		.section	.text.vTraceSetSemaphoreName,"ax",%progbits
+ 281              		.align	2
+ 282              		.global	vTraceSetSemaphoreName
+ 283              		.thumb
+ 284              		.thumb_func
+ 285              		.type	vTraceSetSemaphoreName, %function
+ 286              	vTraceSetSemaphoreName:
+ 287              	.LFB118:
+ 428:source\bsw\TraceRecorder/trcKernelPort.c **** }
+ 429:source\bsw\TraceRecorder/trcKernelPort.c **** 
+ 430:source\bsw\TraceRecorder/trcKernelPort.c **** /*******************************************************************************
+ 431:source\bsw\TraceRecorder/trcKernelPort.c ****  * vTraceSetSemaphoreName(void* object, const char* name)
+ 432:source\bsw\TraceRecorder/trcKernelPort.c ****  *
+ 433:source\bsw\TraceRecorder/trcKernelPort.c ****  * Parameter object: pointer to the Semaphore that shall be named
+ 434:source\bsw\TraceRecorder/trcKernelPort.c ****  * Parameter name: the name to set (const string literal)
+ 435:source\bsw\TraceRecorder/trcKernelPort.c ****  *
+ 436:source\bsw\TraceRecorder/trcKernelPort.c ****  * Sets a name for Semaphore objects for display in Tracealyzer.
+ 437:source\bsw\TraceRecorder/trcKernelPort.c ****  ******************************************************************************/
+ 438:source\bsw\TraceRecorder/trcKernelPort.c **** void vTraceSetSemaphoreName(void* object, const char* name)
+ 439:source\bsw\TraceRecorder/trcKernelPort.c **** {
+ 288              		.loc 1 439 0
+ 289              		.cfi_startproc
+ 290              		@ args = 0, pretend = 0, frame = 0
+ 291              		@ frame_needed = 0, uses_anonymous_args = 0
+ 292              	.LVL23:
+ 293 0000 08B5     		push	{r3, lr}
+ 294              		.cfi_def_cfa_offset 8
+ 295              		.cfi_offset 3, -8
+ 296              		.cfi_offset 14, -4
+ 440:source\bsw\TraceRecorder/trcKernelPort.c **** 	vTraceStoreKernelObjectName(object, name);
+ 297              		.loc 1 440 0
+ 298 0002 FFF7FEFF 		bl	vTraceStoreKernelObjectName
+ 299              	.LVL24:
+ 300 0006 08BD     		pop	{r3, pc}
+ 301              		.cfi_endproc
+ARM GAS  C:\Users\MATEOC~1.QUE\AppData\Local\Temp\ccGACnuM.s 			page 14
+
+
+ 302              	.LFE118:
+ 303              		.size	vTraceSetSemaphoreName, .-vTraceSetSemaphoreName
+ 304              		.section	.text.vTraceSetMutexName,"ax",%progbits
+ 305              		.align	2
+ 306              		.global	vTraceSetMutexName
+ 307              		.thumb
+ 308              		.thumb_func
+ 309              		.type	vTraceSetMutexName, %function
+ 310              	vTraceSetMutexName:
+ 311              	.LFB119:
+ 441:source\bsw\TraceRecorder/trcKernelPort.c **** }
+ 442:source\bsw\TraceRecorder/trcKernelPort.c **** 
+ 443:source\bsw\TraceRecorder/trcKernelPort.c **** /*******************************************************************************
+ 444:source\bsw\TraceRecorder/trcKernelPort.c ****  * vTraceSetMutexName(void* object, const char* name)
+ 445:source\bsw\TraceRecorder/trcKernelPort.c ****  *
+ 446:source\bsw\TraceRecorder/trcKernelPort.c ****  * Parameter object: pointer to the Mutex that shall be named
+ 447:source\bsw\TraceRecorder/trcKernelPort.c ****  * Parameter name: the name to set (const string literal)
+ 448:source\bsw\TraceRecorder/trcKernelPort.c ****  *
+ 449:source\bsw\TraceRecorder/trcKernelPort.c ****  * Sets a name for Mutex objects for display in Tracealyzer.
+ 450:source\bsw\TraceRecorder/trcKernelPort.c ****  ******************************************************************************/
+ 451:source\bsw\TraceRecorder/trcKernelPort.c **** void vTraceSetMutexName(void* object, const char* name)
+ 452:source\bsw\TraceRecorder/trcKernelPort.c **** {
+ 312              		.loc 1 452 0
+ 313              		.cfi_startproc
+ 314              		@ args = 0, pretend = 0, frame = 0
+ 315              		@ frame_needed = 0, uses_anonymous_args = 0
+ 316              	.LVL25:
+ 317 0000 08B5     		push	{r3, lr}
+ 318              		.cfi_def_cfa_offset 8
+ 319              		.cfi_offset 3, -8
+ 320              		.cfi_offset 14, -4
+ 453:source\bsw\TraceRecorder/trcKernelPort.c **** 	vTraceStoreKernelObjectName(object, name);
+ 321              		.loc 1 453 0
+ 322 0002 FFF7FEFF 		bl	vTraceStoreKernelObjectName
+ 323              	.LVL26:
+ 324 0006 08BD     		pop	{r3, pc}
+ 325              		.cfi_endproc
+ 326              	.LFE119:
+ 327              		.size	vTraceSetMutexName, .-vTraceSetMutexName
+ 328              		.section	.text.prvTraceIsSchedulerSuspended,"ax",%progbits
+ 329              		.align	2
+ 330              		.global	prvTraceIsSchedulerSuspended
+ 331              		.thumb
+ 332              		.thumb_func
+ 333              		.type	prvTraceIsSchedulerSuspended, %function
+ 334              	prvTraceIsSchedulerSuspended:
+ 335              	.LFB120:
+ 454:source\bsw\TraceRecorder/trcKernelPort.c **** }
+ 455:source\bsw\TraceRecorder/trcKernelPort.c **** 
+ 456:source\bsw\TraceRecorder/trcKernelPort.c **** #if (TRC_CFG_INCLUDE_EVENT_GROUP_EVENTS == 1 && TRC_CFG_FREERTOS_VERSION >= TRC_FREERTOS_VERSION_8_
+ 457:source\bsw\TraceRecorder/trcKernelPort.c **** /*******************************************************************************
+ 458:source\bsw\TraceRecorder/trcKernelPort.c **** * vTraceSetEventGroupName(void* object, const char* name)
+ 459:source\bsw\TraceRecorder/trcKernelPort.c **** *
+ 460:source\bsw\TraceRecorder/trcKernelPort.c **** * Parameter object: pointer to the vTraceSetEventGroupName that shall be named
+ 461:source\bsw\TraceRecorder/trcKernelPort.c **** * Parameter name: the name to set (const string literal)
+ 462:source\bsw\TraceRecorder/trcKernelPort.c **** *
+ 463:source\bsw\TraceRecorder/trcKernelPort.c **** * Sets a name for EventGroup objects for display in Tracealyzer.
+ARM GAS  C:\Users\MATEOC~1.QUE\AppData\Local\Temp\ccGACnuM.s 			page 15
+
+
+ 464:source\bsw\TraceRecorder/trcKernelPort.c **** ******************************************************************************/
+ 465:source\bsw\TraceRecorder/trcKernelPort.c **** void vTraceSetEventGroupName(void* object, const char* name)
+ 466:source\bsw\TraceRecorder/trcKernelPort.c **** {
+ 467:source\bsw\TraceRecorder/trcKernelPort.c **** 	vTraceStoreKernelObjectName(object, name);
+ 468:source\bsw\TraceRecorder/trcKernelPort.c **** }
+ 469:source\bsw\TraceRecorder/trcKernelPort.c **** #endif /* (TRC_CFG_INCLUDE_EVENT_GROUP_EVENTS == 1 && TRC_CFG_FREERTOS_VERSION >= TRC_FREERTOS_VERS
+ 470:source\bsw\TraceRecorder/trcKernelPort.c **** 
+ 471:source\bsw\TraceRecorder/trcKernelPort.c **** #if (TRC_CFG_INCLUDE_STREAM_BUFFER_EVENTS == 1 && TRC_CFG_FREERTOS_VERSION >= TRC_FREERTOS_VERSION_
+ 472:source\bsw\TraceRecorder/trcKernelPort.c **** /*******************************************************************************
+ 473:source\bsw\TraceRecorder/trcKernelPort.c **** * vTraceSetStreamBufferName(void* object, const char* name)
+ 474:source\bsw\TraceRecorder/trcKernelPort.c **** *
+ 475:source\bsw\TraceRecorder/trcKernelPort.c **** * Parameter object: pointer to the StreamBuffer that shall be named
+ 476:source\bsw\TraceRecorder/trcKernelPort.c **** * Parameter name: the name to set (const string literal)
+ 477:source\bsw\TraceRecorder/trcKernelPort.c **** *
+ 478:source\bsw\TraceRecorder/trcKernelPort.c **** * Sets a name for StreamBuffer objects for display in Tracealyzer.
+ 479:source\bsw\TraceRecorder/trcKernelPort.c **** ******************************************************************************/
+ 480:source\bsw\TraceRecorder/trcKernelPort.c **** void vTraceSetStreamBufferName(void* object, const char* name)
+ 481:source\bsw\TraceRecorder/trcKernelPort.c **** {
+ 482:source\bsw\TraceRecorder/trcKernelPort.c **** 	vTraceStoreKernelObjectName(object, name);
+ 483:source\bsw\TraceRecorder/trcKernelPort.c **** }
+ 484:source\bsw\TraceRecorder/trcKernelPort.c **** 
+ 485:source\bsw\TraceRecorder/trcKernelPort.c **** /*******************************************************************************
+ 486:source\bsw\TraceRecorder/trcKernelPort.c **** * vTraceSetMessageBufferName(void* object, const char* name)
+ 487:source\bsw\TraceRecorder/trcKernelPort.c **** *
+ 488:source\bsw\TraceRecorder/trcKernelPort.c **** * Parameter object: pointer to the MessageBuffer that shall be named
+ 489:source\bsw\TraceRecorder/trcKernelPort.c **** * Parameter name: the name to set (const string literal)
+ 490:source\bsw\TraceRecorder/trcKernelPort.c **** *
+ 491:source\bsw\TraceRecorder/trcKernelPort.c **** * Sets a name for MessageBuffer objects for display in Tracealyzer.
+ 492:source\bsw\TraceRecorder/trcKernelPort.c **** ******************************************************************************/
+ 493:source\bsw\TraceRecorder/trcKernelPort.c **** void vTraceSetMessageBufferName(void* object, const char* name)
+ 494:source\bsw\TraceRecorder/trcKernelPort.c **** {
+ 495:source\bsw\TraceRecorder/trcKernelPort.c **** 	vTraceStoreKernelObjectName(object, name);
+ 496:source\bsw\TraceRecorder/trcKernelPort.c **** }
+ 497:source\bsw\TraceRecorder/trcKernelPort.c **** #endif /* (TRC_CFG_INCLUDE_STREAM_BUFFER_EVENTS == 1 && TRC_CFG_FREERTOS_VERSION >= TRC_FREERTOS_VE
+ 498:source\bsw\TraceRecorder/trcKernelPort.c **** 
+ 499:source\bsw\TraceRecorder/trcKernelPort.c **** #endif /* (TRC_CFG_SCHEDULING_ONLY == 0) */
+ 500:source\bsw\TraceRecorder/trcKernelPort.c **** 
+ 501:source\bsw\TraceRecorder/trcKernelPort.c **** /*******************************************************************************
+ 502:source\bsw\TraceRecorder/trcKernelPort.c ****  * prvTraceIsSchedulerSuspended
+ 503:source\bsw\TraceRecorder/trcKernelPort.c ****  *
+ 504:source\bsw\TraceRecorder/trcKernelPort.c ****  * Returns true if the RTOS scheduler currently is disabled, thus preventing any
+ 505:source\bsw\TraceRecorder/trcKernelPort.c ****  * task-switches from occurring. Only called from vTraceStoreISREnd.
+ 506:source\bsw\TraceRecorder/trcKernelPort.c ****  ******************************************************************************/
+ 507:source\bsw\TraceRecorder/trcKernelPort.c **** unsigned char prvTraceIsSchedulerSuspended(void)
+ 508:source\bsw\TraceRecorder/trcKernelPort.c **** {
+ 336              		.loc 1 508 0
+ 337              		.cfi_startproc
+ 338              		@ args = 0, pretend = 0, frame = 0
+ 339              		@ frame_needed = 0, uses_anonymous_args = 0
+ 340              		@ link register save eliminated.
+ 509:source\bsw\TraceRecorder/trcKernelPort.c ****     /* Assumed to be available in FreeRTOS. According to the FreeRTOS docs, 
+ 510:source\bsw\TraceRecorder/trcKernelPort.c **** 	INCLUDE_xTaskGetSchedulerState or configUSE_TIMERS must be set to 1 in
+ 511:source\bsw\TraceRecorder/trcKernelPort.c **** 	FreeRTOSConfig.h for this function to be available. */
+ 512:source\bsw\TraceRecorder/trcKernelPort.c **** 
+ 513:source\bsw\TraceRecorder/trcKernelPort.c **** 	return 0;   
+ 514:source\bsw\TraceRecorder/trcKernelPort.c **** }  //ERIKA OS Changes,At the moment this function is not necessary as this is used only in interrup
+ 341              		.loc 1 514 0
+ARM GAS  C:\Users\MATEOC~1.QUE\AppData\Local\Temp\ccGACnuM.s 			page 16
+
+
+ 342 0000 0020     		movs	r0, #0
+ 343 0002 7047     		bx	lr
+ 344              		.cfi_endproc
+ 345              	.LFE120:
+ 346              		.size	prvTraceIsSchedulerSuspended, .-prvTraceIsSchedulerSuspended
+ 347              		.section	.text.prvCheckRecorderStatus,"ax",%progbits
+ 348              		.align	2
+ 349              		.global	prvCheckRecorderStatus
+ 350              		.thumb
+ 351              		.thumb_func
+ 352              		.type	prvCheckRecorderStatus, %function
+ 353              	prvCheckRecorderStatus:
+ 354              	.LFB121:
+ 515:source\bsw\TraceRecorder/trcKernelPort.c **** 
+ 516:source\bsw\TraceRecorder/trcKernelPort.c **** 
+ 517:source\bsw\TraceRecorder/trcKernelPort.c **** /*******************************************************************************
+ 518:source\bsw\TraceRecorder/trcKernelPort.c ****  * prvCheckRecorderStatus
+ 519:source\bsw\TraceRecorder/trcKernelPort.c ****  *
+ 520:source\bsw\TraceRecorder/trcKernelPort.c ****  * Called by TzCtrl task periodically (every 100 ms - seems reasonable).
+ 521:source\bsw\TraceRecorder/trcKernelPort.c ****  * Checks a number of diagnostic variables and give warnings as user events,
+ 522:source\bsw\TraceRecorder/trcKernelPort.c ****  * in most cases including a suggested solution.
+ 523:source\bsw\TraceRecorder/trcKernelPort.c ****  ******************************************************************************/
+ 524:source\bsw\TraceRecorder/trcKernelPort.c **** void prvCheckRecorderStatus(void)//ERIKA_Changes_Tx Updated-removed static
+ 525:source\bsw\TraceRecorder/trcKernelPort.c **** {
+ 355              		.loc 1 525 0
+ 356              		.cfi_startproc
+ 357              		@ args = 0, pretend = 0, frame = 0
+ 358              		@ frame_needed = 0, uses_anonymous_args = 0
+ 359 0000 08B5     		push	{r3, lr}
+ 360              		.cfi_def_cfa_offset 8
+ 361              		.cfi_offset 3, -8
+ 362              		.cfi_offset 14, -4
+ 526:source\bsw\TraceRecorder/trcKernelPort.c **** 	if (NoRoomForSymbol > NoRoomForSymbol_last)
+ 363              		.loc 1 526 0
+ 364 0002 214B     		ldr	r3, .L35
+ 365 0004 1A68     		ldr	r2, [r3]
+ 366 0006 214B     		ldr	r3, .L35+4
+ 367 0008 1B68     		ldr	r3, [r3]
+ 368 000a 9A42     		cmp	r2, r3
+ 369 000c 09D9     		bls	.L26
+ 527:source\bsw\TraceRecorder/trcKernelPort.c **** 	{
+ 528:source\bsw\TraceRecorder/trcKernelPort.c **** 		if (NoRoomForSymbol > 0)
+ 370              		.loc 1 528 0
+ 371 000e 1E4B     		ldr	r3, .L35
+ 372 0010 1B68     		ldr	r3, [r3]
+ 373 0012 13B1     		cbz	r3, .L27
+ 529:source\bsw\TraceRecorder/trcKernelPort.c **** 		{
+ 530:source\bsw\TraceRecorder/trcKernelPort.c **** 			prvTraceWarning(PSF_WARNING_SYMBOL_TABLE_SLOTS);
+ 374              		.loc 1 530 0
+ 375 0014 6520     		movs	r0, #101
+ 376 0016 FFF7FEFF 		bl	prvTraceWarning
+ 377              	.LVL27:
+ 378              	.L27:
+ 531:source\bsw\TraceRecorder/trcKernelPort.c **** 		}
+ 532:source\bsw\TraceRecorder/trcKernelPort.c **** 		NoRoomForSymbol_last = NoRoomForSymbol;
+ 379              		.loc 1 532 0
+ 380 001a 1B4B     		ldr	r3, .L35
+ARM GAS  C:\Users\MATEOC~1.QUE\AppData\Local\Temp\ccGACnuM.s 			page 17
+
+
+ 381 001c 1A68     		ldr	r2, [r3]
+ 382 001e 1B4B     		ldr	r3, .L35+4
+ 383 0020 1A60     		str	r2, [r3]
+ 384              	.L26:
+ 533:source\bsw\TraceRecorder/trcKernelPort.c **** 	}
+ 534:source\bsw\TraceRecorder/trcKernelPort.c **** 
+ 535:source\bsw\TraceRecorder/trcKernelPort.c **** 	if (NoRoomForObjectData > NoRoomForObjectData_last)
+ 385              		.loc 1 535 0
+ 386 0022 1B4B     		ldr	r3, .L35+8
+ 387 0024 1A68     		ldr	r2, [r3]
+ 388 0026 194B     		ldr	r3, .L35+4
+ 389 0028 5B68     		ldr	r3, [r3, #4]
+ 390 002a 9A42     		cmp	r2, r3
+ 391 002c 09D9     		bls	.L28
+ 536:source\bsw\TraceRecorder/trcKernelPort.c **** 	{
+ 537:source\bsw\TraceRecorder/trcKernelPort.c **** 		if (NoRoomForObjectData > 0)
+ 392              		.loc 1 537 0
+ 393 002e 184B     		ldr	r3, .L35+8
+ 394 0030 1B68     		ldr	r3, [r3]
+ 395 0032 13B1     		cbz	r3, .L29
+ 538:source\bsw\TraceRecorder/trcKernelPort.c **** 		{
+ 539:source\bsw\TraceRecorder/trcKernelPort.c **** 			prvTraceWarning(PSF_WARNING_OBJECT_DATA_SLOTS);
+ 396              		.loc 1 539 0
+ 397 0034 6720     		movs	r0, #103
+ 398 0036 FFF7FEFF 		bl	prvTraceWarning
+ 399              	.LVL28:
+ 400              	.L29:
+ 540:source\bsw\TraceRecorder/trcKernelPort.c **** 		}
+ 541:source\bsw\TraceRecorder/trcKernelPort.c **** 		NoRoomForObjectData_last = NoRoomForObjectData;
+ 401              		.loc 1 541 0
+ 402 003a 154B     		ldr	r3, .L35+8
+ 403 003c 1A68     		ldr	r2, [r3]
+ 404 003e 134B     		ldr	r3, .L35+4
+ 405 0040 5A60     		str	r2, [r3, #4]
+ 406              	.L28:
+ 542:source\bsw\TraceRecorder/trcKernelPort.c **** 	}
+ 543:source\bsw\TraceRecorder/trcKernelPort.c **** 
+ 544:source\bsw\TraceRecorder/trcKernelPort.c **** 	if (LongestSymbolName > LongestSymbolName_last)
+ 407              		.loc 1 544 0
+ 408 0042 144B     		ldr	r3, .L35+12
+ 409 0044 1A68     		ldr	r2, [r3]
+ 410 0046 114B     		ldr	r3, .L35+4
+ 411 0048 9B68     		ldr	r3, [r3, #8]
+ 412 004a 9A42     		cmp	r2, r3
+ 413 004c 0AD9     		bls	.L30
+ 545:source\bsw\TraceRecorder/trcKernelPort.c **** 	{
+ 546:source\bsw\TraceRecorder/trcKernelPort.c **** 		if (LongestSymbolName > (TRC_CFG_SYMBOL_MAX_LENGTH))
+ 414              		.loc 1 546 0
+ 415 004e 114B     		ldr	r3, .L35+12
+ 416 0050 1B68     		ldr	r3, [r3]
+ 417 0052 192B     		cmp	r3, #25
+ 418 0054 02D9     		bls	.L31
+ 547:source\bsw\TraceRecorder/trcKernelPort.c **** 		{
+ 548:source\bsw\TraceRecorder/trcKernelPort.c **** 			prvTraceWarning(PSF_WARNING_SYMBOL_MAX_LENGTH);
+ 419              		.loc 1 548 0
+ 420 0056 6620     		movs	r0, #102
+ 421 0058 FFF7FEFF 		bl	prvTraceWarning
+ARM GAS  C:\Users\MATEOC~1.QUE\AppData\Local\Temp\ccGACnuM.s 			page 18
+
+
+ 422              	.LVL29:
+ 423              	.L31:
+ 549:source\bsw\TraceRecorder/trcKernelPort.c **** 		}
+ 550:source\bsw\TraceRecorder/trcKernelPort.c **** 		LongestSymbolName_last = LongestSymbolName;
+ 424              		.loc 1 550 0
+ 425 005c 0D4B     		ldr	r3, .L35+12
+ 426 005e 1A68     		ldr	r2, [r3]
+ 427 0060 0A4B     		ldr	r3, .L35+4
+ 428 0062 9A60     		str	r2, [r3, #8]
+ 429              	.L30:
+ 551:source\bsw\TraceRecorder/trcKernelPort.c **** 	}
+ 552:source\bsw\TraceRecorder/trcKernelPort.c **** 
+ 553:source\bsw\TraceRecorder/trcKernelPort.c **** 	if (MaxBytesTruncated > MaxBytesTruncated_last)
+ 430              		.loc 1 553 0
+ 431 0064 0C4B     		ldr	r3, .L35+16
+ 432 0066 1A68     		ldr	r2, [r3]
+ 433 0068 084B     		ldr	r3, .L35+4
+ 434 006a DB68     		ldr	r3, [r3, #12]
+ 435 006c 9A42     		cmp	r2, r3
+ 436 006e 09D9     		bls	.L25
+ 554:source\bsw\TraceRecorder/trcKernelPort.c **** 	{
+ 555:source\bsw\TraceRecorder/trcKernelPort.c **** 		if (MaxBytesTruncated > 0)
+ 437              		.loc 1 555 0
+ 438 0070 094B     		ldr	r3, .L35+16
+ 439 0072 1B68     		ldr	r3, [r3]
+ 440 0074 13B1     		cbz	r3, .L33
+ 556:source\bsw\TraceRecorder/trcKernelPort.c **** 		{
+ 557:source\bsw\TraceRecorder/trcKernelPort.c **** 			prvTraceWarning(PSF_WARNING_STRING_TOO_LONG);
+ 441              		.loc 1 557 0
+ 442 0076 6820     		movs	r0, #104
+ 443 0078 FFF7FEFF 		bl	prvTraceWarning
+ 444              	.LVL30:
+ 445              	.L33:
+ 558:source\bsw\TraceRecorder/trcKernelPort.c **** 		}
+ 559:source\bsw\TraceRecorder/trcKernelPort.c **** 		MaxBytesTruncated_last = MaxBytesTruncated;
+ 446              		.loc 1 559 0
+ 447 007c 064B     		ldr	r3, .L35+16
+ 448 007e 1A68     		ldr	r2, [r3]
+ 449 0080 024B     		ldr	r3, .L35+4
+ 450 0082 DA60     		str	r2, [r3, #12]
+ 451              	.L25:
+ 452 0084 08BD     		pop	{r3, pc}
+ 453              	.L36:
+ 454 0086 00BF     		.align	2
+ 455              	.L35:
+ 456 0088 00000000 		.word	NoRoomForSymbol
+ 457 008c 00000000 		.word	.LANCHOR0
+ 458 0090 00000000 		.word	NoRoomForObjectData
+ 459 0094 00000000 		.word	LongestSymbolName
+ 460 0098 00000000 		.word	MaxBytesTruncated
+ 461              		.cfi_endproc
+ 462              	.LFE121:
+ 463              		.size	prvCheckRecorderStatus, .-prvCheckRecorderStatus
+ 464              		.section	.text.FuncTzCtrl,"ax",%progbits
+ 465              		.align	2
+ 466              		.global	FuncTzCtrl
+ 467              		.thumb
+ARM GAS  C:\Users\MATEOC~1.QUE\AppData\Local\Temp\ccGACnuM.s 			page 19
+
+
+ 468              		.thumb_func
+ 469              		.type	FuncTzCtrl, %function
+ 470              	FuncTzCtrl:
+ 471              	.LFB110:
+ 153:source\bsw\TraceRecorder/trcKernelPort.c ****     TracealyzerCommandType msg;
+ 472              		.loc 1 153 0
+ 473              		.cfi_startproc
+ 474              		@ args = 0, pretend = 0, frame = 16
+ 475              		@ frame_needed = 0, uses_anonymous_args = 0
+ 476 0000 00B5     		push	{lr}
+ 477              		.cfi_def_cfa_offset 4
+ 478              		.cfi_offset 14, -4
+ 479 0002 85B0     		sub	sp, sp, #20
+ 480              		.cfi_def_cfa_offset 24
+ 481              	.L39:
+ 160:source\bsw\TraceRecorder/trcKernelPort.c **** 			status = TRC_STREAM_PORT_READ_DATA(&msg, sizeof(TracealyzerCommandType), (int32_t*)&bytes);
+ 482              		.loc 1 160 0
+ 483 0004 04AA     		add	r2, sp, #16
+ 484 0006 0023     		movs	r3, #0
+ 485 0008 42F80C3D 		str	r3, [r2, #-12]!
+ 161:source\bsw\TraceRecorder/trcKernelPort.c **** 
+ 486              		.loc 1 161 0
+ 487 000c 0821     		movs	r1, #8
+ 488 000e 0DEB0100 		add	r0, sp, r1
+ 489 0012 FFF7FEFF 		bl	trcUARTReceive
+ 490              	.LVL31:
+ 163:source\bsw\TraceRecorder/trcKernelPort.c **** 			{
+ 491              		.loc 1 163 0
+ 492 0016 48B9     		cbnz	r0, .L38
+ 163:source\bsw\TraceRecorder/trcKernelPort.c **** 			{
+ 493              		.loc 1 163 0 is_stmt 0 discriminator 1
+ 494 0018 019B     		ldr	r3, [sp, #4]
+ 495 001a 082B     		cmp	r3, #8
+ 496 001c 06D1     		bne	.L38
+ 165:source\bsw\TraceRecorder/trcKernelPort.c **** 				{
+ 497              		.loc 1 165 0 is_stmt 1
+ 498 001e 02A8     		add	r0, sp, #8
+ 499              	.LVL32:
+ 500 0020 FFF7FEFF 		bl	prvIsValidCommand
+ 501              	.LVL33:
+ 502 0024 10B1     		cbz	r0, .L38
+ 167:source\bsw\TraceRecorder/trcKernelPort.c **** 				}
+ 503              		.loc 1 167 0
+ 504 0026 02A8     		add	r0, sp, #8
+ 505 0028 FFF7FEFF 		bl	prvProcessCommand
+ 506              	.LVL34:
+ 507              	.L38:
+ 171:source\bsw\TraceRecorder/trcKernelPort.c **** 			#if (TRC_STREAM_PORT_USE_INTERNAL_BUFFER == 1)
+ 508              		.loc 1 171 0
+ 509 002c 0023     		movs	r3, #0
+ 510 002e 0193     		str	r3, [sp, #4]
+ 174:source\bsw\TraceRecorder/trcKernelPort.c ****             #endif	
+ 511              		.loc 1 174 0
+ 512 0030 FFF7FEFF 		bl	prvPagedEventBufferTransfer
+ 513              	.LVL35:
+ 514 0034 0190     		str	r0, [sp, #4]
+ 177:source\bsw\TraceRecorder/trcKernelPort.c ****         prvCheckRecorderStatus();
+ARM GAS  C:\Users\MATEOC~1.QUE\AppData\Local\Temp\ccGACnuM.s 			page 20
+
+
+ 515              		.loc 1 177 0
+ 516 0036 0028     		cmp	r0, #0
+ 517 0038 E4D1     		bne	.L39
+ 178:source\bsw\TraceRecorder/trcKernelPort.c ****         TerminateTask();
+ 518              		.loc 1 178 0
+ 519 003a FFF7FEFF 		bl	prvCheckRecorderStatus
+ 520              	.LVL36:
+ 179:source\bsw\TraceRecorder/trcKernelPort.c **** } 
+ 521              		.loc 1 179 0
+ 522 003e FFF7FEFF 		bl	EE_oo_TerminateTask
+ 523              	.LVL37:
+ 180:source\bsw\TraceRecorder/trcKernelPort.c **** 
+ 524              		.loc 1 180 0
+ 525 0042 05B0     		add	sp, sp, #20
+ 526              		.cfi_def_cfa_offset 4
+ 527              		@ sp needed
+ 528 0044 5DF804FB 		ldr	pc, [sp], #4
+ 529              		.cfi_endproc
+ 530              	.LFE110:
+ 531              		.size	FuncTzCtrl, .-FuncTzCtrl
+ 532              		.comm	_TzTraceData,5000,4
+ 533              		.comm	trcWarningChannel,4,4
+ 534              		.section	.rodata.str1.4,"aMS",%progbits,1
+ 535              		.align	2
+ 536              	.LC0:
+ 537 0000 5761726E 		.ascii	"Warnings from Recorder\000"
+ 537      696E6773 
+ 537      2066726F 
+ 537      6D205265 
+ 537      636F7264 
+ 538              		.bss
+ 539              		.align	2
+ 540              		.set	.LANCHOR0,. + 0
+ 541              		.type	NoRoomForSymbol_last, %object
+ 542              		.size	NoRoomForSymbol_last, 4
+ 543              	NoRoomForSymbol_last:
+ 544 0000 00000000 		.space	4
+ 545              		.type	NoRoomForObjectData_last, %object
+ 546              		.size	NoRoomForObjectData_last, 4
+ 547              	NoRoomForObjectData_last:
+ 548 0004 00000000 		.space	4
+ 549              		.type	LongestSymbolName_last, %object
+ 550              		.size	LongestSymbolName_last, 4
+ 551              	LongestSymbolName_last:
+ 552 0008 00000000 		.space	4
+ 553              		.type	MaxBytesTruncated_last, %object
+ 554              		.size	MaxBytesTruncated_last, 4
+ 555              	MaxBytesTruncated_last:
+ 556 000c 00000000 		.space	4
+ 557              		.text
+ 558              	.Letext0:
+ 559              		.file 2 "c:\\program files (x86)\\cypress\\psoc creator\\4.4\\psoc creator\\import\\gnu\\arm\\5.4.
+ 560              		.file 3 "Generated_Source\\PSoC5/ErikaOS_1_common_ee_types.inc"
+ 561              		.file 4 "Generated_Source\\PSoC5/ErikaOS_1_cortex_mx_ee_cpu.inc"
+ 562              		.file 5 "Generated_Source\\PSoC5/ErikaOS_1_ee_oo_common.inc"
+ 563              		.file 6 "c:\\program files (x86)\\cypress\\psoc creator\\4.4\\psoc creator\\import\\gnu\\arm\\5.4.
+ 564              		.file 7 ".\\source\\bsw\\TraceRecorder\\include/trcRecorder.h"
+ARM GAS  C:\Users\MATEOC~1.QUE\AppData\Local\Temp\ccGACnuM.s 			page 21
+
+
+ 565              		.file 8 "Generated_Source\\PSoC5/ErikaOS_1_ee_oo_intfunc.inc"
+ 566              		.file 9 "Generated_Source\\PSoC5/ErikaOS_1_cortex_mx_ee_context.inc"
+ 567              		.file 10 "Generated_Source\\PSoC5/ErikaOS_1_common_ee_primitives.inc"
+ 568              		.file 11 "Generated_Source\\PSoC5/core_cm3.h"
+ 569              		.file 12 "Generated_Source\\PSoC5/ErikaOS_1_ee_oo_kernel.inc"
+ 570              		.file 13 ".\\source\\bsw\\TraceRecorder\\streamport/trcStreamingPort.h"
+ 571              		.file 14 ".\\source\\bsw\\TraceRecorder\\include/trcHardwarePort.h"
+ 572              		.file 15 ".\\source\\bsw\\TraceRecorder\\include/trcKernelPort.h"
+ 573              		.section	.debug_info,"",%progbits
+ 574              	.Ldebug_info0:
+ 575 0000 28070000 		.4byte	0x728
+ 576 0004 0400     		.2byte	0x4
+ 577 0006 00000000 		.4byte	.Ldebug_abbrev0
+ 578 000a 04       		.byte	0x4
+ 579 000b 01       		.uleb128 0x1
+ 580 000c 95050000 		.4byte	.LASF83
+ 581 0010 0C       		.byte	0xc
+ 582 0011 2D050000 		.4byte	.LASF84
+ 583 0015 85020000 		.4byte	.LASF85
+ 584 0019 00000000 		.4byte	.Ldebug_ranges0+0
+ 585 001d 00000000 		.4byte	0
+ 586 0021 00000000 		.4byte	.Ldebug_line0
+ 587 0025 02       		.uleb128 0x2
+ 588 0026 01       		.byte	0x1
+ 589 0027 06       		.byte	0x6
+ 590 0028 AA030000 		.4byte	.LASF0
+ 591 002c 02       		.uleb128 0x2
+ 592 002d 01       		.byte	0x1
+ 593 002e 08       		.byte	0x8
+ 594 002f 95030000 		.4byte	.LASF1
+ 595 0033 02       		.uleb128 0x2
+ 596 0034 02       		.byte	0x2
+ 597 0035 05       		.byte	0x5
+ 598 0036 3A000000 		.4byte	.LASF2
+ 599 003a 03       		.uleb128 0x3
+ 600 003b 0F010000 		.4byte	.LASF4
+ 601 003f 02       		.byte	0x2
+ 602 0040 2B       		.byte	0x2b
+ 603 0041 45000000 		.4byte	0x45
+ 604 0045 02       		.uleb128 0x2
+ 605 0046 02       		.byte	0x2
+ 606 0047 07       		.byte	0x7
+ 607 0048 50040000 		.4byte	.LASF3
+ 608 004c 03       		.uleb128 0x3
+ 609 004d 0E050000 		.4byte	.LASF5
+ 610 0051 02       		.byte	0x2
+ 611 0052 3F       		.byte	0x3f
+ 612 0053 57000000 		.4byte	0x57
+ 613 0057 02       		.uleb128 0x2
+ 614 0058 04       		.byte	0x4
+ 615 0059 05       		.byte	0x5
+ 616 005a 63020000 		.4byte	.LASF6
+ 617 005e 03       		.uleb128 0x3
+ 618 005f DD040000 		.4byte	.LASF7
+ 619 0063 02       		.byte	0x2
+ 620 0064 41       		.byte	0x41
+ 621 0065 69000000 		.4byte	0x69
+ARM GAS  C:\Users\MATEOC~1.QUE\AppData\Local\Temp\ccGACnuM.s 			page 22
+
+
+ 622 0069 02       		.uleb128 0x2
+ 623 006a 04       		.byte	0x4
+ 624 006b 07       		.byte	0x7
+ 625 006c BE040000 		.4byte	.LASF8
+ 626 0070 02       		.uleb128 0x2
+ 627 0071 08       		.byte	0x8
+ 628 0072 05       		.byte	0x5
+ 629 0073 40020000 		.4byte	.LASF9
+ 630 0077 02       		.uleb128 0x2
+ 631 0078 08       		.byte	0x8
+ 632 0079 07       		.byte	0x7
+ 633 007a BE030000 		.4byte	.LASF10
+ 634 007e 04       		.uleb128 0x4
+ 635 007f 04       		.byte	0x4
+ 636 0080 05       		.byte	0x5
+ 637 0081 696E7400 		.ascii	"int\000"
+ 638 0085 02       		.uleb128 0x2
+ 639 0086 04       		.byte	0x4
+ 640 0087 07       		.byte	0x7
+ 641 0088 DE030000 		.4byte	.LASF11
+ 642 008c 02       		.uleb128 0x2
+ 643 008d 08       		.byte	0x8
+ 644 008e 04       		.byte	0x4
+ 645 008f 80030000 		.4byte	.LASF12
+ 646 0093 03       		.uleb128 0x3
+ 647 0094 47060000 		.4byte	.LASF13
+ 648 0098 03       		.byte	0x3
+ 649 0099 53       		.byte	0x53
+ 650 009a 7E000000 		.4byte	0x7e
+ 651 009e 03       		.uleb128 0x3
+ 652 009f 05010000 		.4byte	.LASF14
+ 653 00a3 03       		.byte	0x3
+ 654 00a4 54       		.byte	0x54
+ 655 00a5 85000000 		.4byte	0x85
+ 656 00a9 05       		.uleb128 0x5
+ 657 00aa 04       		.byte	0x4
+ 658 00ab 03       		.uleb128 0x3
+ 659 00ac 00000000 		.4byte	.LASF15
+ 660 00b0 04       		.byte	0x4
+ 661 00b1 4D       		.byte	0x4d
+ 662 00b2 9E000000 		.4byte	0x9e
+ 663 00b6 03       		.uleb128 0x3
+ 664 00b7 91040000 		.4byte	.LASF16
+ 665 00bb 04       		.byte	0x4
+ 666 00bc 4F       		.byte	0x4f
+ 667 00bd 9E000000 		.4byte	0x9e
+ 668 00c1 03       		.uleb128 0x3
+ 669 00c2 2F010000 		.4byte	.LASF17
+ 670 00c6 04       		.byte	0x4
+ 671 00c7 78       		.byte	0x78
+ 672 00c8 93000000 		.4byte	0x93
+ 673 00cc 06       		.uleb128 0x6
+ 674 00cd 8C030000 		.4byte	.LASF18
+ 675 00d1 05       		.byte	0x5
+ 676 00d2 F701     		.2byte	0x1f7
+ 677 00d4 C1000000 		.4byte	0xc1
+ 678 00d8 03       		.uleb128 0x3
+ARM GAS  C:\Users\MATEOC~1.QUE\AppData\Local\Temp\ccGACnuM.s 			page 23
+
+
+ 679 00d9 EB030000 		.4byte	.LASF19
+ 680 00dd 06       		.byte	0x6
+ 681 00de 24       		.byte	0x24
+ 682 00df 3A000000 		.4byte	0x3a
+ 683 00e3 03       		.uleb128 0x3
+ 684 00e4 B6030000 		.4byte	.LASF20
+ 685 00e8 06       		.byte	0x6
+ 686 00e9 2C       		.byte	0x2c
+ 687 00ea 4C000000 		.4byte	0x4c
+ 688 00ee 03       		.uleb128 0x3
+ 689 00ef D5030000 		.4byte	.LASF21
+ 690 00f3 06       		.byte	0x6
+ 691 00f4 30       		.byte	0x30
+ 692 00f5 5E000000 		.4byte	0x5e
+ 693 00f9 02       		.uleb128 0x2
+ 694 00fa 04       		.byte	0x4
+ 695 00fb 04       		.byte	0x4
+ 696 00fc 12020000 		.4byte	.LASF22
+ 697 0100 02       		.uleb128 0x2
+ 698 0101 08       		.byte	0x8
+ 699 0102 04       		.byte	0x4
+ 700 0103 D6040000 		.4byte	.LASF23
+ 701 0107 02       		.uleb128 0x2
+ 702 0108 01       		.byte	0x1
+ 703 0109 08       		.byte	0x8
+ 704 010a 8C040000 		.4byte	.LASF24
+ 705 010e 02       		.uleb128 0x2
+ 706 010f 04       		.byte	0x4
+ 707 0110 07       		.byte	0x7
+ 708 0111 5B050000 		.4byte	.LASF25
+ 709 0115 07       		.uleb128 0x7
+ 710 0116 04       		.byte	0x4
+ 711 0117 1B010000 		.4byte	0x11b
+ 712 011b 08       		.uleb128 0x8
+ 713 011c 07010000 		.4byte	0x107
+ 714 0120 09       		.uleb128 0x9
+ 715 0121 EE000000 		.4byte	0xee
+ 716 0125 03       		.uleb128 0x3
+ 717 0126 18020000 		.4byte	.LASF26
+ 718 012a 07       		.byte	0x7
+ 719 012b 4F       		.byte	0x4f
+ 720 012c 15010000 		.4byte	0x115
+ 721 0130 0A       		.uleb128 0xa
+ 722 0131 08       		.byte	0x8
+ 723 0132 07       		.byte	0x7
+ 724 0133 9406     		.2byte	0x694
+ 725 0135 A2010000 		.4byte	0x1a2
+ 726 0139 0B       		.uleb128 0xb
+ 727 013a F1000000 		.4byte	.LASF27
+ 728 013e 07       		.byte	0x7
+ 729 013f 9606     		.2byte	0x696
+ 730 0141 2C000000 		.4byte	0x2c
+ 731 0145 00       		.byte	0
+ 732 0146 0B       		.uleb128 0xb
+ 733 0147 50060000 		.4byte	.LASF28
+ 734 014b 07       		.byte	0x7
+ 735 014c 9706     		.2byte	0x697
+ARM GAS  C:\Users\MATEOC~1.QUE\AppData\Local\Temp\ccGACnuM.s 			page 24
+
+
+ 736 014e 2C000000 		.4byte	0x2c
+ 737 0152 01       		.byte	0x1
+ 738 0153 0B       		.uleb128 0xb
+ 739 0154 3C040000 		.4byte	.LASF29
+ 740 0158 07       		.byte	0x7
+ 741 0159 9806     		.2byte	0x698
+ 742 015b 2C000000 		.4byte	0x2c
+ 743 015f 02       		.byte	0x2
+ 744 0160 0B       		.uleb128 0xb
+ 745 0161 1A010000 		.4byte	.LASF30
+ 746 0165 07       		.byte	0x7
+ 747 0166 9906     		.2byte	0x699
+ 748 0168 2C000000 		.4byte	0x2c
+ 749 016c 03       		.byte	0x3
+ 750 016d 0B       		.uleb128 0xb
+ 751 016e 21010000 		.4byte	.LASF31
+ 752 0172 07       		.byte	0x7
+ 753 0173 9A06     		.2byte	0x69a
+ 754 0175 2C000000 		.4byte	0x2c
+ 755 0179 04       		.byte	0x4
+ 756 017a 0B       		.uleb128 0xb
+ 757 017b 28010000 		.4byte	.LASF32
+ 758 017f 07       		.byte	0x7
+ 759 0180 9B06     		.2byte	0x69b
+ 760 0182 2C000000 		.4byte	0x2c
+ 761 0186 05       		.byte	0x5
+ 762 0187 0B       		.uleb128 0xb
+ 763 0188 F9000000 		.4byte	.LASF33
+ 764 018c 07       		.byte	0x7
+ 765 018d 9C06     		.2byte	0x69c
+ 766 018f 2C000000 		.4byte	0x2c
+ 767 0193 06       		.byte	0x6
+ 768 0194 0B       		.uleb128 0xb
+ 769 0195 08000000 		.4byte	.LASF34
+ 770 0199 07       		.byte	0x7
+ 771 019a 9D06     		.2byte	0x69d
+ 772 019c 2C000000 		.4byte	0x2c
+ 773 01a0 07       		.byte	0x7
+ 774 01a1 00       		.byte	0
+ 775 01a2 06       		.uleb128 0x6
+ 776 01a3 36010000 		.4byte	.LASF35
+ 777 01a7 07       		.byte	0x7
+ 778 01a8 9E06     		.2byte	0x69e
+ 779 01aa 30010000 		.4byte	0x130
+ 780 01ae 0C       		.uleb128 0xc
+ 781 01af C1000000 		.4byte	.LASF39
+ 782 01b3 01       		.byte	0x1
+ 783 01b4 BB       		.byte	0xbb
+ 784 01b5 CC000000 		.4byte	0xcc
+ 785 01b9 00000000 		.4byte	.LFB111
+ 786 01bd 14000000 		.4byte	.LFE111-.LFB111
+ 787 01c1 01       		.uleb128 0x1
+ 788 01c2 9C       		.byte	0x9c
+ 789 01c3 E6010000 		.4byte	0x1e6
+ 790 01c7 0D       		.uleb128 0xd
+ 791 01c8 6A040000 		.4byte	.LASF45
+ 792 01cc 01       		.byte	0x1
+ARM GAS  C:\Users\MATEOC~1.QUE\AppData\Local\Temp\ccGACnuM.s 			page 25
+
+
+ 793 01cd BD       		.byte	0xbd
+ 794 01ce CC000000 		.4byte	0xcc
+ 795 01d2 02       		.uleb128 0x2
+ 796 01d3 91       		.byte	0x91
+ 797 01d4 74       		.sleb128 -12
+ 798 01d5 0E       		.uleb128 0xe
+ 799 01d6 0A000000 		.4byte	.LVL0
+ 800 01da AD060000 		.4byte	0x6ad
+ 801 01de 0F       		.uleb128 0xf
+ 802 01df 01       		.uleb128 0x1
+ 803 01e0 50       		.byte	0x50
+ 804 01e1 02       		.uleb128 0x2
+ 805 01e2 91       		.byte	0x91
+ 806 01e3 74       		.sleb128 -12
+ 807 01e4 00       		.byte	0
+ 808 01e5 00       		.byte	0
+ 809 01e6 10       		.uleb128 0x10
+ 810 01e7 A8010000 		.4byte	.LASF36
+ 811 01eb 01       		.byte	0x1
+ 812 01ec C3       		.byte	0xc3
+ 813 01ed D8000000 		.4byte	0xd8
+ 814 01f1 00000000 		.4byte	.LFB112
+ 815 01f5 04000000 		.4byte	.LFE112-.LFB112
+ 816 01f9 01       		.uleb128 0x1
+ 817 01fa 9C       		.byte	0x9c
+ 818 01fb 0F020000 		.4byte	0x20f
+ 819 01ff 11       		.uleb128 0x11
+ 820 0200 A3030000 		.4byte	.LASF38
+ 821 0204 01       		.byte	0x1
+ 822 0205 C3       		.byte	0xc3
+ 823 0206 A9000000 		.4byte	0xa9
+ 824 020a 00000000 		.4byte	.LLST0
+ 825 020e 00       		.byte	0
+ 826 020f 10       		.uleb128 0x10
+ 827 0210 24020000 		.4byte	.LASF37
+ 828 0214 01       		.byte	0x1
+ 829 0215 C8       		.byte	0xc8
+ 830 0216 D8000000 		.4byte	0xd8
+ 831 021a 00000000 		.4byte	.LFB113
+ 832 021e 04000000 		.4byte	.LFE113-.LFB113
+ 833 0222 01       		.uleb128 0x1
+ 834 0223 9C       		.byte	0x9c
+ 835 0224 38020000 		.4byte	0x238
+ 836 0228 11       		.uleb128 0x11
+ 837 0229 A3030000 		.4byte	.LASF38
+ 838 022d 01       		.byte	0x1
+ 839 022e C8       		.byte	0xc8
+ 840 022f A9000000 		.4byte	0xa9
+ 841 0233 21000000 		.4byte	.LLST1
+ 842 0237 00       		.byte	0
+ 843 0238 12       		.uleb128 0x12
+ 844 0239 71040000 		.4byte	.LASF40
+ 845 023d 01       		.byte	0x1
+ 846 023e CD       		.byte	0xcd
+ 847 023f 00000000 		.4byte	.LFB114
+ 848 0243 02000000 		.4byte	.LFE114-.LFB114
+ 849 0247 01       		.uleb128 0x1
+ARM GAS  C:\Users\MATEOC~1.QUE\AppData\Local\Temp\ccGACnuM.s 			page 26
+
+
+ 850 0248 9C       		.byte	0x9c
+ 851 0249 68020000 		.4byte	0x268
+ 852 024d 13       		.uleb128 0x13
+ 853 024e A3030000 		.4byte	.LASF38
+ 854 0252 01       		.byte	0x1
+ 855 0253 CD       		.byte	0xcd
+ 856 0254 A9000000 		.4byte	0xa9
+ 857 0258 01       		.uleb128 0x1
+ 858 0259 50       		.byte	0x50
+ 859 025a 13       		.uleb128 0x13
+ 860 025b 69010000 		.4byte	.LASF41
+ 861 025f 01       		.byte	0x1
+ 862 0260 CD       		.byte	0xcd
+ 863 0261 D8000000 		.4byte	0xd8
+ 864 0265 01       		.uleb128 0x1
+ 865 0266 51       		.byte	0x51
+ 866 0267 00       		.byte	0
+ 867 0268 12       		.uleb128 0x12
+ 868 0269 96000000 		.4byte	.LASF42
+ 869 026d 01       		.byte	0x1
+ 870 026e D2       		.byte	0xd2
+ 871 026f 00000000 		.4byte	.LFB115
+ 872 0273 02000000 		.4byte	.LFE115-.LFB115
+ 873 0277 01       		.uleb128 0x1
+ 874 0278 9C       		.byte	0x9c
+ 875 0279 98020000 		.4byte	0x298
+ 876 027d 13       		.uleb128 0x13
+ 877 027e A3030000 		.4byte	.LASF38
+ 878 0282 01       		.byte	0x1
+ 879 0283 D2       		.byte	0xd2
+ 880 0284 A9000000 		.4byte	0xa9
+ 881 0288 01       		.uleb128 0x1
+ 882 0289 50       		.byte	0x50
+ 883 028a 13       		.uleb128 0x13
+ 884 028b 69010000 		.4byte	.LASF41
+ 885 028f 01       		.byte	0x1
+ 886 0290 D2       		.byte	0xd2
+ 887 0291 D8000000 		.4byte	0xd8
+ 888 0295 01       		.uleb128 0x1
+ 889 0296 51       		.byte	0x51
+ 890 0297 00       		.byte	0
+ 891 0298 14       		.uleb128 0x14
+ 892 0299 7B050000 		.4byte	.LASF43
+ 893 029d 01       		.byte	0x1
+ 894 029e 5601     		.2byte	0x156
+ 895 02a0 00000000 		.4byte	.LFB116
+ 896 02a4 98000000 		.4byte	.LFE116-.LFB116
+ 897 02a8 01       		.uleb128 0x1
+ 898 02a9 9C       		.byte	0x9c
+ 899 02aa A3030000 		.4byte	0x3a3
+ 900 02ae 15       		.uleb128 0x15
+ 901 02af 23060000 		.4byte	.LASF44
+ 902 02b3 01       		.byte	0x1
+ 903 02b4 5601     		.2byte	0x156
+ 904 02b6 7E000000 		.4byte	0x7e
+ 905 02ba 42000000 		.4byte	.LLST2
+ 906 02be 16       		.uleb128 0x16
+ARM GAS  C:\Users\MATEOC~1.QUE\AppData\Local\Temp\ccGACnuM.s 			page 27
+
+
+ 907 02bf D0040000 		.4byte	.LASF46
+ 908 02c3 01       		.byte	0x1
+ 909 02c4 5801     		.2byte	0x158
+ 910 02c6 E3000000 		.4byte	0xe3
+ 911 02ca 02       		.uleb128 0x2
+ 912 02cb 91       		.byte	0x91
+ 913 02cc 74       		.sleb128 -12
+ 914 02cd 17       		.uleb128 0x17
+ 915 02ce 63040000 		.4byte	.LASF47
+ 916 02d2 01       		.byte	0x1
+ 917 02d3 5901     		.2byte	0x159
+ 918 02d5 E3000000 		.4byte	0xe3
+ 919 02d9 87000000 		.4byte	.LLST3
+ 920 02dd 18       		.uleb128 0x18
+ 921 02de 4B000000 		.4byte	.LASF59
+ 922 02e2 01       		.byte	0x1
+ 923 02e3 5A01     		.2byte	0x15a
+ 924 02e5 EE000000 		.4byte	0xee
+ 925 02e9 19       		.uleb128 0x19
+ 926 02ea 6D736700 		.ascii	"msg\000"
+ 927 02ee 01       		.byte	0x1
+ 928 02ef 5B01     		.2byte	0x15b
+ 929 02f1 A2010000 		.4byte	0x1a2
+ 930 02f5 02       		.uleb128 0x2
+ 931 02f6 91       		.byte	0x91
+ 932 02f7 6C       		.sleb128 -20
+ 933 02f8 1A       		.uleb128 0x1a
+ 934 02f9 0E000000 		.4byte	.LVL8
+ 935 02fd B8060000 		.4byte	0x6b8
+ 936 0301 1B       		.uleb128 0x1b
+ 937 0302 14000000 		.4byte	.LVL9
+ 938 0306 C3060000 		.4byte	0x6c3
+ 939 030a 18030000 		.4byte	0x318
+ 940 030e 0F       		.uleb128 0xf
+ 941 030f 01       		.uleb128 0x1
+ 942 0310 50       		.byte	0x50
+ 943 0311 05       		.uleb128 0x5
+ 944 0312 03       		.byte	0x3
+ 945 0313 00000000 		.4byte	.LC0
+ 946 0317 00       		.byte	0
+ 947 0318 1B       		.uleb128 0x1b
+ 948 0319 2C000000 		.4byte	.LVL11
+ 949 031d CE060000 		.4byte	0x6ce
+ 950 0321 37030000 		.4byte	0x337
+ 951 0325 0F       		.uleb128 0xf
+ 952 0326 01       		.uleb128 0x1
+ 953 0327 50       		.byte	0x50
+ 954 0328 02       		.uleb128 0x2
+ 955 0329 91       		.byte	0x91
+ 956 032a 6C       		.sleb128 -20
+ 957 032b 0F       		.uleb128 0xf
+ 958 032c 01       		.uleb128 0x1
+ 959 032d 51       		.byte	0x51
+ 960 032e 01       		.uleb128 0x1
+ 961 032f 38       		.byte	0x38
+ 962 0330 0F       		.uleb128 0xf
+ 963 0331 01       		.uleb128 0x1
+ARM GAS  C:\Users\MATEOC~1.QUE\AppData\Local\Temp\ccGACnuM.s 			page 28
+
+
+ 964 0332 52       		.byte	0x52
+ 965 0333 02       		.uleb128 0x2
+ 966 0334 91       		.byte	0x91
+ 967 0335 74       		.sleb128 -12
+ 968 0336 00       		.byte	0
+ 969 0337 1B       		.uleb128 0x1b
+ 970 0338 36000000 		.4byte	.LVL13
+ 971 033c D9060000 		.4byte	0x6d9
+ 972 0340 4B030000 		.4byte	0x34b
+ 973 0344 0F       		.uleb128 0xf
+ 974 0345 01       		.uleb128 0x1
+ 975 0346 50       		.byte	0x50
+ 976 0347 02       		.uleb128 0x2
+ 977 0348 08       		.byte	0x8
+ 978 0349 69       		.byte	0x69
+ 979 034a 00       		.byte	0
+ 980 034b 1B       		.uleb128 0x1b
+ 981 034c 44000000 		.4byte	.LVL14
+ 982 0350 E5060000 		.4byte	0x6e5
+ 983 0354 5F030000 		.4byte	0x35f
+ 984 0358 0F       		.uleb128 0xf
+ 985 0359 01       		.uleb128 0x1
+ 986 035a 50       		.byte	0x50
+ 987 035b 02       		.uleb128 0x2
+ 988 035c 91       		.byte	0x91
+ 989 035d 6C       		.sleb128 -20
+ 990 035e 00       		.byte	0
+ 991 035f 1A       		.uleb128 0x1a
+ 992 0360 5A000000 		.4byte	.LVL15
+ 993 0364 F1060000 		.4byte	0x6f1
+ 994 0368 1B       		.uleb128 0x1b
+ 995 0369 60000000 		.4byte	.LVL16
+ 996 036d FC060000 		.4byte	0x6fc
+ 997 0371 7C030000 		.4byte	0x37c
+ 998 0375 0F       		.uleb128 0xf
+ 999 0376 01       		.uleb128 0x1
+ 1000 0377 50       		.byte	0x50
+ 1001 0378 02       		.uleb128 0x2
+ 1002 0379 91       		.byte	0x91
+ 1003 037a 6C       		.sleb128 -20
+ 1004 037b 00       		.byte	0
+ 1005 037c 1A       		.uleb128 0x1a
+ 1006 037d 72000000 		.4byte	.LVL18
+ 1007 0381 F1060000 		.4byte	0x6f1
+ 1008 0385 1B       		.uleb128 0x1b
+ 1009 0386 82000000 		.4byte	.LVL19
+ 1010 038a FC060000 		.4byte	0x6fc
+ 1011 038e 99030000 		.4byte	0x399
+ 1012 0392 0F       		.uleb128 0xf
+ 1013 0393 01       		.uleb128 0x1
+ 1014 0394 50       		.byte	0x50
+ 1015 0395 02       		.uleb128 0x2
+ 1016 0396 91       		.byte	0x91
+ 1017 0397 6C       		.sleb128 -20
+ 1018 0398 00       		.byte	0
+ 1019 0399 1A       		.uleb128 0x1a
+ 1020 039a 88000000 		.4byte	.LVL20
+ARM GAS  C:\Users\MATEOC~1.QUE\AppData\Local\Temp\ccGACnuM.s 			page 29
+
+
+ 1021 039e F1060000 		.4byte	0x6f1
+ 1022 03a2 00       		.byte	0
+ 1023 03a3 14       		.uleb128 0x14
+ 1024 03a4 E8040000 		.4byte	.LASF48
+ 1025 03a8 01       		.byte	0x1
+ 1026 03a9 A901     		.2byte	0x1a9
+ 1027 03ab 00000000 		.4byte	.LFB117
+ 1028 03af 08000000 		.4byte	.LFE117-.LFB117
+ 1029 03b3 01       		.uleb128 0x1
+ 1030 03b4 9C       		.byte	0x9c
+ 1031 03b5 F2030000 		.4byte	0x3f2
+ 1032 03b9 15       		.uleb128 0x15
+ 1033 03ba 44000000 		.4byte	.LASF49
+ 1034 03be 01       		.byte	0x1
+ 1035 03bf A901     		.2byte	0x1a9
+ 1036 03c1 A9000000 		.4byte	0xa9
+ 1037 03c5 A5000000 		.4byte	.LLST4
+ 1038 03c9 15       		.uleb128 0x15
+ 1039 03ca 56050000 		.4byte	.LASF50
+ 1040 03ce 01       		.byte	0x1
+ 1041 03cf A901     		.2byte	0x1a9
+ 1042 03d1 15010000 		.4byte	0x115
+ 1043 03d5 C6000000 		.4byte	.LLST5
+ 1044 03d9 0E       		.uleb128 0xe
+ 1045 03da 06000000 		.4byte	.LVL22
+ 1046 03de 08070000 		.4byte	0x708
+ 1047 03e2 0F       		.uleb128 0xf
+ 1048 03e3 01       		.uleb128 0x1
+ 1049 03e4 50       		.byte	0x50
+ 1050 03e5 03       		.uleb128 0x3
+ 1051 03e6 F3       		.byte	0xf3
+ 1052 03e7 01       		.uleb128 0x1
+ 1053 03e8 50       		.byte	0x50
+ 1054 03e9 0F       		.uleb128 0xf
+ 1055 03ea 01       		.uleb128 0x1
+ 1056 03eb 51       		.byte	0x51
+ 1057 03ec 03       		.uleb128 0x3
+ 1058 03ed F3       		.byte	0xf3
+ 1059 03ee 01       		.uleb128 0x1
+ 1060 03ef 51       		.byte	0x51
+ 1061 03f0 00       		.byte	0
+ 1062 03f1 00       		.byte	0
+ 1063 03f2 14       		.uleb128 0x14
+ 1064 03f3 6D000000 		.4byte	.LASF51
+ 1065 03f7 01       		.byte	0x1
+ 1066 03f8 B601     		.2byte	0x1b6
+ 1067 03fa 00000000 		.4byte	.LFB118
+ 1068 03fe 08000000 		.4byte	.LFE118-.LFB118
+ 1069 0402 01       		.uleb128 0x1
+ 1070 0403 9C       		.byte	0x9c
+ 1071 0404 41040000 		.4byte	0x441
+ 1072 0408 15       		.uleb128 0x15
+ 1073 0409 44000000 		.4byte	.LASF49
+ 1074 040d 01       		.byte	0x1
+ 1075 040e B601     		.2byte	0x1b6
+ 1076 0410 A9000000 		.4byte	0xa9
+ 1077 0414 E7000000 		.4byte	.LLST6
+ARM GAS  C:\Users\MATEOC~1.QUE\AppData\Local\Temp\ccGACnuM.s 			page 30
+
+
+ 1078 0418 15       		.uleb128 0x15
+ 1079 0419 56050000 		.4byte	.LASF50
+ 1080 041d 01       		.byte	0x1
+ 1081 041e B601     		.2byte	0x1b6
+ 1082 0420 15010000 		.4byte	0x115
+ 1083 0424 08010000 		.4byte	.LLST7
+ 1084 0428 0E       		.uleb128 0xe
+ 1085 0429 06000000 		.4byte	.LVL24
+ 1086 042d 08070000 		.4byte	0x708
+ 1087 0431 0F       		.uleb128 0xf
+ 1088 0432 01       		.uleb128 0x1
+ 1089 0433 50       		.byte	0x50
+ 1090 0434 03       		.uleb128 0x3
+ 1091 0435 F3       		.byte	0xf3
+ 1092 0436 01       		.uleb128 0x1
+ 1093 0437 50       		.byte	0x50
+ 1094 0438 0F       		.uleb128 0xf
+ 1095 0439 01       		.uleb128 0x1
+ 1096 043a 51       		.byte	0x51
+ 1097 043b 03       		.uleb128 0x3
+ 1098 043c F3       		.byte	0xf3
+ 1099 043d 01       		.uleb128 0x1
+ 1100 043e 51       		.byte	0x51
+ 1101 043f 00       		.byte	0
+ 1102 0440 00       		.byte	0
+ 1103 0441 14       		.uleb128 0x14
+ 1104 0442 FB040000 		.4byte	.LASF52
+ 1105 0446 01       		.byte	0x1
+ 1106 0447 C301     		.2byte	0x1c3
+ 1107 0449 00000000 		.4byte	.LFB119
+ 1108 044d 08000000 		.4byte	.LFE119-.LFB119
+ 1109 0451 01       		.uleb128 0x1
+ 1110 0452 9C       		.byte	0x9c
+ 1111 0453 90040000 		.4byte	0x490
+ 1112 0457 15       		.uleb128 0x15
+ 1113 0458 44000000 		.4byte	.LASF49
+ 1114 045c 01       		.byte	0x1
+ 1115 045d C301     		.2byte	0x1c3
+ 1116 045f A9000000 		.4byte	0xa9
+ 1117 0463 29010000 		.4byte	.LLST8
+ 1118 0467 15       		.uleb128 0x15
+ 1119 0468 56050000 		.4byte	.LASF50
+ 1120 046c 01       		.byte	0x1
+ 1121 046d C301     		.2byte	0x1c3
+ 1122 046f 15010000 		.4byte	0x115
+ 1123 0473 4A010000 		.4byte	.LLST9
+ 1124 0477 0E       		.uleb128 0xe
+ 1125 0478 06000000 		.4byte	.LVL26
+ 1126 047c 08070000 		.4byte	0x708
+ 1127 0480 0F       		.uleb128 0xf
+ 1128 0481 01       		.uleb128 0x1
+ 1129 0482 50       		.byte	0x50
+ 1130 0483 03       		.uleb128 0x3
+ 1131 0484 F3       		.byte	0xf3
+ 1132 0485 01       		.uleb128 0x1
+ 1133 0486 50       		.byte	0x50
+ 1134 0487 0F       		.uleb128 0xf
+ARM GAS  C:\Users\MATEOC~1.QUE\AppData\Local\Temp\ccGACnuM.s 			page 31
+
+
+ 1135 0488 01       		.uleb128 0x1
+ 1136 0489 51       		.byte	0x51
+ 1137 048a 03       		.uleb128 0x3
+ 1138 048b F3       		.byte	0xf3
+ 1139 048c 01       		.uleb128 0x1
+ 1140 048d 51       		.byte	0x51
+ 1141 048e 00       		.byte	0
+ 1142 048f 00       		.byte	0
+ 1143 0490 1C       		.uleb128 0x1c
+ 1144 0491 53030000 		.4byte	.LASF86
+ 1145 0495 01       		.byte	0x1
+ 1146 0496 FB01     		.2byte	0x1fb
+ 1147 0498 2C000000 		.4byte	0x2c
+ 1148 049c 00000000 		.4byte	.LFB120
+ 1149 04a0 04000000 		.4byte	.LFE120-.LFB120
+ 1150 04a4 01       		.uleb128 0x1
+ 1151 04a5 9C       		.byte	0x9c
+ 1152 04a6 14       		.uleb128 0x14
+ 1153 04a7 91010000 		.4byte	.LASF53
+ 1154 04ab 01       		.byte	0x1
+ 1155 04ac 0C02     		.2byte	0x20c
+ 1156 04ae 00000000 		.4byte	.LFB121
+ 1157 04b2 9C000000 		.4byte	.LFE121-.LFB121
+ 1158 04b6 01       		.uleb128 0x1
+ 1159 04b7 9C       		.byte	0x9c
+ 1160 04b8 09050000 		.4byte	0x509
+ 1161 04bc 1B       		.uleb128 0x1b
+ 1162 04bd 1A000000 		.4byte	.LVL27
+ 1163 04c1 D9060000 		.4byte	0x6d9
+ 1164 04c5 D0040000 		.4byte	0x4d0
+ 1165 04c9 0F       		.uleb128 0xf
+ 1166 04ca 01       		.uleb128 0x1
+ 1167 04cb 50       		.byte	0x50
+ 1168 04cc 02       		.uleb128 0x2
+ 1169 04cd 08       		.byte	0x8
+ 1170 04ce 65       		.byte	0x65
+ 1171 04cf 00       		.byte	0
+ 1172 04d0 1B       		.uleb128 0x1b
+ 1173 04d1 3A000000 		.4byte	.LVL28
+ 1174 04d5 D9060000 		.4byte	0x6d9
+ 1175 04d9 E4040000 		.4byte	0x4e4
+ 1176 04dd 0F       		.uleb128 0xf
+ 1177 04de 01       		.uleb128 0x1
+ 1178 04df 50       		.byte	0x50
+ 1179 04e0 02       		.uleb128 0x2
+ 1180 04e1 08       		.byte	0x8
+ 1181 04e2 67       		.byte	0x67
+ 1182 04e3 00       		.byte	0
+ 1183 04e4 1B       		.uleb128 0x1b
+ 1184 04e5 5C000000 		.4byte	.LVL29
+ 1185 04e9 D9060000 		.4byte	0x6d9
+ 1186 04ed F8040000 		.4byte	0x4f8
+ 1187 04f1 0F       		.uleb128 0xf
+ 1188 04f2 01       		.uleb128 0x1
+ 1189 04f3 50       		.byte	0x50
+ 1190 04f4 02       		.uleb128 0x2
+ 1191 04f5 08       		.byte	0x8
+ARM GAS  C:\Users\MATEOC~1.QUE\AppData\Local\Temp\ccGACnuM.s 			page 32
+
+
+ 1192 04f6 66       		.byte	0x66
+ 1193 04f7 00       		.byte	0
+ 1194 04f8 0E       		.uleb128 0xe
+ 1195 04f9 7C000000 		.4byte	.LVL30
+ 1196 04fd D9060000 		.4byte	0x6d9
+ 1197 0501 0F       		.uleb128 0xf
+ 1198 0502 01       		.uleb128 0x1
+ 1199 0503 50       		.byte	0x50
+ 1200 0504 02       		.uleb128 0x2
+ 1201 0505 08       		.byte	0x8
+ 1202 0506 68       		.byte	0x68
+ 1203 0507 00       		.byte	0
+ 1204 0508 00       		.byte	0
+ 1205 0509 12       		.uleb128 0x12
+ 1206 050a 31040000 		.4byte	.LASF54
+ 1207 050e 01       		.byte	0x1
+ 1208 050f 98       		.byte	0x98
+ 1209 0510 00000000 		.4byte	.LFB110
+ 1210 0514 48000000 		.4byte	.LFE110-.LFB110
+ 1211 0518 01       		.uleb128 0x1
+ 1212 0519 9C       		.byte	0x9c
+ 1213 051a AC050000 		.4byte	0x5ac
+ 1214 051e 1D       		.uleb128 0x1d
+ 1215 051f 6D736700 		.ascii	"msg\000"
+ 1216 0523 01       		.byte	0x1
+ 1217 0524 9A       		.byte	0x9a
+ 1218 0525 A2010000 		.4byte	0x1a2
+ 1219 0529 02       		.uleb128 0x2
+ 1220 052a 91       		.byte	0x91
+ 1221 052b 70       		.sleb128 -16
+ 1222 052c 0D       		.uleb128 0xd
+ 1223 052d D0040000 		.4byte	.LASF46
+ 1224 0531 01       		.byte	0x1
+ 1225 0532 9B       		.byte	0x9b
+ 1226 0533 E3000000 		.4byte	0xe3
+ 1227 0537 02       		.uleb128 0x2
+ 1228 0538 91       		.byte	0x91
+ 1229 0539 6C       		.sleb128 -20
+ 1230 053a 1E       		.uleb128 0x1e
+ 1231 053b 63040000 		.4byte	.LASF47
+ 1232 053f 01       		.byte	0x1
+ 1233 0540 9C       		.byte	0x9c
+ 1234 0541 E3000000 		.4byte	0xe3
+ 1235 0545 6B010000 		.4byte	.LLST10
+ 1236 0549 1B       		.uleb128 0x1b
+ 1237 054a 16000000 		.4byte	.LVL31
+ 1238 054e CE060000 		.4byte	0x6ce
+ 1239 0552 68050000 		.4byte	0x568
+ 1240 0556 0F       		.uleb128 0xf
+ 1241 0557 01       		.uleb128 0x1
+ 1242 0558 50       		.byte	0x50
+ 1243 0559 02       		.uleb128 0x2
+ 1244 055a 91       		.byte	0x91
+ 1245 055b 70       		.sleb128 -16
+ 1246 055c 0F       		.uleb128 0xf
+ 1247 055d 01       		.uleb128 0x1
+ 1248 055e 51       		.byte	0x51
+ARM GAS  C:\Users\MATEOC~1.QUE\AppData\Local\Temp\ccGACnuM.s 			page 33
+
+
+ 1249 055f 01       		.uleb128 0x1
+ 1250 0560 38       		.byte	0x38
+ 1251 0561 0F       		.uleb128 0xf
+ 1252 0562 01       		.uleb128 0x1
+ 1253 0563 52       		.byte	0x52
+ 1254 0564 02       		.uleb128 0x2
+ 1255 0565 91       		.byte	0x91
+ 1256 0566 6C       		.sleb128 -20
+ 1257 0567 00       		.byte	0
+ 1258 0568 1B       		.uleb128 0x1b
+ 1259 0569 24000000 		.4byte	.LVL33
+ 1260 056d E5060000 		.4byte	0x6e5
+ 1261 0571 7C050000 		.4byte	0x57c
+ 1262 0575 0F       		.uleb128 0xf
+ 1263 0576 01       		.uleb128 0x1
+ 1264 0577 50       		.byte	0x50
+ 1265 0578 02       		.uleb128 0x2
+ 1266 0579 91       		.byte	0x91
+ 1267 057a 70       		.sleb128 -16
+ 1268 057b 00       		.byte	0
+ 1269 057c 1B       		.uleb128 0x1b
+ 1270 057d 2C000000 		.4byte	.LVL34
+ 1271 0581 FC060000 		.4byte	0x6fc
+ 1272 0585 90050000 		.4byte	0x590
+ 1273 0589 0F       		.uleb128 0xf
+ 1274 058a 01       		.uleb128 0x1
+ 1275 058b 50       		.byte	0x50
+ 1276 058c 02       		.uleb128 0x2
+ 1277 058d 91       		.byte	0x91
+ 1278 058e 70       		.sleb128 -16
+ 1279 058f 00       		.byte	0
+ 1280 0590 1A       		.uleb128 0x1a
+ 1281 0591 34000000 		.4byte	.LVL35
+ 1282 0595 14070000 		.4byte	0x714
+ 1283 0599 1A       		.uleb128 0x1a
+ 1284 059a 3E000000 		.4byte	.LVL36
+ 1285 059e A6040000 		.4byte	0x4a6
+ 1286 05a2 1A       		.uleb128 0x1a
+ 1287 05a3 42000000 		.4byte	.LVL37
+ 1288 05a7 20070000 		.4byte	0x720
+ 1289 05ab 00       		.byte	0
+ 1290 05ac 16       		.uleb128 0x16
+ 1291 05ad 4E020000 		.4byte	.LASF55
+ 1292 05b1 01       		.byte	0x1
+ 1293 05b2 3C01     		.2byte	0x13c
+ 1294 05b4 EE000000 		.4byte	0xee
+ 1295 05b8 05       		.uleb128 0x5
+ 1296 05b9 03       		.byte	0x3
+ 1297 05ba 00000000 		.4byte	NoRoomForSymbol_last
+ 1298 05be 16       		.uleb128 0x16
+ 1299 05bf F4030000 		.4byte	.LASF56
+ 1300 05c3 01       		.byte	0x1
+ 1301 05c4 3D01     		.2byte	0x13d
+ 1302 05c6 EE000000 		.4byte	0xee
+ 1303 05ca 05       		.uleb128 0x5
+ 1304 05cb 03       		.byte	0x3
+ 1305 05cc 04000000 		.4byte	NoRoomForObjectData_last
+ARM GAS  C:\Users\MATEOC~1.QUE\AppData\Local\Temp\ccGACnuM.s 			page 34
+
+
+ 1306 05d0 16       		.uleb128 0x16
+ 1307 05d1 DA000000 		.4byte	.LASF57
+ 1308 05d5 01       		.byte	0x1
+ 1309 05d6 3E01     		.2byte	0x13e
+ 1310 05d8 EE000000 		.4byte	0xee
+ 1311 05dc 05       		.uleb128 0x5
+ 1312 05dd 03       		.byte	0x3
+ 1313 05de 08000000 		.4byte	LongestSymbolName_last
+ 1314 05e2 16       		.uleb128 0x16
+ 1315 05e3 64050000 		.4byte	.LASF58
+ 1316 05e7 01       		.byte	0x1
+ 1317 05e8 3F01     		.2byte	0x13f
+ 1318 05ea EE000000 		.4byte	0xee
+ 1319 05ee 05       		.uleb128 0x5
+ 1320 05ef 03       		.byte	0x3
+ 1321 05f0 0C000000 		.4byte	MaxBytesTruncated_last
+ 1322 05f4 1F       		.uleb128 0x1f
+ 1323 05f5 2F060000 		.4byte	.LASF60
+ 1324 05f9 08       		.byte	0x8
+ 1325 05fa 40       		.byte	0x40
+ 1326 05fb AB000000 		.4byte	0xab
+ 1327 05ff 1F       		.uleb128 0x1f
+ 1328 0600 6C020000 		.4byte	.LASF61
+ 1329 0604 08       		.byte	0x8
+ 1330 0605 47       		.byte	0x47
+ 1331 0606 B6000000 		.4byte	0xb6
+ 1332 060a 1F       		.uleb128 0x1f
+ 1333 060b AB040000 		.4byte	.LASF62
+ 1334 060f 08       		.byte	0x8
+ 1335 0610 4A       		.byte	0x4a
+ 1336 0611 AB000000 		.4byte	0xab
+ 1337 0615 1F       		.uleb128 0x1f
+ 1338 0616 F9010000 		.4byte	.LASF63
+ 1339 061a 09       		.byte	0x9
+ 1340 061b 48       		.byte	0x48
+ 1341 061c C1000000 		.4byte	0xc1
+ 1342 0620 1F       		.uleb128 0x1f
+ 1343 0621 D0010000 		.4byte	.LASF64
+ 1344 0625 0A       		.byte	0xa
+ 1345 0626 44       		.byte	0x44
+ 1346 0627 AB000000 		.4byte	0xab
+ 1347 062b 18       		.uleb128 0x18
+ 1348 062c 88050000 		.4byte	.LASF65
+ 1349 0630 0B       		.byte	0xb
+ 1350 0631 1207     		.2byte	0x712
+ 1351 0633 37060000 		.4byte	0x637
+ 1352 0637 09       		.uleb128 0x9
+ 1353 0638 E3000000 		.4byte	0xe3
+ 1354 063c 20       		.uleb128 0x20
+ 1355 063d 07010000 		.4byte	0x107
+ 1356 0641 4D060000 		.4byte	0x64d
+ 1357 0645 21       		.uleb128 0x21
+ 1358 0646 0E010000 		.4byte	0x10e
+ 1359 064a 8713     		.2byte	0x1387
+ 1360 064c 00       		.byte	0
+ 1361 064d 22       		.uleb128 0x22
+ 1362 064e C3010000 		.4byte	.LASF66
+ARM GAS  C:\Users\MATEOC~1.QUE\AppData\Local\Temp\ccGACnuM.s 			page 35
+
+
+ 1363 0652 01       		.byte	0x1
+ 1364 0653 4601     		.2byte	0x146
+ 1365 0655 3C060000 		.4byte	0x63c
+ 1366 0659 05       		.uleb128 0x5
+ 1367 065a 03       		.byte	0x3
+ 1368 065b 00000000 		.4byte	_TzTraceData
+ 1369 065f 18       		.uleb128 0x18
+ 1370 0660 0D040000 		.4byte	.LASF67
+ 1371 0664 01       		.byte	0x1
+ 1372 0665 3601     		.2byte	0x136
+ 1373 0667 20010000 		.4byte	0x120
+ 1374 066b 18       		.uleb128 0x18
+ 1375 066c 26000000 		.4byte	.LASF68
+ 1376 0670 01       		.byte	0x1
+ 1377 0671 3701     		.2byte	0x137
+ 1378 0673 20010000 		.4byte	0x120
+ 1379 0677 18       		.uleb128 0x18
+ 1380 0678 5B000000 		.4byte	.LASF69
+ 1381 067c 01       		.byte	0x1
+ 1382 067d 3801     		.2byte	0x138
+ 1383 067f 20010000 		.4byte	0x120
+ 1384 0683 18       		.uleb128 0x18
+ 1385 0684 84000000 		.4byte	.LASF70
+ 1386 0688 01       		.byte	0x1
+ 1387 0689 3901     		.2byte	0x139
+ 1388 068b 20010000 		.4byte	0x120
+ 1389 068f 22       		.uleb128 0x22
+ 1390 0690 14000000 		.4byte	.LASF71
+ 1391 0694 01       		.byte	0x1
+ 1392 0695 4201     		.2byte	0x142
+ 1393 0697 25010000 		.4byte	0x125
+ 1394 069b 05       		.uleb128 0x5
+ 1395 069c 03       		.byte	0x3
+ 1396 069d 00000000 		.4byte	trcWarningChannel
+ 1397 06a1 18       		.uleb128 0x18
+ 1398 06a2 4B000000 		.4byte	.LASF59
+ 1399 06a6 01       		.byte	0x1
+ 1400 06a7 5A01     		.2byte	0x15a
+ 1401 06a9 EE000000 		.4byte	0xee
+ 1402 06ad 23       		.uleb128 0x23
+ 1403 06ae 6F010000 		.4byte	.LASF72
+ 1404 06b2 6F010000 		.4byte	.LASF72
+ 1405 06b6 0C       		.byte	0xc
+ 1406 06b7 B3       		.byte	0xb3
+ 1407 06b8 23       		.uleb128 0x23
+ 1408 06b9 43040000 		.4byte	.LASF73
+ 1409 06bd 43040000 		.4byte	.LASF73
+ 1410 06c1 0D       		.byte	0xd
+ 1411 06c2 5E       		.byte	0x5e
+ 1412 06c3 23       		.uleb128 0x23
+ 1413 06c4 18050000 		.4byte	.LASF74
+ 1414 06c8 18050000 		.4byte	.LASF74
+ 1415 06cc 07       		.byte	0x7
+ 1416 06cd FD       		.byte	0xfd
+ 1417 06ce 23       		.uleb128 0x23
+ 1418 06cf B2000000 		.4byte	.LASF75
+ 1419 06d3 B2000000 		.4byte	.LASF75
+ARM GAS  C:\Users\MATEOC~1.QUE\AppData\Local\Temp\ccGACnuM.s 			page 36
+
+
+ 1420 06d7 0D       		.byte	0xd
+ 1421 06d8 67       		.byte	0x67
+ 1422 06d9 24       		.uleb128 0x24
+ 1423 06da 70030000 		.4byte	.LASF76
+ 1424 06de 70030000 		.4byte	.LASF76
+ 1425 06e2 01       		.byte	0x1
+ 1426 06e3 4A01     		.2byte	0x14a
+ 1427 06e5 24       		.uleb128 0x24
+ 1428 06e6 99040000 		.4byte	.LASF77
+ 1429 06ea 99040000 		.4byte	.LASF77
+ 1430 06ee 07       		.byte	0x7
+ 1431 06ef A106     		.2byte	0x6a1
+ 1432 06f1 23       		.uleb128 0x23
+ 1433 06f2 1D040000 		.4byte	.LASF78
+ 1434 06f6 1D040000 		.4byte	.LASF78
+ 1435 06fa 0E       		.byte	0xe
+ 1436 06fb AA       		.byte	0xaa
+ 1437 06fc 24       		.uleb128 0x24
+ 1438 06fd 7F010000 		.4byte	.LASF79
+ 1439 0701 7F010000 		.4byte	.LASF79
+ 1440 0705 07       		.byte	0x7
+ 1441 0706 A406     		.2byte	0x6a4
+ 1442 0708 24       		.uleb128 0x24
+ 1443 0709 4D010000 		.4byte	.LASF80
+ 1444 070d 4D010000 		.4byte	.LASF80
+ 1445 0711 0F       		.byte	0xf
+ 1446 0712 8305     		.2byte	0x583
+ 1447 0714 24       		.uleb128 0x24
+ 1448 0715 37030000 		.4byte	.LASF81
+ 1449 0719 37030000 		.4byte	.LASF81
+ 1450 071d 07       		.byte	0x7
+ 1451 071e 9106     		.2byte	0x691
+ 1452 0720 23       		.uleb128 0x23
+ 1453 0721 E5010000 		.4byte	.LASF82
+ 1454 0725 E5010000 		.4byte	.LASF82
+ 1455 0729 0C       		.byte	0xc
+ 1456 072a 9F       		.byte	0x9f
+ 1457 072b 00       		.byte	0
+ 1458              		.section	.debug_abbrev,"",%progbits
+ 1459              	.Ldebug_abbrev0:
+ 1460 0000 01       		.uleb128 0x1
+ 1461 0001 11       		.uleb128 0x11
+ 1462 0002 01       		.byte	0x1
+ 1463 0003 25       		.uleb128 0x25
+ 1464 0004 0E       		.uleb128 0xe
+ 1465 0005 13       		.uleb128 0x13
+ 1466 0006 0B       		.uleb128 0xb
+ 1467 0007 03       		.uleb128 0x3
+ 1468 0008 0E       		.uleb128 0xe
+ 1469 0009 1B       		.uleb128 0x1b
+ 1470 000a 0E       		.uleb128 0xe
+ 1471 000b 55       		.uleb128 0x55
+ 1472 000c 17       		.uleb128 0x17
+ 1473 000d 11       		.uleb128 0x11
+ 1474 000e 01       		.uleb128 0x1
+ 1475 000f 10       		.uleb128 0x10
+ 1476 0010 17       		.uleb128 0x17
+ARM GAS  C:\Users\MATEOC~1.QUE\AppData\Local\Temp\ccGACnuM.s 			page 37
+
+
+ 1477 0011 00       		.byte	0
+ 1478 0012 00       		.byte	0
+ 1479 0013 02       		.uleb128 0x2
+ 1480 0014 24       		.uleb128 0x24
+ 1481 0015 00       		.byte	0
+ 1482 0016 0B       		.uleb128 0xb
+ 1483 0017 0B       		.uleb128 0xb
+ 1484 0018 3E       		.uleb128 0x3e
+ 1485 0019 0B       		.uleb128 0xb
+ 1486 001a 03       		.uleb128 0x3
+ 1487 001b 0E       		.uleb128 0xe
+ 1488 001c 00       		.byte	0
+ 1489 001d 00       		.byte	0
+ 1490 001e 03       		.uleb128 0x3
+ 1491 001f 16       		.uleb128 0x16
+ 1492 0020 00       		.byte	0
+ 1493 0021 03       		.uleb128 0x3
+ 1494 0022 0E       		.uleb128 0xe
+ 1495 0023 3A       		.uleb128 0x3a
+ 1496 0024 0B       		.uleb128 0xb
+ 1497 0025 3B       		.uleb128 0x3b
+ 1498 0026 0B       		.uleb128 0xb
+ 1499 0027 49       		.uleb128 0x49
+ 1500 0028 13       		.uleb128 0x13
+ 1501 0029 00       		.byte	0
+ 1502 002a 00       		.byte	0
+ 1503 002b 04       		.uleb128 0x4
+ 1504 002c 24       		.uleb128 0x24
+ 1505 002d 00       		.byte	0
+ 1506 002e 0B       		.uleb128 0xb
+ 1507 002f 0B       		.uleb128 0xb
+ 1508 0030 3E       		.uleb128 0x3e
+ 1509 0031 0B       		.uleb128 0xb
+ 1510 0032 03       		.uleb128 0x3
+ 1511 0033 08       		.uleb128 0x8
+ 1512 0034 00       		.byte	0
+ 1513 0035 00       		.byte	0
+ 1514 0036 05       		.uleb128 0x5
+ 1515 0037 0F       		.uleb128 0xf
+ 1516 0038 00       		.byte	0
+ 1517 0039 0B       		.uleb128 0xb
+ 1518 003a 0B       		.uleb128 0xb
+ 1519 003b 00       		.byte	0
+ 1520 003c 00       		.byte	0
+ 1521 003d 06       		.uleb128 0x6
+ 1522 003e 16       		.uleb128 0x16
+ 1523 003f 00       		.byte	0
+ 1524 0040 03       		.uleb128 0x3
+ 1525 0041 0E       		.uleb128 0xe
+ 1526 0042 3A       		.uleb128 0x3a
+ 1527 0043 0B       		.uleb128 0xb
+ 1528 0044 3B       		.uleb128 0x3b
+ 1529 0045 05       		.uleb128 0x5
+ 1530 0046 49       		.uleb128 0x49
+ 1531 0047 13       		.uleb128 0x13
+ 1532 0048 00       		.byte	0
+ 1533 0049 00       		.byte	0
+ARM GAS  C:\Users\MATEOC~1.QUE\AppData\Local\Temp\ccGACnuM.s 			page 38
+
+
+ 1534 004a 07       		.uleb128 0x7
+ 1535 004b 0F       		.uleb128 0xf
+ 1536 004c 00       		.byte	0
+ 1537 004d 0B       		.uleb128 0xb
+ 1538 004e 0B       		.uleb128 0xb
+ 1539 004f 49       		.uleb128 0x49
+ 1540 0050 13       		.uleb128 0x13
+ 1541 0051 00       		.byte	0
+ 1542 0052 00       		.byte	0
+ 1543 0053 08       		.uleb128 0x8
+ 1544 0054 26       		.uleb128 0x26
+ 1545 0055 00       		.byte	0
+ 1546 0056 49       		.uleb128 0x49
+ 1547 0057 13       		.uleb128 0x13
+ 1548 0058 00       		.byte	0
+ 1549 0059 00       		.byte	0
+ 1550 005a 09       		.uleb128 0x9
+ 1551 005b 35       		.uleb128 0x35
+ 1552 005c 00       		.byte	0
+ 1553 005d 49       		.uleb128 0x49
+ 1554 005e 13       		.uleb128 0x13
+ 1555 005f 00       		.byte	0
+ 1556 0060 00       		.byte	0
+ 1557 0061 0A       		.uleb128 0xa
+ 1558 0062 13       		.uleb128 0x13
+ 1559 0063 01       		.byte	0x1
+ 1560 0064 0B       		.uleb128 0xb
+ 1561 0065 0B       		.uleb128 0xb
+ 1562 0066 3A       		.uleb128 0x3a
+ 1563 0067 0B       		.uleb128 0xb
+ 1564 0068 3B       		.uleb128 0x3b
+ 1565 0069 05       		.uleb128 0x5
+ 1566 006a 01       		.uleb128 0x1
+ 1567 006b 13       		.uleb128 0x13
+ 1568 006c 00       		.byte	0
+ 1569 006d 00       		.byte	0
+ 1570 006e 0B       		.uleb128 0xb
+ 1571 006f 0D       		.uleb128 0xd
+ 1572 0070 00       		.byte	0
+ 1573 0071 03       		.uleb128 0x3
+ 1574 0072 0E       		.uleb128 0xe
+ 1575 0073 3A       		.uleb128 0x3a
+ 1576 0074 0B       		.uleb128 0xb
+ 1577 0075 3B       		.uleb128 0x3b
+ 1578 0076 05       		.uleb128 0x5
+ 1579 0077 49       		.uleb128 0x49
+ 1580 0078 13       		.uleb128 0x13
+ 1581 0079 38       		.uleb128 0x38
+ 1582 007a 0B       		.uleb128 0xb
+ 1583 007b 00       		.byte	0
+ 1584 007c 00       		.byte	0
+ 1585 007d 0C       		.uleb128 0xc
+ 1586 007e 2E       		.uleb128 0x2e
+ 1587 007f 01       		.byte	0x1
+ 1588 0080 3F       		.uleb128 0x3f
+ 1589 0081 19       		.uleb128 0x19
+ 1590 0082 03       		.uleb128 0x3
+ARM GAS  C:\Users\MATEOC~1.QUE\AppData\Local\Temp\ccGACnuM.s 			page 39
+
+
+ 1591 0083 0E       		.uleb128 0xe
+ 1592 0084 3A       		.uleb128 0x3a
+ 1593 0085 0B       		.uleb128 0xb
+ 1594 0086 3B       		.uleb128 0x3b
+ 1595 0087 0B       		.uleb128 0xb
+ 1596 0088 49       		.uleb128 0x49
+ 1597 0089 13       		.uleb128 0x13
+ 1598 008a 11       		.uleb128 0x11
+ 1599 008b 01       		.uleb128 0x1
+ 1600 008c 12       		.uleb128 0x12
+ 1601 008d 06       		.uleb128 0x6
+ 1602 008e 40       		.uleb128 0x40
+ 1603 008f 18       		.uleb128 0x18
+ 1604 0090 9742     		.uleb128 0x2117
+ 1605 0092 19       		.uleb128 0x19
+ 1606 0093 01       		.uleb128 0x1
+ 1607 0094 13       		.uleb128 0x13
+ 1608 0095 00       		.byte	0
+ 1609 0096 00       		.byte	0
+ 1610 0097 0D       		.uleb128 0xd
+ 1611 0098 34       		.uleb128 0x34
+ 1612 0099 00       		.byte	0
+ 1613 009a 03       		.uleb128 0x3
+ 1614 009b 0E       		.uleb128 0xe
+ 1615 009c 3A       		.uleb128 0x3a
+ 1616 009d 0B       		.uleb128 0xb
+ 1617 009e 3B       		.uleb128 0x3b
+ 1618 009f 0B       		.uleb128 0xb
+ 1619 00a0 49       		.uleb128 0x49
+ 1620 00a1 13       		.uleb128 0x13
+ 1621 00a2 02       		.uleb128 0x2
+ 1622 00a3 18       		.uleb128 0x18
+ 1623 00a4 00       		.byte	0
+ 1624 00a5 00       		.byte	0
+ 1625 00a6 0E       		.uleb128 0xe
+ 1626 00a7 898201   		.uleb128 0x4109
+ 1627 00aa 01       		.byte	0x1
+ 1628 00ab 11       		.uleb128 0x11
+ 1629 00ac 01       		.uleb128 0x1
+ 1630 00ad 31       		.uleb128 0x31
+ 1631 00ae 13       		.uleb128 0x13
+ 1632 00af 00       		.byte	0
+ 1633 00b0 00       		.byte	0
+ 1634 00b1 0F       		.uleb128 0xf
+ 1635 00b2 8A8201   		.uleb128 0x410a
+ 1636 00b5 00       		.byte	0
+ 1637 00b6 02       		.uleb128 0x2
+ 1638 00b7 18       		.uleb128 0x18
+ 1639 00b8 9142     		.uleb128 0x2111
+ 1640 00ba 18       		.uleb128 0x18
+ 1641 00bb 00       		.byte	0
+ 1642 00bc 00       		.byte	0
+ 1643 00bd 10       		.uleb128 0x10
+ 1644 00be 2E       		.uleb128 0x2e
+ 1645 00bf 01       		.byte	0x1
+ 1646 00c0 3F       		.uleb128 0x3f
+ 1647 00c1 19       		.uleb128 0x19
+ARM GAS  C:\Users\MATEOC~1.QUE\AppData\Local\Temp\ccGACnuM.s 			page 40
+
+
+ 1648 00c2 03       		.uleb128 0x3
+ 1649 00c3 0E       		.uleb128 0xe
+ 1650 00c4 3A       		.uleb128 0x3a
+ 1651 00c5 0B       		.uleb128 0xb
+ 1652 00c6 3B       		.uleb128 0x3b
+ 1653 00c7 0B       		.uleb128 0xb
+ 1654 00c8 27       		.uleb128 0x27
+ 1655 00c9 19       		.uleb128 0x19
+ 1656 00ca 49       		.uleb128 0x49
+ 1657 00cb 13       		.uleb128 0x13
+ 1658 00cc 11       		.uleb128 0x11
+ 1659 00cd 01       		.uleb128 0x1
+ 1660 00ce 12       		.uleb128 0x12
+ 1661 00cf 06       		.uleb128 0x6
+ 1662 00d0 40       		.uleb128 0x40
+ 1663 00d1 18       		.uleb128 0x18
+ 1664 00d2 9742     		.uleb128 0x2117
+ 1665 00d4 19       		.uleb128 0x19
+ 1666 00d5 01       		.uleb128 0x1
+ 1667 00d6 13       		.uleb128 0x13
+ 1668 00d7 00       		.byte	0
+ 1669 00d8 00       		.byte	0
+ 1670 00d9 11       		.uleb128 0x11
+ 1671 00da 05       		.uleb128 0x5
+ 1672 00db 00       		.byte	0
+ 1673 00dc 03       		.uleb128 0x3
+ 1674 00dd 0E       		.uleb128 0xe
+ 1675 00de 3A       		.uleb128 0x3a
+ 1676 00df 0B       		.uleb128 0xb
+ 1677 00e0 3B       		.uleb128 0x3b
+ 1678 00e1 0B       		.uleb128 0xb
+ 1679 00e2 49       		.uleb128 0x49
+ 1680 00e3 13       		.uleb128 0x13
+ 1681 00e4 02       		.uleb128 0x2
+ 1682 00e5 17       		.uleb128 0x17
+ 1683 00e6 00       		.byte	0
+ 1684 00e7 00       		.byte	0
+ 1685 00e8 12       		.uleb128 0x12
+ 1686 00e9 2E       		.uleb128 0x2e
+ 1687 00ea 01       		.byte	0x1
+ 1688 00eb 3F       		.uleb128 0x3f
+ 1689 00ec 19       		.uleb128 0x19
+ 1690 00ed 03       		.uleb128 0x3
+ 1691 00ee 0E       		.uleb128 0xe
+ 1692 00ef 3A       		.uleb128 0x3a
+ 1693 00f0 0B       		.uleb128 0xb
+ 1694 00f1 3B       		.uleb128 0x3b
+ 1695 00f2 0B       		.uleb128 0xb
+ 1696 00f3 27       		.uleb128 0x27
+ 1697 00f4 19       		.uleb128 0x19
+ 1698 00f5 11       		.uleb128 0x11
+ 1699 00f6 01       		.uleb128 0x1
+ 1700 00f7 12       		.uleb128 0x12
+ 1701 00f8 06       		.uleb128 0x6
+ 1702 00f9 40       		.uleb128 0x40
+ 1703 00fa 18       		.uleb128 0x18
+ 1704 00fb 9742     		.uleb128 0x2117
+ARM GAS  C:\Users\MATEOC~1.QUE\AppData\Local\Temp\ccGACnuM.s 			page 41
+
+
+ 1705 00fd 19       		.uleb128 0x19
+ 1706 00fe 01       		.uleb128 0x1
+ 1707 00ff 13       		.uleb128 0x13
+ 1708 0100 00       		.byte	0
+ 1709 0101 00       		.byte	0
+ 1710 0102 13       		.uleb128 0x13
+ 1711 0103 05       		.uleb128 0x5
+ 1712 0104 00       		.byte	0
+ 1713 0105 03       		.uleb128 0x3
+ 1714 0106 0E       		.uleb128 0xe
+ 1715 0107 3A       		.uleb128 0x3a
+ 1716 0108 0B       		.uleb128 0xb
+ 1717 0109 3B       		.uleb128 0x3b
+ 1718 010a 0B       		.uleb128 0xb
+ 1719 010b 49       		.uleb128 0x49
+ 1720 010c 13       		.uleb128 0x13
+ 1721 010d 02       		.uleb128 0x2
+ 1722 010e 18       		.uleb128 0x18
+ 1723 010f 00       		.byte	0
+ 1724 0110 00       		.byte	0
+ 1725 0111 14       		.uleb128 0x14
+ 1726 0112 2E       		.uleb128 0x2e
+ 1727 0113 01       		.byte	0x1
+ 1728 0114 3F       		.uleb128 0x3f
+ 1729 0115 19       		.uleb128 0x19
+ 1730 0116 03       		.uleb128 0x3
+ 1731 0117 0E       		.uleb128 0xe
+ 1732 0118 3A       		.uleb128 0x3a
+ 1733 0119 0B       		.uleb128 0xb
+ 1734 011a 3B       		.uleb128 0x3b
+ 1735 011b 05       		.uleb128 0x5
+ 1736 011c 27       		.uleb128 0x27
+ 1737 011d 19       		.uleb128 0x19
+ 1738 011e 11       		.uleb128 0x11
+ 1739 011f 01       		.uleb128 0x1
+ 1740 0120 12       		.uleb128 0x12
+ 1741 0121 06       		.uleb128 0x6
+ 1742 0122 40       		.uleb128 0x40
+ 1743 0123 18       		.uleb128 0x18
+ 1744 0124 9742     		.uleb128 0x2117
+ 1745 0126 19       		.uleb128 0x19
+ 1746 0127 01       		.uleb128 0x1
+ 1747 0128 13       		.uleb128 0x13
+ 1748 0129 00       		.byte	0
+ 1749 012a 00       		.byte	0
+ 1750 012b 15       		.uleb128 0x15
+ 1751 012c 05       		.uleb128 0x5
+ 1752 012d 00       		.byte	0
+ 1753 012e 03       		.uleb128 0x3
+ 1754 012f 0E       		.uleb128 0xe
+ 1755 0130 3A       		.uleb128 0x3a
+ 1756 0131 0B       		.uleb128 0xb
+ 1757 0132 3B       		.uleb128 0x3b
+ 1758 0133 05       		.uleb128 0x5
+ 1759 0134 49       		.uleb128 0x49
+ 1760 0135 13       		.uleb128 0x13
+ 1761 0136 02       		.uleb128 0x2
+ARM GAS  C:\Users\MATEOC~1.QUE\AppData\Local\Temp\ccGACnuM.s 			page 42
+
+
+ 1762 0137 17       		.uleb128 0x17
+ 1763 0138 00       		.byte	0
+ 1764 0139 00       		.byte	0
+ 1765 013a 16       		.uleb128 0x16
+ 1766 013b 34       		.uleb128 0x34
+ 1767 013c 00       		.byte	0
+ 1768 013d 03       		.uleb128 0x3
+ 1769 013e 0E       		.uleb128 0xe
+ 1770 013f 3A       		.uleb128 0x3a
+ 1771 0140 0B       		.uleb128 0xb
+ 1772 0141 3B       		.uleb128 0x3b
+ 1773 0142 05       		.uleb128 0x5
+ 1774 0143 49       		.uleb128 0x49
+ 1775 0144 13       		.uleb128 0x13
+ 1776 0145 02       		.uleb128 0x2
+ 1777 0146 18       		.uleb128 0x18
+ 1778 0147 00       		.byte	0
+ 1779 0148 00       		.byte	0
+ 1780 0149 17       		.uleb128 0x17
+ 1781 014a 34       		.uleb128 0x34
+ 1782 014b 00       		.byte	0
+ 1783 014c 03       		.uleb128 0x3
+ 1784 014d 0E       		.uleb128 0xe
+ 1785 014e 3A       		.uleb128 0x3a
+ 1786 014f 0B       		.uleb128 0xb
+ 1787 0150 3B       		.uleb128 0x3b
+ 1788 0151 05       		.uleb128 0x5
+ 1789 0152 49       		.uleb128 0x49
+ 1790 0153 13       		.uleb128 0x13
+ 1791 0154 02       		.uleb128 0x2
+ 1792 0155 17       		.uleb128 0x17
+ 1793 0156 00       		.byte	0
+ 1794 0157 00       		.byte	0
+ 1795 0158 18       		.uleb128 0x18
+ 1796 0159 34       		.uleb128 0x34
+ 1797 015a 00       		.byte	0
+ 1798 015b 03       		.uleb128 0x3
+ 1799 015c 0E       		.uleb128 0xe
+ 1800 015d 3A       		.uleb128 0x3a
+ 1801 015e 0B       		.uleb128 0xb
+ 1802 015f 3B       		.uleb128 0x3b
+ 1803 0160 05       		.uleb128 0x5
+ 1804 0161 49       		.uleb128 0x49
+ 1805 0162 13       		.uleb128 0x13
+ 1806 0163 3F       		.uleb128 0x3f
+ 1807 0164 19       		.uleb128 0x19
+ 1808 0165 3C       		.uleb128 0x3c
+ 1809 0166 19       		.uleb128 0x19
+ 1810 0167 00       		.byte	0
+ 1811 0168 00       		.byte	0
+ 1812 0169 19       		.uleb128 0x19
+ 1813 016a 34       		.uleb128 0x34
+ 1814 016b 00       		.byte	0
+ 1815 016c 03       		.uleb128 0x3
+ 1816 016d 08       		.uleb128 0x8
+ 1817 016e 3A       		.uleb128 0x3a
+ 1818 016f 0B       		.uleb128 0xb
+ARM GAS  C:\Users\MATEOC~1.QUE\AppData\Local\Temp\ccGACnuM.s 			page 43
+
+
+ 1819 0170 3B       		.uleb128 0x3b
+ 1820 0171 05       		.uleb128 0x5
+ 1821 0172 49       		.uleb128 0x49
+ 1822 0173 13       		.uleb128 0x13
+ 1823 0174 02       		.uleb128 0x2
+ 1824 0175 18       		.uleb128 0x18
+ 1825 0176 00       		.byte	0
+ 1826 0177 00       		.byte	0
+ 1827 0178 1A       		.uleb128 0x1a
+ 1828 0179 898201   		.uleb128 0x4109
+ 1829 017c 00       		.byte	0
+ 1830 017d 11       		.uleb128 0x11
+ 1831 017e 01       		.uleb128 0x1
+ 1832 017f 31       		.uleb128 0x31
+ 1833 0180 13       		.uleb128 0x13
+ 1834 0181 00       		.byte	0
+ 1835 0182 00       		.byte	0
+ 1836 0183 1B       		.uleb128 0x1b
+ 1837 0184 898201   		.uleb128 0x4109
+ 1838 0187 01       		.byte	0x1
+ 1839 0188 11       		.uleb128 0x11
+ 1840 0189 01       		.uleb128 0x1
+ 1841 018a 31       		.uleb128 0x31
+ 1842 018b 13       		.uleb128 0x13
+ 1843 018c 01       		.uleb128 0x1
+ 1844 018d 13       		.uleb128 0x13
+ 1845 018e 00       		.byte	0
+ 1846 018f 00       		.byte	0
+ 1847 0190 1C       		.uleb128 0x1c
+ 1848 0191 2E       		.uleb128 0x2e
+ 1849 0192 00       		.byte	0
+ 1850 0193 3F       		.uleb128 0x3f
+ 1851 0194 19       		.uleb128 0x19
+ 1852 0195 03       		.uleb128 0x3
+ 1853 0196 0E       		.uleb128 0xe
+ 1854 0197 3A       		.uleb128 0x3a
+ 1855 0198 0B       		.uleb128 0xb
+ 1856 0199 3B       		.uleb128 0x3b
+ 1857 019a 05       		.uleb128 0x5
+ 1858 019b 27       		.uleb128 0x27
+ 1859 019c 19       		.uleb128 0x19
+ 1860 019d 49       		.uleb128 0x49
+ 1861 019e 13       		.uleb128 0x13
+ 1862 019f 11       		.uleb128 0x11
+ 1863 01a0 01       		.uleb128 0x1
+ 1864 01a1 12       		.uleb128 0x12
+ 1865 01a2 06       		.uleb128 0x6
+ 1866 01a3 40       		.uleb128 0x40
+ 1867 01a4 18       		.uleb128 0x18
+ 1868 01a5 9742     		.uleb128 0x2117
+ 1869 01a7 19       		.uleb128 0x19
+ 1870 01a8 00       		.byte	0
+ 1871 01a9 00       		.byte	0
+ 1872 01aa 1D       		.uleb128 0x1d
+ 1873 01ab 34       		.uleb128 0x34
+ 1874 01ac 00       		.byte	0
+ 1875 01ad 03       		.uleb128 0x3
+ARM GAS  C:\Users\MATEOC~1.QUE\AppData\Local\Temp\ccGACnuM.s 			page 44
+
+
+ 1876 01ae 08       		.uleb128 0x8
+ 1877 01af 3A       		.uleb128 0x3a
+ 1878 01b0 0B       		.uleb128 0xb
+ 1879 01b1 3B       		.uleb128 0x3b
+ 1880 01b2 0B       		.uleb128 0xb
+ 1881 01b3 49       		.uleb128 0x49
+ 1882 01b4 13       		.uleb128 0x13
+ 1883 01b5 02       		.uleb128 0x2
+ 1884 01b6 18       		.uleb128 0x18
+ 1885 01b7 00       		.byte	0
+ 1886 01b8 00       		.byte	0
+ 1887 01b9 1E       		.uleb128 0x1e
+ 1888 01ba 34       		.uleb128 0x34
+ 1889 01bb 00       		.byte	0
+ 1890 01bc 03       		.uleb128 0x3
+ 1891 01bd 0E       		.uleb128 0xe
+ 1892 01be 3A       		.uleb128 0x3a
+ 1893 01bf 0B       		.uleb128 0xb
+ 1894 01c0 3B       		.uleb128 0x3b
+ 1895 01c1 0B       		.uleb128 0xb
+ 1896 01c2 49       		.uleb128 0x49
+ 1897 01c3 13       		.uleb128 0x13
+ 1898 01c4 02       		.uleb128 0x2
+ 1899 01c5 17       		.uleb128 0x17
+ 1900 01c6 00       		.byte	0
+ 1901 01c7 00       		.byte	0
+ 1902 01c8 1F       		.uleb128 0x1f
+ 1903 01c9 34       		.uleb128 0x34
+ 1904 01ca 00       		.byte	0
+ 1905 01cb 03       		.uleb128 0x3
+ 1906 01cc 0E       		.uleb128 0xe
+ 1907 01cd 3A       		.uleb128 0x3a
+ 1908 01ce 0B       		.uleb128 0xb
+ 1909 01cf 3B       		.uleb128 0x3b
+ 1910 01d0 0B       		.uleb128 0xb
+ 1911 01d1 49       		.uleb128 0x49
+ 1912 01d2 13       		.uleb128 0x13
+ 1913 01d3 3F       		.uleb128 0x3f
+ 1914 01d4 19       		.uleb128 0x19
+ 1915 01d5 3C       		.uleb128 0x3c
+ 1916 01d6 19       		.uleb128 0x19
+ 1917 01d7 00       		.byte	0
+ 1918 01d8 00       		.byte	0
+ 1919 01d9 20       		.uleb128 0x20
+ 1920 01da 01       		.uleb128 0x1
+ 1921 01db 01       		.byte	0x1
+ 1922 01dc 49       		.uleb128 0x49
+ 1923 01dd 13       		.uleb128 0x13
+ 1924 01de 01       		.uleb128 0x1
+ 1925 01df 13       		.uleb128 0x13
+ 1926 01e0 00       		.byte	0
+ 1927 01e1 00       		.byte	0
+ 1928 01e2 21       		.uleb128 0x21
+ 1929 01e3 21       		.uleb128 0x21
+ 1930 01e4 00       		.byte	0
+ 1931 01e5 49       		.uleb128 0x49
+ 1932 01e6 13       		.uleb128 0x13
+ARM GAS  C:\Users\MATEOC~1.QUE\AppData\Local\Temp\ccGACnuM.s 			page 45
+
+
+ 1933 01e7 2F       		.uleb128 0x2f
+ 1934 01e8 05       		.uleb128 0x5
+ 1935 01e9 00       		.byte	0
+ 1936 01ea 00       		.byte	0
+ 1937 01eb 22       		.uleb128 0x22
+ 1938 01ec 34       		.uleb128 0x34
+ 1939 01ed 00       		.byte	0
+ 1940 01ee 03       		.uleb128 0x3
+ 1941 01ef 0E       		.uleb128 0xe
+ 1942 01f0 3A       		.uleb128 0x3a
+ 1943 01f1 0B       		.uleb128 0xb
+ 1944 01f2 3B       		.uleb128 0x3b
+ 1945 01f3 05       		.uleb128 0x5
+ 1946 01f4 49       		.uleb128 0x49
+ 1947 01f5 13       		.uleb128 0x13
+ 1948 01f6 3F       		.uleb128 0x3f
+ 1949 01f7 19       		.uleb128 0x19
+ 1950 01f8 02       		.uleb128 0x2
+ 1951 01f9 18       		.uleb128 0x18
+ 1952 01fa 00       		.byte	0
+ 1953 01fb 00       		.byte	0
+ 1954 01fc 23       		.uleb128 0x23
+ 1955 01fd 2E       		.uleb128 0x2e
+ 1956 01fe 00       		.byte	0
+ 1957 01ff 3F       		.uleb128 0x3f
+ 1958 0200 19       		.uleb128 0x19
+ 1959 0201 3C       		.uleb128 0x3c
+ 1960 0202 19       		.uleb128 0x19
+ 1961 0203 6E       		.uleb128 0x6e
+ 1962 0204 0E       		.uleb128 0xe
+ 1963 0205 03       		.uleb128 0x3
+ 1964 0206 0E       		.uleb128 0xe
+ 1965 0207 3A       		.uleb128 0x3a
+ 1966 0208 0B       		.uleb128 0xb
+ 1967 0209 3B       		.uleb128 0x3b
+ 1968 020a 0B       		.uleb128 0xb
+ 1969 020b 00       		.byte	0
+ 1970 020c 00       		.byte	0
+ 1971 020d 24       		.uleb128 0x24
+ 1972 020e 2E       		.uleb128 0x2e
+ 1973 020f 00       		.byte	0
+ 1974 0210 3F       		.uleb128 0x3f
+ 1975 0211 19       		.uleb128 0x19
+ 1976 0212 3C       		.uleb128 0x3c
+ 1977 0213 19       		.uleb128 0x19
+ 1978 0214 6E       		.uleb128 0x6e
+ 1979 0215 0E       		.uleb128 0xe
+ 1980 0216 03       		.uleb128 0x3
+ 1981 0217 0E       		.uleb128 0xe
+ 1982 0218 3A       		.uleb128 0x3a
+ 1983 0219 0B       		.uleb128 0xb
+ 1984 021a 3B       		.uleb128 0x3b
+ 1985 021b 05       		.uleb128 0x5
+ 1986 021c 00       		.byte	0
+ 1987 021d 00       		.byte	0
+ 1988 021e 00       		.byte	0
+ 1989              		.section	.debug_loc,"",%progbits
+ARM GAS  C:\Users\MATEOC~1.QUE\AppData\Local\Temp\ccGACnuM.s 			page 46
+
+
+ 1990              	.Ldebug_loc0:
+ 1991              	.LLST0:
+ 1992 0000 00000000 		.4byte	.LVL1
+ 1993 0004 02000000 		.4byte	.LVL2
+ 1994 0008 0100     		.2byte	0x1
+ 1995 000a 50       		.byte	0x50
+ 1996 000b 02000000 		.4byte	.LVL2
+ 1997 000f 04000000 		.4byte	.LFE112
+ 1998 0013 0400     		.2byte	0x4
+ 1999 0015 F3       		.byte	0xf3
+ 2000 0016 01       		.uleb128 0x1
+ 2001 0017 50       		.byte	0x50
+ 2002 0018 9F       		.byte	0x9f
+ 2003 0019 00000000 		.4byte	0
+ 2004 001d 00000000 		.4byte	0
+ 2005              	.LLST1:
+ 2006 0021 00000000 		.4byte	.LVL3
+ 2007 0025 02000000 		.4byte	.LVL4
+ 2008 0029 0100     		.2byte	0x1
+ 2009 002b 50       		.byte	0x50
+ 2010 002c 02000000 		.4byte	.LVL4
+ 2011 0030 04000000 		.4byte	.LFE113
+ 2012 0034 0400     		.2byte	0x4
+ 2013 0036 F3       		.byte	0xf3
+ 2014 0037 01       		.uleb128 0x1
+ 2015 0038 50       		.byte	0x50
+ 2016 0039 9F       		.byte	0x9f
+ 2017 003a 00000000 		.4byte	0
+ 2018 003e 00000000 		.4byte	0
+ 2019              	.LLST2:
+ 2020 0042 00000000 		.4byte	.LVL7
+ 2021 0046 0D000000 		.4byte	.LVL8-1
+ 2022 004a 0100     		.2byte	0x1
+ 2023 004c 50       		.byte	0x50
+ 2024 004d 0D000000 		.4byte	.LVL8-1
+ 2025 0051 1C000000 		.4byte	.LVL10
+ 2026 0055 0100     		.2byte	0x1
+ 2027 0057 54       		.byte	0x54
+ 2028 0058 1C000000 		.4byte	.LVL10
+ 2029 005c 6A000000 		.4byte	.LVL17
+ 2030 0060 0400     		.2byte	0x4
+ 2031 0062 F3       		.byte	0xf3
+ 2032 0063 01       		.uleb128 0x1
+ 2033 0064 50       		.byte	0x50
+ 2034 0065 9F       		.byte	0x9f
+ 2035 0066 6A000000 		.4byte	.LVL17
+ 2036 006a 88000000 		.4byte	.LVL20
+ 2037 006e 0100     		.2byte	0x1
+ 2038 0070 54       		.byte	0x54
+ 2039 0071 88000000 		.4byte	.LVL20
+ 2040 0075 98000000 		.4byte	.LFE116
+ 2041 0079 0400     		.2byte	0x4
+ 2042 007b F3       		.byte	0xf3
+ 2043 007c 01       		.uleb128 0x1
+ 2044 007d 50       		.byte	0x50
+ 2045 007e 9F       		.byte	0x9f
+ 2046 007f 00000000 		.4byte	0
+ARM GAS  C:\Users\MATEOC~1.QUE\AppData\Local\Temp\ccGACnuM.s 			page 47
+
+
+ 2047 0083 00000000 		.4byte	0
+ 2048              	.LLST3:
+ 2049 0087 2C000000 		.4byte	.LVL11
+ 2050 008b 32000000 		.4byte	.LVL12
+ 2051 008f 0100     		.2byte	0x1
+ 2052 0091 50       		.byte	0x50
+ 2053 0092 32000000 		.4byte	.LVL12
+ 2054 0096 6A000000 		.4byte	.LVL17
+ 2055 009a 0100     		.2byte	0x1
+ 2056 009c 54       		.byte	0x54
+ 2057 009d 00000000 		.4byte	0
+ 2058 00a1 00000000 		.4byte	0
+ 2059              	.LLST4:
+ 2060 00a5 00000000 		.4byte	.LVL21
+ 2061 00a9 05000000 		.4byte	.LVL22-1
+ 2062 00ad 0100     		.2byte	0x1
+ 2063 00af 50       		.byte	0x50
+ 2064 00b0 05000000 		.4byte	.LVL22-1
+ 2065 00b4 08000000 		.4byte	.LFE117
+ 2066 00b8 0400     		.2byte	0x4
+ 2067 00ba F3       		.byte	0xf3
+ 2068 00bb 01       		.uleb128 0x1
+ 2069 00bc 50       		.byte	0x50
+ 2070 00bd 9F       		.byte	0x9f
+ 2071 00be 00000000 		.4byte	0
+ 2072 00c2 00000000 		.4byte	0
+ 2073              	.LLST5:
+ 2074 00c6 00000000 		.4byte	.LVL21
+ 2075 00ca 05000000 		.4byte	.LVL22-1
+ 2076 00ce 0100     		.2byte	0x1
+ 2077 00d0 51       		.byte	0x51
+ 2078 00d1 05000000 		.4byte	.LVL22-1
+ 2079 00d5 08000000 		.4byte	.LFE117
+ 2080 00d9 0400     		.2byte	0x4
+ 2081 00db F3       		.byte	0xf3
+ 2082 00dc 01       		.uleb128 0x1
+ 2083 00dd 51       		.byte	0x51
+ 2084 00de 9F       		.byte	0x9f
+ 2085 00df 00000000 		.4byte	0
+ 2086 00e3 00000000 		.4byte	0
+ 2087              	.LLST6:
+ 2088 00e7 00000000 		.4byte	.LVL23
+ 2089 00eb 05000000 		.4byte	.LVL24-1
+ 2090 00ef 0100     		.2byte	0x1
+ 2091 00f1 50       		.byte	0x50
+ 2092 00f2 05000000 		.4byte	.LVL24-1
+ 2093 00f6 08000000 		.4byte	.LFE118
+ 2094 00fa 0400     		.2byte	0x4
+ 2095 00fc F3       		.byte	0xf3
+ 2096 00fd 01       		.uleb128 0x1
+ 2097 00fe 50       		.byte	0x50
+ 2098 00ff 9F       		.byte	0x9f
+ 2099 0100 00000000 		.4byte	0
+ 2100 0104 00000000 		.4byte	0
+ 2101              	.LLST7:
+ 2102 0108 00000000 		.4byte	.LVL23
+ 2103 010c 05000000 		.4byte	.LVL24-1
+ARM GAS  C:\Users\MATEOC~1.QUE\AppData\Local\Temp\ccGACnuM.s 			page 48
+
+
+ 2104 0110 0100     		.2byte	0x1
+ 2105 0112 51       		.byte	0x51
+ 2106 0113 05000000 		.4byte	.LVL24-1
+ 2107 0117 08000000 		.4byte	.LFE118
+ 2108 011b 0400     		.2byte	0x4
+ 2109 011d F3       		.byte	0xf3
+ 2110 011e 01       		.uleb128 0x1
+ 2111 011f 51       		.byte	0x51
+ 2112 0120 9F       		.byte	0x9f
+ 2113 0121 00000000 		.4byte	0
+ 2114 0125 00000000 		.4byte	0
+ 2115              	.LLST8:
+ 2116 0129 00000000 		.4byte	.LVL25
+ 2117 012d 05000000 		.4byte	.LVL26-1
+ 2118 0131 0100     		.2byte	0x1
+ 2119 0133 50       		.byte	0x50
+ 2120 0134 05000000 		.4byte	.LVL26-1
+ 2121 0138 08000000 		.4byte	.LFE119
+ 2122 013c 0400     		.2byte	0x4
+ 2123 013e F3       		.byte	0xf3
+ 2124 013f 01       		.uleb128 0x1
+ 2125 0140 50       		.byte	0x50
+ 2126 0141 9F       		.byte	0x9f
+ 2127 0142 00000000 		.4byte	0
+ 2128 0146 00000000 		.4byte	0
+ 2129              	.LLST9:
+ 2130 014a 00000000 		.4byte	.LVL25
+ 2131 014e 05000000 		.4byte	.LVL26-1
+ 2132 0152 0100     		.2byte	0x1
+ 2133 0154 51       		.byte	0x51
+ 2134 0155 05000000 		.4byte	.LVL26-1
+ 2135 0159 08000000 		.4byte	.LFE119
+ 2136 015d 0400     		.2byte	0x4
+ 2137 015f F3       		.byte	0xf3
+ 2138 0160 01       		.uleb128 0x1
+ 2139 0161 51       		.byte	0x51
+ 2140 0162 9F       		.byte	0x9f
+ 2141 0163 00000000 		.4byte	0
+ 2142 0167 00000000 		.4byte	0
+ 2143              	.LLST10:
+ 2144 016b 16000000 		.4byte	.LVL31
+ 2145 016f 20000000 		.4byte	.LVL32
+ 2146 0173 0100     		.2byte	0x1
+ 2147 0175 50       		.byte	0x50
+ 2148 0176 00000000 		.4byte	0
+ 2149 017a 00000000 		.4byte	0
+ 2150              		.section	.debug_aranges,"",%progbits
+ 2151 0000 74000000 		.4byte	0x74
+ 2152 0004 0200     		.2byte	0x2
+ 2153 0006 00000000 		.4byte	.Ldebug_info0
+ 2154 000a 04       		.byte	0x4
+ 2155 000b 00       		.byte	0
+ 2156 000c 0000     		.2byte	0
+ 2157 000e 0000     		.2byte	0
+ 2158 0010 00000000 		.4byte	.LFB111
+ 2159 0014 14000000 		.4byte	.LFE111-.LFB111
+ 2160 0018 00000000 		.4byte	.LFB112
+ARM GAS  C:\Users\MATEOC~1.QUE\AppData\Local\Temp\ccGACnuM.s 			page 49
+
+
+ 2161 001c 04000000 		.4byte	.LFE112-.LFB112
+ 2162 0020 00000000 		.4byte	.LFB113
+ 2163 0024 04000000 		.4byte	.LFE113-.LFB113
+ 2164 0028 00000000 		.4byte	.LFB114
+ 2165 002c 02000000 		.4byte	.LFE114-.LFB114
+ 2166 0030 00000000 		.4byte	.LFB115
+ 2167 0034 02000000 		.4byte	.LFE115-.LFB115
+ 2168 0038 00000000 		.4byte	.LFB116
+ 2169 003c 98000000 		.4byte	.LFE116-.LFB116
+ 2170 0040 00000000 		.4byte	.LFB117
+ 2171 0044 08000000 		.4byte	.LFE117-.LFB117
+ 2172 0048 00000000 		.4byte	.LFB118
+ 2173 004c 08000000 		.4byte	.LFE118-.LFB118
+ 2174 0050 00000000 		.4byte	.LFB119
+ 2175 0054 08000000 		.4byte	.LFE119-.LFB119
+ 2176 0058 00000000 		.4byte	.LFB120
+ 2177 005c 04000000 		.4byte	.LFE120-.LFB120
+ 2178 0060 00000000 		.4byte	.LFB121
+ 2179 0064 9C000000 		.4byte	.LFE121-.LFB121
+ 2180 0068 00000000 		.4byte	.LFB110
+ 2181 006c 48000000 		.4byte	.LFE110-.LFB110
+ 2182 0070 00000000 		.4byte	0
+ 2183 0074 00000000 		.4byte	0
+ 2184              		.section	.debug_ranges,"",%progbits
+ 2185              	.Ldebug_ranges0:
+ 2186 0000 00000000 		.4byte	.LFB111
+ 2187 0004 14000000 		.4byte	.LFE111
+ 2188 0008 00000000 		.4byte	.LFB112
+ 2189 000c 04000000 		.4byte	.LFE112
+ 2190 0010 00000000 		.4byte	.LFB113
+ 2191 0014 04000000 		.4byte	.LFE113
+ 2192 0018 00000000 		.4byte	.LFB114
+ 2193 001c 02000000 		.4byte	.LFE114
+ 2194 0020 00000000 		.4byte	.LFB115
+ 2195 0024 02000000 		.4byte	.LFE115
+ 2196 0028 00000000 		.4byte	.LFB116
+ 2197 002c 98000000 		.4byte	.LFE116
+ 2198 0030 00000000 		.4byte	.LFB117
+ 2199 0034 08000000 		.4byte	.LFE117
+ 2200 0038 00000000 		.4byte	.LFB118
+ 2201 003c 08000000 		.4byte	.LFE118
+ 2202 0040 00000000 		.4byte	.LFB119
+ 2203 0044 08000000 		.4byte	.LFE119
+ 2204 0048 00000000 		.4byte	.LFB120
+ 2205 004c 04000000 		.4byte	.LFE120
+ 2206 0050 00000000 		.4byte	.LFB121
+ 2207 0054 9C000000 		.4byte	.LFE121
+ 2208 0058 00000000 		.4byte	.LFB110
+ 2209 005c 48000000 		.4byte	.LFE110
+ 2210 0060 00000000 		.4byte	0
+ 2211 0064 00000000 		.4byte	0
+ 2212              		.section	.debug_line,"",%progbits
+ 2213              	.Ldebug_line0:
+ 2214 0000 F9030000 		.section	.debug_str,"MS",%progbits,1
+ 2214      0200E302 
+ 2214      00000201 
+ 2214      FB0E0D00 
+ARM GAS  C:\Users\MATEOC~1.QUE\AppData\Local\Temp\ccGACnuM.s 			page 50
+
+
+ 2214      01010101 
+ 2215              	.LASF15:
+ 2216 0000 45455F55 		.ascii	"EE_UREG\000"
+ 2216      52454700 
+ 2217              	.LASF34:
+ 2218 0008 63686563 		.ascii	"checksumMSB\000"
+ 2218      6B73756D 
+ 2218      4D534200 
+ 2219              	.LASF71:
+ 2220 0014 74726357 		.ascii	"trcWarningChannel\000"
+ 2220      61726E69 
+ 2220      6E674368 
+ 2220      616E6E65 
+ 2220      6C00
+ 2221              	.LASF68:
+ 2222 0026 4E6F526F 		.ascii	"NoRoomForObjectData\000"
+ 2222      6F6D466F 
+ 2222      724F626A 
+ 2222      65637444 
+ 2222      61746100 
+ 2223              	.LASF2:
+ 2224 003a 73686F72 		.ascii	"short int\000"
+ 2224      7420696E 
+ 2224      7400
+ 2225              	.LASF49:
+ 2226 0044 6F626A65 		.ascii	"object\000"
+ 2226      637400
+ 2227              	.LASF59:
+ 2228 004b 5265636F 		.ascii	"RecorderEnabled\000"
+ 2228      72646572 
+ 2228      456E6162 
+ 2228      6C656400 
+ 2229              	.LASF69:
+ 2230 005b 4C6F6E67 		.ascii	"LongestSymbolName\000"
+ 2230      65737453 
+ 2230      796D626F 
+ 2230      6C4E616D 
+ 2230      6500
+ 2231              	.LASF51:
+ 2232 006d 76547261 		.ascii	"vTraceSetSemaphoreName\000"
+ 2232      63655365 
+ 2232      7453656D 
+ 2232      6170686F 
+ 2232      72654E61 
+ 2233              	.LASF70:
+ 2234 0084 4D617842 		.ascii	"MaxBytesTruncated\000"
+ 2234      79746573 
+ 2234      5472756E 
+ 2234      63617465 
+ 2234      6400
+ 2235              	.LASF42:
+ 2236 0096 70727654 		.ascii	"prvTraceSetTaskNumberHigh16\000"
+ 2236      72616365 
+ 2236      53657454 
+ 2236      61736B4E 
+ 2236      756D6265 
+ 2237              	.LASF75:
+ARM GAS  C:\Users\MATEOC~1.QUE\AppData\Local\Temp\ccGACnuM.s 			page 51
+
+
+ 2238 00b2 74726355 		.ascii	"trcUARTReceive\000"
+ 2238      41525452 
+ 2238      65636569 
+ 2238      766500
+ 2239              	.LASF39:
+ 2240 00c1 70727654 		.ascii	"prvTraceGetCurrentTaskId\000"
+ 2240      72616365 
+ 2240      47657443 
+ 2240      75727265 
+ 2240      6E745461 
+ 2241              	.LASF57:
+ 2242 00da 4C6F6E67 		.ascii	"LongestSymbolName_last\000"
+ 2242      65737453 
+ 2242      796D626F 
+ 2242      6C4E616D 
+ 2242      655F6C61 
+ 2243              	.LASF27:
+ 2244 00f1 636D6443 		.ascii	"cmdCode\000"
+ 2244      6F646500 
+ 2245              	.LASF33:
+ 2246 00f9 63686563 		.ascii	"checksumLSB\000"
+ 2246      6B73756D 
+ 2246      4C534200 
+ 2247              	.LASF14:
+ 2248 0105 45455F55 		.ascii	"EE_UINT32\000"
+ 2248      494E5433 
+ 2248      3200
+ 2249              	.LASF4:
+ 2250 010f 5F5F7569 		.ascii	"__uint16_t\000"
+ 2250      6E743136 
+ 2250      5F7400
+ 2251              	.LASF30:
+ 2252 011a 70617261 		.ascii	"param3\000"
+ 2252      6D3300
+ 2253              	.LASF31:
+ 2254 0121 70617261 		.ascii	"param4\000"
+ 2254      6D3400
+ 2255              	.LASF32:
+ 2256 0128 70617261 		.ascii	"param5\000"
+ 2256      6D3500
+ 2257              	.LASF17:
+ 2258 012f 45455F54 		.ascii	"EE_TID\000"
+ 2258      494400
+ 2259              	.LASF35:
+ 2260 0136 54726163 		.ascii	"TracealyzerCommandType\000"
+ 2260      65616C79 
+ 2260      7A657243 
+ 2260      6F6D6D61 
+ 2260      6E645479 
+ 2261              	.LASF80:
+ 2262 014d 76547261 		.ascii	"vTraceStoreKernelObjectName\000"
+ 2262      63655374 
+ 2262      6F72654B 
+ 2262      65726E65 
+ 2262      6C4F626A 
+ 2263              	.LASF41:
+ 2264 0169 76616C75 		.ascii	"value\000"
+ARM GAS  C:\Users\MATEOC~1.QUE\AppData\Local\Temp\ccGACnuM.s 			page 52
+
+
+ 2264      6500
+ 2265              	.LASF72:
+ 2266 016f 45455F6F 		.ascii	"EE_oo_GetTaskID\000"
+ 2266      6F5F4765 
+ 2266      74546173 
+ 2266      6B494400 
+ 2267              	.LASF79:
+ 2268 017f 70727650 		.ascii	"prvProcessCommand\000"
+ 2268      726F6365 
+ 2268      7373436F 
+ 2268      6D6D616E 
+ 2268      6400
+ 2269              	.LASF53:
+ 2270 0191 70727643 		.ascii	"prvCheckRecorderStatus\000"
+ 2270      6865636B 
+ 2270      5265636F 
+ 2270      72646572 
+ 2270      53746174 
+ 2271              	.LASF36:
+ 2272 01a8 70727654 		.ascii	"prvTraceGetTaskNumberLow16\000"
+ 2272      72616365 
+ 2272      47657454 
+ 2272      61736B4E 
+ 2272      756D6265 
+ 2273              	.LASF66:
+ 2274 01c3 5F547A54 		.ascii	"_TzTraceData\000"
+ 2274      72616365 
+ 2274      44617461 
+ 2274      00
+ 2275              	.LASF64:
+ 2276 01d0 45455F49 		.ascii	"EE_IRQ_nesting_level\000"
+ 2276      52515F6E 
+ 2276      65737469 
+ 2276      6E675F6C 
+ 2276      6576656C 
+ 2277              	.LASF82:
+ 2278 01e5 45455F6F 		.ascii	"EE_oo_TerminateTask\000"
+ 2278      6F5F5465 
+ 2278      726D696E 
+ 2278      61746554 
+ 2278      61736B00 
+ 2279              	.LASF63:
+ 2280 01f9 45455F73 		.ascii	"EE_std_endcycle_next_tid\000"
+ 2280      74645F65 
+ 2280      6E646379 
+ 2280      636C655F 
+ 2280      6E657874 
+ 2281              	.LASF22:
+ 2282 0212 666C6F61 		.ascii	"float\000"
+ 2282      7400
+ 2283              	.LASF26:
+ 2284 0218 74726163 		.ascii	"traceString\000"
+ 2284      65537472 
+ 2284      696E6700 
+ 2285              	.LASF37:
+ 2286 0224 70727654 		.ascii	"prvTraceGetTaskNumberHigh16\000"
+ 2286      72616365 
+ARM GAS  C:\Users\MATEOC~1.QUE\AppData\Local\Temp\ccGACnuM.s 			page 53
+
+
+ 2286      47657454 
+ 2286      61736B4E 
+ 2286      756D6265 
+ 2287              	.LASF9:
+ 2288 0240 6C6F6E67 		.ascii	"long long int\000"
+ 2288      206C6F6E 
+ 2288      6720696E 
+ 2288      7400
+ 2289              	.LASF55:
+ 2290 024e 4E6F526F 		.ascii	"NoRoomForSymbol_last\000"
+ 2290      6F6D466F 
+ 2290      7253796D 
+ 2290      626F6C5F 
+ 2290      6C617374 
+ 2291              	.LASF6:
+ 2292 0263 6C6F6E67 		.ascii	"long int\000"
+ 2292      20696E74 
+ 2292      00
+ 2293              	.LASF61:
+ 2294 026c 45455F6F 		.ascii	"EE_oo_IRQ_suspend_status\000"
+ 2294      6F5F4952 
+ 2294      515F7375 
+ 2294      7370656E 
+ 2294      645F7374 
+ 2295              	.LASF85:
+ 2296 0285 433A5C55 		.ascii	"C:\\Users\\Mateo C. Querol\\OneDrive\\University\\D"
+ 2296      73657273 
+ 2296      5C4D6174 
+ 2296      656F2043 
+ 2296      2E205175 
+ 2297 02b3 61726D73 		.ascii	"armstadt\\Advanced Microcontroller Systems and Embe"
+ 2297      74616474 
+ 2297      5C416476 
+ 2297      616E6365 
+ 2297      64204D69 
+ 2298 02e5 64646564 		.ascii	"dded Operating systems\\Embedded Operating Systems\\"
+ 2298      204F7065 
+ 2298      72617469 
+ 2298      6E672073 
+ 2298      79737465 
+ 2299 0317 576F726B 		.ascii	"Workbook\\4.1_Blink_an_LED.cydsn\000"
+ 2299      626F6F6B 
+ 2299      5C342E31 
+ 2299      5F426C69 
+ 2299      6E6B5F61 
+ 2300              	.LASF81:
+ 2301 0337 70727650 		.ascii	"prvPagedEventBufferTransfer\000"
+ 2301      61676564 
+ 2301      4576656E 
+ 2301      74427566 
+ 2301      66657254 
+ 2302              	.LASF86:
+ 2303 0353 70727654 		.ascii	"prvTraceIsSchedulerSuspended\000"
+ 2303      72616365 
+ 2303      49735363 
+ 2303      68656475 
+ 2303      6C657253 
+ARM GAS  C:\Users\MATEOC~1.QUE\AppData\Local\Temp\ccGACnuM.s 			page 54
+
+
+ 2304              	.LASF76:
+ 2305 0370 70727654 		.ascii	"prvTraceWarning\000"
+ 2305      72616365 
+ 2305      5761726E 
+ 2305      696E6700 
+ 2306              	.LASF12:
+ 2307 0380 6C6F6E67 		.ascii	"long double\000"
+ 2307      20646F75 
+ 2307      626C6500 
+ 2308              	.LASF18:
+ 2309 038c 5461736B 		.ascii	"TaskType\000"
+ 2309      54797065 
+ 2309      00
+ 2310              	.LASF1:
+ 2311 0395 756E7369 		.ascii	"unsigned char\000"
+ 2311      676E6564 
+ 2311      20636861 
+ 2311      7200
+ 2312              	.LASF38:
+ 2313 03a3 68616E64 		.ascii	"handle\000"
+ 2313      6C6500
+ 2314              	.LASF0:
+ 2315 03aa 7369676E 		.ascii	"signed char\000"
+ 2315      65642063 
+ 2315      68617200 
+ 2316              	.LASF20:
+ 2317 03b6 696E7433 		.ascii	"int32_t\000"
+ 2317      325F7400 
+ 2318              	.LASF10:
+ 2319 03be 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 2319      206C6F6E 
+ 2319      6720756E 
+ 2319      7369676E 
+ 2319      65642069 
+ 2320              	.LASF21:
+ 2321 03d5 75696E74 		.ascii	"uint32_t\000"
+ 2321      33325F74 
+ 2321      00
+ 2322              	.LASF11:
+ 2323 03de 756E7369 		.ascii	"unsigned int\000"
+ 2323      676E6564 
+ 2323      20696E74 
+ 2323      00
+ 2324              	.LASF19:
+ 2325 03eb 75696E74 		.ascii	"uint16_t\000"
+ 2325      31365F74 
+ 2325      00
+ 2326              	.LASF56:
+ 2327 03f4 4E6F526F 		.ascii	"NoRoomForObjectData_last\000"
+ 2327      6F6D466F 
+ 2327      724F626A 
+ 2327      65637444 
+ 2327      6174615F 
+ 2328              	.LASF67:
+ 2329 040d 4E6F526F 		.ascii	"NoRoomForSymbol\000"
+ 2329      6F6D466F 
+ 2329      7253796D 
+ARM GAS  C:\Users\MATEOC~1.QUE\AppData\Local\Temp\ccGACnuM.s 			page 55
+
+
+ 2329      626F6C00 
+ 2330              	.LASF78:
+ 2331 041d 70727654 		.ascii	"prvTraceInitCortexM\000"
+ 2331      72616365 
+ 2331      496E6974 
+ 2331      436F7274 
+ 2331      65784D00 
+ 2332              	.LASF54:
+ 2333 0431 46756E63 		.ascii	"FuncTzCtrl\000"
+ 2333      547A4374 
+ 2333      726C00
+ 2334              	.LASF29:
+ 2335 043c 70617261 		.ascii	"param2\000"
+ 2335      6D3200
+ 2336              	.LASF73:
+ 2337 0443 74726355 		.ascii	"trcUART_init\000"
+ 2337      4152545F 
+ 2337      696E6974 
+ 2337      00
+ 2338              	.LASF3:
+ 2339 0450 73686F72 		.ascii	"short unsigned int\000"
+ 2339      7420756E 
+ 2339      7369676E 
+ 2339      65642069 
+ 2339      6E7400
+ 2340              	.LASF47:
+ 2341 0463 73746174 		.ascii	"status\000"
+ 2341      757300
+ 2342              	.LASF45:
+ 2343 046a 5441534B 		.ascii	"TASKID\000"
+ 2343      494400
+ 2344              	.LASF40:
+ 2345 0471 70727654 		.ascii	"prvTraceSetTaskNumberLow16\000"
+ 2345      72616365 
+ 2345      53657454 
+ 2345      61736B4E 
+ 2345      756D6265 
+ 2346              	.LASF24:
+ 2347 048c 63686172 		.ascii	"char\000"
+ 2347      00
+ 2348              	.LASF16:
+ 2349 0491 45455F46 		.ascii	"EE_FREG\000"
+ 2349      52454700 
+ 2350              	.LASF77:
+ 2351 0499 70727649 		.ascii	"prvIsValidCommand\000"
+ 2351      7356616C 
+ 2351      6964436F 
+ 2351      6D6D616E 
+ 2351      6400
+ 2352              	.LASF62:
+ 2353 04ab 45455F41 		.ascii	"EE_ApplicationMode\000"
+ 2353      70706C69 
+ 2353      63617469 
+ 2353      6F6E4D6F 
+ 2353      646500
+ 2354              	.LASF8:
+ 2355 04be 6C6F6E67 		.ascii	"long unsigned int\000"
+ARM GAS  C:\Users\MATEOC~1.QUE\AppData\Local\Temp\ccGACnuM.s 			page 56
+
+
+ 2355      20756E73 
+ 2355      69676E65 
+ 2355      6420696E 
+ 2355      7400
+ 2356              	.LASF46:
+ 2357 04d0 62797465 		.ascii	"bytes\000"
+ 2357      7300
+ 2358              	.LASF23:
+ 2359 04d6 646F7562 		.ascii	"double\000"
+ 2359      6C6500
+ 2360              	.LASF7:
+ 2361 04dd 5F5F7569 		.ascii	"__uint32_t\000"
+ 2361      6E743332 
+ 2361      5F7400
+ 2362              	.LASF48:
+ 2363 04e8 76547261 		.ascii	"vTraceSetQueueName\000"
+ 2363      63655365 
+ 2363      74517565 
+ 2363      75654E61 
+ 2363      6D6500
+ 2364              	.LASF52:
+ 2365 04fb 76547261 		.ascii	"vTraceSetMutexName\000"
+ 2365      63655365 
+ 2365      744D7574 
+ 2365      65784E61 
+ 2365      6D6500
+ 2366              	.LASF5:
+ 2367 050e 5F5F696E 		.ascii	"__int32_t\000"
+ 2367      7433325F 
+ 2367      7400
+ 2368              	.LASF74:
+ 2369 0518 78547261 		.ascii	"xTraceRegisterString\000"
+ 2369      63655265 
+ 2369      67697374 
+ 2369      65725374 
+ 2369      72696E67 
+ 2370              	.LASF84:
+ 2371 052d 736F7572 		.ascii	"source\\bsw\\TraceRecorder\\trcKernelPort.c\000"
+ 2371      63655C62 
+ 2371      73775C54 
+ 2371      72616365 
+ 2371      5265636F 
+ 2372              	.LASF50:
+ 2373 0556 6E616D65 		.ascii	"name\000"
+ 2373      00
+ 2374              	.LASF25:
+ 2375 055b 73697A65 		.ascii	"sizetype\000"
+ 2375      74797065 
+ 2375      00
+ 2376              	.LASF58:
+ 2377 0564 4D617842 		.ascii	"MaxBytesTruncated_last\000"
+ 2377      79746573 
+ 2377      5472756E 
+ 2377      63617465 
+ 2377      645F6C61 
+ 2378              	.LASF43:
+ 2379 057b 76547261 		.ascii	"vTraceEnable\000"
+ARM GAS  C:\Users\MATEOC~1.QUE\AppData\Local\Temp\ccGACnuM.s 			page 57
+
+
+ 2379      6365456E 
+ 2379      61626C65 
+ 2379      00
+ 2380              	.LASF65:
+ 2381 0588 49544D5F 		.ascii	"ITM_RxBuffer\000"
+ 2381      52784275 
+ 2381      66666572 
+ 2381      00
+ 2382              	.LASF83:
+ 2383 0595 474E5520 		.ascii	"GNU C11 5.4.1 20160609 (release) [ARM/embedded-5-br"
+ 2383      43313120 
+ 2383      352E342E 
+ 2383      31203230 
+ 2383      31363036 
+ 2384 05c8 616E6368 		.ascii	"anch revision 237715] -mcpu=cortex-m3 -mthumb -g -O"
+ 2384      20726576 
+ 2384      6973696F 
+ 2384      6E203233 
+ 2384      37373135 
+ 2385 05fb 67202D66 		.ascii	"g -ffunction-sections -ffat-lto-objects\000"
+ 2385      66756E63 
+ 2385      74696F6E 
+ 2385      2D736563 
+ 2385      74696F6E 
+ 2386              	.LASF44:
+ 2387 0623 73746172 		.ascii	"startOption\000"
+ 2387      744F7074 
+ 2387      696F6E00 
+ 2388              	.LASF60:
+ 2389 062f 45455F6F 		.ascii	"EE_oo_IRQ_disable_count\000"
+ 2389      6F5F4952 
+ 2389      515F6469 
+ 2389      7361626C 
+ 2389      655F636F 
+ 2390              	.LASF13:
+ 2391 0647 45455F49 		.ascii	"EE_INT32\000"
+ 2391      4E543332 
+ 2391      00
+ 2392              	.LASF28:
+ 2393 0650 70617261 		.ascii	"param1\000"
+ 2393      6D3100
+ 2394              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 5.4.1 20160609 (release) [ARM/embedded-5-bran

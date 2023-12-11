@@ -1,0 +1,1907 @@
+ARM GAS  C:\Users\MATEOC~1.QUE\AppData\Local\Temp\cck1wBAG.s 			page 1
+
+
+   1              		.syntax unified
+   2              		.cpu cortex-m3
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 1
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.thumb
+  14              		.syntax unified
+  15              		.file	"ErikaOS_1_ee_evget.c"
+  16              		.text
+  17              	.Ltext0:
+  18              		.cfi_sections	.debug_frame
+  19              		.section	.text.EE_oo_GetEvent,"ax",%progbits
+  20              		.align	2
+  21              		.global	EE_oo_GetEvent
+  22              		.thumb
+  23              		.thumb_func
+  24              		.type	EE_oo_GetEvent, %function
+  25              	EE_oo_GetEvent:
+  26              	.LFB139:
+  27              		.file 1 "Generated_Source\\PSoC5\\ErikaOS_1_ee_evget.c"
+   1:Generated_Source\PSoC5/ErikaOS_1_ee_evget.c **** /* ###*B*###
+   2:Generated_Source\PSoC5/ErikaOS_1_ee_evget.c ****  * ERIKA Enterprise - a tiny RTOS for small microcontrollers
+   3:Generated_Source\PSoC5/ErikaOS_1_ee_evget.c ****  *
+   4:Generated_Source\PSoC5/ErikaOS_1_ee_evget.c ****  * Copyright (C) 2002-2008  Evidence Srl
+   5:Generated_Source\PSoC5/ErikaOS_1_ee_evget.c ****  *
+   6:Generated_Source\PSoC5/ErikaOS_1_ee_evget.c ****  * This file is part of ERIKA Enterprise.
+   7:Generated_Source\PSoC5/ErikaOS_1_ee_evget.c ****  *
+   8:Generated_Source\PSoC5/ErikaOS_1_ee_evget.c ****  * ERIKA Enterprise is free software; you can redistribute it
+   9:Generated_Source\PSoC5/ErikaOS_1_ee_evget.c ****  * and/or modify it under the terms of the GNU General Public License
+  10:Generated_Source\PSoC5/ErikaOS_1_ee_evget.c ****  * version 2 as published by the Free Software Foundation, 
+  11:Generated_Source\PSoC5/ErikaOS_1_ee_evget.c ****  * (with a special exception described below).
+  12:Generated_Source\PSoC5/ErikaOS_1_ee_evget.c ****  *
+  13:Generated_Source\PSoC5/ErikaOS_1_ee_evget.c ****  * Linking this code statically or dynamically with other modules is
+  14:Generated_Source\PSoC5/ErikaOS_1_ee_evget.c ****  * making a combined work based on this code.  Thus, the terms and
+  15:Generated_Source\PSoC5/ErikaOS_1_ee_evget.c ****  * conditions of the GNU General Public License cover the whole
+  16:Generated_Source\PSoC5/ErikaOS_1_ee_evget.c ****  * combination.
+  17:Generated_Source\PSoC5/ErikaOS_1_ee_evget.c ****  *
+  18:Generated_Source\PSoC5/ErikaOS_1_ee_evget.c ****  * As a special exception, the copyright holders of this library give you
+  19:Generated_Source\PSoC5/ErikaOS_1_ee_evget.c ****  * permission to link this code with independent modules to produce an
+  20:Generated_Source\PSoC5/ErikaOS_1_ee_evget.c ****  * executable, regardless of the license terms of these independent
+  21:Generated_Source\PSoC5/ErikaOS_1_ee_evget.c ****  * modules, and to copy and distribute the resulting executable under
+  22:Generated_Source\PSoC5/ErikaOS_1_ee_evget.c ****  * terms of your choice, provided that you also meet, for each linked
+  23:Generated_Source\PSoC5/ErikaOS_1_ee_evget.c ****  * independent module, the terms and conditions of the license of that
+  24:Generated_Source\PSoC5/ErikaOS_1_ee_evget.c ****  * module.  An independent module is a module which is not derived from
+  25:Generated_Source\PSoC5/ErikaOS_1_ee_evget.c ****  * or based on this library.  If you modify this code, you may extend
+  26:Generated_Source\PSoC5/ErikaOS_1_ee_evget.c ****  * this exception to your version of the code, but you are not
+  27:Generated_Source\PSoC5/ErikaOS_1_ee_evget.c ****  * obligated to do so.  If you do not wish to do so, delete this
+  28:Generated_Source\PSoC5/ErikaOS_1_ee_evget.c ****  * exception statement from your version.
+  29:Generated_Source\PSoC5/ErikaOS_1_ee_evget.c ****  *
+  30:Generated_Source\PSoC5/ErikaOS_1_ee_evget.c ****  * ERIKA Enterprise is distributed in the hope that it will be
+ARM GAS  C:\Users\MATEOC~1.QUE\AppData\Local\Temp\cck1wBAG.s 			page 2
+
+
+  31:Generated_Source\PSoC5/ErikaOS_1_ee_evget.c ****  * useful, but WITHOUT ANY WARRANTY; without even the implied warranty
+  32:Generated_Source\PSoC5/ErikaOS_1_ee_evget.c ****  * of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  33:Generated_Source\PSoC5/ErikaOS_1_ee_evget.c ****  * GNU General Public License version 2 for more details.
+  34:Generated_Source\PSoC5/ErikaOS_1_ee_evget.c ****  *
+  35:Generated_Source\PSoC5/ErikaOS_1_ee_evget.c ****  * You should have received a copy of the GNU General Public License
+  36:Generated_Source\PSoC5/ErikaOS_1_ee_evget.c ****  * version 2 along with ERIKA Enterprise; if not, write to the
+  37:Generated_Source\PSoC5/ErikaOS_1_ee_evget.c ****  * Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
+  38:Generated_Source\PSoC5/ErikaOS_1_ee_evget.c ****  * Boston, MA 02110-1301 USA.
+  39:Generated_Source\PSoC5/ErikaOS_1_ee_evget.c ****  * ###*E*### */
+  40:Generated_Source\PSoC5/ErikaOS_1_ee_evget.c **** 
+  41:Generated_Source\PSoC5/ErikaOS_1_ee_evget.c **** /*
+  42:Generated_Source\PSoC5/ErikaOS_1_ee_evget.c ****  * Author: 2002 Paolo Gai
+  43:Generated_Source\PSoC5/ErikaOS_1_ee_evget.c ****  * CVS: $Id: ee_evget.c,v 1.1 2005/07/16 12:23:42 pj Exp $
+  44:Generated_Source\PSoC5/ErikaOS_1_ee_evget.c ****  */
+  45:Generated_Source\PSoC5/ErikaOS_1_ee_evget.c **** 
+  46:Generated_Source\PSoC5/ErikaOS_1_ee_evget.c **** /*
+  47:Generated_Source\PSoC5/ErikaOS_1_ee_evget.c ****  * PSoC Port and API Generation
+  48:Generated_Source\PSoC5/ErikaOS_1_ee_evget.c ****  * Carlos Fernando Meier Martinez
+  49:Generated_Source\PSoC5/ErikaOS_1_ee_evget.c ****  * Hochschule Darmstadt, Germany. 2017.
+  50:Generated_Source\PSoC5/ErikaOS_1_ee_evget.c ****  */
+  51:Generated_Source\PSoC5/ErikaOS_1_ee_evget.c **** #include "ErikaOS_1_ee_tracing.h"
+  52:Generated_Source\PSoC5/ErikaOS_1_ee_evget.c **** 
+  53:Generated_Source\PSoC5/ErikaOS_1_ee_evget.c **** #include "ErikaOS_1_ee_internal.inc"
+  54:Generated_Source\PSoC5/ErikaOS_1_ee_evget.c **** #if (__OO_configUSE_TRACE_FACILITY == 1)
+  55:Generated_Source\PSoC5/ErikaOS_1_ee_evget.c **** #include "trcKernelPort.h"
+  56:Generated_Source\PSoC5/ErikaOS_1_ee_evget.c **** #endif
+  57:Generated_Source\PSoC5/ErikaOS_1_ee_evget.c **** /* GetEvent:
+  58:Generated_Source\PSoC5/ErikaOS_1_ee_evget.c ****    - can be called from a task, from ISR, from error, pre e post taskhook
+  59:Generated_Source\PSoC5/ErikaOS_1_ee_evget.c ****    - clear the events for the task
+  60:Generated_Source\PSoC5/ErikaOS_1_ee_evget.c ****    - returns (only extended state)
+  61:Generated_Source\PSoC5/ErikaOS_1_ee_evget.c ****        E_OS_ID       task id invalid
+  62:Generated_Source\PSoC5/ErikaOS_1_ee_evget.c ****        E_OS_ACCESS   if the task is not an extended task
+  63:Generated_Source\PSoC5/ErikaOS_1_ee_evget.c ****        E_OS_STATE    the task id is in the suspended state
+  64:Generated_Source\PSoC5/ErikaOS_1_ee_evget.c **** */
+  65:Generated_Source\PSoC5/ErikaOS_1_ee_evget.c **** 
+  66:Generated_Source\PSoC5/ErikaOS_1_ee_evget.c **** 
+  67:Generated_Source\PSoC5/ErikaOS_1_ee_evget.c **** #if (defined(__OO_ECC1__)) || (defined(__OO_ECC2__))
+  68:Generated_Source\PSoC5/ErikaOS_1_ee_evget.c **** #ifndef __PRIVATE_GETEVENT__
+  69:Generated_Source\PSoC5/ErikaOS_1_ee_evget.c **** 
+  70:Generated_Source\PSoC5/ErikaOS_1_ee_evget.c **** StatusType EE_oo_GetEvent(TaskType TaskID, EventMaskRefType Event)
+  71:Generated_Source\PSoC5/ErikaOS_1_ee_evget.c **** {
+  28              		.loc 1 71 0
+  29              		.cfi_startproc
+  30              		@ args = 0, pretend = 0, frame = 0
+  31              		@ frame_needed = 0, uses_anonymous_args = 0
+  32              	.LVL0:
+  33 0000 10B5     		push	{r4, lr}
+  34              		.cfi_def_cfa_offset 8
+  35              		.cfi_offset 4, -8
+  36              		.cfi_offset 14, -4
+  72:Generated_Source\PSoC5/ErikaOS_1_ee_evget.c ****   /* Error Value */
+  73:Generated_Source\PSoC5/ErikaOS_1_ee_evget.c ****   register StatusType ev;
+  74:Generated_Source\PSoC5/ErikaOS_1_ee_evget.c ****   EE_ORTI_set_service_in(EE_SERVICETRACE_GETEVENT);
+  75:Generated_Source\PSoC5/ErikaOS_1_ee_evget.c **** 
+  76:Generated_Source\PSoC5/ErikaOS_1_ee_evget.c **** #ifdef EE_SERVICE_PROTECTION__
+  77:Generated_Source\PSoC5/ErikaOS_1_ee_evget.c ****   /*  [OS093]: If interrupts are disabled/suspended by a Task/OsIsr and the
+  78:Generated_Source\PSoC5/ErikaOS_1_ee_evget.c ****       Task/OsIsr calls any OS service (excluding the interrupt services)
+ARM GAS  C:\Users\MATEOC~1.QUE\AppData\Local\Temp\cck1wBAG.s 			page 3
+
+
+  79:Generated_Source\PSoC5/ErikaOS_1_ee_evget.c ****       then the Operating System shall ignore the service AND shall return
+  80:Generated_Source\PSoC5/ErikaOS_1_ee_evget.c ****       E_OS_DISABLEDINT if the service returns a StatusType value. */
+  81:Generated_Source\PSoC5/ErikaOS_1_ee_evget.c ****   /*  [OS088]: If an OS-Application makes a service call from the wrong context
+  82:Generated_Source\PSoC5/ErikaOS_1_ee_evget.c ****       AND is currently not inside a Category 1 ISR the Operating System module
+  83:Generated_Source\PSoC5/ErikaOS_1_ee_evget.c ****       shall not perform the requested action (the service call shall have no
+  84:Generated_Source\PSoC5/ErikaOS_1_ee_evget.c ****       effect), and return E_OS_CALLEVEL (see [12], section 13.1) or the
+  85:Generated_Source\PSoC5/ErikaOS_1_ee_evget.c ****       invalid value of  the service. (BSW11009, BSW11013) */
+  86:Generated_Source\PSoC5/ErikaOS_1_ee_evget.c ****   /* GetEvent is callable by Task, ISR2, ErrorHook Pre and Post TaskHook */
+  87:Generated_Source\PSoC5/ErikaOS_1_ee_evget.c ****   if ( (EE_as_execution_context > ErrorHook_Context) &&
+  88:Generated_Source\PSoC5/ErikaOS_1_ee_evget.c ****        (EE_as_execution_context != PreTaskHook_Context) &&
+  89:Generated_Source\PSoC5/ErikaOS_1_ee_evget.c ****        (EE_as_execution_context != PostTaskHook_Context) )
+  90:Generated_Source\PSoC5/ErikaOS_1_ee_evget.c ****   {
+  91:Generated_Source\PSoC5/ErikaOS_1_ee_evget.c ****     ev = E_OS_CALLEVEL;
+  92:Generated_Source\PSoC5/ErikaOS_1_ee_evget.c ****   } else if ( EE_oo_check_disableint_error() ) {
+  93:Generated_Source\PSoC5/ErikaOS_1_ee_evget.c ****     ev = E_OS_DISABLEDINT;
+  94:Generated_Source\PSoC5/ErikaOS_1_ee_evget.c ****   } else
+  95:Generated_Source\PSoC5/ErikaOS_1_ee_evget.c **** #endif /* EE_SERVICE_PROTECTION__ */
+  96:Generated_Source\PSoC5/ErikaOS_1_ee_evget.c **** 
+  97:Generated_Source\PSoC5/ErikaOS_1_ee_evget.c **** 
+  98:Generated_Source\PSoC5/ErikaOS_1_ee_evget.c **** #if (defined(EE_AS_OSAPPLICATIONS__)) && (defined(EE_SERVICE_PROTECTION__))
+  99:Generated_Source\PSoC5/ErikaOS_1_ee_evget.c **** #ifdef EE_AS_RPC__
+ 100:Generated_Source\PSoC5/ErikaOS_1_ee_evget.c ****   /*  [OS589] All functions that are not allowed to operate cross core shall
+ 101:Generated_Source\PSoC5/ErikaOS_1_ee_evget.c ****         return E_OS_CORE in extended status if called with parameters that
+ 102:Generated_Source\PSoC5/ErikaOS_1_ee_evget.c ****         require a cross core operation. (BSW4080013) */
+ 103:Generated_Source\PSoC5/ErikaOS_1_ee_evget.c ****   if ( EE_IS_TID_REMOTE(TaskID) ) {
+ 104:Generated_Source\PSoC5/ErikaOS_1_ee_evget.c ****     ev = E_OS_CORE;
+ 105:Generated_Source\PSoC5/ErikaOS_1_ee_evget.c ****   } else
+ 106:Generated_Source\PSoC5/ErikaOS_1_ee_evget.c **** #endif /* EE_AS_RPC__ */
+ 107:Generated_Source\PSoC5/ErikaOS_1_ee_evget.c ****   /* check if the task Id is valid */
+ 108:Generated_Source\PSoC5/ErikaOS_1_ee_evget.c ****   if ( (TaskID < 0) || (TaskID >= EE_MAX_TASK) ) {
+ 109:Generated_Source\PSoC5/ErikaOS_1_ee_evget.c ****     ev = E_OS_ID;
+ 110:Generated_Source\PSoC5/ErikaOS_1_ee_evget.c ****   } else if ( EE_TASK_ACCESS_ERR(TaskID, EE_as_active_app) ) {
+ 111:Generated_Source\PSoC5/ErikaOS_1_ee_evget.c ****     ev = E_OS_ACCESS;
+ 112:Generated_Source\PSoC5/ErikaOS_1_ee_evget.c ****   } else
+ 113:Generated_Source\PSoC5/ErikaOS_1_ee_evget.c **** #elif defined(__OO_EXTENDED_STATUS__)
+ 114:Generated_Source\PSoC5/ErikaOS_1_ee_evget.c **** #ifdef EE_AS_RPC__
+ 115:Generated_Source\PSoC5/ErikaOS_1_ee_evget.c ****   /* [OS589]: All functions that are not allowed to operate cross core shall
+ 116:Generated_Source\PSoC5/ErikaOS_1_ee_evget.c ****       return E_OS_CORE in extended status if called with parameters that
+ 117:Generated_Source\PSoC5/ErikaOS_1_ee_evget.c ****       require a cross core operation. (BSW4080013) */
+ 118:Generated_Source\PSoC5/ErikaOS_1_ee_evget.c ****   if ( EE_IS_TID_REMOTE(TaskID) ) {
+ 119:Generated_Source\PSoC5/ErikaOS_1_ee_evget.c ****     ev = E_OS_CORE;
+ 120:Generated_Source\PSoC5/ErikaOS_1_ee_evget.c ****   } else
+ 121:Generated_Source\PSoC5/ErikaOS_1_ee_evget.c **** #endif /* EE_AS_RPC__ */
+ 122:Generated_Source\PSoC5/ErikaOS_1_ee_evget.c ****   /* Check if the TASK ID is valid */
+ 123:Generated_Source\PSoC5/ErikaOS_1_ee_evget.c ****   if ( (TaskID < 0) || (TaskID >= EE_MAX_TASK) ) {
+  37              		.loc 1 123 0
+  38 0002 0228     		cmp	r0, #2
+  39 0004 0FD8     		bhi	.L3
+ 124:Generated_Source\PSoC5/ErikaOS_1_ee_evget.c ****     ev = E_OS_ID;
+ 125:Generated_Source\PSoC5/ErikaOS_1_ee_evget.c ****   } else
+ 126:Generated_Source\PSoC5/ErikaOS_1_ee_evget.c **** #endif /* EE_AS_OSAPPLICATIONS__ || E_SERVICE_PROTECTION__ ||
+ 127:Generated_Source\PSoC5/ErikaOS_1_ee_evget.c **** __OO_EXTENDED_STATUS__ */
+ 128:Generated_Source\PSoC5/ErikaOS_1_ee_evget.c **** #ifdef __OO_EXTENDED_STATUS__
+ 129:Generated_Source\PSoC5/ErikaOS_1_ee_evget.c ****   if ( EE_th_is_extended[TaskID] == EE_FALSE ) {
+  40              		.loc 1 129 0
+  41 0006 0F4B     		ldr	r3, .L8
+  42 0008 53F82030 		ldr	r3, [r3, r0, lsl #2]
+ARM GAS  C:\Users\MATEOC~1.QUE\AppData\Local\Temp\cck1wBAG.s 			page 4
+
+
+  43 000c 6BB1     		cbz	r3, .L4
+ 130:Generated_Source\PSoC5/ErikaOS_1_ee_evget.c ****     ev = E_OS_ACCESS;
+ 131:Generated_Source\PSoC5/ErikaOS_1_ee_evget.c ****   } else if ( EE_th_status[TaskID] == SUSPENDED ) {
+  44              		.loc 1 131 0
+  45 000e 0E4B     		ldr	r3, .L8+4
+  46 0010 53F82030 		ldr	r3, [r3, r0, lsl #2]
+  47 0014 032B     		cmp	r3, #3
+  48 0016 0AD0     		beq	.L5
+ 132:Generated_Source\PSoC5/ErikaOS_1_ee_evget.c ****     ev = E_OS_STATE;
+ 133:Generated_Source\PSoC5/ErikaOS_1_ee_evget.c ****   } else
+ 134:Generated_Source\PSoC5/ErikaOS_1_ee_evget.c **** #endif /* __OO_EXTENDED_STATUS__ */
+ 135:Generated_Source\PSoC5/ErikaOS_1_ee_evget.c ****   if ( Event == NULL ) {
+  49              		.loc 1 135 0
+  50 0018 59B1     		cbz	r1, .L6
+ 136:Generated_Source\PSoC5/ErikaOS_1_ee_evget.c ****     ev = E_OS_PARAM_POINTER;
+ 137:Generated_Source\PSoC5/ErikaOS_1_ee_evget.c ****   } else
+ 138:Generated_Source\PSoC5/ErikaOS_1_ee_evget.c **** #if (defined(EE_AS_OSAPPLICATIONS__)) && (defined(EE_SERVICE_PROTECTION__)) \
+ 139:Generated_Source\PSoC5/ErikaOS_1_ee_evget.c ****   && (defined(__EE_MEMORY_PROTECTION__))
+ 140:Generated_Source\PSoC5/ErikaOS_1_ee_evget.c ****   /* [SWS_Os_00051] If an invalid address (address is not writable by this
+ 141:Generated_Source\PSoC5/ErikaOS_1_ee_evget.c ****       OS-Application) is passed as an out-parameter to an Operating System
+ 142:Generated_Source\PSoC5/ErikaOS_1_ee_evget.c ****       service, the Operating System module shall return the status code
+ 143:Generated_Source\PSoC5/ErikaOS_1_ee_evget.c ****       E_OS_ILLEGAL_ADDRESS. (SRS_Os_11009, SRS_Os_11013) */
+ 144:Generated_Source\PSoC5/ErikaOS_1_ee_evget.c ****   if ( !OSMEMORY_IS_WRITEABLE(EE_hal_get_app_mem_access(EE_as_active_app,
+ 145:Generated_Source\PSoC5/ErikaOS_1_ee_evget.c ****     Event, sizeof(*Event))) )
+ 146:Generated_Source\PSoC5/ErikaOS_1_ee_evget.c ****   {
+ 147:Generated_Source\PSoC5/ErikaOS_1_ee_evget.c ****     ev = E_OS_ILLEGAL_ADDRESS;
+ 148:Generated_Source\PSoC5/ErikaOS_1_ee_evget.c ****   } else
+ 149:Generated_Source\PSoC5/ErikaOS_1_ee_evget.c **** #endif /* EE_AS_OSAPPLICATIONS__ && __EE_MEMORY_PROTECTION__ &&
+ 150:Generated_Source\PSoC5/ErikaOS_1_ee_evget.c ****   EE_SERVICE_PROTECTION__ */
+ 151:Generated_Source\PSoC5/ErikaOS_1_ee_evget.c ****   {
+ 152:Generated_Source\PSoC5/ErikaOS_1_ee_evget.c ****     /* XXX: This SHALL be atomic. Check this architectures other than TriCore */
+ 153:Generated_Source\PSoC5/ErikaOS_1_ee_evget.c ****     *Event = EE_th_event_active[TaskID];
+  51              		.loc 1 153 0
+  52 001a 0C4B     		ldr	r3, .L8+8
+  53 001c 53F82030 		ldr	r3, [r3, r0, lsl #2]
+  54 0020 0B60     		str	r3, [r1]
+  55              	.LVL1:
+ 154:Generated_Source\PSoC5/ErikaOS_1_ee_evget.c ****     ev = E_OK;
+  56              		.loc 1 154 0
+  57 0022 0024     		movs	r4, #0
+  58 0024 06E0     		b	.L2
+  59              	.LVL2:
+  60              	.L3:
+ 124:Generated_Source\PSoC5/ErikaOS_1_ee_evget.c ****   } else
+  61              		.loc 1 124 0
+  62 0026 0324     		movs	r4, #3
+  63 0028 04E0     		b	.L2
+  64              	.L4:
+ 130:Generated_Source\PSoC5/ErikaOS_1_ee_evget.c ****   } else if ( EE_th_status[TaskID] == SUSPENDED ) {
+  65              		.loc 1 130 0
+  66 002a 0124     		movs	r4, #1
+  67 002c 02E0     		b	.L2
+  68              	.L5:
+ 132:Generated_Source\PSoC5/ErikaOS_1_ee_evget.c ****   } else
+  69              		.loc 1 132 0
+  70 002e 0724     		movs	r4, #7
+  71 0030 00E0     		b	.L2
+ARM GAS  C:\Users\MATEOC~1.QUE\AppData\Local\Temp\cck1wBAG.s 			page 5
+
+
+  72              	.L6:
+ 136:Generated_Source\PSoC5/ErikaOS_1_ee_evget.c ****   } else
+  73              		.loc 1 136 0
+  74 0032 0E24     		movs	r4, #14
+  75              	.L2:
+  76              	.LVL3:
+ 155:Generated_Source\PSoC5/ErikaOS_1_ee_evget.c ****   }
+ 156:Generated_Source\PSoC5/ErikaOS_1_ee_evget.c **** 
+ 157:Generated_Source\PSoC5/ErikaOS_1_ee_evget.c ****   if ( ev != E_OK ) {
+ 158:Generated_Source\PSoC5/ErikaOS_1_ee_evget.c ****     EE_OS_ERROR_PARAMETERS();
+ 159:Generated_Source\PSoC5/ErikaOS_1_ee_evget.c ****     EE_OS_ERROR_PARAMETERS_PARAM1_VALUE((EE_UREG)TaskID);
+ 160:Generated_Source\PSoC5/ErikaOS_1_ee_evget.c ****     EE_OS_ERROR_PARAMETERS_PARAM2_REF(event_ref,Event);
+ 161:Generated_Source\PSoC5/ErikaOS_1_ee_evget.c **** 
+ 162:Generated_Source\PSoC5/ErikaOS_1_ee_evget.c ****     EE_os_notify_error_from_us(OSServiceId_GetEvent, &error_parameters, ev);
+ 163:Generated_Source\PSoC5/ErikaOS_1_ee_evget.c ****     EE_ORTI_set_service_out(EE_SERVICETRACE_GETEVENT);
+ 164:Generated_Source\PSoC5/ErikaOS_1_ee_evget.c ****   } else {
+ 165:Generated_Source\PSoC5/ErikaOS_1_ee_evget.c ****     EE_ORTI_set_service_out(EE_SERVICETRACE_GETEVENT);
+ 166:Generated_Source\PSoC5/ErikaOS_1_ee_evget.c ****   }
+ 167:Generated_Source\PSoC5/ErikaOS_1_ee_evget.c **** 
+ 168:Generated_Source\PSoC5/ErikaOS_1_ee_evget.c **** #if (__OO_configUSE_TRACE_FACILITY == 1)
+ 169:Generated_Source\PSoC5/ErikaOS_1_ee_evget.c ****     traceTASK_GET_EVENT(TaskID, *Event)
+  77              		.loc 1 169 0
+  78 0034 0A68     		ldr	r2, [r1]
+  79 0036 411C     		adds	r1, r0, #1
+  80              	.LVL4:
+  81 0038 CA20     		movs	r0, #202
+  82              	.LVL5:
+  83 003a FFF7FEFF 		bl	prvTraceStoreEvent2
+  84              	.LVL6:
+ 170:Generated_Source\PSoC5/ErikaOS_1_ee_evget.c **** #endif
+ 171:Generated_Source\PSoC5/ErikaOS_1_ee_evget.c **** 
+ 172:Generated_Source\PSoC5/ErikaOS_1_ee_evget.c ****   return ev;
+ 173:Generated_Source\PSoC5/ErikaOS_1_ee_evget.c **** }
+  85              		.loc 1 173 0
+  86 003e 2046     		mov	r0, r4
+  87 0040 10BD     		pop	{r4, pc}
+  88              	.LVL7:
+  89              	.L9:
+  90 0042 00BF     		.align	2
+  91              	.L8:
+  92 0044 00000000 		.word	EE_th_is_extended
+  93 0048 00000000 		.word	EE_th_status
+  94 004c 00000000 		.word	EE_th_event_active
+  95              		.cfi_endproc
+  96              	.LFE139:
+  97              		.size	EE_oo_GetEvent, .-EE_oo_GetEvent
+  98              		.text
+  99              	.Letext0:
+ 100              		.file 2 "c:\\program files (x86)\\cypress\\psoc creator\\4.4\\psoc creator\\import\\gnu\\arm\\5.4.
+ 101              		.file 3 "Generated_Source\\PSoC5\\ErikaOS_1_common_ee_types.inc"
+ 102              		.file 4 "Generated_Source\\PSoC5\\ErikaOS_1_cortex_mx_ee_cpu.inc"
+ 103              		.file 5 "Generated_Source\\PSoC5\\ErikaOS_1_ee_oo_common.inc"
+ 104              		.file 6 "c:\\program files (x86)\\cypress\\psoc creator\\4.4\\psoc creator\\import\\gnu\\arm\\5.4.
+ 105              		.file 7 "Generated_Source\\PSoC5\\ErikaOS_1_ee_oo_internal.inc"
+ 106              		.file 8 "Generated_Source\\PSoC5\\ErikaOS_1_common_ee_primitives.inc"
+ 107              		.file 9 "Generated_Source\\PSoC5\\ErikaOS_1_cortex_mx_ee_context.inc"
+ 108              		.file 10 "Generated_Source\\PSoC5\\ErikaOS_1_ee_oo_intfunc.inc"
+ARM GAS  C:\Users\MATEOC~1.QUE\AppData\Local\Temp\cck1wBAG.s 			page 6
+
+
+ 109              		.file 11 "Generated_Source\\PSoC5/core_cm3.h"
+ 110              		.section	.debug_info,"",%progbits
+ 111              	.Ldebug_info0:
+ 112 0000 51050000 		.4byte	0x551
+ 113 0004 0400     		.2byte	0x4
+ 114 0006 00000000 		.4byte	.Ldebug_abbrev0
+ 115 000a 04       		.byte	0x4
+ 116 000b 01       		.uleb128 0x1
+ 117 000c 4B050000 		.4byte	.LASF82
+ 118 0010 0C       		.byte	0xc
+ 119 0011 D2040000 		.4byte	.LASF83
+ 120 0015 24020000 		.4byte	.LASF84
+ 121 0019 00000000 		.4byte	.Ldebug_ranges0+0
+ 122 001d 00000000 		.4byte	0
+ 123 0021 00000000 		.4byte	.Ldebug_line0
+ 124 0025 02       		.uleb128 0x2
+ 125 0026 01       		.byte	0x1
+ 126 0027 06       		.byte	0x6
+ 127 0028 79030000 		.4byte	.LASF0
+ 128 002c 02       		.uleb128 0x2
+ 129 002d 01       		.byte	0x1
+ 130 002e 08       		.byte	0x8
+ 131 002f EE020000 		.4byte	.LASF1
+ 132 0033 02       		.uleb128 0x2
+ 133 0034 02       		.byte	0x2
+ 134 0035 05       		.byte	0x5
+ 135 0036 77000000 		.4byte	.LASF2
+ 136 003a 02       		.uleb128 0x2
+ 137 003b 02       		.byte	0x2
+ 138 003c 07       		.byte	0x7
+ 139 003d 00040000 		.4byte	.LASF3
+ 140 0041 03       		.uleb128 0x3
+ 141 0042 BA040000 		.4byte	.LASF5
+ 142 0046 02       		.byte	0x2
+ 143 0047 3F       		.byte	0x3f
+ 144 0048 4C000000 		.4byte	0x4c
+ 145 004c 02       		.uleb128 0x2
+ 146 004d 04       		.byte	0x4
+ 147 004e 05       		.byte	0x5
+ 148 004f CE010000 		.4byte	.LASF4
+ 149 0053 03       		.uleb128 0x3
+ 150 0054 A2000000 		.4byte	.LASF6
+ 151 0058 02       		.byte	0x2
+ 152 0059 41       		.byte	0x41
+ 153 005a 5E000000 		.4byte	0x5e
+ 154 005e 02       		.uleb128 0x2
+ 155 005f 04       		.byte	0x4
+ 156 0060 07       		.byte	0x7
+ 157 0061 57040000 		.4byte	.LASF7
+ 158 0065 02       		.uleb128 0x2
+ 159 0066 08       		.byte	0x8
+ 160 0067 05       		.byte	0x5
+ 161 0068 6C010000 		.4byte	.LASF8
+ 162 006c 02       		.uleb128 0x2
+ 163 006d 08       		.byte	0x8
+ 164 006e 07       		.byte	0x7
+ 165 006f 8D030000 		.4byte	.LASF9
+ARM GAS  C:\Users\MATEOC~1.QUE\AppData\Local\Temp\cck1wBAG.s 			page 7
+
+
+ 166 0073 04       		.uleb128 0x4
+ 167 0074 04       		.byte	0x4
+ 168 0075 05       		.byte	0x5
+ 169 0076 696E7400 		.ascii	"int\000"
+ 170 007a 02       		.uleb128 0x2
+ 171 007b 04       		.byte	0x4
+ 172 007c 07       		.byte	0x7
+ 173 007d C4030000 		.4byte	.LASF10
+ 174 0081 02       		.uleb128 0x2
+ 175 0082 08       		.byte	0x8
+ 176 0083 04       		.byte	0x4
+ 177 0084 FC020000 		.4byte	.LASF11
+ 178 0088 03       		.uleb128 0x3
+ 179 0089 07000000 		.4byte	.LASF12
+ 180 008d 03       		.byte	0x3
+ 181 008e 3E       		.byte	0x3e
+ 182 008f 2C000000 		.4byte	0x2c
+ 183 0093 03       		.uleb128 0x3
+ 184 0094 C6010000 		.4byte	.LASF13
+ 185 0098 03       		.byte	0x3
+ 186 0099 3F       		.byte	0x3f
+ 187 009a 25000000 		.4byte	0x25
+ 188 009e 03       		.uleb128 0x3
+ 189 009f 08030000 		.4byte	.LASF14
+ 190 00a3 03       		.byte	0x3
+ 191 00a4 52       		.byte	0x52
+ 192 00a5 3A000000 		.4byte	0x3a
+ 193 00a9 03       		.uleb128 0x3
+ 194 00aa F7030000 		.4byte	.LASF15
+ 195 00ae 03       		.byte	0x3
+ 196 00af 53       		.byte	0x53
+ 197 00b0 73000000 		.4byte	0x73
+ 198 00b4 03       		.uleb128 0x3
+ 199 00b5 C3000000 		.4byte	.LASF16
+ 200 00b9 03       		.byte	0x3
+ 201 00ba 54       		.byte	0x54
+ 202 00bb 7A000000 		.4byte	0x7a
+ 203 00bf 03       		.uleb128 0x3
+ 204 00c0 1E000000 		.4byte	.LASF17
+ 205 00c4 04       		.byte	0x4
+ 206 00c5 4D       		.byte	0x4d
+ 207 00c6 B4000000 		.4byte	0xb4
+ 208 00ca 03       		.uleb128 0x3
+ 209 00cb 9A000000 		.4byte	.LASF18
+ 210 00cf 04       		.byte	0x4
+ 211 00d0 4F       		.byte	0x4f
+ 212 00d1 B4000000 		.4byte	0xb4
+ 213 00d5 03       		.uleb128 0x3
+ 214 00d6 70040000 		.4byte	.LASF19
+ 215 00da 04       		.byte	0x4
+ 216 00db 54       		.byte	0x54
+ 217 00dc BF000000 		.4byte	0xbf
+ 218 00e0 03       		.uleb128 0x3
+ 219 00e1 DE000000 		.4byte	.LASF20
+ 220 00e5 04       		.byte	0x4
+ 221 00e6 78       		.byte	0x78
+ 222 00e7 A9000000 		.4byte	0xa9
+ARM GAS  C:\Users\MATEOC~1.QUE\AppData\Local\Temp\cck1wBAG.s 			page 8
+
+
+ 223 00eb 05       		.uleb128 0x5
+ 224 00ec A5010000 		.4byte	.LASF21
+ 225 00f0 05       		.byte	0x5
+ 226 00f1 1101     		.2byte	0x111
+ 227 00f3 9E000000 		.4byte	0x9e
+ 228 00f7 05       		.uleb128 0x5
+ 229 00f8 21030000 		.4byte	.LASF22
+ 230 00fc 05       		.byte	0x5
+ 231 00fd F701     		.2byte	0x1f7
+ 232 00ff E0000000 		.4byte	0xe0
+ 233 0103 06       		.uleb128 0x6
+ 234 0104 04       		.byte	0x4
+ 235 0105 BF000000 		.4byte	0xbf
+ 236 0109 05       		.uleb128 0x5
+ 237 010a 33000000 		.4byte	.LASF23
+ 238 010e 05       		.byte	0x5
+ 239 010f 2F02     		.2byte	0x22f
+ 240 0111 03010000 		.4byte	0x103
+ 241 0115 05       		.uleb128 0x5
+ 242 0116 D6020000 		.4byte	.LASF24
+ 243 011a 05       		.byte	0x5
+ 244 011b 3502     		.2byte	0x235
+ 245 011d BF000000 		.4byte	0xbf
+ 246 0121 05       		.uleb128 0x5
+ 247 0122 7A010000 		.4byte	.LASF25
+ 248 0126 05       		.byte	0x5
+ 249 0127 5D02     		.2byte	0x25d
+ 250 0129 BF000000 		.4byte	0xbf
+ 251 012d 05       		.uleb128 0x5
+ 252 012e 07050000 		.4byte	.LASF26
+ 253 0132 05       		.byte	0x5
+ 254 0133 6C02     		.2byte	0x26c
+ 255 0135 BF000000 		.4byte	0xbf
+ 256 0139 07       		.uleb128 0x7
+ 257 013a 0C       		.byte	0xc
+ 258 013b 05       		.byte	0x5
+ 259 013c 7202     		.2byte	0x272
+ 260 013e 6A010000 		.4byte	0x16a
+ 261 0142 08       		.uleb128 0x8
+ 262 0143 D7010000 		.4byte	.LASF27
+ 263 0147 05       		.byte	0x5
+ 264 0148 7302     		.2byte	0x273
+ 265 014a 15010000 		.4byte	0x115
+ 266 014e 00       		.byte	0
+ 267 014f 08       		.uleb128 0x8
+ 268 0150 26000000 		.4byte	.LASF28
+ 269 0154 05       		.byte	0x5
+ 270 0155 7402     		.2byte	0x274
+ 271 0157 15010000 		.4byte	0x115
+ 272 015b 04       		.byte	0x4
+ 273 015c 08       		.uleb128 0x8
+ 274 015d E5000000 		.4byte	.LASF29
+ 275 0161 05       		.byte	0x5
+ 276 0162 7502     		.2byte	0x275
+ 277 0164 15010000 		.4byte	0x115
+ 278 0168 08       		.byte	0x8
+ 279 0169 00       		.byte	0
+ARM GAS  C:\Users\MATEOC~1.QUE\AppData\Local\Temp\cck1wBAG.s 			page 9
+
+
+ 280 016a 05       		.uleb128 0x5
+ 281 016b 0D020000 		.4byte	.LASF30
+ 282 016f 05       		.byte	0x5
+ 283 0170 7A02     		.2byte	0x27a
+ 284 0172 39010000 		.4byte	0x139
+ 285 0176 07       		.uleb128 0x7
+ 286 0177 08       		.byte	0x8
+ 287 0178 05       		.byte	0x5
+ 288 0179 7D02     		.2byte	0x27d
+ 289 017b 9A010000 		.4byte	0x19a
+ 290 017f 08       		.uleb128 0x8
+ 291 0180 EE000000 		.4byte	.LASF31
+ 292 0184 05       		.byte	0x5
+ 293 0185 7E02     		.2byte	0x27e
+ 294 0187 15010000 		.4byte	0x115
+ 295 018b 00       		.byte	0
+ 296 018c 08       		.uleb128 0x8
+ 297 018d 12060000 		.4byte	.LASF32
+ 298 0191 05       		.byte	0x5
+ 299 0192 7F02     		.2byte	0x27f
+ 300 0194 21010000 		.4byte	0x121
+ 301 0198 04       		.byte	0x4
+ 302 0199 00       		.byte	0
+ 303 019a 05       		.uleb128 0x5
+ 304 019b AD030000 		.4byte	.LASF33
+ 305 019f 05       		.byte	0x5
+ 306 01a0 8002     		.2byte	0x280
+ 307 01a2 76010000 		.4byte	0x176
+ 308 01a6 09       		.uleb128 0x9
+ 309 01a7 01       		.byte	0x1
+ 310 01a8 2C000000 		.4byte	0x2c
+ 311 01ac 05       		.byte	0x5
+ 312 01ad 8A02     		.2byte	0x28a
+ 313 01af C0010000 		.4byte	0x1c0
+ 314 01b3 0A       		.uleb128 0xa
+ 315 01b4 C4040000 		.4byte	.LASF34
+ 316 01b8 00       		.byte	0
+ 317 01b9 0A       		.uleb128 0xa
+ 318 01ba B5010000 		.4byte	.LASF35
+ 319 01be 01       		.byte	0x1
+ 320 01bf 00       		.byte	0
+ 321 01c0 05       		.uleb128 0x5
+ 322 01c1 1E010000 		.4byte	.LASF36
+ 323 01c5 05       		.byte	0x5
+ 324 01c6 8D02     		.2byte	0x28d
+ 325 01c8 A6010000 		.4byte	0x1a6
+ 326 01cc 05       		.uleb128 0x5
+ 327 01cd AD000000 		.4byte	.LASF37
+ 328 01d1 05       		.byte	0x5
+ 329 01d2 9002     		.2byte	0x290
+ 330 01d4 C0010000 		.4byte	0x1c0
+ 331 01d8 07       		.uleb128 0x7
+ 332 01d9 0C       		.byte	0xc
+ 333 01da 05       		.byte	0x5
+ 334 01db 9402     		.2byte	0x294
+ 335 01dd 07020000 		.4byte	0x207
+ 336 01e1 0B       		.uleb128 0xb
+ARM GAS  C:\Users\MATEOC~1.QUE\AppData\Local\Temp\cck1wBAG.s 			page 10
+
+
+ 337 01e2 6300     		.ascii	"c\000"
+ 338 01e4 05       		.byte	0x5
+ 339 01e5 9602     		.2byte	0x296
+ 340 01e7 2D010000 		.4byte	0x12d
+ 341 01eb 00       		.byte	0
+ 342 01ec 08       		.uleb128 0x8
+ 343 01ed 92000000 		.4byte	.LASF38
+ 344 01f1 05       		.byte	0x5
+ 345 01f2 9802     		.2byte	0x298
+ 346 01f4 21010000 		.4byte	0x121
+ 347 01f8 04       		.byte	0x4
+ 348 01f9 08       		.uleb128 0x8
+ 349 01fa 52010000 		.4byte	.LASF39
+ 350 01fe 05       		.byte	0x5
+ 351 01ff 9A02     		.2byte	0x29a
+ 352 0201 CC010000 		.4byte	0x1cc
+ 353 0205 08       		.byte	0x8
+ 354 0206 00       		.byte	0
+ 355 0207 05       		.uleb128 0x5
+ 356 0208 2A030000 		.4byte	.LASF40
+ 357 020c 05       		.byte	0x5
+ 358 020d 9B02     		.2byte	0x29b
+ 359 020f D8010000 		.4byte	0x1d8
+ 360 0213 07       		.uleb128 0x7
+ 361 0214 10       		.byte	0x10
+ 362 0215 05       		.byte	0x5
+ 363 0216 9F02     		.2byte	0x29f
+ 364 0218 51020000 		.4byte	0x251
+ 365 021c 08       		.uleb128 0x8
+ 366 021d CD040000 		.4byte	.LASF41
+ 367 0221 05       		.byte	0x5
+ 368 0222 A002     		.2byte	0x2a0
+ 369 0224 D5000000 		.4byte	0xd5
+ 370 0228 00       		.byte	0
+ 371 0229 08       		.uleb128 0x8
+ 372 022a D9050000 		.4byte	.LASF42
+ 373 022e 05       		.byte	0x5
+ 374 022f A102     		.2byte	0x2a1
+ 375 0231 15010000 		.4byte	0x115
+ 376 0235 04       		.byte	0x4
+ 377 0236 08       		.uleb128 0x8
+ 378 0237 8C000000 		.4byte	.LASF43
+ 379 023b 05       		.byte	0x5
+ 380 023c A202     		.2byte	0x2a2
+ 381 023e 15010000 		.4byte	0x115
+ 382 0242 08       		.byte	0x8
+ 383 0243 08       		.uleb128 0x8
+ 384 0244 00060000 		.4byte	.LASF44
+ 385 0248 05       		.byte	0x5
+ 386 0249 A302     		.2byte	0x2a3
+ 387 024b 21010000 		.4byte	0x121
+ 388 024f 0C       		.byte	0xc
+ 389 0250 00       		.byte	0
+ 390 0251 05       		.uleb128 0x5
+ 391 0252 9C040000 		.4byte	.LASF45
+ 392 0256 05       		.byte	0x5
+ 393 0257 A402     		.2byte	0x2a4
+ARM GAS  C:\Users\MATEOC~1.QUE\AppData\Local\Temp\cck1wBAG.s 			page 11
+
+
+ 394 0259 13020000 		.4byte	0x213
+ 395 025d 05       		.uleb128 0x5
+ 396 025e 81000000 		.4byte	.LASF46
+ 397 0262 05       		.byte	0x5
+ 398 0263 2103     		.2byte	0x321
+ 399 0265 2C000000 		.4byte	0x2c
+ 400 0269 03       		.uleb128 0x3
+ 401 026a 85030000 		.4byte	.LASF47
+ 402 026e 06       		.byte	0x6
+ 403 026f 2C       		.byte	0x2c
+ 404 0270 41000000 		.4byte	0x41
+ 405 0274 03       		.uleb128 0x3
+ 406 0275 A4030000 		.4byte	.LASF48
+ 407 0279 06       		.byte	0x6
+ 408 027a 30       		.byte	0x30
+ 409 027b 53000000 		.4byte	0x53
+ 410 027f 02       		.uleb128 0x2
+ 411 0280 04       		.byte	0x4
+ 412 0281 04       		.byte	0x4
+ 413 0282 66010000 		.4byte	.LASF49
+ 414 0286 02       		.uleb128 0x2
+ 415 0287 08       		.byte	0x8
+ 416 0288 04       		.byte	0x4
+ 417 0289 69040000 		.4byte	.LASF50
+ 418 028d 02       		.uleb128 0x2
+ 419 028e 01       		.byte	0x1
+ 420 028f 08       		.byte	0x8
+ 421 0290 13040000 		.4byte	.LASF51
+ 422 0294 02       		.uleb128 0x2
+ 423 0295 04       		.byte	0x4
+ 424 0296 07       		.byte	0x7
+ 425 0297 FE040000 		.4byte	.LASF52
+ 426 029b 0C       		.uleb128 0xc
+ 427 029c E7010000 		.4byte	.LASF53
+ 428 02a0 05       		.byte	0x5
+ 429 02a1 9703     		.2byte	0x397
+ 430 02a3 03       		.byte	0x3
+ 431 02a4 B5020000 		.4byte	0x2b5
+ 432 02a8 0D       		.uleb128 0xd
+ 433 02a9 73727600 		.ascii	"srv\000"
+ 434 02ad 05       		.byte	0x5
+ 435 02ae 9703     		.2byte	0x397
+ 436 02b0 88000000 		.4byte	0x88
+ 437 02b4 00       		.byte	0
+ 438 02b5 0C       		.uleb128 0xc
+ 439 02b6 18040000 		.4byte	.LASF54
+ 440 02ba 05       		.byte	0x5
+ 441 02bb A303     		.2byte	0x3a3
+ 442 02bd 03       		.byte	0x3
+ 443 02be CE020000 		.4byte	0x2ce
+ 444 02c2 0D       		.uleb128 0xd
+ 445 02c3 696400   		.ascii	"id\000"
+ 446 02c6 05       		.byte	0x5
+ 447 02c7 A303     		.2byte	0x3a3
+ 448 02c9 88000000 		.4byte	0x88
+ 449 02cd 00       		.byte	0
+ 450 02ce 0C       		.uleb128 0xc
+ARM GAS  C:\Users\MATEOC~1.QUE\AppData\Local\Temp\cck1wBAG.s 			page 12
+
+
+ 451 02cf 48030000 		.4byte	.LASF55
+ 452 02d3 05       		.byte	0x5
+ 453 02d4 A803     		.2byte	0x3a8
+ 454 02d6 03       		.byte	0x3
+ 455 02d7 E7020000 		.4byte	0x2e7
+ 456 02db 0D       		.uleb128 0xd
+ 457 02dc 696400   		.ascii	"id\000"
+ 458 02df 05       		.byte	0x5
+ 459 02e0 A803     		.2byte	0x3a8
+ 460 02e2 88000000 		.4byte	0x88
+ 461 02e6 00       		.byte	0
+ 462 02e7 0E       		.uleb128 0xe
+ 463 02e8 7C040000 		.4byte	.LASF56
+ 464 02ec 07       		.byte	0x7
+ 465 02ed B7       		.byte	0xb7
+ 466 02ee 03       		.byte	0x3
+ 467 02ef FF020000 		.4byte	0x2ff
+ 468 02f3 0F       		.uleb128 0xf
+ 469 02f4 2F040000 		.4byte	.LASF57
+ 470 02f8 07       		.byte	0x7
+ 471 02f9 B8       		.byte	0xb8
+ 472 02fa 5D020000 		.4byte	0x25d
+ 473 02fe 00       		.byte	0
+ 474 02ff 10       		.uleb128 0x10
+ 475 0300 57010000 		.4byte	.LASF85
+ 476 0304 01       		.byte	0x1
+ 477 0305 46       		.byte	0x46
+ 478 0306 5D020000 		.4byte	0x25d
+ 479 030a 00000000 		.4byte	.LFB139
+ 480 030e 50000000 		.4byte	.LFE139-.LFB139
+ 481 0312 01       		.uleb128 0x1
+ 482 0313 9C       		.byte	0x9c
+ 483 0314 70030000 		.4byte	0x370
+ 484 0318 11       		.uleb128 0x11
+ 485 0319 00000000 		.4byte	.LASF58
+ 486 031d 01       		.byte	0x1
+ 487 031e 46       		.byte	0x46
+ 488 031f F7000000 		.4byte	0xf7
+ 489 0323 00000000 		.4byte	.LLST0
+ 490 0327 11       		.uleb128 0x11
+ 491 0328 FA050000 		.4byte	.LASF59
+ 492 032c 01       		.byte	0x1
+ 493 032d 46       		.byte	0x46
+ 494 032e 09010000 		.4byte	0x109
+ 495 0332 2E000000 		.4byte	.LLST1
+ 496 0336 12       		.uleb128 0x12
+ 497 0337 657600   		.ascii	"ev\000"
+ 498 033a 01       		.byte	0x1
+ 499 033b 49       		.byte	0x49
+ 500 033c 5D020000 		.4byte	0x25d
+ 501 0340 4F000000 		.4byte	.LLST2
+ 502 0344 13       		.uleb128 0x13
+ 503 0345 57000000 		.4byte	.LASF86
+ 504 0349 07       		.byte	0x7
+ 505 034a EB02     		.2byte	0x2eb
+ 506 034c 73000000 		.4byte	0x73
+ 507 0350 56030000 		.4byte	0x356
+ARM GAS  C:\Users\MATEOC~1.QUE\AppData\Local\Temp\cck1wBAG.s 			page 13
+
+
+ 508 0354 14       		.uleb128 0x14
+ 509 0355 00       		.byte	0
+ 510 0356 15       		.uleb128 0x15
+ 511 0357 3E000000 		.4byte	.LVL6
+ 512 035b 48050000 		.4byte	0x548
+ 513 035f 16       		.uleb128 0x16
+ 514 0360 01       		.uleb128 0x1
+ 515 0361 50       		.byte	0x50
+ 516 0362 02       		.uleb128 0x2
+ 517 0363 08       		.byte	0x8
+ 518 0364 CA       		.byte	0xca
+ 519 0365 16       		.uleb128 0x16
+ 520 0366 01       		.uleb128 0x1
+ 521 0367 51       		.byte	0x51
+ 522 0368 05       		.uleb128 0x5
+ 523 0369 F3       		.byte	0xf3
+ 524 036a 01       		.uleb128 0x1
+ 525 036b 50       		.byte	0x50
+ 526 036c 23       		.byte	0x23
+ 527 036d 01       		.uleb128 0x1
+ 528 036e 00       		.byte	0
+ 529 036f 00       		.byte	0
+ 530 0370 17       		.uleb128 0x17
+ 531 0371 3D010000 		.4byte	.LASF60
+ 532 0375 08       		.byte	0x8
+ 533 0376 44       		.byte	0x44
+ 534 0377 BF000000 		.4byte	0xbf
+ 535 037b 17       		.uleb128 0x17
+ 536 037c DE030000 		.4byte	.LASF61
+ 537 0380 09       		.byte	0x9
+ 538 0381 48       		.byte	0x48
+ 539 0382 E0000000 		.4byte	0xe0
+ 540 0386 18       		.uleb128 0x18
+ 541 0387 96030000 		.4byte	0x396
+ 542 038b 96030000 		.4byte	0x396
+ 543 038f 19       		.uleb128 0x19
+ 544 0390 94020000 		.4byte	0x294
+ 545 0394 02       		.byte	0x2
+ 546 0395 00       		.byte	0
+ 547 0396 1A       		.uleb128 0x1a
+ 548 0397 BF000000 		.4byte	0xbf
+ 549 039b 17       		.uleb128 0x17
+ 550 039c CD000000 		.4byte	.LASF62
+ 551 03a0 05       		.byte	0x5
+ 552 03a1 B2       		.byte	0xb2
+ 553 03a2 A6030000 		.4byte	0x3a6
+ 554 03a6 1A       		.uleb128 0x1a
+ 555 03a7 86030000 		.4byte	0x386
+ 556 03ab 17       		.uleb128 0x17
+ 557 03ac 1F050000 		.4byte	.LASF63
+ 558 03b0 05       		.byte	0x5
+ 559 03b1 B3       		.byte	0xb3
+ 560 03b2 B6030000 		.4byte	0x3b6
+ 561 03b6 1A       		.uleb128 0x1a
+ 562 03b7 86030000 		.4byte	0x386
+ 563 03bb 18       		.uleb128 0x18
+ 564 03bc BF000000 		.4byte	0xbf
+ARM GAS  C:\Users\MATEOC~1.QUE\AppData\Local\Temp\cck1wBAG.s 			page 14
+
+
+ 565 03c0 CB030000 		.4byte	0x3cb
+ 566 03c4 19       		.uleb128 0x19
+ 567 03c5 94020000 		.4byte	0x294
+ 568 03c9 02       		.byte	0x2
+ 569 03ca 00       		.byte	0
+ 570 03cb 17       		.uleb128 0x17
+ 571 03cc D1030000 		.4byte	.LASF64
+ 572 03d0 05       		.byte	0x5
+ 573 03d1 CA       		.byte	0xca
+ 574 03d2 BB030000 		.4byte	0x3bb
+ 575 03d6 18       		.uleb128 0x18
+ 576 03d7 E0000000 		.4byte	0xe0
+ 577 03db E6030000 		.4byte	0x3e6
+ 578 03df 19       		.uleb128 0x19
+ 579 03e0 94020000 		.4byte	0x294
+ 580 03e4 02       		.byte	0x2
+ 581 03e5 00       		.byte	0
+ 582 03e6 17       		.uleb128 0x17
+ 583 03e7 33050000 		.4byte	.LASF65
+ 584 03eb 05       		.byte	0x5
+ 585 03ec D2       		.byte	0xd2
+ 586 03ed D6030000 		.4byte	0x3d6
+ 587 03f1 17       		.uleb128 0x17
+ 588 03f2 13050000 		.4byte	.LASF66
+ 589 03f6 05       		.byte	0x5
+ 590 03f7 DA       		.byte	0xda
+ 591 03f8 BB030000 		.4byte	0x3bb
+ 592 03fc 17       		.uleb128 0x17
+ 593 03fd 6B000000 		.4byte	.LASF67
+ 594 0401 05       		.byte	0x5
+ 595 0402 E2       		.byte	0xe2
+ 596 0403 E0000000 		.4byte	0xe0
+ 597 0407 17       		.uleb128 0x17
+ 598 0408 DF020000 		.4byte	.LASF68
+ 599 040c 05       		.byte	0x5
+ 600 040d F7       		.byte	0xf7
+ 601 040e BF000000 		.4byte	0xbf
+ 602 0412 1B       		.uleb128 0x1b
+ 603 0413 10000000 		.4byte	.LASF69
+ 604 0417 05       		.byte	0x5
+ 605 0418 3F01     		.2byte	0x13f
+ 606 041a EB000000 		.4byte	0xeb
+ 607 041e 1B       		.uleb128 0x1b
+ 608 041f 44000000 		.4byte	.LASF70
+ 609 0423 05       		.byte	0x5
+ 610 0424 5C01     		.2byte	0x15c
+ 611 0426 BB030000 		.4byte	0x3bb
+ 612 042a 18       		.uleb128 0x18
+ 613 042b D5000000 		.4byte	0xd5
+ 614 042f 3A040000 		.4byte	0x43a
+ 615 0433 19       		.uleb128 0x19
+ 616 0434 94020000 		.4byte	0x294
+ 617 0438 02       		.byte	0x2
+ 618 0439 00       		.byte	0
+ 619 043a 1B       		.uleb128 0x1b
+ 620 043b F4000000 		.4byte	.LASF71
+ 621 043f 05       		.byte	0x5
+ARM GAS  C:\Users\MATEOC~1.QUE\AppData\Local\Temp\cck1wBAG.s 			page 15
+
+
+ 622 0440 6701     		.2byte	0x167
+ 623 0442 2A040000 		.4byte	0x42a
+ 624 0446 18       		.uleb128 0x18
+ 625 0447 56040000 		.4byte	0x456
+ 626 044b 56040000 		.4byte	0x456
+ 627 044f 19       		.uleb128 0x19
+ 628 0450 94020000 		.4byte	0x294
+ 629 0454 02       		.byte	0x2
+ 630 0455 00       		.byte	0
+ 631 0456 1A       		.uleb128 0x1a
+ 632 0457 D5000000 		.4byte	0xd5
+ 633 045b 1B       		.uleb128 0x1b
+ 634 045c FB010000 		.4byte	.LASF72
+ 635 0460 05       		.byte	0x5
+ 636 0461 7401     		.2byte	0x174
+ 637 0463 67040000 		.4byte	0x467
+ 638 0467 1A       		.uleb128 0x1a
+ 639 0468 46040000 		.4byte	0x446
+ 640 046c 18       		.uleb128 0x18
+ 641 046d 7C040000 		.4byte	0x47c
+ 642 0471 7C040000 		.4byte	0x47c
+ 643 0475 19       		.uleb128 0x19
+ 644 0476 94020000 		.4byte	0x294
+ 645 047a 00       		.byte	0
+ 646 047b 00       		.byte	0
+ 647 047c 1A       		.uleb128 0x1a
+ 648 047d 6A010000 		.4byte	0x16a
+ 649 0481 1B       		.uleb128 0x1b
+ 650 0482 12030000 		.4byte	.LASF73
+ 651 0486 05       		.byte	0x5
+ 652 0487 CA02     		.2byte	0x2ca
+ 653 0489 8D040000 		.4byte	0x48d
+ 654 048d 1A       		.uleb128 0x1a
+ 655 048e 6C040000 		.4byte	0x46c
+ 656 0492 18       		.uleb128 0x18
+ 657 0493 A2040000 		.4byte	0x4a2
+ 658 0497 A2040000 		.4byte	0x4a2
+ 659 049b 19       		.uleb128 0x19
+ 660 049c 94020000 		.4byte	0x294
+ 661 04a0 00       		.byte	0
+ 662 04a1 00       		.byte	0
+ 663 04a2 1A       		.uleb128 0x1a
+ 664 04a3 07020000 		.4byte	0x207
+ 665 04a7 1B       		.uleb128 0x1b
+ 666 04a8 05010000 		.4byte	.LASF74
+ 667 04ac 05       		.byte	0x5
+ 668 04ad DD02     		.2byte	0x2dd
+ 669 04af B3040000 		.4byte	0x4b3
+ 670 04b3 1A       		.uleb128 0x1a
+ 671 04b4 92040000 		.4byte	0x492
+ 672 04b8 18       		.uleb128 0x18
+ 673 04b9 9A010000 		.4byte	0x19a
+ 674 04bd C8040000 		.4byte	0x4c8
+ 675 04c1 19       		.uleb128 0x19
+ 676 04c2 94020000 		.4byte	0x294
+ 677 04c6 00       		.byte	0
+ 678 04c7 00       		.byte	0
+ARM GAS  C:\Users\MATEOC~1.QUE\AppData\Local\Temp\cck1wBAG.s 			page 16
+
+
+ 679 04c8 1B       		.uleb128 0x1b
+ 680 04c9 35040000 		.4byte	.LASF75
+ 681 04cd 05       		.byte	0x5
+ 682 04ce FB02     		.2byte	0x2fb
+ 683 04d0 B8040000 		.4byte	0x4b8
+ 684 04d4 18       		.uleb128 0x18
+ 685 04d5 51020000 		.4byte	0x251
+ 686 04d9 E4040000 		.4byte	0x4e4
+ 687 04dd 19       		.uleb128 0x19
+ 688 04de 94020000 		.4byte	0x294
+ 689 04e2 00       		.byte	0
+ 690 04e3 00       		.byte	0
+ 691 04e4 1B       		.uleb128 0x1b
+ 692 04e5 60030000 		.4byte	.LASF76
+ 693 04e9 05       		.byte	0x5
+ 694 04ea 0403     		.2byte	0x304
+ 695 04ec D4040000 		.4byte	0x4d4
+ 696 04f0 17       		.uleb128 0x17
+ 697 04f1 E2050000 		.4byte	.LASF77
+ 698 04f5 0A       		.byte	0xa
+ 699 04f6 40       		.byte	0x40
+ 700 04f7 BF000000 		.4byte	0xbf
+ 701 04fb 17       		.uleb128 0x17
+ 702 04fc 8C010000 		.4byte	.LASF78
+ 703 0500 0A       		.byte	0xa
+ 704 0501 47       		.byte	0x47
+ 705 0502 CA000000 		.4byte	0xca
+ 706 0506 17       		.uleb128 0x17
+ 707 0507 44040000 		.4byte	.LASF79
+ 708 050b 0A       		.byte	0xa
+ 709 050c 4A       		.byte	0x4a
+ 710 050d BF000000 		.4byte	0xbf
+ 711 0511 1B       		.uleb128 0x1b
+ 712 0512 3E050000 		.4byte	.LASF80
+ 713 0516 0B       		.byte	0xb
+ 714 0517 1207     		.2byte	0x712
+ 715 0519 1D050000 		.4byte	0x51d
+ 716 051d 1C       		.uleb128 0x1c
+ 717 051e 69020000 		.4byte	0x269
+ 718 0522 18       		.uleb128 0x18
+ 719 0523 32050000 		.4byte	0x532
+ 720 0527 32050000 		.4byte	0x532
+ 721 052b 19       		.uleb128 0x19
+ 722 052c 94020000 		.4byte	0x294
+ 723 0530 FF       		.byte	0xff
+ 724 0531 00       		.byte	0
+ 725 0532 1A       		.uleb128 0x1a
+ 726 0533 93000000 		.4byte	0x93
+ 727 0537 1B       		.uleb128 0x1b
+ 728 0538 05060000 		.4byte	.LASF81
+ 729 053c 07       		.byte	0x7
+ 730 053d AB01     		.2byte	0x1ab
+ 731 053f 43050000 		.4byte	0x543
+ 732 0543 1A       		.uleb128 0x1a
+ 733 0544 22050000 		.4byte	0x522
+ 734 0548 1D       		.uleb128 0x1d
+ 735 0549 57000000 		.4byte	.LASF86
+ARM GAS  C:\Users\MATEOC~1.QUE\AppData\Local\Temp\cck1wBAG.s 			page 17
+
+
+ 736 054d 57000000 		.4byte	.LASF86
+ 737 0551 07       		.byte	0x7
+ 738 0552 EB02     		.2byte	0x2eb
+ 739 0554 00       		.byte	0
+ 740              		.section	.debug_abbrev,"",%progbits
+ 741              	.Ldebug_abbrev0:
+ 742 0000 01       		.uleb128 0x1
+ 743 0001 11       		.uleb128 0x11
+ 744 0002 01       		.byte	0x1
+ 745 0003 25       		.uleb128 0x25
+ 746 0004 0E       		.uleb128 0xe
+ 747 0005 13       		.uleb128 0x13
+ 748 0006 0B       		.uleb128 0xb
+ 749 0007 03       		.uleb128 0x3
+ 750 0008 0E       		.uleb128 0xe
+ 751 0009 1B       		.uleb128 0x1b
+ 752 000a 0E       		.uleb128 0xe
+ 753 000b 55       		.uleb128 0x55
+ 754 000c 17       		.uleb128 0x17
+ 755 000d 11       		.uleb128 0x11
+ 756 000e 01       		.uleb128 0x1
+ 757 000f 10       		.uleb128 0x10
+ 758 0010 17       		.uleb128 0x17
+ 759 0011 00       		.byte	0
+ 760 0012 00       		.byte	0
+ 761 0013 02       		.uleb128 0x2
+ 762 0014 24       		.uleb128 0x24
+ 763 0015 00       		.byte	0
+ 764 0016 0B       		.uleb128 0xb
+ 765 0017 0B       		.uleb128 0xb
+ 766 0018 3E       		.uleb128 0x3e
+ 767 0019 0B       		.uleb128 0xb
+ 768 001a 03       		.uleb128 0x3
+ 769 001b 0E       		.uleb128 0xe
+ 770 001c 00       		.byte	0
+ 771 001d 00       		.byte	0
+ 772 001e 03       		.uleb128 0x3
+ 773 001f 16       		.uleb128 0x16
+ 774 0020 00       		.byte	0
+ 775 0021 03       		.uleb128 0x3
+ 776 0022 0E       		.uleb128 0xe
+ 777 0023 3A       		.uleb128 0x3a
+ 778 0024 0B       		.uleb128 0xb
+ 779 0025 3B       		.uleb128 0x3b
+ 780 0026 0B       		.uleb128 0xb
+ 781 0027 49       		.uleb128 0x49
+ 782 0028 13       		.uleb128 0x13
+ 783 0029 00       		.byte	0
+ 784 002a 00       		.byte	0
+ 785 002b 04       		.uleb128 0x4
+ 786 002c 24       		.uleb128 0x24
+ 787 002d 00       		.byte	0
+ 788 002e 0B       		.uleb128 0xb
+ 789 002f 0B       		.uleb128 0xb
+ 790 0030 3E       		.uleb128 0x3e
+ 791 0031 0B       		.uleb128 0xb
+ 792 0032 03       		.uleb128 0x3
+ARM GAS  C:\Users\MATEOC~1.QUE\AppData\Local\Temp\cck1wBAG.s 			page 18
+
+
+ 793 0033 08       		.uleb128 0x8
+ 794 0034 00       		.byte	0
+ 795 0035 00       		.byte	0
+ 796 0036 05       		.uleb128 0x5
+ 797 0037 16       		.uleb128 0x16
+ 798 0038 00       		.byte	0
+ 799 0039 03       		.uleb128 0x3
+ 800 003a 0E       		.uleb128 0xe
+ 801 003b 3A       		.uleb128 0x3a
+ 802 003c 0B       		.uleb128 0xb
+ 803 003d 3B       		.uleb128 0x3b
+ 804 003e 05       		.uleb128 0x5
+ 805 003f 49       		.uleb128 0x49
+ 806 0040 13       		.uleb128 0x13
+ 807 0041 00       		.byte	0
+ 808 0042 00       		.byte	0
+ 809 0043 06       		.uleb128 0x6
+ 810 0044 0F       		.uleb128 0xf
+ 811 0045 00       		.byte	0
+ 812 0046 0B       		.uleb128 0xb
+ 813 0047 0B       		.uleb128 0xb
+ 814 0048 49       		.uleb128 0x49
+ 815 0049 13       		.uleb128 0x13
+ 816 004a 00       		.byte	0
+ 817 004b 00       		.byte	0
+ 818 004c 07       		.uleb128 0x7
+ 819 004d 13       		.uleb128 0x13
+ 820 004e 01       		.byte	0x1
+ 821 004f 0B       		.uleb128 0xb
+ 822 0050 0B       		.uleb128 0xb
+ 823 0051 3A       		.uleb128 0x3a
+ 824 0052 0B       		.uleb128 0xb
+ 825 0053 3B       		.uleb128 0x3b
+ 826 0054 05       		.uleb128 0x5
+ 827 0055 01       		.uleb128 0x1
+ 828 0056 13       		.uleb128 0x13
+ 829 0057 00       		.byte	0
+ 830 0058 00       		.byte	0
+ 831 0059 08       		.uleb128 0x8
+ 832 005a 0D       		.uleb128 0xd
+ 833 005b 00       		.byte	0
+ 834 005c 03       		.uleb128 0x3
+ 835 005d 0E       		.uleb128 0xe
+ 836 005e 3A       		.uleb128 0x3a
+ 837 005f 0B       		.uleb128 0xb
+ 838 0060 3B       		.uleb128 0x3b
+ 839 0061 05       		.uleb128 0x5
+ 840 0062 49       		.uleb128 0x49
+ 841 0063 13       		.uleb128 0x13
+ 842 0064 38       		.uleb128 0x38
+ 843 0065 0B       		.uleb128 0xb
+ 844 0066 00       		.byte	0
+ 845 0067 00       		.byte	0
+ 846 0068 09       		.uleb128 0x9
+ 847 0069 04       		.uleb128 0x4
+ 848 006a 01       		.byte	0x1
+ 849 006b 0B       		.uleb128 0xb
+ARM GAS  C:\Users\MATEOC~1.QUE\AppData\Local\Temp\cck1wBAG.s 			page 19
+
+
+ 850 006c 0B       		.uleb128 0xb
+ 851 006d 49       		.uleb128 0x49
+ 852 006e 13       		.uleb128 0x13
+ 853 006f 3A       		.uleb128 0x3a
+ 854 0070 0B       		.uleb128 0xb
+ 855 0071 3B       		.uleb128 0x3b
+ 856 0072 05       		.uleb128 0x5
+ 857 0073 01       		.uleb128 0x1
+ 858 0074 13       		.uleb128 0x13
+ 859 0075 00       		.byte	0
+ 860 0076 00       		.byte	0
+ 861 0077 0A       		.uleb128 0xa
+ 862 0078 28       		.uleb128 0x28
+ 863 0079 00       		.byte	0
+ 864 007a 03       		.uleb128 0x3
+ 865 007b 0E       		.uleb128 0xe
+ 866 007c 1C       		.uleb128 0x1c
+ 867 007d 0B       		.uleb128 0xb
+ 868 007e 00       		.byte	0
+ 869 007f 00       		.byte	0
+ 870 0080 0B       		.uleb128 0xb
+ 871 0081 0D       		.uleb128 0xd
+ 872 0082 00       		.byte	0
+ 873 0083 03       		.uleb128 0x3
+ 874 0084 08       		.uleb128 0x8
+ 875 0085 3A       		.uleb128 0x3a
+ 876 0086 0B       		.uleb128 0xb
+ 877 0087 3B       		.uleb128 0x3b
+ 878 0088 05       		.uleb128 0x5
+ 879 0089 49       		.uleb128 0x49
+ 880 008a 13       		.uleb128 0x13
+ 881 008b 38       		.uleb128 0x38
+ 882 008c 0B       		.uleb128 0xb
+ 883 008d 00       		.byte	0
+ 884 008e 00       		.byte	0
+ 885 008f 0C       		.uleb128 0xc
+ 886 0090 2E       		.uleb128 0x2e
+ 887 0091 01       		.byte	0x1
+ 888 0092 03       		.uleb128 0x3
+ 889 0093 0E       		.uleb128 0xe
+ 890 0094 3A       		.uleb128 0x3a
+ 891 0095 0B       		.uleb128 0xb
+ 892 0096 3B       		.uleb128 0x3b
+ 893 0097 05       		.uleb128 0x5
+ 894 0098 27       		.uleb128 0x27
+ 895 0099 19       		.uleb128 0x19
+ 896 009a 20       		.uleb128 0x20
+ 897 009b 0B       		.uleb128 0xb
+ 898 009c 01       		.uleb128 0x1
+ 899 009d 13       		.uleb128 0x13
+ 900 009e 00       		.byte	0
+ 901 009f 00       		.byte	0
+ 902 00a0 0D       		.uleb128 0xd
+ 903 00a1 05       		.uleb128 0x5
+ 904 00a2 00       		.byte	0
+ 905 00a3 03       		.uleb128 0x3
+ 906 00a4 08       		.uleb128 0x8
+ARM GAS  C:\Users\MATEOC~1.QUE\AppData\Local\Temp\cck1wBAG.s 			page 20
+
+
+ 907 00a5 3A       		.uleb128 0x3a
+ 908 00a6 0B       		.uleb128 0xb
+ 909 00a7 3B       		.uleb128 0x3b
+ 910 00a8 05       		.uleb128 0x5
+ 911 00a9 49       		.uleb128 0x49
+ 912 00aa 13       		.uleb128 0x13
+ 913 00ab 00       		.byte	0
+ 914 00ac 00       		.byte	0
+ 915 00ad 0E       		.uleb128 0xe
+ 916 00ae 2E       		.uleb128 0x2e
+ 917 00af 01       		.byte	0x1
+ 918 00b0 03       		.uleb128 0x3
+ 919 00b1 0E       		.uleb128 0xe
+ 920 00b2 3A       		.uleb128 0x3a
+ 921 00b3 0B       		.uleb128 0xb
+ 922 00b4 3B       		.uleb128 0x3b
+ 923 00b5 0B       		.uleb128 0xb
+ 924 00b6 27       		.uleb128 0x27
+ 925 00b7 19       		.uleb128 0x19
+ 926 00b8 20       		.uleb128 0x20
+ 927 00b9 0B       		.uleb128 0xb
+ 928 00ba 01       		.uleb128 0x1
+ 929 00bb 13       		.uleb128 0x13
+ 930 00bc 00       		.byte	0
+ 931 00bd 00       		.byte	0
+ 932 00be 0F       		.uleb128 0xf
+ 933 00bf 05       		.uleb128 0x5
+ 934 00c0 00       		.byte	0
+ 935 00c1 03       		.uleb128 0x3
+ 936 00c2 0E       		.uleb128 0xe
+ 937 00c3 3A       		.uleb128 0x3a
+ 938 00c4 0B       		.uleb128 0xb
+ 939 00c5 3B       		.uleb128 0x3b
+ 940 00c6 0B       		.uleb128 0xb
+ 941 00c7 49       		.uleb128 0x49
+ 942 00c8 13       		.uleb128 0x13
+ 943 00c9 00       		.byte	0
+ 944 00ca 00       		.byte	0
+ 945 00cb 10       		.uleb128 0x10
+ 946 00cc 2E       		.uleb128 0x2e
+ 947 00cd 01       		.byte	0x1
+ 948 00ce 3F       		.uleb128 0x3f
+ 949 00cf 19       		.uleb128 0x19
+ 950 00d0 03       		.uleb128 0x3
+ 951 00d1 0E       		.uleb128 0xe
+ 952 00d2 3A       		.uleb128 0x3a
+ 953 00d3 0B       		.uleb128 0xb
+ 954 00d4 3B       		.uleb128 0x3b
+ 955 00d5 0B       		.uleb128 0xb
+ 956 00d6 27       		.uleb128 0x27
+ 957 00d7 19       		.uleb128 0x19
+ 958 00d8 49       		.uleb128 0x49
+ 959 00d9 13       		.uleb128 0x13
+ 960 00da 11       		.uleb128 0x11
+ 961 00db 01       		.uleb128 0x1
+ 962 00dc 12       		.uleb128 0x12
+ 963 00dd 06       		.uleb128 0x6
+ARM GAS  C:\Users\MATEOC~1.QUE\AppData\Local\Temp\cck1wBAG.s 			page 21
+
+
+ 964 00de 40       		.uleb128 0x40
+ 965 00df 18       		.uleb128 0x18
+ 966 00e0 9742     		.uleb128 0x2117
+ 967 00e2 19       		.uleb128 0x19
+ 968 00e3 01       		.uleb128 0x1
+ 969 00e4 13       		.uleb128 0x13
+ 970 00e5 00       		.byte	0
+ 971 00e6 00       		.byte	0
+ 972 00e7 11       		.uleb128 0x11
+ 973 00e8 05       		.uleb128 0x5
+ 974 00e9 00       		.byte	0
+ 975 00ea 03       		.uleb128 0x3
+ 976 00eb 0E       		.uleb128 0xe
+ 977 00ec 3A       		.uleb128 0x3a
+ 978 00ed 0B       		.uleb128 0xb
+ 979 00ee 3B       		.uleb128 0x3b
+ 980 00ef 0B       		.uleb128 0xb
+ 981 00f0 49       		.uleb128 0x49
+ 982 00f1 13       		.uleb128 0x13
+ 983 00f2 02       		.uleb128 0x2
+ 984 00f3 17       		.uleb128 0x17
+ 985 00f4 00       		.byte	0
+ 986 00f5 00       		.byte	0
+ 987 00f6 12       		.uleb128 0x12
+ 988 00f7 34       		.uleb128 0x34
+ 989 00f8 00       		.byte	0
+ 990 00f9 03       		.uleb128 0x3
+ 991 00fa 08       		.uleb128 0x8
+ 992 00fb 3A       		.uleb128 0x3a
+ 993 00fc 0B       		.uleb128 0xb
+ 994 00fd 3B       		.uleb128 0x3b
+ 995 00fe 0B       		.uleb128 0xb
+ 996 00ff 49       		.uleb128 0x49
+ 997 0100 13       		.uleb128 0x13
+ 998 0101 02       		.uleb128 0x2
+ 999 0102 17       		.uleb128 0x17
+ 1000 0103 00       		.byte	0
+ 1001 0104 00       		.byte	0
+ 1002 0105 13       		.uleb128 0x13
+ 1003 0106 2E       		.uleb128 0x2e
+ 1004 0107 01       		.byte	0x1
+ 1005 0108 3F       		.uleb128 0x3f
+ 1006 0109 19       		.uleb128 0x19
+ 1007 010a 03       		.uleb128 0x3
+ 1008 010b 0E       		.uleb128 0xe
+ 1009 010c 3A       		.uleb128 0x3a
+ 1010 010d 0B       		.uleb128 0xb
+ 1011 010e 3B       		.uleb128 0x3b
+ 1012 010f 05       		.uleb128 0x5
+ 1013 0110 49       		.uleb128 0x49
+ 1014 0111 13       		.uleb128 0x13
+ 1015 0112 3C       		.uleb128 0x3c
+ 1016 0113 19       		.uleb128 0x19
+ 1017 0114 01       		.uleb128 0x1
+ 1018 0115 13       		.uleb128 0x13
+ 1019 0116 00       		.byte	0
+ 1020 0117 00       		.byte	0
+ARM GAS  C:\Users\MATEOC~1.QUE\AppData\Local\Temp\cck1wBAG.s 			page 22
+
+
+ 1021 0118 14       		.uleb128 0x14
+ 1022 0119 18       		.uleb128 0x18
+ 1023 011a 00       		.byte	0
+ 1024 011b 00       		.byte	0
+ 1025 011c 00       		.byte	0
+ 1026 011d 15       		.uleb128 0x15
+ 1027 011e 898201   		.uleb128 0x4109
+ 1028 0121 01       		.byte	0x1
+ 1029 0122 11       		.uleb128 0x11
+ 1030 0123 01       		.uleb128 0x1
+ 1031 0124 31       		.uleb128 0x31
+ 1032 0125 13       		.uleb128 0x13
+ 1033 0126 00       		.byte	0
+ 1034 0127 00       		.byte	0
+ 1035 0128 16       		.uleb128 0x16
+ 1036 0129 8A8201   		.uleb128 0x410a
+ 1037 012c 00       		.byte	0
+ 1038 012d 02       		.uleb128 0x2
+ 1039 012e 18       		.uleb128 0x18
+ 1040 012f 9142     		.uleb128 0x2111
+ 1041 0131 18       		.uleb128 0x18
+ 1042 0132 00       		.byte	0
+ 1043 0133 00       		.byte	0
+ 1044 0134 17       		.uleb128 0x17
+ 1045 0135 34       		.uleb128 0x34
+ 1046 0136 00       		.byte	0
+ 1047 0137 03       		.uleb128 0x3
+ 1048 0138 0E       		.uleb128 0xe
+ 1049 0139 3A       		.uleb128 0x3a
+ 1050 013a 0B       		.uleb128 0xb
+ 1051 013b 3B       		.uleb128 0x3b
+ 1052 013c 0B       		.uleb128 0xb
+ 1053 013d 49       		.uleb128 0x49
+ 1054 013e 13       		.uleb128 0x13
+ 1055 013f 3F       		.uleb128 0x3f
+ 1056 0140 19       		.uleb128 0x19
+ 1057 0141 3C       		.uleb128 0x3c
+ 1058 0142 19       		.uleb128 0x19
+ 1059 0143 00       		.byte	0
+ 1060 0144 00       		.byte	0
+ 1061 0145 18       		.uleb128 0x18
+ 1062 0146 01       		.uleb128 0x1
+ 1063 0147 01       		.byte	0x1
+ 1064 0148 49       		.uleb128 0x49
+ 1065 0149 13       		.uleb128 0x13
+ 1066 014a 01       		.uleb128 0x1
+ 1067 014b 13       		.uleb128 0x13
+ 1068 014c 00       		.byte	0
+ 1069 014d 00       		.byte	0
+ 1070 014e 19       		.uleb128 0x19
+ 1071 014f 21       		.uleb128 0x21
+ 1072 0150 00       		.byte	0
+ 1073 0151 49       		.uleb128 0x49
+ 1074 0152 13       		.uleb128 0x13
+ 1075 0153 2F       		.uleb128 0x2f
+ 1076 0154 0B       		.uleb128 0xb
+ 1077 0155 00       		.byte	0
+ARM GAS  C:\Users\MATEOC~1.QUE\AppData\Local\Temp\cck1wBAG.s 			page 23
+
+
+ 1078 0156 00       		.byte	0
+ 1079 0157 1A       		.uleb128 0x1a
+ 1080 0158 26       		.uleb128 0x26
+ 1081 0159 00       		.byte	0
+ 1082 015a 49       		.uleb128 0x49
+ 1083 015b 13       		.uleb128 0x13
+ 1084 015c 00       		.byte	0
+ 1085 015d 00       		.byte	0
+ 1086 015e 1B       		.uleb128 0x1b
+ 1087 015f 34       		.uleb128 0x34
+ 1088 0160 00       		.byte	0
+ 1089 0161 03       		.uleb128 0x3
+ 1090 0162 0E       		.uleb128 0xe
+ 1091 0163 3A       		.uleb128 0x3a
+ 1092 0164 0B       		.uleb128 0xb
+ 1093 0165 3B       		.uleb128 0x3b
+ 1094 0166 05       		.uleb128 0x5
+ 1095 0167 49       		.uleb128 0x49
+ 1096 0168 13       		.uleb128 0x13
+ 1097 0169 3F       		.uleb128 0x3f
+ 1098 016a 19       		.uleb128 0x19
+ 1099 016b 3C       		.uleb128 0x3c
+ 1100 016c 19       		.uleb128 0x19
+ 1101 016d 00       		.byte	0
+ 1102 016e 00       		.byte	0
+ 1103 016f 1C       		.uleb128 0x1c
+ 1104 0170 35       		.uleb128 0x35
+ 1105 0171 00       		.byte	0
+ 1106 0172 49       		.uleb128 0x49
+ 1107 0173 13       		.uleb128 0x13
+ 1108 0174 00       		.byte	0
+ 1109 0175 00       		.byte	0
+ 1110 0176 1D       		.uleb128 0x1d
+ 1111 0177 2E       		.uleb128 0x2e
+ 1112 0178 00       		.byte	0
+ 1113 0179 3F       		.uleb128 0x3f
+ 1114 017a 19       		.uleb128 0x19
+ 1115 017b 3C       		.uleb128 0x3c
+ 1116 017c 19       		.uleb128 0x19
+ 1117 017d 6E       		.uleb128 0x6e
+ 1118 017e 0E       		.uleb128 0xe
+ 1119 017f 03       		.uleb128 0x3
+ 1120 0180 0E       		.uleb128 0xe
+ 1121 0181 3A       		.uleb128 0x3a
+ 1122 0182 0B       		.uleb128 0xb
+ 1123 0183 3B       		.uleb128 0x3b
+ 1124 0184 05       		.uleb128 0x5
+ 1125 0185 00       		.byte	0
+ 1126 0186 00       		.byte	0
+ 1127 0187 00       		.byte	0
+ 1128              		.section	.debug_loc,"",%progbits
+ 1129              	.Ldebug_loc0:
+ 1130              	.LLST0:
+ 1131 0000 00000000 		.4byte	.LVL0
+ 1132 0004 3A000000 		.4byte	.LVL5
+ 1133 0008 0100     		.2byte	0x1
+ 1134 000a 50       		.byte	0x50
+ARM GAS  C:\Users\MATEOC~1.QUE\AppData\Local\Temp\cck1wBAG.s 			page 24
+
+
+ 1135 000b 3A000000 		.4byte	.LVL5
+ 1136 000f 3D000000 		.4byte	.LVL6-1
+ 1137 0013 0300     		.2byte	0x3
+ 1138 0015 71       		.byte	0x71
+ 1139 0016 7F       		.sleb128 -1
+ 1140 0017 9F       		.byte	0x9f
+ 1141 0018 3D000000 		.4byte	.LVL6-1
+ 1142 001c 50000000 		.4byte	.LFE139
+ 1143 0020 0400     		.2byte	0x4
+ 1144 0022 F3       		.byte	0xf3
+ 1145 0023 01       		.uleb128 0x1
+ 1146 0024 50       		.byte	0x50
+ 1147 0025 9F       		.byte	0x9f
+ 1148 0026 00000000 		.4byte	0
+ 1149 002a 00000000 		.4byte	0
+ 1150              	.LLST1:
+ 1151 002e 00000000 		.4byte	.LVL0
+ 1152 0032 38000000 		.4byte	.LVL4
+ 1153 0036 0100     		.2byte	0x1
+ 1154 0038 51       		.byte	0x51
+ 1155 0039 38000000 		.4byte	.LVL4
+ 1156 003d 50000000 		.4byte	.LFE139
+ 1157 0041 0400     		.2byte	0x4
+ 1158 0043 F3       		.byte	0xf3
+ 1159 0044 01       		.uleb128 0x1
+ 1160 0045 51       		.byte	0x51
+ 1161 0046 9F       		.byte	0x9f
+ 1162 0047 00000000 		.4byte	0
+ 1163 004b 00000000 		.4byte	0
+ 1164              	.LLST2:
+ 1165 004f 22000000 		.4byte	.LVL1
+ 1166 0053 26000000 		.4byte	.LVL2
+ 1167 0057 0200     		.2byte	0x2
+ 1168 0059 30       		.byte	0x30
+ 1169 005a 9F       		.byte	0x9f
+ 1170 005b 34000000 		.4byte	.LVL3
+ 1171 005f 42000000 		.4byte	.LVL7
+ 1172 0063 0100     		.2byte	0x1
+ 1173 0065 54       		.byte	0x54
+ 1174 0066 00000000 		.4byte	0
+ 1175 006a 00000000 		.4byte	0
+ 1176              		.section	.debug_aranges,"",%progbits
+ 1177 0000 1C000000 		.4byte	0x1c
+ 1178 0004 0200     		.2byte	0x2
+ 1179 0006 00000000 		.4byte	.Ldebug_info0
+ 1180 000a 04       		.byte	0x4
+ 1181 000b 00       		.byte	0
+ 1182 000c 0000     		.2byte	0
+ 1183 000e 0000     		.2byte	0
+ 1184 0010 00000000 		.4byte	.LFB139
+ 1185 0014 50000000 		.4byte	.LFE139-.LFB139
+ 1186 0018 00000000 		.4byte	0
+ 1187 001c 00000000 		.4byte	0
+ 1188              		.section	.debug_ranges,"",%progbits
+ 1189              	.Ldebug_ranges0:
+ 1190 0000 00000000 		.4byte	.LFB139
+ 1191 0004 50000000 		.4byte	.LFE139
+ARM GAS  C:\Users\MATEOC~1.QUE\AppData\Local\Temp\cck1wBAG.s 			page 25
+
+
+ 1192 0008 00000000 		.4byte	0
+ 1193 000c 00000000 		.4byte	0
+ 1194              		.section	.debug_line,"",%progbits
+ 1195              	.Ldebug_line0:
+ 1196 0000 63020000 		.section	.debug_str,"MS",%progbits,1
+ 1196      02003902 
+ 1196      00000201 
+ 1196      FB0E0D00 
+ 1196      01010101 
+ 1197              	.LASF58:
+ 1198 0000 5461736B 		.ascii	"TaskID\000"
+ 1198      494400
+ 1199              	.LASF12:
+ 1200 0007 45455F55 		.ascii	"EE_UINT8\000"
+ 1200      494E5438 
+ 1200      00
+ 1201              	.LASF69:
+ 1202 0010 45455F72 		.ascii	"EE_rq_bitmask\000"
+ 1202      715F6269 
+ 1202      746D6173 
+ 1202      6B00
+ 1203              	.LASF17:
+ 1204 001e 45455F55 		.ascii	"EE_UREG\000"
+ 1204      52454700 
+ 1205              	.LASF28:
+ 1206 0026 7469636B 		.ascii	"ticksperbase\000"
+ 1206      73706572 
+ 1206      62617365 
+ 1206      00
+ 1207              	.LASF23:
+ 1208 0033 4576656E 		.ascii	"EventMaskRefType\000"
+ 1208      744D6173 
+ 1208      6B526566 
+ 1208      54797065 
+ 1208      00
+ 1209              	.LASF70:
+ 1210 0044 45455F74 		.ascii	"EE_th_event_active\000"
+ 1210      685F6576 
+ 1210      656E745F 
+ 1210      61637469 
+ 1210      766500
+ 1211              	.LASF86:
+ 1212 0057 70727654 		.ascii	"prvTraceStoreEvent2\000"
+ 1212      72616365 
+ 1212      53746F72 
+ 1212      65457665 
+ 1212      6E743200 
+ 1213              	.LASF67:
+ 1214 006b 45455F73 		.ascii	"EE_stkfirst\000"
+ 1214      746B6669 
+ 1214      72737400 
+ 1215              	.LASF2:
+ 1216 0077 73686F72 		.ascii	"short int\000"
+ 1216      7420696E 
+ 1216      7400
+ 1217              	.LASF46:
+ 1218 0081 53746174 		.ascii	"StatusType\000"
+ARM GAS  C:\Users\MATEOC~1.QUE\AppData\Local\Temp\cck1wBAG.s 			page 26
+
+
+ 1218      75735479 
+ 1218      706500
+ 1219              	.LASF43:
+ 1220 008c 64656C74 		.ascii	"delta\000"
+ 1220      6100
+ 1221              	.LASF38:
+ 1222 0092 73706563 		.ascii	"spec_id\000"
+ 1222      5F696400 
+ 1223              	.LASF18:
+ 1224 009a 45455F46 		.ascii	"EE_FREG\000"
+ 1224      52454700 
+ 1225              	.LASF6:
+ 1226 00a2 5F5F7569 		.ascii	"__uint32_t\000"
+ 1226      6E743332 
+ 1226      5F7400
+ 1227              	.LASF37:
+ 1228 00ad 436F756E 		.ascii	"CounterObjectKindType\000"
+ 1228      7465724F 
+ 1228      626A6563 
+ 1228      744B696E 
+ 1228      64547970 
+ 1229              	.LASF16:
+ 1230 00c3 45455F55 		.ascii	"EE_UINT32\000"
+ 1230      494E5433 
+ 1230      3200
+ 1231              	.LASF62:
+ 1232 00cd 45455F74 		.ascii	"EE_th_ready_prio\000"
+ 1232      685F7265 
+ 1232      6164795F 
+ 1232      7072696F 
+ 1232      00
+ 1233              	.LASF20:
+ 1234 00de 45455F54 		.ascii	"EE_TID\000"
+ 1234      494400
+ 1235              	.LASF29:
+ 1236 00e5 6D696E63 		.ascii	"mincycle\000"
+ 1236      79636C65 
+ 1236      00
+ 1237              	.LASF31:
+ 1238 00ee 76616C75 		.ascii	"value\000"
+ 1238      6500
+ 1239              	.LASF71:
+ 1240 00f4 45455F74 		.ascii	"EE_th_waswaiting\000"
+ 1240      685F7761 
+ 1240      73776169 
+ 1240      74696E67 
+ 1240      00
+ 1241              	.LASF74:
+ 1242 0105 45455F6F 		.ascii	"EE_oo_counter_object_ROM\000"
+ 1242      6F5F636F 
+ 1242      756E7465 
+ 1242      725F6F62 
+ 1242      6A656374 
+ 1243              	.LASF36:
+ 1244 011e 45455F6F 		.ascii	"EE_oo_counter_object_kind_type\000"
+ 1244      6F5F636F 
+ 1244      756E7465 
+ARM GAS  C:\Users\MATEOC~1.QUE\AppData\Local\Temp\cck1wBAG.s 			page 27
+
+
+ 1244      725F6F62 
+ 1244      6A656374 
+ 1245              	.LASF60:
+ 1246 013d 45455F49 		.ascii	"EE_IRQ_nesting_level\000"
+ 1246      52515F6E 
+ 1246      65737469 
+ 1246      6E675F6C 
+ 1246      6576656C 
+ 1247              	.LASF39:
+ 1248 0152 6B696E64 		.ascii	"kind\000"
+ 1248      00
+ 1249              	.LASF85:
+ 1250 0157 45455F6F 		.ascii	"EE_oo_GetEvent\000"
+ 1250      6F5F4765 
+ 1250      74457665 
+ 1250      6E7400
+ 1251              	.LASF49:
+ 1252 0166 666C6F61 		.ascii	"float\000"
+ 1252      7400
+ 1253              	.LASF8:
+ 1254 016c 6C6F6E67 		.ascii	"long long int\000"
+ 1254      206C6F6E 
+ 1254      6720696E 
+ 1254      7400
+ 1255              	.LASF25:
+ 1256 017a 436F756E 		.ascii	"CounterObjectType\000"
+ 1256      7465724F 
+ 1256      626A6563 
+ 1256      74547970 
+ 1256      6500
+ 1257              	.LASF78:
+ 1258 018c 45455F6F 		.ascii	"EE_oo_IRQ_suspend_status\000"
+ 1258      6F5F4952 
+ 1258      515F7375 
+ 1258      7370656E 
+ 1258      645F7374 
+ 1259              	.LASF21:
+ 1260 01a5 45455F54 		.ascii	"EE_TYPE_RQ_MASK\000"
+ 1260      5950455F 
+ 1260      52515F4D 
+ 1260      41534B00 
+ 1261              	.LASF35:
+ 1262 01b5 45455F53 		.ascii	"EE_SCHEDULETABLE\000"
+ 1262      43484544 
+ 1262      554C4554 
+ 1262      41424C45 
+ 1262      00
+ 1263              	.LASF13:
+ 1264 01c6 45455F49 		.ascii	"EE_INT8\000"
+ 1264      4E543800 
+ 1265              	.LASF4:
+ 1266 01ce 6C6F6E67 		.ascii	"long int\000"
+ 1266      20696E74 
+ 1266      00
+ 1267              	.LASF27:
+ 1268 01d7 6D617861 		.ascii	"maxallowedvalue\000"
+ 1268      6C6C6F77 
+ARM GAS  C:\Users\MATEOC~1.QUE\AppData\Local\Temp\cck1wBAG.s 			page 28
+
+
+ 1268      65647661 
+ 1268      6C756500 
+ 1269              	.LASF53:
+ 1270 01e7 45455F4F 		.ascii	"EE_ORTI_set_service\000"
+ 1270      5254495F 
+ 1270      7365745F 
+ 1270      73657276 
+ 1270      69636500 
+ 1271              	.LASF72:
+ 1272 01fb 45455F74 		.ascii	"EE_th_is_extended\000"
+ 1272      685F6973 
+ 1272      5F657874 
+ 1272      656E6465 
+ 1272      6400
+ 1273              	.LASF30:
+ 1274 020d 45455F6F 		.ascii	"EE_oo_counter_ROM_type\000"
+ 1274      6F5F636F 
+ 1274      756E7465 
+ 1274      725F524F 
+ 1274      4D5F7479 
+ 1275              	.LASF84:
+ 1276 0224 433A5C55 		.ascii	"C:\\Users\\Mateo C. Querol\\OneDrive\\University\\D"
+ 1276      73657273 
+ 1276      5C4D6174 
+ 1276      656F2043 
+ 1276      2E205175 
+ 1277 0252 61726D73 		.ascii	"armstadt\\Advanced Microcontroller Systems and Embe"
+ 1277      74616474 
+ 1277      5C416476 
+ 1277      616E6365 
+ 1277      64204D69 
+ 1278 0284 64646564 		.ascii	"dded Operating systems\\Embedded Operating Systems\\"
+ 1278      204F7065 
+ 1278      72617469 
+ 1278      6E672073 
+ 1278      79737465 
+ 1279 02b6 576F726B 		.ascii	"Workbook\\4.1_Blink_an_LED.cydsn\000"
+ 1279      626F6F6B 
+ 1279      5C342E31 
+ 1279      5F426C69 
+ 1279      6E6B5F61 
+ 1280              	.LASF24:
+ 1281 02d6 5469636B 		.ascii	"TickType\000"
+ 1281      54797065 
+ 1281      00
+ 1282              	.LASF68:
+ 1283 02df 45455F73 		.ascii	"EE_sys_ceiling\000"
+ 1283      79735F63 
+ 1283      65696C69 
+ 1283      6E6700
+ 1284              	.LASF1:
+ 1285 02ee 756E7369 		.ascii	"unsigned char\000"
+ 1285      676E6564 
+ 1285      20636861 
+ 1285      7200
+ 1286              	.LASF11:
+ 1287 02fc 6C6F6E67 		.ascii	"long double\000"
+ARM GAS  C:\Users\MATEOC~1.QUE\AppData\Local\Temp\cck1wBAG.s 			page 29
+
+
+ 1287      20646F75 
+ 1287      626C6500 
+ 1288              	.LASF14:
+ 1289 0308 45455F55 		.ascii	"EE_UINT16\000"
+ 1289      494E5431 
+ 1289      3600
+ 1290              	.LASF73:
+ 1291 0312 45455F63 		.ascii	"EE_counter_ROM\000"
+ 1291      6F756E74 
+ 1291      65725F52 
+ 1291      4F4D00
+ 1292              	.LASF22:
+ 1293 0321 5461736B 		.ascii	"TaskType\000"
+ 1293      54797065 
+ 1293      00
+ 1294              	.LASF40:
+ 1295 032a 45455F6F 		.ascii	"EE_oo_counter_object_ROM_type\000"
+ 1295      6F5F636F 
+ 1295      756E7465 
+ 1295      725F6F62 
+ 1295      6A656374 
+ 1296              	.LASF55:
+ 1297 0348 45455F4F 		.ascii	"EE_ORTI_set_service_out\000"
+ 1297      5254495F 
+ 1297      7365745F 
+ 1297      73657276 
+ 1297      6963655F 
+ 1298              	.LASF76:
+ 1299 0360 45455F6F 		.ascii	"EE_oo_counter_object_RAM\000"
+ 1299      6F5F636F 
+ 1299      756E7465 
+ 1299      725F6F62 
+ 1299      6A656374 
+ 1300              	.LASF0:
+ 1301 0379 7369676E 		.ascii	"signed char\000"
+ 1301      65642063 
+ 1301      68617200 
+ 1302              	.LASF47:
+ 1303 0385 696E7433 		.ascii	"int32_t\000"
+ 1303      325F7400 
+ 1304              	.LASF9:
+ 1305 038d 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 1305      206C6F6E 
+ 1305      6720756E 
+ 1305      7369676E 
+ 1305      65642069 
+ 1306              	.LASF48:
+ 1307 03a4 75696E74 		.ascii	"uint32_t\000"
+ 1307      33325F74 
+ 1307      00
+ 1308              	.LASF33:
+ 1309 03ad 45455F6F 		.ascii	"EE_oo_counter_RAM_type\000"
+ 1309      6F5F636F 
+ 1309      756E7465 
+ 1309      725F5241 
+ 1309      4D5F7479 
+ 1310              	.LASF10:
+ARM GAS  C:\Users\MATEOC~1.QUE\AppData\Local\Temp\cck1wBAG.s 			page 30
+
+
+ 1311 03c4 756E7369 		.ascii	"unsigned int\000"
+ 1311      676E6564 
+ 1311      20696E74 
+ 1311      00
+ 1312              	.LASF64:
+ 1313 03d1 45455F74 		.ascii	"EE_th_status\000"
+ 1313      685F7374 
+ 1313      61747573 
+ 1313      00
+ 1314              	.LASF61:
+ 1315 03de 45455F73 		.ascii	"EE_std_endcycle_next_tid\000"
+ 1315      74645F65 
+ 1315      6E646379 
+ 1315      636C655F 
+ 1315      6E657874 
+ 1316              	.LASF15:
+ 1317 03f7 45455F49 		.ascii	"EE_INT32\000"
+ 1317      4E543332 
+ 1317      00
+ 1318              	.LASF3:
+ 1319 0400 73686F72 		.ascii	"short unsigned int\000"
+ 1319      7420756E 
+ 1319      7369676E 
+ 1319      65642069 
+ 1319      6E7400
+ 1320              	.LASF51:
+ 1321 0413 63686172 		.ascii	"char\000"
+ 1321      00
+ 1322              	.LASF54:
+ 1323 0418 45455F4F 		.ascii	"EE_ORTI_set_service_in\000"
+ 1323      5254495F 
+ 1323      7365745F 
+ 1323      73657276 
+ 1323      6963655F 
+ 1324              	.LASF57:
+ 1325 042f 4572726F 		.ascii	"Error\000"
+ 1325      7200
+ 1326              	.LASF75:
+ 1327 0435 45455F63 		.ascii	"EE_counter_RAM\000"
+ 1327      6F756E74 
+ 1327      65725F52 
+ 1327      414D00
+ 1328              	.LASF79:
+ 1329 0444 45455F41 		.ascii	"EE_ApplicationMode\000"
+ 1329      70706C69 
+ 1329      63617469 
+ 1329      6F6E4D6F 
+ 1329      646500
+ 1330              	.LASF7:
+ 1331 0457 6C6F6E67 		.ascii	"long unsigned int\000"
+ 1331      20756E73 
+ 1331      69676E65 
+ 1331      6420696E 
+ 1331      7400
+ 1332              	.LASF50:
+ 1333 0469 646F7562 		.ascii	"double\000"
+ 1333      6C6500
+ARM GAS  C:\Users\MATEOC~1.QUE\AppData\Local\Temp\cck1wBAG.s 			page 31
+
+
+ 1334              	.LASF19:
+ 1335 0470 45455F54 		.ascii	"EE_TYPEBOOL\000"
+ 1335      59504542 
+ 1335      4F4F4C00 
+ 1336              	.LASF56:
+ 1337 047c 45455F6F 		.ascii	"EE_os_notify_error_from_us_impl\000"
+ 1337      735F6E6F 
+ 1337      74696679 
+ 1337      5F657272 
+ 1337      6F725F66 
+ 1338              	.LASF45:
+ 1339 049c 45455F6F 		.ascii	"EE_oo_counter_object_RAM_type\000"
+ 1339      6F5F636F 
+ 1339      756E7465 
+ 1339      725F6F62 
+ 1339      6A656374 
+ 1340              	.LASF5:
+ 1341 04ba 5F5F696E 		.ascii	"__int32_t\000"
+ 1341      7433325F 
+ 1341      7400
+ 1342              	.LASF34:
+ 1343 04c4 45455F41 		.ascii	"EE_ALARM\000"
+ 1343      4C41524D 
+ 1343      00
+ 1344              	.LASF41:
+ 1345 04cd 75736564 		.ascii	"used\000"
+ 1345      00
+ 1346              	.LASF83:
+ 1347 04d2 47656E65 		.ascii	"Generated_Source\\PSoC5\\ErikaOS_1_ee_evget.c\000"
+ 1347      72617465 
+ 1347      645F536F 
+ 1347      75726365 
+ 1347      5C50536F 
+ 1348              	.LASF52:
+ 1349 04fe 73697A65 		.ascii	"sizetype\000"
+ 1349      74797065 
+ 1349      00
+ 1350              	.LASF26:
+ 1351 0507 436F756E 		.ascii	"CounterType\000"
+ 1351      74657254 
+ 1351      79706500 
+ 1352              	.LASF66:
+ 1353 0513 45455F74 		.ascii	"EE_th_rnact\000"
+ 1353      685F726E 
+ 1353      61637400 
+ 1354              	.LASF63:
+ 1355 051f 45455F74 		.ascii	"EE_th_dispatch_prio\000"
+ 1355      685F6469 
+ 1355      73706174 
+ 1355      63685F70 
+ 1355      72696F00 
+ 1356              	.LASF65:
+ 1357 0533 45455F74 		.ascii	"EE_th_next\000"
+ 1357      685F6E65 
+ 1357      787400
+ 1358              	.LASF80:
+ 1359 053e 49544D5F 		.ascii	"ITM_RxBuffer\000"
+ARM GAS  C:\Users\MATEOC~1.QUE\AppData\Local\Temp\cck1wBAG.s 			page 32
+
+
+ 1359      52784275 
+ 1359      66666572 
+ 1359      00
+ 1360              	.LASF82:
+ 1361 054b 474E5520 		.ascii	"GNU C11 5.4.1 20160609 (release) [ARM/embedded-5-br"
+ 1361      43313120 
+ 1361      352E342E 
+ 1361      31203230 
+ 1361      31363036 
+ 1362 057e 616E6368 		.ascii	"anch revision 237715] -mcpu=cortex-m3 -mthumb -g -O"
+ 1362      20726576 
+ 1362      6973696F 
+ 1362      6E203233 
+ 1362      37373135 
+ 1363 05b1 67202D66 		.ascii	"g -ffunction-sections -ffat-lto-objects\000"
+ 1363      66756E63 
+ 1363      74696F6E 
+ 1363      2D736563 
+ 1363      74696F6E 
+ 1364              	.LASF42:
+ 1365 05d9 636E7463 		.ascii	"cntcycle\000"
+ 1365      79636C65 
+ 1365      00
+ 1366              	.LASF77:
+ 1367 05e2 45455F6F 		.ascii	"EE_oo_IRQ_disable_count\000"
+ 1367      6F5F4952 
+ 1367      515F6469 
+ 1367      7361626C 
+ 1367      655F636F 
+ 1368              	.LASF59:
+ 1369 05fa 4576656E 		.ascii	"Event\000"
+ 1369      7400
+ 1370              	.LASF44:
+ 1371 0600 6E657874 		.ascii	"next\000"
+ 1371      00
+ 1372              	.LASF81:
+ 1373 0605 45455F72 		.ascii	"EE_rq_lookup\000"
+ 1373      715F6C6F 
+ 1373      6F6B7570 
+ 1373      00
+ 1374              	.LASF32:
+ 1375 0612 66697273 		.ascii	"first\000"
+ 1375      7400
+ 1376              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 5.4.1 20160609 (release) [ARM/embedded-5-bran

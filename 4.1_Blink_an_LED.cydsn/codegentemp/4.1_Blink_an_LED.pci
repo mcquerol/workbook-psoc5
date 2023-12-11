@@ -1,0 +1,36 @@
+# 4.1_Blink_an_LED
+# 2023-12-11 01:50:46Z
+
+set_io "SEVEN_A(0)" iocell 1 7
+set_io "SEVEN_B(0)" iocell 1 6
+set_io "SEVEN_C(0)" iocell 1 5
+set_io "SEVEN_D(0)" iocell 1 4
+set_io "SEVEN_E(0)" iocell 1 3
+set_io "SEVEN_F(0)" iocell 1 2
+set_io "SEVEN_G(0)" iocell 1 1
+set_io "SEVEN_DP(0)" iocell 1 0
+set_io "SEVEN_SELECT(0)" iocell 3 5
+set_io "BUTTON_1(0)" iocell 0 3
+set_io "BUTTON_2(0)" iocell 0 4
+set_io "BUTTON_3(0)" iocell 0 5
+set_io "BUTTON_4(0)" iocell 3 2
+set_io "LED_red(0)" iocell 0 6
+set_io "LED_yellow(0)" iocell 2 0
+set_io "LED_green(0)" iocell 0 7
+set_io "UART_LOG_TX(0)" iocell 12 7
+set_io "UART_LOG_RX(0)" iocell 12 6
+set_io "RGB_R(0)" iocell 2 5
+set_io "RGB_G(0)" iocell 2 4
+set_io "RGB_B(0)" iocell 2 3
+set_io "JOYSTICK_X(0)" iocell 0 0
+set_io "JOYSTICK_Y(0)" iocell 0 1
+set_io "TFT_SCL(0)" iocell 12 4
+set_io "TFT_DC(0)" iocell 12 3
+set_io "TFT_RES(0)" iocell 3 4
+set_io "TFT_CS(0)" iocell 3 3
+set_io "TFT_LED(0)" iocell 12 2
+set_io "TFT_SDA(0)" iocell 12 5
+set_io "\USBUART:Dm(0)\" iocell 15 7
+set_io "\USBUART:Dp(0)\" iocell 15 6
+set_location "\JOYSTICK_ADC_XY:SAR:ADC_SAR\" sarcell -1 -1 0
+set_location "\USBUART:USB\" usbcell -1 -1 0
