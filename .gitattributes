@@ -1,0 +1,23 @@
+# Include C language files
+*.c linguist-language=C
+*.h linguist-language=C
+
+# Include HTML language files
+*.html linguist-language=HTML
+
+# Exclude all other languages from language stats
+*.cpp linguist-vendored   # C++
+*.o linguist-vendored      # Object files
+*.obj linguist-vendored    # Object files
+*.elf linguist-vendored    # Executables
+*.s linguist-vendored      # Assembly
+*.asm linguist-vendored     # Assembly
+*.exe linguist-vendored    # Executables
+*.dll linguist-vendored    # DLLs
+*.lib linguist-vendored    # Libraries
+*.pwn linguist-vendored    # Pawn files
+
+# Exclude any additional unwanted file types
+*.py linguist-vendored     # Python files, if applicable
+*.m linguist-vendored      # MATLAB files, if applicable
+*.cs linguist-vendored     # C# files, if applicable
