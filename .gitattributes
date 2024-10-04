@@ -6,9 +6,9 @@
 *.html linguist-language=HTML
 
 # Rename Pawn and Assembly as "Other" by assigning them to a neutral language
-*.pwn linguist-language=Text        # Pawn files assigned to Text, which may appear as Other
-*.asm linguist-language=Text        # Assembly files assigned to Text
-*.s linguist-language=Text          # Assembly files assigned to Text
+*.pwn linguist-language=C        # Pawn files assigned to Text, which may appear as Other
+*.asm linguist-language=C        # Assembly files assigned to Text
+*.s linguist-language=C          # Assembly files assigned to Text
 
 # Rename related binary or object files to "Other"
 *.o linguist-language=Text          # Object files
