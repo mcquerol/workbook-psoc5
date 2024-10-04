@@ -5,18 +5,16 @@
 # Include HTML files
 *.html linguist-language=HTML
 
-# Exclude Pawn and Assembly specifically from the language stats
-*.pwn linguist-vendored      # Pawn files
-*.asm linguist-vendored      # Assembly files
-*.s linguist-vendored        # Assembly files
+# Rename Pawn and Assembly as "Other" by assigning them to a neutral language
+*.pwn linguist-language=Text        # Pawn files assigned to Text, which may appear as Other
+*.asm linguist-language=Text        # Assembly files assigned to Text
+*.s linguist-language=Text          # Assembly files assigned to Text
 
-# Exclude related binary or object files that might be contributing to Assembly stats
-*.o linguist-vendored        # Object files
-*.obj linguist-vendored      # Object files
-*.elf linguist-vendored      # ELF binaries
-*.exe linguist-vendored      # Executable files
-*.dll linguist-vendored      # DLL files
-*.lib linguist-vendored      # Library files
-*.hex linguist-vendored      # Hex files
-
-# Add other extensions that you find contributing to Pawn or Assembly if necessary
+# Rename related binary or object files to "Other"
+*.o linguist-language=Text          # Object files
+*.obj linguist-language=Text        # Object files
+*.elf linguist-language=Text        # ELF binaries
+*.exe linguist-language=Text        # Executable files
+*.dll linguist-language=Text        # DLL files
+*.lib linguist-language=Text        # Library files
+*.hex linguist-language=Text        # Hex files
