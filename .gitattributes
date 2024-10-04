@@ -1,29 +1,22 @@
-# Keep C language files
+# Include C language files
 *.c linguist-language=C
 *.h linguist-language=C
 
-# Keep HTML files
+# Include HTML files
 *.html linguist-language=HTML
 
-# Mark other languages as vendored
-*.cpp linguist-vendored    # C++
-*.hpp linguist-vendored    # C++ headers
-*.pwn linguist-vendored    # Pawn files
-*.py linguist-vendored     # Python
-*.m linguist-vendored      # MATLAB
-*.vi linguist-vendored     # LabVIEW
-*.java linguist-vendored   # Java
-*.php linguist-vendored    # PHP
-*.css linguist-vendored    # CSS
-*.js linguist-vendored     # JavaScript
-*.cs linguist-vendored     # C#
-*.s linguist-vendored      # Assembly
-*.asm linguist-vendored    # Assembly
-*.o linguist-vendored      # Object files
-*.obj linguist-vendored    # Object files
-*.dll linguist-vendored    # DLL files
-*.lib linguist-vendored    # Libraries
-*.exe linguist-vendored    # Executables
-*.elf linguist-vendored    # ELF files
+# Exclude Pawn and Assembly specifically from the language stats
+*.pwn linguist-vendored      # Pawn files
+*.asm linguist-vendored      # Assembly files
+*.s linguist-vendored        # Assembly files
 
-# Add any other extensions you see in your repository that aren't C or HTML
+# Exclude related binary or object files that might be contributing to Assembly stats
+*.o linguist-vendored        # Object files
+*.obj linguist-vendored      # Object files
+*.elf linguist-vendored      # ELF binaries
+*.exe linguist-vendored      # Executable files
+*.dll linguist-vendored      # DLL files
+*.lib linguist-vendored      # Library files
+*.hex linguist-vendored      # Hex files
+
+# Add other extensions that you find contributing to Pawn or Assembly if necessary
