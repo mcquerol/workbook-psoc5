@@ -1,96 +1,51 @@
-# Hide assembly files (unless you specifically wrote them)
-*.s linguist-vendored
-*.asm linguist-vendored
+# Ignore compiled/build output
+*.o linguist-generated
+*.a linguist-generated
+*.map linguist-generated
+*.elf linguist-generated
+*.hex linguist-generated
+*.lst linguist-generated
 
-# Hide C++
-*.cpp linguist-vendored
-*.hpp linguist-vendored
-*.cc linguist-vendored
-
-# Hide C#
-*.cs linguist-vendored
-
-# Hide Pawn (if you're not writing it by hand)
-*.pwn linguist-vendored
-*.amx linguist-vendored
-
-# Hide HTML and web stuff
-*.html linguist-vendored
-*.htm linguist-vendored
-*.css linguist-vendored
-*.js linguist-vendored
-
-# Hide others you don't want counted
-*.xml linguist-vendored
-*.json linguist-vendored
+# Ignore logs and reports
+*.log linguist-generated
+*.rpt linguist-generated
+*.rt_log linguist-generated
+*.plc_log linguist-generated
+*.tr linguist-generated
+*.sdf linguist-generated
+*.pdf linguist-documentation
+*.txt linguist-documentation
 *.md linguist-documentation
-*.svg linguist-vendored
 
-# Hide other noisy files
-*.cpp linguist-vendored
-*.hpp linguist-vendored
-*.s linguist-vendored
-*.asm linguist-vendored
-*.cs linguist-vendored
-*.html linguist-vendored
-*.css linguist-vendored
+# Ignore config and project files
+*.cywrk linguist-generated
+*.cyfit linguist-generated
+*.cycdx linguist-generated
+*.cydwr linguist-generated
+*.cysch linguist-generated
+*.cysym linguist-generated
+*.cyprj linguist-generated
+*.vh2 linguist-generated
+*.scat linguist-generated
+*.icf linguist-generated
+*.ld linguist-generated
+*.ctl linguist-generated
+*.resx linguist-generated
+*.robom linguist-generated
+*.pci linguist-generated
 *.xml linguist-generated
-*.json linguist-generated
-*.md linguist-documentation
-*.ml linguist-generated
+*.dsf linguist-generated
+*.route linguist-generated
 
-# Auto-generated code inside each .cydsn project folder
-1.2_lets_press_a_button.cydsn/Generated_Source/** linguist-generated
-1.2_lets_press_a_button.cydsn/codegentemp/**     linguist-generated
-1.2_lets_press_a_button.cydsn/TopDesign/**       linguist-generated
-1.2_lets_press_a_button.cydsn/CortexM3/**        linguist-generated
-1.2_lets_press_a_button.cydsn/ErikaOS_v2_5_3/**  linguist-generated
+# Ignore unused/ambiguous languages
+*.cs linguist-generated
+*.s linguist-generated
+*.v linguist-generated
+*.hts linguist-generated
+*.htm linguist-generated
+*.html linguist-generated
 
-1.3_introducing_interrupts.cydsn/Generated_Source/** linguist-generated
-1.3_introducing_interrupts.cydsn/codegentemp/**     linguist-generated
-1.3_introducing_interrupts.cydsn/TopDesign/**       linguist-generated
-1.3_introducing_interrupts.cydsn/CortexM3/**        linguist-generated
-1.3_introducing_interrupts.cydsn/ErikaOS_v2_5_3/**  linguist-generated
+# Optional: eliminate SWIG
+*.inc linguist-generated
 
-1.4_LightEffects.cydsn/Generated_Source/** linguist-generated
-1.4_LightEffects.cydsn/codegentemp/**     linguist-generated
-1.4_LightEffects.cydsn/TopDesign/**       linguist-generated
-1.4_LightEffects.cydsn/CortexM3/**        linguist-generated
-1.4_LightEffects.cydsn/ErikaOS_v2_5_3/**  linguist-generated
-
-4.1_Blink_an_LED.cydsn/Generated_Source/** linguist-generated
-4.1_Blink_an_LED.cydsn/codegentemp/**     linguist-generated
-4.1_Blink_an_LED.cydsn/TopDesign/**       linguist-generated
-4.1_Blink_an_LED.cydsn/CortexM3/**        linguist-generated
-4.1_Blink_an_LED.cydsn/ErikaOS_v2_5_3/**  linguist-generated
-
-JSONParser.cydsn/Generated_Source/** linguist-generated
-JSONParser.cydsn/codegentemp/**     linguist-generated
-JSONParser.cydsn/TopDesign/**       linguist-generated
-JSONParser.cydsn/CortexM3/**        linguist-generated
-JSONParser.cydsn/ErikaOS_v2_5_3/**  linguist-generated
-
-Ringbuffer_testing.cydsn/Generated_Source/** linguist-generated
-Ringbuffer_testing.cydsn/codegentemp/**     linguist-generated
-Ringbuffer_testing.cydsn/TopDesign/**       linguist-generated
-Ringbuffer_testing.cydsn/CortexM3/**        linguist-generated
-Ringbuffer_testing.cydsn/ErikaOS_v2_5_3/**  linguist-generated
-
-mp3_player_wb.cydsn/Generated_Source/** linguist-generated
-mp3_player_wb.cydsn/codegentemp/**     linguist-generated
-mp3_player_wb.cydsn/TopDesign/**       linguist-generated
-mp3_player_wb.cydsn/CortexM3/**        linguist-generated
-mp3_player_wb.cydsn/ErikaOS_v2_5_3/**  linguist-generated
-
-reaction_game_wb.cydsn/Generated_Source/** linguist-generated
-reaction_game_wb.cydsn/codegentemp/**     linguist-generated
-reaction_game_wb.cydsn/TopDesign/**       linguist-generated
-reaction_game_wb.cydsn/CortexM3/**        linguist-generated
-reaction_game_wb.cydsn/ErikaOS_v2_5_3/**  linguist-generated
-
-ringbuffer_test.cydsn/Generated_Source/** linguist-generated
-ringbuffer_test.cydsn/codegentemp/**     linguist-generated
-ringbuffer_test.cydsn/TopDesign/**       linguist-generated
-ringbuffer_test.cydsn/CortexM3/**        linguist-generated
-ringbuffer_test.cydsn/ErikaOS_v2_5_3/**  linguist-generated
-*.ml linguist-generated
+# Keep only .c and .h
