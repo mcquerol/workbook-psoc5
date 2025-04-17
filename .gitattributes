@@ -26,12 +26,60 @@
 *.md linguist-documentation
 *.svg linguist-vendored
 
-# Auto-generated folders
-Generated_Source/** linguist-generated
-codegentemp/** linguist-generated
-TopDesign/** linguist-generated
-CortexM3/** linguist-generated
-ErikaOS_v2_5_3/** linguist-generated
+# Auto-generated code inside each .cydsn project folder
+1.2_lets_press_a_button.cydsn/Generated_Source/** linguist-generated
+1.2_lets_press_a_button.cydsn/codegentemp/**     linguist-generated
+1.2_lets_press_a_button.cydsn/TopDesign/**       linguist-generated
+1.2_lets_press_a_button.cydsn/CortexM3/**        linguist-generated
+1.2_lets_press_a_button.cydsn/ErikaOS_v2_5_3/**  linguist-generated
+
+1.3_introducing_interrupts.cydsn/Generated_Source/** linguist-generated
+1.3_introducing_interrupts.cydsn/codegentemp/**     linguist-generated
+1.3_introducing_interrupts.cydsn/TopDesign/**       linguist-generated
+1.3_introducing_interrupts.cydsn/CortexM3/**        linguist-generated
+1.3_introducing_interrupts.cydsn/ErikaOS_v2_5_3/**  linguist-generated
+
+1.4_LightEffects.cydsn/Generated_Source/** linguist-generated
+1.4_LightEffects.cydsn/codegentemp/**     linguist-generated
+1.4_LightEffects.cydsn/TopDesign/**       linguist-generated
+1.4_LightEffects.cydsn/CortexM3/**        linguist-generated
+1.4_LightEffects.cydsn/ErikaOS_v2_5_3/**  linguist-generated
+
+4.1_Blink_an_LED.cydsn/Generated_Source/** linguist-generated
+4.1_Blink_an_LED.cydsn/codegentemp/**     linguist-generated
+4.1_Blink_an_LED.cydsn/TopDesign/**       linguist-generated
+4.1_Blink_an_LED.cydsn/CortexM3/**        linguist-generated
+4.1_Blink_an_LED.cydsn/ErikaOS_v2_5_3/**  linguist-generated
+
+JSONParser.cydsn/Generated_Source/** linguist-generated
+JSONParser.cydsn/codegentemp/**     linguist-generated
+JSONParser.cydsn/TopDesign/**       linguist-generated
+JSONParser.cydsn/CortexM3/**        linguist-generated
+JSONParser.cydsn/ErikaOS_v2_5_3/**  linguist-generated
+
+Ringbuffer_testing.cydsn/Generated_Source/** linguist-generated
+Ringbuffer_testing.cydsn/codegentemp/**     linguist-generated
+Ringbuffer_testing.cydsn/TopDesign/**       linguist-generated
+Ringbuffer_testing.cydsn/CortexM3/**        linguist-generated
+Ringbuffer_testing.cydsn/ErikaOS_v2_5_3/**  linguist-generated
+
+mp3_player_wb.cydsn/Generated_Source/** linguist-generated
+mp3_player_wb.cydsn/codegentemp/**     linguist-generated
+mp3_player_wb.cydsn/TopDesign/**       linguist-generated
+mp3_player_wb.cydsn/CortexM3/**        linguist-generated
+mp3_player_wb.cydsn/ErikaOS_v2_5_3/**  linguist-generated
+
+reaction_game_wb.cydsn/Generated_Source/** linguist-generated
+reaction_game_wb.cydsn/codegentemp/**     linguist-generated
+reaction_game_wb.cydsn/TopDesign/**       linguist-generated
+reaction_game_wb.cydsn/CortexM3/**        linguist-generated
+reaction_game_wb.cydsn/ErikaOS_v2_5_3/**  linguist-generated
+
+ringbuffer_test.cydsn/Generated_Source/** linguist-generated
+ringbuffer_test.cydsn/codegentemp/**     linguist-generated
+ringbuffer_test.cydsn/TopDesign/**       linguist-generated
+ringbuffer_test.cydsn/CortexM3/**        linguist-generated
+ringbuffer_test.cydsn/ErikaOS_v2_5_3/**  linguist-generated
 
 # Hide other noisy files
 *.cpp linguist-vendored
