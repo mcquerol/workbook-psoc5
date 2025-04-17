@@ -26,6 +26,19 @@
 *.md linguist-documentation
 *.svg linguist-vendored
 
+# Hide other noisy files
+*.cpp linguist-vendored
+*.hpp linguist-vendored
+*.s linguist-vendored
+*.asm linguist-vendored
+*.cs linguist-vendored
+*.html linguist-vendored
+*.css linguist-vendored
+*.xml linguist-generated
+*.json linguist-generated
+*.md linguist-documentation
+*.ml linguist-generated
+
 # Auto-generated code inside each .cydsn project folder
 1.2_lets_press_a_button.cydsn/Generated_Source/** linguist-generated
 1.2_lets_press_a_button.cydsn/codegentemp/**     linguist-generated
@@ -80,16 +93,4 @@ ringbuffer_test.cydsn/codegentemp/**     linguist-generated
 ringbuffer_test.cydsn/TopDesign/**       linguist-generated
 ringbuffer_test.cydsn/CortexM3/**        linguist-generated
 ringbuffer_test.cydsn/ErikaOS_v2_5_3/**  linguist-generated
-
-# Hide other noisy files
-*.cpp linguist-vendored
-*.hpp linguist-vendored
-*.s linguist-vendored
-*.asm linguist-vendored
-*.cs linguist-vendored
-*.html linguist-vendored
-*.css linguist-vendored
-*.xml linguist-generated
-*.json linguist-generated
-*.md linguist-documentation
 *.ml linguist-generated
