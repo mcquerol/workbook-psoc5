@@ -49,3 +49,37 @@
 *.inc linguist-generated
 
 # Keep only .c and .h
+
+# Exclude auto-generated PSoC Creator output
+**/Generated_Source/** linguist-generated
+**/codegentemp/** linguist-generated
+**/CortexM3/** linguist-generated
+**/TopDesign/** linguist-generated
+**/Export/** linguist-generated
+**/ErikaOS_v2_5_3/** linguist-generated
+
+# Exclude build/log files
+*.o linguist-generated
+*.a linguist-generated
+*.elf linguist-generated
+*.hex linguist-generated
+*.map linguist-generated
+*.lst linguist-generated
+*.log linguist-generated
+*.rpt linguist-generated
+
+# Exclude docs and configs
+*.txt linguist-documentation
+*.pdf linguist-documentation
+*.xml linguist-generated
+*.cywrk linguist-generated
+*.cyfit linguist-generated
+*.cycdx linguist-generated
+*.cydwr linguist-generated
+*.cysch linguist-generated
+*.cyprj linguist-generated
+
+# Optional: eliminate HTML/CS from language stats
+*.html linguist-generated
+*.cs linguist-generated
+
